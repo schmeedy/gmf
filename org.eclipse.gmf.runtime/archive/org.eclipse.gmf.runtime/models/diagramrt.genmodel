@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.eclipse.gmf.runtime/src"
+    editDirectory="/org.eclipse.gmf.runtime.edit/src" editorDirectory="/org.eclipse.gmf.runtime.editor/src"
+    modelPluginID="org.eclipse.gmf.runtime" runtimeJar="true" modelName="Diagram Run-Time"
+    editPluginClass="diagramrt.provider.DiagramrtEditPlugin" editorPluginClass="diagramrt.presentation.DiagramrtEditorPlugin"
+    testsDirectory="/org.eclipse.gmf.runtime.tests/src" testSuiteClass="diagramrt.tests.DiagramrtAllTests"
+    importerID="org.eclipse.emf.importer.ecore">
+  <foreignModel>diagramrt.ecore</foreignModel>
+  <modelPluginVariables>org.eclipse.draw2d</modelPluginVariables>
+  <genPackages prefix="DiagramRT" basePackage="org.eclipse.gmf" disposableProviderFactory="true"
+      ecorePackage="diagramrt.ecore#/">
+    <genDataTypes ecoreDataType="diagramrt.ecore#//Dimension"/>
+    <genDataTypes ecoreDataType="diagramrt.ecore#//Point"/>
+    <genClasses ecoreClass="diagramrt.ecore#//DiagramNode">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference diagramrt.ecore#//DiagramNode/diagram"/>
+      <genFeatures notify="false" createChild="false" ecoreFeature="ecore:EReference diagramrt.ecore#//DiagramNode/incomingLinks"/>
+      <genFeatures notify="false" createChild="false" ecoreFeature="ecore:EReference diagramrt.ecore#//DiagramNode/outgoingLinks"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference diagramrt.ecore#//DiagramNode/childNodes"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute diagramrt.ecore#//DiagramNode/location"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute diagramrt.ecore#//DiagramNode/size"/>
+    </genClasses>
+    <genClasses ecoreClass="diagramrt.ecore#//DiagramLink">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference diagramrt.ecore#//DiagramLink/diagram"/>
+      <genFeatures notify="false" createChild="false" ecoreFeature="ecore:EReference diagramrt.ecore#//DiagramLink/source"/>
+      <genFeatures notify="false" createChild="false" ecoreFeature="ecore:EReference diagramrt.ecore#//DiagramLink/target"/>
+    </genClasses>
+    <genClasses ecoreClass="diagramrt.ecore#//DiagramCanvas">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference diagramrt.ecore#//DiagramCanvas/links"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference diagramrt.ecore#//DiagramCanvas/nodes"/>
+      <genFeatures notify="false" createChild="false" ecoreFeature="ecore:EReference diagramrt.ecore#//DiagramCanvas/domainContainerObject"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute diagramrt.ecore#//DiagramCanvas/domainResource"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute diagramrt.ecore#//DiagramCanvas/lastAssignedUin"/>
+      <genOperations ecoreOperation="diagramrt.ecore#//DiagramCanvas/nextAvailableUin"/>
+    </genClasses>
+    <genClasses ecoreClass="diagramrt.ecore#//DiagramBaseElement">
+      <genFeatures notify="false" createChild="false" ecoreFeature="ecore:EReference diagramrt.ecore#//DiagramBaseElement/domainModelElement"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute diagramrt.ecore#//DiagramBaseElement/foregroundColor"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute diagramrt.ecore#//DiagramBaseElement/uin"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute diagramrt.ecore#//DiagramBaseElement/visualID"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference diagramrt.ecore#//DiagramBaseElement/runTimeProperties"/>
+      <genOperations ecoreOperation="diagramrt.ecore#//DiagramBaseElement/getDiagram"/>
+      <genOperations ecoreOperation="diagramrt.ecore#//DiagramBaseElement/getProperty">
+        <genParameters ecoreParameter="diagramrt.ecore#//DiagramBaseElement/getProperty/propertyName"/>
+      </genOperations>
+      <genOperations ecoreOperation="diagramrt.ecore#//DiagramBaseElement/setProperty">
+        <genParameters ecoreParameter="diagramrt.ecore#//DiagramBaseElement/setProperty/propertyName"/>
+        <genParameters ecoreParameter="diagramrt.ecore#//DiagramBaseElement/setProperty/value"/>
+      </genOperations>
+    </genClasses>
+    <genClasses image="false" ecoreClass="diagramrt.ecore#//DiagramBaseNode">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute diagramrt.ecore#//DiagramBaseNode/backgroundColor"/>
+    </genClasses>
+    <genClasses ecoreClass="diagramrt.ecore#//ChildNode">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference diagramrt.ecore#//ChildNode/parentNode"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute diagramrt.ecore#//ChildNode/groupID"/>
+    </genClasses>
+    <genClasses ecoreClass="diagramrt.ecore#//RigidChildNode">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute diagramrt.ecore#//RigidChildNode/location"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute diagramrt.ecore#//RigidChildNode/size"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

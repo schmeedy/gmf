@@ -1,0 +1,22 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: GMF bridge to GEF Plug-in
+Bundle-SymbolicName: org.eclipse.gmf.runtime.gef; singleton:=true
+Bundle-Version: 1.0.0
+Bundle-Activator: org.eclipse.gmf.runtime.gef.Plugin
+Bundle-Vendor: Eclipse.org
+Require-Bundle: org.eclipse.core.runtime,
+ org.eclipse.core.resources,
+ org.eclipse.ui,
+ org.eclipse.jface,
+ org.eclipse.emf.edit;visibility:=reexport,
+ org.eclipse.gef;visibility:=reexport,
+ org.eclipse.gmf.edit,
+ org.eclipse.gmf.runtime
+Eclipse-AutoStart: true
+Export-Package: org.eclipse.gmf.runtime.actions,
+ org.eclipse.gmf.runtime.gef,
+ org.eclipse.gmf.runtime.gef.commands,
+ org.eclipse.gmf.runtime.update,
+ org.eclipse.gmf.draw2d,
+ org.eclipse.gmf.util

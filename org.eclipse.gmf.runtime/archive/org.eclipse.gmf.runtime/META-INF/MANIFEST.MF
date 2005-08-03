@@ -1,0 +1,13 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Diagram Run-Time Model
+Bundle-SymbolicName: org.eclipse.gmf.runtime; singleton:=true
+Bundle-Version: 1.0.0
+Bundle-Vendor: Eclipse.org
+Export-Package: org.eclipse.gmf.diagramrt,
+ org.eclipse.gmf.diagramrt.impl,
+ org.eclipse.gmf.diagramrt.util
+Require-Bundle: org.eclipse.core.runtime,
+ org.eclipse.emf.ecore;visibility:=reexport,
+ org.eclipse.draw2d;visibility:=reexport
+Eclipse-AutoStart: true
