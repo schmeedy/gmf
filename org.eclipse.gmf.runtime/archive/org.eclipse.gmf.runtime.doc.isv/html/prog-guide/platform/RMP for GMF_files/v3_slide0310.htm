@@ -1,0 +1,216 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=PowerPoint.Slide>
+<meta name=Generator content="Microsoft PowerPoint 10">
+<link id=Main-File rel=Main-File href="../RMP%20for%20GMF.htm">
+<link rel=Preview href=preview.wmf>
+<!--[if !mso]>
+<style>
+v\:* {behavior:url(#default#VML);}
+o\:* {behavior:url(#default#VML);}
+p\:* {behavior:url(#default#VML);}
+.shape {behavior:url(#default#VML);}
+v\:textbox {display:none;}
+</style>
+<![endif]-->
+<title>Introduction to the Rational Modeling Platform</title>
+<meta name=Description
+content="5/31/2005: EMF &amp; OCL Domains: OCL Services (Cont.)">
+<link rel=next href="v3_slide0311.htm">
+</head>
+
+<body background="v3_master08_background.gif" bgcolor=white alink="#0099CC"
+link=silver vlink="#FF9900" text=white topmargin=0 leftmargin=0>
+
+<table border=0 valign=top width=650 height=487 cellpadding=0 cellspacing=0>
+ <tr>
+  <td width=17 height=0 nowrap><img src="v3_space.gif" border=0></td>
+  <td width=34 height=0 nowrap><img src="v3_space.gif" border=0></td>
+  <td width=15 height=0 nowrap><img src="v3_space.gif" border=0></td>
+  <td width=322 height=0 nowrap><img src="v3_space.gif" border=0></td>
+  <td width=38 height=0 nowrap><img src="v3_space.gif" border=0></td>
+  <td width=126 height=0 nowrap><img src="v3_space.gif" border=0></td>
+  <td width=6 height=0 nowrap><img src="v3_space.gif" border=0></td>
+  <td width=56 height=0 nowrap><img src="v3_space.gif" border=0></td>
+ </tr>
+ <tr>
+  <td width=650 height=47 colspan=9></td>
+ </tr>
+ <tr>
+  <td width=17 height=29></td>
+  <td width=535 height=29 colspan=5>
+  <table border=0 valign=top cellpadding=0 cellspacing=0>
+   <tr>
+    <td width=535 height=29><font face=Arial color="#4B6BAF" size=5><b>EMF
+    &amp; OCL Domains: </b>OCL Services (Cont.)</font><br>
+    </td>
+   </tr>
+  </table>
+  </td>
+  <td width=98 height=29 colspan=3></td>
+ </tr>
+ <tr>
+  <td width=650 height=17 colspan=9></td>
+ </tr>
+ <tr>
+  <td width=426 height=7 colspan=5></td>
+  <td width=188 height=222 colspan=3 rowspan=3><img
+  src="v3_slide0310_image064.jpg" border=0 width=188 height=222></td>
+  <td width=36 height=7></td>
+ </tr>
+ <tr>
+  <td width=51 height=212 colspan=2></td>
+  <td width=337 height=212 colspan=2>
+  <table border=0 valign=top cellpadding=0 cellspacing=0>
+   <tr>
+    <td width=24 height=0 nowrap><img src="v3_space.gif" border=0></td>
+    <td width=1 height=0 nowrap><img src="v3_space.gif" border=0></td>
+    <td width=1 height=0 nowrap><img src="v3_space.gif" border=0></td>
+    <td width=23 height=0 nowrap><img src="v3_space.gif" border=0></td>
+    <td width=1 height=0 nowrap><img src="v3_space.gif" border=0></td>
+    <td width=37 height=0 nowrap><img src="v3_space.gif" border=0></td>
+    <td width=58 height=0 nowrap><img src="v3_space.gif" border=0></td>
+    <td width=31 height=0 nowrap><img src="v3_space.gif" border=0></td>
+    <td width=17 height=0 nowrap><img src="v3_space.gif" border=0></td>
+    <td width=81 height=0 nowrap><img src="v3_space.gif" border=0></td>
+    <td width=17 height=0 nowrap><img src="v3_space.gif" border=0></td>
+    <td width=29 height=0 nowrap><img src="v3_space.gif" border=0></td>
+    <td width=3 height=0 nowrap><img src="v3_space.gif" border=0></td>
+    <td width=5 height=0 nowrap><img src="v3_space.gif" border=0></td>
+    <td width=8 height=0 nowrap><img src="v3_space.gif" border=0></td>
+   </tr>
+   <tr>
+    <td width=24 height=15><font face=Wingdings color="#0099CC" size=1>§</font></td>
+    <td width=121 height=15 colspan=6><font face=Arial color=black size=1>Constraint
+    validation</font><br>
+    </td>
+    <td width=192 height=15 colspan=9></td>
+   </tr>
+   <tr>
+    <td width=337 height=4 colspan=16></td>
+   </tr>
+   <tr>
+    <td width=25 height=15 colspan=2></td>
+    <td width=24 height=15 colspan=2><font face=Webdings color="#0099CC"
+    size=1>4</font></td>
+    <td width=271 height=15 colspan=8><font face=Arial color=black size=1>Provides
+    implementation of an XML constraint</font><br>
+    </td>
+    <td width=17 height=15 colspan=4></td>
+   </tr>
+   <tr>
+    <td width=49 height=15 colspan=4></td>
+    <td width=38 height=15 colspan=2><font face=Arial color=black size=1>parser</font><br>
+    </td>
+    <td width=250 height=15 colspan=10></td>
+   </tr>
+   <tr>
+    <td width=49 height=15 colspan=4></td>
+    <td width=287 height=15 colspan=11><font face=Arial color=black size=1>(</font><font
+    face=Courier color=black size=1>org.eclipse.emf.validation.xml.IXmlCon</font><br>
+    </td>
+    <td width=1 height=15></td>
+   </tr>
+   <tr>
+    <td width=49 height=15 colspan=4></td>
+    <td width=271 height=15 colspan=8><font face=Courier color=black size=1>straintParser</font><font
+    face=Arial color=black size=1>) API that supports definition of</font><br>
+    </td>
+    <td width=17 height=15 colspan=4></td>
+   </tr>
+   <tr>
+    <td width=49 height=15 colspan=4></td>
+    <td width=144 height=15 colspan=5><font face=Arial color=black size=1>XML
+    constraints in OCL.</font><br>
+    </td>
+    <td width=144 height=15 colspan=7></td>
+   </tr>
+   <tr>
+    <td width=337 height=7 colspan=16></td>
+   </tr>
+   <tr>
+    <td width=25 height=15 colspan=2></td>
+    <td width=24 height=15 colspan=2><font face=Webdings color="#0099CC"
+    size=1>4</font></td>
+    <td width=288 height=15 colspan=12><font face=Arial color=black size=1>The
+    class </font><font face=Courier color=black size=1>OclConstraintParser</font><font
+    face=Arial color=black size=1> is the constraint</font><br>
+    </td>
+   </tr>
+   <tr>
+    <td width=49 height=15 colspan=4></td>
+    <td width=279 height=15 colspan=10><font face=Arial color=black size=1>parser
+    implementation that creates instances of</font><br>
+    </td>
+    <td width=9 height=15 colspan=2></td>
+   </tr>
+   <tr>
+    <td width=49 height=15 colspan=4></td>
+    <td width=242 height=15 colspan=7><font face=Arial color=black size=1>the </font><font
+    face=Courier color=black size=1>OclModelConstraint</font><font face=Arial
+    color=black size=1> class, the OCL-</font><br>
+    </td>
+    <td width=46 height=15 colspan=5></td>
+   </tr>
+   <tr>
+    <td width=49 height=15 colspan=4></td>
+    <td width=274 height=15 colspan=9><font face=Arial color=black size=1>language
+    constraint implementation, from XML</font><br>
+    </td>
+    <td width=14 height=15 colspan=3></td>
+   </tr>
+   <tr>
+    <td width=49 height=15 colspan=4></td>
+    <td width=127 height=15 colspan=4><font face=Arial color=black size=1>constraint
+    descriptors</font><br>
+    </td>
+    <td width=161 height=15 colspan=8></td>
+   </tr>
+   <tr>
+    <td width=337 height=6 colspan=16></td>
+   </tr>
+   <tr>
+    <td width=25 height=15 colspan=2></td>
+    <td width=24 height=15 colspan=2><font face=Webdings color="#0099CC"
+    size=1>4</font></td>
+    <td width=271 height=15 colspan=8><font face=Arial color=black size=1>It
+    uses the </font><font face=Courier color=black size=1>Query</font><font
+    face=Arial color=black size=1> class to test model elements</font><br>
+    </td>
+    <td width=17 height=15 colspan=4></td>
+   </tr>
+   <tr>
+    <td width=49 height=15 colspan=4></td>
+    <td width=225 height=15 colspan=6><font face=Arial color=black size=1>against
+    an OCL constraint expression.</font><br>
+    </td>
+    <td width=63 height=15 colspan=6></td>
+   </tr>
+  </table>
+  </td>
+  <td width=38 height=212></td>
+  <td width=36 height=212></td>
+ </tr>
+ <tr>
+  <td width=426 height=3 colspan=5></td>
+  <td width=36 height=3></td>
+ </tr>
+ <tr>
+  <td width=650 height=19 colspan=9></td>
+ </tr>
+ <tr>
+  <td width=66 height=92 colspan=3></td>
+  <td width=492 height=92 colspan=4><img src="v3_slide0310_image065.jpg"
+  border=0 width=492 height=92></td>
+  <td width=92 height=92 colspan=2></td>
+ </tr>
+ <tr>
+  <td width=650 height=61 colspan=9></td>
+ </tr>
+</table>
+
+</body>
+
+</html>

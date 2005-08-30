@@ -1,0 +1,849 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns:st1="urn:schemas-microsoft-com:office:smarttags"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 10">
+<meta name=Originator content="Microsoft Word 10">
+<link rel=File-List href="HowToUseGlobalActions_files/filelist.xml">
+<link rel=Edit-Time-Data href="HowToUseGlobalActions_files/editdata.mso">
+<!--[if !mso]>
+<style>
+v\:* {behavior:url(#default#VML);}
+o\:* {behavior:url(#default#VML);}
+w\:* {behavior:url(#default#VML);}
+.shape {behavior:url(#default#VML);}
+</style>
+<![endif]-->
+<title>Developer’s Guide to Command Framework</title>
+<o:SmartTagType namespaceuri="urn:schemas-microsoft-com:office:smarttags"
+ name="place"/>
+<o:SmartTagType namespaceuri="urn:schemas-microsoft-com:office:smarttags"
+ name="City"/>
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>RX</o:Author>
+  <o:LastAuthor>etworkow</o:LastAuthor>
+  <o:Revision>2</o:Revision>
+  <o:TotalTime>149</o:TotalTime>
+  <o:Created>2005-05-11T15:05:00Z</o:Created>
+  <o:LastSaved>2005-05-11T15:05:00Z</o:LastSaved>
+  <o:Pages>1</o:Pages>
+  <o:Words>352</o:Words>
+  <o:Characters>2013</o:Characters>
+  <o:Lines>16</o:Lines>
+  <o:Paragraphs>4</o:Paragraphs>
+  <o:CharactersWithSpaces>2361</o:CharactersWithSpaces>
+  <o:Version>10.4219</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:SpellingState>Clean</w:SpellingState>
+  <w:GrammarState>Clean</w:GrammarState>
+  <w:Compatibility>
+   <w:BreakWrappedTables/>
+   <w:SnapToGridInCell/>
+   <w:WrapTextWithPunct/>
+   <w:UseAsianBreakRules/>
+  </w:Compatibility>
+  <w:BrowserLevel>MicrosoftInternetExplorer4</w:BrowserLevel>
+ </w:WordDocument>
+</xml><![endif]--><!--[if !mso]><object
+ classid="clsid:38481807-CA0E-42D2-BF39-B33AF135CC4D" id=ieooui></object>
+<style>
+st1\:*{behavior:url(#ieooui) }
+</style>
+<![endif]-->
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:Courier;
+	panose-1:2 7 4 9 2 2 5 2 4 4;
+	mso-font-alt:"Courier New";
+	mso-font-charset:0;
+	mso-generic-font-family:modern;
+	mso-font-format:other;
+	mso-font-pitch:fixed;
+	mso-font-signature:3 0 0 0 1 0;}
+@font-face
+	{font-family:Wingdings;
+	panose-1:5 0 0 0 0 0 0 0 0 0;
+	mso-font-charset:2;
+	mso-generic-font-family:auto;
+	mso-font-pitch:variable;
+	mso-font-signature:0 268435456 0 0 -2147483648 0;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-parent:"";
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+p.MsoBodyText, li.MsoBodyText, div.MsoBodyText
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:6.0pt;
+	margin-left:.5in;
+	line-height:12.0pt;
+	mso-pagination:lines-together;
+	font-size:11.0pt;
+	mso-bidi-font-size:10.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+a:link, span.MsoHyperlink
+	{color:blue;
+	text-decoration:underline;
+	text-underline:single;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:purple;
+	text-decoration:underline;
+	text-underline:single;}
+span.SpellE
+	{mso-style-name:"";
+	mso-spl-e:yes;}
+span.GramE
+	{mso-style-name:"";
+	mso-gram-e:yes;}
+@page Section1
+	{size:8.5in 11.0in;
+	margin:1.0in .5in 1.0in .5in;
+	mso-header-margin:.5in;
+	mso-footer-margin:.5in;
+	mso-paper-source:0;}
+div.Section1
+	{page:Section1;}
+ /* List Definitions */
+ @list l0
+	{mso-list-id:264463521;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-1607945930 67698703 67698713 67698715 67698703 67698713 67698715 67698703 67698713 67698715;}
+@list l0:level1
+	{mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	margin-left:1.0in;
+	text-indent:-.25in;}
+@list l1
+	{mso-list-id:549533507;
+	mso-list-template-ids:-1574401782;}
+@list l1:level1
+	{mso-level-start-at:6;
+	mso-level-text:%1;
+	mso-level-tab-stop:.25in;
+	mso-level-number-position:left;
+	margin-left:.25in;
+	text-indent:-.25in;}
+@list l1:level2
+	{mso-level-text:"%1\.%2";
+	mso-level-tab-stop:.25in;
+	mso-level-number-position:left;
+	margin-left:.25in;
+	text-indent:-.25in;}
+@list l1:level3
+	{mso-level-number-format:roman-lower;
+	mso-level-text:"%1\.%2\.%3";
+	mso-level-tab-stop:.75in;
+	mso-level-number-position:left;
+	margin-left:.75in;
+	text-indent:-.75in;}
+@list l1:level4
+	{mso-level-text:"%1\.%2\.%3\.%4";
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	margin-left:.5in;
+	text-indent:-.5in;}
+@list l1:level5
+	{mso-level-text:"%1\.%2\.%3\.%4\.%5";
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	margin-left:.5in;
+	text-indent:-.5in;}
+@list l1:level6
+	{mso-level-text:"%1\.%2\.%3\.%4\.%5\.%6";
+	mso-level-tab-stop:.75in;
+	mso-level-number-position:left;
+	margin-left:.75in;
+	text-indent:-.75in;}
+@list l1:level7
+	{mso-level-text:"%1\.%2\.%3\.%4\.%5\.%6\.%7";
+	mso-level-tab-stop:.75in;
+	mso-level-number-position:left;
+	margin-left:.75in;
+	text-indent:-.75in;}
+@list l1:level8
+	{mso-level-text:"%1\.%2\.%3\.%4\.%5\.%6\.%7\.%8";
+	mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	margin-left:1.0in;
+	text-indent:-1.0in;}
+@list l1:level9
+	{mso-level-text:"%1\.%2\.%3\.%4\.%5\.%6\.%7\.%8\.%9";
+	mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	margin-left:1.0in;
+	text-indent:-1.0in;}
+@list l2
+	{mso-list-id:625896194;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-1039738000 1181095032 67698713 67698715 67698703 67698713 67698715 67698703 67698713 67698715;}
+@list l2:level1
+	{mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l2:level2
+	{mso-level-number-format:alpha-lower;
+	mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l2:level3
+	{mso-level-number-format:roman-lower;
+	mso-level-tab-stop:1.5in;
+	mso-level-number-position:right;
+	text-indent:-9.0pt;}
+@list l3
+	{mso-list-id:1062942040;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-1614113818 67698703 67698713 67698715 67698703 67698713 67698715 67698703 67698713 67698715;}
+@list l3:level1
+	{mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l3:level2
+	{mso-level-number-format:alpha-lower;
+	mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l4
+	{mso-list-id:1099064020;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-2088352572 67698703 67698713 67698715 67698703 67698713 67698715 67698703 67698713 67698715;}
+@list l4:level1
+	{mso-level-tab-stop:.75in;
+	mso-level-number-position:left;
+	margin-left:.75in;
+	text-indent:-.25in;}
+@list l4:level2
+	{mso-level-number-format:alpha-lower;
+	mso-level-tab-stop:1.25in;
+	mso-level-number-position:left;
+	margin-left:1.25in;
+	text-indent:-.25in;}
+@list l5
+	{mso-list-id:1177040724;
+	mso-list-type:hybrid;
+	mso-list-template-ids:974574970 67698703 67698713 67698715 67698703 67698713 67698715 67698703 67698713 67698715;}
+@list l5:level1
+	{mso-level-tab-stop:.75in;
+	mso-level-number-position:left;
+	margin-left:.75in;
+	text-indent:-.25in;}
+@list l5:level2
+	{mso-level-number-format:alpha-lower;
+	mso-level-tab-stop:1.25in;
+	mso-level-number-position:left;
+	margin-left:1.25in;
+	text-indent:-.25in;}
+@list l6
+	{mso-list-id:1289237850;
+	mso-list-type:hybrid;
+	mso-list-template-ids:550820946 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l6:level1
+	{mso-level-start-at:3;
+	mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;
+	mso-fareast-font-family:"Times New Roman";
+	mso-bidi-font-family:"Times New Roman";}
+@list l7
+	{mso-list-id:1323046004;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-1159296794 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l7:level1
+	{mso-level-start-at:0;
+	mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;
+	mso-fareast-font-family:"Times New Roman";
+	mso-bidi-font-family:"Times New Roman";}
+@list l7:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:"Courier New";}
+@list l8
+	{mso-list-id:1466239616;
+	mso-list-template-ids:-116893088;}
+@list l8:level1
+	{mso-level-start-at:6;
+	mso-level-text:%1;
+	mso-level-tab-stop:.25in;
+	mso-level-number-position:left;
+	margin-left:.25in;
+	text-indent:-.25in;}
+@list l8:level2
+	{mso-level-text:"%1\.%2";
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	margin-left:.5in;
+	text-indent:-.25in;}
+@list l8:level3
+	{mso-level-number-format:roman-lower;
+	mso-level-text:"%1\.%2\.%3";
+	mso-level-tab-stop:1.25in;
+	mso-level-number-position:left;
+	margin-left:1.25in;
+	text-indent:-.75in;}
+@list l8:level4
+	{mso-level-text:"%1\.%2\.%3\.%4";
+	mso-level-tab-stop:1.25in;
+	mso-level-number-position:left;
+	margin-left:1.25in;
+	text-indent:-.5in;}
+@list l8:level5
+	{mso-level-text:"%1\.%2\.%3\.%4\.%5";
+	mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	margin-left:1.5in;
+	text-indent:-.5in;}
+@list l8:level6
+	{mso-level-text:"%1\.%2\.%3\.%4\.%5\.%6";
+	mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	margin-left:2.0in;
+	text-indent:-.75in;}
+@list l8:level7
+	{mso-level-text:"%1\.%2\.%3\.%4\.%5\.%6\.%7";
+	mso-level-tab-stop:2.25in;
+	mso-level-number-position:left;
+	margin-left:2.25in;
+	text-indent:-.75in;}
+@list l8:level8
+	{mso-level-text:"%1\.%2\.%3\.%4\.%5\.%6\.%7\.%8";
+	mso-level-tab-stop:2.75in;
+	mso-level-number-position:left;
+	margin-left:2.75in;
+	text-indent:-1.0in;}
+@list l8:level9
+	{mso-level-text:"%1\.%2\.%3\.%4\.%5\.%6\.%7\.%8\.%9";
+	mso-level-tab-stop:3.0in;
+	mso-level-number-position:left;
+	margin-left:3.0in;
+	text-indent:-1.0in;}
+@list l9
+	{mso-list-id:1602879840;
+	mso-list-template-ids:-810679102;}
+@list l9:level1
+	{mso-level-start-at:9;
+	mso-level-text:%1;
+	mso-level-tab-stop:.25in;
+	mso-level-number-position:left;
+	margin-left:.25in;
+	text-indent:-.25in;}
+@list l9:level2
+	{mso-level-text:"%1\.%2";
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	margin-left:.5in;
+	text-indent:-.25in;}
+@list l9:level3
+	{mso-level-text:"%1\.%2\.%3";
+	mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	margin-left:1.0in;
+	text-indent:-.5in;}
+@list l9:level4
+	{mso-level-text:"%1\.%2\.%3\.%4";
+	mso-level-tab-stop:1.25in;
+	mso-level-number-position:left;
+	margin-left:1.25in;
+	text-indent:-.5in;}
+@list l9:level5
+	{mso-level-text:"%1\.%2\.%3\.%4\.%5";
+	mso-level-tab-stop:1.75in;
+	mso-level-number-position:left;
+	margin-left:1.75in;
+	text-indent:-.75in;}
+@list l9:level6
+	{mso-level-text:"%1\.%2\.%3\.%4\.%5\.%6";
+	mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	margin-left:2.0in;
+	text-indent:-.75in;}
+@list l9:level7
+	{mso-level-text:"%1\.%2\.%3\.%4\.%5\.%6\.%7";
+	mso-level-tab-stop:2.5in;
+	mso-level-number-position:left;
+	margin-left:2.5in;
+	text-indent:-1.0in;}
+@list l9:level8
+	{mso-level-text:"%1\.%2\.%3\.%4\.%5\.%6\.%7\.%8";
+	mso-level-tab-stop:2.75in;
+	mso-level-number-position:left;
+	margin-left:2.75in;
+	text-indent:-1.0in;}
+@list l9:level9
+	{mso-level-text:"%1\.%2\.%3\.%4\.%5\.%6\.%7\.%8\.%9";
+	mso-level-tab-stop:3.25in;
+	mso-level-number-position:left;
+	margin-left:3.25in;
+	text-indent:-1.25in;}
+@list l10
+	{mso-list-id:1723018380;
+	mso-list-type:hybrid;
+	mso-list-template-ids:258884352 67698703 67698713 67698715 67698703 67698713 67698715 67698703 67698713 67698715;}
+@list l10:level1
+	{mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l11
+	{mso-list-id:1787312183;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-1161680078 67698703 67698713 67698715 67698703 67698713 67698715 67698703 67698713 67698715;}
+@list l11:level1
+	{mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	margin-left:1.0in;
+	text-indent:-.25in;}
+@list l11:level2
+	{mso-level-number-format:alpha-lower;
+	mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	margin-left:1.5in;
+	text-indent:-.25in;}
+@list l11:level3
+	{mso-level-number-format:roman-lower;
+	mso-level-tab-stop:2.0in;
+	mso-level-number-position:right;
+	margin-left:2.0in;
+	text-indent:-9.0pt;}
+@list l11:level4
+	{mso-level-tab-stop:2.5in;
+	mso-level-number-position:left;
+	margin-left:2.5in;
+	text-indent:-.25in;}
+@list l12
+	{mso-list-id:1970627370;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-1434965460 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l12:level1
+	{mso-level-start-at:2;
+	mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;
+	mso-fareast-font-family:"Times New Roman";
+	mso-bidi-font-family:"Times New Roman";}
+@list l12:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:"Courier New";}
+@list l13
+	{mso-list-id:2073507227;
+	mso-list-type:hybrid;
+	mso-list-template-ids:130218376 67698703 67698713 67698715 67698703 67698713 67698715 67698703 67698713 67698715;}
+@list l13:level1
+	{mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+ol
+	{margin-bottom:0in;}
+ul
+	{margin-bottom:0in;}
+-->
+</style>
+<!--[if gte mso 10]>
+<style>
+ /* Style Definitions */
+ table.MsoNormalTable
+	{mso-style-name:"Table Normal";
+	mso-tstyle-rowband-size:0;
+	mso-tstyle-colband-size:0;
+	mso-style-noshow:yes;
+	mso-style-parent:"";
+	mso-padding-alt:0in 5.4pt 0in 5.4pt;
+	mso-para-margin:0in;
+	mso-para-margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:"Times New Roman";}
+</style>
+<![endif]-->
+</head>
+
+<body lang=EN-US link=blue vlink=purple style='tab-interval:.5in'>
+
+<div class=Section1>
+
+<p class=MsoNormal style='margin-left:.25in'><b style='mso-bidi-font-weight:
+normal'><!--[if gte vml 1]><v:shapetype id="_x0000_t75" coordsize="21600,21600"
+ o:spt="75" o:preferrelative="t" path="m@4@5l@4@11@9@11@9@5xe" filled="f"
+ stroked="f">
+ <v:stroke joinstyle="miter"/>
+ <v:formulas>
+  <v:f eqn="if lineDrawn pixelLineWidth 0"/>
+  <v:f eqn="sum @0 1 0"/>
+  <v:f eqn="sum 0 0 @1"/>
+  <v:f eqn="prod @2 1 2"/>
+  <v:f eqn="prod @3 21600 pixelWidth"/>
+  <v:f eqn="prod @3 21600 pixelHeight"/>
+  <v:f eqn="sum @0 0 1"/>
+  <v:f eqn="prod @6 1 2"/>
+  <v:f eqn="prod @7 21600 pixelWidth"/>
+  <v:f eqn="sum @8 21600 0"/>
+  <v:f eqn="prod @7 21600 pixelHeight"/>
+  <v:f eqn="sum @10 21600 0"/>
+ </v:formulas>
+ <v:path o:extrusionok="f" gradientshapeok="t" o:connecttype="rect"/>
+ <o:lock v:ext="edit" aspectratio="t"/>
+</v:shapetype><v:shape id="_x0000_i1025" type="#_x0000_t75" style='width:471.75pt;
+ height:2in'>
+ <v:imagedata src="../../howto/logo.gif" o:title="logo"/>
+</v:shape><![endif]--><![if !vml]><img width=629 height=192
+src="../../howto/logo.gif" v:shapes="_x0000_i1025"><![endif]><o:p></o:p></b></p>
+
+<p class=MsoNormal><b style='mso-bidi-font-weight:normal'><o:p>&nbsp;</o:p></b></p>
+
+<p class=MsoNormal style='margin-left:.25in'><a name=top><b style='mso-bidi-font-weight:
+normal'><span style='font-size:14.0pt'>Developer Guide to Global Actions</span></b></a><b
+style='mso-bidi-font-weight:normal'><span style='font-size:14.0pt'><o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='margin-left:.25in'><b style='mso-bidi-font-weight:
+normal'><span style='font-size:14.0pt'><o:p>&nbsp;</o:p></span></b></p>
+
+<p class=MsoNormal style='margin-left:.25in'><b style='mso-bidi-font-weight:
+normal'><span style='font-size:14.0pt'>Contents<o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='margin-left:.25in'><b style='mso-bidi-font-weight:
+normal'><o:p>&nbsp;</o:p></b></p>
+
+<ol style='margin-top:0in' start=1 type=1>
+ <li class=MsoNormal style='mso-list:l3 level1 lfo14;tab-stops:list .5in'><b
+     style='mso-bidi-font-weight:normal'><a href="#introduction">Introduction</a><o:p></o:p></b></li>
+ <li class=MsoNormal style='mso-list:l3 level1 lfo14;tab-stops:list .5in'><b
+     style='mso-bidi-font-weight:normal'><a href="#prerequisites">Pre-requisites</a><o:p></o:p></b></li>
+ <li class=MsoNormal style='mso-list:l3 level1 lfo14;tab-stops:list .5in'><b
+     style='mso-bidi-font-weight:normal'><a href="#concepts">Concepts</a><o:p></o:p></b></li>
+ <li class=MsoNormal style='mso-list:l3 level1 lfo14;tab-stops:list .5in'><b
+     style='mso-bidi-font-weight:normal'><a href="#extension_points">Extension
+     points</a><o:p></o:p></b></li>
+ <li class=MsoNormal style='mso-list:l3 level1 lfo14;tab-stops:list .5in'><b
+     style='mso-bidi-font-weight:normal'><a href="#plugins"><span class=SpellE>Plugins</span></a><o:p></o:p></b></li>
+ <li class=MsoNormal style='mso-list:l3 level1 lfo14;tab-stops:list .5in'><b
+     style='mso-bidi-font-weight:normal'><a href="#use_cases">Use cases</a><o:p></o:p></b></li>
+</ol>
+
+<p class=MsoNormal style='text-indent:.5in'><b style='mso-bidi-font-weight:
+normal'>6.1 <a href="#add_support_eclipse_global_action">Add support for new Eclipse
+global action handler</a><o:p></o:p></b></p>
+
+<p class=MsoNormal style='margin-left:.25in;text-indent:.25in'><b
+style='mso-bidi-font-weight:normal'>6.2<a
+href="#add_support_aurora_global_action"> Add support for new Aurora global
+action handler</a><o:p></o:p></b></p>
+
+<ol style='margin-top:0in' start=7 type=1>
+ <li class=MsoNormal style='mso-list:l3 level1 lfo14;tab-stops:list .5in'><b
+     style='mso-bidi-font-weight:normal'><a href="#summary">Summary</a><o:p></o:p></b></li>
+</ol>
+
+<p class=MsoNormal style='margin-left:.25in'><o:p>&nbsp;</o:p></p>
+
+<ol style='margin-top:0in' start=1 type=1>
+ <li class=MsoNormal style='mso-list:l2 level1 lfo2;tab-stops:list .5in'><a
+     name=introduction><b style='mso-bidi-font-weight:normal'>Introduction<o:p></o:p></b></a></li>
+</ol>
+
+<span style='mso-bookmark:introduction'></span>
+
+<p class=MsoNormal style='margin-left:.25in'><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal style='margin-left:.25in'>This document describes how to add
+support for global actions and complete the following two use cases:<o:p></o:p></p>
+
+<ol style='margin-top:0in' start=1 type=1>
+ <li class=MsoNormal style='mso-list:l10 level1 lfo7;tab-stops:list .5in'>Add
+     support for new Eclipse global action such as cut, copy and paste.<o:p></o:p></li>
+ <li class=MsoNormal style='mso-list:l10 level1 lfo7;tab-stops:list .5in'>Add
+     support for new <st1:City><st1:place>Aurora</st1:place></st1:City> global
+     action.<o:p></o:p></li>
+</ol>
+
+<p class=MsoNormal style='margin-left:.25in'><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal style='margin-left:.25in'>[<a href="#top"><span class=GramE>back</span>
+to top</a>]</p>
+
+<p class=MsoNormal style='margin-left:.25in'><o:p>&nbsp;</o:p></p>
+
+<ol style='margin-top:0in' start=2 type=1>
+ <li class=MsoNormal style='mso-list:l2 level1 lfo2;tab-stops:list .5in'><a
+     name=prerequisites><b style='mso-bidi-font-weight:normal'>Pre-requisites<o:p></o:p></b></a></li>
+</ol>
+
+<span style='mso-bookmark:prerequisites'></span>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal style='margin-left:.25in'>Before contributing, you should be
+able to perform the following tasks:<o:p></o:p></p>
+
+<ul style='margin-top:0in' type=disc>
+ <li class=MsoNormal style='mso-list:l7 level1 lfo1;tab-stops:list .5in'>Create
+     a diagram plug-in on top of <st1:City><st1:place>Aurora</st1:place></st1:City><o:p></o:p></li>
+ <li class=MsoNormal style='mso-list:l7 level1 lfo1;tab-stops:list .5in'>Contribute
+     new creation tool to Palette<o:p></o:p></li>
+</ul>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal style='margin-left:.25in'>[<a href="#top"><span class=GramE>back</span>
+to top</a>]</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<ol style='margin-top:0in' start=3 type=1>
+ <li class=MsoNormal style='mso-list:l2 level1 lfo2;tab-stops:list .5in'><a
+     name=concepts><b style='mso-bidi-font-weight:normal'>Concepts<o:p></o:p></b></a></li>
+</ol>
+
+<span style='mso-bookmark:concepts'></span>
+
+<p class=MsoNormal style='margin-left:.25in'><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal style='margin-left:.25in'>Ensure you understand the
+following concepts before continuing:<o:p></o:p></p>
+
+<p class=MsoNormal style='margin-left:.25in'><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal style='margin-left:.25in'>Action, global action, <span
+class=SpellE>retargetable</span> action<o:p></o:p></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal style='margin-left:.25in'>[<a href="#top"><span class=GramE>back</span>
+to top</a>]</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<ol style='margin-top:0in' start=4 type=1>
+ <li class=MsoNormal style='mso-list:l2 level1 lfo2;tab-stops:list .5in'><a
+     name="extension_points"><b style='mso-bidi-font-weight:normal'>Extension
+     points<o:p></o:p></b></a></li>
+</ol>
+
+<span style='mso-bookmark:extension_points'></span>
+
+<p class=MsoNormal style='margin-left:.25in'><b style='mso-bidi-font-weight:
+normal'><o:p>&nbsp;</o:p></b></p>
+
+<p class=MsoNormal style='margin-left:.25in'><span class=SpellE><span
+style='font-family:"Courier New"'>com.rational.xtools.common.ui.globalActionHandlerProviders</span></span><span
+style='font-family:"Courier New"'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><b style='mso-bidi-font-weight:
+normal'><o:p>&nbsp;</o:p></b></p>
+
+<p class=MsoNormal style='margin-left:.25in'>[<a href="#top"><span class=GramE>back</span>
+to top</a>]</p>
+
+<p class=MsoNormal><b style='mso-bidi-font-weight:normal'><o:p>&nbsp;</o:p></b></p>
+
+<ol style='margin-top:0in' start=5 type=1>
+ <li class=MsoNormal style='mso-list:l2 level1 lfo2;tab-stops:list .5in'><a
+     name=plugins></a><span class=SpellE><span style='mso-bookmark:plugins'><b
+     style='mso-bidi-font-weight:normal'>Plugins</b></span></span><span
+     style='mso-bookmark:plugins'><b style='mso-bidi-font-weight:normal'><o:p></o:p></b></span></li>
+</ol>
+
+<span style='mso-bookmark:plugins'></span>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal style='margin-left:.25in'><span class=SpellE><span
+style='font-family:"Courier New"'>org.eclipse.gmf.runtime.common.core.ui</span></span><span
+style='font-family:"Courier New"'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal style='margin-left:.25in'>[<a href="#top"><span class=GramE>back</span>
+to top</a>]</p>
+
+<p class=MsoNormal style='margin-left:.25in'><o:p>&nbsp;</o:p></p>
+
+<ol style='margin-top:0in' start=6 type=1>
+ <li class=MsoNormal style='mso-list:l2 level1 lfo2;tab-stops:list .5in'><a
+     name="use_cases"><b style='mso-bidi-font-weight:normal'>Use Cases<o:p></o:p></b></a></li>
+</ol>
+
+<span style='mso-bookmark:use_cases'></span>
+
+<p class=MsoNormal><b style='mso-bidi-font-weight:normal'><o:p>&nbsp;</o:p></b></p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in;mso-list:l8 level2 lfo9;
+tab-stops:list .5in'><a name="add_support_eclipse_global_action"><![if !supportLists]><b
+style='mso-bidi-font-weight:normal'><span style='mso-list:Ignore'>6.1<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span></b><![endif]><b
+style='mso-bidi-font-weight:normal'>Add support for new Eclipse global action
+handler<o:p></o:p></b></a></p>
+
+<span style='mso-bookmark:add_support_eclipse_global_action'></span>
+
+<p class=MsoNormal style='margin-left:.25in'><b style='mso-bidi-font-weight:
+normal'><o:p>&nbsp;</o:p></b></p>
+
+<p class=MsoNormal style='margin-left:.75in;text-indent:-.25in;mso-list:l4 level1 lfo12;
+tab-stops:list .75in'><![if !supportLists]><span style='mso-list:Ignore'>1.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><![endif]>Add
+<span class=SpellE><span style='font-family:"Courier New"'>c.i.x.common.core.ui</span></span>
+to a list of dependencies of your <span class=SpellE>plugin</span>.<o:p></o:p></p>
+
+<p class=MsoNormal style='margin-left:.75in;text-indent:-.25in;mso-list:l4 level1 lfo12;
+tab-stops:list .75in'><![if !supportLists]><span style='mso-list:Ignore'>2.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><![endif]>Declare
+an extension to <span class=SpellE><span style='font-family:"Courier New"'>com.rational.xtools.common.ui.globalActionHandlerProviders</span></span><o:p></o:p></p>
+
+<p class=MsoNormal style='margin-left:.75in;text-indent:-.25in;mso-list:l4 level1 lfo12;
+tab-stops:list .75in'><![if !supportLists]><span style='mso-list:Ignore'>3.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><![endif]>Extend
+<span class=SpellE><span style='font-family:"Courier New"'>AbstractGlobalActionHandlerProvider</span></span>
+class:<o:p></o:p></p>
+
+<p class=MsoNormal style='margin-left:.75in;text-indent:-.25in;mso-list:l4 level1 lfo12;
+tab-stops:list .75in'><![if !supportLists]><span style='mso-list:Ignore'>4.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><![endif]>Extend
+<span class=SpellE><span style='font-family:"Courier New"'>AbstractGlobalActionHandler</span></span>
+class<o:p></o:p></p>
+
+<p class=MsoNormal style='margin-left:1.25in;text-indent:-.25in;mso-list:l4 level2 lfo12;
+tab-stops:list 1.25in'><![if !supportLists]><span style='mso-list:Ignore'>a.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><![endif]>Implement
+the <span class=SpellE><span style='font-family:"Courier New"'>getCommand</span></span><span
+style='font-family:"Courier New"'>()</span> <o:p></o:p></p>
+
+<p class=MsoNormal style='margin-left:1.25in;text-indent:-.25in;mso-list:l4 level2 lfo12;
+tab-stops:list 1.25in'><![if !supportLists]><span style='mso-list:Ignore'>b.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><![endif]>Implement
+<span class=SpellE><span style='font-family:"Courier New"'>canHandle</span></span><span
+style='font-family:"Courier New"'>()</span> method<o:p></o:p></p>
+
+<p class=MsoNormal><b style='mso-bidi-font-weight:normal'><o:p>&nbsp;</o:p></b></p>
+
+<p class=MsoNormal style='margin-left:.25in'>[<a href="#top"><span class=GramE>back</span>
+to top</a>]</p>
+
+<p class=MsoNormal><b style='mso-bidi-font-weight:normal'><o:p>&nbsp;</o:p></b></p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in;mso-list:l8 level2 lfo9;
+tab-stops:list .5in'><a name="add_support_aurora_global_action"><![if !supportLists]><b
+style='mso-bidi-font-weight:normal'><span style='mso-list:Ignore'>6.2<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span></b><![endif]><b
+style='mso-bidi-font-weight:normal'>Add support for new </b></a><st1:City><st1:place><span
+  style='mso-bookmark:add_support_aurora_global_action'><b style='mso-bidi-font-weight:
+  normal'>Aurora</b></span></st1:place></st1:City><span style='mso-bookmark:
+add_support_aurora_global_action'><b style='mso-bidi-font-weight:normal'> global
+action handler<o:p></o:p></b></span></p>
+
+<span style='mso-bookmark:add_support_aurora_global_action'></span>
+
+<p class=MsoNormal><b style='mso-bidi-font-weight:normal'><o:p>&nbsp;</o:p></b></p>
+
+<p class=MsoBodyText style='margin-left:.75in;text-indent:-.25in;mso-list:l5 level1 lfo13;
+tab-stops:list .75in'><![if !supportLists]><span style='font-size:12.0pt'><span
+style='mso-list:Ignore'>1.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span style='font-size:12.0pt'>Extend </span><span
+class=SpellE><span style='font-size:12.0pt;font-family:Courier'>GlobalAction</span></span><span
+style='font-size:12.0pt'> class.<o:p></o:p></span></p>
+
+<p class=MsoBodyText style='margin-left:1.25in;text-indent:-.25in;mso-list:
+l5 level2 lfo13;tab-stops:list 1.25in'><![if !supportLists]><span
+style='font-size:12.0pt'><span style='mso-list:Ignore'>a.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><![endif]><span
+style='font-size:12.0pt'>Implement the </span><span class=SpellE><span
+style='font-size:12.0pt;font-family:Courier'>getActionId</span></span><span
+style='font-size:12.0pt'> method. <o:p></o:p></span></p>
+
+<p class=MsoBodyText style='margin-left:1.25in;text-indent:-.25in;mso-list:
+l5 level2 lfo13;tab-stops:list 1.25in'><![if !supportLists]><span
+style='font-size:12.0pt'><span style='mso-list:Ignore'>b.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><![endif]><span
+style='font-size:12.0pt'>Depending on the requirements other methods can be
+overridden.<o:p></o:p></span></p>
+
+<p class=MsoBodyText style='margin-left:.75in;text-indent:-.25in;mso-list:l5 level1 lfo13;
+tab-stops:list .75in'><![if !supportLists]><span style='font-size:12.0pt'><span
+style='mso-list:Ignore'>2.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span style='font-size:12.0pt'>Update the class </span><span
+class=SpellE><span style='font-size:12.0pt;font-family:Courier'>GlobalActionId</span></span><span
+style='font-size:12.0pt'> to include an id for the new global action.<o:p></o:p></span></p>
+
+<p class=MsoBodyText style='margin-left:.75in;text-indent:-.25in;mso-list:l5 level1 lfo13;
+tab-stops:list .75in'><![if !supportLists]><span style='font-size:12.0pt'><span
+style='mso-list:Ignore'>3.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span style='font-size:12.0pt'>Update the schema
+file </span><span class=SpellE><span style='font-size:12.0pt;font-family:Courier'>globalActionHandlerProviders.exsd</span></span><span
+style='font-size:12.0pt'> to include the new action id as part of the
+constraint.<o:p></o:p></span></p>
+
+<p class=MsoNormal><b style='mso-bidi-font-weight:normal'><o:p>&nbsp;</o:p></b></p>
+
+<p class=MsoNormal style='margin-left:.25in'>[<a href="#top"><span class=GramE>back</span>
+to top</a>]</p>
+
+<p class=MsoNormal><b style='mso-bidi-font-weight:normal'><o:p>&nbsp;</o:p></b></p>
+
+<ol style='margin-top:0in' start=7 type=1>
+ <li class=MsoNormal style='mso-list:l2 level1 lfo2;tab-stops:list .5in'><a
+     name=summary><b style='mso-bidi-font-weight:normal'>Summary<o:p></o:p></b></a></li>
+</ol>
+
+<span style='mso-bookmark:summary'></span>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal style='margin-left:.25in'>This document gave described how
+to add support for:</p>
+
+<ul style='margin-top:0in' type=disc>
+ <li class=MsoNormal style='mso-list:l7 level1 lfo1;tab-stops:list .5in'>new
+     Eclipse global action</li>
+ <li class=MsoNormal style='mso-list:l7 level1 lfo1;tab-stops:list .5in'>new <st1:City><st1:place>Aurora</st1:place></st1:City>
+     global action<o:p></o:p></li>
+</ul>
+
+<p class=MsoNormal style='margin-left:.25in'><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal style='margin-left:.25in'>[<a href="#top"><span class=GramE>back</span>
+to top</a>]</p>
+
+<p class=MsoNormal style='margin-left:.25in'><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal style='margin-left:.25in'><!--[if gte vml 1]><v:shape id="_x0000_i1026"
+ type="#_x0000_t75" style='width:243pt;height:10.5pt'>
+ <v:imagedata src="../../howto/copyright.gif" o:title="copyright"/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=324 height=14
+src="../../howto/copyright.gif" v:shapes="_x0000_i1026"><![endif]><o:p></o:p></p>
+
+</div>
+
+</body>
+
+</html>

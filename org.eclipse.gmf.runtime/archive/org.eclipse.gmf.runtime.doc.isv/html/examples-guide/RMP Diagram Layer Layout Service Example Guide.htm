@@ -1,0 +1,1416 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 10">
+<meta name=Originator content="Microsoft Word 10">
+<link rel=File-List
+href="RMP%20Diagram%20Layer%20Layout%20Service%20Example%20Guide_files/filelist.xml">
+<link rel=Edit-Time-Data
+href="RMP%20Diagram%20Layer%20Layout%20Service%20Example%20Guide_files/editdata.mso">
+<!--[if !mso]>
+<style>
+v\:* {behavior:url(#default#VML);}
+o\:* {behavior:url(#default#VML);}
+w\:* {behavior:url(#default#VML);}
+.shape {behavior:url(#default#VML);}
+</style>
+<![endif]-->
+<title>Feature Design Specification: &lt;Feature Name&gt;</title>
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Subject>&lt;Project Name&gt;</o:Subject>
+  <o:Author>Jay Graham</o:Author>
+  <o:LastAuthor>Steven R. Shaw</o:LastAuthor>
+  <o:Revision>8</o:Revision>
+  <o:TotalTime>43</o:TotalTime>
+  <o:Created>2005-05-19T18:49:00Z</o:Created>
+  <o:LastSaved>2005-05-19T19:11:00Z</o:LastSaved>
+  <o:Pages>1</o:Pages>
+  <o:Words>335</o:Words>
+  <o:Characters>1910</o:Characters>
+  <o:Company>Rational Software Corp.</o:Company>
+  <o:Bytes>25600</o:Bytes>
+  <o:Lines>15</o:Lines>
+  <o:Paragraphs>4</o:Paragraphs>
+  <o:CharactersWithSpaces>2241</o:CharactersWithSpaces>
+  <o:Version>10.4219</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:Zoom>120</w:Zoom>
+  <w:SpellingState>Clean</w:SpellingState>
+  <w:GrammarState>Clean</w:GrammarState>
+  <w:DoNotHyphenateCaps/>
+  <w:DisplayHorizontalDrawingGridEvery>0</w:DisplayHorizontalDrawingGridEvery>
+  <w:DisplayVerticalDrawingGridEvery>0</w:DisplayVerticalDrawingGridEvery>
+  <w:UseMarginsForDrawingGridOrigin/>
+  <w:Compatibility>
+   <w:WW6BorderRules/>
+   <w:FootnoteLayoutLikeWW8/>
+   <w:ShapeLayoutLikeWW8/>
+   <w:AlignTablesRowByRow/>
+   <w:ForgetLastTabAlignment/>
+   <w:LayoutRawTableWidth/>
+   <w:LayoutTableRowsApart/>
+   <w:UseWord97LineBreakingRules/>
+  </w:Compatibility>
+  <w:BrowserLevel>MicrosoftInternetExplorer4</w:BrowserLevel>
+ </w:WordDocument>
+</xml><![endif]-->
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:Helvetica;
+	panose-1:2 11 6 4 2 2 2 2 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:swiss;
+	mso-font-format:other;
+	mso-font-pitch:variable;
+	mso-font-signature:3 0 0 0 1 0;}
+@font-face
+	{font-family:Wingdings;
+	panose-1:5 0 0 0 0 0 0 0 0 0;
+	mso-font-charset:2;
+	mso-generic-font-family:auto;
+	mso-font-pitch:variable;
+	mso-font-signature:0 268435456 0 0 -2147483648 0;}
+@font-face
+	{font-family:Tahoma;
+	panose-1:2 11 6 4 3 5 4 4 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:swiss;
+	mso-font-pitch:variable;
+	mso-font-signature:1627421319 -2147483648 8 0 66047 0;}
+@font-face
+	{font-family:Webdings;
+	panose-1:5 3 1 2 1 5 9 6 7 3;
+	mso-font-charset:2;
+	mso-generic-font-family:roman;
+	mso-font-pitch:variable;
+	mso-font-signature:0 268435456 0 0 -2147483648 0;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-parent:"";
+	margin:0in;
+	margin-bottom:.0001pt;
+	line-height:12.0pt;
+	mso-pagination:none;
+	font-size:11.0pt;
+	mso-bidi-font-size:10.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+h1
+	{mso-style-next:Normal;
+	margin-top:6.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:.5in;
+	text-indent:-.5in;
+	line-height:12.0pt;
+	mso-pagination:none;
+	page-break-after:avoid;
+	mso-outline-level:1;
+	mso-list:l0 level1 lfo1;
+	font-size:12.0pt;
+	mso-bidi-font-size:10.0pt;
+	font-family:Arial;
+	mso-bidi-font-family:"Times New Roman";
+	mso-font-kerning:0pt;
+	mso-bidi-font-weight:normal;}
+h2
+	{mso-style-parent:"Heading 1";
+	mso-style-next:Normal;
+	margin-top:6.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:.5in;
+	text-indent:-.5in;
+	line-height:12.0pt;
+	mso-pagination:none;
+	page-break-after:avoid;
+	mso-outline-level:2;
+	mso-list:l0 level2 lfo1;
+	font-size:11.0pt;
+	mso-bidi-font-size:10.0pt;
+	font-family:Arial;
+	mso-bidi-font-family:"Times New Roman";
+	mso-bidi-font-weight:normal;}
+h3
+	{mso-style-parent:"Heading 1";
+	mso-style-next:Normal;
+	margin-top:6.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:.5in;
+	text-indent:-.5in;
+	line-height:12.0pt;
+	mso-pagination:none;
+	page-break-after:avoid;
+	mso-outline-level:3;
+	mso-list:l0 level3 lfo1;
+	font-size:11.0pt;
+	mso-bidi-font-size:10.0pt;
+	font-family:Arial;
+	mso-bidi-font-family:"Times New Roman";
+	font-weight:normal;
+	font-style:italic;
+	mso-bidi-font-style:normal;}
+h4
+	{mso-style-parent:"Heading 1";
+	mso-style-next:Normal;
+	margin-top:6.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:.5in;
+	text-indent:-.5in;
+	line-height:12.0pt;
+	mso-pagination:none;
+	page-break-after:avoid;
+	mso-outline-level:4;
+	mso-list:l0 level4 lfo1;
+	font-size:10.0pt;
+	font-family:Arial;
+	mso-bidi-font-family:"Times New Roman";
+	font-weight:normal;}
+h5
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:13.5pt;
+	text-indent:0in;
+	line-height:12.0pt;
+	mso-pagination:none;
+	mso-outline-level:5;
+	mso-list:l0 level5 lfo1;
+	font-size:11.0pt;
+	mso-bidi-font-size:10.0pt;
+	font-family:"Times New Roman";
+	font-weight:normal;}
+h6
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:2.0in;
+	text-indent:0in;
+	line-height:12.0pt;
+	mso-pagination:none;
+	mso-outline-level:6;
+	mso-list:l0 level6 lfo1;
+	font-size:11.0pt;
+	mso-bidi-font-size:10.0pt;
+	font-family:"Times New Roman";
+	font-weight:normal;
+	font-style:italic;
+	mso-bidi-font-style:normal;}
+p.MsoHeading7, li.MsoHeading7, div.MsoHeading7
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:2.0in;
+	text-indent:0in;
+	line-height:12.0pt;
+	mso-pagination:none;
+	mso-outline-level:7;
+	mso-list:l0 level7 lfo1;
+	font-size:11.0pt;
+	mso-bidi-font-size:10.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+p.MsoHeading8, li.MsoHeading8, div.MsoHeading8
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:2.0in;
+	text-indent:0in;
+	line-height:12.0pt;
+	mso-pagination:none;
+	mso-outline-level:8;
+	mso-list:l0 level8 lfo1;
+	font-size:11.0pt;
+	mso-bidi-font-size:10.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";
+	font-style:italic;
+	mso-bidi-font-style:normal;}
+p.MsoHeading9, li.MsoHeading9, div.MsoHeading9
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:2.0in;
+	text-indent:0in;
+	line-height:12.0pt;
+	mso-pagination:none;
+	mso-outline-level:9;
+	mso-list:l0 level9 lfo1;
+	font-size:9.0pt;
+	mso-bidi-font-size:10.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";
+	font-weight:bold;
+	mso-bidi-font-weight:normal;
+	font-style:italic;
+	mso-bidi-font-style:normal;}
+p.MsoToc1, li.MsoToc1, div.MsoToc1
+	{mso-style-noshow:yes;
+	mso-style-next:Normal;
+	margin-top:6.0pt;
+	margin-right:0in;
+	margin-bottom:6.0pt;
+	margin-left:0in;
+	line-height:12.0pt;
+	mso-pagination:none;
+	font-size:11.0pt;
+	mso-bidi-font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";
+	text-transform:uppercase;
+	font-weight:bold;}
+p.MsoToc2, li.MsoToc2, div.MsoToc2
+	{mso-style-noshow:yes;
+	mso-style-next:Normal;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:11.0pt;
+	margin-bottom:.0001pt;
+	line-height:12.0pt;
+	mso-pagination:none;
+	font-size:11.0pt;
+	mso-bidi-font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";
+	font-variant:small-caps;}
+p.MsoToc3, li.MsoToc3, div.MsoToc3
+	{mso-style-noshow:yes;
+	mso-style-next:Normal;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:22.0pt;
+	margin-bottom:.0001pt;
+	line-height:12.0pt;
+	mso-pagination:none;
+	font-size:11.0pt;
+	mso-bidi-font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";
+	font-style:italic;}
+p.MsoToc4, li.MsoToc4, div.MsoToc4
+	{mso-style-noshow:yes;
+	mso-style-next:Normal;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:33.0pt;
+	margin-bottom:.0001pt;
+	line-height:12.0pt;
+	mso-pagination:none;
+	font-size:11.0pt;
+	mso-bidi-font-size:10.5pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+p.MsoToc5, li.MsoToc5, div.MsoToc5
+	{mso-style-noshow:yes;
+	mso-style-next:Normal;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:44.0pt;
+	margin-bottom:.0001pt;
+	line-height:12.0pt;
+	mso-pagination:none;
+	font-size:11.0pt;
+	mso-bidi-font-size:10.5pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+p.MsoToc6, li.MsoToc6, div.MsoToc6
+	{mso-style-noshow:yes;
+	mso-style-next:Normal;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:55.0pt;
+	margin-bottom:.0001pt;
+	line-height:12.0pt;
+	mso-pagination:none;
+	font-size:11.0pt;
+	mso-bidi-font-size:10.5pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+p.MsoToc7, li.MsoToc7, div.MsoToc7
+	{mso-style-noshow:yes;
+	mso-style-next:Normal;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:66.0pt;
+	margin-bottom:.0001pt;
+	line-height:12.0pt;
+	mso-pagination:none;
+	font-size:11.0pt;
+	mso-bidi-font-size:10.5pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+p.MsoToc8, li.MsoToc8, div.MsoToc8
+	{mso-style-noshow:yes;
+	mso-style-next:Normal;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:77.0pt;
+	margin-bottom:.0001pt;
+	line-height:12.0pt;
+	mso-pagination:none;
+	font-size:11.0pt;
+	mso-bidi-font-size:10.5pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+p.MsoToc9, li.MsoToc9, div.MsoToc9
+	{mso-style-noshow:yes;
+	mso-style-next:Normal;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:88.0pt;
+	margin-bottom:.0001pt;
+	line-height:12.0pt;
+	mso-pagination:none;
+	font-size:11.0pt;
+	mso-bidi-font-size:10.5pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+p.MsoNormalIndent, li.MsoNormalIndent, div.MsoNormalIndent
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:45.0pt;
+	margin-bottom:.0001pt;
+	text-indent:-45.0pt;
+	line-height:12.0pt;
+	mso-pagination:none;
+	font-size:11.0pt;
+	mso-bidi-font-size:10.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+p.MsoFootnoteText, li.MsoFootnoteText, div.MsoFootnoteText
+	{mso-style-noshow:yes;
+	margin-top:2.0pt;
+	margin-right:0in;
+	margin-bottom:2.0pt;
+	margin-left:.25in;
+	text-indent:-.25in;
+	line-height:12.0pt;
+	mso-pagination:lines-together;
+	page-break-after:avoid;
+	border:none;
+	mso-border-bottom-alt:solid black .75pt;
+	padding:0in;
+	mso-padding-alt:0in 0in 0in 0in;
+	font-size:8.0pt;
+	mso-bidi-font-size:10.0pt;
+	font-family:Helvetica;
+	mso-fareast-font-family:"Times New Roman";
+	mso-bidi-font-family:"Times New Roman";}
+p.MsoCommentText, li.MsoCommentText, div.MsoCommentText
+	{mso-style-noshow:yes;
+	margin:0in;
+	margin-bottom:.0001pt;
+	line-height:12.0pt;
+	mso-pagination:none;
+	font-size:10.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+p.MsoHeader, li.MsoHeader, div.MsoHeader
+	{margin:0in;
+	margin-bottom:.0001pt;
+	line-height:12.0pt;
+	mso-pagination:none;
+	tab-stops:center 3.0in right 6.0in;
+	font-size:11.0pt;
+	mso-bidi-font-size:10.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+p.MsoFooter, li.MsoFooter, div.MsoFooter
+	{margin:0in;
+	margin-bottom:.0001pt;
+	line-height:12.0pt;
+	mso-pagination:none;
+	tab-stops:center 3.0in right 6.0in;
+	font-size:11.0pt;
+	mso-bidi-font-size:10.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+span.MsoFootnoteReference
+	{mso-style-noshow:yes;
+	mso-ansi-font-size:10.0pt;
+	vertical-align:super;}
+span.MsoCommentReference
+	{mso-style-noshow:yes;
+	mso-ansi-font-size:8.0pt;
+	mso-bidi-font-size:8.0pt;}
+span.MsoPageNumber
+	{mso-ansi-font-size:10.0pt;}
+p.MsoTitle, li.MsoTitle, div.MsoTitle
+	{mso-style-next:Normal;
+	margin:0in;
+	margin-bottom:.0001pt;
+	text-align:center;
+	mso-pagination:none;
+	font-size:18.0pt;
+	mso-bidi-font-size:10.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	mso-bidi-font-family:"Times New Roman";
+	font-weight:bold;
+	mso-bidi-font-weight:normal;}
+p.MsoBodyText, li.MsoBodyText, div.MsoBodyText
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:6.0pt;
+	margin-left:.5in;
+	line-height:12.0pt;
+	mso-pagination:lines-together;
+	font-size:11.0pt;
+	mso-bidi-font-size:10.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+p.MsoSubtitle, li.MsoSubtitle, div.MsoSubtitle
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	text-align:center;
+	mso-line-height-alt:12.0pt;
+	mso-pagination:none;
+	font-size:18.0pt;
+	mso-bidi-font-size:10.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	mso-bidi-font-family:"Times New Roman";
+	font-style:italic;
+	mso-bidi-font-style:normal;}
+p.MsoBodyText3, li.MsoBodyText3, div.MsoBodyText3
+	{margin:0in;
+	margin-bottom:.0001pt;
+	line-height:12.0pt;
+	mso-pagination:none;
+	font-size:10.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";
+	font-style:italic;}
+a:link, span.MsoHyperlink
+	{color:blue;
+	text-decoration:underline;
+	text-underline:single;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:purple;
+	text-decoration:underline;
+	text-underline:single;}
+p.MsoDocumentMap, li.MsoDocumentMap, div.MsoDocumentMap
+	{mso-style-noshow:yes;
+	margin:0in;
+	margin-bottom:.0001pt;
+	line-height:12.0pt;
+	mso-pagination:none;
+	background:navy;
+	font-size:11.0pt;
+	mso-bidi-font-size:10.0pt;
+	font-family:Tahoma;
+	mso-fareast-font-family:"Times New Roman";
+	mso-bidi-font-family:"Times New Roman";}
+p.MsoCommentSubject, li.MsoCommentSubject, div.MsoCommentSubject
+	{mso-style-noshow:yes;
+	mso-style-parent:"Comment Text";
+	mso-style-next:"Comment Text";
+	margin:0in;
+	margin-bottom:.0001pt;
+	line-height:12.0pt;
+	mso-pagination:none;
+	font-size:10.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";
+	font-weight:bold;}
+p.Paragraph2, li.Paragraph2, div.Paragraph2
+	{mso-style-name:Paragraph2;
+	margin-top:4.0pt;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.5in;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	line-height:12.0pt;
+	mso-pagination:none;
+	font-size:11.0pt;
+	mso-bidi-font-size:10.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";
+	color:black;}
+p.Paragraph3, li.Paragraph3, div.Paragraph3
+	{mso-style-name:Paragraph3;
+	margin-top:4.0pt;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:76.5pt;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	mso-pagination:none;
+	font-size:11.0pt;
+	mso-bidi-font-size:10.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+p.Paragraph4, li.Paragraph4, div.Paragraph4
+	{mso-style-name:Paragraph4;
+	margin-top:4.0pt;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:112.5pt;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	mso-pagination:none;
+	font-size:11.0pt;
+	mso-bidi-font-size:10.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+p.Tabletext, li.Tabletext, div.Tabletext
+	{mso-style-name:Tabletext;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:6.0pt;
+	margin-left:0in;
+	line-height:12.0pt;
+	mso-pagination:lines-together;
+	font-size:11.0pt;
+	mso-bidi-font-size:10.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+p.Bullet1, li.Bullet1, div.Bullet1
+	{mso-style-name:Bullet1;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.5in;
+	margin-bottom:.0001pt;
+	text-indent:-.3in;
+	line-height:12.0pt;
+	mso-pagination:none;
+	font-size:11.0pt;
+	mso-bidi-font-size:10.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+p.Bullet2, li.Bullet2, div.Bullet2
+	{mso-style-name:Bullet2;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:1.0in;
+	margin-bottom:.0001pt;
+	text-indent:-.25in;
+	line-height:12.0pt;
+	mso-pagination:none;
+	font-size:11.0pt;
+	mso-bidi-font-size:10.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";
+	color:navy;}
+p.MainTitle, li.MainTitle, div.MainTitle
+	{mso-style-name:"Main Title";
+	margin-top:24.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	text-align:center;
+	mso-pagination:none;
+	font-size:16.0pt;
+	mso-bidi-font-size:10.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	mso-bidi-font-family:"Times New Roman";
+	mso-font-kerning:14.0pt;
+	font-weight:bold;
+	mso-bidi-font-weight:normal;}
+p.Paragraph1, li.Paragraph1, div.Paragraph1
+	{mso-style-name:Paragraph1;
+	margin-top:4.0pt;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:0in;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	mso-pagination:none;
+	font-size:11.0pt;
+	mso-bidi-font-size:10.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+span.SpellE
+	{mso-style-name:"";
+	mso-spl-e:yes;}
+span.GramE
+	{mso-style-name:"";
+	mso-gram-e:yes;}
+ /* Page Definitions */
+ @page
+	{mso-endnote-numbering-style:arabic;}
+@page Section1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.0in 1.0in 1.0in;
+	mso-header-margin:.5in;
+	mso-footer-margin:.5in;
+	mso-vertical-page-align:middle;
+	mso-even-header:url("RMP%20Diagram%20Layer%20Layout%20Service%20Example%20Guide_files/header.htm") eh1;
+	mso-header:url("RMP%20Diagram%20Layer%20Layout%20Service%20Example%20Guide_files/header.htm") h1;
+	mso-even-footer:url("RMP%20Diagram%20Layer%20Layout%20Service%20Example%20Guide_files/header.htm") ef1;
+	mso-footer:url("RMP%20Diagram%20Layer%20Layout%20Service%20Example%20Guide_files/header.htm") f1;
+	mso-first-header:url("RMP%20Diagram%20Layer%20Layout%20Service%20Example%20Guide_files/header.htm") fh1;
+	mso-first-footer:url("RMP%20Diagram%20Layer%20Layout%20Service%20Example%20Guide_files/header.htm") ff1;
+	mso-paper-source:0;}
+div.Section1
+	{page:Section1;
+	mso-endnote-numbering-style:arabic;}
+@page Section2
+	{size:8.5in 11.0in;
+	margin:1.0in 1.0in 1.0in 1.0in;
+	mso-header-margin:.5in;
+	mso-footer-margin:.5in;
+	mso-even-header:url("RMP%20Diagram%20Layer%20Layout%20Service%20Example%20Guide_files/header.htm") eh1;
+	mso-header:url("RMP%20Diagram%20Layer%20Layout%20Service%20Example%20Guide_files/header.htm") h2;
+	mso-even-footer:url("RMP%20Diagram%20Layer%20Layout%20Service%20Example%20Guide_files/header.htm") ef1;
+	mso-footer:url("RMP%20Diagram%20Layer%20Layout%20Service%20Example%20Guide_files/header.htm") f2;
+	mso-first-header:url("RMP%20Diagram%20Layer%20Layout%20Service%20Example%20Guide_files/header.htm") fh1;
+	mso-first-footer:url("RMP%20Diagram%20Layer%20Layout%20Service%20Example%20Guide_files/header.htm") ff1;
+	mso-paper-source:0;}
+div.Section2
+	{page:Section2;
+	mso-endnote-numbering-style:arabic;}
+ /* List Definitions */
+ @list l0
+	{mso-list-id:-5;
+	mso-list-template-ids:1250622684;}
+@list l0:level1
+	{mso-level-style-link:"Heading 1";
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	mso-level-legacy:yes;
+	mso-level-legacy-indent:0in;
+	mso-level-legacy-space:.1in;
+	margin-left:0in;
+	text-indent:0in;}
+@list l0:level2
+	{mso-level-style-link:"Heading 2";
+	mso-level-text:"%1\.%2";
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	mso-level-legacy:yes;
+	mso-level-legacy-indent:0in;
+	mso-level-legacy-space:.1in;
+	margin-left:0in;
+	text-indent:0in;}
+@list l0:level3
+	{mso-level-style-link:"Heading 3";
+	mso-level-text:"%1\.%2\.%3";
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	mso-level-legacy:yes;
+	mso-level-legacy-indent:0in;
+	mso-level-legacy-space:.1in;
+	margin-left:0in;
+	text-indent:0in;}
+@list l0:level4
+	{mso-level-style-link:"Heading 4";
+	mso-level-text:"%1\.%2\.%3\.%4";
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	mso-level-legacy:yes;
+	mso-level-legacy-indent:0in;
+	mso-level-legacy-space:.1in;
+	margin-left:0in;
+	text-indent:0in;}
+@list l0:level5
+	{mso-level-style-link:"Heading 5";
+	mso-level-text:"%1\.%2\.%3\.%4\.%5";
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	mso-level-legacy:yes;
+	mso-level-legacy-indent:0in;
+	mso-level-legacy-space:.1in;
+	margin-left:0in;
+	text-indent:0in;}
+@list l0:level6
+	{mso-level-style-link:"Heading 6";
+	mso-level-text:"%1\.%2\.%3\.%4\.%5\.%6";
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	mso-level-legacy:yes;
+	mso-level-legacy-indent:0in;
+	mso-level-legacy-space:.1in;
+	margin-left:0in;
+	text-indent:0in;}
+@list l0:level7
+	{mso-level-style-link:"Heading 7";
+	mso-level-text:"%1\.%2\.%3\.%4\.%5\.%6\.%7";
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	mso-level-legacy:yes;
+	mso-level-legacy-indent:0in;
+	mso-level-legacy-space:.1in;
+	margin-left:0in;
+	text-indent:0in;}
+@list l0:level8
+	{mso-level-style-link:"Heading 8";
+	mso-level-text:"%1\.%2\.%3\.%4\.%5\.%6\.%7\.%8";
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	mso-level-legacy:yes;
+	mso-level-legacy-indent:0in;
+	mso-level-legacy-space:.1in;
+	margin-left:0in;
+	text-indent:0in;}
+@list l0:level9
+	{mso-level-style-link:"Heading 9";
+	mso-level-text:"%1\.%2\.%3\.%4\.%5\.%6\.%7\.%8\.%9";
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	mso-level-legacy:yes;
+	mso-level-legacy-indent:0in;
+	mso-level-legacy-space:.1in;
+	margin-left:0in;
+	text-indent:0in;}
+@list l1
+	{mso-list-id:213659529;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-1982976844 1447970654 1674226024 -1961079356 -733308336 -1905354542 1321083892 -1960312084 1846684728 -1402818364;}
+@list l1:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F034;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Webdings;}
+@list l1:level2
+	{mso-level-start-at:162;
+	mso-level-number-format:bullet;
+	mso-level-text:\F034;
+	mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Webdings;}
+@list l2
+	{mso-list-id:235937715;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-1193363144 67698703 67698713 67698715 67698703 67698713 67698715 67698703 67698713 67698715;}
+@list l2:level1
+	{mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	margin-left:1.0in;
+	text-indent:-.25in;}
+@list l3
+	{mso-list-id:340667608;
+	mso-list-template-ids:1107314480;}
+@list l3:level1
+	{mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	mso-level-legacy:yes;
+	mso-level-legacy-indent:0in;
+	mso-level-legacy-space:.1in;
+	margin-left:0in;
+	text-indent:0in;}
+@list l3:level2
+	{mso-level-text:"%1\.%2";
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	mso-level-legacy:yes;
+	mso-level-legacy-indent:0in;
+	mso-level-legacy-space:.1in;
+	margin-left:0in;
+	text-indent:0in;}
+@list l3:level3
+	{mso-level-start-at:2;
+	mso-level-number-format:bullet;
+	mso-level-text:-;
+	mso-level-tab-stop:.25in;
+	mso-level-number-position:left;
+	margin-left:.25in;
+	text-indent:-.25in;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+@list l3:level4
+	{mso-level-text:"%1\.%2\.%3\.%4";
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	mso-level-legacy:yes;
+	mso-level-legacy-indent:0in;
+	mso-level-legacy-space:.1in;
+	margin-left:0in;
+	text-indent:0in;}
+@list l3:level5
+	{mso-level-text:"%1\.%2\.%3\.%4\.%5";
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	mso-level-legacy:yes;
+	mso-level-legacy-indent:0in;
+	mso-level-legacy-space:.1in;
+	margin-left:0in;
+	text-indent:0in;}
+@list l3:level6
+	{mso-level-text:"%1\.%2\.%3\.%4\.%5\.%6";
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	mso-level-legacy:yes;
+	mso-level-legacy-indent:0in;
+	mso-level-legacy-space:.1in;
+	margin-left:0in;
+	text-indent:0in;}
+@list l3:level7
+	{mso-level-text:"%1\.%2\.%3\.%4\.%5\.%6\.%7";
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	mso-level-legacy:yes;
+	mso-level-legacy-indent:0in;
+	mso-level-legacy-space:.1in;
+	margin-left:0in;
+	text-indent:0in;}
+@list l3:level8
+	{mso-level-text:"%1\.%2\.%3\.%4\.%5\.%6\.%7\.%8";
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	mso-level-legacy:yes;
+	mso-level-legacy-indent:0in;
+	mso-level-legacy-space:.1in;
+	margin-left:0in;
+	text-indent:0in;}
+@list l3:level9
+	{mso-level-text:"%1\.%2\.%3\.%4\.%5\.%6\.%7\.%8\.%9";
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	mso-level-legacy:yes;
+	mso-level-legacy-indent:0in;
+	mso-level-legacy-space:.1in;
+	margin-left:0in;
+	text-indent:0in;}
+@list l4
+	{mso-list-id:380325936;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-134328694 -1943740330 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l4:level1
+	{mso-level-start-at:2;
+	mso-level-number-format:bullet;
+	mso-level-text:-;
+	mso-level-tab-stop:.75in;
+	mso-level-number-position:left;
+	margin-left:.75in;
+	text-indent:-.25in;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+@list l5
+	{mso-list-id:412240291;
+	mso-list-type:hybrid;
+	mso-list-template-ids:1542480360 -1943740330 67698689 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l5:level1
+	{mso-level-start-at:2;
+	mso-level-number-format:bullet;
+	mso-level-text:-;
+	mso-level-tab-stop:.75in;
+	mso-level-number-position:left;
+	margin-left:.75in;
+	text-indent:-.25in;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+@list l5:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:1.25in;
+	mso-level-number-position:left;
+	margin-left:1.25in;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l6
+	{mso-list-id:562982468;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-1712020154 67698705 67698713 67698715 67698703 67698713 67698715 67698703 67698713 67698715;}
+@list l6:level1
+	{mso-level-text:"%1\)";
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l7
+	{mso-list-id:607850901;
+	mso-list-type:hybrid;
+	mso-list-template-ids:1911829696 67698697 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l7:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F076;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Wingdings;}
+@list l8
+	{mso-list-id:653683854;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-2072622186 1353459602 1641168100 1067090476 1028936504 -117523596 -330661292 1539320466 -1862099380 1649335346;}
+@list l8:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\2212;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:"Times New Roman";}
+@list l8:level4
+	{mso-level-start-at:162;
+	mso-level-number-format:bullet;
+	mso-level-text:\2212;
+	mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:"Times New Roman";}
+@list l9
+	{mso-list-id:733283211;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-1228667898 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l9:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l10
+	{mso-list-id:828592953;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-1585525346 67698703 67698713 67698715 67698703 67698713 67698715 67698703 67698713 67698715;}
+@list l10:level1
+	{mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l10:level2
+	{mso-level-number-format:alpha-lower;
+	mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l11
+	{mso-list-id:830175790;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-282708470 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l11:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l12
+	{mso-list-id:871772597;
+	mso-list-type:hybrid;
+	mso-list-template-ids:1502019232 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l12:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l13
+	{mso-list-id:1058821221;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-533716350 712698490 -694523598 281172680 928708376 -11208144 -1977744680 -1739833718 -2098446350 -1575190700;}
+@list l13:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F034;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Webdings;}
+@list l13:level2
+	{mso-level-start-at:162;
+	mso-level-number-format:bullet;
+	mso-level-text:\F034;
+	mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Webdings;}
+@list l14
+	{mso-list-id:1104112197;
+	mso-list-type:hybrid;
+	mso-list-template-ids:1499621494 -436428390 489998086 -1322101344 1348772816 -124852694 1784079680 -2089514106 223354120 582646890;}
+@list l14:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F034;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Webdings;}
+@list l15
+	{mso-list-id:1520074130;
+	mso-list-type:hybrid;
+	mso-list-template-ids:1512109174 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l15:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l16
+	{mso-list-id:1939019511;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-2053978958 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l16:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.75in;
+	mso-level-number-position:left;
+	margin-left:.75in;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l16:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:1.25in;
+	mso-level-number-position:left;
+	margin-left:1.25in;
+	text-indent:-.25in;
+	font-family:"Courier New";}
+@list l17
+	{mso-list-id:1972323698;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-195923992 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l17:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+ol
+	{margin-bottom:0in;}
+ul
+	{margin-bottom:0in;}
+-->
+</style>
+<!--[if gte mso 10]>
+<style>
+ /* Style Definitions */
+ table.MsoNormalTable
+	{mso-style-name:"Table Normal";
+	mso-tstyle-rowband-size:0;
+	mso-tstyle-colband-size:0;
+	mso-style-noshow:yes;
+	mso-style-parent:"";
+	mso-padding-alt:0in 5.4pt 0in 5.4pt;
+	mso-para-margin:0in;
+	mso-para-margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:"Times New Roman";}
+</style>
+<![endif]--><!--[if gte mso 9]><xml>
+ <o:shapedefaults v:ext="edit" spidmax="3074"/>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <o:shapelayout v:ext="edit">
+  <o:idmap v:ext="edit" data="2"/>
+ </o:shapelayout></xml><![endif]-->
+</head>
+
+<body lang=EN-US link=blue vlink=purple style='tab-interval:.5in'>
+
+<div class=Section1></div>
+
+<span style='font-size:11.0pt;mso-bidi-font-size:10.0pt;font-family:"Times New Roman";
+mso-fareast-font-family:"Times New Roman";mso-ansi-language:EN-US;mso-fareast-language:
+EN-US;mso-bidi-language:AR-SA'><br clear=all style='page-break-before:always;
+mso-break-type:section-break'>
+</span>
+
+<div class=Section2><b style='mso-bidi-font-weight:normal'><span
+style='font-size:18.0pt;mso-bidi-font-size:10.0pt;font-family:Arial;mso-fareast-font-family:
+"Times New Roman";mso-bidi-font-family:"Times New Roman";mso-ansi-language:
+EN-US;mso-fareast-language:EN-US;mso-bidi-language:AR-SA'><br clear=all
+style='page-break-before:always'>
+</span></b>
+
+<p class=MsoTitle align=left style='text-align:left'><a name="_Toc425054503"></a><a
+name="_Toc423410237"><span style='mso-bookmark:_Toc425054503'>RMP-DL Layout
+Service Example Guide </span></a></p>
+
+<p class=MsoNormal><a name="_Toc425054504"></a><a name="_Toc423410238"><span
+style='mso-bookmark:_Toc425054504'><o:p>&nbsp;</o:p></span></a></p>
+
+<span style='mso-bookmark:_Toc425054504'></span><span style='mso-bookmark:_Toc423410238'></span>
+
+<h2><a name="_Toc104277134"><![if !supportLists]><span style='mso-fareast-font-family:
+Arial;mso-bidi-font-family:Arial'><span style='mso-list:Ignore'>1.1<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]>Introduction</a><o:p></o:p></h2>
+
+<p class=MsoNormal><span style='font-size:12.0pt'>This guide describes the RMP-DL
+Layout Service example in the SDK.<span style='mso-spacerun:yes'>  </span>This
+example demonstrates a how to create a custom provider for the Layout Service
+which can be invoked from with-in an RMP-DL editor.<o:p></o:p></span></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>Contents:</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoToc2 style='tab-stops:44.0pt right dotted 467.5pt'><!--[if supportFields]><span
+style='font-variant:normal !important;text-transform:uppercase;mso-bidi-font-weight:
+bold'><span style='mso-element:field-begin'></span><span
+style='mso-spacerun:yes'> </span>TOC \o &quot;1-3&quot; \h \z <span
+style='mso-element:field-separator'></span></span><![endif]--><span
+class=MsoHyperlink><span style='font-variant:normal !important;text-transform:
+uppercase;mso-no-proof:yes'><a href="#_Toc104277134">1.1<span style='font-size:
+12.0pt;color:windowtext;text-transform:none;text-decoration:none;text-underline:
+none'><span style='mso-tab-count:1'>       </span></span>Introduction<span
+style='color:windowtext;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'><span style='mso-tab-count:1 dotted'>.. </span></span><!--[if supportFields]><span
+style='color:windowtext;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'><span style='mso-element:field-begin'></span></span><span
+style='color:windowtext;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'> PAGEREF _Toc104277134 \h </span><span style='color:windowtext;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-element:field-separator'></span></span><![endif]--><span
+style='color:windowtext;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'>3</span><span style='color:windowtext;display:none;
+mso-hide:screen;text-decoration:none;text-underline:none'><!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000E0000005F0054006F0063003100300034003200370037003100330034000000</w:data>
+</xml><![endif]--></span><!--[if supportFields]><span style='color:windowtext;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-element:field-end'></span></span><![endif]--></a></span></span><span
+style='font-size:12.0pt;font-variant:normal !important;mso-no-proof:yes'><o:p></o:p></span></p>
+
+<p class=MsoToc2 style='tab-stops:44.0pt right dotted 467.5pt'><span
+class=MsoHyperlink><span style='font-variant:normal !important;text-transform:
+uppercase;mso-no-proof:yes'><a href="#_Toc104277135">1.2<span style='font-size:
+12.0pt;color:windowtext;text-transform:none;text-decoration:none;text-underline:
+none'><span style='mso-tab-count:1'>       </span></span>Description<span
+style='color:windowtext;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'><span style='mso-tab-count:1 dotted'>.. </span></span><!--[if supportFields]><span
+style='color:windowtext;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'><span style='mso-element:field-begin'></span></span><span
+style='color:windowtext;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'> PAGEREF _Toc104277135 \h </span><span style='color:windowtext;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-element:field-separator'></span></span><![endif]--><span
+style='color:windowtext;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'>3</span><span style='color:windowtext;display:none;
+mso-hide:screen;text-decoration:none;text-underline:none'><!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000E0000005F0054006F0063003100300034003200370037003100330035000000</w:data>
+</xml><![endif]--></span><!--[if supportFields]><span style='color:windowtext;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-element:field-end'></span></span><![endif]--></a></span></span><span
+style='font-size:12.0pt;font-variant:normal !important;mso-no-proof:yes'><o:p></o:p></span></p>
+
+<p class=MsoToc2 style='tab-stops:44.0pt right dotted 467.5pt'><span
+class=MsoHyperlink><span style='font-variant:normal !important;text-transform:
+uppercase;mso-no-proof:yes'><a href="#_Toc104277136">1.3<span style='font-size:
+12.0pt;color:windowtext;text-transform:none;text-decoration:none;text-underline:
+none'><span style='mso-tab-count:1'>       </span></span>Usage<span
+style='color:windowtext;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'><span style='mso-tab-count:1 dotted'>. </span></span><!--[if supportFields]><span
+style='color:windowtext;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'><span style='mso-element:field-begin'></span></span><span
+style='color:windowtext;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'> PAGEREF _Toc104277136 \h </span><span style='color:windowtext;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-element:field-separator'></span></span><![endif]--><span
+style='color:windowtext;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'>3</span><span style='color:windowtext;display:none;
+mso-hide:screen;text-decoration:none;text-underline:none'><!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000E0000005F0054006F0063003100300034003200370037003100330036000000</w:data>
+</xml><![endif]--></span><!--[if supportFields]><span style='color:windowtext;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-element:field-end'></span></span><![endif]--></a></span></span><span
+style='font-size:12.0pt;font-variant:normal !important;mso-no-proof:yes'><o:p></o:p></span></p>
+
+<p class=MsoNormal><!--[if supportFields]><span style='mso-bidi-font-size:12.0pt;
+text-transform:uppercase;mso-bidi-font-weight:bold'><span style='mso-element:
+field-end'></span></span><![endif]--><span style='mso-bidi-font-size:12.0pt;
+text-transform:uppercase;mso-bidi-font-weight:bold'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<h2><a name="_Toc104277135"><![if !supportLists]><span style='mso-fareast-font-family:
+Arial;mso-bidi-font-family:Arial'><span style='mso-list:Ignore'>1.2<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]>Description</a></h2>
+
+<p class=MsoNormal>This plug-in is named <span class=SpellE>org.eclipse.gmf.examples.runtime.diagram.layout</span>.
+<span style='mso-spacerun:yes'> </span>The purpose of the plug-in is <span
+class=GramE>provide</span> an action that invokes a custom layout.<span
+style='mso-spacerun:yes'>  </span>In this case the custom layout is called a “Square”
+layout which will calculate a square area based on the number of shapes and
+arrange the shapes in a grid with-in the calculated square.</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>The algorithm for this custom layout is defined inside a
+provider called “<span class=SpellE>SquareLayoutProvider</span>”.<span
+style='mso-spacerun:yes'>  </span>To register this provider, an extension for
+the <span class=SpellE>org.eclipse.gmf.runtime.diagram.ui.layoutProviders</span>
+extension point must be added to the <span class=SpellE>plugin.xml</span> file.</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><span class=GramE>i.e.</span> </p>
+
+<p class=MsoNormal style='line-height:normal;mso-pagination:widow-orphan;
+mso-layout-grid-align:none;text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New";color:black;background:white;mso-highlight:white'><span
+style='mso-spacerun:yes'>   </span></span><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy;background:white;mso-highlight:white'>&lt;extension</span><span
+style='font-size:10.0pt;font-family:"Courier New"'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='line-height:normal;mso-pagination:widow-orphan;
+mso-layout-grid-align:none;text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New";color:black;background:white;mso-highlight:white'><span
+style='mso-spacerun:yes'>         </span></span><span class=GramE><span
+style='font-size:10.0pt;font-family:"Courier New";color:navy;background:white;
+mso-highlight:white'>point</span></span><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy;background:white;mso-highlight:white'>=</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:green;background:white;
+mso-highlight:white'>&quot;<span class=SpellE>com.ibm.xtools.presentation.layoutProviders</span>&quot;</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:navy;background:white;
+mso-highlight:white'>&gt;</span><span style='font-size:10.0pt;font-family:"Courier New"'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='line-height:normal;mso-pagination:widow-orphan;
+mso-layout-grid-align:none;text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New";color:black;background:white;mso-highlight:white'><span
+style='mso-spacerun:yes'>      </span></span><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy;background:white;mso-highlight:white'>&lt;<span
+class=SpellE>layoutProvider</span></span><span style='font-size:10.0pt;
+font-family:"Courier New"'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='line-height:normal;mso-pagination:widow-orphan;
+mso-layout-grid-align:none;text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New";color:black;background:white;mso-highlight:white'><span
+style='mso-spacerun:yes'>   </span><span
+style='mso-spacerun:yes'>         </span></span><span class=GramE><span
+style='font-size:10.0pt;font-family:"Courier New";color:navy;background:white;
+mso-highlight:white'>class</span></span><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy;background:white;mso-highlight:white'>=</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:green;background:white;
+mso-highlight:white'>&quot;org.eclipse.gmf.examples.runtime.diagram.layout.provider.SquareLayoutProvider&quot;</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:navy;background:white;
+mso-highlight:white'>&gt;</span><span style='font-size:10.0pt;font-family:"Courier New"'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='line-height:normal;mso-pagination:widow-orphan;
+mso-layout-grid-align:none;text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New";color:black;background:white;mso-highlight:white'><span
+style='mso-spacerun:yes'>         </span></span><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy;background:white;mso-highlight:white'>&lt;Priority</span><span
+style='font-size:10.0pt;font-family:"Courier New"'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='line-height:normal;mso-pagination:widow-orphan;
+mso-layout-grid-align:none;text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New";color:black;background:white;mso-highlight:white'><span
+style='mso-spacerun:yes'>               </span></span><span class=GramE><span
+style='font-size:10.0pt;font-family:"Courier New";color:navy;background:white;
+mso-highlight:white'>name</span></span><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy;background:white;mso-highlight:white'>=</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:green;background:white;
+mso-highlight:white'>&quot;Medium&quot;</span><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy;background:white;mso-highlight:white'>&gt;</span><span
+style='font-size:10.0pt;font-family:"Courier New"'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='line-height:normal;mso-pagination:widow-orphan;
+mso-layout-grid-align:none;text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New";color:black;background:white;mso-highlight:white'><span
+style='mso-spacerun:yes'>         </span></span><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy;background:white;mso-highlight:white'>&lt;/Priority&gt;</span><span
+style='font-size:10.0pt;font-family:"Courier New"'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='line-height:normal;mso-pagination:widow-orphan;
+mso-layout-grid-align:none;text-autospace:none'><span style='font-size:10.0pt;
+font-family:"Courier New";color:black;background:white;mso-highlight:white'><span
+style='mso-spacerun:yes'>      </span></span><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy;background:white;mso-highlight:white'>&lt;/<span
+class=SpellE>layoutProvider</span>&gt;</span><span style='font-size:10.0pt;
+font-family:"Courier New";color:black;background:white;mso-highlight:white'> </span><span
+style='font-size:10.0pt;font-family:"Courier New"'><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:"Courier New";
+color:black;background:white;mso-highlight:white'><span
+style='mso-spacerun:yes'>   </span></span><span style='font-size:10.0pt;
+font-family:"Courier New";color:navy;background:white;mso-highlight:white'>&lt;/extension&gt;</span></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>If we examine the “<span class=SpellE>SquareLayoutProvider</span>”
+java class, in the provides() routine, it is merely checking to see if the
+nodes on the diagram can be laid-out according to the algorithm and also
+verifying that the layout type being passed through the <span class=SpellE>ILayoutNodesOperation</span>
+is of type “SQUARE_LAYOUT”.<span style='mso-spacerun:yes'>  </span>This check
+is necessary because we only want to invoke this layout when our specific
+action is called, not when a default arrange action is invoked.<span
+style='mso-spacerun:yes'>  </span></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>The <span class=SpellE><span class=GramE>layoutNodes</span></span><span
+class=GramE>(</span>…) routine is where the actual computation takes
+place.<span style='mso-spacerun:yes'>  </span>It returns a “<span class=SpellE>Runnable</span>”
+that performs the execution of the layout.</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><!--[if gte vml 1]><v:shapetype id="_x0000_t75" coordsize="21600,21600"
+ o:spt="75" o:preferrelative="t" path="m@4@5l@4@11@9@11@9@5xe" filled="f"
+ stroked="f">
+ <v:stroke joinstyle="miter"/>
+ <v:formulas>
+  <v:f eqn="if lineDrawn pixelLineWidth 0"/>
+  <v:f eqn="sum @0 1 0"/>
+  <v:f eqn="sum 0 0 @1"/>
+  <v:f eqn="prod @2 1 2"/>
+  <v:f eqn="prod @3 21600 pixelWidth"/>
+  <v:f eqn="prod @3 21600 pixelHeight"/>
+  <v:f eqn="sum @0 0 1"/>
+  <v:f eqn="prod @6 1 2"/>
+  <v:f eqn="prod @7 21600 pixelWidth"/>
+  <v:f eqn="sum @8 21600 0"/>
+  <v:f eqn="prod @7 21600 pixelHeight"/>
+  <v:f eqn="sum @10 21600 0"/>
+ </v:formulas>
+ <v:path o:extrusionok="f" gradientshapeok="t" o:connecttype="rect"/>
+ <o:lock v:ext="edit" aspectratio="t"/>
+</v:shapetype><v:shape id="_x0000_i1025" type="#_x0000_t75" style='width:639.75pt;
+ height:350.25pt'>
+ <v:imagedata src="RMP%20Diagram%20Layer%20Layout%20Service%20Example%20Guide_files/image003.emz"
+  o:title=""/>
+</v:shape><![endif]--><![if !vml]><img width=853 height=467
+src="RMP%20Diagram%20Layer%20Layout%20Service%20Example%20Guide_files/image004.gif"
+v:shapes="_x0000_i1025"><![endif]><o:p></o:p></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<h2><a name="_Toc104277136"><![if !supportLists]><span style='mso-fareast-font-family:
+Arial;mso-bidi-font-family:Arial'><span style='mso-list:Ignore'>1.3<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]>Usage</a></h2>
+
+<p class=MsoNormal style='text-indent:.25in'>Refer to this example if you need
+to understand:</p>
+
+<ul style='margin-top:0in' type=disc>
+ <li class=MsoNormal style='mso-list:l11 level1 lfo18;tab-stops:list .5in'>How
+     to create a custom layout provider that can be invoked through a specific
+     action.</li>
+ <li class=MsoNormal style='mso-list:l11 level1 lfo18;tab-stops:list .5in'>How
+     to create a manipulate shapes positions programmatically.<o:p></o:p></li>
+</ul>
+
+</div>
+
+</body>
+
+</html>

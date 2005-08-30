@@ -1,0 +1,1590 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns:st1="urn:schemas-microsoft-com:office:smarttags"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=iso-8859-1">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 10">
+<meta name=Originator content="Microsoft Word 10">
+<link rel=File-List href="Tutorial_files/filelist.xml">
+<link rel=Edit-Time-Data href="Tutorial_files/editdata.mso">
+<!--[if !mso]>
+<style>
+v\:* {behavior:url(#default#VML);}
+o\:* {behavior:url(#default#VML);}
+w\:* {behavior:url(#default#VML);}
+.shape {behavior:url(#default#VML);}
+</style>
+<![endif]-->
+<title>Tutorial: &amp;lt;&amp;lt;Feature Name&amp;gt;&amp;gt;</title>
+<o:SmartTagType namespaceuri="urn:schemas-microsoft-com:office:smarttags"
+ name="City"/>
+<o:SmartTagType namespaceuri="urn:schemas-microsoft-com:office:smarttags"
+ name="place"/>
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>jcorchis</o:Author>
+  <o:LastAuthor>jcorchis</o:LastAuthor>
+  <o:Revision>7</o:Revision>
+  <o:TotalTime>111</o:TotalTime>
+  <o:Created>2005-04-21T14:33:00Z</o:Created>
+  <o:LastSaved>2005-04-21T18:18:00Z</o:LastSaved>
+  <o:Pages>1</o:Pages>
+  <o:Words>636</o:Words>
+  <o:Characters>3627</o:Characters>
+  <o:Company>Rational Software</o:Company>
+  <o:Lines>30</o:Lines>
+  <o:Paragraphs>8</o:Paragraphs>
+  <o:CharactersWithSpaces>4255</o:CharactersWithSpaces>
+  <o:Version>10.6735</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:SpellingState>Clean</w:SpellingState>
+  <w:GrammarState>Clean</w:GrammarState>
+  <w:BrowserLevel>MicrosoftInternetExplorer4</w:BrowserLevel>
+ </w:WordDocument>
+</xml><![endif]--><!--[if !mso]><object
+ classid="clsid:38481807-CA0E-42D2-BF39-B33AF135CC4D" id=ieooui></object>
+<style>
+st1\:*{behavior:url(#ieooui) }
+</style>
+<![endif]-->
+<link rel=Stylesheet type="text/css" media=all href=technote.css>
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:Wingdings;
+	panose-1:5 0 0 0 0 0 0 0 0 0;
+	mso-font-charset:2;
+	mso-generic-font-family:auto;
+	mso-font-pitch:variable;
+	mso-font-signature:0 268435456 0 0 -2147483648 0;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-parent:"";
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+h1
+	{mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:1;
+	font-size:24.0pt;
+	font-family:"Times New Roman";
+	font-weight:bold;}
+h2
+	{mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:2;
+	font-size:18.0pt;
+	font-family:"Times New Roman";
+	font-weight:bold;}
+h3
+	{mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:3;
+	font-size:13.5pt;
+	font-style:italic;}
+a:link, span.MsoHyperlink
+	{color:blue;
+	text-decoration:underline;
+	text-underline:single;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:blue;
+	text-decoration:underline;
+	text-underline:single;}
+p
+	{mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+code
+	{font-family:"Courier New";
+	mso-ascii-font-family:"Courier New";
+	mso-fareast-font-family:"Times New Roman";
+	mso-hansi-font-family:"Courier New";
+	mso-bidi-font-family:"Courier New";}
+pre
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:24.0pt;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt;
+	font-size:10.0pt;
+	font-family:"Courier New";
+	mso-fareast-font-family:"Times New Roman";}
+p.notabene, li.notabene, div.notabene
+	{mso-style-name:notabene;
+	mso-margin-top-alt:auto;
+	margin-right:48.0pt;
+	mso-margin-bottom-alt:auto;
+	margin-left:48.0pt;
+	mso-pagination:widow-orphan;
+	border:none;
+	mso-border-top-alt:solid windowtext .75pt;
+	mso-border-bottom-alt:solid windowtext .75pt;
+	padding:0in;
+	mso-padding-alt:4.0pt 0in 4.0pt 0in;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+p.question, li.question, div.question
+	{mso-style-name:question;
+	mso-margin-top-alt:auto;
+	margin-right:48.0pt;
+	mso-margin-bottom-alt:auto;
+	margin-left:48.0pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";
+	font-style:italic;}
+p.backto, li.backto, div.backto
+	{mso-style-name:backto;
+	mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+span.SpellE
+	{mso-style-name:"";
+	mso-spl-e:yes;}
+span.GramE
+	{mso-style-name:"";
+	mso-gram-e:yes;}
+@page Section1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.25in 1.0in 1.25in;
+	mso-header-margin:35.4pt;
+	mso-footer-margin:35.4pt;
+	mso-paper-source:0;}
+div.Section1
+	{page:Section1;}
+ /* List Definitions */
+ @list l0
+	{mso-list-id:1754820217;
+	mso-list-template-ids:-806848416;}
+@list l0:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+ol
+	{margin-bottom:0in;}
+ul
+	{margin-bottom:0in;}
+-->
+</style>
+<!--[if gte mso 10]>
+<style>
+ /* Style Definitions */
+ table.MsoNormalTable
+	{mso-style-name:"Table Normal";
+	mso-tstyle-rowband-size:0;
+	mso-tstyle-colband-size:0;
+	mso-style-noshow:yes;
+	mso-style-parent:"";
+	mso-padding-alt:0in 5.4pt 0in 5.4pt;
+	mso-para-margin:0in;
+	mso-para-margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;}
+</style>
+<![endif]-->
+</head>
+
+<body lang=EN-US link=blue vlink=blue style='tab-interval:.5in'>
+
+<div class=Section1>
+
+<p class=MsoNormal><a name=top></a><img width=629 height=192 id="_x0000_i1025"
+src="../logo.gif" border=0></p>
+
+<h1 align=center style='text-align:center'>Tutorial: Creating a shape</h1>
+
+<table class=MsoNormalTable border=0 cellspacing=8 cellpadding=0
+ style='mso-cellspacing:6.0pt;margin-left:24.0pt'>
+ <tr style='mso-yfti-irow:0;mso-yfti-lastrow:yes'>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>Version: 0.1</p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>Date: July 13, 2005</p>
+  </td>
+ </tr>
+</table>
+
+<h2>Contents</h2>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:48.0pt;text-indent:-.25in;mso-list:l0 level1 lfo1;tab-stops:list .5in'><![if !supportLists]><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Symbol;
+mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol'><span
+style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'> </span></span></span><![endif]><a
+href="#_Overview">Overview</a></p>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:48.0pt;text-indent:-.25in;mso-list:l0 level1 lfo1;tab-stops:list .5in'><![if !supportLists]><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Symbol;
+mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol'><span
+style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'> </span></span></span><![endif]><a
+href="#_References">References</a></p>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:48.0pt;text-indent:-.25in;mso-list:l0 level1 lfo1;tab-stops:list .5in'><![if !supportLists]><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Symbol;
+mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol'><span
+style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'> </span></span></span><![endif]><a
+href="#_Introduction">Introduction</a></p>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:48.0pt;text-indent:-.25in;mso-list:l0 level1 lfo1;tab-stops:list .5in'><![if !supportLists]><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Symbol;
+mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol'><span
+style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'> </span></span></span><![endif]><a
+	href="#palette">Adding a new shape to the palette</a></p>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:48.0pt;text-indent:-.25in;mso-list:l0 level1 lfo1;tab-stops:list .5in'><![if !supportLists]><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Symbol;
+mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol'><span
+style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'> </span></span></span><![endif]><a
+	href="#semantic">Creating a semantic model element for the shape</a></p>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:48.0pt;text-indent:-.25in;mso-list:l0 level1 lfo1;tab-stops:list .5in'><![if !supportLists]><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Symbol;
+mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol'><span
+style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'> </span></span></span><![endif]><a
+	href="#notation">Creating the notation element for the shape</a></p>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:48.0pt;text-indent:-.25in;mso-list:l0 level1 lfo1;tab-stops:list .5in'><![if !supportLists]><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Symbol;
+mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol'><span
+style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'> </span></span></span><![endif]><a
+	href="#editpart">Creating the EditPart (controller) for the shape</a></p>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:48.0pt;text-indent:-.25in;mso-list:l0 level1 lfo1;tab-stops:list .5in'><![if !supportLists]><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Symbol;
+mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol'><span
+style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'> </span></span></span><![endif]><a
+	href="#display">Displaying the shape on the diagram surface</a></p><p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:48.0pt;text-indent:-.25in;mso-list:l0 level1 lfo1;tab-stops:list .5in'><![if !supportLists]><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Symbol;
+mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol'><span
+style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'> </span></span></span><![endif]><a
+	href="#summary">Summary</a></p>
+
+<div class=MsoNormal align=center style='text-align:center'>
+
+<hr size=2 width="100%" align=center></div>
+
+<h2><a name="_Overview"></a>Overview</h2>
+
+<p class=backto><span style='font-size:10.0pt'>[<a href="#top"><span
+class=GramE>back</span> to top</a>]</span></p>
+
+<p>This tutorial provides the reader with the steps to create a new shape within a diagram client. </p>
+
+<h2><a name="_References"></a>References</h2>
+
+<p class=backto><span style='font-size:10.0pt'>[<a href="#top"><span
+class=GramE>back</span> to top</a>]</span></p>
+
+This tutorial references the following extension points:<BR><DIV
+	style="border:solid windowtext 1.0pt;mso-border-alt:solid windowtext .75pt;
+padding:4.0pt 4.0pt 4.0pt 4.0pt;margin-left:48.0pt;margin-right:24.0pt"><PRE
+	style="margin-left:0in;border:none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 4.0pt 4.0pt 4.0pt"><SPAN
+	class="GramE"><SPAN style="color:navy">org.eclipse.gmf.runtime.diagram.ui.paletteProviders
+org.eclipse.gmf.runtime.emf.type.core.elementTypes
+org.eclipse.gmf.runtime.diagram.core.viewProviders
+org.eclipse.gmf.runtime.diagram.core.editpartProviders</SPAN></SPAN></PRE></DIV>
+
+<p>More information about these extension points can be found in the SDK documentation.</p>
+
+<h2><a name="_Introduction" href=""></a>Introduction</h2>
+
+<p class=backto><span style='font-size:10.0pt'>[<a href="#top"><span
+class=GramE>back</span> to top</a>]</span></p>
+
+<p>In this tutorial, we will use the Logic Diagram Example to illustrate how to create a shape that has semantic meaning and can be displayed on the diagram surface. To gain familiarity with the Logic Diagram Example, refer to the <A
+	href="../../examples-guide/diagram/logicExample.htm">Logic Example Guide</A>. </p>
+
+<H2><A name="palette">Adding a new shape to the palette</A></H2>
+
+<P class="backto"><SPAN style="font-size:10.0pt">[<A href="#top"><SPAN
+	class="GramE">back</SPAN> to top</A>]</SPAN><BR>
+<BR>
+In order to create a new
+shape in a diagram editor, then it is necessary to utilize the diagram
+layer?s service infrastructure that exposes some extension points that
+clients need to provide extensions to.<SPAN style="mso-spacerun:yes">  </SPAN>The
+initial entry point for this extensibility is through the palette
+service.<SPAN style="mso-spacerun:yes">  </SPAN>The palette service
+allows clients to add entries or drawers to an existing palette or
+create one for their own editor.<SPAN style="mso-spacerun:yes">  </SPAN>For
+a detailed description of the service infrastructure, please refer to:
+com.ibm.xtools.platform.doc.isv\html\tutorials\Service and Provider
+Tutorial.html.<BR>
+<BR>
+There are two main entry
+points to be concerned about when adding a palette item.<SPAN
+	style="mso-spacerun:yes">  </SPAN>The first is the descriptor code
+(plugin.xml) and then the provider code in java which the descriptor
+code is registering.<SPAN style="mso-spacerun:yes">  </SPAN>If we
+examine the descriptor code, the example is registering an extension for
+paletteProvider and then indicating the provider used is the
+DefaultPaletteProvider that is available from the base plug-ins.<SPAN
+	style="mso-spacerun:yes">  </SPAN>This provides the palette with some
+basic tools for selection, notes and text.<SPAN style="mso-spacerun:yes"> 
+</SPAN>If this is not desired then a new palette provider would have to
+be constructed. Next, the editor ID is necessary so that the palette can
+be contributed for a particular editor.<SPAN style="mso-spacerun:yes"> 
+</SPAN>Finally all the entries for defining the individual palette
+entries and drawers can be defined and a reference to the PaletteFactory
+which will construct the tools.<SPAN style="mso-spacerun:yes"><BR>
+<BR></SPAN>If we examine a particular
+shape in the Logic example plug-in (LED), we can see what is necessary
+to display that palette entry.<SPAN style="mso-spacerun:yes">  </SPAN>The
+drawer is defined separately as <SPAN class="GramE">it?s</SPAN> own
+&lt;entry&gt; in the &lt;contribution&gt; section.<SPAN
+	style="mso-spacerun:yes">  </SPAN>The individual palette entry is
+another &lt;entry&gt; that references the icons, text description and ID
+that the factory will use to instantiate the tool.<BR></P>
+
+<DIV
+	style="border:solid windowtext 1.0pt;mso-border-alt:solid windowtext .75pt;
+padding:4.0pt 4.0pt 4.0pt 4.0pt;margin-left:48.0pt;margin-right:24.0pt"><PRE
+	style="margin-left:0in;border:none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 4.0pt 4.0pt 4.0pt"><SPAN
+	class="GramE"><SPAN style="color:navy"></SPAN></SPAN></PRE><SPAN
+	style='font-size:8.0pt;font-family:"Courier New";
+color:black;background:white;mso-highlight:white'><SPAN
+	style="mso-spacerun:yes">   </SPAN></SPAN><SPAN
+	style='font-size:8.0pt;
+font-family:"Courier New";color:navy;background:white;mso-highlight:white'>&lt;/extension&gt;</SPAN><SPAN
+	style="mso-tab-count:1">    </SPAN>
+
+<P class="MsoNormal"
+	style="line-height:normal;mso-pagination:widow-orphan;
+mso-layout-grid-align:none;text-autospace:none"><SPAN
+	style='font-size:8.0pt;
+font-family:"Courier New";color:black;background:white;mso-highlight:white'><SPAN
+	style="mso-spacerun:yes">      </SPAN></SPAN><SPAN
+	style='font-size:8.0pt;
+font-family:"Courier New";color:navy;background:white;mso-highlight:white'>&lt;/paletteProvider&gt;</SPAN><SPAN
+	style='font-size:8.0pt;font-family:"Courier New"'><o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="line-height:normal;mso-pagination:widow-orphan;
+mso-layout-grid-align:none;text-autospace:none"><SPAN
+	style='font-size:8.0pt;
+font-family:"Courier New";color:black;background:white;mso-highlight:white'><SPAN
+	style="mso-spacerun:yes">         </SPAN></SPAN><SPAN
+	style='font-size:8.0pt;
+font-family:"Courier New";color:navy;background:white;mso-highlight:white'>&lt;/contribution&gt;</SPAN><SPAN
+	style='font-size:8.0pt;font-family:"Courier New"'><o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="line-height:normal;mso-pagination:widow-orphan;
+mso-layout-grid-align:none;text-autospace:none"><SPAN
+	style='font-size:8.0pt;
+font-family:"Courier New";color:black;background:white;mso-highlight:white'><SPAN
+	style="mso-spacerun:yes">         </SPAN><SPAN style="mso-spacerun:yes">   </SPAN></SPAN><SPAN
+	style='font-size:8.0pt;
+font-family:"Courier New";color:navy;background:white;mso-highlight:white'>&lt;/entry&gt;</SPAN><SPAN
+	style='font-size:8.0pt;font-family:"Courier New"'><o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="margin-left:1.5in;line-height:normal;mso-pagination:
+widow-orphan;mso-layout-grid-align:none;text-autospace:none"><SPAN
+	class="GramE"><SPAN
+	style='font-size:8.0pt;font-family:"Courier New";color:navy;background:white;
+mso-highlight:white'>id</SPAN></SPAN><SPAN
+	style='font-size:8.0pt;font-family:
+"Courier New";color:navy;background:white;mso-highlight:white'>=</SPAN><SPAN
+	style='font-size:8.0pt;font-family:"Courier New";color:green;background:white;
+mso-highlight:white'>&quot;LED&quot;</SPAN><SPAN
+	style='font-size:8.0pt;
+font-family:"Courier New";color:navy;background:white;mso-highlight:white'>&gt;</SPAN><SPAN
+	style='font-size:8.0pt;font-family:"Courier New"'><o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="margin-left:1.5in;line-height:normal;mso-pagination:
+widow-orphan;mso-layout-grid-align:none;text-autospace:none"><SPAN
+	style='font-size:8.0pt;font-family:"Courier New";color:navy;background:white;
+mso-highlight:white'>small_icon=</SPAN><SPAN
+	style='font-size:8.0pt;font-family:
+"Courier New";color:green;background:white;mso-highlight:white'>&quot;icons/ledicon16.gif&quot;</SPAN><SPAN
+	style='font-size:8.0pt;font-family:"Courier New";color:black;background:white;
+mso-highlight:white'>
+<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="margin-left:1.5in;line-height:normal;mso-pagination:
+widow-orphan;mso-layout-grid-align:none;text-autospace:none"><SPAN
+	class="GramE"><SPAN
+	style='font-size:8.0pt;font-family:"Courier New";color:navy;background:white;
+mso-highlight:white'>path</SPAN></SPAN><SPAN
+	style='font-size:8.0pt;font-family:
+"Courier New";color:navy;background:white;mso-highlight:white'>=</SPAN><SPAN
+	style='font-size:8.0pt;font-family:"Courier New";color:green;background:white;
+mso-highlight:white'>&quot;/logicDrawer/&quot;</SPAN><SPAN
+	style='font-size:
+8.0pt;font-family:"Courier New";color:black;background:white;mso-highlight:
+white'>
+<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="margin-left:1.5in;line-height:normal;mso-pagination:
+widow-orphan;mso-layout-grid-align:none;text-autospace:none"><SPAN
+	class="GramE"><SPAN
+	style='font-size:8.0pt;font-family:"Courier New";color:navy;background:white;
+mso-highlight:white'>kind</SPAN></SPAN><SPAN
+	style='font-size:8.0pt;font-family:
+"Courier New";color:navy;background:white;mso-highlight:white'>=</SPAN><SPAN
+	style='font-size:8.0pt;font-family:"Courier New";color:green;background:white;
+mso-highlight:white'>&quot;tool&quot;</SPAN><SPAN
+	style='font-size:8.0pt;
+font-family:"Courier New";color:black;background:white;mso-highlight:white'>
+</SPAN><SPAN
+	style='font-size:8.0pt;font-family:"Courier New";color:navy;background:white;
+mso-highlight:white'>description=</SPAN><SPAN
+	style='font-size:8.0pt;
+font-family:"Courier New";color:green;background:white;mso-highlight:white'>&quot;%LEDTool.Description&quot;</SPAN><SPAN
+	style='font-size:8.0pt;font-family:"Courier New";color:black;background:white;
+mso-highlight:white'>
+</SPAN><SPAN
+	style='font-size:8.0pt;font-family:"Courier New";
+color:navy;background:white;mso-highlight:white'>large_icon=</SPAN><SPAN
+	style='font-size:8.0pt;font-family:"Courier New";color:green;background:white;
+mso-highlight:white'>&quot;icons/ledicon24.gif&quot;</SPAN><SPAN
+	style='font-size:8.0pt;font-family:"Courier New";color:black;background:white;
+mso-highlight:white'>
+<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="line-height:normal;mso-pagination:widow-orphan;
+mso-layout-grid-align:none;text-autospace:none"><SPAN
+	style='font-size:8.0pt;
+font-family:"Courier New";color:black;background:white;mso-highlight:white'><SPAN
+	style="mso-spacerun:yes">            </SPAN></SPAN><SPAN
+	style='font-size:8.0pt;
+font-family:"Courier New";color:navy;background:white;mso-highlight:white'>&lt;entry</SPAN><SPAN
+	style='font-size:8.0pt;font-family:"Courier New";color:black;background:white;
+mso-highlight:white'>
+</SPAN><SPAN
+	style='font-size:8.0pt;font-family:"Courier New";
+color:navy;background:white;mso-highlight:white'>label=</SPAN><SPAN
+	style='font-size:8.0pt;font-family:"Courier New";color:green;background:white;
+mso-highlight:white'>&quot;%LEDTool.Label&quot;</SPAN><SPAN
+	style='font-size:
+8.0pt;font-family:"Courier New";color:black;background:white;mso-highlight:
+white'>
+<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="line-height:normal;mso-pagination:widow-orphan;
+mso-layout-grid-align:none;text-autospace:none"><SPAN
+	style='font-size:8.0pt;
+font-family:"Courier New";color:black;background:white;mso-highlight:white'><SPAN
+	style="mso-spacerun:yes">            </SPAN></SPAN><SPAN
+	style='font-size:8.0pt;
+font-family:"Courier New";color:navy;background:white;mso-highlight:white'>&lt;/entry&gt;</SPAN><SPAN
+	style='font-size:8.0pt;font-family:"Courier New"'><o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="line-height:normal;mso-pagination:widow-orphan;
+mso-layout-grid-align:none;text-autospace:none"><SPAN
+	style='font-size:8.0pt;
+font-family:"Courier New";color:black;background:white;mso-highlight:white'><SPAN
+	style="mso-spacerun:yes">               </SPAN><SPAN
+	style="mso-tab-count:1">      </SPAN></SPAN><SPAN
+	style='font-size:8.0pt;font-family:"Courier New";color:navy;background:white;
+mso-highlight:white'>&lt;/expand&gt;</SPAN><SPAN
+	style='font-size:8.0pt;
+font-family:"Courier New"'><o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="line-height:normal;mso-pagination:widow-orphan;
+mso-layout-grid-align:none;text-autospace:none"><SPAN
+	style='font-size:8.0pt;
+font-family:"Courier New";color:black;background:white;mso-highlight:white'><SPAN
+	style="mso-spacerun:yes">                  </SPAN><SPAN
+	style="mso-tab-count:
+2">         </SPAN></SPAN><SPAN
+	style='font-size:8.0pt;font-family:"Courier New";
+color:navy;background:white;mso-highlight:white'>&lt;/content&gt;</SPAN><SPAN
+	style='font-size:8.0pt;font-family:"Courier New"'><o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="line-height:normal;mso-pagination:widow-orphan;
+mso-layout-grid-align:none;text-autospace:none"><SPAN
+	style='font-size:8.0pt;
+font-family:"Courier New";color:black;background:white;mso-highlight:white'><SPAN
+	style="mso-spacerun:yes">                  </SPAN><SPAN
+	style="mso-tab-count:
+3">                </SPAN></SPAN><SPAN
+	class="GramE"><SPAN
+	style='font-size:8.0pt;
+font-family:"Courier New";color:maroon;background:white;mso-highlight:white'>&lt;!--</SPAN></SPAN><SPAN
+	style='font-size:8.0pt;font-family:"Courier New";color:maroon;background:white;
+mso-highlight:white'>
+expand by default for LogicEditors --&gt;</SPAN><SPAN
+	style='font-size:8.0pt;font-family:"Courier New"'><o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="line-height:normal;mso-pagination:widow-orphan;
+mso-layout-grid-align:none;text-autospace:none"><SPAN
+	style='font-size:8.0pt;
+font-family:"Courier New";color:black;background:white;mso-highlight:white'><SPAN
+	style="mso-spacerun:yes">                  </SPAN><SPAN
+	style="mso-tab-count:
+2">         </SPAN></SPAN><SPAN
+	style='font-size:8.0pt;font-family:"Courier New";
+color:navy;background:white;mso-highlight:white'>&lt;<SPAN
+	class="GramE">content</SPAN>&gt;</SPAN><SPAN
+	style='font-size:8.0pt;font-family:"Courier New"'><o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="line-height:normal;mso-pagination:widow-orphan;
+mso-layout-grid-align:none;text-autospace:none"><SPAN
+	style='font-size:8.0pt;
+font-family:"Courier New";color:black;background:white;mso-highlight:white'><SPAN
+	style="mso-spacerun:yes">               </SPAN><SPAN
+	style="mso-tab-count:1">      </SPAN></SPAN><SPAN
+	style='font-size:8.0pt;font-family:"Courier New";color:navy;background:white;
+mso-highlight:white'>&lt;<SPAN
+	class="GramE">expand</SPAN>&gt;</SPAN><SPAN
+	style='font-size:8.0pt;font-family:"Courier New"'><o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="margin-left:1.0in;text-indent:.5in;line-height:normal;
+mso-pagination:widow-orphan;mso-layout-grid-align:none;text-autospace:none"><SPAN
+	class="GramE"><SPAN
+	style='font-size:8.0pt;font-family:"Courier New";color:navy;
+background:white;mso-highlight:white'>id</SPAN></SPAN><SPAN
+	style='font-size:
+8.0pt;font-family:"Courier New";color:navy;background:white;mso-highlight:white'>=</SPAN><SPAN
+	style='font-size:8.0pt;font-family:"Courier New";color:green;background:white;
+mso-highlight:white'>&quot;logicDrawer&quot;</SPAN><SPAN
+	style='font-size:8.0pt;
+font-family:"Courier New";color:navy;background:white;mso-highlight:white'>&gt;</SPAN><SPAN
+	style='font-size:8.0pt;font-family:"Courier New"'><o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="margin-left:1.0in;text-indent:.5in;line-height:normal;
+mso-pagination:widow-orphan;mso-layout-grid-align:none;text-autospace:none"><SPAN
+	style='font-size:8.0pt;font-family:"Courier New";color:navy;background:white;
+mso-highlight:white'>small_icon=</SPAN><SPAN
+	style='font-size:8.0pt;font-family:
+"Courier New";color:green;background:white;mso-highlight:white'>&quot;icons/comp.gif&quot;</SPAN><SPAN
+	style='font-size:8.0pt;font-family:"Courier New";color:black;background:white;
+mso-highlight:white'>
+<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="margin-left:1.0in;text-indent:.5in;line-height:normal;
+mso-pagination:widow-orphan;mso-layout-grid-align:none;text-autospace:none"><SPAN
+	class="GramE"><SPAN
+	style='font-size:8.0pt;font-family:"Courier New";color:navy;
+background:white;mso-highlight:white'>path</SPAN></SPAN><SPAN
+	style='font-size:
+8.0pt;font-family:"Courier New";color:navy;background:white;mso-highlight:white'>=</SPAN><SPAN
+	style='font-size:8.0pt;font-family:"Courier New";color:green;background:white;
+mso-highlight:white'>&quot;/&quot;</SPAN><SPAN
+	style='font-size:8.0pt;
+font-family:"Courier New";color:black;background:white;mso-highlight:white'>
+<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="margin-left:1.0in;text-indent:.5in;line-height:normal;
+mso-pagination:widow-orphan;mso-layout-grid-align:none;text-autospace:none"><SPAN
+	class="GramE"><SPAN
+	style='font-size:8.0pt;font-family:"Courier New";color:navy;
+background:white;mso-highlight:white'>description</SPAN></SPAN><SPAN
+	style='font-size:8.0pt;font-family:"Courier New";color:navy;background:white;
+mso-highlight:white'>=</SPAN><SPAN
+	style='font-size:8.0pt;font-family:"Courier New";
+color:green;background:white;mso-highlight:white'>&quot;%LogicDrawer.Description&quot;</SPAN><SPAN
+	style='font-size:8.0pt;font-family:"Courier New";color:black;background:white;
+mso-highlight:white'>
+<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="margin-left:1.0in;text-indent:.5in;line-height:normal;
+mso-pagination:widow-orphan;mso-layout-grid-align:none;text-autospace:none"><SPAN
+	class="GramE"><SPAN
+	style='font-size:8.0pt;font-family:"Courier New";color:navy;
+background:white;mso-highlight:white'>kind</SPAN></SPAN><SPAN
+	style='font-size:
+8.0pt;font-family:"Courier New";color:navy;background:white;mso-highlight:white'>=</SPAN><SPAN
+	style='font-size:8.0pt;font-family:"Courier New";color:green;background:white;
+mso-highlight:white'>&quot;drawer&quot;</SPAN><SPAN
+	style='font-size:8.0pt;
+font-family:"Courier New";color:black;background:white;mso-highlight:white'>
+<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="line-height:normal;mso-pagination:widow-orphan;
+mso-layout-grid-align:none;text-autospace:none"><SPAN
+	style='font-size:8.0pt;
+font-family:"Courier New";color:black;background:white;mso-highlight:white'><SPAN
+	style="mso-spacerun:yes">            </SPAN></SPAN><SPAN
+	style='font-size:8.0pt;
+font-family:"Courier New";color:navy;background:white;mso-highlight:white'>&lt;entry</SPAN><SPAN
+	style='font-size:8.0pt;font-family:"Courier New";color:black;background:white;
+mso-highlight:white'>
+</SPAN><SPAN
+	style='font-size:8.0pt;font-family:"Courier New";
+color:navy;background:white;mso-highlight:white'>label=</SPAN><SPAN
+	style='font-size:8.0pt;font-family:"Courier New";color:green;background:white;
+mso-highlight:white'>&quot;%LogicDrawer.Label&quot;</SPAN><SPAN
+	style='font-size:8.0pt;font-family:"Courier New";color:black;background:white;
+mso-highlight:white'>
+<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="line-height:normal;mso-pagination:widow-orphan;
+mso-layout-grid-align:none;text-autospace:none"><SPAN
+	style='font-size:8.0pt;
+font-family:"Courier New";color:black;background:white;mso-highlight:white'><SPAN
+	style="mso-spacerun:yes">         </SPAN></SPAN><SPAN
+	style='font-size:8.0pt;
+font-family:"Courier New";color:navy;background:white;mso-highlight:white'>&lt;contribution</SPAN><SPAN
+	style='font-size:8.0pt;font-family:"Courier New";color:black;background:white;
+mso-highlight:white'>
+</SPAN><SPAN
+	style='font-size:8.0pt;font-family:"Courier New";
+color:navy;background:white;mso-highlight:white'>factoryClass=</SPAN><SPAN
+	style='font-size:8.0pt;font-family:"Courier New";color:green;background:white;
+mso-highlight:white'>&quot;org.eclipse.gmf.examples.runtime.diagram.logic.internal.providers.LogicPaletteFactory&quot;</SPAN><SPAN
+	style='font-size:8.0pt;font-family:"Courier New";color:navy;background:white;
+mso-highlight:white'>&gt;</SPAN><SPAN
+	style='font-size:8.0pt;font-family:"Courier New"'><o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="line-height:normal;mso-pagination:widow-orphan;
+mso-layout-grid-align:none;text-autospace:none"><SPAN
+	style='font-size:8.0pt;
+font-family:"Courier New";color:black;background:white;mso-highlight:white'><SPAN
+	style="mso-spacerun:yes">         </SPAN></SPAN><SPAN class="GramE"><SPAN
+	style='font-size:8.0pt;font-family:"Courier New";color:maroon;background:white;
+mso-highlight:white'>&lt;!--</SPAN></SPAN><SPAN
+	style='font-size:8.0pt;
+font-family:"Courier New";color:maroon;background:white;mso-highlight:white'><SPAN
+	style="mso-spacerun:yes">   </SPAN>class=&amp;quot;org.eclipse.gmf.runtime.diagram.ui.parts.IDiagramWorkbenchPart&amp;quot;--&gt;</SPAN><SPAN
+	style='font-size:8.0pt;font-family:"Courier New"'><o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="line-height:normal;mso-pagination:widow-orphan;
+mso-layout-grid-align:none;text-autospace:none"><SPAN
+	style='font-size:8.0pt;
+font-family:"Courier New";color:black;background:white;mso-highlight:white'><SPAN
+	style="mso-spacerun:yes">         </SPAN></SPAN><SPAN
+	style='font-size:8.0pt;
+font-family:"Courier New";color:navy;background:white;mso-highlight:white'>&lt;/editor&gt;</SPAN><SPAN
+	style='font-size:8.0pt;font-family:"Courier New"'><o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="line-height:normal;mso-pagination:widow-orphan;
+mso-layout-grid-align:none;text-autospace:none"><SPAN
+	style='font-size:8.0pt;
+font-family:"Courier New";color:black;background:white;mso-highlight:white'><SPAN
+	style="mso-spacerun:yes">         </SPAN></SPAN><SPAN
+	style='font-size:8.0pt;
+font-family:"Courier New";color:navy;background:white;mso-highlight:white'>&lt;editor</SPAN><SPAN
+	style='font-size:8.0pt;font-family:"Courier New";color:black;background:white;
+mso-highlight:white'>
+</SPAN><SPAN
+	style='font-size:8.0pt;font-family:"Courier New";
+color:navy;background:white;mso-highlight:white'>id=</SPAN><SPAN
+	style='font-size:8.0pt;font-family:"Courier New";color:green;background:white;
+mso-highlight:white'>&quot;LogicEditor&quot;</SPAN><SPAN
+	style='font-size:8.0pt;
+font-family:"Courier New";color:navy;background:white;mso-highlight:white'>&gt;</SPAN><SPAN
+	style='font-size:8.0pt;font-family:"Courier New"'><o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="line-height:normal;mso-pagination:widow-orphan;
+mso-layout-grid-align:none;text-autospace:none"><SPAN
+	style='font-size:8.0pt;
+font-family:"Courier New";color:black;background:white;mso-highlight:white'><SPAN
+	style="mso-spacerun:yes">         </SPAN></SPAN><SPAN
+	style='font-size:8.0pt;
+font-family:"Courier New";color:navy;background:white;mso-highlight:white'>&lt;/Priority&gt;</SPAN><SPAN
+	style='font-size:8.0pt;font-family:"Courier New"'><o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="line-height:normal;mso-pagination:widow-orphan;
+mso-layout-grid-align:none;text-autospace:none"><SPAN
+	style='font-size:8.0pt;
+font-family:"Courier New";color:black;background:white;mso-highlight:white'><SPAN
+	style="mso-spacerun:yes">         </SPAN></SPAN><SPAN
+	style='font-size:8.0pt;
+font-family:"Courier New";color:navy;background:white;mso-highlight:white'>&lt;Priority</SPAN><SPAN
+	style='font-size:8.0pt;font-family:"Courier New";color:black;background:white;
+mso-highlight:white'>
+</SPAN><SPAN
+	style='font-size:8.0pt;font-family:"Courier New";
+color:navy;background:white;mso-highlight:white'>name=</SPAN><SPAN
+	style='font-size:8.0pt;font-family:"Courier New";color:green;background:white;
+mso-highlight:white'>&quot;Low&quot;</SPAN><SPAN
+	style='font-size:8.0pt;
+font-family:"Courier New";color:navy;background:white;mso-highlight:white'>&gt;</SPAN><SPAN
+	style='font-size:8.0pt;font-family:"Courier New"'><o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="line-height:normal;mso-pagination:widow-orphan;
+mso-layout-grid-align:none;text-autospace:none"><SPAN
+	style='font-size:8.0pt;
+font-family:"Courier New";color:black;background:white;mso-highlight:white'><SPAN
+	style="mso-spacerun:yes">      </SPAN></SPAN><SPAN
+	style='font-size:8.0pt;
+font-family:"Courier New";color:navy;background:white;mso-highlight:white'>&lt;paletteProvider</SPAN><SPAN
+	style='font-size:8.0pt;font-family:"Courier New";color:black;background:white;
+mso-highlight:white'>
+</SPAN><SPAN
+	style='font-size:8.0pt;font-family:"Courier New";
+color:navy;background:white;mso-highlight:white'>class=</SPAN><SPAN
+	style='font-size:8.0pt;font-family:"Courier New";color:green;background:white;
+mso-highlight:white'>&quot;org.eclipse.gmf.runtime.diagram.ui.providers.internal.DefaultPaletteProvider&quot;</SPAN><SPAN
+	style='font-size:8.0pt;font-family:"Courier New";color:navy;background:white;
+mso-highlight:white'>&gt;</SPAN><SPAN
+	style='font-size:8.0pt;font-family:"Courier New"'><o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="line-height:normal;mso-pagination:widow-orphan;
+mso-layout-grid-align:none;text-autospace:none"><SPAN
+	style='font-size:8.0pt;
+font-family:"Courier New";color:navy;background:white;mso-highlight:white'>&lt;extension</SPAN><SPAN
+	style='font-size:8.0pt;font-family:"Courier New";color:black;background:white;
+mso-highlight:white'>
+</SPAN><SPAN
+	style='font-size:8.0pt;font-family:"Courier New";
+color:navy;background:white;mso-highlight:white'>point=</SPAN><SPAN
+	style='font-size:8.0pt;font-family:"Courier New";color:green;background:white;
+mso-highlight:white'>&quot;org.eclipse.gmf.runtime.diagram.ui.paletteProviders&quot;</SPAN><SPAN
+	style='font-size:8.0pt;font-family:"Courier New";color:navy;background:white;
+mso-highlight:white'>&gt;</SPAN><SPAN
+	style='font-size:8.0pt;font-family:"Courier New"'><o:p></o:p><BR>&lt;/extension&gt;
+</SPAN></P>
+</DIV><P
+	class="MsoNormal"
+	style="line-height:normal;mso-pagination:widow-orphan;
+mso-layout-grid-align:none;text-autospace:none"><SPAN
+	style='font-size:8.0pt;
+font-family:"Courier New";color:black;background:white;mso-highlight:white'><SPAN
+	style="mso-spacerun:yes"> </SPAN></SPAN><SPAN
+	style='font-size:8.0pt;
+font-family:"Courier New";color:navy;background:white;mso-highlight:white'></SPAN></P><P class="MsoNormal"><SPAN
+	style='font-size:8.0pt;font-family:"Courier New";
+color:black;background:white;mso-highlight:white'><SPAN
+	style="mso-spacerun:yes"> </SPAN></SPAN><SPAN
+	style="mso-tab-count:1">      </SPAN></P>
+
+<H3 class="MsoNormal"><A name="_Toc104273235">  Logic example
+palette</A>:</H3>
+<P class="MsoNormal"><A name="_Toc104273235"><IMG border="0" src="palette.jpg" width="495" height="201"></A></P>
+
+<P class="MsoNormal"></P>
+<H3 class="MsoNormal"><SPAN style="mso-bookmark:_Toc104273236">Add new
+shape tool instrumented from a palette factory class.</SPAN><BR></H3><P class="MsoNormal">Once the descriptor code is instrumented, then the
+next step is to create the palette factory that will create the
+appropriate tool based on the ID defined in the plugin.xml &lt;entry&gt;
+tag section.<SPAN style="mso-spacerun:yes">  </SPAN>The palette factory
+is specified via the ?factoryClass? tag in the paletteProviders
+extension xml descriptor inside the ?contribution? for the palette
+provider.<SPAN style="mso-spacerun:yes">  </SPAN>The factory class is a
+java class that extends PaletteFactory.Adapter and implements the
+createTool method.<SPAN style="mso-spacerun:yes">  </SPAN>If we consider
+our example above, where we are trying to create the LED element<SPAN
+	class="GramE">,<SPAN style="mso-spacerun:yes">  </SPAN>the</SPAN>
+LogicPaletteFactory class demonstrates how to accomplish this.<SPAN
+	style="mso-spacerun:yes">  </SPAN>Given the semantic ID defined in the
+?id? entry, i.e. ?LED?<SPAN class="GramE">,<SPAN
+	style="mso-spacerun:yes">  </SPAN>it</SPAN> will create a tool that
+wraps that ID which is used later to decide which notation and semantic
+elements to create when the tool is invoked.<SPAN
+	style="mso-spacerun:yes">  </SPAN>There are two main types of tools
+clients <SPAN class="GramE">need can</SPAN> incarnate to create shapes.<SPAN
+	style="mso-spacerun:yes">  </SPAN><SPAN class="GramE">The<SPAN
+	style="mso-spacerun:yes">  </SPAN>CreationTool</SPAN> class is used to
+create shapes or nodes on the diagram surface or the
+ConnectorCreationTool class which is used to create connections or edges
+between shapes.<SPAN style="mso-spacerun:yes">  </SPAN>In the case of
+our example, the LED is a shape so we will use the CreationTool.<BR>
+<BR>
+<SPAN class="GramE">i.e</SPAN>. <SPAN
+	style='font-size:10.0pt;font-family:"Courier New"'>new
+CreationTool(LogicSemanticType.LED)<SPAN style="mso-spacerun:yes">  </SPAN><o:p></o:p></SPAN><BR>
+<BR>
+These tools are fairly simple and no subclassing of these base tools
+should be necessary.<SPAN style="mso-spacerun:yes">  </SPAN>They merely
+delegate creation to other services to create the notation and semantic
+elements that the ID represents.<SPAN style="mso-spacerun:yes">  </SPAN>This
+creation is delegated through a request that is handled by the element
+type infrastructure <BR>
+</P>
+<H2><SPAN class="GramE"><SPAN style="mso-bookmark:
+_Toc104273237"><A name="semantic">Creating a semantic model element for
+the shape</A>.</SPAN></SPAN></H2>
+<SPAN style="font-size:10.0pt">[<A href="#top"><SPAN class="GramE">back</SPAN>
+to top</A>]</SPAN><BR>
+<SPAN style="mso-bookmark:_Toc104273237"></SPAN><BR>
+Generally the purpose of a
+diagram editor is to allow a visual representation of some semantic data
+to allow it to be conveyed in a clear and intuitive manner to the user.<SPAN
+	style="mso-spacerun:yes">  </SPAN>The logic example is an editor that
+is representing the schematics of a circuit board or transistor.<SPAN
+	style="mso-spacerun:yes">  </SPAN>The model that represents that is
+separate from the notation that is displayed on the diagram.<SPAN
+	style="mso-spacerun:yes">  </SPAN>Consequently it is useful to define a
+semantic model if there was a need to code generate or ?burn? the logic
+onto a board.<SPAN style="mso-spacerun:yes">  </SPAN>To accomplish this,
+we defined an ecore model and used EMF to code <SPAN class="GramE">generate</SPAN>
+a meta-model.
+
+<P class="MsoNormal" style="margin-left:.5in"><o:p>&nbsp;</o:p></P>
+
+<H3><A name="_Toc104273238">Logic semantic model:<BR>
+</A><IMG
+	width="623" height="294"
+	src="logicSemantic.gif"
+	v:shapes="_x0000_i1026"><BR>
+</H3>
+<P>Once the semantic model is created, then there is the matter of how to
+create and manipulate these elements in the context of the diagram
+editor.<SPAN style="mso-spacerun:yes">  </SPAN>The RMP common layer has
+an extension-point for defining element types and helper classes that
+allow for editing of these declared types called
+?org.eclipse.gmf.runtime.emf.type.core.elementTypes?.<SPAN style="mso-spacerun:yes"> 
+</SPAN>When a client provides an extension for this extension point,
+they are declaring a set of elements that the editor supports and hooks
+via these helper classes for editing these elements.<SPAN
+	style="mso-spacerun:yes">  </SPAN>The general mechanism is that the
+tool sends a ?request? through the EditPart hierarchy.<SPAN
+	style="mso-spacerun:yes">  </SPAN>The SemanticEditPolicy picks up the
+request and gets the appropriate IMetamodelType that is used to retrieve
+the edit command.<SPAN style="mso-spacerun:yes">  </SPAN><BR>
+<BR>
+Create the set <SPAN class="GramE">of<SPAN style="mso-spacerun:yes">  </SPAN>element</SPAN>
+types in the plugin.xml that represent the different elements that can
+be created in your editor.<SPAN style="mso-spacerun:yes">  </SPAN>In the
+case of the Logic editor:</P>
+<P class="MsoNormal" style="margin-left:.5in"></P><DIV
+	style="border:solid windowtext 1.0pt;mso-border-alt:solid windowtext .75pt;
+padding:4.0pt 4.0pt 4.0pt 4.0pt;margin-left:48.0pt;margin-right:24.0pt" align="left">
+<P class="MsoNormal"
+	style="margin-left:.75in;line-height:normal;mso-pagination:
+widow-orphan;mso-layout-grid-align:none;text-autospace:none"><SPAN
+	style='font-size:8.0pt;font-family:"Courier New";color:navy;background:white;
+mso-highlight:white'>&lt;extension</SPAN><SPAN
+	style='font-size:8.0pt;
+font-family:"Courier New";color:black;background:white;mso-highlight:white'>
+</SPAN><SPAN
+	style='font-size:8.0pt;font-family:"Courier New";color:navy;background:white;
+mso-highlight:white'>point=</SPAN><SPAN
+	style='font-size:8.0pt;font-family:
+"Courier New";color:green;background:white;mso-highlight:white'>&quot;org.eclipse.gmf.runtime.emf.type.core.elementTypes&quot;</SPAN><SPAN
+	style='font-size:8.0pt;font-family:"Courier New";color:navy;background:white;
+mso-highlight:white'>&gt;</SPAN></P>
+
+<P class="MsoNormal"
+	style="margin-left:.75in;text-indent:.25in;line-height:normal;
+mso-pagination:widow-orphan;mso-layout-grid-align:none;text-autospace:none"><SPAN
+	style='font-size:8.0pt;font-family:"Courier New";color:navy;background:white;
+mso-highlight:white'>&lt;metamodel</SPAN></P>
+
+<P class="MsoNormal"
+	style="margin-left:.75in;line-height:normal;mso-pagination:
+widow-orphan;mso-layout-grid-align:none;text-autospace:none"><SPAN
+	style='font-size:8.0pt;font-family:"Courier New";color:black;background:white;
+mso-highlight:white'><SPAN
+	style="mso-spacerun:yes">    </SPAN><SPAN style="mso-tab-count:1">     
+</SPAN></SPAN><SPAN
+	style='font-size:8.0pt;
+font-family:"Courier New";color:navy;background:white;mso-highlight:white'>nsURI=</SPAN><SPAN
+	style='font-size:8.0pt;font-family:"Courier New";color:green;background:white;
+mso-highlight:white'>&quot;http://www.ibm.com/xtools/1.5.0/logicsemantic&quot;</SPAN><SPAN
+	style='font-size:8.0pt;font-family:"Courier New";color:navy;background:white;
+mso-highlight:white'>&gt;</SPAN><SPAN
+	style='font-size:8.0pt;font-family:"Courier New"'></SPAN></P>
+
+<P class="MsoNormal"
+	style="margin-left:.75in;line-height:normal;mso-pagination:
+widow-orphan;mso-layout-grid-align:none;text-autospace:none"><SPAN
+	style='font-size:8.0pt;font-family:"Courier New";color:black;background:white;
+mso-highlight:white'><SPAN
+	style="mso-spacerun:yes">    </SPAN><SPAN style="mso-tab-count:1">     
+</SPAN></SPAN><SPAN
+	style='font-size:8.0pt;
+font-family:"Courier New";color:navy;background:white;mso-highlight:white'>&lt;metamodelType</SPAN></P>
+
+<P class="MsoNormal"
+	style="margin-left:.75in;line-height:normal;mso-pagination:
+widow-orphan;mso-layout-grid-align:none;text-autospace:none"><SPAN
+	style='font-size:8.0pt;font-family:"Courier New";color:black;background:white;
+mso-highlight:white'><SPAN
+	style="mso-spacerun:yes">           </SPAN><SPAN
+	style="mso-tab-count:2">             </SPAN><SPAN class="GramE">i<SPAN
+	style="color:navy">d</SPAN></SPAN></SPAN><SPAN
+	style='font-size:8.0pt;
+font-family:"Courier New";color:navy;background:white;mso-highlight:white'>=</SPAN><SPAN
+	style='font-size:8.0pt;font-family:"Courier New";color:green;background:white;
+mso-highlight:white'>&quot;org.eclipse.gmf.examples.runtime.diagram.logic.model&quot;</SPAN><SPAN
+	style='font-size:8.0pt;font-family:"Courier New"'></SPAN></P>
+
+<P class="MsoNormal"
+	style="margin-left:2.0in;line-height:normal;mso-pagination:
+widow-orphan;mso-layout-grid-align:none;text-autospace:none"><SPAN
+	class="GramE"><SPAN
+	style='font-size:8.0pt;font-family:"Courier New";color:navy;background:white;
+mso-highlight:white'>eclass</SPAN></SPAN><SPAN
+	style='font-size:8.0pt;
+font-family:"Courier New";color:navy;background:white;mso-highlight:white'>=</SPAN><SPAN
+	style='font-size:8.0pt;font-family:"Courier New";color:green;background:white;
+mso-highlight:white'>&quot;Model&quot;</SPAN><SPAN
+	style='font-size:8.0pt;
+font-family:"Courier New";color:black;background:white;mso-highlight:white'><SPAN
+	style="mso-spacerun:yes">          <BR>
+</SPAN></SPAN><SPAN
+	style='font-size:8.0pt;
+font-family:"Courier New";color:navy;background:white;mso-highlight:white'>edithelper=</SPAN><SPAN
+	style='font-size:8.0pt;font-family:"Courier New";color:green;background:white;
+mso-highlight:white'>&quot;org.eclipse.gmf.examples.runtime.diagram.logic.internal.edithelpers.ContainerElementEditHelper&quot;</SPAN><SPAN
+	style='font-size:8.0pt;font-family:"Courier New";color:navy;background:white;
+mso-highlight:white'>&gt;</SPAN><SPAN
+	style='font-size:8.0pt;font-family:"Courier New"'></SPAN></P>
+
+<P class="MsoNormal"
+	style="margin-left:.75in;line-height:normal;mso-pagination:
+widow-orphan;mso-layout-grid-align:none;text-autospace:none"><SPAN
+	style='font-size:8.0pt;font-family:"Courier New";color:black;background:white;
+mso-highlight:white'><SPAN
+	style="mso-spacerun:yes">           </SPAN></SPAN><SPAN
+	style='font-size:8.0pt;font-family:"Courier New";color:navy;background:white;
+mso-highlight:white'>&lt;/metamodelType&gt;</SPAN><SPAN
+	style='font-size:8.0pt;
+font-family:"Courier New"'></SPAN></P>
+
+<P class="MsoNormal"
+	style="margin-left:.75in;line-height:normal;mso-pagination:
+widow-orphan;mso-layout-grid-align:none;text-autospace:none"><SPAN
+	style='font-size:8.0pt;font-family:"Courier New";color:black;background:white;
+mso-highlight:white'><SPAN
+	style="mso-spacerun:yes">           </SPAN></SPAN><SPAN
+	style='font-size:8.0pt;font-family:"Courier New";color:navy;background:white;
+mso-highlight:white'>&lt;metamodelType</SPAN><SPAN
+	style='font-size:8.0pt;
+font-family:"Courier New"'></SPAN></P>
+
+<P class="MsoNormal"
+	style="margin-left:.75in;line-height:normal;mso-pagination:
+widow-orphan;mso-layout-grid-align:none;text-autospace:none"><SPAN
+	style='font-size:8.0pt;font-family:"Courier New";color:black;background:white;
+mso-highlight:white'><SPAN
+	style="mso-spacerun:yes">                   </SPAN></SPAN><SPAN
+	class="GramE"><SPAN
+	style='font-size:8.0pt;font-family:"Courier New";color:navy;
+background:white;mso-highlight:white'>id</SPAN></SPAN><SPAN
+	style='font-size:
+8.0pt;font-family:"Courier New";color:navy;background:white;mso-highlight:white'>=</SPAN><SPAN
+	style='font-size:8.0pt;font-family:"Courier New";color:green;background:white;
+mso-highlight:white'>&quot;logic.led&quot;</SPAN><SPAN
+	style='font-size:8.0pt;
+font-family:"Courier New";color:black;background:white;mso-highlight:white'><SPAN
+	style="mso-spacerun:yes">     </SPAN></SPAN><SPAN
+	style='font-size:8.0pt;
+font-family:"Courier New"'></SPAN></P>
+
+<P class="MsoNormal"
+	style="margin-left:.75in;line-height:normal;mso-pagination:
+widow-orphan;mso-layout-grid-align:none;text-autospace:none"><SPAN
+	style='font-size:8.0pt;font-family:"Courier New";color:black;background:white;
+mso-highlight:white'><SPAN
+	style="mso-spacerun:yes">                   </SPAN></SPAN><SPAN
+	class="GramE"><SPAN
+	style='font-size:8.0pt;font-family:"Courier New";color:navy;
+background:white;mso-highlight:white'>icon</SPAN></SPAN><SPAN
+	style='font-size:
+8.0pt;font-family:"Courier New";color:navy;background:white;mso-highlight:white'>=</SPAN><SPAN
+	style='font-size:8.0pt;font-family:"Courier New";color:green;background:white;
+mso-highlight:white'>&quot;icons/ledicon16.gif&quot;</SPAN><SPAN
+	style='font-size:8.0pt;font-family:"Courier New"'></SPAN></P>
+
+<P class="MsoNormal"
+	style="margin-left:.75in;line-height:normal;mso-pagination:
+widow-orphan;mso-layout-grid-align:none;text-autospace:none"><SPAN
+	style='font-size:8.0pt;font-family:"Courier New";color:black;background:white;
+mso-highlight:white'><SPAN
+	style="mso-spacerun:yes">                   </SPAN></SPAN><SPAN
+	class="GramE"><SPAN
+	style='font-size:8.0pt;font-family:"Courier New";color:navy;
+background:white;mso-highlight:white'>name</SPAN></SPAN><SPAN
+	style='font-size:
+8.0pt;font-family:"Courier New";color:navy;background:white;mso-highlight:white'>=</SPAN><SPAN
+	style='font-size:8.0pt;font-family:"Courier New";color:green;background:white;
+mso-highlight:white'>&quot;%LEDTool.Label&quot;</SPAN><SPAN
+	style='font-size:
+8.0pt;font-family:"Courier New"'></SPAN></P>
+
+<P class="MsoNormal"
+	style="margin-left:2.0in;line-height:normal;mso-pagination:
+widow-orphan;mso-layout-grid-align:none;text-autospace:none"><SPAN
+	class="GramE"><SPAN
+	style='font-size:8.0pt;font-family:"Courier New";color:navy;background:white;
+mso-highlight:white'>eclass</SPAN></SPAN><SPAN
+	style='font-size:8.0pt;
+font-family:"Courier New";color:navy;background:white;mso-highlight:white'>=</SPAN><SPAN
+	style='font-size:8.0pt;font-family:"Courier New";color:green;background:white;
+mso-highlight:white'>&quot;LED&quot;</SPAN><SPAN
+	style='font-size:8.0pt;
+font-family:"Courier New";color:black;background:white;mso-highlight:white'><SPAN
+	style="mso-spacerun:yes">             </SPAN></SPAN><SPAN
+	style='font-size:
+8.0pt;font-family:"Courier New";color:navy;background:white;mso-highlight:white'><BR>
+edithelper=</SPAN><SPAN
+	style='font-size:8.0pt;font-family:"Courier New";color:green;background:white;
+mso-highlight:white'>&quot;org.eclipse.gmf.examples.runtime.diagram.logic.internal.edithelpers.LEDEditHelper&quot;</SPAN><SPAN
+	style='font-size:8.0pt;font-family:"Courier New";color:navy;background:white;
+mso-highlight:white'>&gt;</SPAN><SPAN
+	style='font-size:8.0pt;font-family:"Courier New"'></SPAN></P>
+
+<P class="MsoNormal"
+	style="margin-left:1.5in;line-height:normal;mso-pagination:
+widow-orphan;mso-layout-grid-align:none;text-autospace:none"><SPAN
+	style='font-size:8.0pt;font-family:"Courier New";color:navy;background:white;
+mso-highlight:white'>&lt;/metamodelType&gt;</SPAN><SPAN
+	style='font-size:8.0pt;
+font-family:"Courier New"'></SPAN></P>
+
+<P class="MsoNormal"><SPAN style="mso-tab-count:3">                                   
+</SPAN>?</P>
+</DIV><P class="MsoNormal"></P>
+
+<P class="MsoNormal">Create the corresponding EditHelper classes that
+are specified in the extension descriptor. Create the necessary commands that are returned
+by the EditHelper classes to edit and/or create the semantic elements
+described by the metamodelType descriptors.<SPAN
+	style="mso-spacerun:yes">  </SPAN>See ConfigureLogicElementCommand and
+CreateWireCommand.</P>
+
+<P class="MsoNormal"></P>
+<H2><SPAN class="GramE"><SPAN style="mso-bookmark:
+_Toc104273239"><A name="notation">Creating the notation element for the
+shape.</A></SPAN></SPAN></H2>
+<SPAN style="font-size:10.0pt">[<A href="#top"><SPAN class="GramE">back</SPAN>
+to top</A>]</SPAN>
+<P><SPAN style="mso-bookmark:_Toc104273239"></SPAN>After the semantic
+element is created, then a notation representation of the semantic
+element is needed in order to display on the diagram.<SPAN
+	style="mso-spacerun:yes">  </SPAN>The notation element is instantiated
+from the notation meta-model which is a generic model for persisting
+diagram artifacts.<SPAN style="mso-spacerun:yes">  </SPAN>The notation
+can be thought as the logic persistence for the ?boxes? and ?lines that
+make up the composition of the diagram elements.<SPAN
+	style="mso-spacerun:yes">  </SPAN>In general, the notation meta-model
+stores position, layout information, color and font and any property
+related to the display and/or editing of the diagram elements.<BR>
+<BR>
+Similar to how a semantic
+element is <SPAN class="GramE">created,</SPAN> the tool will send a
+request to the targeted EditPart (usually the one under the mouse).<SPAN
+	style="mso-spacerun:yes">  </SPAN>In order to respond to the tool
+request we need to create a provider for creating the notation (View)
+for the new shape.<SPAN style="mso-spacerun:yes">  </SPAN>First it is
+necessary to add plug-in.xml extension for the
+org.eclipse.gmf.runtime.diagram.core.viewProviders extension point.<SPAN
+	style="mso-spacerun:yes">  </SPAN>We indicate the viewClass context
+which indicates the type of View we want to create
+(com.ibm.xtools.notation.Node), and provide a hint for our provider to
+be invoked upon (?LED?).<SPAN style="mso-spacerun:yes">  </SPAN><BR>
+<BR>
+Once the descriptor code
+is complete, then we need to construct the java class which will
+actually provide the factory.<SPAN style="mso-spacerun:yes">  </SPAN>We
+can create a new class LogicViewProvider which subclasses from
+AbstractViewProvider.<SPAN style="mso-spacerun:yes">  </SPAN>The purpose
+of the provider class is to map the hint specified in the plugin.xml
+with the view class that will construct the notation.<SPAN
+	style="mso-spacerun:yes">  </SPAN>This is done in the getNodeViewClass
+method where it returns the view class that will set the styles that are
+associated with the view and create contained views by default.<SPAN
+	style="mso-spacerun:yes">  </SPAN>The LEDView.java will serve this
+purpose.<SPAN style="mso-spacerun:yes">  </SPAN><SPAN class="GramE">The
+LEDView subclasses from AbstractShapeView.</SPAN><SPAN
+	style="mso-spacerun:yes">  </SPAN>Please refer to the
+org.eclipse.gmf.examples.runtime.diagram.logic.internal.views.LEDView class
+for details of what initialization is needed.</P>
+
+<P class="MsoNormal" style="margin-left:.5in"><o:p>&nbsp;</o:p></P>
+
+<H3><A name="_Toc104273240"><!><SPAN
+	style="mso-fareast-font-family:
+Arial;mso-bidi-font-family:Arial"><SPAN
+	style="mso-list:Ignore"></SPAN></SPAN>Example descriptor code for the LED shape:</A></H3>
+
+<DIV
+	style="border:solid windowtext 1.0pt;mso-border-alt:solid windowtext .75pt;
+padding:4.0pt 4.0pt 4.0pt 4.0pt;margin-left:48.0pt;margin-right:24.0pt"
+	align="left">
+<P class="MsoNormal"
+	style="margin-left:.5in;line-height:normal;mso-pagination:
+widow-orphan;mso-layout-grid-align:none;text-autospace:none"><SPAN
+	style='font-size:8.0pt;font-family:"Courier New";color:black;background:white;
+mso-highlight:white'><SPAN
+	style="mso-spacerun:yes"></SPAN></SPAN><SPAN
+	style='font-size:8.0pt;font-family:"Courier New";color:navy;background:white;
+mso-highlight:white'>&lt;extension</SPAN><SPAN
+	style='font-size:8.0pt;
+font-family:"Courier New";color:black;background:white;mso-highlight:white'>
+</SPAN><SPAN
+	style='font-size:8.0pt;font-family:"Courier New";color:navy;background:white;
+mso-highlight:white'>point=</SPAN><SPAN
+	style='font-size:8.0pt;font-family:
+"Courier New";color:green;background:white;mso-highlight:white'>&quot;org.eclipse.gmf.runtime.diagram.core.viewProviders&quot;</SPAN><SPAN
+	style='font-size:8.0pt;font-family:"Courier New";color:navy;background:white;
+mso-highlight:white'>&gt;</SPAN><SPAN
+	style='font-size:8.0pt;font-family:"Courier New"'></SPAN></P>
+
+<P class="MsoNormal"
+	style="margin-left:.5in;line-height:normal;mso-pagination:
+widow-orphan;mso-layout-grid-align:none;text-autospace:none"><SPAN
+	style='font-size:8.0pt;font-family:"Courier New";color:black;background:white;
+mso-highlight:white'><SPAN
+	style="mso-spacerun:yes">      </SPAN></SPAN><SPAN
+	style='font-size:8.0pt;font-family:"Courier New";color:navy;background:white;
+mso-highlight:white'>&lt;viewProvider</SPAN><SPAN
+	style='font-size:8.0pt;
+font-family:"Courier New";color:black;background:white;mso-highlight:white'>
+</SPAN><SPAN
+	style='font-size:8.0pt;font-family:"Courier New";color:navy;background:white;
+mso-highlight:white'>class=</SPAN><SPAN
+	style='font-size:8.0pt;font-family:
+"Courier New";color:green;background:white;mso-highlight:white'>&quot;org.eclipse.gmf.examples.runtime.diagram.logic.internal.providers.LogicViewProvider&quot;</SPAN><SPAN
+	style='font-size:8.0pt;font-family:"Courier New";color:navy;background:white;
+mso-highlight:white'>&gt;</SPAN><SPAN
+	style='font-size:8.0pt;font-family:"Courier New"'></SPAN></P>
+
+<P class="MsoNormal"
+	style="margin-left:.5in;line-height:normal;mso-pagination:
+widow-orphan;mso-layout-grid-align:none;text-autospace:none"><SPAN
+	style='font-size:8.0pt;font-family:"Courier New";color:black;background:white;
+mso-highlight:white'><SPAN
+	style="mso-spacerun:yes">         </SPAN></SPAN><SPAN
+	style='font-size:8.0pt;font-family:"Courier New";color:navy;background:white;
+mso-highlight:white'>&lt;Priority</SPAN><SPAN
+	style='font-size:8.0pt;
+font-family:"Courier New";color:black;background:white;mso-highlight:white'>
+</SPAN><SPAN
+	style='font-size:8.0pt;font-family:"Courier New";color:navy;background:white;
+mso-highlight:white'>name=</SPAN><SPAN
+	style='font-size:8.0pt;font-family:"Courier New";
+color:green;background:white;mso-highlight:white'>&quot;Lowest&quot;</SPAN><SPAN
+	style='font-size:8.0pt;font-family:"Courier New";color:navy;background:white;
+mso-highlight:white'>&gt;</SPAN><SPAN
+	style='font-size:8.0pt;font-family:"Courier New"'></SPAN></P>
+
+<P class="MsoNormal"
+	style="margin-left:.5in;line-height:normal;mso-pagination:
+widow-orphan;mso-layout-grid-align:none;text-autospace:none"><SPAN
+	style='font-size:8.0pt;font-family:"Courier New";color:black;background:white;
+mso-highlight:white'><SPAN
+	style="mso-spacerun:yes">         </SPAN></SPAN><SPAN
+	style='font-size:8.0pt;font-family:"Courier New";color:navy;background:white;
+mso-highlight:white'>&lt;/Priority&gt;</SPAN><SPAN
+	style='font-size:8.0pt;
+font-family:"Courier New"'></SPAN></P>
+
+<P class="MsoNormal"
+	style="margin-left:.5in;line-height:normal;mso-pagination:
+widow-orphan;mso-layout-grid-align:none;text-autospace:none"><SPAN
+	style='font-size:8.0pt;font-family:"Courier New";color:black;background:white;
+mso-highlight:white'><SPAN
+	style="mso-spacerun:yes">         </SPAN></SPAN><SPAN
+	style='font-size:8.0pt;font-family:"Courier New";color:navy;background:white;
+mso-highlight:white'>&lt;context</SPAN><SPAN
+	style='font-size:8.0pt;font-family:
+"Courier New";color:black;background:white;mso-highlight:white'>
+</SPAN><SPAN
+	style='font-size:8.0pt;font-family:"Courier New";color:navy;background:white;
+mso-highlight:white'>viewClass=</SPAN><SPAN
+	style='font-size:8.0pt;font-family:
+"Courier New";color:green;background:white;mso-highlight:white'>&quot;com.ibm.xtools.notation.Diagram&quot;</SPAN><SPAN
+	style='font-size:8.0pt;font-family:"Courier New";color:black;background:white;
+mso-highlight:white'>
+</SPAN><SPAN
+	style='font-size:8.0pt;font-family:"Courier New";
+color:navy;background:white;mso-highlight:white'>semanticHints=</SPAN><SPAN
+	style='font-size:8.0pt;font-family:"Courier New";color:green;background:white;
+mso-highlight:white'>&quot;&quot;</SPAN><SPAN
+	style='font-size:8.0pt;
+font-family:"Courier New";color:navy;background:white;mso-highlight:white'>&gt;</SPAN><SPAN
+	style='font-size:8.0pt;font-family:"Courier New"'></SPAN></P>
+
+<P class="MsoNormal"
+	style="margin-left:.5in;line-height:normal;mso-pagination:
+widow-orphan;mso-layout-grid-align:none;text-autospace:none"><SPAN
+	style='font-size:8.0pt;font-family:"Courier New";color:black;background:white;
+mso-highlight:white'><SPAN
+	style="mso-spacerun:yes">         </SPAN></SPAN><SPAN
+	style='font-size:8.0pt;font-family:"Courier New";color:navy;background:white;
+mso-highlight:white'>&lt;/context&gt;</SPAN><SPAN
+	style='font-size:8.0pt;
+font-family:"Courier New"'></SPAN></P>
+
+<P class="MsoNormal"
+	style="margin-left:.5in;line-height:normal;mso-pagination:
+widow-orphan;mso-layout-grid-align:none;text-autospace:none"><SPAN
+	style='font-size:8.0pt;font-family:"Courier New";color:black;background:white;
+mso-highlight:white'><SPAN
+	style="mso-spacerun:yes">         </SPAN></SPAN><SPAN
+	style='font-size:8.0pt;font-family:"Courier New";color:navy;background:white;
+mso-highlight:white'>&lt;context</SPAN><SPAN
+	style='font-size:8.0pt;font-family:
+"Courier New";color:black;background:white;mso-highlight:white'>
+</SPAN><SPAN
+	style='font-size:8.0pt;font-family:"Courier New";color:navy;background:white;
+mso-highlight:white'>viewClass=</SPAN><SPAN
+	style='font-size:8.0pt;font-family:
+"Courier New";color:green;background:white;mso-highlight:white'>&quot;com.ibm.xtools.notation.Node&quot;</SPAN><SPAN
+	style='font-size:8.0pt;font-family:"Courier New";color:black;background:white;
+mso-highlight:white'>
+</SPAN><SPAN
+	style='font-size:8.0pt;font-family:"Courier New";
+color:navy;background:white;mso-highlight:white'>semanticHints=</SPAN><SPAN
+	style='font-size:8.0pt;font-family:"Courier New";color:green;background:white;
+mso-highlight:white'>&quot;LED&quot;</SPAN><SPAN
+	style='font-size:8.0pt;
+font-family:"Courier New";color:navy;background:white;mso-highlight:white'>&gt;</SPAN><SPAN
+	style='font-size:8.0pt;font-family:"Courier New"'></SPAN></P>
+
+<P class="MsoNormal"
+	style="margin-left:.5in;line-height:normal;mso-pagination:
+widow-orphan;mso-layout-grid-align:none;text-autospace:none"><SPAN
+	style='font-size:8.0pt;font-family:"Courier New";color:black;background:white;
+mso-highlight:white'><SPAN
+	style="mso-spacerun:yes">         </SPAN></SPAN><SPAN
+	style='font-size:8.0pt;font-family:"Courier New";color:navy;background:white;
+mso-highlight:white'>&lt;/context&gt;</SPAN><SPAN
+	style='font-size:8.0pt;
+font-family:"Courier New"'></SPAN></P>
+
+<P class="MsoNormal"
+	style="margin-left:.5in;line-height:normal;mso-pagination:
+widow-orphan;mso-layout-grid-align:none;text-autospace:none"><SPAN
+	style='font-size:8.0pt;font-family:"Courier New";color:black;background:white;
+mso-highlight:white'><SPAN
+	style="mso-spacerun:yes">      </SPAN></SPAN><SPAN
+	style='font-size:8.0pt;font-family:"Courier New";color:navy;background:white;
+mso-highlight:white'>&lt;/viewProvider&gt;</SPAN><SPAN
+	style='font-size:8.0pt;
+font-family:"Courier New"'></SPAN><BR>
+<SPAN
+	style='font-size:8.0pt;
+font-family:"Courier New";color:navy;background:white;mso-highlight:white'>&lt;/extension&gt;</SPAN></P>
+<P class="MsoNormal"></P>
+</DIV>
+<BR>
+<H2><SPAN style="mso-bookmark:_Toc104273241"><A name="editpart">Creating
+the EditPart (controller) for the shape.</A></SPAN></H2>
+<SPAN style="font-size:10.0pt">[<A href="#top"><SPAN class="GramE">back</SPAN>
+to top</A>]</SPAN>
+<P>Now that the notation can be constructed we need a controller
+(EditPart) that will synchronize the View with the drawing surface
+canvas for display (of IFigures).<SPAN style="mso-spacerun:yes">  </SPAN>In
+order to respond to the tool request we need to create a provider for
+creating the controller (EditPart) for the new shape.<SPAN
+	style="mso-spacerun:yes">  </SPAN>This is a provider for the
+EditPartService.<SPAN style="mso-spacerun:yes">  </SPAN>Similar to the
+viewProvider, it is necessary to add plug-in.xml extensions for the
+editpartProviders extension point. In the extension you specify the view
+class that the provider is being triggered on with an id and then
+provide that id as a context.</P>
+
+<DIV
+	style="border:solid windowtext 1.0pt;mso-border-alt:solid windowtext .75pt;
+padding:4.0pt 4.0pt 4.0pt 4.0pt;margin-left:48.0pt;margin-right:24.0pt"
+	align="left">
+<P class="MsoNormal"
+	style="margin-left:.5in;line-height:normal;mso-pagination:
+widow-orphan;mso-layout-grid-align:none;text-autospace:none"><SPAN
+	style='font-size:9.0pt;font-family:"Courier New";color:navy;background:white;
+mso-highlight:white'>&lt;extension</SPAN><SPAN
+	style='font-size:9.0pt;
+font-family:"Courier New"'></SPAN></P>
+
+<P class="MsoNormal"
+	style="margin-left:.5in;line-height:normal;mso-pagination:
+widow-orphan;mso-layout-grid-align:none;text-autospace:none"><SPAN
+	style='font-size:9.0pt;font-family:"Courier New";color:black;background:white;
+mso-highlight:white'><SPAN
+	style="mso-spacerun:yes">      </SPAN></SPAN><SPAN class="GramE"><SPAN
+	style='font-size:9.0pt;font-family:"Courier New";color:navy;
+background:white;mso-highlight:white'>point</SPAN></SPAN><SPAN
+	style='font-size:9.0pt;font-family:"Courier New";color:navy;background:white;
+mso-highlight:white'>=</SPAN><SPAN
+	style='font-size:9.0pt;font-family:"Courier New";
+color:green;background:white;mso-highlight:white'>&quot;org.eclipse.gmf.runtime.diagram.ui.editpartProviders&quot;</SPAN><SPAN
+	style='font-size:9.0pt;font-family:"Courier New";color:navy;background:white;
+mso-highlight:white'>&gt;</SPAN><SPAN
+	style='font-size:9.0pt;font-family:"Courier New"'></SPAN></P>
+
+<P class="MsoNormal"
+	style="margin-left:1.0in;line-height:normal;mso-pagination:
+widow-orphan;mso-layout-grid-align:none;text-autospace:none"><SPAN
+	style='font-size:9.0pt;font-family:"Courier New";color:navy;background:white;
+mso-highlight:white'>&lt;editpartProvider</SPAN><SPAN
+	style='font-size:9.0pt;
+font-family:"Courier New";color:black;background:white;mso-highlight:white'><SPAN
+	style="mso-spacerun:yes">      </SPAN></SPAN><SPAN
+	style='font-size:9.0pt;
+font-family:"Courier New";color:navy;background:white;mso-highlight:white'>class=</SPAN><SPAN
+	style='font-size:9.0pt;font-family:"Courier New";color:green;background:white;
+mso-highlight:white'>&quot;org.eclipse.gmf.examples.runtime.diagram.logic.internal.providers.LogicEditPartProvider&quot;</SPAN><SPAN
+	style='font-size:9.0pt;font-family:"Courier New";color:navy;background:white;
+mso-highlight:white'>&gt;</SPAN><SPAN
+	style='font-size:9.0pt;font-family:"Courier New"'></SPAN></P>
+
+<P class="MsoNormal"
+	style="margin-left:.5in;line-height:normal;mso-pagination:
+widow-orphan;mso-layout-grid-align:none;text-autospace:none"><SPAN
+	style='font-size:9.0pt;font-family:"Courier New";color:black;background:white;
+mso-highlight:white'><SPAN
+	style="mso-spacerun:yes">         </SPAN></SPAN><SPAN
+	style='font-size:9.0pt;font-family:"Courier New";color:navy;background:white;
+mso-highlight:white'>&lt;Priority</SPAN><SPAN
+	style='font-size:9.0pt;
+font-family:"Courier New"'></SPAN></P>
+
+<P class="MsoNormal"
+	style="margin-left:.5in;line-height:normal;mso-pagination:
+widow-orphan;mso-layout-grid-align:none;text-autospace:none"><SPAN
+	style='font-size:9.0pt;font-family:"Courier New";color:black;background:white;
+mso-highlight:white'><SPAN
+	style="mso-spacerun:yes">            </SPAN><SPAN
+	style="mso-spacerun:yes">   </SPAN></SPAN><SPAN class="GramE"><SPAN
+	style='font-size:9.0pt;font-family:"Courier New";color:navy;background:white;
+mso-highlight:white'>name</SPAN></SPAN><SPAN
+	style='font-size:9.0pt;font-family:
+"Courier New";color:navy;background:white;mso-highlight:white'>=</SPAN><SPAN
+	style='font-size:9.0pt;font-family:"Courier New";color:green;background:white;
+mso-highlight:white'>&quot;Lowest&quot;</SPAN><SPAN
+	style='font-size:9.0pt;
+font-family:"Courier New";color:navy;background:white;mso-highlight:white'>&gt;</SPAN><SPAN
+	style='font-size:9.0pt;font-family:"Courier New"'></SPAN></P>
+
+<P class="MsoNormal"
+	style="margin-left:.5in;line-height:normal;mso-pagination:
+widow-orphan;mso-layout-grid-align:none;text-autospace:none"><SPAN
+	style='font-size:9.0pt;font-family:"Courier New";color:black;background:white;
+mso-highlight:white'><SPAN
+	style="mso-spacerun:yes">         </SPAN></SPAN><SPAN
+	style='font-size:9.0pt;font-family:"Courier New";color:navy;background:white;
+mso-highlight:white'>&lt;/Priority&gt;</SPAN><SPAN
+	style='font-size:9.0pt;
+font-family:"Courier New"'></SPAN></P>
+
+<P class="MsoNormal"
+	style="margin-left:1.0in;line-height:normal;mso-pagination:
+widow-orphan;mso-layout-grid-align:none;text-autospace:none"><SPAN
+	style='font-size:9.0pt;font-family:"Courier New";color:navy;background:white;
+mso-highlight:white'>&lt;object</SPAN><SPAN
+	style='font-size:9.0pt;font-family:
+"Courier New";color:black;background:white;mso-highlight:white'><SPAN
+	style="mso-spacerun:yes">               </SPAN></SPAN><SPAN
+	style='font-size:
+9.0pt;font-family:"Courier New";color:navy;background:white;mso-highlight:white'>class=</SPAN><SPAN
+	style='font-size:9.0pt;font-family:"Courier New";color:green;background:white;
+mso-highlight:white'>&quot;org.eclipse.gmf.examples.runtime.diagram.logic.internal.views.LEDView&quot;</SPAN><SPAN
+	style='font-size:9.0pt;font-family:"Courier New"'></SPAN></P>
+
+<P class="MsoNormal"
+	style="line-height:normal;mso-pagination:widow-orphan;
+mso-layout-grid-align:none;text-autospace:none"><SPAN
+	style='font-size:9.0pt;
+font-family:"Courier New";color:black;background:white;mso-highlight:white'><SPAN
+	style="mso-spacerun:yes">               </SPAN></SPAN><SPAN
+	class="GramE"><SPAN
+	style='font-size:9.0pt;font-family:"Courier New";color:navy;background:white;
+mso-highlight:white'>id</SPAN></SPAN><SPAN
+	style='font-size:9.0pt;font-family:
+"Courier New";color:navy;background:white;mso-highlight:white'>=</SPAN><SPAN
+	style='font-size:9.0pt;font-family:"Courier New";color:green;background:white;
+mso-highlight:white'>&quot;LED&quot;</SPAN><SPAN
+	style='font-size:9.0pt;
+font-family:"Courier New";color:navy;background:white;mso-highlight:white'>&gt;</SPAN><SPAN
+	style='font-size:9.0pt;font-family:"Courier New"'></SPAN></P>
+
+<P class="MsoNormal" style="margin-left:.5in"><SPAN
+	style='font-size:9.0pt;
+font-family:"Courier New";color:navy;background:white;mso-highlight:white'>&lt;/object&gt;</SPAN></P>
+
+<P class="MsoNormal"
+	style="text-indent:.5in;line-height:normal;mso-pagination:
+widow-orphan;mso-layout-grid-align:none;text-autospace:none"><SPAN
+	style='font-size:9.0pt;font-family:"Courier New";color:navy;background:white;
+mso-highlight:white'>&lt;context</SPAN><SPAN
+	style='font-size:9.0pt;font-family:
+"Courier New"'></SPAN></P>
+
+<P class="MsoNormal"
+	style="line-height:normal;mso-pagination:widow-orphan;
+mso-layout-grid-align:none;text-autospace:none"><SPAN
+	style='font-size:9.0pt;
+font-family:"Courier New";color:black;background:white;mso-highlight:white'><SPAN
+	style="mso-spacerun:yes">           </SPAN></SPAN><SPAN class="GramE"><SPAN
+	style='font-size:9.0pt;font-family:"Courier New";color:navy;background:white;
+mso-highlight:white'>views</SPAN></SPAN><SPAN
+	style='font-size:9.0pt;
+font-family:"Courier New";color:navy;background:white;mso-highlight:white'>=</SPAN><SPAN
+	style='font-size:9.0pt;font-family:"Courier New";color:green;background:white;
+mso-highlight:white'>&quot;LED&quot;</SPAN><SPAN
+	style='font-size:9.0pt;
+font-family:"Courier New";color:navy;background:white;mso-highlight:white'>&gt;</SPAN><SPAN
+	style='font-size:9.0pt;font-family:"Courier New"'></SPAN></P>
+
+<P class="MsoNormal" style="margin-left:.5in"><SPAN
+	style='font-size:9.0pt;
+font-family:"Courier New";color:navy;background:white;mso-highlight:white'>&lt;/context&gt;</SPAN><SPAN
+	style="font-size:9.0pt"></SPAN></P>
+</DIV>
+
+
+<P class="MsoNormal"
+	style="margin-left:.5in;line-height:normal;mso-pagination:
+widow-orphan;mso-layout-grid-align:none;text-autospace:none"><BR>
+In the LogicEditPartProvider class there is simply a mapping from the
+View class to the EditPart class that needs to be created in the
+getNodeEditPartClass method.<SPAN style="mso-spacerun:yes">  </SPAN>The
+LEDEditPart class contains code for creating the IFigure that actually
+renders the shape and synchronizing the semantic properties with this
+IFigure.<SPAN style="mso-spacerun:yes">  </SPAN>See LEDFigure for
+details.</P>
+<P class="MsoNormal"></P>
+<H2><A name="display">Displaying the shape on the diagram surface.</A></H2>
+<P><SPAN style="font-size:10.0pt">[<A href="#top"><SPAN class="GramE">back</SPAN>
+to top</A>]</SPAN></P>
+
+<P>It can be a little confusing as to where the actually rendering of the
+shape takes place since there are 3 contributing hierarchies to the
+composition of a diagram (View / EditPart / IFigure).<SPAN
+	style="mso-spacerun:yes">  </SPAN>It?s <SPAN class="GramE">more clear</SPAN>
+when you consider explicitly the separation of responsibility of each
+hierarchy.<SPAN style="mso-spacerun:yes">  </SPAN>The 3 hierarchies
+collaborate to make up a pattern called the Model-View-Controller
+pattern.<SPAN style="mso-spacerun:yes">  </SPAN>The idea of this pattern
+is that</P>
+<P class="MsoNormal" style="margin-left:.5in">a Model can be maintained
+separately from the UI used to represent it to the user.<SPAN
+	style="mso-spacerun:yes">  </SPAN>In this case the ?View? hierarchy can
+be considered the model and is needed to persist and manage the diagram
+data.<SPAN style="mso-spacerun:yes">  </SPAN>The ?EditPart? hierarchy is
+the controller that creates the corresponding IFigure and synchronizes
+it?s attributes with the corresponding View object.<SPAN
+	style="mso-spacerun:yes">  </SPAN>Finally, the IFigure object is merely
+responsible for rendering (actual painting on the diagram) and
+reflecting constraints set by the EditPart hierarchy.</P>
+
+<UL style="margin-top:0in" type="disc">
+	<LI class="MsoNormal"
+		style="mso-list:l4 level1 lfo12;tab-stops:list .5in">
+	<P>Create a new draw2d IFigure subclass that overrides the paintFigure
+	routine to draw the figure as desired. (AndGateFigure)</P>
+	</LI>
+	<LI class="MsoNormal"
+		style="mso-list:l4 level1 lfo12;tab-stops:list .5in">
+	<P>In the EditPart created in <A
+		href="#_Create_the_controller_(EditPart)_fo">#<SPAN class="GramE">Create</SPAN>
+	the controller (EditPart) for the shape.</A> , override the
+	createNodeFigure routine to return the new Figure you just created.</P>
+	</LI>
+</UL>
+
+<P class="MsoNormal"><o:p>&nbsp;</o:p></P>
+
+<H3><A name="_Toc104273243"><!><SPAN
+	style="mso-fareast-font-family:
+Arial;mso-bidi-font-family:Arial"><SPAN
+	style="mso-list:Ignore"></SPAN></SPAN>LED shape display:</A></H3>
+
+<P class="MsoNormal" style="margin-left:.25in"><IMG border="0" width="81" height="64"
+	src="led.gif"
+	v:shapes="_x0000_i1027"><BR>
+</P>
+
+
+
+<H3><A name="_Toc104273244"><!>Example: LED shape structure</A></H3>
+
+<P class="MsoNormal" style="margin-left:.25in"><IMG border="0" width="623" height="584"
+	src="ledStructure.gif"
+	v:shapes="_x0000_i1028"></P><P></P>
+
+<div class=MsoNormal align=center style='text-align:center'>
+
+<hr size=2 width="100%" align=center>
+
+</div>
+
+<H2><A name="summary">Summary</A></H2>
+
+<P><SPAN style="font-size:10.0pt">[<A href="#top"><SPAN class="GramE">back</SPAN>
+to top</A>]</SPAN></P>
+
+<P>In this tutorial, we did the following:</P>
+<OL>
+	<LI>Created a new palette entry for a shape.</LI>
+	<LI>Created a semantic model element that the shape represents..</LI>
+	<LI>Created a notation model element for the shape..</LI>
+	<LI>Created an EditPart (controller) for the shape..</LI>
+	<LI>Displayed the shape on the diagram surface..</LI>
+</OL>
+
+<div class=MsoNormal align=center style='text-align:center'>
+
+<hr size=2 width="100%" align=center>
+
+</div>
+
+<P><IMG border="0" width="324" height="14" id="_x0000_i1028"
+	src="../copyright.gif"></P>
+
+</div>
+
+</body>
+
+</html>

@@ -1,0 +1,709 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:p="urn:schemas-microsoft-com:office:powerpoint"
+xmlns:oa="urn:schemas-microsoft-com:office:activation"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=PowerPoint.Slide>
+<meta name=Generator content="Microsoft PowerPoint 10">
+<link id=Main-File rel=Main-File href="../RMP%20for%20GMF.htm">
+<link rel=Preview href=preview.wmf>
+<!--[if !mso]>
+<style>
+v\:* {behavior:url(#default#VML);}
+o\:* {behavior:url(#default#VML);}
+p\:* {behavior:url(#default#VML);}
+.shape {behavior:url(#default#VML);}
+v\:textbox {display:none;}
+</style>
+<![endif]-->
+<title>Introduction to the Rational Modeling Platform</title>
+<meta name=Description content="5/31/2005: EMF &amp; OCL Domains: Architecture">
+<link rel=Stylesheet href="master08_stylesheet.css">
+<!--[if gte IE 5]>
+<object id=MSOANIM classid="CLSID:A4639D2F-774E-11D3-A490-00C04F6843FB"></object>
+<object id=MSOTIME classid="CLSID:A4639D29-774E-11D3-A490-00C04F6843FB"></object>
+<![endif]-->
+<![if !ppt]>
+<style media=print>
+<!--.sld
+	{left:0px !important;
+	width:6.0in !important;
+	height:4.5in !important;
+	font-size:76% !important;}
+-->
+</style>
+<style>
+<!--
+oa\:* { BEHAVIOR: url(#MSOANIM#ANIM) url(#MSOTIME#TIME) }
+oa\:par,oa\:seq,oa\:iterate { BEHAVIOR:url(#MSOTIME) }
+oa\:video,oa\:audio {BEHAVIOR:url(#MSOTIME) url(#MSOTIME#MEDIA) }
+-->
+</style>
+<script src=script.js></script><script><!--
+if( !IsNts() ) Redirect( "PPTSld" );
+//--></script><script><!--
+g_animItemsToHide=new Array("_x0000_s1242127_AllText","_x0000_s1242127","_x0000_s1242126_AllText","_x0000_s1242126","_x0000_s1242125_AllText","_x0000_s1242125","_x0000_s1242124_AllText","_x0000_s1242124","_x0000_s1242123_AllText","_x0000_s1242123","_x0000_s1242122_AllText","_x0000_s1242122","_x0000_s1242121_AllText","_x0000_s1242121","_x0000_s1242120_AllText","_x0000_s1242120","_x0000_s1242119_AllText","_x0000_s1242119");
+
+//--></script><!--[if vml]><script>g_vml = 1;
+</script><![endif]--><![endif]><o:shapelayout v:ext="edit">
+ <o:idmap v:ext="edit" data="1213"/>
+</o:shapelayout>
+</head>
+
+<body lang=EN-US style='margin:0px' onclick="DocumentOnClick()"
+onresize="_RSW()" onload="LoadSld()" onkeypress="_KPH()" oa:clockstart="onstart">
+
+<div id=SlideObj class=sld style='position:absolute;top:0px;left:0px;
+width:755px;height:566px;font-size:16px;background-color:white;clip:rect(0%, 101%, 101%, 0%);
+visibility:hidden'><p:slide coordsize="720,540"
+ colors="#000000,#FFFFFF,#CCCCFF,#808080,#4B6BAF,#0099CC,#C0C0C0,#FF9900"
+ masterhref="master08.xml">
+ <p:shaperange href="master08.xml#_x0000_s32769"/><![if !ppt]><p:shaperange
+  href="master08.xml#_x0000_s32990"/><![if !vml]><img border=0
+ v:shapes="_x0000_s32990" src="master08_image082.gif" style='position:absolute;
+ top:94.87%;left:0%;width:100.26%;height:6.0%'><![endif]><p:shaperange
+  href="master08.xml#_x0000_s33023"/><![if !vml]><img border=0
+ v:shapes="_x0000_s33023" src="master08_image083.jpg" style='position:absolute;
+ top:94.52%;left:0%;width:100.0%;height:4.41%'><![endif]><p:shaperange
+  href="master08.xml#_x0000_s33028"/><![if !vml]><img border=0
+ v:shapes="_x0000_s33028" src="master08_image084.gif" style='position:absolute;
+ top:0%;left:0%;width:100.26%;height:6.71%'><![endif]>
+ <div v:shape="_x0000_s33029" class=O>
+ <div style='mso-char-wrap:0;mso-kinsoku-overflow:0;position:absolute;
+ top:2.12%;left:16.82%;width:42.38%;height:3.0%'><span style='font-size:78%'>IBM
+ Software Group<span style='mso-spacerun:yes'>  </span>|<span
+ style='mso-spacerun:yes'>  </span>Rational software</span></div>
+ </div>
+ <p:shaperange href="master08.xml#_x0000_s33030"/><![if !vml]><img border=0
+ v:shapes="_x0000_s33030" src="master08_image085.gif" style='position:absolute;
+ top:1.41%;left:91.52%;width:6.88%;height:3.53%'><![endif]><p:shaperange
+  href="master08.xml#_x0000_s33031"/><![if !vml]><img border=0
+ v:shapes="_x0000_s33031" src="master08_image086.gif" style='position:absolute;
+ top:2.82%;left:15.76%;width:.39%;height:3.88%'><![endif]><![endif]><p:shaperange
+  href="master08.xml#_x0000_m32774"/><v:shape id="_x0000_s1242114" type="#_x0000_m32774"
+  style='position:absolute;left:12.125pt;top:49pt;width:707.875pt;height:39.25pt'
+  o:userdrawn="f">
+  <v:fill o:detectmouseclick="f"/>
+  <v:stroke o:forcedash="f"/>
+  <v:imagedata preservegray="f" grayscale="f" bilevel="f"/>
+  <o:lock v:ext="edit" text="f"/>
+  <p:placeholder type="title"/></v:shape><v:roundrect id="_x0000_s1242115"
+  style='position:absolute;left:481.125pt;top:246.25pt;width:225pt;height:111.125pt;
+  mso-wrap-style:none;v-text-anchor:top-center' arcsize="10923f" fillcolor="#cff"
+  strokecolor="white [1]">
+  <v:fill opacity="0"/>
+  <v:shadow color="#ccf [2]"/>
+  <o:extrusion v:ext="view" specularity="80000f" diffusity="43712f"
+   backdepth="18pt" on="t" metal="t" viewpoint="-34.72222mm" viewpointorigin="-.5"
+   skewangle="-45" lightposition="-50000,-50000" lightposition2="50000"/>
+  <o:lock v:ext="edit" aspectratio="t"/>
+  <v:textbox inset="18pt,0,18pt,18pt"/>
+ </v:roundrect><v:roundrect id="_x0000_s1242116" style='position:absolute;
+  left:16.875pt;top:246.375pt;width:222.25pt;height:109.625pt;mso-wrap-style:none;
+  v-text-anchor:top-center' arcsize="10923f" fillcolor="#cff" strokecolor="white [1]">
+  <v:fill opacity="0"/>
+  <v:shadow color="#ccf [2]"/>
+  <o:extrusion v:ext="view" specularity="80000f" diffusity="43712f"
+   backdepth="18pt" on="t" metal="t" viewpoint="-34.72222mm" viewpointorigin="-.5"
+   skewangle="-45" lightposition="-50000,-50000" lightposition2="50000"/>
+  <o:lock v:ext="edit" aspectratio="t"/>
+  <v:textbox inset="18pt,0,18pt,18pt"/>
+ </v:roundrect><v:roundrect id="_x0000_s1242117" style='position:absolute;
+  left:248.625pt;top:246.375pt;width:222.25pt;height:109.625pt;
+  mso-wrap-style:none;v-text-anchor:top-center' arcsize="10923f" fillcolor="#cff"
+  strokecolor="white [1]">
+  <v:fill opacity="0"/>
+  <v:shadow color="#ccf [2]"/>
+  <o:extrusion v:ext="view" specularity="80000f" diffusity="43712f"
+   backdepth="18pt" on="t" metal="t" viewpoint="-34.72222mm" viewpointorigin="-.5"
+   skewangle="-45" lightposition="-50000,-50000" lightposition2="50000"/>
+  <o:lock v:ext="edit" aspectratio="t"/>
+  <v:textbox inset="18pt,0,18pt,18pt"/>
+ </v:roundrect><v:roundrect id="_x0000_s1242118" style='position:absolute;
+  left:17.125pt;top:368.875pt;width:691.75pt;height:53.375pt;mso-wrap-style:none;
+  v-text-anchor:top-center' arcsize="10923f" fillcolor="gray [3]"
+  strokecolor="white [1]">
+  <v:fill color2="fill darken(118)" angle="-135" method="linear sigma" focus="100%"
+   type="gradient"/>
+  <v:shadow color="#ccf [2]"/>
+  <o:extrusion v:ext="view" specularity="80000f" diffusity="43712f"
+   backdepth="18pt" on="t" metal="t" viewpoint="-34.72222mm" viewpointorigin="-.5"
+   skewangle="-45" lightposition="-50000,-50000" lightposition2="50000"/>
+  <o:lock v:ext="edit" aspectratio="t"/>
+  <v:textbox inset="18pt,0,18pt,18pt"/>
+ </v:roundrect><![if !vml]><img border=0
+ v:shapes="_x0000_s1242115,_x0000_s1242116,_x0000_s1242117,_x0000_s1242118"
+ src="slide0294_image208.gif" style='position:absolute;top:44.34%;left:1.45%;
+ width:97.35%;height:34.27%'><![endif]>
+ <div v:shape="_x0000_s1242114" class=T style='position:absolute;top:9.54%;
+ left:2.64%;width:96.42%;height:6.0%'>EMF &amp; OCL Domains: <span
+ style='font-weight:normal'>Architecture</span></div>
+ <div v:shape="_x0000_s1242115" class=O style='mso-line-spacing:"87 30 0";
+ position:absolute;top:46.28%;left:77.61%;width:17.35%;height:3.18%'><span
+ style='font-family:"Arial Narrow";mso-ascii-font-family:"Arial Narrow";
+ font-size:78%;text-shadow:auto;color:black;mso-color-index:0'><b>Model Query</b></span></div>
+ <div v:shape="_x0000_s1242116" class=O style='mso-line-spacing:"87 30 0";
+ position:absolute;top:46.28%;left:12.05%;width:18.01%;height:3.18%'><span
+ style='font-family:"Arial Narrow";mso-ascii-font-family:"Arial Narrow";
+ font-size:78%;text-shadow:auto;color:black;mso-color-index:0'><b>Model
+ Integrity</b></span></div>
+ <div v:shape="_x0000_s1242117" class=O style='mso-line-spacing:"87 30 0";
+ position:absolute;top:46.28%;left:44.76%;width:17.61%;height:3.18%'><span
+ style='font-family:"Arial Narrow";mso-ascii-font-family:"Arial Narrow";
+ font-size:78%;text-shadow:auto;color:black;mso-color-index:0'><b>Model Editing</b></span></div>
+ <div v:shape="_x0000_s1242118" class=O>
+ <div style='mso-line-spacing:"87 30 0";position:absolute;top:68.55%;
+ left:47.68%;width:48.07%;height:3.18%'><span style='font-family:"Arial Narrow";
+ mso-ascii-font-family:"Arial Narrow";font-size:78%;text-shadow:auto;
+ display:none'><b>&#13;</b></span></div>
+ <div style='mso-line-spacing:"87 30 0";position:absolute;top:72.08%;
+ left:47.68%;width:48.07%;height:3.18%'><span style='font-family:"Arial Narrow";
+ mso-ascii-font-family:"Arial Narrow";font-size:78%;text-shadow:auto'><b>Eclipse</b></span></div>
+ </div>
+ <v:roundrect id="_x0000_s1242119" style='position:absolute;left:120.5pt;top:383.5pt;
+  width:93.75pt;height:25pt;rotation:-3600;flip:x;mso-wrap-style:none;
+  v-text-anchor:middle' arcsize="10923f" fillcolor="red" strokecolor="white [1]">
+  <v:stroke dashstyle="1 1" endcap="round"/>
+  <v:shadow color="#ccf [2]"/>
+  <o:extrusion v:ext="view" specularity="80000f" diffusity="43712f"
+   backdepth="18pt" on="t" metal="t" viewpoint="-34.72222mm" viewpointorigin="-.5"
+   skewangle="-45" lightposition="-50000,-50000" lightposition2="50000"/>
+  <v:textbox inset="18pt,18pt,18pt,18pt"/>
+  <p:animation number="2" delay="0" type="object" effect="fly" direction="left"
+   flag="16384"/></v:roundrect><![if !vml]><img border=0
+ v:shapes="_x0000_s1242119" src="slide0294_image209.gif"
+ alt="Rounded Rectangle: EMF" style='position:absolute;top:69.78%;left:15.89%;
+ width:14.3%;height:6.36%'><![endif]>
+ <div id="_x0000_s1242119_AllText" v:shape="_x0000_s1242119" class=O
+ style='position:absolute;top:71.73%;left:19.33%;width:7.81%;height:3.18%;
+ white-space:nowrap'>
+ <div style='text-align:center;mso-line-spacing:"87 30 0";position:absolute;
+ top:0%;left:0%;width:100.0%;height:100.0%'><span style='font-family:"Arial Narrow";
+ mso-ascii-font-family:"Arial Narrow";font-size:78%;text-shadow:auto'><b>EMF</b></span></div>
+ </div>
+ <v:roundrect id="_x0000_s1242120" style='position:absolute;left:25.625pt;
+  top:275.375pt;width:90.75pt;height:72.75pt;rotation:-3600;flip:x;
+  v-text-anchor:middle' arcsize="10923f" fillcolor="blue" strokecolor="white [1]">
+  <v:fill color2="fill darken(118)" rotate="t" angle="-135" method="linear sigma"
+   focus="-50%" type="gradient"/>
+  <v:stroke dashstyle="1 1" endcap="round"/>
+  <v:shadow color="#ccf [2]"/>
+  <o:extrusion v:ext="view" specularity="80000f" diffusity="43712f"
+   backdepth="18pt" on="t" metal="t" viewpoint="-34.72222mm" viewpointorigin="-.5"
+   skewangle="-45" lightposition="-50000,-50000" lightposition2="50000"/>
+  <v:textbox inset="18pt,18pt,18pt,18pt"/>
+  <p:animation number="3" delay="0" type="object" effect="fly" direction="left"
+   flag="16388"/></v:roundrect><![if !vml]><img border=0
+ v:shapes="_x0000_s1242120" src="slide0294_image210.gif"
+ alt="Rounded Rectangle: OCL Services" style='position:absolute;top:49.82%;
+ left:2.64%;width:13.77%;height:15.19%'><![endif]>
+ <div id="_x0000_s1242120_AllText" v:shape="_x0000_s1242120" class=O
+ style='position:absolute;top:55.3%;left:6.35%;width:7.01%;height:4.94%;
+ white-space:nowrap'>
+ <div style='text-align:center;mso-line-spacing:"87 30 0"'><span
+ style='position:absolute;top:0%;left:0%;width:100.0%;height:53.57%'><span
+ style='font-family:"Arial Narrow";mso-ascii-font-family:"Arial Narrow";
+ font-size:67%;text-shadow:auto'><b>OCL </b></span></span><span
+ style='position:absolute;top:46.42%;left:0%;width:100.0%;height:53.57%'><span
+ style='font-family:"Arial Narrow";mso-ascii-font-family:"Arial Narrow";
+ font-size:67%;text-shadow:auto'><b>Services</b></span></span></div>
+ </div>
+ <v:roundrect id="_x0000_s1242121" style='position:absolute;left:364.75pt;
+  top:275.125pt;width:90.75pt;height:72.75pt;rotation:-3600;flip:x;
+  v-text-anchor:middle' arcsize="10923f" fillcolor="blue" strokecolor="white [1]">
+  <v:fill color2="fill darken(118)" rotate="t" angle="-135" method="linear sigma"
+   focus="-50%" type="gradient"/>
+  <v:stroke dashstyle="1 1" endcap="round"/>
+  <v:shadow color="#ccf [2]"/>
+  <o:extrusion v:ext="view" specularity="80000f" diffusity="43712f"
+   backdepth="18pt" on="t" metal="t" viewpoint="-34.72222mm" viewpointorigin="-.5"
+   skewangle="-45" lightposition="-50000,-50000" lightposition2="50000"/>
+  <v:textbox inset="18pt,18pt,18pt,18pt"/>
+  <p:animation number="4" delay="0" type="object" effect="fly" direction="left"
+   flag="16388"/></v:roundrect><![if !vml]><img border=0
+ v:shapes="_x0000_s1242121" src="slide0294_image211.gif"
+ alt="Rounded Rectangle: Clipboard Services" style='position:absolute;
+ top:49.82%;left:49.8%;width:13.77%;height:15.19%'><![endif]>
+ <div id="_x0000_s1242121_AllText" v:shape="_x0000_s1242121" class=O
+ style='position:absolute;top:55.12%;left:53.11%;width:7.81%;height:4.94%;
+ white-space:nowrap'>
+ <div style='text-align:center;mso-line-spacing:"87 30 0"'><span
+ style='position:absolute;top:0%;left:0%;width:100.0%;height:53.57%'><span
+ style='font-family:"Arial Narrow";mso-ascii-font-family:"Arial Narrow";
+ font-size:67%;text-shadow:auto'><b>Clipboard </b></span></span><span
+ style='position:absolute;top:46.42%;left:5.08%;width:89.83%;height:53.57%'><span
+ style='font-family:"Arial Narrow";mso-ascii-font-family:"Arial Narrow";
+ font-size:67%;text-shadow:auto'><b>Services</b></span></span></div>
+ </div>
+ <v:roundrect id="_x0000_s1242122" style='position:absolute;left:492.25pt;
+  top:275.125pt;width:90.75pt;height:72.75pt;rotation:-3600;flip:x;
+  v-text-anchor:middle' arcsize="10923f" fillcolor="blue" strokecolor="white [1]">
+  <v:fill color2="fill darken(118)" rotate="t" angle="-135" method="linear sigma"
+   focus="-50%" type="gradient"/>
+  <v:stroke dashstyle="1 1" endcap="round"/>
+  <v:shadow color="#ccf [2]"/>
+  <o:extrusion v:ext="view" specularity="80000f" diffusity="43712f"
+   backdepth="18pt" on="t" metal="t" viewpoint="-34.72222mm" viewpointorigin="-.5"
+   skewangle="-45" lightposition="-50000,-50000" lightposition2="50000"/>
+  <v:textbox inset="18pt,18pt,18pt,18pt"/>
+  <p:animation number="5" delay="0" type="object" effect="fly" direction="left"
+   flag="16388"/></v:roundrect><![if !vml]><img border=0
+ v:shapes="_x0000_s1242122" src="slide0294_image212.gif"
+ alt="Rounded Rectangle: Indexing Services" style='position:absolute;
+ top:49.82%;left:67.41%;width:13.77%;height:15.19%'><![endif]>
+ <div id="_x0000_s1242122_AllText" v:shape="_x0000_s1242122" class=O
+ style='position:absolute;top:55.12%;left:71.25%;width:7.01%;height:4.94%;
+ white-space:nowrap'>
+ <div style='text-align:center;mso-line-spacing:"87 30 0"'><span
+ style='position:absolute;top:0%;left:0%;width:100.0%;height:53.57%'><span
+ style='font-family:"Arial Narrow";mso-ascii-font-family:"Arial Narrow";
+ font-size:67%;text-shadow:auto'><b>Indexing </b></span></span><span
+ style='position:absolute;top:46.42%;left:0%;width:100.0%;height:53.57%'><span
+ style='font-family:"Arial Narrow";mso-ascii-font-family:"Arial Narrow";
+ font-size:67%;text-shadow:auto'><b>Services</b></span></span></div>
+ </div>
+ <v:roundrect id="_x0000_s1242123" style='position:absolute;left:599.875pt;
+  top:275.125pt;width:90.75pt;height:72.75pt;rotation:-3600;flip:x;
+  v-text-anchor:middle' arcsize="10923f" fillcolor="blue" strokecolor="white [1]">
+  <v:fill color2="fill darken(118)" rotate="t" angle="-135" method="linear sigma"
+   focus="-50%" type="gradient"/>
+  <v:stroke dashstyle="1 1" endcap="round"/>
+  <v:shadow color="#ccf [2]"/>
+  <o:extrusion v:ext="view" specularity="80000f" diffusity="43712f"
+   backdepth="18pt" on="t" metal="t" viewpoint="-34.72222mm" viewpointorigin="-.5"
+   skewangle="-45" lightposition="-50000,-50000" lightposition2="50000"/>
+  <v:textbox inset="18pt,18pt,18pt,18pt"/>
+  <p:animation number="6" delay="0" type="object" effect="fly" direction="left"
+   flag="16388"/></v:roundrect><![if !vml]><img border=0
+ v:shapes="_x0000_s1242123" src="slide0294_image213.gif"
+ alt="Rounded Rectangle: Query Services" style='position:absolute;top:49.82%;
+ left:82.38%;width:13.77%;height:15.19%'><![endif]>
+ <div id="_x0000_s1242123_AllText" v:shape="_x0000_s1242123" class=O
+ style='position:absolute;top:55.12%;left:86.22%;width:7.01%;height:4.94%;
+ white-space:nowrap'>
+ <div style='text-align:center;mso-line-spacing:"87 30 0"'><span
+ style='position:absolute;top:0%;left:0%;width:100.0%;height:53.57%'><span
+ style='font-family:"Arial Narrow";mso-ascii-font-family:"Arial Narrow";
+ font-size:67%;text-shadow:auto'><b>Query </b></span></span><span
+ style='position:absolute;top:46.42%;left:0%;width:100.0%;height:53.57%'><span
+ style='font-family:"Arial Narrow";mso-ascii-font-family:"Arial Narrow";
+ font-size:67%;text-shadow:auto'><b>Services</b></span></span></div>
+ </div>
+ <v:roundrect id="_x0000_s1242124" style='position:absolute;left:132pt;top:275.125pt;
+  width:90.75pt;height:72.75pt;rotation:-3600;flip:x;v-text-anchor:middle'
+  arcsize="10923f" fillcolor="blue" strokecolor="white [1]">
+  <v:fill color2="fill darken(118)" rotate="t" angle="-135" method="linear sigma"
+   focus="-50%" type="gradient"/>
+  <v:stroke dashstyle="1 1" endcap="round"/>
+  <v:shadow color="#ccf [2]"/>
+  <o:extrusion v:ext="view" specularity="80000f" diffusity="43712f"
+   backdepth="18pt" on="t" metal="t" viewpoint="-34.72222mm" viewpointorigin="-.5"
+   skewangle="-45" lightposition="-50000,-50000" lightposition2="50000"/>
+  <v:textbox inset="18pt,18pt,18pt,18pt"/>
+  <p:animation number="7" delay="0" type="object" effect="fly" direction="left"
+   flag="16388"/></v:roundrect><![if !vml]><img border=0
+ v:shapes="_x0000_s1242124" src="slide0294_image214.gif"
+ alt="Rounded Rectangle: Validation Services" style='position:absolute;
+ top:49.82%;left:17.48%;width:13.77%;height:15.19%'><![endif]>
+ <div id="_x0000_s1242124_AllText" v:shape="_x0000_s1242124" class=O
+ style='position:absolute;top:55.12%;left:20.66%;width:7.94%;height:4.94%;
+ white-space:nowrap'>
+ <div style='text-align:center;mso-line-spacing:"87 30 0"'><span
+ style='position:absolute;top:0%;left:0%;width:100.0%;height:53.57%'><span
+ style='font-family:"Arial Narrow";mso-ascii-font-family:"Arial Narrow";
+ font-size:67%;text-shadow:auto'><b>Validation </b></span></span><span
+ style='position:absolute;top:46.42%;left:6.66%;width:88.33%;height:53.57%'><span
+ style='font-family:"Arial Narrow";mso-ascii-font-family:"Arial Narrow";
+ font-size:67%;text-shadow:auto'><b>Services</b></span></span></div>
+ </div>
+ <v:roundrect id="_x0000_s1242125" style='position:absolute;left:16.875pt;
+  top:180.625pt;width:681.125pt;height:43.75pt;rotation:-3600;flip:x;
+  mso-wrap-style:none;v-text-anchor:middle' arcsize="10923f" fillcolor="#36f"
+  strokecolor="white [1]">
+  <v:fill rotate="t"/>
+  <v:stroke dashstyle="1 1" endcap="round"/>
+  <v:shadow color="#ccf [2]"/>
+  <o:extrusion v:ext="view" specularity="80000f" diffusity="43712f"
+   backdepth="18pt" on="t" metal="t" viewpoint="-34.72222mm" viewpointorigin="-.5"
+   skewangle="-45" lightposition="-50000,-50000" lightposition2="50000"/>
+  <v:textbox inset="18pt,18pt,18pt,18pt"/>
+  <p:animation number="8" delay="0" type="object" effect="fly" direction="left"
+   flag="16388"/></v:roundrect><![if !vml]><img border=0
+ v:shapes="_x0000_s1242125" src="slide0294_image215.gif"
+ alt="Rounded Rectangle: Model Management Services " style='position:absolute;
+ top:32.33%;left:1.45%;width:95.89%;height:9.71%'><![endif]>
+ <div id="_x0000_s1242125_AllText" v:shape="_x0000_s1242125" class=O
+ style='position:absolute;top:35.86%;left:5.16%;width:89.0%;height:3.18%;
+ white-space:nowrap'>
+ <div style='text-align:center;mso-line-spacing:"87 30 0";position:absolute;
+ top:0%;left:0%;width:100.0%;height:100.0%'><span style='font-family:"Arial Narrow";
+ mso-ascii-font-family:"Arial Narrow";font-size:78%;text-shadow:auto'><b>Model
+ Management Services </b></span></div>
+ </div>
+ <v:roundrect id="_x0000_s1242126" style='position:absolute;left:16.875pt;
+  top:118pt;width:681.125pt;height:43.75pt;rotation:-3600;flip:x;
+  mso-wrap-style:none;v-text-anchor:middle' arcsize="10923f" fillcolor="#cff"
+  strokecolor="white [1]">
+  <v:fill rotate="t"/>
+  <v:stroke dashstyle="1 1" endcap="round"/>
+  <v:shadow color="#ccf [2]"/>
+  <o:extrusion v:ext="view" specularity="80000f" diffusity="43712f"
+   backdepth="18pt" on="t" metal="t" viewpoint="-34.72222mm" viewpointorigin="-.5"
+   skewangle="-45" lightposition="-50000,-50000" lightposition2="50000"/>
+  <v:textbox inset="18pt,18pt,18pt,18pt"/>
+  <p:animation number="9" delay="0" type="object" effect="fly" direction="left"
+   flag="16388"/></v:roundrect><![if !vml]><img border=0
+ v:shapes="_x0000_s1242126" src="slide0294_image216.gif"
+ alt="Rounded Rectangle: Model Management UI Services" style='position:absolute;
+ top:20.67%;left:1.45%;width:95.89%;height:9.71%'><![endif]>
+ <div id="_x0000_s1242126_AllText" v:shape="_x0000_s1242126" class=O
+ style='position:absolute;top:24.38%;left:5.16%;width:89.0%;height:3.18%;
+ white-space:nowrap'>
+ <div style='text-align:center;mso-line-spacing:"87 30 0";position:absolute;
+ top:0%;left:0%;width:100.0%;height:100.0%'><span style='font-family:"Arial Narrow";
+ mso-ascii-font-family:"Arial Narrow";font-size:78%;text-shadow:auto'><b>Model
+ Management UI Services</b></span></div>
+ </div>
+ <v:roundrect id="_x0000_s1242127" style='position:absolute;left:258.875pt;
+  top:274.875pt;width:90.75pt;height:72.75pt;rotation:-3600;flip:x;
+  v-text-anchor:middle' arcsize="10923f" fillcolor="blue" strokecolor="white [1]">
+  <v:fill color2="fill darken(118)" rotate="t" angle="-135" method="linear sigma"
+   focus="-50%" type="gradient"/>
+  <v:stroke dashstyle="1 1" endcap="round"/>
+  <v:shadow color="#ccf [2]"/>
+  <o:extrusion v:ext="view" specularity="80000f" diffusity="43712f"
+   backdepth="18pt" on="t" metal="t" viewpoint="-34.72222mm" viewpointorigin="-.5"
+   skewangle="-45" lightposition="-50000,-50000" lightposition2="50000"/>
+  <v:textbox inset="18pt,18pt,18pt,18pt"/>
+  <p:animation number="10" delay="0" type="object" effect="fly" direction="left"
+   flag="17412"/></v:roundrect><![if !vml]><img border=0
+ v:shapes="_x0000_s1242127" src="slide0294_image217.gif"
+ alt="Rounded Rectangle: Element Type Registry" style='position:absolute;
+ top:49.64%;left:35.09%;width:13.77%;height:15.19%'><![endif]>
+ <div id="_x0000_s1242127_AllText" v:shape="_x0000_s1242127" class=O
+ style='position:absolute;top:54.06%;left:38.8%;width:7.01%;height:7.42%;
+ white-space:nowrap'>
+ <div style='text-align:center;mso-line-spacing:"87 30 0"'><span
+ style='position:absolute;top:0%;left:0%;width:100.0%;height:35.71%'><span
+ style='font-family:"Arial Narrow";mso-ascii-font-family:"Arial Narrow";
+ font-size:67%;text-shadow:auto'><b>Element </b></span></span><span
+ style='position:absolute;top:30.95%;left:0%;width:100.0%;height:35.71%'><span
+ style='font-family:"Arial Narrow";mso-ascii-font-family:"Arial Narrow";
+ font-size:67%;text-shadow:auto'><b>Type </b></span></span><span
+ style='position:absolute;top:61.9%;left:0%;width:100.0%;height:35.71%'><span
+ style='font-family:"Arial Narrow";mso-ascii-font-family:"Arial Narrow";
+ font-size:67%;text-shadow:auto'><b>Registry</b></span></span></div>
+ </div>
+</p:slide></div>
+
+<p:animation number="-1868591961"/><oa:par id="TimeNode0" dur="indefinite"
+ restart="never" p:nodeType="timingRoot">
+ <oa:seq id="TimeNode1" dur="indefinite" prev="document.onpptprev"
+  next="document.onpptnext" concurrent="enabled" nextAction="seek"
+  p:nodeType="mainSeq">
+  <oa:par id="TimeNode2" begin="indefinite" fill="hold">
+   <oa:par id="TimeNode3" begin="0.0" fill="hold">
+    <oa:par id="TimeNode4" o:presetID="ppt_2" o:presetClass="entrance"
+     o:presetSubType="0x8" begin="0.0" fill="hold" o:groupID="0"
+     p:nodeType="clickEffect">
+     <oa:set id="TimeNode5" begin="0.0" dur="0.001" fill="hold"
+      targetElement="_x0000_s1242119" attributeName="style.visibility"
+      to="visible"/>
+     <oa:animate id="TimeNode6" dur="0.5" fill="hold"
+      targetElement="_x0000_s1242119" additive="base" attributeName="ppt_x"
+      calcmode="linear" valueType="number" keyTimes="0.0;1.0"
+      values="0-#ppt_w/2;#ppt_x"/>
+     <oa:animate id="TimeNode7" dur="0.5" fill="hold"
+      targetElement="_x0000_s1242119" additive="base" attributeName="ppt_y"
+      calcmode="linear" valueType="number" keyTimes="0.0;1.0"
+      values="#ppt_y;#ppt_y"/>
+    </oa:par>
+    <![if !ppt]><oa:par id="TimeNode8" o:presetID="ppt_2" o:presetClass="entrance"
+     o:presetSubType="0x8" begin="0.0" fill="hold" p:nodeType="withEffect">
+     <oa:set id="TimeNode9" begin="0.0" dur="0.001" fill="hold"
+      targetElement="_x0000_s1242119_AllText" attributeName="style.visibility"
+      to="visible"/>
+     <oa:animate id="TimeNode10" dur="0.5" fill="hold"
+      targetElement="_x0000_s1242119_AllText" additive="base"
+      attributeName="ppt_x" calcmode="linear" valueType="number"
+      keyTimes="0.0;1.0" values="0-#ppt_w/2;#ppt_x"/>
+     <oa:animate id="TimeNode11" dur="0.5" fill="hold"
+      targetElement="_x0000_s1242119_AllText" additive="base"
+      attributeName="ppt_y" calcmode="linear" valueType="number"
+      keyTimes="0.0;1.0" values="#ppt_y;#ppt_y"/>
+    </oa:par>
+    <![endif]><oa:par id="TimeNode12" o:presetID="ppt_2" o:presetClass="entrance"
+     o:presetSubType="0x8" begin="0.0" fill="hold" o:groupID="0"
+     p:nodeType="withEffect">
+     <oa:set id="TimeNode13" begin="0.0" dur="0.001" fill="hold"
+      targetElement="_x0000_s1242120" attributeName="style.visibility"
+      to="visible"/>
+     <oa:animate id="TimeNode14" dur="0.5" fill="hold"
+      targetElement="_x0000_s1242120" additive="base" attributeName="ppt_x"
+      calcmode="linear" valueType="number" keyTimes="0.0;1.0"
+      values="0-#ppt_w/2;#ppt_x"/>
+     <oa:animate id="TimeNode15" dur="0.5" fill="hold"
+      targetElement="_x0000_s1242120" additive="base" attributeName="ppt_y"
+      calcmode="linear" valueType="number" keyTimes="0.0;1.0"
+      values="#ppt_y;#ppt_y"/>
+    </oa:par>
+    <![if !ppt]><oa:par id="TimeNode16" o:presetID="ppt_2"
+     o:presetClass="entrance" o:presetSubType="0x8" begin="0.0" fill="hold"
+     p:nodeType="withEffect">
+     <oa:set id="TimeNode17" begin="0.0" dur="0.001" fill="hold"
+      targetElement="_x0000_s1242120_AllText" attributeName="style.visibility"
+      to="visible"/>
+     <oa:animate id="TimeNode18" dur="0.5" fill="hold"
+      targetElement="_x0000_s1242120_AllText" additive="base"
+      attributeName="ppt_x" calcmode="linear" valueType="number"
+      keyTimes="0.0;1.0" values="0-#ppt_w/2;#ppt_x"/>
+     <oa:animate id="TimeNode19" dur="0.5" fill="hold"
+      targetElement="_x0000_s1242120_AllText" additive="base"
+      attributeName="ppt_y" calcmode="linear" valueType="number"
+      keyTimes="0.0;1.0" values="#ppt_y;#ppt_y"/>
+    </oa:par>
+    <![endif]><oa:par id="TimeNode20" o:presetID="ppt_2" o:presetClass="entrance"
+     o:presetSubType="0x8" begin="0.0" fill="hold" o:groupID="0"
+     p:nodeType="withEffect">
+     <oa:set id="TimeNode21" begin="0.0" dur="0.001" fill="hold"
+      targetElement="_x0000_s1242121" attributeName="style.visibility"
+      to="visible"/>
+     <oa:animate id="TimeNode22" dur="0.5" fill="hold"
+      targetElement="_x0000_s1242121" additive="base" attributeName="ppt_x"
+      calcmode="linear" valueType="number" keyTimes="0.0;1.0"
+      values="0-#ppt_w/2;#ppt_x"/>
+     <oa:animate id="TimeNode23" dur="0.5" fill="hold"
+      targetElement="_x0000_s1242121" additive="base" attributeName="ppt_y"
+      calcmode="linear" valueType="number" keyTimes="0.0;1.0"
+      values="#ppt_y;#ppt_y"/>
+    </oa:par>
+    <![if !ppt]><oa:par id="TimeNode24" o:presetID="ppt_2"
+     o:presetClass="entrance" o:presetSubType="0x8" begin="0.0" fill="hold"
+     p:nodeType="withEffect">
+     <oa:set id="TimeNode25" begin="0.0" dur="0.001" fill="hold"
+      targetElement="_x0000_s1242121_AllText" attributeName="style.visibility"
+      to="visible"/>
+     <oa:animate id="TimeNode26" dur="0.5" fill="hold"
+      targetElement="_x0000_s1242121_AllText" additive="base"
+      attributeName="ppt_x" calcmode="linear" valueType="number"
+      keyTimes="0.0;1.0" values="0-#ppt_w/2;#ppt_x"/>
+     <oa:animate id="TimeNode27" dur="0.5" fill="hold"
+      targetElement="_x0000_s1242121_AllText" additive="base"
+      attributeName="ppt_y" calcmode="linear" valueType="number"
+      keyTimes="0.0;1.0" values="#ppt_y;#ppt_y"/>
+    </oa:par>
+    <![endif]><oa:par id="TimeNode28" o:presetID="ppt_2" o:presetClass="entrance"
+     o:presetSubType="0x8" begin="0.0" fill="hold" o:groupID="0"
+     p:nodeType="withEffect">
+     <oa:set id="TimeNode29" begin="0.0" dur="0.001" fill="hold"
+      targetElement="_x0000_s1242122" attributeName="style.visibility"
+      to="visible"/>
+     <oa:animate id="TimeNode30" dur="0.5" fill="hold"
+      targetElement="_x0000_s1242122" additive="base" attributeName="ppt_x"
+      calcmode="linear" valueType="number" keyTimes="0.0;1.0"
+      values="0-#ppt_w/2;#ppt_x"/>
+     <oa:animate id="TimeNode31" dur="0.5" fill="hold"
+      targetElement="_x0000_s1242122" additive="base" attributeName="ppt_y"
+      calcmode="linear" valueType="number" keyTimes="0.0;1.0"
+      values="#ppt_y;#ppt_y"/>
+    </oa:par>
+    <![if !ppt]><oa:par id="TimeNode32" o:presetID="ppt_2"
+     o:presetClass="entrance" o:presetSubType="0x8" begin="0.0" fill="hold"
+     p:nodeType="withEffect">
+     <oa:set id="TimeNode33" begin="0.0" dur="0.001" fill="hold"
+      targetElement="_x0000_s1242122_AllText" attributeName="style.visibility"
+      to="visible"/>
+     <oa:animate id="TimeNode34" dur="0.5" fill="hold"
+      targetElement="_x0000_s1242122_AllText" additive="base"
+      attributeName="ppt_x" calcmode="linear" valueType="number"
+      keyTimes="0.0;1.0" values="0-#ppt_w/2;#ppt_x"/>
+     <oa:animate id="TimeNode35" dur="0.5" fill="hold"
+      targetElement="_x0000_s1242122_AllText" additive="base"
+      attributeName="ppt_y" calcmode="linear" valueType="number"
+      keyTimes="0.0;1.0" values="#ppt_y;#ppt_y"/>
+    </oa:par>
+    <![endif]><oa:par id="TimeNode36" o:presetID="ppt_2" o:presetClass="entrance"
+     o:presetSubType="0x8" begin="0.0" fill="hold" o:groupID="0"
+     p:nodeType="withEffect">
+     <oa:set id="TimeNode37" begin="0.0" dur="0.001" fill="hold"
+      targetElement="_x0000_s1242123" attributeName="style.visibility"
+      to="visible"/>
+     <oa:animate id="TimeNode38" dur="0.5" fill="hold"
+      targetElement="_x0000_s1242123" additive="base" attributeName="ppt_x"
+      calcmode="linear" valueType="number" keyTimes="0.0;1.0"
+      values="0-#ppt_w/2;#ppt_x"/>
+     <oa:animate id="TimeNode39" dur="0.5" fill="hold"
+      targetElement="_x0000_s1242123" additive="base" attributeName="ppt_y"
+      calcmode="linear" valueType="number" keyTimes="0.0;1.0"
+      values="#ppt_y;#ppt_y"/>
+    </oa:par>
+    <![if !ppt]><oa:par id="TimeNode40" o:presetID="ppt_2"
+     o:presetClass="entrance" o:presetSubType="0x8" begin="0.0" fill="hold"
+     p:nodeType="withEffect">
+     <oa:set id="TimeNode41" begin="0.0" dur="0.001" fill="hold"
+      targetElement="_x0000_s1242123_AllText" attributeName="style.visibility"
+      to="visible"/>
+     <oa:animate id="TimeNode42" dur="0.5" fill="hold"
+      targetElement="_x0000_s1242123_AllText" additive="base"
+      attributeName="ppt_x" calcmode="linear" valueType="number"
+      keyTimes="0.0;1.0" values="0-#ppt_w/2;#ppt_x"/>
+     <oa:animate id="TimeNode43" dur="0.5" fill="hold"
+      targetElement="_x0000_s1242123_AllText" additive="base"
+      attributeName="ppt_y" calcmode="linear" valueType="number"
+      keyTimes="0.0;1.0" values="#ppt_y;#ppt_y"/>
+    </oa:par>
+    <![endif]><oa:par id="TimeNode44" o:presetID="ppt_2" o:presetClass="entrance"
+     o:presetSubType="0x8" begin="0.0" fill="hold" o:groupID="0"
+     p:nodeType="withEffect">
+     <oa:set id="TimeNode45" begin="0.0" dur="0.001" fill="hold"
+      targetElement="_x0000_s1242124" attributeName="style.visibility"
+      to="visible"/>
+     <oa:animate id="TimeNode46" dur="0.5" fill="hold"
+      targetElement="_x0000_s1242124" additive="base" attributeName="ppt_x"
+      calcmode="linear" valueType="number" keyTimes="0.0;1.0"
+      values="0-#ppt_w/2;#ppt_x"/>
+     <oa:animate id="TimeNode47" dur="0.5" fill="hold"
+      targetElement="_x0000_s1242124" additive="base" attributeName="ppt_y"
+      calcmode="linear" valueType="number" keyTimes="0.0;1.0"
+      values="#ppt_y;#ppt_y"/>
+    </oa:par>
+    <![if !ppt]><oa:par id="TimeNode48" o:presetID="ppt_2"
+     o:presetClass="entrance" o:presetSubType="0x8" begin="0.0" fill="hold"
+     p:nodeType="withEffect">
+     <oa:set id="TimeNode49" begin="0.0" dur="0.001" fill="hold"
+      targetElement="_x0000_s1242124_AllText" attributeName="style.visibility"
+      to="visible"/>
+     <oa:animate id="TimeNode50" dur="0.5" fill="hold"
+      targetElement="_x0000_s1242124_AllText" additive="base"
+      attributeName="ppt_x" calcmode="linear" valueType="number"
+      keyTimes="0.0;1.0" values="0-#ppt_w/2;#ppt_x"/>
+     <oa:animate id="TimeNode51" dur="0.5" fill="hold"
+      targetElement="_x0000_s1242124_AllText" additive="base"
+      attributeName="ppt_y" calcmode="linear" valueType="number"
+      keyTimes="0.0;1.0" values="#ppt_y;#ppt_y"/>
+    </oa:par>
+    <![endif]><oa:par id="TimeNode52" o:presetID="ppt_2" o:presetClass="entrance"
+     o:presetSubType="0x8" begin="0.0" fill="hold" o:groupID="0"
+     p:nodeType="withEffect">
+     <oa:set id="TimeNode53" begin="0.0" dur="0.001" fill="hold"
+      targetElement="_x0000_s1242125" attributeName="style.visibility"
+      to="visible"/>
+     <oa:animate id="TimeNode54" dur="0.5" fill="hold"
+      targetElement="_x0000_s1242125" additive="base" attributeName="ppt_x"
+      calcmode="linear" valueType="number" keyTimes="0.0;1.0"
+      values="0-#ppt_w/2;#ppt_x"/>
+     <oa:animate id="TimeNode55" dur="0.5" fill="hold"
+      targetElement="_x0000_s1242125" additive="base" attributeName="ppt_y"
+      calcmode="linear" valueType="number" keyTimes="0.0;1.0"
+      values="#ppt_y;#ppt_y"/>
+    </oa:par>
+    <![if !ppt]><oa:par id="TimeNode56" o:presetID="ppt_2"
+     o:presetClass="entrance" o:presetSubType="0x8" begin="0.0" fill="hold"
+     p:nodeType="withEffect">
+     <oa:set id="TimeNode57" begin="0.0" dur="0.001" fill="hold"
+      targetElement="_x0000_s1242125_AllText" attributeName="style.visibility"
+      to="visible"/>
+     <oa:animate id="TimeNode58" dur="0.5" fill="hold"
+      targetElement="_x0000_s1242125_AllText" additive="base"
+      attributeName="ppt_x" calcmode="linear" valueType="number"
+      keyTimes="0.0;1.0" values="0-#ppt_w/2;#ppt_x"/>
+     <oa:animate id="TimeNode59" dur="0.5" fill="hold"
+      targetElement="_x0000_s1242125_AllText" additive="base"
+      attributeName="ppt_y" calcmode="linear" valueType="number"
+      keyTimes="0.0;1.0" values="#ppt_y;#ppt_y"/>
+    </oa:par>
+    <![endif]><oa:par id="TimeNode60" o:presetID="ppt_2" o:presetClass="entrance"
+     o:presetSubType="0x8" begin="0.0" fill="hold" o:groupID="0"
+     p:nodeType="withEffect">
+     <oa:set id="TimeNode61" begin="0.0" dur="0.001" fill="hold"
+      targetElement="_x0000_s1242126" attributeName="style.visibility"
+      to="visible"/>
+     <oa:animate id="TimeNode62" dur="0.5" fill="hold"
+      targetElement="_x0000_s1242126" additive="base" attributeName="ppt_x"
+      calcmode="linear" valueType="number" keyTimes="0.0;1.0"
+      values="0-#ppt_w/2;#ppt_x"/>
+     <oa:animate id="TimeNode63" dur="0.5" fill="hold"
+      targetElement="_x0000_s1242126" additive="base" attributeName="ppt_y"
+      calcmode="linear" valueType="number" keyTimes="0.0;1.0"
+      values="#ppt_y;#ppt_y"/>
+    </oa:par>
+    <![if !ppt]><oa:par id="TimeNode64" o:presetID="ppt_2"
+     o:presetClass="entrance" o:presetSubType="0x8" begin="0.0" fill="hold"
+     p:nodeType="withEffect">
+     <oa:set id="TimeNode65" begin="0.0" dur="0.001" fill="hold"
+      targetElement="_x0000_s1242126_AllText" attributeName="style.visibility"
+      to="visible"/>
+     <oa:animate id="TimeNode66" dur="0.5" fill="hold"
+      targetElement="_x0000_s1242126_AllText" additive="base"
+      attributeName="ppt_x" calcmode="linear" valueType="number"
+      keyTimes="0.0;1.0" values="0-#ppt_w/2;#ppt_x"/>
+     <oa:animate id="TimeNode67" dur="0.5" fill="hold"
+      targetElement="_x0000_s1242126_AllText" additive="base"
+      attributeName="ppt_y" calcmode="linear" valueType="number"
+      keyTimes="0.0;1.0" values="#ppt_y;#ppt_y"/>
+    </oa:par>
+    <![endif]><oa:par id="TimeNode68" o:presetID="ppt_2" o:presetClass="entrance"
+     o:presetSubType="0x8" begin="0.0" fill="hold" o:groupID="0"
+     p:nodeType="withEffect">
+     <oa:set id="TimeNode69" begin="0.0" dur="0.001" fill="hold"
+      targetElement="_x0000_s1242127" attributeName="style.visibility"
+      to="visible"/>
+     <oa:animate id="TimeNode70" dur="0.5" fill="hold"
+      targetElement="_x0000_s1242127" additive="base" attributeName="ppt_x"
+      calcmode="linear" valueType="number" keyTimes="0.0;1.0"
+      values="0-#ppt_w/2;#ppt_x"/>
+     <oa:animate id="TimeNode71" dur="0.5" fill="hold"
+      targetElement="_x0000_s1242127" additive="base" attributeName="ppt_y"
+      calcmode="linear" valueType="number" keyTimes="0.0;1.0"
+      values="#ppt_y;#ppt_y"/>
+    </oa:par>
+    <![if !ppt]><oa:par id="TimeNode72" o:presetID="ppt_2"
+     o:presetClass="entrance" o:presetSubType="0x8" begin="0.0" fill="hold"
+     p:nodeType="withEffect">
+     <oa:set id="TimeNode73" begin="0.0" dur="0.001" fill="hold"
+      targetElement="_x0000_s1242127_AllText" attributeName="style.visibility"
+      to="visible"/>
+     <oa:animate id="TimeNode74" dur="0.5" fill="hold"
+      targetElement="_x0000_s1242127_AllText" additive="base"
+      attributeName="ppt_x" calcmode="linear" valueType="number"
+      keyTimes="0.0;1.0" values="0-#ppt_w/2;#ppt_x"/>
+     <oa:animate id="TimeNode75" dur="0.5" fill="hold"
+      targetElement="_x0000_s1242127_AllText" additive="base"
+      attributeName="ppt_y" calcmode="linear" valueType="number"
+      keyTimes="0.0;1.0" values="#ppt_y;#ppt_y"/>
+    </oa:par>
+    <![endif]></oa:par>
+  </oa:par>
+ </oa:seq>
+</oa:par>
+<![if ppt]>
+<oa:buildParagraph targetElement="_x0000_s1242119" groupID="0" build="asAWhole"
+ buildLevel="1" alsoAnimate="background" reverse="false" buildAdvance="onclick"
+ userSetAnimBgd="false"/><oa:buildParagraph targetElement="_x0000_s1242120"
+ groupID="0" build="asAWhole" buildLevel="1" alsoAnimate="background"
+ reverse="false" buildAdvance="onclick" userSetAnimBgd="false"/><oa:buildParagraph
+ targetElement="_x0000_s1242121" groupID="0" build="asAWhole" buildLevel="1"
+ alsoAnimate="background" reverse="false" buildAdvance="onclick"
+ userSetAnimBgd="false"/><oa:buildParagraph targetElement="_x0000_s1242122"
+ groupID="0" build="asAWhole" buildLevel="1" alsoAnimate="background"
+ reverse="false" buildAdvance="onclick" userSetAnimBgd="false"/><oa:buildParagraph
+ targetElement="_x0000_s1242123" groupID="0" build="asAWhole" buildLevel="1"
+ alsoAnimate="background" reverse="false" buildAdvance="onclick"
+ userSetAnimBgd="false"/><oa:buildParagraph targetElement="_x0000_s1242124"
+ groupID="0" build="asAWhole" buildLevel="1" alsoAnimate="background"
+ reverse="false" buildAdvance="onclick" userSetAnimBgd="false"/><oa:buildParagraph
+ targetElement="_x0000_s1242125" groupID="0" build="asAWhole" buildLevel="1"
+ alsoAnimate="background" reverse="false" buildAdvance="onclick"
+ userSetAnimBgd="false"/><oa:buildParagraph targetElement="_x0000_s1242126"
+ groupID="0" build="asAWhole" buildLevel="1" alsoAnimate="background"
+ reverse="false" buildAdvance="onclick" userSetAnimBgd="false"/><oa:buildParagraph
+ targetElement="_x0000_s1242127" groupID="0" build="asAWhole" buildLevel="1"
+ alsoAnimate="background" reverse="false" buildAdvance="onclick"
+ userSetAnimBgd="false"/>
+<![endif]>
+</body>
+
+</html>

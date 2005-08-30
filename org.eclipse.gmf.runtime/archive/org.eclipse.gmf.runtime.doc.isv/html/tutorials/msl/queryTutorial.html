@@ -1,0 +1,752 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns:st1="urn:schemas-microsoft-com:office:smarttags"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=iso-8859-1">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 10">
+<meta name=Originator content="Microsoft Word 10">
+<link rel=File-List
+href="Service%20and%20Provider%20Tutorial_files/filelist.xml">
+<link rel=Edit-Time-Data
+href="Service%20and%20Provider%20Tutorial_files/editdata.mso">
+<!--[if !mso]>
+<style>
+v\:* {behavior:url(#default#VML);}
+o\:* {behavior:url(#default#VML);}
+w\:* {behavior:url(#default#VML);}
+.shape {behavior:url(#default#VML);}
+</style>
+<![endif]-->
+<title>Tutorial: EMF Query Statements</title>
+<o:SmartTagType namespaceuri="urn:schemas-microsoft-com:office:smarttags"
+ name="date"/>
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>jcorchis</o:Author>
+  <o:LastAuthor>jcorchis</o:LastAuthor>
+  <o:Revision>36</o:Revision>
+  <o:TotalTime>4441</o:TotalTime>
+  <o:Created>2005-04-21T14:33:00Z</o:Created>
+  <o:LastSaved>2005-05-05T17:51:00Z</o:LastSaved>
+  <o:Pages>1</o:Pages>
+  <o:Words>2133</o:Words>
+  <o:Characters>12164</o:Characters>
+  <o:Company>Rational Software</o:Company>
+  <o:Lines>101</o:Lines>
+  <o:Paragraphs>28</o:Paragraphs>
+  <o:CharactersWithSpaces>14269</o:CharactersWithSpaces>
+  <o:Version>10.6735</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:SpellingState>Clean</w:SpellingState>
+  <w:GrammarState>Clean</w:GrammarState>
+  <w:BrowserLevel>MicrosoftInternetExplorer4</w:BrowserLevel>
+ </w:WordDocument>
+</xml><![endif]--><!--[if !mso]><object
+ classid="clsid:38481807-CA0E-42D2-BF39-B33AF135CC4D" id=ieooui></object>
+<style>
+st1\:*{behavior:url(#ieooui) }
+</style>
+<![endif]-->
+<link rel=Stylesheet type="text/css" media=all href="../technote.css">
+<style>
+<!--
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-parent:"";
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+h1
+	{mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:1;
+	font-size:24.0pt;
+	font-family:"Times New Roman";
+	font-weight:bold;}
+h2
+	{mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:2;
+	font-size:18.0pt;
+	font-family:"Times New Roman";
+	font-weight:bold;}
+h3
+	{mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:3;
+	font-size:13.5pt;
+	font-style:italic;}
+p.MsoCaption, li.MsoCaption, div.MsoCaption
+	{mso-style-noshow:yes;
+	mso-style-next:Normal;
+	margin-top:6.0pt;
+	margin-right:0in;
+	margin-bottom:6.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";
+	font-weight:bold;}
+a:link, span.MsoHyperlink
+	{color:blue;
+	text-decoration:underline;
+	text-underline:single;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:blue;
+	text-decoration:underline;
+	text-underline:single;}
+p
+	{mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+code
+	{font-family:"Courier New";
+	mso-ascii-font-family:"Courier New";
+	mso-fareast-font-family:"Times New Roman";
+	mso-hansi-font-family:"Courier New";
+	mso-bidi-font-family:"Courier New";}
+pre
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:24.0pt;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt;
+	font-size:10.0pt;
+	font-family:"Courier New";
+	mso-fareast-font-family:"Times New Roman";}
+p.notabene, li.notabene, div.notabene
+	{mso-style-name:notabene;
+	mso-margin-top-alt:auto;
+	margin-right:48.0pt;
+	mso-margin-bottom-alt:auto;
+	margin-left:48.0pt;
+	mso-pagination:widow-orphan;
+	border:none;
+	mso-border-top-alt:solid windowtext .75pt;
+	mso-border-bottom-alt:solid windowtext .75pt;
+	padding:0in;
+	mso-padding-alt:4.0pt 0in 4.0pt 0in;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+p.question, li.question, div.question
+	{mso-style-name:question;
+	mso-margin-top-alt:auto;
+	margin-right:48.0pt;
+	mso-margin-bottom-alt:auto;
+	margin-left:48.0pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";
+	font-style:italic;}
+p.backto, li.backto, div.backto
+	{mso-style-name:backto;
+	mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+span.SpellE
+	{mso-style-name:"";
+	mso-spl-e:yes;}
+span.GramE
+	{mso-style-name:"";
+	mso-gram-e:yes;}
+@page Section1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.25in 1.0in 1.25in;
+	mso-header-margin:35.4pt;
+	mso-footer-margin:35.4pt;
+	mso-paper-source:0;}
+div.Section1
+	{page:Section1;}
+ /* List Definitions */
+ @list l0
+	{mso-list-id:1754820217;
+	mso-list-template-ids:-806848416;}
+@list l0:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l0:level2
+	{mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l0:level3
+	{mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l0:level4
+	{mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l0:level5
+	{mso-level-tab-stop:2.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l0:level6
+	{mso-level-tab-stop:3.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l0:level7
+	{mso-level-tab-stop:3.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l0:level8
+	{mso-level-tab-stop:4.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l0:level9
+	{mso-level-tab-stop:4.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+ol
+	{margin-bottom:0in;}
+ul
+	{margin-bottom:0in;}
+-->
+</style>
+<!--[if gte mso 10]>
+<style>
+ /* Style Definitions */
+ table.MsoNormalTable
+	{mso-style-name:"Table Normal";
+	mso-tstyle-rowband-size:0;
+	mso-tstyle-colband-size:0;
+	mso-style-noshow:yes;
+	mso-style-parent:"";
+	mso-padding-alt:0in 5.4pt 0in 5.4pt;
+	mso-para-margin:0in;
+	mso-para-margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;}
+table.MsoTableGrid
+	{mso-style-name:"Table Grid";
+	mso-tstyle-rowband-size:0;
+	mso-tstyle-colband-size:0;
+	margin-left:24.0pt;
+	border:solid windowtext 1.0pt;
+	mso-border-alt:solid windowtext .5pt;
+	mso-padding-alt:0in 5.4pt 0in 5.4pt;
+	mso-border-insideh:.5pt solid windowtext;
+	mso-border-insidev:.5pt solid windowtext;
+	mso-para-margin:0in;
+	mso-para-margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;}
+</style>
+<![endif]-->
+</head>
+
+<body lang=EN-US link=blue vlink=blue style='tab-interval:.5in'>
+
+<div class=Section1>
+
+<p class=MsoNormal><a name=top></a><img width=629 height=192 id="_x0000_i1025"
+src="../logo.gif" border=0></p>
+
+<h1 align=center style='text-align:center'>Tutorial: EMF Query Statements</h1>
+
+<table class=MsoNormalTable border=0 cellspacing=8 cellpadding=0
+ style='mso-cellspacing:6.0pt;margin-left:24.0pt;mso-padding-alt:0in 5.4pt 0in 5.4pt'>
+ <tr style='mso-yfti-irow:0;mso-yfti-lastrow:yes'>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>Version: 0.1</p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>Date: June 06, 2005</p>
+  </td>
+ </tr>
+</table>
+
+<h2>Contents</h2>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:48.0pt;text-indent:-.25in;mso-list:l0 level1 lfo2;tab-stops:list .5in'><![if !supportLists]><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Symbol;
+mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol'><span
+style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'> </span></span></span><![endif]><a
+href="#overview">Overview</a></p>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:48.0pt;text-indent:-.25in;mso-list:l0 level1 lfo2;tab-stops:list .5in'><![if !supportLists]><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Symbol;
+mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol'><span
+style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'> </span></span></span><![endif]><a
+href="#refs">References</a></p>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:48.0pt;text-indent:-.25in;mso-list:l0 level1 lfo2;tab-stops:list .5in'><![if !supportLists]><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Symbol;
+mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol'><span
+style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'> </span></span></span><![endif]><a
+href="#intro">Introduction</a></p>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:48.0pt;text-indent:-.25in;mso-list:l0 level1 lfo2;tab-stops:list .5in'><![if !supportLists]><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Symbol;
+mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol'><span
+style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'> </span></span></span><![endif]><a
+href="#construct_statement">Constructing a Query Statement</a></p>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:48.0pt;text-indent:-.25in;mso-list:l0 level1 lfo2;tab-stops:list .5in'><![if !supportLists]><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Symbol;
+mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol'><span
+style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'> </span></span></span><![endif]><a
+href="#query_clauses">Providing the Query Clauses</a></p>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:48.0pt;text-indent:-.25in;mso-list:l0 level1 lfo2;tab-stops:list .5in'><![if !supportLists]><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Symbol;
+mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol'><span
+style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'> </span></span></span><![endif]><a
+href="#applying_conditions">Applying Conditions</a></p>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:48.0pt;text-indent:-.25in;mso-list:l0 level1 lfo2;tab-stops:list .5in'><![if !supportLists]><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Symbol;
+mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol'><span
+style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'> </span></span></span><![endif]><a
+href="#nesting_conditions">Nesting Conditions</a></p>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:48.0pt;text-indent:-.25in;mso-list:l0 level1 lfo2;tab-stops:list .5in'><![if !supportLists]><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Symbol;
+mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol'><span
+style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'> </span></span></span><![endif]><a
+href="#executing">Executing the Query</a></p>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:48.0pt;text-indent:-.25in;mso-list:l0 level1 lfo2;tab-stops:list .5in'><![if !supportLists]><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Symbol;
+mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol'><span
+style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'> </span></span></span><![endif]><a
+href="#additional_examples">Additional Examples</a></p>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:48.0pt;text-indent:-.25in;mso-list:l0 level1 lfo2;tab-stops:list .5in'><![if !supportLists]><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Symbol;
+mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol'><span
+style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'> </span></span></span><![endif]><a
+href="#summary">Summary</a></p>
+
+<div class=MsoNormal align=center style='text-align:center'>
+
+<hr size=2 width="100%" align=center>
+
+</div>
+
+<h2><a name="overview"></a>Overview</h2>
+
+<p class=backto><span style='font-size:10.0pt'>[<a href="#top"><span
+class=GramE>back</span> to top</a>]</span></p>
+
+<p>
+The EMF Query framework provides a set of tools to construct and execute query statements. These
+ query statements provide a client with a uniform way of discovering and potentially modifying the
+ matching EObjects. Queries are first constructed with their query clauses and then they are ready
+ to be executed.
+</p>
+
+<h2><a name=refs></a>References</h2>
+
+<p class=backto><span style='font-size:10.0pt'>[<a href="#top"><span
+class=GramE>back</span> to top</a>]</span></p>
+
+<p>
+This tutorial assumes that the reader is familiar with EMF and is familiar with the concept of
+ querying. A crucial part of understanding EMF is being able to understand its reflective mechanisms
+ including <code>EClasses</code> and <code>EStructuralFeatures</code>
+</p>
+<p>
+For reference, the full <A HREF="../../examples-guide/msl/queryExample.html">example</A> for this tutorial is available.
+</p>
+
+<h2><a name=intro></a>Introduction</h2>
+
+<p class=backto><span style='font-size:10.0pt'>[<a href="#top"><span
+class=GramE>back</span> to top</a>]</span></p>
+
+<p>
+In order to demonstrate EMF Query, we will be making use of the RMP library metamodel. This metamodel
+ is a variant of the standard EMF example metamodel used in many of its tutorials.
+</p>
+<p>
+For those readers who are not familiar with this metamodel, it models a library with books and writers.
+The most important aspect of the library metamodel for this tutorial is the fact that books are modeled
+as EObjects whose EClass is <code>Book</code> and they contain a EStructuralFeature called <code>pages</code>
+that stores an integer number of pages contained in the book.
+</p>
+<p>
+The goal of this tutorial is to create an EMF query that will discover which books contain more
+ than 500 pages. These books are considered &quot;large&quot; books.
+</p>
+
+<h2><a name=construct_statement></a>Constructing a Query Statement</h2>
+
+<p class=backto><span style='font-size:10.0pt'>[<a href="#top"><span
+class=GramE>back</span> to top</a>]</span></p>
+
+<p>
+There are two query statements available: <a href="../../../reference/api/common/com/ibm/xtools/emf/query/statements/SELECT.html">SELECT</a> and <a href="../../../reference/api/common/com/ibm/xtools/emf/query/statements/UPDATE.html">UPDATE</a>.
+The SELECT statement provides querying without modification while the UPDATE statement provides
+querying with modification. In this case, we require only querying without the modification.
+</p>
+<p>
+Often times, pseudocode can be used to clarify the function of the query statement. In EMF query
+the pseudocode is very close to the code. We will use pseudocode for now and switch back to the
+actual code near the end of this tutorial.
+</p>
+<p>
+Here is our query so far:
+</p>
+
+<table class=MsoNormalTable border=1 style='mso-cellspacing:1.5pt;
+ margin-left:24.0pt;background:white;mso-padding-alt:6.0pt 6.0pt 6.0pt 6.0pt'>
+<tr>
+<td>
+<span style='color:navy'>
+<pre>
+SELECT
+	FROM [source]
+	WHERE [condition]
+</pre>
+</span>
+</td>
+</tr>
+</table>
+
+<h2 style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><a
+name=query_clauses></a>Providing the Query Clauses</h2>
+
+<p class=backto style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span
+style='font-size:10.0pt'>[<a href="#top"><span class=GramE>back</span> to top</a>]</span></p>
+
+<p>
+Every query statement requires some query clauses. The SELECT statement requires two clauses, a
+&quot;FROM&quot; and a &quot;WHERE.&quot; The former clause describes the source of EObjects where SELECT
+can iterate in order to derive results. The latter clause describes the criteria for an EObject that
+matches.
+</p>
+<p>
+The <a href="../../../reference/api/common/com/ibm/xtools/emf/query/statements/FROM.html">FROM</a> clause requires an <a href="../../../reference/api/common/com/ibm/xtools/emf/query/conditions/eobjects/EObjectSource.html">EObjectSource</a>. We will trivially satisfy the FROM clause 
+by providing a collection of EObjects called <code>selectedEObjects</code>:
+</p>
+
+<table class=MsoNormalTable border=1 style='mso-cellspacing:1.5pt;
+ margin-left:24.0pt;background:white;mso-padding-alt:6.0pt 6.0pt 6.0pt 6.0pt'>
+<tr>
+<td>
+<span style='color:navy'>
+<pre>
+SELECT
+	FROM selectedEObjects
+	WHERE [condition]
+</pre>
+</span>
+</td>
+</tr>
+</table>
+
+<p>
+The FROM clause defaults to hierarchical iteration, which means that for each EObject in the selectedEObjects
+collection, the SELECT statement will traverse its contained EObjects (<code>eContents()</code>) recursively until
+it reaches the leaves of the containment subtree to find its matching EObjects.
+</p>
+
+<h2 style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><a
+name="applying_conditions"></a>Applying Conditions</h2>
+
+<p style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'>[<a
+href="#top"><span class=GramE><span style='font-size:10.0pt'>back</span></span><span
+style='font-size:10.0pt'> to top</span></a>]</p>
+
+<p>
+The final part of a SELECT statement is the <a href="../../../reference/api/common/com/ibm/xtools/emf/query/statements/WHERE.html">WHERE</a> clause along with its condition. This condition
+will be evaluated at each EObject encountered by the FROM clause to determine whether the EObject
+matches the criteria of the query. The condition provided to the WHERE clause falls under a specialized
+condition called an <a href="../../../reference/api/common/com/ibm/xtools/emf/query/conditions/eobjects/EObjectCondition.html">EObjectCondition</a> that is a condition that is specially designed to
+evaluate an EObject.
+</p>
+<p>
+Our original purpose for this query is to find book EObjects whose pages are larger than 500. The pages
+EStructuralFeature is an EAttribute whose value will be an integer so we will choose the <a href="../../../reference/api/common/com/ibm/xtools/emf/query/conditions/eobjects/structuralfeatures/EObjectAttributeValueCondition.html">EObjectAttributeValueCondition.</a>
+Its purpose is to evaluate the value of a specific EAttribute:
+</p>
+
+<table class=MsoNormalTable border=1 style='mso-cellspacing:1.5pt;
+ margin-left:24.0pt;background:white;mso-padding-alt:6.0pt 6.0pt 6.0pt 6.0pt'>
+<tr>
+<td>
+<span style='color:navy'>
+<pre>
+SELECT
+	FROM selectedEObjects
+	WHERE EObjectAttributeValueCondition
+				RMPLibraryPackage.eINSTANCE.getBook_Pages()
+				[inner condition]
+</pre>
+</span>
+</td>
+</tr>
+</table>
+
+<h2 style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><a
+name="nesting_conditions"></a>Nesting Conditions</h2>
+
+<p style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'>[<a
+href="#top"><span class=GramE><span style='font-size:10.0pt'>back</span></span><span
+style='font-size:10.0pt'> to top</span></a>]</p>
+
+<p>
+Some conditions will require other conditions in order to perform their function. This gives clients
+enough versatility to formulate their queries.
+</p>
+<p>
+In the case of EObjectAttributeValueCondition, it must be constructed with a <a href="../../../reference/api/common/com/ibm/xtools/emf/query/conditions/Condition.html">Condition.</a> Unlike the
+WHERE clause, it does not require the special EObjectCondition. This is because EAttributes may store primitive
+values like Strings, Integers or Booleans. Our EAttribute &quot;pages&quot; is an Integer EAttribute so we will
+use a number condition that will match a range of numerical values:
+</p>
+
+<table class=MsoNormalTable border=1 style='mso-cellspacing:1.5pt;
+ margin-left:24.0pt;background:white;mso-padding-alt:6.0pt 6.0pt 6.0pt 6.0pt'>
+<tr>
+<td>
+<span style='color:navy'>
+<pre>
+SELECT
+	FROM selectedEObjects
+	WHERE EObjectAttributeValueCondition
+				RMPLibraryPackage.eINSTANCE.getBook_Pages()
+				NumberCondition.IntegerValue(500, MAX_VALUE)
+</pre>
+</span>
+</td>
+</tr>
+</table>
+
+<p>
+Now we have the final pseudo-code representation of the query. The <a href="../../../reference/api/common/com/ibm/xtools/emf/query/conditions/numbers/NumberCondition.IntegerValue.html">NumberCondition.IntegerValue</a> condition
+will match any Integer between 500 and the maximum integer value inclusive.
+</p>
+
+<h2 style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><a
+name="executing"></a>Executing the Query</h2>
+
+<p style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'>[<a
+href="#top"><span class=GramE><span style='font-size:10.0pt'>back</span></span><span
+style='font-size:10.0pt'> to top</span></a>]</p>
+
+
+<p>
+Since the beginning of the tutorial, we have been operating in pseudocode. When we translate the pseudocode
+into EMF Query code we get the following:
+</p>
+
+<table class=MsoNormalTable border=1 style='mso-cellspacing:1.5pt;
+ margin-left:24.0pt;background:white;mso-padding-alt:6.0pt 6.0pt 6.0pt 6.0pt'>
+<tr>
+<td>
+<span style='color:navy'>
+<pre>
+statement =
+	new SELECT(
+		new FROM(selectedEObjects),
+		new WHERE(new EObjectAttributeValueCondition(
+					RMPLibraryPackage.eINSTANCE.getBook_Pages(),
+					new NumberCondition.IntegerValue(new Integer(500), new Integer(Integer.MAX_VALUE)))
+		)
+	)
+</pre>
+</span>
+</td>
+</tr>
+</table>
+
+<p>
+The <a href="../../../reference/api/common/com/ibm/xtools/emf/query/conditions/eobjects/structuralfeatures/EStructuralFeatureValueGetter.html">EStructuralFeatureValueGetter</a> object is explicitly provided to perform the reflective retrieval
+of the structural feature value. This object may be substituted in order to provide more a more optimal way
+to retrieve this value. In the above example the default value getter is used although there are
+other constructors to allow clients to provide their own.
+</p>
+<p>
+Every query statement has an <code>execute()</code> method, which returns back the collection of matching EObjects.
+</p>
+
+<table class=MsoNormalTable border=1 style='mso-cellspacing:1.5pt;
+ margin-left:24.0pt;background:white;mso-padding-alt:6.0pt 6.0pt 6.0pt 6.0pt'>
+<tr>
+<td>
+<span style='color:navy'>
+<pre>
+statement.execute();
+</pre>
+</span>
+</td>
+</tr>
+</table>
+
+<p>
+For robustness, the executor of the query statement should call the <a href="../../../reference/api/common/com/ibm/xtools/emf/query/statements/IQueryResult.html#getException()">getException()</a> on the
+returned <a href="../../../reference/api/common/com/ibm/xtools/emf/query/statements/IQueryResult.html">IQueryResult</a> of the execute() method in order to verify that no exceptions occurred during the
+execution of the query.
+</p>
+
+<h2 style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'>
+<a name=additional_examples></a>Additional Examples</h2>
+
+<p style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span
+style='font-size:10.0pt'>[<a href="#top"><span class=GramE>back</span> to top</a>]</span></p>
+
+
+<table class=MsoNormalTable border=1 style='mso-cellspacing:1.5pt;
+ margin-left:24.0pt;background:white;mso-padding-alt:6.0pt 6.0pt 6.0pt 6.0pt'>
+<tr>
+<td>
+<span style='color:navy'>
+<pre>
+BookCategory category;
+
+/*
+ * Looking for writers whose authored books of the specified category
+ */
+EObjectCondition condition = new EObjectReferenceValueCondition(
+	new EObjectTypeRelationCondition(RMPLibraryPackage.eINSTANCE
+		.getWriter()), RMPLibraryPackage.eINSTANCE.getWriter_Books(),
+	new EObjectAttributeValueCondition(RMPLibraryPackage.eINSTANCE
+		.getBook_Category(), new ObjectInstanceCondition(category)));
+
+// Build the query statement
+SELECT statement = new SELECT(
+	new FROM(selectedEObjects), 
+	new WHERE(condition)
+);
+
+// Execute query
+return statement.execute();
+</pre>
+</span>
+</td>
+</tr>
+</table>
+
+<p>
+The above query makes use of the <a href="../../../reference/api/common/com/ibm/xtools/emf/query/conditions/eobjects/structuralfeatures/EObjectReferenceValueCondition.html">EObjectReferenceValueCondition</a> and <a href="../../../reference/api/common/com/ibm/xtools/emf/query/conditions/eobjects/EObjectTypeRelationCondition.html">EObjectTypeRelationCondition</a>.
+The former allows one to evaluate the value of an EReference. In this case, it is evaluating the value
+of the books EReference. By default, if the EReference has a multiplicity larger than 1 this condition
+will default to an &quot;ConditionPolicy.ANY,&quot; which means that it will match an EObject if any
+of its referenced EObjects matches the provided value condition.
+</p>
+<p>
+Two nested conditions are provided to the EObjectReferenceValueCondition: a context condition and a
+value condition. The context condition evaluates against the container of the EReference while the
+value condition evaluates against the referenced EObjects. Notice that both conditions will have to be
+EObjectConditions because they will be matching against EObjects.
+</p>
+<p>
+In the above query, the context condition is an EObjectTypeRelationCondition, which will ensure
+that the EObject has a certain EClass (type). The value condition was chosen to be the EObjectAttributeValueCondition, 
+which will compare the book's category identity against the chosen category enumeration literal.
+</p>
+
+<table class=MsoNormalTable border=1 style='mso-cellspacing:1.5pt;
+ margin-left:24.0pt;background:white;mso-padding-alt:6.0pt 6.0pt 6.0pt 6.0pt'>
+<tr>
+<td>
+<span style='color:navy'>
+<pre>
+Writer chosenWriter;
+String name = chosenWriter.getName();
+
+/*
+ * Looking for books whose writer name is the specified name
+ */
+EObjectCondition condition = new EObjectReferenceValueCondition(
+	new EObjectTypeRelationCondition(RMPLibraryPackage.eINSTANCE.getBook()),
+	RMPLibraryPackage.eINSTANCE.getBook_Author(),
+	new EObjectAttributeValueCondition(RMPLibraryPackage.eINSTANCE
+		.getWriter_Name(), new StringValue(name)));
+
+// Build the select query statement
+SELECT statement = new SELECT(
+	new FROM(chosenWriter.eResource().getContents()), 
+	new WHERE(condition));
+</pre>
+</span>
+</td>
+</tr>
+</table>
+
+<p>
+This query is similar in structure to the previous example. The differences are that the context
+condition is checking that the container of the EReference is a book and the author of the book
+has a value <code>name</code> for the name EAttribute.
+</p>
+
+<h2 style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><a
+name=principles></a><a name=summary></a><a name=models></a><a name=api></a>Summary</h2>
+
+<p style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span
+style='font-size:10.0pt'>[<a href="#top"><span class=GramE>back</span> to top</a>]</span></p>
+
+<p>
+In this tutorial, we did the following:
+<ol>
+<li>Developed a query statement in pseudocode</li>
+<li>Satisfied the query statement and its clauses</li>
+<li>Used a nested condition to evaluate the value of an EAttribute</li>
+<li>Executed the query to produce the results</li>
+<li>Checked to ensure that the query did not generate any exceptions during its execution</li>
+<li>Analyzed some more sophistocated queries</li>
+</ol>
+</p>
+
+<div class=MsoNormal align=center style='text-align:center;tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'>
+<hr size=2 width="100%" align=center>
+
+</div>
+
+<p style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><img
+border=0 width=324 height=14 id="_x0000_i1029" src="../copyright.gif"></p>
+
+</div>
+
+</body>
+
+</html>

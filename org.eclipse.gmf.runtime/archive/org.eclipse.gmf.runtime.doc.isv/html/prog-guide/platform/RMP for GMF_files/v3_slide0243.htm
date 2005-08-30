@@ -1,0 +1,178 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=PowerPoint.Slide>
+<meta name=Generator content="Microsoft PowerPoint 10">
+<link id=Main-File rel=Main-File href="../RMP%20for%20GMF.htm">
+<link rel=Preview href=preview.wmf>
+<!--[if !mso]>
+<style>
+v\:* {behavior:url(#default#VML);}
+o\:* {behavior:url(#default#VML);}
+p\:* {behavior:url(#default#VML);}
+.shape {behavior:url(#default#VML);}
+v\:textbox {display:none;}
+</style>
+<![endif]-->
+<title>Introduction to the Rational Modeling Platform</title>
+<meta name=Description
+content="5/31/2005: Diagram &amp; Notation Domains: EditPart Service">
+<link rel=next href="v3_slide0244.htm">
+</head>
+
+<body background="v3_master08_background.gif" bgcolor=white alink="#0099CC"
+link=silver vlink="#FF9900" text=white topmargin=0 leftmargin=0>
+
+<table border=0 valign=top width=650 height=487 cellpadding=0 cellspacing=0>
+ <tr>
+  <td width=17 height=0 nowrap><img src="v3_space.gif" border=0></td>
+  <td width=67 height=0 nowrap><img src="v3_space.gif" border=0></td>
+  <td width=55 height=0 nowrap><img src="v3_space.gif" border=0></td>
+  <td width=300 height=0 nowrap><img src="v3_space.gif" border=0></td>
+  <td width=96 height=0 nowrap><img src="v3_space.gif" border=0></td>
+  <td width=57 height=0 nowrap><img src="v3_space.gif" border=0></td>
+ </tr>
+ <tr>
+  <td width=650 height=47 colspan=7></td>
+ </tr>
+ <tr>
+  <td width=17 height=29></td>
+  <td width=575 height=29 colspan=5>
+  <table border=0 valign=top cellpadding=0 cellspacing=0>
+   <tr>
+    <td width=575 height=29><font face=Arial color="#4B6BAF" size=5><b>Diagram
+    &amp; Notation Domains: </b>EditPart Service</font><br>
+    </td>
+   </tr>
+  </table>
+  </td>
+  <td width=58 height=29></td>
+ </tr>
+ <tr>
+  <td width=650 height=45 colspan=7></td>
+ </tr>
+ <tr>
+  <td width=84 height=177 colspan=2></td>
+  <td width=451 height=177 colspan=3>
+  <table border=0 valign=top cellpadding=0 cellspacing=0>
+   <tr>
+    <td width=16 height=0 nowrap><img src="v3_space.gif" border=0></td>
+    <td width=1 height=0 nowrap><img src="v3_space.gif" border=0></td>
+    <td width=16 height=0 nowrap><img src="v3_space.gif" border=0></td>
+    <td width=1 height=0 nowrap><img src="v3_space.gif" border=0></td>
+    <td width=38 height=0 nowrap><img src="v3_space.gif" border=0></td>
+    <td width=3 height=0 nowrap><img src="v3_space.gif" border=0></td>
+    <td width=41 height=0 nowrap><img src="v3_space.gif" border=0></td>
+    <td width=158 height=0 nowrap><img src="v3_space.gif" border=0></td>
+    <td width=9 height=0 nowrap><img src="v3_space.gif" border=0></td>
+    <td width=122 height=0 nowrap><img src="v3_space.gif" border=0></td>
+    <td width=14 height=0 nowrap><img src="v3_space.gif" border=0></td>
+    <td width=12 height=0 nowrap><img src="v3_space.gif" border=0></td>
+    <td width=11 height=0 nowrap><img src="v3_space.gif" border=0></td>
+   </tr>
+   <tr>
+    <td width=16 height=17><font face=Wingdings color="#0099CC" size=2>§</font></td>
+    <td width=389 height=17 colspan=9><font face=Arial color=black size=2>An
+    Editpart provider creates an EditPart for a given model</font><br>
+    </td>
+    <td width=45 height=17 colspan=4></td>
+   </tr>
+   <tr>
+    <td width=16 height=17></td>
+    <td width=59 height=17 colspan=5><font face=Arial color=black size=2>element.</font><br>
+    </td>
+    <td width=375 height=17 colspan=8></td>
+   </tr>
+   <tr>
+    <td width=16 height=17><font face=Wingdings color="#0099CC" size=2>§</font></td>
+    <td width=403 height=17 colspan=10><font face=Arial color=black size=2>Providers
+    implement the IEditPartProvider with the following</font><br>
+    </td>
+    <td width=31 height=17 colspan=3></td>
+   </tr>
+   <tr>
+    <td width=450 height=1 colspan=14></td>
+   </tr>
+   <tr>
+    <td width=16 height=17></td>
+    <td width=56 height=17 colspan=4><font face=Arial color=black size=2>method:</font><br>
+    </td>
+    <td width=378 height=17 colspan=9></td>
+   </tr>
+   <tr>
+    <td width=450 height=4 colspan=14></td>
+   </tr>
+   <tr>
+    <td width=16 height=15></td>
+    <td width=17 height=15 colspan=2><font face=Webdings color="#0099CC"
+    size=1>4</font></td>
+    <td width=250 height=15 colspan=6><font face=Arial color=black size=1>EditPart
+    createGraphicEditPart(View view)</font><br>
+    </td>
+    <td width=167 height=15 colspan=5></td>
+   </tr>
+   <tr>
+    <td width=450 height=2 colspan=14></td>
+   </tr>
+   <tr>
+    <td width=16 height=17><font face=Wingdings color="#0099CC" size=2>§</font></td>
+    <td width=415 height=17 colspan=11><font face=Arial color=black size=2>Providers
+    can provide new editparts for new or existing model</font><br>
+    </td>
+    <td width=19 height=17 colspan=2></td>
+   </tr>
+   <tr>
+    <td width=450 height=1 colspan=14></td>
+   </tr>
+   <tr>
+    <td width=16 height=17></td>
+    <td width=100 height=17 colspan=6><font face=Arial color=black size=2>element
+    types.</font><br>
+    </td>
+    <td width=334 height=17 colspan=7></td>
+   </tr>
+   <tr>
+    <td width=16 height=17><font face=Wingdings color="#0099CC" size=2>§</font></td>
+    <td width=426 height=17 colspan=12><font face=Arial color=black size=2>Providers
+    should avoid providing new editparts where the intent</font><br>
+    </td>
+    <td width=8 height=17></td>
+   </tr>
+   <tr>
+    <td width=16 height=17></td>
+    <td width=434 height=17 colspan=13><font face=Arial color=black size=2>is
+    just to customize the set of editpolicies (this can be done more</font><br>
+    </td>
+   </tr>
+   <tr>
+    <td width=450 height=1 colspan=14></td>
+   </tr>
+   <tr>
+    <td width=16 height=17></td>
+    <td width=258 height=17 colspan=7><font face=Arial color=black size=2>efficiently
+    using the EditPolicy service)</font><br>
+    </td>
+    <td width=176 height=17 colspan=6></td>
+   </tr>
+  </table>
+  </td>
+  <td width=115 height=177 colspan=2></td>
+ </tr>
+ <tr>
+  <td width=650 height=19 colspan=7></td>
+ </tr>
+ <tr>
+  <td width=139 height=124 colspan=3></td>
+  <td width=300 height=124><img src="v3_slide0243_image044.jpg" border=0
+  width=300 height=124></td>
+  <td width=211 height=124 colspan=3></td>
+ </tr>
+ <tr>
+  <td width=650 height=46 colspan=7></td>
+ </tr>
+</table>
+
+</body>
+
+</html>

@@ -1,0 +1,50 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <title>Validation Adapter Example</title>
+</head>
+<body>
+
+<h2>Validation Adapter Example</h2>
+
+<h3>Introduction</h3>
+<p>
+This example describes the usage of the validation framework within the SDK.
+It demonstrates how to implement an EMF <code>EValidator</code> interface that
+delegates to model validation service and adapts the results to the EMF <code>Diagnostic</code> API.
+</p>
+
+<h3>References</h3>
+<p>
+Please refer to the document <a href="exampleOverview.html">Model Services Layer Examples Overview</a>
+for reviewing the library meta-model used as the basis for demonstrating the capabilities in this example.
+</p>
+
+<h3>Description</h3>
+<p>
+This example plug-in is named <code>org.eclipse.emf.validation.examples.adapter</code>. This plug-in
+does not contribute any menu items. It defines a client context and binds the context to a constraint category.
+The client context enablement uses the Eclipse property tester API. This plug-in registers the <code>EValidator</code>
+implementation with the <code>EValidator.Registry</code> through the Eclipse <code>org.eclipse.ui.startup</code>
+extension point. The funtionality is triggered by invoking the menu item <b>Validate</b> from the editor's
+context menu or main menu.
+</p>
+
+<p>Please refer to the tutorial <a href="../../tutorials/msl/validationAdapterTutorial.html">Validation Adapter Tutorial</a> 
+for reviewing the code samples within this example</p>
+
+<img src="oclValidation.GIF" alt="Validation Adapter Trigger"/>
+
+<h3>Usage</h3>
+<p>
+Refer to this example if you need:
+<ol>
+<li>
+To implement the EMF EValidator interface that delegates to the validation framework</li>
+</ol>
+</p>
+
+<p><a href="../../hglegal.htm"><img SRC="../../cpy.gif" ALT="Copyright IBM Corporation 2005.  All Rights Reserved." border="0"></a>
+</body>
+</html>

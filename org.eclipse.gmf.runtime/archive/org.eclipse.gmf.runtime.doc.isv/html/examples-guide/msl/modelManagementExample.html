@@ -1,0 +1,89 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <title>Model Management Example</title>
+</head>
+<body>
+
+<h2>Model Management Example</h2>
+
+<h3>Introduction</h3>
+<p>
+This example describes the usage of model management framework within the SDK.
+It demonstrates some of the model management capabilities (editing domain, validation
+batch notification, semantic procedures etc.) applied to library models.
+</p>
+
+<h3>References</h3>
+<p>
+Please refer to the document <a href="exampleOverview.html">Model Services Layer Examples Overview</a>
+for reviewing the library meta-model used as the basis for demonstrating the capabilities in this example.
+</p>
+
+<h3>Description</h3>
+<p>
+This example plug-in is named <code>org.eclipse.gmf.examples.runtime.emf</code>. This plugin registers
+an editor <b>MSL Library Model Editor</b> to manage the library models. The library models can be opened using the
+defualt library editor or this editor. The <b>MSL Library Model Editor</b> demonstrates the integrated capabilities
+of the model management framework.
+</p>
+
+<img src="modelMgmtWizard.GIF" alt="Model Management Editor Contribution"/>
+ 
+<p>
+This plug-in contributes the <b>MSL</b> menu to the MSL library editor's main menu and context menu.
+The menu has the following actions:
+<ol>
+<li><b>Control Unit:</b> Creates a new separate resource (controlled unit) in a
+    logical resource.  The new resource's URI is determined automatically
+    by an extension point</li>
+<li><b>Uncontrol Unit:</b> Absorbs a separate resource in a logical resource
+    into its container</li>
+<li><b>Edit:</b> Allows to edit the properties of a library model element. The changes made will be
+committed as a whole or can be undone as a whole (demonstrates the concept of an <code>MUndoInterval</code>)</li>
+<li><b>Create Resource:</b> Creates a library resource</li>
+<li><b>Load Resource:</b> Loads a library resource</li>
+<li><b>Unload Resource:</b> Unloads a library resource</li>
+<li><b>Set Pathmap:</b> Allows to create a pathmap variable and set its value. The path map entry gets added to the
+URI map within the <code>URIConverter</code></li>
+<li><b>Display All MSL Events:</b> Displays all the batched events received in the console</li>
+<li><b>Validate Elements:</b> Triggers batch validation</li>
+</ol>
+</p>
+
+<p>In addition to the above mentioned actions, the editor also has actions to add books and writers. They are
+<b>NewChild->Books</b> and <b>NewChild->Writers</b>. These actions allow creation of multiple books and writers respectively.
+This capability demonstrates the grouped changes to the model within an <code>MUndoInterval</code>. The semantic procedure
+implemented in this example ensures that unique names are assigned to the books and writers. The editor also has
+actions to <b>Undo</b>, <b>Redo</b> and <b>Delete</b> changes to the model.</p>
+
+<p>Please refer to the tutorial <a href="../../tutorials/msl/modelManagementTutorial.html">Model Management Tutorial</a> 
+for reviewing the code samples within this example</p>
+
+<img src="modelMgmtMenu.GIF" alt="Model Management Example Contributions"/>
+
+<h3>Usage</h3>
+<p>
+Refer to this example if you need:
+<ol>
+<li>Unified Transaction Semantics</li>
+<li>Undo/Redo management</li>
+<li>Multi-threaded access control</li>
+<li>Management of logical resources persisted in multiple physical resources</li>
+<li>Batch notification of events</li>
+<li>Evaluation of live constraints</li>
+<li>Common read and write operations</li>
+<li>Common re-usable commands</li>
+<li>Path map support</li>
+<li>Object life cycle management (destroy)</li>
+<li>Centralized model for event notification</li>
+<li>Event listeners with filters</li>
+<li>Support for semantic procedures</li>
+<li>Support for post processing after loading resources</li>
+</ol>
+</p>
+
+<p><a href="../../hglegal.htm"><img SRC="../../cpy.gif" ALT="Copyright IBM Corporation 2005.  All Rights Reserved." border="0"></a>
+</body>
+</html>

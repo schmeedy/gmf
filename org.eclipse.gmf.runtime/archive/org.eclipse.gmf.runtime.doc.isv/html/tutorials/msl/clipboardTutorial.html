@@ -1,0 +1,668 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns:st1="urn:schemas-microsoft-com:office:smarttags"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=iso-8859-1">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 10">
+<meta name=Originator content="Microsoft Word 10">
+<link rel=File-List
+href="Service%20and%20Provider%20Tutorial_files/filelist.xml">
+<link rel=Edit-Time-Data
+href="Service%20and%20Provider%20Tutorial_files/editdata.mso">
+<!--[if !mso]>
+<style>
+v\:* {behavior:url(#default#VML);}
+o\:* {behavior:url(#default#VML);}
+w\:* {behavior:url(#default#VML);}
+.shape {behavior:url(#default#VML);}
+</style>
+<![endif]-->
+<title>Tutorial: EMF Clipboard Copy and Paste</title>
+<o:SmartTagType namespaceuri="urn:schemas-microsoft-com:office:smarttags"
+ name="date"/>
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>jcorchis</o:Author>
+  <o:LastAuthor>jcorchis</o:LastAuthor>
+  <o:Revision>36</o:Revision>
+  <o:TotalTime>4441</o:TotalTime>
+  <o:Created>2005-04-21T14:33:00Z</o:Created>
+  <o:LastSaved>2005-05-05T17:51:00Z</o:LastSaved>
+  <o:Pages>1</o:Pages>
+  <o:Words>2133</o:Words>
+  <o:Characters>12164</o:Characters>
+  <o:Company>Rational Software</o:Company>
+  <o:Lines>101</o:Lines>
+  <o:Paragraphs>28</o:Paragraphs>
+  <o:CharactersWithSpaces>14269</o:CharactersWithSpaces>
+  <o:Version>10.6735</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:SpellingState>Clean</w:SpellingState>
+  <w:GrammarState>Clean</w:GrammarState>
+  <w:BrowserLevel>MicrosoftInternetExplorer4</w:BrowserLevel>
+ </w:WordDocument>
+</xml><![endif]--><!--[if !mso]><object
+ classid="clsid:38481807-CA0E-42D2-BF39-B33AF135CC4D" id=ieooui></object>
+<style>
+st1\:*{behavior:url(#ieooui) }
+</style>
+<![endif]-->
+<link rel=Stylesheet type="text/css" media=all href="../technote.css">
+<style>
+<!--
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-parent:"";
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+h1
+	{mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:1;
+	font-size:24.0pt;
+	font-family:"Times New Roman";
+	font-weight:bold;}
+h2
+	{mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:2;
+	font-size:18.0pt;
+	font-family:"Times New Roman";
+	font-weight:bold;}
+h3
+	{mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:3;
+	font-size:13.5pt;
+	font-style:italic;}
+p.MsoCaption, li.MsoCaption, div.MsoCaption
+	{mso-style-noshow:yes;
+	mso-style-next:Normal;
+	margin-top:6.0pt;
+	margin-right:0in;
+	margin-bottom:6.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";
+	font-weight:bold;}
+a:link, span.MsoHyperlink
+	{color:blue;
+	text-decoration:underline;
+	text-underline:single;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:blue;
+	text-decoration:underline;
+	text-underline:single;}
+p
+	{mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+code
+	{font-family:"Courier New";
+	mso-ascii-font-family:"Courier New";
+	mso-fareast-font-family:"Times New Roman";
+	mso-hansi-font-family:"Courier New";
+	mso-bidi-font-family:"Courier New";}
+pre
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:24.0pt;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt;
+	font-size:10.0pt;
+	font-family:"Courier New";
+	mso-fareast-font-family:"Times New Roman";}
+p.notabene, li.notabene, div.notabene
+	{mso-style-name:notabene;
+	mso-margin-top-alt:auto;
+	margin-right:48.0pt;
+	mso-margin-bottom-alt:auto;
+	margin-left:48.0pt;
+	mso-pagination:widow-orphan;
+	border:none;
+	mso-border-top-alt:solid windowtext .75pt;
+	mso-border-bottom-alt:solid windowtext .75pt;
+	padding:0in;
+	mso-padding-alt:4.0pt 0in 4.0pt 0in;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+p.question, li.question, div.question
+	{mso-style-name:question;
+	mso-margin-top-alt:auto;
+	margin-right:48.0pt;
+	mso-margin-bottom-alt:auto;
+	margin-left:48.0pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";
+	font-style:italic;}
+p.backto, li.backto, div.backto
+	{mso-style-name:backto;
+	mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+span.SpellE
+	{mso-style-name:"";
+	mso-spl-e:yes;}
+span.GramE
+	{mso-style-name:"";
+	mso-gram-e:yes;}
+@page Section1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.25in 1.0in 1.25in;
+	mso-header-margin:35.4pt;
+	mso-footer-margin:35.4pt;
+	mso-paper-source:0;}
+div.Section1
+	{page:Section1;}
+ /* List Definitions */
+ @list l0
+	{mso-list-id:1754820217;
+	mso-list-template-ids:-806848416;}
+@list l0:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l0:level2
+	{mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l0:level3
+	{mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l0:level4
+	{mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l0:level5
+	{mso-level-tab-stop:2.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l0:level6
+	{mso-level-tab-stop:3.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l0:level7
+	{mso-level-tab-stop:3.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l0:level8
+	{mso-level-tab-stop:4.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l0:level9
+	{mso-level-tab-stop:4.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+ol
+	{margin-bottom:0in;}
+ul
+	{margin-bottom:0in;}
+-->
+</style>
+<!--[if gte mso 10]>
+<style>
+ /* Style Definitions */
+ table.MsoNormalTable
+	{mso-style-name:"Table Normal";
+	mso-tstyle-rowband-size:0;
+	mso-tstyle-colband-size:0;
+	mso-style-noshow:yes;
+	mso-style-parent:"";
+	mso-padding-alt:0in 5.4pt 0in 5.4pt;
+	mso-para-margin:0in;
+	mso-para-margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;}
+table.MsoTableGrid
+	{mso-style-name:"Table Grid";
+	mso-tstyle-rowband-size:0;
+	mso-tstyle-colband-size:0;
+	margin-left:24.0pt;
+	border:solid windowtext 1.0pt;
+	mso-border-alt:solid windowtext .5pt;
+	mso-padding-alt:0in 5.4pt 0in 5.4pt;
+	mso-border-insideh:.5pt solid windowtext;
+	mso-border-insidev:.5pt solid windowtext;
+	mso-para-margin:0in;
+	mso-para-margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;}
+</style>
+<![endif]-->
+</head>
+
+<body lang=EN-US link=blue vlink=blue style='tab-interval:.5in'>
+
+<div class=Section1>
+
+<p class=MsoNormal><a name=top></a><img width=629 height=192 id="_x0000_i1025"
+src="../logo.gif" border=0></p>
+
+<h1 align=center style='text-align:center'>Tutorial: EMF Clipboard Copy and Paste</h1>
+
+<table class=MsoNormalTable border=0 cellspacing=8 cellpadding=0
+ style='mso-cellspacing:6.0pt;margin-left:24.0pt;mso-padding-alt:0in 5.4pt 0in 5.4pt'>
+ <tr style='mso-yfti-irow:0;mso-yfti-lastrow:yes'>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>Version: 0.1</p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>Date: June 08, 2005</p>
+  </td>
+ </tr>
+</table>
+
+<h2>Contents</h2>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:48.0pt;text-indent:-.25in;mso-list:l0 level1 lfo2;tab-stops:list .5in'><![if !supportLists]><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Symbol;
+mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol'><span
+style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'> </span></span></span><![endif]><a
+href="#overview">Overview</a></p>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:48.0pt;text-indent:-.25in;mso-list:l0 level1 lfo2;tab-stops:list .5in'><![if !supportLists]><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Symbol;
+mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol'><span
+style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'> </span></span></span><![endif]><a
+href="#refs">References</a></p>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:48.0pt;text-indent:-.25in;mso-list:l0 level1 lfo2;tab-stops:list .5in'><![if !supportLists]><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Symbol;
+mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol'><span
+style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'> </span></span></span><![endif]><a
+href="#intro">Introduction</a></p>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:48.0pt;text-indent:-.25in;mso-list:l0 level1 lfo2;tab-stops:list .5in'><![if !supportLists]><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Symbol;
+mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol'><span
+style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'> </span></span></span><![endif]><a
+href="#resource_setup">EMF Resource Setup</a></p>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:48.0pt;text-indent:-.25in;mso-list:l0 level1 lfo2;tab-stops:list .5in'><![if !supportLists]><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Symbol;
+mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol'><span
+style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'> </span></span></span><![endif]><a
+href="#clipboard_support">Clipboard Support Setup</a></p>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:48.0pt;text-indent:-.25in;mso-list:l0 level1 lfo2;tab-stops:list .5in'><![if !supportLists]><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Symbol;
+mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol'><span
+style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'> </span></span></span><![endif]><a
+href="#copying_objects">Copying EObjects</a></p>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:48.0pt;text-indent:-.25in;mso-list:l0 level1 lfo2;tab-stops:list .5in'><![if !supportLists]><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Symbol;
+mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol'><span
+style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'> </span></span></span><![endif]><a
+href="#pasting_objects">Pasting EObjects</a></p>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:48.0pt;text-indent:-.25in;mso-list:l0 level1 lfo2;tab-stops:list .5in'><![if !supportLists]><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Symbol;
+mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol'><span
+style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'> </span></span></span><![endif]><a
+href="#summary">Summary</a></p>
+
+<div class=MsoNormal align=center style='text-align:center'>
+
+<hr size=2 width="100%" align=center>
+
+</div>
+
+<h2><a name="overview"></a>Overview</h2>
+
+<p class=backto><span style='font-size:10.0pt'>[<a href="#top"><span
+class=GramE>back</span> to top</a>]</span></p>
+
+<p>
+The EMF clipboard support allows EObjects to be copied and pasted in an intelligent way. This
+is accomplished by providing clipboard support to a metamodel so that any instances of that
+metamodel may be copied in a specific way that is intuitive for users of that metamodel.
+</p>
+
+<h2><a name=refs></a>References</h2>
+
+<p class=backto><span style='font-size:10.0pt'>[<a href="#top"><span
+class=GramE>back</span> to top</a>]</span></p>
+
+<p>
+This tutorial assumes that the reader is familiar with EMF and in particular EPackages,
+EClasses, EStructuralFeatures and EReferences. A crucial part of understanding EMF 
+is being able to understand its reflective mechanisms. Also, extension parsers and
+EPackage namespace URIs should be understood before beginning to add clipboard support
+for a metamodel.
+</p>
+<p>
+For reference, the full <A HREF="../../examples-guide/msl/clipboardExample.html">example</A> for this tutorial is available.
+</p>
+
+<h2><a name=intro></a>Introduction</h2>
+
+<p class=backto><span style='font-size:10.0pt'>[<a href="#top"><span
+class=GramE>back</span> to top</a>]</span></p>
+
+<p>
+In order to demonstrate EMF clipboard support, we will be making use of the RMP Library metamodel.
+This metamodel is a variant of the standard EMF example metamodel used in many of its tutorials.
+</p>
+<p>
+For those readers who are not familiar with this metamodel, it models a library with books and writers.
+A book has an author that is a writer and both writers and books may be owned by a library. When
+copying and pasting writers, their books should be copied along with them even though the writer
+doesn't contain their books.
+</p>
+
+<h2><a name=resource_setup></a>EMF Resource Setup</h2>
+
+<p class=backto><span style='font-size:10.0pt'>[<a href="#top"><span
+class=GramE>back</span> to top</a>]</span></p>
+
+<p>
+One important prerequisite for EMF clipboard support is that the resources that will
+contain EObjects to be copied and/or pasted must support UUID(Universally Unique IDs) URIs
+for the EObjects. EMF clipboard will use these UUIDs to discover whether another EObject is
+the original EObject and should be overwritten with the clipboard contents. EMF's XMIResourceImpl
+does not normally use UUIDs.
+</p>
+<p>
+To ensure EMF will use a compatible resource, we will create a new subclass of the XMIResourceImpl
+so that our resource is serialized as XMI but with UUIDs:
+</p>
+
+<pre class="snippet">
+public class LibraryResource
+	extends XMIResourceImpl {
+
+	public LibraryResource() {
+		super();
+	}
+
+	public LibraryResource(URI uri) {
+		super(uri);
+	}
+
+	protected boolean useUUIDs() {
+		return true;
+	}
+}
+</pre>
+
+<p>
+As well, we will need a resource factory to provide to EMF so that it will construct
+our resource implementation rather than its own XMIResourceImpl:
+</p>
+
+<pre class="snippet">
+public class LibraryResourceFactory
+	extends XMIResourceFactoryImpl {
+
+	public LibraryResourceFactory() {
+		super();
+	}
+
+	public Resource createResource(URI uri) {
+		return new LibraryResource(uri);
+	}
+}
+</pre>
+
+<p>
+Finally, we will write an extension that will register our factory with EMF when it encounters
+the &quot;rmplibrary&quot; file extension:
+</p>
+
+<pre class="snippet">
+   &lt;extension point=&quot;org.eclipse.emf.ecore.extension_parser&quot;&gt;
+      &lt;parser
+            type=&quot;rmplibrary&quot;
+            class=&quot;org.eclipse.gmf.examples.runtime.emf.clipboard.library.LibraryResourceFactory&quot;/&gt;
+   &lt;/extension&gt;
+</pre>
+
+<h2 style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><a
+name=clipboard_support></a>Clipboard Support Setup</h2>
+
+<p class=backto style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span
+style='font-size:10.0pt'>[<a href="#top"><span class=GramE>back</span> to top</a>]</span></p>
+
+<p>
+Now that we have set up the resource to use UUIDs, we can add clipboard support for the RMP library
+metamodel:
+</p>
+
+<pre class="snippet">
+class LibraryClipboardSupport
+	extends AbstractClipboardSupport {
+
+	public LibraryClipboardSupport() {
+		super();
+	}
+
+	/**
+	 * Provide a mapping of name attributes for the <code>EClass</code>es of
+	 * the Library metamodel.
+	 */
+	protected EAttribute getNameAttribute(EClass eClass) {
+		EAttribute result;
+		
+		switch (eClass.getClassifierID()) {
+		case RMPLibraryPackage.BOOK:
+			result = RMPLibraryPackage.eINSTANCE.getBook_Title();
+			break;
+		case RMPLibraryPackage.LIBRARY:
+			result = RMPLibraryPackage.eINSTANCE.getLibrary_Name();
+			break;
+		case RMPLibraryPackage.WRITER:
+			result = RMPLibraryPackage.eINSTANCE.getWriter_Name();
+			break;
+		default:
+			result = null;
+			break;
+		}
+		
+		return result;
+	}
+	
+	/**
+	 * Merge an author into an existing author of the same name when pasting.
+	 */
+	public PasteAction getPasteCollisionAction(EClass eClass) {
+		if (eClass == RMPLibraryPackage.eINSTANCE.getWriter()) {
+			return PasteAction.MERGE;
+		} else {
+			return super.getPasteCollisionAction(eClass);
+		}
+	}
+	
+	/**
+	 * We always copy an author's books.
+	 */
+	public boolean isCopyAlways(EObject context, EReference eReference,
+			Object value) {
+		
+		if (eReference == RMPLibraryPackage.eINSTANCE.getWriter_Books()) {
+			return true;
+		} else {
+			return super.isCopyAlways(context, eReference, value);
+		}
+	}
+}
+</pre>
+
+<p>
+In the above class, we extend the AbstractClipboardSupport and we provide three key pieces of
+information: the name EAttribute of an EClass, the action to perform in case of a collision
+of an EObject of a particular EClass and whether to copy the contents of an EReference.
+The reason for the first piece of information is made clear in the RMP library metamodel because
+although the Writer and Library EClasses has a "name" EAttribute, the Book has a "title" EAttribute.
+In cases where a paste will cause a collision with another EObject of the same EClass, the
+<a href="../../../reference/api/common/com/ibm/xtools/emf/clipboard/IClipboardSupport.html#getPasteCollisionAction(org.eclipse.emf.ecore.EClass)">getPasteCollisionAction()</a> method will dictate whether the EObjects should be merged,
+added, cloned, replaced and other possible actions (see the PasteAction class). The final piece of
+information provided by the <a href="../../../reference/api/common/com/ibm/xtools/emf/clipboard/IClipboardSupport.html#isCopyAlways(org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EReference, java.lang.Object)">isCopyAlways()</a> method will provide information regarding which
+EReferences should be copied along with the EObject. In our case, we request that the author's books
+be copied along with the author. The AbstractClipboardSupport class provides a default implementation
+that specifies that all containment EReferences should be copied while all derived or transient EReferences
+should not be copied.
+</p>
+
+<p>
+To register the LibraryClipboardSupport to the EMF Clipboard framework, we will need to create
+a factory as follows:
+</p>
+
+<pre class="snippet">
+public class LibraryClipboardSupportFactory
+	implements IClipboardSupportFactory {
+
+	private final IClipboardSupport support = new LibraryClipboardSupport();
+
+	public LibraryClipboardSupportFactory() {
+		super();
+	}
+
+	public IClipboardSupport newClipboardSupport(EPackage ePackage) {
+		return support;
+	}
+}
+</pre>
+
+<p>
+Finally, an extension is written to register the factory against the namespace URI of the RMP Library
+EPackage:
+</p>
+
+<pre class="snippet">
+   &lt;extension point=&quot;org.eclipse.gmf.runtime.emf.clipboard.core.clipboardSupport&quot;&gt;
+      &lt;factory
+            class=&quot;org.eclipse.gmf.examples.runtime.emf.clipboard.library.LibraryClipboardSupportFactory&quot;
+            nsURI=&quot;http:///com/ibm/xtools/emf/metamodel/example/pde/rmplibrary.ecore/1.0.0&quot;
+            priority=&quot;highest&quot;/&gt;
+   &lt;/extension&gt;
+</pre>
+
+<h2 style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><a
+name="copying_objects"></a>Copying EObjects</h2>
+
+<p class=backto>[<a
+href="#top"><span class=GramE><span style='font-size:10.0pt'>back</span></span><span
+style='font-size:10.0pt'> to top</span></a>]</p>
+
+<p>
+Once Clipboard support has been added for a metamodel, it is relatively trivial to start copying
+and pasting EObjects. When copying EObjects, they are serialized into the form of a string where
+they may be later pasted into another location:
+</p>
+
+<pre class="snippet">
+String clipString = ClipboardUtil.copyElementsToString(
+	getSelectedObjects(), null, new NullProgressMonitor());
+</pre>
+
+<p>
+The clipString may be passed around using some simple data-passing scheme, IPC scheme
+or given to the operating system clipboard using the <code>org.eclipse.swt.dnd.Clipboard</code>
+class in a specialized <code>org.eclipse.swt.dnd.Transfer</code> object.
+</p>
+
+<h2 style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><a
+name="pasting_objects"></a>Pasting EObjects</h2>
+
+<p class=backto>[<a
+href="#top"><span class=GramE><span style='font-size:10.0pt'>back</span></span><span
+style='font-size:10.0pt'> to top</span></a>]</p>
+
+<p>
+After retrieving the original string from a copy operation, it is an equivalently trivial task
+to paste the EObjects back into another location underneath another EObject. The advantage of this
+paste operation in the context of the RMP library metamodel is that authors will be pasted along
+with their books into other libraries.
+</p>
+
+<pre class="snippet">
+EObject target;
+
+Collection pasted = ClipboardUtil.pasteElementsFromString(
+	clipString, target, null, new NullProgressMonitor());
+
+if (pasted == null || pasted.isEmpty()) {
+	System.out.println("A EMF clipboard paste error has occurred. No EObjects have been pasted.");
+}
+</pre>
+
+<h2 style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><a
+name=principles></a><a name=summary></a><a name=models></a><a name=api></a>Summary</h2>
+
+<p class=backto><span
+style='font-size:10.0pt'>[<a href="#top"><span class=GramE>back</span> to top</a>]</span></p>
+
+<p>
+In this tutorial, we did the following:
+<ol>
+<li>Created an EMF resource that will satisfy the prerequisites for EMF clipboard</li>
+<li>Developed the necessary clipboard support for RMP library metamodel</li>
+<li>Copied a group of EObjects into a string object</li>
+<li>Pasted a group of EObjects from the string object</li>
+</ol>
+</p>
+
+<div class=MsoNormal align=center style='text-align:center;tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'>
+<hr size=2 width="100%" align=center>
+
+</div>
+
+<p style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><img
+border=0 width=324 height=14 id="_x0000_i1029" src="../copyright.gif"></p>
+
+</div>
+
+</body>
+
+</html>

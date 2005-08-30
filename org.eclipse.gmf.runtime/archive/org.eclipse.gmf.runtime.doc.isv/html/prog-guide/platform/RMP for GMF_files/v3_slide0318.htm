@@ -1,0 +1,227 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=PowerPoint.Slide>
+<meta name=Generator content="Microsoft PowerPoint 10">
+<link id=Main-File rel=Main-File href="../RMP%20for%20GMF.htm">
+<link rel=Preview href=preview.wmf>
+<!--[if !mso]>
+<style>
+v\:* {behavior:url(#default#VML);}
+o\:* {behavior:url(#default#VML);}
+p\:* {behavior:url(#default#VML);}
+.shape {behavior:url(#default#VML);}
+v\:textbox {display:none;}
+</style>
+<![endif]-->
+<title>Introduction to the Rational Modeling Platform</title>
+<meta name=Description
+content="5/31/2005: EMF &amp; OCL Domains: Model Management Services (cont.)">
+<link rel=next href="v3_slide0319.htm">
+</head>
+
+<body background="v3_slide0318_background.gif" bgcolor=white alink="#0099CC"
+link=silver vlink="#FF9900" text=white topmargin=0 leftmargin=0>
+
+<table border=0 valign=top width=650 height=487 cellpadding=0 cellspacing=0>
+ <tr>
+  <td width=17 height=0 nowrap><img src="v3_space.gif" border=0></td>
+  <td width=15 height=0 nowrap><img src="v3_space.gif" border=0></td>
+  <td width=360 height=0 nowrap><img src="v3_space.gif" border=0></td>
+  <td width=233 height=0 nowrap><img src="v3_space.gif" border=0></td>
+ </tr>
+ <tr>
+  <td width=650 height=47 colspan=5></td>
+ </tr>
+ <tr>
+  <td width=17 height=25></td>
+  <td width=608 height=25 colspan=3>
+  <table border=0 valign=top cellpadding=0 cellspacing=0>
+   <tr>
+    <td width=608 height=25><font face=Arial color="#4B6BAF" size=4><b>EMF
+    &amp; OCL Domains: </b>Model Management Services (cont.)</font><br>
+    </td>
+   </tr>
+  </table>
+  </td>
+  <td width=25 height=25></td>
+ </tr>
+ <tr>
+  <td width=650 height=23 colspan=5></td>
+ </tr>
+ <tr>
+  <td width=32 height=228 colspan=2></td>
+  <td width=360 height=228>
+  <table border=0 valign=top cellpadding=0 cellspacing=0>
+   <tr>
+    <td width=24 height=0 nowrap><img src="v3_space.gif" border=0></td>
+    <td width=2 height=0 nowrap><img src="v3_space.gif" border=0></td>
+    <td width=22 height=0 nowrap><img src="v3_space.gif" border=0></td>
+    <td width=1 height=0 nowrap><img src="v3_space.gif" border=0></td>
+    <td width=16 height=0 nowrap><img src="v3_space.gif" border=0></td>
+    <td width=56 height=0 nowrap><img src="v3_space.gif" border=0></td>
+    <td width=63 height=0 nowrap><img src="v3_space.gif" border=0></td>
+    <td width=14 height=0 nowrap><img src="v3_space.gif" border=0></td>
+    <td width=8 height=0 nowrap><img src="v3_space.gif" border=0></td>
+    <td width=25 height=0 nowrap><img src="v3_space.gif" border=0></td>
+    <td width=74 height=0 nowrap><img src="v3_space.gif" border=0></td>
+    <td width=19 height=0 nowrap><img src="v3_space.gif" border=0></td>
+    <td width=13 height=0 nowrap><img src="v3_space.gif" border=0></td>
+    <td width=1 height=0 nowrap><img src="v3_space.gif" border=0></td>
+    <td width=7 height=0 nowrap><img src="v3_space.gif" border=0></td>
+    <td width=1 height=0 nowrap><img src="v3_space.gif" border=0></td>
+    <td width=3 height=0 nowrap><img src="v3_space.gif" border=0></td>
+    <td width=4 height=0 nowrap><img src="v3_space.gif" border=0></td>
+    <td width=4 height=0 nowrap><img src="v3_space.gif" border=0></td>
+   </tr>
+   <tr>
+    <td width=24 height=15><font face=Wingdings color="#0099CC" size=1>§</font></td>
+    <td width=174 height=15 colspan=7><font face=Arial color=black size=1>Object
+    life cycle management</font><br>
+    </td>
+    <td width=162 height=15 colspan=12></td>
+   </tr>
+   <tr>
+    <td width=360 height=3 colspan=20></td>
+   </tr>
+   <tr>
+    <td width=24 height=13></td>
+    <td width=24 height=13 colspan=2><font face=Webdings color="#0099CC"
+    size=1>4</font></td>
+    <td width=309 height=13 colspan=16><font face=Arial color=black size=1>The </font><font
+    face=Courier color=black size=1>EObjectUtil</font><font face=Arial
+    color=black size=1> class has a destroy method that destroys</font><br>
+    </td>
+    <td width=3 height=13></td>
+   </tr>
+   <tr>
+    <td width=48 height=13 colspan=3></td>
+    <td width=297 height=13 colspan=12><font face=Arial color=black size=1>the
+    object by removing it from its container and severing all</font><br>
+    </td>
+    <td width=15 height=13 colspan=5></td>
+   </tr>
+   <tr>
+    <td width=48 height=13 colspan=3></td>
+    <td width=298 height=13 colspan=13><font face=Arial color=black size=1>references
+    from and to the object. It is also recursive, i.e., it</font><br>
+    </td>
+    <td width=14 height=13 colspan=4></td>
+   </tr>
+   <tr>
+    <td width=48 height=13 colspan=3></td>
+    <td width=136 height=13 colspan=4><font face=Arial color=black size=1>gets
+    called on the children.</font><br>
+    </td>
+    <td width=176 height=13 colspan=13></td>
+   </tr>
+   <tr>
+    <td width=360 height=5 colspan=20></td>
+   </tr>
+   <tr>
+    <td width=24 height=13></td>
+    <td width=24 height=13 colspan=2><font face=Webdings color="#0099CC"
+    size=1>4</font></td>
+    <td width=73 height=13 colspan=3><font face=Arial color=black size=1>Utility
+    classes:</font><br>
+    </td>
+    <td width=239 height=13 colspan=14></td>
+   </tr>
+   <tr>
+    <td width=360 height=5 colspan=20></td>
+   </tr>
+   <tr>
+    <td width=48 height=13 colspan=3></td>
+    <td width=17 height=13 colspan=2><font face=Arial color="#0099CC" size=1>•</font></td>
+    <td width=288 height=13 colspan=13><font face=Arial color=black size=1>The
+    class </font><font face=Courier color=black size=1>MetaModelUtil</font><font
+    face=Arial color=black size=1> provides utility functions that</font><br>
+    </td>
+    <td width=7 height=13 colspan=2></td>
+   </tr>
+   <tr>
+    <td width=65 height=13 colspan=5></td>
+    <td width=141 height=13 colspan=4><font face=Arial color=black size=1>work
+    at the meta-class level</font><br>
+    </td>
+    <td width=154 height=13 colspan=11></td>
+   </tr>
+   <tr>
+    <td width=360 height=2 colspan=20></td>
+   </tr>
+   <tr>
+    <td width=48 height=13 colspan=3></td>
+    <td width=17 height=13 colspan=2><font face=Arial color="#0099CC" size=1>•</font></td>
+    <td width=259 height=13 colspan=7><font face=Arial color=black size=1>The
+    class </font><font face=Courier color=black size=1>ProxyUtil</font><font
+    face=Arial color=black size=1> class contains a set of utility</font><br>
+    </td>
+    <td width=36 height=13 colspan=8></td>
+   </tr>
+   <tr>
+    <td width=65 height=13 colspan=5></td>
+    <td width=284 height=13 colspan=12><font face=Arial color=black size=1>methods
+    that control the use of Proxy objects. Additional</font><br>
+    </td>
+    <td width=11 height=13 colspan=3></td>
+   </tr>
+   <tr>
+    <td width=65 height=13 colspan=5></td>
+    <td width=295 height=13 colspan=15><font face=Arial color=black size=1>information
+    like the qualified name of the referenced object</font><br>
+    </td>
+   </tr>
+   <tr>
+    <td width=65 height=13 colspan=5></td>
+    <td width=273 height=13 colspan=9><font face=Arial color=black size=1>in-case
+    of cross-resource references is stored with the</font><br>
+    </td>
+    <td width=22 height=13 colspan=6></td>
+   </tr>
+   <tr>
+    <td width=65 height=13 colspan=5></td>
+    <td width=166 height=13 colspan=5><font face=Arial color=black size=1>Proxy
+    using a proprietary format.</font><br>
+    </td>
+    <td width=129 height=13 colspan=10></td>
+   </tr>
+   <tr>
+    <td width=360 height=3 colspan=20></td>
+   </tr>
+   <tr>
+    <td width=48 height=13 colspan=3></td>
+    <td width=17 height=13 colspan=2><font face=Arial color="#0099CC" size=1>•</font></td>
+    <td width=288 height=13 colspan=13><font face=Arial color=black size=1>The
+    class </font><font face=Courier color=black size=1>EObjectContainmentUtil</font><font
+    face=Arial color=black size=1> provides utilities</font><br>
+    </td>
+    <td width=7 height=13 colspan=2></td>
+   </tr>
+   <tr>
+    <td width=65 height=13 colspan=5></td>
+    <td width=272 height=13 colspan=8><font face=Arial color=black size=1>for
+    analysis of the containment and relationships type-</font><br>
+    </td>
+    <td width=23 height=13 colspan=7></td>
+   </tr>
+   <tr>
+    <td width=65 height=13 colspan=5></td>
+    <td width=240 height=13 colspan=6><font face=Arial color=black size=1>conformance
+    relationships between </font><font face=Courier color=black size=1>EObjects</font><font
+    face=Arial color=black size=1>.</font><br>
+    </td>
+    <td width=55 height=13 colspan=9></td>
+   </tr>
+  </table>
+  </td>
+  <td width=258 height=228 colspan=2></td>
+ </tr>
+ <tr>
+  <td width=650 height=164 colspan=5></td>
+ </tr>
+</table>
+
+</body>
+
+</html>

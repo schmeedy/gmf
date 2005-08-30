@@ -1,0 +1,267 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=PowerPoint.Slide>
+<meta name=Generator content="Microsoft PowerPoint 10">
+<link id=Main-File rel=Main-File href="../RMP%20for%20GMF.htm">
+<link rel=Preview href=preview.wmf>
+<!--[if !mso]>
+<style>
+v\:* {behavior:url(#default#VML);}
+o\:* {behavior:url(#default#VML);}
+p\:* {behavior:url(#default#VML);}
+.shape {behavior:url(#default#VML);}
+v\:textbox {display:none;}
+</style>
+<![endif]-->
+<title>Introduction to the Rational Modeling Platform</title>
+<meta name=Description
+content="5/31/2005: EMF &amp; OCL Domains: Model Management Services (cont.)">
+<link rel=next href="v3_slide0321.htm">
+</head>
+
+<body background="v3_slide0320_background.gif" bgcolor=white alink="#0099CC"
+link=silver vlink="#FF9900" text=white topmargin=0 leftmargin=0>
+
+<table border=0 valign=top width=650 height=487 cellpadding=0 cellspacing=0>
+ <tr>
+  <td width=17 height=0 nowrap><img src="v3_space.gif" border=0></td>
+  <td width=15 height=0 nowrap><img src="v3_space.gif" border=0></td>
+  <td width=384 height=0 nowrap><img src="v3_space.gif" border=0></td>
+  <td width=15 height=0 nowrap><img src="v3_space.gif" border=0></td>
+  <td width=183 height=0 nowrap><img src="v3_space.gif" border=0></td>
+  <td width=11 height=0 nowrap><img src="v3_space.gif" border=0></td>
+ </tr>
+ <tr>
+  <td width=650 height=47 colspan=7></td>
+ </tr>
+ <tr>
+  <td width=17 height=25></td>
+  <td width=608 height=25 colspan=5>
+  <table border=0 valign=top cellpadding=0 cellspacing=0>
+   <tr>
+    <td width=608 height=25><font face=Arial color="#4B6BAF" size=4><b>EMF
+    &amp; OCL Domains: </b>Model Management Services (cont.)</font><br>
+    </td>
+   </tr>
+  </table>
+  </td>
+  <td width=25 height=25></td>
+ </tr>
+ <tr>
+  <td width=650 height=23 colspan=7></td>
+ </tr>
+ <tr>
+  <td width=32 height=1 colspan=2></td>
+  <td width=384 height=276 rowspan=2>
+  <table border=0 valign=top cellpadding=0 cellspacing=0>
+   <tr>
+    <td width=24 height=0 nowrap><img src="v3_space.gif" border=0></td>
+    <td width=2 height=0 nowrap><img src="v3_space.gif" border=0></td>
+    <td width=22 height=0 nowrap><img src="v3_space.gif" border=0></td>
+    <td width=1 height=0 nowrap><img src="v3_space.gif" border=0></td>
+    <td width=16 height=0 nowrap><img src="v3_space.gif" border=0></td>
+    <td width=28 height=0 nowrap><img src="v3_space.gif" border=0></td>
+    <td width=48 height=0 nowrap><img src="v3_space.gif" border=0></td>
+    <td width=22 height=0 nowrap><img src="v3_space.gif" border=0></td>
+    <td width=39 height=0 nowrap><img src="v3_space.gif" border=0></td>
+    <td width=15 height=0 nowrap><img src="v3_space.gif" border=0></td>
+    <td width=73 height=0 nowrap><img src="v3_space.gif" border=0></td>
+    <td width=15 height=0 nowrap><img src="v3_space.gif" border=0></td>
+    <td width=2 height=0 nowrap><img src="v3_space.gif" border=0></td>
+    <td width=15 height=0 nowrap><img src="v3_space.gif" border=0></td>
+    <td width=3 height=0 nowrap><img src="v3_space.gif" border=0></td>
+    <td width=32 height=0 nowrap><img src="v3_space.gif" border=0></td>
+    <td width=1 height=0 nowrap><img src="v3_space.gif" border=0></td>
+    <td width=8 height=0 nowrap><img src="v3_space.gif" border=0></td>
+    <td width=9 height=0 nowrap><img src="v3_space.gif" border=0></td>
+    <td width=5 height=0 nowrap><img src="v3_space.gif" border=0></td>
+    <td width=1 height=0 nowrap><img src="v3_space.gif" border=0></td>
+   </tr>
+   <tr>
+    <td width=24 height=17><font face=Wingdings color="#0099CC" size=2>§</font></td>
+    <td width=193 height=17 colspan=9><font face=Arial color=black size=2>Meta-model
+    Support Service</font><br>
+    </td>
+    <td width=166 height=17 colspan=12></td>
+   </tr>
+   <tr>
+    <td width=383 height=4 colspan=22></td>
+   </tr>
+   <tr>
+    <td width=24 height=13></td>
+    <td width=24 height=13 colspan=2><font face=Webdings color="#0099CC"
+    size=1>4</font></td>
+    <td width=332 height=13 colspan=17><font face=Arial color=black size=1>The
+    service is useful for supporting semantic procedures and post</font><br>
+    </td>
+    <td width=3 height=13 colspan=2></td>
+   </tr>
+   <tr>
+    <td width=48 height=13 colspan=3></td>
+    <td width=327 height=13 colspan=16><font face=Arial color=black size=1>processing
+    after loading resources. The methods to implement in</font><br>
+    </td>
+    <td width=8 height=13 colspan=3></td>
+   </tr>
+   <tr>
+    <td width=48 height=13 colspan=3></td>
+    <td width=318 height=13 colspan=15><font face=Arial color=black size=1>the </font><font
+    face=Courier color=black size=1>IMetamodelSupport</font><font face=Arial
+    color=black size=1> interface are </font><font face=Courier color=black
+    size=1>handleEvent()</font><font face=Arial color=black size=1> and</font><br>
+    </td>
+    <td width=17 height=13 colspan=4></td>
+   </tr>
+   <tr>
+    <td width=48 height=13 colspan=3></td>
+    <td width=93 height=13 colspan=4><font face=Courier color=black size=1>postProcess()</font><font
+    face=Arial color=black size=1>.</font><br>
+    </td>
+    <td width=242 height=13 colspan=15></td>
+   </tr>
+   <tr>
+    <td width=383 height=5 colspan=22></td>
+   </tr>
+   <tr>
+    <td width=24 height=13></td>
+    <td width=24 height=13 colspan=2><font face=Webdings color="#0099CC"
+    size=1>4</font></td>
+    <td width=274 height=13 colspan=11><font face=Arial color=black size=1>Extension
+    point </font><font face=Courier color=black size=1>org.eclipse.gmf.runtime.emf.core.</font><br>
+    </td>
+    <td width=61 height=13 colspan=8></td>
+   </tr>
+   <tr>
+    <td width=48 height=13 colspan=3></td>
+    <td width=333 height=13 colspan=18><font face=Courier color=black size=1>MetaModelProviders</font><font
+    face=Arial color=black size=1> defined for clients to provide meta-model</font><br>
+    </td>
+    <td width=2 height=13></td>
+   </tr>
+   <tr>
+    <td width=48 height=13 colspan=3></td>
+    <td width=259 height=13 colspan=10><font face=Arial color=black size=1>support
+    services. Providers implement the interface</font><br>
+    </td>
+    <td width=76 height=13 colspan=9></td>
+   </tr>
+   <tr>
+    <td width=48 height=13 colspan=3></td>
+    <td width=310 height=13 colspan=14><font face=Courier color=black size=1>IMetamodelSupportProvider</font><font
+    face=Arial color=black size=1>. The implementation of the</font><br>
+    </td>
+    <td width=25 height=13 colspan=5></td>
+   </tr>
+   <tr>
+    <td width=48 height=13 colspan=3></td>
+    <td width=277 height=13 colspan=12><font face=Arial color=black size=1>interface
+    method </font><font face=Courier color=black size=1>getMetamodelSupport</font><font
+    face=Arial color=black size=1> returns the</font><br>
+    </td>
+    <td width=58 height=13 colspan=7></td>
+   </tr>
+   <tr>
+    <td width=48 height=13 colspan=3></td>
+    <td width=154 height=13 colspan=6><font face=Courier color=black size=1>IMetamodelSupport</font><font
+    face=Arial color=black size=1> object.</font><br>
+    </td>
+    <td width=181 height=13 colspan=13></td>
+   </tr>
+   <tr>
+    <td width=383 height=5 colspan=22></td>
+   </tr>
+   <tr>
+    <td width=24 height=13></td>
+    <td width=24 height=13 colspan=2><font face=Webdings color="#0099CC"
+    size=1>4</font></td>
+    <td width=335 height=13 colspan=19><font face=Arial color=black size=1>The
+    service gives all interested providers a chance to create meta-</font><br>
+    </td>
+   </tr>
+   <tr>
+    <td width=48 height=13 colspan=3></td>
+    <td width=327 height=13 colspan=16><font face=Arial color=black size=1>model
+    support objects for the given </font><font face=Courier color=black size=1>EPackage</font><font
+    face=Arial color=black size=1> in order of priority</font><br>
+    </td>
+    <td width=8 height=13 colspan=3></td>
+   </tr>
+   <tr>
+    <td width=48 height=13 colspan=3></td>
+    <td width=115 height=13 colspan=5><font face=Arial color=black size=1>from
+    lowest to highest.</font><br>
+    </td>
+    <td width=220 height=13 colspan=14></td>
+   </tr>
+   <tr>
+    <td width=383 height=5 colspan=22></td>
+   </tr>
+   <tr>
+    <td width=24 height=13></td>
+    <td width=24 height=13 colspan=2><font face=Webdings color="#0099CC"
+    size=1>4</font></td>
+    <td width=45 height=13 colspan=3><font face=Arial color=black size=1>Example</font><br>
+    </td>
+    <td width=290 height=13 colspan=16></td>
+   </tr>
+   <tr>
+    <td width=383 height=4 colspan=22></td>
+   </tr>
+   <tr>
+    <td width=48 height=13 colspan=3></td>
+    <td width=17 height=13 colspan=2><font face=Arial color="#0099CC" size=1>•</font></td>
+    <td width=301 height=13 colspan=13><font face=Arial color=black size=1>Apply
+    profiles and add required reference libraries for UML2</font><br>
+    </td>
+    <td width=17 height=13 colspan=4></td>
+   </tr>
+   <tr>
+    <td width=65 height=13 colspan=5></td>
+    <td width=240 height=13 colspan=7><font face=Arial color=black size=1>models
+    as part of the post processing capability</font><br>
+    </td>
+    <td width=78 height=13 colspan=10></td>
+   </tr>
+   <tr>
+    <td width=383 height=3 colspan=22></td>
+   </tr>
+   <tr>
+    <td width=48 height=13 colspan=3></td>
+    <td width=17 height=13 colspan=2><font face=Arial color="#0099CC" size=1>•</font></td>
+    <td width=292 height=13 colspan=11><font face=Arial color=black size=1>Implement
+    a semantic procedure to auto-name books and</font><br>
+    </td>
+    <td width=26 height=13 colspan=6></td>
+   </tr>
+   <tr>
+    <td width=65 height=13 colspan=5></td>
+    <td width=225 height=13 colspan=6><font face=Arial color=black size=1>writers
+    when created within the library model</font><br>
+    </td>
+    <td width=93 height=13 colspan=11></td>
+   </tr>
+  </table>
+  </td>
+  <td width=234 height=1 colspan=4></td>
+ </tr>
+ <tr>
+  <td width=32 height=275 colspan=2></td>
+  <td width=15 height=275></td>
+  <td width=183 height=277 rowspan=2><img src="v3_slide0320_image071.jpg"
+  border=0 width=183 height=277></td>
+  <td width=36 height=275 colspan=2></td>
+ </tr>
+ <tr>
+  <td width=431 height=2 colspan=4></td>
+  <td width=36 height=2 colspan=2></td>
+ </tr>
+ <tr>
+  <td width=650 height=114 colspan=7></td>
+ </tr>
+</table>
+
+</body>
+
+</html>

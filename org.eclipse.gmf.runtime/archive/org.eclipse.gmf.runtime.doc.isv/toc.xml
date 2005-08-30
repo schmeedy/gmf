@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?NLS TYPE="org.eclipse.help.toc"?>
+
+<toc label="IBM Rational Modeling Platform Develper's Guide (GMF Submission)">
+
+	<anchor id="programmers-guide-before" />
+	<topic label="Programmer's Guide" href="prog-guide/index.html" >
+
+		<anchor id="programmers-guide-welcome-before" />
+		<topic label="Welcome to the Modeling Platform"/>
+		<anchor id="programmers-guide-welcome-after" />
+		
+		<anchor id="programmers-guide-platform-arch-before" />
+		<topic label="Platform Architecture">
+			<topic label="Introduction to the Rational Modeling Platform" href="prog-guide/platform/RMP for GMF.htm" />
+			<anchor id="programmers-guide-platform-arch-in" />
+		</topic>
+		<anchor id="programmers-guide-platform-arch-after" />
+		
+		<anchor id="programmers-guide-common-layer-before" />
+		<topic label="Common Frameworks Layer" href="prog-guide/common/index.html">
+			<topic label="Command Framework" href="prog-guide/common/Developer Guide to Command Framework.html" />
+			<topic label="Contribution Item Service" href="prog-guide/common/Developer Guide to Contribution Item Service.html" />
+			<topic label="Global Actions" href="prog-guide/common/Developer Guide to Global Actions.html" />
+			<topic label="How To Guide For Model Services Components" href="howto/RMP_MSL_HowToDoc.html" />
+			<topic label="Multithreaded Model Operations" href="prog-guide/msl/Multithreaded_Model_Operations.html" />		
+			<anchor id="programmers-guide-common-layer-in" />
+		</topic>
+		<anchor id="programmers-guide-common-layer-after" />
+		
+		<anchor id="programmers-guide-diagram-layer-before" />
+		<topic label="Diagram Layer" href="prog-guide/diagram/index.html">
+			<topic label="How To Guide For Diagram Layer Components" href="howto/diagram/howto.html" />
+			<anchor id="programmers-guide-diagram-layer-in" />
+		</topic>		
+		<anchor id="programmers-guide-diagram-layer-after" />
+		
+	</topic>	
+	<anchor id="programmers-guide-after" />
+
+	<anchor id="tutorial-before" />
+	<topic label="Tutorials">	
+
+		<anchor id="tutorial-common-layer-before" />
+		<topic label="Common Frameworks Layer Tutorials">
+			<topic label="Service Providers" href="tutorials/Service and Provider Tutorial.html" />		
+			<topic label="Validation Tutorial" href="tutorials/msl/validationTutorial.html" />
+			<topic label="Validation Adapter Tutorial" href="tutorials/msl/validationAdapterTutorial.html" />		
+			<topic label="Query Tutorial" href="tutorials/msl/queryTutorial.html" />
+			<topic label="Clipboard Tutorial" href="tutorials/msl/clipboardTutorial.html" />
+			<topic label="OCL Interpreter Tutorial" href="tutorials/msl/oclInterpreterTutorial.html" />		
+			<topic label="OCL Query Tutorial" href="tutorials/msl/oclQueryTutorial.html" />
+			<topic label="OCL Validation Tutorial" href="tutorials/msl/oclValidationTutorial.html" />
+			<topic label="Model Management Tutorial" href="tutorials/msl/modelManagementTutorial.html" />		
+			<anchor id="tutorial-common-layer-in" />
+		</topic>
+		<anchor id="tutorial-common-layer-after" />
+		
+		<anchor id="tutorial-diagram-layer-before" />
+		<topic label="Diagram Layer Tutorials">
+			<topic label="Creating a shape" href="tutorials/diagram/createShape.html" />		
+			<topic label="Creating connections" href="tutorials/diagram/createConnection.html" />		
+			<topic label="Diagram Preferences" href="tutorials/diagram/diagramPreferencesTutorial.html" />		
+			<topic label="Modifying a container to support automatic layout" href="tutorials/diagram/containmentOfShapes.html" />		
+			<topic label="Supporting containment of shapes" href="tutorials/diagram/automaticLayout.html" />				
+			<anchor id="tutorial-diagram-layer-in" />
+		</topic>
+		<anchor id="tutorial-diagram-layer-after" />
+	</topic>
+	<anchor id="tutorial-after" />
+
+	<anchor id="example-guide-before" />
+	<topic label="Examples Guide">
+		<topic label="Installing the examples" href="examples-guide/samples.html" />	
+
+		<anchor id="examples-guide-common-frameworks-layer-before" />
+		<topic label="Common Frameworks Layer Examples">
+			<topic label="Service Example" href="examples-guide/common/serviceExample.html" />					
+			<topic label="Validation Example" href="examples-guide/msl/validationExample.html" />
+			<topic label="Validation Adapter Example" href="examples-guide/msl/validationAdapterExample.html" />		
+			<topic label="Query Example" href="examples-guide/msl/queryExample.html" />
+			<topic label="Clipboard Example" href="examples-guide/msl/clipboardExample.html" />
+			<topic label="OCL Interpreter Example" href="examples-guide/msl/oclInterpreterExample.html" />		
+			<topic label="OCL Query Example" href="examples-guide/msl/oclQueryExample.html" />
+			<topic label="OCL Validation Example" href="examples-guide/msl/oclValidationExample.html" />
+			<topic label="Model Management Example" href="examples-guide/msl/modelManagementExample.html" />		
+			<anchor id="examples-guide-common-frameworks-layer-in" />
+		</topic>
+		<anchor id="examples-guide-common-frameworks-layer-after" />
+
+		<anchor id="examples-guide-diagram-layer-before" />
+		<topic label="Diagram Layer Examples">
+			<topic label="Geoshape" href="examples-guide/diagram/geometricShapesExample.html" />
+			<topic label="Logic" href="examples-guide/diagram/logicExample.html" />
+			<topic label="Layout Service" href="examples-guide/diagram/layoutServiceExample.html" />
+			<anchor id="examples-guide-diagram-layer-in" />
+		</topic>
+		<anchor id="examples-guide-diagram-layer-after" />
+		
+	</topic>
+	<anchor id="example-guide-after" />
+
+	<anchor id="reference-before" />
+	<topic label="Reference">
+	
+		<anchor id="reference-api-before" />
+		<topic label="API Reference">
+			<link toc="toc-common.xml"/>
+			<anchor id="reference-api-common-frameworks-layer-after" />
+			
+			<link toc="toc-diagram.xml"/>
+			<anchor id="reference-api-diagram-layer-after" />
+		</topic>
+		<anchor id="reference-api-after" />
+		
+		<anchor id="reference-ext-pt-before" />
+		<topic label="Extension Points Reference" href="reference/extension-points/index.html">
+		
+			<anchor id="reference-ext-pt-common-frameworks-layer-before" />
+			<link toc="toc-common-ext-pt.xml"/>
+			<anchor id="reference-ext-pt-common-frameworks-layer-after" />
+			
+			<anchor id="reference-ext-pt-diagram-layer-before" />
+			<link toc="toc-diagram-ext-pt.xml"/>
+			<anchor id="reference-ext-pt-diagram-layer-after" />
+		</topic>
+		<anchor id="reference-ext-pt-after" />
+		
+		<anchor id="reference-other-before" />
+		<topic label="Other Information"
+			href="reference/misc/index.html">
+			<anchor id="reference-misc-in" />			
+		</topic>
+		<anchor id="reference-other-after" />
+
+	</topic>	
+	<anchor id="reference-after" />
+	
+	<anchor id="whats-new-before" />
+	<topic label="What's New" href="whatsnew/index.html">
+		<anchor id="whats-new-in" />
+	</topic>
+	<anchor id="whats-new-after" />
+
+<!--
+	<anchor id="questions-before" />
+	<topic label="Questions" href="questions/index.html">
+		<anchor id="questions-in" />
+	</topic>
+	<anchor id="questions-after" />
+-->
+
+	<anchor id="legal-before" />
+	<topic label="Legal" href="hglegal.htm">
+		<anchor id="legal-in" />
+	</topic>
+	<anchor id="legal-after" />
+</toc>

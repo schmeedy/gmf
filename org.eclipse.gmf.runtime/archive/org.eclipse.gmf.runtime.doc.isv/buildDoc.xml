@@ -1,0 +1,399 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project default="build.doc.zip" basedir=".">
+
+	<target name="init">
+		<property name="temp.javadoc.location" value="/temp/javadoc.location"/>
+		<property name="temp.javadoc.link.location" value="/temp/javadoc.link.location"/>
+		<property name="temp.doc.folder" value="/temp/doc.folder"/>
+
+		<dirname property="workspace.folder" file="${basedir}"/>
+		
+		<property name="html.folder" value="${basedir}/html"/>
+		<property name="doc.zip.file" value="${basedir}/doc.zip"/>
+
+		<defaultexcludes add="**/BuildInfo.java"/>
+		
+		<available file="${temp.javadoc.link.location}" type="dir" property="extract-links-present"/>
+	
+		<patternset id="publish.extension-point.set">
+
+			<!--
+					Add your public schema files below (Preserve grouping by alphabetical order)
+					Don't forget to set the PDE schema compiler option to generate schema documentation in a doc folder
+					Don't forget to update project references to include the plug-in containing the schema
+					Don't forget to update the layer specific TOC file as described below
+					Don't forget to update the summary index file (html\reference\extension-points\index.html)
+			-->
+
+			<!-- START COMMON FRAMEWORKS LAYER SCHEMAS -->
+			<!-- When adding common frameworks layer extension points please also update the TOC: toc-common-ext-pt -->
+			<include name="org.eclipse.gmf.runtime.common.core/doc/com_ibm_xtools_common_core_logListeners.html"/>
+			<include name="org.eclipse.gmf.runtime.common.core/doc/com_ibm_xtools_common_core_propertiesConfiguration.html"/>
+			
+			<include name="org.eclipse.gmf.runtime.common.ui.services/doc/com_ibm_xtools_common_ui_services_editorProviders.html"/>
+			<include name="org.eclipse.gmf.runtime.common.ui.services/doc/com_ibm_xtools_common_ui_services_iconProviders.html"/>
+			<include name="org.eclipse.gmf.runtime.common.ui.services/doc/com_ibm_xtools_common_ui_services_markerNavigationProviders.html"/>			
+			<include name="org.eclipse.gmf.runtime.common.ui.services/doc/com_ibm_xtools_common_ui_services_parserProviders.html"/>
+
+			<include name="org.eclipse.gmf.runtime.common.ui.services.action/doc/com_ibm_xtools_common_ui_services_action_actionFilterProviders.html"/>
+			<include name="org.eclipse.gmf.runtime.common.ui.services.action/doc/com_ibm_xtools_common_ui_services_action_contributionItemProviders.html"/>
+			<include name="org.eclipse.gmf.runtime.common.ui.services.action/doc/com_ibm_xtools_common_ui_services_action_globalActionHandlerProviders.html"/>
+
+			<include name="org.eclipse.gmf.runtime.common.ui.services.dnd/doc/com_ibm_xtools_common_ui_services_dnd_dragDropListenerProviders.html"/>
+			<include name="org.eclipse.gmf.runtime.common.ui.services.dnd/doc/com_ibm_xtools_common_ui_services_dnd_transferAdapterProviders.html"/>
+
+			<include name="org.eclipse.gmf.runtime.common.ui.services.properties/doc/com_ibm_xtools_common_ui_services_properties_propertiesProviders.html"/>
+			<include name="org.eclipse.gmf.runtime.common.ui.services.properties/doc/com_ibm_xtools_common_ui_services_properties_propertyModifiers.html"/>
+
+			<include name="org.eclipse.gmf.runtime.emf.core/doc/com_ibm_xtools_emf_msl_core_MetaModelProviders.html"/>
+			<include name="org.eclipse.gmf.runtime.emf.core/doc/com_ibm_xtools_emf_msl_core_Pathmaps.html"/>
+			<include name="org.eclipse.gmf.runtime.emf.core/doc/com_ibm_xtools_emf_msl_core_resourcePolicies.html"/>
+			<include name="org.eclipse.gmf.runtime.emf.core/doc/com_ibm_xtools_emf_msl_core_userModelSupport.html"/>
+			
+			<include name="org.eclipse.gmf.runtime.emf.ui/doc/com_ibm_xtools_emf_msl_ui_modelingAssistantProviders.html"/>
+			
+			<include name="org.eclipse.gmf.runtime.emf.clipboard.core/doc/com_ibm_xtools_emf_clipboard_clipboardSupport.html"/>
+			
+			<include name="org.eclipse.gmf.runtime.emf.type.core/doc/com_ibm_xtools_emf_type_elementTypes.html"/>
+						
+			<include name="org.eclipse.emf.validation/doc/com_ibm_xtools_emf_validation_constraintBindings.html"/>			
+			<include name="org.eclipse.emf.validation/doc/com_ibm_xtools_emf_validation_constraintProviders.html"/>
+			<include name="org.eclipse.emf.validation/doc/com_ibm_xtools_emf_validation_constraintParsers.html"/>
+			<include name="org.eclipse.emf.validation/doc/com_ibm_xtools_emf_validation_traversal.html"/>
+			<include name="org.eclipse.emf.validation/doc/com_ibm_xtools_emf_validation_validationListeners.html"/>
+
+			<!-- START DIAGRAM LAYER SCHEMAS -->
+			<!-- When adding diagram layer extension points please also update the TOC: toc-diagram-ext-pt -->
+			<include name="org.eclipse.gmf.runtime.diagram.core/doc/com_ibm_xtools_diagram_viewProviders.html"/>
+			
+			<include name="org.eclipse.gmf.runtime.diagram.ui/doc/com_ibm_xtools_diagram_ui_editpartProviders.html"/>
+			<include name="org.eclipse.gmf.runtime.diagram.ui/doc/com_ibm_xtools_diagram_ui_editpolicyProviders.html"/>
+			<include name="org.eclipse.gmf.runtime.diagram.ui/doc/com_ibm_xtools_diagram_ui_paletteProviders.html"/>
+			<include name="org.eclipse.gmf.runtime.diagram.ui/doc/com_ibm_xtools_diagram_ui_decoratorProviders.html"/>
+			<include name="org.eclipse.gmf.runtime.diagram.ui/doc/com_ibm_xtools_diagram_ui_layoutProviders.html"/>
+						
+			
+			
+		</patternset>
+	</target>
+
+	<target name="workspaceClasspath" depends="init" unless="javadoc.classpath">
+
+		<echo level="info" message="Copying classes from workspace to ${temp.javadoc.link.location}/workspace-classes ..."/>
+		<copy todir="${temp.javadoc.link.location}/workspace-classes">
+	    	<fileset dir="${workspace.folder}">
+	        	<include name="**/bin/**/*.class"/>
+	    		<exclude name="**/*.tests/bin/**/*.class"/>
+	    	</fileset>
+
+	    	<!-- This mapper concatenates all bin directories into
+	    	     the workspace-classes directory by stripping the path
+	    	     up to and including "\bin\" -->
+
+			<mapper type="regexp" from="^(.*\\bin\\)(.*)$$" to="\2"/>
+	    </copy>
+		<echo level="info" message="Done copying classes."/>
+
+	</target>
+	
+	<target name="computeClasspath" depends="workspaceClasspath,init" unless="javadoc.classpath">
+		<!-- Construct the javadoc classpath and store it in a property. -->
+		<echo level="info" message="Computing classpath ..."/>
+
+		<echo level="info" message="*************************************************"/>
+		<echo level="info" message="Platform Doc Location: ${rmp.antProperties.eclipse.platform.doc.loc}"/>
+		<echo level="info" message="EMF Doc Location: ${rmp.antProperties.emf.doc.loc}"/>
+		<echo level="info" message="GEF Doc Location: ${rmp.antProperties.gef.doc.loc}"/>
+		<echo level="info" message="Draw2D Doc Location: ${rmp.antProperties.draw2d.doc.loc}"/>
+		<echo level="info" message="*************************************************"/>
+		
+		<!-- Add platform dependencies required by your plug-in here -->
+		<patternset id="platform.classpath.pattern">
+
+			<include name="**/org.eclipse.core*.jar"/>
+			<include name="**/org.eclipse.core*/**/*.jar"/>
+			<include name="**/org.eclipse.emf*.jar"/>
+			<include name="**/org.eclipse.emf*/**/*.jar"/>
+        	<include name="**/org.eclipse.swt*.jar"/>
+        	<include name="**/org.eclipse.swt*/**/*.jar"/>
+        	<include name="**/org.eclipse.ui*.jar"/>
+        	<include name="**/org.eclipse.ui*/**/*.jar"/>
+        	<include name="**/org.eclipse.update*.jar"/>
+        	<include name="**/org.eclipse.update*/**/*.jar"/>
+        	<include name="**/org.eclipse.osgi*.jar"/>
+        	<include name="**/org.eclipse.osgi*/**/*.jar"/>
+        	<include name="**/org.eclipse.jdt*.jar"/>
+        	<include name="**/org.eclipse.jdt*/**/*.jar"/>
+        	<include name="**/org.eclipse.jface*.jar"/>
+        	<include name="**/org.eclipse.jface*/**/*.jar"/>
+        	<include name="**/org.eclipse.text*.jar"/>
+        	<include name="**/org.eclipse.text*/**/*.jar"/>
+        	<include name="**/org.eclipse.team*.jar"/>
+        	<include name="**/org.eclipse.team*/**/*.jar"/>
+        	<include name="**/org.eclipse.draw2d*.jar"/>
+        	<include name="**/org.eclipse.draw2d*/**/*.jar"/>
+        	<include name="**/org.eclipse.gef*.jar"/>
+        	<include name="**/org.eclipse.gef*/**/*.jar"/>
+
+			<include name="**/antlr*.jar"/>
+			<include name="**/antlr*/**/*.jar"/>
+        	<include name="**/org.junit*.jar"/>
+        	<include name="**/org.junit*/**/*.jar"/>
+        	<include name="**/org.apache.batik*.jar"/>
+        	<include name="**/org.apache.batik*/**/*.jar"/>
+        	<include name="**/com.ibm.etools.lum.utils*.jar"/>
+        	<include name="**/com.ibm.etools.lum.utils*/**/*.jar"/>
+
+			<include name="**/org.eclipse.wst.common.ui.properties*.jar"/>
+           	<include name="**/org.eclipse.wst.common.ui.properties*/**/*.jar"/>
+
+		</patternset>
+			
+		<pathconvert property="javadoc.classpath" targetos="windows">
+			<path>
+				<pathelement location="${temp.javadoc.link.location}/workspace-classes"/>
+				
+				<!-- Look at wherever platform doc is -->
+				<fileset dir="${rmp.antProperties.eclipse.platform.doc.loc}/..">
+					<patternset refid="platform.classpath.pattern"/>
+		    	</fileset>
+				
+				<!-- Look at wherever emf doc is -->
+				<fileset dir="${rmp.antProperties.emf.doc.loc}/..">
+					<patternset refid="platform.classpath.pattern"/>
+		    	</fileset>
+				
+				<!-- Look at wherever gef doc is -->
+				<fileset dir="${rmp.antProperties.gef.doc.loc}/..">
+					<patternset refid="platform.classpath.pattern"/>
+		    	</fileset>
+				
+				<!-- Look at wherever draw2d doc is -->
+				<fileset dir="${rmp.antProperties.draw2d.doc.loc}/..">
+					<patternset refid="platform.classpath.pattern"/>
+		    	</fileset>
+			
+				<!-- Core eclipse plug-ins, plus others in an IES installation -->
+				<fileset dir="${eclipse.home}">
+					<patternset refid="platform.classpath.pattern"/>
+		    	</fileset>
+				
+				<!-- places to look in an RSA installation (includes all install locations) -->
+				<fileset dir="${eclipse.home}/..">
+					<patternset refid="platform.classpath.pattern"/>
+		    	</fileset>
+					
+			</path>
+		</pathconvert>
+		<echo level="info" message="Done computing classpath."/>
+		<echo level="debug" message="Classpath is: ${javadoc.classpath}"/>
+	</target>
+	
+	<target name="extractLinks" depends="init" unless="extract-links-present">
+		<mkdir dir="${temp.javadoc.link.location}"/>
+		
+		<!-- The unzip tasks in this target search for their doc.zips from
+		     the parent of ${eclipse.home} to account for the extra install
+		     locations in RSA where these files reside.  The structure of an
+		     IES installation is comparatively much simpler. -->
+		
+		<!-- We only need the package-list files out of these doc zips. -->
+		<patternset id="platform.doc.zip.contents">
+			<include name="**/package-list"/>
+		</patternset>
+		
+		<!-- Add doc zips here that your plug-in needs to link to. -->
+		<unzip dest="${temp.javadoc.link.location}/emf/">
+			<patternset refid="platform.doc.zip.contents"/>
+			<fileset dir="${rmp.antProperties.emf.doc.loc}">
+				<include name="doc.zip"/>
+			</fileset>
+		</unzip>
+		<unzip dest="${temp.javadoc.link.location}/platform/">
+			<patternset refid="platform.doc.zip.contents"/>
+			<fileset dir="${rmp.antProperties.eclipse.platform.doc.loc}">
+				<include name="doc.zip"/>
+			</fileset>
+		</unzip>
+		<unzip dest="${temp.javadoc.link.location}/draw2d/">
+			<patternset refid="platform.doc.zip.contents"/>
+			<fileset dir="${rmp.antProperties.draw2d.doc.loc}">
+				<include name="doc.zip"/>
+			</fileset>
+		</unzip>
+		<unzip dest="${temp.javadoc.link.location}/gef/">
+			<patternset refid="platform.doc.zip.contents"/>
+			<fileset dir="${rmp.antProperties.gef.doc.loc}">
+				<include name="doc.zip"/>
+			</fileset>
+		</unzip>
+	</target>
+	
+
+	<target name="doJavadoc" depends="extractLinks,computeClasspath,init">
+		
+		<!-- Add your plug-ins to one of the "subsystem" (domain) doc sets below or, if
+		     necessary, create a new doc set. Order matters, please add subsystems 
+		     according to layer order -->
+		
+		<javadoc-subsystem subsystem="common" tocTitle="Common Frameworks Layer">
+			<package-sets>
+		    	<packageset dir="../org.eclipse.gmf.runtime.common.core/src"/>
+		    	<packageset dir="../org.eclipse.gmf.runtime.common.core.provider/src"/>
+		    	<packageset dir="../org.eclipse.gmf.runtime.common.ui/src"/>
+		    	<packageset dir="../org.eclipse.gmf.runtime.common.ui.action/src"/>
+		    	<packageset dir="../org.eclipse.gmf.runtime.common.ui.action.ide/src"/>
+		    	<packageset dir="../org.eclipse.gmf.runtime.common.ui.pathvariables.ide/src"/>
+		    	<packageset dir="../org.eclipse.gmf.runtime.common.ui.printing/src"/>
+		    	<packageset dir="../org.eclipse.gmf.runtime.common.ui.printing.win32/src"/>
+		    	<packageset dir="../org.eclipse.gmf.runtime.common.ui.services/src"/>
+		    	<packageset dir="../org.eclipse.gmf.runtime.common.ui.services.action/src"/>
+		    	<packageset dir="../org.eclipse.gmf.runtime.common.ui.services.dnd/src"/>
+		    	<packageset dir="../org.eclipse.gmf.runtime.common.ui.services.dnd.ide/src"/>
+		    	<packageset dir="../org.eclipse.gmf.runtime.common.ui.services.properties/src"/>
+				<packageset dir="../org.eclipse.gmf.runtime.draw2d.ui/src"/>
+				<packageset dir="../org.eclipse.gmf.runtime.draw2d.ui.render/src"/>
+				<packageset dir="../org.eclipse.gmf.runtime.gef.ui/src"/>
+		    	<packageset dir="../org.eclipse.gmf.runtime.emf.commands.core/src"/>
+		    	<packageset dir="../org.eclipse.gmf.runtime.emf.core/src"/>
+		    	<packageset dir="../org.eclipse.gmf.runtime.emf.ui/src"/>
+		    	<packageset dir="../org.eclipse.gmf.runtime.emf.ui.properties/src"/>
+		    	<packageset dir="../com.ibm.xtools.emf.msl.ocl/src"/>
+		    	<packageset dir="../org.eclipse.emf.ocl/src"/>
+		    	<packageset dir="../org.eclipse.emf.query/src"/>
+		    	<packageset dir="../org.eclipse.emf.query.ocl/src"/>
+		    	<packageset dir="../org.eclipse.gmf.runtime.emf.clipboard.core/src"/>
+		    	<packageset dir="../org.eclipse.gmf.runtime.emf.type.core/src"/>
+		    	<packageset dir="../org.eclipse.gmf.runtime.emf.type.ui/src"/>
+		    	<packageset dir="../org.eclipse.emf.validation/src"/>
+		    	<packageset dir="../org.eclipse.emf.validation.ocl/src"/>
+		    	<packageset dir="../org.eclipse.emf.validation.ui/src"/>
+		    	<packageset dir="../org.eclipse.emf.validation.ui.ide/src"/>
+			</package-sets>
+			<package-groups>
+				<group title="Common Core Packages" packages="org.eclipse.gmf.runtime.common.core*"/>
+				<group title="Common UI Packages" packages="org.eclipse.gmf.runtime.common.ui*"/>
+				<group title="Draw2D Packages" packages="com.ibm.xtools.draw2d*"/>
+				<group title="EMF Modeling Services Layer Packages" packages="com.ibm.xtools.emf.msl*"/>
+				<group title="EMF Query Packages" packages="org.eclipse.emf.query*"/>
+				<group title="EMF OCL Packages" packages="org.eclipse.emf.ocl*"/>
+				<group title="EMF Clipboard Support Packages" packages="org.eclipse.gmf.runtime.emf.clipboard.core*"/>
+				<group title="EMF Validation Framework Packages" packages="org.eclipse.emf.validation*"/>
+				<group title="EMF Element Type Framework Packages" packages="org.eclipse.gmf.runtime.emf.type.core*"/>
+				<group title="GEF Packages" packages="com.ibm.xtools.gef*"/>
+			</package-groups>
+		</javadoc-subsystem>
+
+		<javadoc-subsystem subsystem="diagram" tocTitle="Diagram Layer">
+			<package-sets>
+				<packageset dir="../com.ibm.xtools.notation/src"/>
+				<packageset dir="../org.eclipse.gmf.runtime.diagram.core/src"/>
+				<packageset dir="../org.eclipse.gmf.runtime.diagram.ui/src"/>
+				<packageset dir="../org.eclipse.gmf.runtime.diagram.ui.dnd/src"/>
+				<packageset dir="../org.eclipse.gmf.runtime.diagram.ui.geoshapes/src"/>
+				<packageset dir="../org.eclipse.gmf.runtime.diagram.ui.printing/src"/>
+				<packageset dir="../org.eclipse.gmf.runtime.diagram.ui.properties/src"/>
+				<packageset dir="../org.eclipse.gmf.runtime.diagram.ui.providers/src"/>
+				<packageset dir="../org.eclipse.gmf.runtime.diagram.ui.providers.ide/src"/>
+				<packageset dir="../org.eclipse.gmf.runtime.diagram.ui.resources.editor/src"/>
+				<packageset dir="../org.eclipse.gmf.runtime.diagram.ui.resources.editor.ide/src"/>
+			</package-sets>
+			<package-groups>
+				<group title="Diagram Packages" packages="com.ibm.xtools.notation*,org.eclipse.gmf.runtime.diagram.core*"/>
+			</package-groups>
+		</javadoc-subsystem>
+		
+		<!-- Add your plug-ins to one of the "subsystem" (domain) doc sets above or, if
+		     necessary, create a new doc set. -->
+		
+    </target>
+	
+	
+    <!--
+		Builds the Javadoc set for a subsystem (often corresponds to a "domain").
+		
+		attributes:
+			subsystem - the name of the subsystem, used in the directory where its Javadocs are generated to
+			tocTitle - Title to add to the generated TOC
+			tocLinkTo - Path to link generated TOC to (Optional)
+					
+		elements:
+			package-sets - a set of <packageset> elements specifying the "src/" directories of the plug-ins included in the subsystem
+			package-groups - a set of <group> elements specifying package groups.  Callers should include at least one group
+    -->
+	<macrodef name="javadoc-subsystem">
+		<attribute name="subsystem"/>
+		<attribute name="tocTitle"/>
+		<attribute name="tocLinkTo" default=" "/>
+		<element name="package-sets"/>
+		<element name="package-groups"/>
+		
+		<sequential>
+			<delete dir="${temp.javadoc.location}/@{subsystem}"/>
+			<mkdir dir="${temp.javadoc.location}/@{subsystem}"/>
+
+			<echo level="info" message="***"/>
+			<echo level="info" message="*** Building javadoc for subsystem @{subsystem}"/>
+			<echo level="info" message="***"/>
+		
+	 		<javadoc access="protected"
+				additionalparam="-clientContext %partners -namespaceAliases '${basedir}/namespaceAliases.properties' -tocFilename '${basedir}/toc-@{subsystem}.xml' -tocTitle '@{tocTitle}' -tocLinkTo '@{tocLinkTo}' -tocRefPrefix reference/api/@{subsystem}/ -breakiterator -tag model:X -tag generated:X -tag ordered:X -source 1.4"
+				maxmemory="512M"
+				classpath="${javadoc.classpath}"
+				useexternalfile="true"
+				author="false"
+	        	destdir="${temp.javadoc.location}/@{subsystem}"
+	        	doctitle="IBM Rational Modeling Platform"
+	        	noindex="false"
+	        	nonavbar="false"
+	        	notree="false"
+	        	splitindex="true"
+	        	stylesheetfile="${basedir}/html/reference/stylesheet.css"
+	        	use="true"
+				doclet="org.eclipse.gmf.runtime.doclet.AuroraDoclet"
+				docletpath="${workspace.folder}/org.eclipse.gmf.runtime.doclet/aurora-doclet.jar"
+	        	version="false">
+				    <header><![CDATA[<EM><b>IBM Rational Modeling Platform</b><br>Release 7.0</EM>]]></header>
+				    <bottom><![CDATA[<HR><font size="-1"><p><a href="/help/topic/org.eclipse.platform.doc.isv/reference/misc/api-usage-rules.html">Guidelines for using Eclipse APIs</a>.</p><p>Copyright (c) IBM Corp. 2004,2005. All rights reserved.</font></p>]]></bottom>
+		
+					<package-groups/>
+	
+					<link offline="true" href="http://java.sun.com/j2se/1.4.2/docs/api/" packagelistLoc="/jdk1.4.2_05/docs/api/"/>
+					<link offline="true" href="/help/topic/org.eclipse.emf.doc/references/javadoc/" packagelistLoc="${temp.javadoc.link.location}/emf/references/javadoc/"/>
+					<link offline="true" href="/help/topic/org.eclipse.platform.doc.isv/reference/api/" packagelistLoc="${temp.javadoc.link.location}/platform/reference/api/"/>
+					<link offline="true" href="/help/topic/org.eclipse.platform.doc.isv/reference/osgi/" packagelistLoc="${temp.javadoc.link.location}/platform/reference/osgi/"/>
+					<link offline="true" href="/help/topic/org.eclipse.draw2d.doc.isv/reference/api/" packagelistLoc="${temp.javadoc.link.location}/draw2d/reference/api/"/>
+					<link offline="true" href="/help/topic/org.eclipse.gef.doc.isv/reference/api/" packagelistLoc="${temp.javadoc.link.location}/gef/reference/api/"/>
+	
+					<!-- Links to other doc sets in Aurora -->
+					<link offline="true" href="/help/topic/org.eclipse.gmf.runtime.doc.isv/reference/api/common" packagelistLoc="${temp.javadoc.location}/common/"/>
+					<link offline="true" href="/help/topic/org.eclipse.gmf.runtime.doc.isv/reference/api/diagram" packagelistLoc="${temp.javadoc.location}/diagram/"/>					
+					
+			    	<package-sets/>
+			</javadoc>
+		</sequential>
+    </macrodef>
+	
+	<target name="gather.parts" depends="doJavadoc">
+		<delete dir="${temp.doc.folder}"/>
+		<mkdir dir="${temp.doc.folder}"/>
+		<copy todir="${temp.doc.folder}">
+			<fileset dir="${html.folder}"/>
+		</copy>
+		<copy todir="${temp.doc.folder}/reference/api">
+			<fileset dir="${temp.javadoc.location}"/>
+		</copy>
+		<copy todir="${temp.doc.folder}/reference/extension-points" flatten="true">
+			<fileset dir="${workspace.folder}">
+				<patternset refid="publish.extension-point.set"/>
+			</fileset>
+		</copy>
+		
+	</target>
+
+	<target name="build.doc.zip" depends="gather.parts" description="Build doc.zip">
+				
+		<zip destfile="${doc.zip.file}" basedir="${temp.doc.folder}" filesonly="false" whenempty="skip"/>
+	</target>
+	
+</project>

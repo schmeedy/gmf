@@ -1,0 +1,367 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="Stylesheet" type="text/css" href="technote.css">
+<title>Model Services Layer - How-to Guide</title>
+</head>
+
+<body lang="EN-US" link="blue" vlink="blue">
+
+<a name=top></a><img width="629" height="192" src="logo.gif" border="0">
+
+<h1 align="center">Model Services Layer - How-to Guide</h1>
+
+<table  border="0" cellspacing="8" cellpadding="0">
+ <tr>
+  <td>Version: 0.1</td>
+  <td>Date: June 8, 2005</td>
+ </tr>
+</table>
+
+<h2>Contents</h2>
+
+<ul>
+  <li><a href="#introduction">Introduction</a></li>
+  <li><a href="#refs">References</a></li>
+  <li><a href="#queryFramework">How to use the query framework</a></li>
+  <li><a href="#clipboardFramework">How to use the clipboard framework</a></li>
+  <li><a href="#validationFramework">How to use the validation framework</a></li>
+  <li><a href="#oclFramework">How to use the OCL framework</a></li>
+  <li><a href="#modelMgmtFramework">How to use the model management framework</a></li>
+</ul>
+
+<hr/>
+
+<h2><a name="introduction"></a></a>Introduction</h2>
+<p class="backto"><font size="-1">[<a href="#top">back to top</a>]</font></p>
+
+<p>
+This guide is a repository for questions on how to accomplish specific tasks within
+the model services layer.
+</p>
+
+<h2><a name="refs"></a>References</h2>
+<p class="backto"><font size="-1">[<a href="#top">back to top</a>]</font></p>
+
+<p>
+This how to guide refers to the following tutorials related to the model services
+components:
+<ul>
+  <li><a href="../tutorials/msl/validationTutorial.html">Validation Tutorial</a></li>
+  <li><a href="../tutorials/msl/validationAdapterTutorial.html">Validation Adapter Tutorial</a></li>
+  <li><a href="../tutorials/msl/queryTutorial.html">Query Tutorial</a></li>
+  <li><a href="../tutorials/msl/clipboardTutorial.html">Clipboard Tutorial</a></li>
+  <li><a href="../tutorials/msl/oclInterpreterTutorial.html">OCL Interpreter Tutorial</a></li>
+  <li><a href="../tutorials/msl/oclQueryTutorial.html">OCL Query Tutorial</a></li>
+  <li><a href="../tutorials/msl/oclValidationTutorial.html">OCL Validation Tutorial</a></li>
+  <li><a href="../tutorials/msl/modelManagementTutorial.html">Model Management Tutorial</a></li>
+</ul>
+</p>
+
+<p>
+It also refers to content from the <a href="../prog-guide/platform/RMP for GMF.htm">Rational Modeling Platform Overview</a> document
+to discuss the extension points and related classes.
+</p>
+
+<h2><a name="queryFramework"></a>How to use the query framework</h2>
+<p class="backto"><font size="-1">[<a href="#top">back to top</a>]</font></p>
+
+<p>
+The query framework provides the basic infrastructure for specifying and executing
+queries against a set of EMF-Model elements and their contents. The following are the
+main classes to be used when formulating query statements:
+<ol>
+<li>The <code>IEObjectSource</code> interface provides the search scope elements to be used in a query.</li>
+<li>The <code>SELECT</code> class implements a template-function that does the iteration over model
+elements and applies the search condition on each; it collects the resulting elements
+into a <code>QueryResultSet</code> object and returns it to the caller.</li>
+<li>The <code>FROM</code> class represents the elements to search. It is responsible of providing
+an appropriate iterator for the elements in the search space.</li>
+<li>The <code>WHERE</code> class applies the search conditions over the elements in the search set.</li>
+<li>The <code>UPDATE</code> class passes the elements who satisfy the search condition to a caller-supplied
+modification function. It collects the modified elements into a QueryResultSet object
+and returns it to the caller.</li>
+<li>The <code>QueryResultSet</code> class represents the set of elements returned by a given query.</li>
+<li>The <code>EObjectCondition</code> class is the abstract parent of all conditions that deal with model-elements (i.e., EObjects).
+It incorporates the services of a PruneHandler in order to answers whether or not to prune the element
+tree at a specific element and thus ignore its children.</li> 
+<li>The <code>ConditionPolicy</code> class is used to allow the user to decide how to apply a given condition
+on a collection of a model-element <code>EAttributes</code> or <code>EReferences</code> values. Supports both the: exists (ANY) and
+for-all (ALL) semantics.</li>
+<li>The <code>EObjectStructuralFeatureValueCondition</code> class is the parent class for conditions that are responsible
+for checking the values held in model-elements’ attributes or references. It uses the help of two other
+condition objects. The first is an EObjectCondition that it used to decide on the validity of
+context element (a context element is the model element whose attribute we are evaluating) and the other
+condition is an evaluator Condition that it uses to evaluate the value held in the attribute or the reference
+and whether or not it matches what the user is looking for</li>
+</ol>
+</p>
+
+<p>
+Using the above classes follow the steps described below to create and execute queries.
+<ol>
+<li>Create an implementation of the <code>IEObjectSource</code> interface</li>
+<li>Extend the <code>EObjectCondition</code> class to define custom conditions or use one of the pre-defined conditions
+available as part of the query framework</li>
+<li>Create a statement using the <code>SELECT</code> or <code>UPDATE</code> clauses</li>
+<li>Execute the statement to produce the results</li>
+<li>Check to ensure that the query did not generate any exceptions during its execution</li>
+</ol>
+</p>
+
+<p>
+Please refer to the tutorial <a href="../tutorials/msl/queryTutorial.html">Query Framework Tutorial</a> 
+for reviewing some code samples
+</p>
+
+<h2><a name="clipboardFramework"></a>How to use the clipboard framework</h2>
+<p class="backto"><font size="-1">[<a href="#top">back to top</a>]</font></p>
+
+<p>
+The clipboard framework allows the EMF meta-model providers to support copying EMF objects
+to and pasting them from the system clipboard. The following are the
+main extension points and classes to be used when providing clipboard support:
+
+<ol>
+<li>Extension point <a href="../../reference/extension-points/com_ibm_xtools_emf_clipboard_clipboardSupport.html">org.eclipse.gmf.runtime.emf.clipboard.core.clipboardSupport</a> allows
+extensions to implement fairly complex meta-model specific semantics for copy/paste operations, where some
+relationships between model elements need special treatment</li>
+<li>Providers register an implementation of the <code>IClipboardSupportFactory</code> interface for supporting clipboard
+copy/paste operations on EMF models. The implementation is responsible for creating <code>IClipboardSupport</code>
+for the packages on which it is registered</li>
+<li>Clients can use the utility class <code>ClipboardUtil</code> for the creation of <code>IClipboardSupport</code> instances for
+specific EMF meta-models and for copy/paste operations to and from a <code>String</code> form for use on the system clipboard</li>
+<li>The <code>IClipboardSupport</code> interface should be implemented by EMF meta-model providers to inject meta-model
+specific semantics into copy/paste operations. This interface has hints (e.g., what to do when pasted
+elements collide, what related elements should always be copied together, etc.) that helps the framework
+to make decisions. For maximal flexibility, it is even possible to override the paste operation altogether.
+Where this interface is not sufficient to control copy/paste behavior, the specialization of the following
+classes is permitted to define custom copy and paste operations:
+<ul>
+<li>The <code>OverrideCopyOperation</code> for special copying behavior. This class inherits a number of useful operations
+from the <code>CopyOperation</code> class to find out about the objects that the user selected for copying,
+additional objects required my the <code>IClipboardSupport</code>, and the relationships between them.
+It also has methods for adding elements to be copied </li>
+<li>The <code>OverridePasteChildOperation</code> for special pasting behavior. This class inherits a wealth of useful
+operations from the <code>PasteChildOperation</code> class to find out about the objects that the user selected
+for copying, additional objects required by the <code>IClipboardSupport</code>, and the relationships between them.
+It also has methods to find which elements have failed to paste, to paste additional
+elements (including handling paste collisions), etc.</li></li>
+</ul>
+</ol>
+</p>
+
+<p>
+Using the above classes follow the steps described below to provide clipboard support.
+<ol>
+<li>Create an extension for clipboardSupport extension point. Provide an implementation of the 
+<code>IClipboardSupportFactory</code> interface and a specialization of the <code>AbstractClipboardSupport</code> class</li>
+<li>Provide specialization of the <code>OverrideCopyOperation</code> or the <code>OverridePasteChildOperation</code> class for special behaviour</li>
+</ol>
+</p>
+
+<p>
+Please refer to the tutorial <a href="../tutorials/msl/clipboardTutorial.html">Clipboard Framework Tutorial</a> 
+for reviewing some code samples.
+</p>
+
+<h2><a name="validationFramework"></a>How to use the validation framework</h2>
+<p class="backto"><font size="-1">[<a href="#top">back to top</a>]</font></p>
+
+<p>
+The validation framework provides support for constraint providers for any EMF meta-model (batch and live constraints),
+customizable model traversal algorithms, constraint parsing for languages, configurable constraint bindings to
+application contexts and validation listeners. The following are the main extension points and classes to be used with
+the validation framework.
+<ol>
+<li>The extension point <a href="../../reference/extension-points/com_ibm_xtools_emf_validation_constraintProviders.html">org.eclipse.emf.validation.constraintProviders</a> is used to provide constraints. Static
+constraint providers declare constraints in the plugin.xml. Constraints are grouped into hierarchically structured
+categories. Constraint providers target one or more EPackages by namespace URI. A group of constraints declares
+categories in which they are members. Each constraint has a variety of meta-data associated with it (
+Language, ID, severity, mode, name, message, triggers, etc.). Dynamic constraint providers address situations where
+constraints cannot be declared statically. e.g., where constraints are defined in models or other resources. Dynamic
+providers declare a class implementing the <code>IModelConstraintProvider</code> interface. This class is responsible
+for making constraints available on the appropriate triggers, organizing them into categories, etc.</li>
+<li>The extension point <a href="../../reference/extension-points/com_ibm_xtools_emf_validation_traversal.html">org.eclipse.emf.validation.traversal</a> is used to provide
+customizable model traversal algorithms. Batch validation traverses a subset of the model starting from the user’s
+selections. No traversal is performed in live validation. Some meta-models require custom strategies for traversal. The
+default strategy simply iterates the content tree via <code>eAllContents()</code> API. Some meta-models do not use EMF containment
+relationships extensively, or implement logical models on multiple distinct resources, making containment-based
+traversal impractical.</li>
+<li>The extension point <a href="../../reference/extension-points/com_ibm_xtools_emf_validation_constraintParsers.html">org.eclipse.emf.validation.constraintParsers</a> is used to provide
+constraint parsing for languages. The validation framework provides support for two languages: Java and OCL. Clients can
+provide support for other constraint languages via constraint parsers. The <code>Language ID</code>:  used in the <code>lang</code>
+attribute of constraint elements in the constraint XML. The <code>Class</code>:  identifies an implementation of the 
+<code>IXmlConstraintParser</code> interface, which constructs a constraint from the XML configuration data. Constraint
+parsers are responsible for parsing the content of a constraint element in the plugin.xml to produce <code>IModelConstraint</code>
+objects.</li>
+<li>The extension point <a href="../../reference/extension-points/com_ibm_xtools_emf_validation_constraintBindings.html">org.eclipse.emf.validation.constraintBindings</a>
+allows clients of the EMF Validation framework to define "client contexts" that describe the objects that they are
+interested in validating, and to bind them to constraints that they are interested in enforcing on these objects.
+A client context can declare an <code>enablement</code> expression that matches model elements that are included in the context. Where
+that is not sufficient, an alternative is to define a selector class using a <code>selector</code> element. Client
+contexts can be bound to constraints, individually, or to constraint categories (to bind all of the constraints in the
+category). Binding to constraint categories has the advantage of allowing new constraint contributions in a category
+to automatically be bound to the appropriate client context, even if the constraint is defined in a plug-in that
+is unaware of that context or its binding to the category. Category bindings are inherited by sub-categories from their
+ancestors.</li>
+<li>The extension point <a href="../../reference/extension-points/com_ibm_xtools_emf_validation_validationListeners.html">org.eclipse.emf.validation.validationListeners</a>
+is used to define validation listeners for the validation service (<code>org.eclipse.emf.validation.service.ModelValidationService</code>).
+The validation service will inform this listener whenever validation has occurred, loading it if necessary in order to do so.
+This is most useful for cases where client plug-ins need to find out about validation events even before they are loaded.
+Otherwise, it is usually simpler just to programmatically add a listener to the validation service. The value of the
+<code>listener</code> element class attribute must be the fully qualified name of a class that implements the
+<code>IValidationListener</code> interface. Listeners can also be registered in code, at run-time, using the
+<code>ModelValidationService.addValidationListener()</code> method.</li>
+<li>The <code>ModelValidationService</code> singleton coordinates the invocation of validation. It defines a single factory
+method for creation of <code>IValidator</code> for the batch and live evaluation modes. Validators validate one or more
+objects at a time; the kind of object accepted as input depends on the evaluation mode. They can be configured to
+report constraint passes as well as failures, for verbose results. Results are reported as <code>IValidationStatus</code>.
+Validators can be reused by a client for any number of validation operations. The <code>ILiveValidator</code> validates
+EMF <code>Notifications</code>. The <code>IBatchValidator</code> validates <code>EObjects</code> and, due to its support
+for model traversal, supports progress monitors. Registered traversal strategies can be overridden by the client.</li>
+<li>Clients can create an <code><a href="/help/topic/org.eclipse.emf.doc/references/javadoc/org/eclipse/emf/ecore/EValidator.html">EValidator</a></code>
+implementation that delegates to the validation framework.</li>
+</ol>
+</p>
+
+<p>
+Please refer to the tutorials <a href="../tutorials/msl/validationTutorial.html">Validation Tutorial</a> and
+<a href="../tutorials/msl/validationAdapterTutorial.html">Validation Adapter Tutorial</a> for reviewing some code
+samples
+</p>
+
+<h2><a name="oclFramework"></a>How to use the OCL framework</h2>
+<p class="backto"><font size="-1">[<a href="#top">back to top</a>]</font></p>
+
+<p>
+The OCL framework provides the basic infrastructure for OCL constraint parsing and content assist for user models,
+OCL constraint validation and specifying OCL queries and conditions. The following are the
+main classes to be used with this framework:
+
+<ol>
+<li>OCL expressions are used for constructing, validating, and evaluating OCL queries and constraints on EMF model elements.
+The <code>QueryFactory</code> class will creates instances of the <code>Query</code> class. The syntax of the queries is implemented by the
+<code>OclExpression</code> class. For walking an OCL expression AST, see the <code>Visitor</code> interface.</li>
+<li>The framework provides implementation of an XML constraint parser (<code>org.eclipse.emf.validation.xml.IXmlConstraintParser</code>) API
+that supports definition of XML constraints in OCL. The class <code>OclConstraintParser</code> is the constraint parser
+implementation that creates instances of the <code>OclModelConstraint</code> class, the OCL-language constraint implementation,
+from XML constraint descriptors. It uses the <code>Query</code> class to test model elements against an OCL constraint expression.</li>
+<li>The framework provides support for OCL syntax completion and parsing on the meta-model and user model level. The primary
+interface is the <code>IOclHelper</code>, which provides OCL syntax completion assistance and parsing support. Instances of this
+interface are obtained from the <code>HelperUtil</code> class. OCL code completion suggestions are represented as <code>Choice</code> instances,
+which indicate the text of a language construct, a description, and the type of construct (<code>ChoiceType</code>).</li>
+<li>The framework provides OCL extensions to the EMF Query framework. It defines the interface <code>IOclQueryHelper</code> for performing
+OCL queries on EMF models. It supports Boolean-valued OCL expressions as query conditions that are used to formulate OCL
+queries over EMF models. The class <code>OclCondition</code> applies OCL expressions to <code>EObjects</code>. Allows the
+integration of OCL expressions with other <code>EObjectConditions</code>. </li>
+</ol>
+</p>
+
+<p>
+Please refer to the tutorials <a href="../tutorials/msl/oclValidationTutorial.html">OCL Validation Tutorial</a>, 
+<a href="../tutorials/msl/oclInterpreterTutorial.html">OCL Interpreter Tutorial</a> and
+<a href="../tutorials/msl/oclQueryTutorial.html">OCL Query Tutorial</a> for reviewing some code
+samples
+</p>
+
+<h2><a name="modelMgmtFramework"></a>How to use the model management framework</h2>
+<p class="backto"><font size="-1">[<a href="#top">back to top</a>]</font></p>
+
+<p>
+The model management framework provides support for the following capabilities:
+<ol>
+<li>Unified Transaction Semantics</li>
+<li>Undo/Redo management</li>
+<li>Multi-threaded access control</li>
+<li>Logical or composite resources</li>
+<li>Batch notification of events</li>
+<li>Evaluation of live constraints</li>
+<li>Common read and write operations</li>
+<li>Common re-usable commands</li>
+<li>Path map support</li>
+<li>Object life cycle management (destroy)</li>
+<li>Centralized model for event notification</li>
+<li>Event listeners with filters</li>
+<li>Support for semantic procedures</li>
+<li>Support for post processing after loading resources</li>
+<li>Support for adapting (user) models to an equivalent Ecore representation.
+Applies to those EMF meta-models that model classifiers in a run-time system</li>
+</ol>
+</p>
+
+<p>
+The following are the main extension points and classes to be used with this framework:
+<ol>
+<li><b>User Model Support</b>: The extension point <a href="../../reference/extension-points/com_ibm_xtools_emf_msl_core_userModelSupport.html">org.eclipse.gmf.runtime.emf.core.userModelSupport</a>
+allows EMF meta-model providers to adapt elements of the models to the EClassifier API. Providers register an
+implementation of the <code>IUserModelSupportFactory</code> interface that can create adapters that cast elements
+of an EMF model as <code>EClassifiers</code>. A support factory is responsible for creating <code>IUserModelSupport</code>
+for the packages on which it is registered. Clients can use the utility class <code>UserModelUtil</code> to create
+instances for specific EMF meta-models.</li>
+<li><b>Unified Transaction Semantics</b>: The class <code>MEditingDomain</code> exposes an editing domain that manages the
+EMF based models in the modeling platform. This class integrates some of the core capabilities like model access, batched
+notifications, multi-threaded access control and evaluation of live constraints in its <code>run..</code> methods.
+This class is the main entry point. Clients would invoke the <code>createNewDomain</code> method to create a new instance
+of the editing domain with its own undo stack and resource set. The class <code>MUndoInterval</code> is used to track
+group changes to the model. The class <code>MEditingDomain</code> maintains its own undo stack. The undo stack is a
+collection of <code>MUndoInterval</code> instances. The class <code>AbstractModelCommand</code> is the abstract parent
+of all concrete commands that perform model operations. Clients must provide a definition of the <code>doExecute()</code>
+method to perform some operation. All model commands have an associated undo interval, through which they can be undone
+or redone.</li>
+<li><b>Logical resource support</b>: The extension point <a href="../../reference/extension-points/com_ibm_xtools_emf_msl_core_resourcePolicies.html">org.eclipse.gmf.runtime.emf.core.resourcePolicies</a> is defined for
+EMF meta-model providers to provide policies that customize the resource structure for their models.  The <code>ILogicalResource</code>
+interface provides a logical view in memory of a tree structure that is persisted in multiple physical resources.
+Metamodel-specific customizations are provided as <code>ILogicalResourcePolicy</code> implementations that define
+the locations in a logical structure where boundaries in the physical structure are permitted and provide automatic
+naming of physical resources.  <code>EFactory</code> implementations registered on this extension point provide support
+for incremental loading of logical resources.</li>
+<li><b>Path map support</b>: The extension point <a href="../../reference/extension-points/com_ibm_xtools_emf_msl_core_Pathmaps.html">org.eclipse.gmf.runtime.emf.core.Pathmaps</a> is defined for path map
+variables. Path map variables allow for portability of URIs, similar to Eclipse's core path variables. The actual location
+indicated by a URI depends on the run-time binding of the path variable. Thus, different environments can work with the
+same resource URIs even though the resources are stored in different physical locations. Path map support is integrated
+into the <code>MEditingDomain</code> class.</li>
+<li><b>Object life cycle management</b>: The <code>EObjectUtil</code> class has a destroy method that destroys the object by
+removing it from its container and severing all references from and to the object. It is also recursive, i.e., it gets
+called on the children. The class <code>MetaModelUtil</code> provides utility functions that work at the meta-class level.
+The class <code>ProxyUtil</code> class contains a set of utility methods that control the use of Proxy objects.
+Additional information like the qualified name of the referenced object in-case of cross-resource references is stored
+with the proxy using a proprietary format. The class <code>EObjectContainmentUtil</code> provides utilities for analysis
+of the containment and relationships type-conformance relationships between <code>EObjects</code>.</li>
+<li><b>Listeners and Filters</b>: The class <code>MListener</code> is used handle EMF events. To define a new listener, one
+would subclass this class and implement the abstract method <code>onEvent</code>. A listener can have only one filter
+associated with it. For the listener to start listening, one must attach a filter to the listener and call <code>startListening</code>.
+The class <code>MFilter</code> is used to control what events get sent to listeners. To define a new filter, one would
+subclass this class and implement the abstract method <code>matches</code>. This class also defines some pre-defined
+filters that can be composed to build more complex filters. Some of these are filter instances, some are classes. The
+listeners are associated with a editing domain. The <code>IDemuxedMListener</code> interface can be implemented by
+clients interested in individual resource and object lifecycle events. The <code>DemuxingMListener</code> class is a
+demultiplexing event listener, which relays batched events from the <code>MListener</code> protocol one at a time,
+dispatching them to the appropriate methods of an <code>IDemuxedMListener</code> according to the nature of each event.
+Some of the custom event types supported are
+<ul>
+  <li><code>EventTypes.CREATE</code>, <code>EventTypes.DESTROY</code></li>
+  <li><code>EventTypes.IMPORT</code>, <code>EventTypes.EXPORT</code></li>
+  <li><code>EventTypes.UNRESOLVE</code></li>
+  <li><code>EventTypes.SEPARATE</code>, <code>EventTypes.ABSORB</code>, <code>EventTypes.LOAD</code></li></ul></li>
+<li><b>Meta-model Support</b>: The extension point <a href="../../reference/extension-points/com_ibm_xtools_emf_msl_core_MetaModelProviders.html">org.eclipse.gmf.runtime.emf.core. MetaModelProviders</a> allows 
+clients to provide meta-model support services. Providers implement the interface <code>IMetamodelSupportProvider</code>.
+The implementation of the interface method <code>getMetamodelSupport</code> returns the <code>IMetamodelSupport</code> object.
+The service gives all interested providers a chance to create meta-model support objects for the given <code>EPackage</code> in
+order of priority from lowest to highest. The service is very useful for supporting semantic procedures
+and post processing after loading resources. The methods to implement in the <code>IMetamodelSupport</code>
+interface are <code>handleEvent</code> and <code>postProcess</code>.</li>
+</ol>
+</p>
+
+<p>
+Please refer to the tutorial <a href="../tutorials/msl/modelManagementTutorial.html">Model Management Tutorial</a> 
+for reviewing some code samples.
+</p>
+
+<p><img border="0" width="324" height="14" src="copyright.gif"></p>
+</body>
+
+</html>

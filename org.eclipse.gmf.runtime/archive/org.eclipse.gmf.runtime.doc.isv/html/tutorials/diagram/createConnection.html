@@ -1,0 +1,650 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns:st1="urn:schemas-microsoft-com:office:smarttags"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=iso-8859-1">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 10">
+<meta name=Originator content="Microsoft Word 10">
+<link rel=File-List href="Tutorial_files/filelist.xml">
+<link rel=Edit-Time-Data href="Tutorial_files/editdata.mso">
+<!--[if !mso]>
+<style>
+v\:* {behavior:url(#default#VML);}
+o\:* {behavior:url(#default#VML);}
+w\:* {behavior:url(#default#VML);}
+.shape {behavior:url(#default#VML);}
+</style>
+<![endif]-->
+<title>Tutorial: &amp;lt;&amp;lt;Feature Name&amp;gt;&amp;gt;</title>
+<o:SmartTagType namespaceuri="urn:schemas-microsoft-com:office:smarttags"
+ name="City"/>
+<o:SmartTagType namespaceuri="urn:schemas-microsoft-com:office:smarttags"
+ name="place"/>
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>jcorchis</o:Author>
+  <o:LastAuthor>jcorchis</o:LastAuthor>
+  <o:Revision>7</o:Revision>
+  <o:TotalTime>111</o:TotalTime>
+  <o:Created>2005-04-21T14:33:00Z</o:Created>
+  <o:LastSaved>2005-04-21T18:18:00Z</o:LastSaved>
+  <o:Pages>1</o:Pages>
+  <o:Words>636</o:Words>
+  <o:Characters>3627</o:Characters>
+  <o:Company>Rational Software</o:Company>
+  <o:Lines>30</o:Lines>
+  <o:Paragraphs>8</o:Paragraphs>
+  <o:CharactersWithSpaces>4255</o:CharactersWithSpaces>
+  <o:Version>10.6735</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:SpellingState>Clean</w:SpellingState>
+  <w:GrammarState>Clean</w:GrammarState>
+  <w:BrowserLevel>MicrosoftInternetExplorer4</w:BrowserLevel>
+ </w:WordDocument>
+</xml><![endif]--><!--[if !mso]><object
+ classid="clsid:38481807-CA0E-42D2-BF39-B33AF135CC4D" id=ieooui></object>
+<style>
+st1\:*{behavior:url(#ieooui) }
+</style>
+<![endif]-->
+<link rel=Stylesheet type="text/css" media=all href=technote.css>
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:Wingdings;
+	panose-1:5 0 0 0 0 0 0 0 0 0;
+	mso-font-charset:2;
+	mso-generic-font-family:auto;
+	mso-font-pitch:variable;
+	mso-font-signature:0 268435456 0 0 -2147483648 0;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-parent:"";
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+h1
+	{mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:1;
+	font-size:24.0pt;
+	font-family:"Times New Roman";
+	font-weight:bold;}
+h2
+	{mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:2;
+	font-size:18.0pt;
+	font-family:"Times New Roman";
+	font-weight:bold;}
+h3
+	{mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:3;
+	font-size:13.5pt;
+	font-style:italic;}
+a:link, span.MsoHyperlink
+	{color:blue;
+	text-decoration:underline;
+	text-underline:single;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:blue;
+	text-decoration:underline;
+	text-underline:single;}
+p
+	{mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+code
+	{font-family:"Courier New";
+	mso-ascii-font-family:"Courier New";
+	mso-fareast-font-family:"Times New Roman";
+	mso-hansi-font-family:"Courier New";
+	mso-bidi-font-family:"Courier New";}
+pre
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:24.0pt;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt;
+	font-size:10.0pt;
+	font-family:"Courier New";
+	mso-fareast-font-family:"Times New Roman";}
+p.notabene, li.notabene, div.notabene
+	{mso-style-name:notabene;
+	mso-margin-top-alt:auto;
+	margin-right:48.0pt;
+	mso-margin-bottom-alt:auto;
+	margin-left:48.0pt;
+	mso-pagination:widow-orphan;
+	border:none;
+	mso-border-top-alt:solid windowtext .75pt;
+	mso-border-bottom-alt:solid windowtext .75pt;
+	padding:0in;
+	mso-padding-alt:4.0pt 0in 4.0pt 0in;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+p.question, li.question, div.question
+	{mso-style-name:question;
+	mso-margin-top-alt:auto;
+	margin-right:48.0pt;
+	mso-margin-bottom-alt:auto;
+	margin-left:48.0pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";
+	font-style:italic;}
+p.backto, li.backto, div.backto
+	{mso-style-name:backto;
+	mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+span.SpellE
+	{mso-style-name:"";
+	mso-spl-e:yes;}
+span.GramE
+	{mso-style-name:"";
+	mso-gram-e:yes;}
+@page Section1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.25in 1.0in 1.25in;
+	mso-header-margin:35.4pt;
+	mso-footer-margin:35.4pt;
+	mso-paper-source:0;}
+div.Section1
+	{page:Section1;}
+ /* List Definitions */
+ @list l0
+	{mso-list-id:1754820217;
+	mso-list-template-ids:-806848416;}
+@list l0:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+ol
+	{margin-bottom:0in;}
+ul
+	{margin-bottom:0in;}
+-->
+</style>
+<!--[if gte mso 10]>
+<style>
+ /* Style Definitions */
+ table.MsoNormalTable
+	{mso-style-name:"Table Normal";
+	mso-tstyle-rowband-size:0;
+	mso-tstyle-colband-size:0;
+	mso-style-noshow:yes;
+	mso-style-parent:"";
+	mso-padding-alt:0in 5.4pt 0in 5.4pt;
+	mso-para-margin:0in;
+	mso-para-margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;}
+</style>
+<![endif]-->
+</head>
+
+<body lang=EN-US link=blue vlink=blue style='tab-interval:.5in'>
+
+<div class=Section1>
+
+<p class=MsoNormal><a name=top></a><img width=629 height=192 id="_x0000_i1025"
+src="../logo.gif" border=0></p>
+
+<h1 align=center style='text-align:center'>Tutorial: Creating connections</h1>
+
+<table class=MsoNormalTable border=0 cellspacing=8 cellpadding=0
+ style='mso-cellspacing:6.0pt;margin-left:24.0pt'>
+ <tr style='mso-yfti-irow:0;mso-yfti-lastrow:yes'>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>Version: 0.1</p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>Date: August 11, 2005</p>
+  </td>
+ </tr>
+</table>
+
+<h2>Contents</h2>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:48.0pt;text-indent:-.25in;mso-list:l0 level1 lfo1;tab-stops:list .5in'><![if !supportLists]><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Symbol;
+mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol'><span
+style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'> </span></span></span><![endif]><a
+href="#_Overview">Overview</a></p>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:48.0pt;text-indent:-.25in;mso-list:l0 level1 lfo1;tab-stops:list .5in'><![if !supportLists]><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Symbol;
+mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol'><span
+style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'> </span></span></span><![endif]><a
+href="#_References">References</a></p>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:48.0pt;text-indent:-.25in;mso-list:l0 level1 lfo1;tab-stops:list .5in'><![if !supportLists]><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Symbol;
+mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol'><span
+style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'> </span></span></span><![endif]><a
+href="#_Introduction">Introduction</a></p>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:48.0pt;text-indent:-.25in;mso-list:l0 level1 lfo1;tab-stops:list .5in'><![if !supportLists]><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Symbol;
+mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol'><span
+style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'> </span></span></span><![endif]><a
+	href="#newConnection">Create a new connection type</a></p>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:48.0pt;text-indent:-.25in;mso-list:l0 level1 lfo1;tab-stops:list .5in'><![if !supportLists]><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Symbol;
+mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol'><span
+style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'> </span></span></span><![endif]><a
+	href="#betweenShapes">Drawing connections between shapes</a></p><p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:48.0pt;text-indent:-.25in;mso-list:l0 level1 lfo1;tab-stops:list .5in'><![if !supportLists]><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Symbol;
+mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol'><span
+style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'> </span></span></span><![endif]><a
+	href="#fixedAnchors">Connecting wires at fixed anchors</a></p><p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:48.0pt;text-indent:-.25in;mso-list:l0 level1 lfo1;tab-stops:list .5in'><![if !supportLists]><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Symbol;
+mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol'><span
+style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'> </span></span></span><![endif]><a
+	href="#summary">Summary</a></p>
+
+<div class=MsoNormal align=center style='text-align:center'>
+
+<hr size=2 width="100%" align=center></div>
+
+<h2><a name="_Overview"></a>Overview</h2>
+
+<p class=backto><span style='font-size:10.0pt'>[<a href="#top"><span
+class=GramE>back</span> to top</a>]</span></p>
+
+<p>This tutorial provides the reader with the steps to create a new connection within a diagram client.</p>
+
+<h2><a name="_References"></a>References</h2>
+
+<p class=backto><span style='font-size:10.0pt'>[<a href="#top"><span
+class=GramE>back</span> to top</a>]</span></p>
+
+This tutorial references the following tutoral:<BR>
+<BR>
+<A href="createShape.html">Create a shape</A>
+<h2><a name="_Introduction"></a>Introduction</h2>
+
+<p class=backto><span style='font-size:10.0pt'>[<a href="#top"><span
+class=GramE>back</span> to top</a>]</span></p>
+
+<p>In this tutorial, we will use the Logic Diagram Example to illustrate how to add a connection edge to a diagram. We will use the wire connection as the example. To gain familiarity with the Logic Diagram Example, refer to the <A
+	href="../../examples-guide/diagram/logicExample.htm">Logic Example
+Guide</A>. </p>
+
+<H2><A name="_Step1"></A></H2>
+<H2><A name="newConnection">Create a new connector type</A><BR>
+<SPAN style="font-size:10.0pt">[<A href="#top"><SPAN class="GramE">back</SPAN>
+to top</A>]</SPAN>
+<BR>
+</H2>
+
+<P class="MsoNormal">Most diagrams have a need to display semantic
+relationships that exist between elements.<SPAN style="mso-spacerun:yes"> 
+</SPAN>In the Logic example, this is also the case.<SPAN
+	style="mso-spacerun:yes">  </SPAN>There is an element called ?Wire?
+which allows logic elements to be connected to each other.<SPAN
+	style="mso-spacerun:yes">  </SPAN>It is literally the wire that carries
+electricity between terminals on circuits and LED elements in the
+circuit board.<SPAN style="mso-spacerun:yes">  </SPAN>The mechanism for
+adding a connector shape on a diagram is very similar to how a shape is
+added except for some subtle difference in API.<SPAN
+	style="mso-spacerun:yes">  </SPAN>This is summarized below.</P>
+
+<P class="MsoNormal"><o:p>&nbsp;</o:p></P>
+
+<H3><A name="_Toc104273250"><!><SPAN
+	style="mso-fareast-font-family:
+Arial;mso-bidi-font-family:Arial"><SPAN
+	style="mso-list:Ignore"></SPAN></SPAN>Example: LED connected by wires</A><BR>
+<IMG border="0" width="104" height="218" src="connectedLED.gif"
+	v:shapes="_x0000_i1029"></H3><H3><A name="_Toc104273251">Adding a Wire palette entry to the contribution
+for the palette provider</A></H3>
+
+<P class="MsoNormal" style="text-indent:.5in">See section <A
+	href="createShape.html#palette">#Add entries to the
+contribution for the palette provider.</A></P>
+
+<P class="MsoNormal" style="text-indent:.5in"></P>
+
+<H3><A name="_Toc104273252">Adding a new Wire creation tool instrumented
+from a palette factory class</A></H3>
+
+<P class="MsoNormal" style="margin-left:.5in">A new condition needs to
+be added in the LogicPaletteFactory class in the createTool method.<SPAN
+	style="mso-spacerun:yes">  </SPAN>For a connector a
+ConnectorCreationTool instance is created passing in an IElementType
+hint (wire) that will be sent in a request to return a command for
+creating the connector.</P>
+
+<P class="MsoNormal"><o:p>&nbsp;</o:p></P>
+
+<H3><A name="_Toc104273253"><!><SPAN
+	style="mso-fareast-font-family:
+Arial;mso-bidi-font-family:Arial"><SPAN
+	style="mso-list:Ignore"></SPAN></SPAN>Add new View provider entry</A></H3>
+
+<P class="MsoNormal" style="margin-left:.5in">In order to respond to the
+tool request we need to create a provider for creating the notation
+(View) for the new shape.<SPAN style="mso-spacerun:yes">  </SPAN>First
+it is necessary to add plug-in.xml extension for the
+org.eclipse.gmf.runtime.diagram.core.viewProviders extension point.<SPAN
+	style="mso-spacerun:yes">  </SPAN>We indicate the viewClass context
+(com.ibm.xtools.notation.Edge) and provide a hint for our provider to be
+invoked upon (wire).<SPAN style="mso-spacerun:yes">  </SPAN>Similar to
+<A href="createShape.html#notation">#Add new Vie</A><A
+	href="createShape.html#notation"></A><A
+	href="createShape.html#notation">w provider entry</A>
+a mapping of the hint to the view class that will construct the
+connector notation is necessary in the getConnectorViewClass method.<SPAN
+	style="mso-spacerun:yes">  </SPAN>The WireView.java class will serve
+this purpose.<SPAN style="mso-spacerun:yes">  </SPAN><SPAN class="GramE">The
+WireView class subclasses from AbstractConnectorView.</SPAN><SPAN
+	style="mso-spacerun:yes">  </SPAN>Please refer to the WireView class
+for details of what initialization is needed.</P>
+
+<P class="MsoNormal"><o:p>&nbsp;</o:p></P>
+
+<H3><A name="_Toc104273254"><!><SPAN
+	style="mso-fareast-font-family:
+Arial;mso-bidi-font-family:Arial"><SPAN
+	style="mso-list:Ignore"></SPAN></SPAN>Add new Editpart provider entry</A></H3>
+
+<P class="MsoNormal" style="margin-left:.5in">Refer to <A
+	href="createShape.html#editpart">#Add new Editpart provider entry</A> on how to add a plugin.xml entry for a
+org.eclipse.gmf.runtime.diagram.ui.editpartProviders extension.<SPAN
+	style="font-size:9.0pt"></SPAN> In the
+LogicEditPartProvider class there is simply a mapping from the View
+class to the EditPart class that needs to be created in the
+getConnectorEditPartClass method.<SPAN style="mso-spacerun:yes">  </SPAN>The
+WireEditPart class contains code for managing creating the IFigure (<SPAN
+	class="GramE">PolylineConnectionEx )</SPAN> class and responding to
+property change events.</P>
+
+<P class="MsoNormal" style="margin-left:.5in"><o:p>&nbsp;</o:p><SPAN
+	style="mso-fareast-font-family:Arial;mso-bidi-font-family:
+Arial"><SPAN
+	style="mso-list:Ignore"></SPAN></SPAN></P>
+<H2><A name="betweenShapes">Drawing connectors between shapes</A></H2>
+
+<SPAN style="font-size:10.0pt">[<A href="#top"><SPAN class="GramE">back</SPAN>
+to top</A>]</SPAN>
+<P style="text-indent:0in;mso-list:none"><SPAN class="GramE">The
+notation meta-model stores all layout constraint units (positions,
+bendpoints and anchors) in HiMetric units (0.1 millimeter).</SPAN><SPAN
+	style="mso-spacerun:yes">  </SPAN>This allows for a high level of
+precision when dealing with zoomed in diagrams.<SPAN
+	style="mso-spacerun:yes">  </SPAN>This adds some complexity to the
+figure display since GEF assumes pixel units when drawing figures onto
+the canvas.<SPAN style="mso-spacerun:yes">  </SPAN></P>
+
+<P style="text-indent:0in;mso-list:none">In the case where we wish to
+connect 2 LED shapes via a wire connector, we'll need to do some
+conversion of the pixel values to HiMetric before the connector can
+accurately connect to the LEDFigure.<SPAN style="mso-spacerun:yes">  </SPAN>The
+function <SPAN class="GramE">MapMode.DPtoLP(</SPAN>int deviceUnit) is
+used to convert a Device Unit (pixels) into a Logical Unit.<SPAN
+	style="mso-spacerun:yes">  </SPAN>This method needs to be instrumented
+in the LEDFigure when drawing the connector nubs around the shape.<SPAN
+	style="mso-spacerun:yes">  </SPAN>Additionally by abstracting the
+pixels through this MapMode, it will allow the platform to support <SPAN
+	class="GramE">a different</SPAN> coordinate systems in the future
+without affecting clients.<SPAN style="mso-spacerun:yes">  </SPAN></P>
+
+<P style="text-indent:0in;mso-list:none">A somewhat unique aspect of the
+Logic example is that the wires don't connect directly to the top level
+shapes.<SPAN style="mso-spacerun:yes">  </SPAN>They always connect via
+terminal elements that exist on the borders of the shapes.<SPAN
+	style="mso-spacerun:yes">  </SPAN>If we consider the LED shape, it has
+8 terminals surrounding it where 4 are incoming terminals and 4 are
+outgoing terminals.<SPAN style="mso-spacerun:yes">  </SPAN>To accomplish
+this, it is necessary to have a separate view represent the terminal on
+the border of the LED view.<SPAN style="mso-spacerun:yes">  </SPAN>The
+terminal views on the LED are essential to the functionality of the LED
+so they need to be represented all the time.<SPAN
+	style="mso-spacerun:yes">  </SPAN>This is referred to as a canonical
+representation.<SPAN style="mso-spacerun:yes">  </SPAN>The means that
+the children of a particular view are always fully synchronized with the
+corresponding semantic element children.<SPAN style="mso-spacerun:yes"> 
+</SPAN></P>
+
+<P style="text-indent:0in;mso-list:none">There is a facility in the
+diagram layer that can manage this synchronization called the
+CanonicalEditPolicy.<SPAN style="mso-spacerun:yes">  </SPAN>This
+EditPolicy is installed on an EditPart and is responsible for managing
+the creation of child views that need to be created if a semantic child
+exists.<SPAN style="mso-spacerun:yes">  </SPAN>The LEDEditPart has a
+subclass of this EditPolicy called LogicCanonicalEditPolicy that
+discovers the terminal children of the LED semantic element and creates
+corresponding terminal views for each terminal element.</P>
+
+<P class="MsoNormal"><o:p>&nbsp;</o:p></P>
+
+<H2><A name="fixedAnchors">Connecting the wires at fixed anchors</A></H2>
+
+<SPAN style="font-size:10.0pt">[<A href="#top"><SPAN class="GramE">back</SPAN>
+to top</A>]</SPAN>
+<P style="text-indent:0in;mso-list:none">The default behavior when
+connecting to a shape allows the end of the connection to be anywhere
+around the source or target shape.<SPAN style="mso-spacerun:yes">  </SPAN>In
+the case of the wire connection, we want it to connect at a very
+specific location on the terminal and don't need to have the flexibility
+of moving it around the shape.<SPAN style="mso-spacerun:yes">  </SPAN>The
+anchoring behavior is handled in the IFigure hierarchy through the
+ConnectionAnchor interface.</P>
+
+<P class="MsoNormal"><o:p>&nbsp;</o:p></P>
+
+<P style="text-indent:0in;mso-list:none">To change the default behavior,
+we need to override some methods in the IFigure implementation to return
+a different anchor.<SPAN style="mso-spacerun:yes">  </SPAN>In the
+LEDFigure class the getSourceConnectionAnchorAt and
+getTargetConnectionAnchorAt functions need to be overridden in
+LEDFigure and return <SPAN class="GramE">a</SPAN> anchor that will
+return a fixed point with the figure bounds.</P>
+
+<P class="MsoNormal" style="margin-left:.5in"><o:p>&nbsp;</o:p></P>
+
+<P class="MsoNormal" style="margin-left:.5in"><SPAN style="color:black">In
+LEDFigure:<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"><FONT face="Courier New"><SPAN
+	style='font-size:8.0pt;font-family:"Courier New"'><SPAN
+	style="mso-tab-count:1">       </SPAN>/*<o:p></o:p></SPAN></FONT></P>
+
+<P class="MsoNormal"><FONT face="Courier New"><SPAN
+	style='font-size:8.0pt;font-family:"Courier New"'><SPAN
+	style="mso-tab-count:1">       </SPAN><SPAN style="mso-spacerun:yes"> </SPAN>*
+@see org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure#<SPAN class="GramE">getSourceConnectionAnchorAt(</SPAN>org.eclipse.draw2d.geometry.Point)<o:p></o:p></SPAN></FONT></P>
+
+<P class="MsoNormal"><FONT face="Courier New"><SPAN
+	style='font-size:8.0pt;font-family:"Courier New"'><SPAN
+	style="mso-tab-count:1">       </SPAN><SPAN style="mso-spacerun:yes"> </SPAN>*/<o:p></o:p></SPAN></FONT></P>
+
+<P class="MsoNormal"><FONT face="Courier New"><SPAN
+	style='font-size:8.0pt;font-family:"Courier New"'><SPAN
+	style="mso-tab-count:1">       </SPAN><SPAN class="GramE">public</SPAN>
+ConnectionAnchor getSourceConnectionAnchorAt(Point p) {<o:p></o:p></SPAN></FONT></P>
+
+<P class="MsoNormal"><FONT face="Courier New"><SPAN
+	style='font-size:8.0pt;font-family:"Courier New"'><SPAN
+	style="mso-tab-count:1">              </SPAN><SPAN class="GramE">if</SPAN>
+(p == null) {<o:p></o:p></SPAN></FONT></P>
+
+<P class="MsoNormal"><FONT face="Courier New"><SPAN
+	style='font-size:8.0pt;font-family:"Courier New"'><SPAN
+	style="mso-tab-count:3">                     </SPAN><SPAN class="GramE">return</SPAN>
+getConnectionAnchor(szAnchor);<o:p></o:p></SPAN></FONT></P>
+
+<P class="MsoNormal"><FONT face="Courier New"><SPAN
+	style='font-size:8.0pt;font-family:"Courier New"'><SPAN
+	style="mso-tab-count:2">              </SPAN>}<o:p></o:p></SPAN></FONT></P>
+
+<P class="MsoNormal"><FONT face="Courier New"><SPAN
+	style='font-size:8.0pt;font-family:"Courier New"'><SPAN
+	style="mso-tab-count:2">              </SPAN><SPAN class="GramE">return</SPAN>
+fixedAnchor;<o:p></o:p></SPAN></FONT></P>
+
+<P class="MsoNormal"><FONT face="Courier New"><SPAN
+	style='font-size:8.0pt;font-family:"Courier New"'><SPAN
+	style="mso-tab-count:1">       </SPAN>}<o:p></o:p></SPAN></FONT></P>
+
+<P class="MsoNormal" style="margin-left:.5in"><FONT face="Courier New"><SPAN
+	class="GramE"><SPAN style='font-size:8.0pt;font-family:"Courier New"'>public</SPAN></SPAN><SPAN
+	style='font-size:8.0pt;font-family:"Courier New"'> Vector
+getSourceConnectionAnchors() {<o:p></o:p></SPAN></FONT></P>
+
+<P class="MsoNormal" style="margin-left:.5in"><FONT face="Courier New"><SPAN
+	style='font-size:8.0pt;
+font-family:"Courier New"'><SPAN
+	style="mso-tab-count:1">       </SPAN><SPAN class="GramE">return</SPAN>
+outputConnectionAnchors;<o:p></o:p></SPAN></FONT></P>
+
+<P class="MsoNormal" style="margin-left:.5in"><FONT face="Courier New"><SPAN
+	style='font-size:8.0pt;
+font-family:"Courier New"'>}<o:p></o:p></SPAN></FONT></P>
+
+<P class="MsoNormal" style="margin-left:.5in"><SPAN
+	style="mso-tab-count:1">            </SPAN><SPAN
+	style="mso-fareast-font-family:Arial;mso-bidi-font-family:
+Arial"><SPAN
+	style="mso-list:Ignore"></SPAN></SPAN></P>
+<H3>Support for reconnection between two shapes at fixed anchors</H3>
+
+<P class="MsoNormal" style="margin-left:.5in">When creating or
+reconnecting a wire between terminals on the logical example, this is
+not only</P>
+<P class="MsoNormal" style="margin-left:.5in">changing the notation by
+moving the end points, it is also changing the underlying semantic model
+that the diagram is representing.<SPAN style="mso-spacerun:yes">  </SPAN>This
+behavior is centralized with-in the EditHelper for wire metaModelType.<SPAN
+	style="mso-spacerun:yes">  </SPAN>The WireEditHelper overrides the
+AbstractEditHelper#getReorientRelationshipCommand to return the command
+that handles reorient of the logic wire element.<SPAN
+	style="mso-spacerun:yes">  </SPAN>For instance, when a palette tool is
+invoked, it is sending a request that is handled by the
+SemanticEditPolicy which in terms handles the creation.<SPAN
+	style="mso-spacerun:yes">  </SPAN>Similarly when the user reorients the
+end of a wire in the logic example, a request is sent automatically by
+the infrastructure to the SemanticEditPolicy which determines if there
+is a metaModelType registered that can handle the request.<SPAN
+	style="mso-spacerun:yes">  </SPAN>In this case the wire metaModelType
+would be found and would return the WireEditHelper which can provide a
+command for this request that subsequently gets executed making the
+changes against the logic semantic model.</P>
+
+<P class="MsoNormal" style="margin-left:.5in"><o:p>&nbsp;</o:p></P>
+
+<P class="MsoNormal" style="margin-left:.5in">In WireEditHelper.java:</P>
+
+<P class="MsoNormal"><SPAN
+	style='font-size:8.0pt;font-family:"Courier New"'><SPAN
+	style="mso-tab-count:1">       </SPAN>/**<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"><SPAN
+	style='font-size:8.0pt;font-family:"Courier New"'><SPAN
+	style="mso-tab-count:1">       </SPAN><SPAN style="mso-spacerun:yes"> </SPAN>*
+Gets a command to change the source or target of a wire.<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"><SPAN
+	style='font-size:8.0pt;font-family:"Courier New"'><SPAN
+	style="mso-tab-count:1">       </SPAN><SPAN style="mso-spacerun:yes"> </SPAN>*/<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"><SPAN
+	style='font-size:8.0pt;font-family:"Courier New"'><SPAN
+	style="mso-tab-count:1">       </SPAN><SPAN class="GramE">protected</SPAN>
+IEditElementCommand getReorientRelationshipCommand(<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"><SPAN
+	style='font-size:8.0pt;font-family:"Courier New"'><SPAN
+	style="mso-tab-count:3">                     </SPAN>ReorientRelationshipRequest
+req) {<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"><SPAN
+	style='font-size:8.0pt;font-family:"Courier New"'><o:p>&nbsp;</o:p></SPAN></P>
+
+<P class="MsoNormal"><SPAN
+	style='font-size:8.0pt;font-family:"Courier New"'><SPAN
+	style="mso-tab-count:2">              </SPAN><SPAN class="GramE">return</SPAN>
+new ReorientWireCommand(req);<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"><SPAN
+	style='font-size:8.0pt;font-family:"Courier New"'><SPAN
+	style="mso-tab-count:1">       </SPAN>}<o:p></o:p></SPAN></P>
+
+<div class=MsoNormal align=center style='text-align:center'>
+
+<hr size=2 width="100%" align=center>
+
+</div>
+
+<h2><A name="summary">Summary</A></h2>
+
+<p><span style='font-size:10.0pt'>[<a href="#top"><span class=GramE>back</span>
+to top</a>]</span></p>
+
+<P>In this tutorial, we did the following:</P>
+<OL>
+	<LI>Created a new connection wire for display on the diagram editor..</LI>
+	<LI>Learned how to connect 2 shapes using the new connection type..</LI>
+	<LI>Created fixed anchors for the connection to attach it's ends to.</LI></OL>
+
+<div class=MsoNormal align=center style='text-align:center'>
+
+<hr size=2 width="100%" align=center>
+
+</div>
+
+<p><img border=0 width=324 height=14 id="_x0000_i1028" src="../copyright.gif"></p>
+
+</div>
+
+</body>
+
+</html>

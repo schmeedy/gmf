@@ -1,0 +1,773 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="Stylesheet" type="text/css" href="../technote.css">
+<title>Tutorial: Model Management</title>
+</head>
+
+<body lang="EN-US" link="blue" vlink="blue">
+
+<a name=top></a><img width="629" height="192" src="../logo.gif" border="0">
+
+<h1 align="center">Tutorial: Model Management</h1>
+
+<table border="0" cellspacing="8" cellpadding="0">
+ <tr>
+  <td>Version: 0.1</td>
+  <td>Date: June 08, 2005</td>
+ </tr>
+</table>
+
+<h2>Contents</h2>
+
+<ul>
+  <li><a href="#overview">Overview</a></li>
+  <li><a href="#refs">References</a></li>
+  <li><a href="#intro">Introduction</a></li>
+  <li><a href="#editing_domain">Creating and Using an MSL Editing Domain</a></li>
+  <li><a href="#making_changes">Making Changes to Resources</a></li>
+  <li><a href="#logical">Working with Logical Resources</a></li>
+  <li><a href="#listeners">MSL Listeners</a></li>
+  <li><a href="#validation">Model Validation</a></li>
+  <li><a href="#copy_paste">MSL Copy and Paste Support</a></li>
+  <li><a href="#pathmaps">Pathmaps</a></li>
+  <li><a href="#metamodel_support">MSL Metamodel Support</a></li>
+  <li><a href="#summary">Summary</a></li>
+</ul>
+
+<hr/>
+
+<h2><a name="overview"></a>Overview</h2>
+
+<p class="backto"><font size="-1">[<a href="#top">back to top</a>]</font></p>
+
+<p>
+The Model Service Layer(MSL) provides a number of facilities to ease model management:
+model modification semantics, uniform resource creation and loading, uniform listener
+registration, batching of notifications, live validation with automatic modification
+abandonment, copy/paste support, automated pathmap support and additional metamodel support.
+The inclusion of all of these features in one manageable infrastructure adds many unique
+advantages to an application.
+</p>
+
+<h2><a name="refs"></a>References</h2>
+
+<p class="backto"><font size="-1">[<a href="#top">back to top</a>]</font></p>
+
+<p>
+This tutorial assumes that the reader is familiar with EMF and is familiar with the concept of
+ metamodels. A crucial part of understanding EMF is being able to understand its reflective mechanisms
+ including <code>EClasses,</code> <code>EStructuralFeatures</code> and <code>EPackages.</code> The reader
+ should be familiar with EMF extension parsers, EMF Resources and the general mechanism for resolving 
+ URIs to resources and to specific EObjects in those resources.
+</p>
+<p>
+For reference, the full <A HREF="../../examples-guide/msl/modelManagementExample.html">example</A> for this tutorial is available.
+</p>
+
+<h2><a name="intro"></a>Introduction</h2>
+
+<p class="backto"><font size="-1">[<a href="#top">back to top</a>]</font></p>
+
+<p>
+We will be making use of the RMP Library metamodel extensively to provide examples of how the
+MSL facilities can be used and/or have functionality provided to the layer.
+</p>
+<p>
+For those readers who are not familiar with this metamodel, it models a library with books and writers.
+The most important aspect of the library metamodel for this tutorial is the fact that books are modeled
+as EObjects whose EClass is <code>Book</code> and they contain a EStructuralFeature called <code>pages</code>
+that stores an integer number of pages contained in the book. There are also <code>Libraries</code> and
+that can contain <code>Writers</code> as well as books.
+</p>
+
+<h2><a name="editing_domain"></a>Creating and Using an MSL Editing Domain</h2>
+
+<p class="backto"><font size="-1">[<a href="#top">back to top</a>]</font></p>
+
+<p>
+An <a href="../../../reference/api/common/com/ibm/xtools/emf/msl/core/edit/MEditingDomain.html">MEditingDomain</a> is the entry point to any usage of the MSL. An editing domain
+provides an EMF resource set, which contains all of the EObjects that are going to be
+managed using the MSL.
+<p>
+
+<pre class="snippet">
+// Create the editing domain
+editingDomain = MEditingDomain.createNewDomain();
+</pre>
+
+<p>It is suggested that any resource that is contained within
+an MSL resource set be an instance provided by the <a href="../../../reference/api/common/com/ibm/xtools/emf/msl/core/resources/MResourceFactory.html">MResourceFactory</a>. Therefore,
+we must associate our file extensions(.rmplibrary) with the MResourceFactory in a extension 
+parser plugin extension:
+</p>
+
+<pre class="snippet">
+   &lt;extension
+         point=&quot;org.eclipse.emf.ecore.extension_parser&quot;&gt;
+      &lt;parser
+            type=&quot;rmplibrary&quot;
+            class=&quot;org.eclipse.gmf.runtime.emf.core.resources.MResourceFactory&quot;&gt;
+      &lt;/parser&gt;
+   &lt;/extension&gt;
+</pre>
+
+<p>
+MSL resources will use UUIDs (Universally Unique IDs) for URIs for all of their EObjects
+to help keep track of the movement of EObjects within a resource. As well, MSL resources
+use specific EMF loading/saving options that are optimal for many use cases.
+</p>
+
+<p>
+Having registered the MSL resource factory against the &quot;rmplibrary&quot; file extension,
+we can now create and load resources with that file extension:
+</p>
+
+<a name="create_resource"></a>
+<pre class="snippet">
+Resource r1 = 
+	editingDomain.createResource("file://c:/eclipse/workspace/aProject/test.rmplibrary", 
+					RMPLibraryPackage.eINSTANCE.getLibrary());
+Resource r2 = 
+	editingDomain.loadResource("file://c:/eclipse/workspace/aProject/test2.rmplibrary");
+</pre>
+
+<h2><a name="making_changes"></a>Making Changes to Resources</h2>
+
+<p class="backto"><font size="-1">[<a href="#top">back to top</a>]</font></p>
+
+<p>
+Once resources are loaded, or created, they are subject to the MSL protocol. The protocol
+states that no modifications can be made unless an appropriate undo interval is open and
+a write action is started. This protocol is enforced and failure to adhere to the protocol
+will throw an <code>MSLActionProtocolException</code>. The clear advantage to this approach 
+is that specific undo intervals can be undone/redone without the necessity of constructing
+static commands that must be composed to perform a modification. Also, the write actions can
+be validated and possibly abandoned (elaborated in the Model Validation section below) if they
+do not adhere to the live validation constraints.
+</p>
+
+<p>
+The MSL protocol also states that any reads should be made in a read action. This part of the
+protocol is not enforced but it is recommended that this requirement be honored in order to
+satisfy forwards compatibility.
+</p>
+
+<pre class="snippet">
+final Library l = (Library)r1.getContents().get(0);
+
+MUndoInterval interval = 
+	editingDomain.runInUndoInterval("Setting the library name",new Runnable() {
+		public void run() {
+			try {
+				editingDomain.runAsWrite(new MRunnable() {
+					public Object run() {
+						l.setName("Kanata Public Library");
+						return null;
+					}
+				});
+			} catch (MSLActionAbandonedException e) {
+				System.err.println("Error: MSL action abandoned due to the following exception:");
+				e.printStackTrace();
+			}
+		}
+	});
+</pre>
+
+<p>
+Of course, once the undo interval and writer actions are opened, the inner MRunnable object's
+run method can make calls to any other methods and make modifications any of the EObjects 
+in the editing domain. The undo interval object that is returned can be used at any time to
+undo/redo all of the modifications made during the interval:
+</p>
+
+<pre class="snippet">
+interval.undo(); // All changes are now undone
+interval.redo(); // All changes are now redone
+</pre>
+
+<p>
+If undo interval number 1 is created and undo interval number 2 is subsequently created,
+undoing number 1 will automatically undo number 2 first. MSL maintains a proper stack
+to ensure the editing domain's integrity.
+</p>
+
+<p>
+Now that we have made changes to the r1, the resource will be dirty and we must save the
+changes back to the file:
+</p>
+
+<pre class="snippet">
+editingDomain.saveResource(r1);
+</pre>
+
+<h2><a name="logical"></a>Working with Logical Resources</h2>
+
+<p class="backto"><font size="-1">[<a href="#top">back to top</a>]</font></p>
+
+<p>
+The MSL's default resource implementation conforms to the
+<a href="../../../reference/api/common/com/ibm/xtools/emf/msl/core/resources/ILogicalResource.html"><code>ILogicalResource</code></a>
+interface.  This resource creates an in-memory logical view of an EMF tree
+(or forest) structure that is persisted in multiple physical resources, all of
+which are XMI-compliant.  The central concept in the logical-to-physical mapping
+of an MSL resource is the "separate" element.  A separate elements is persisted
+in a different, or separate, physical resource than its container.
+</p><p>
+To obtain a logical resource, use the editing domain to create a resource as
+described <a href="#create_resource">above</a> and then get a view of it as
+an <code>ILogicalResource</code>.
+To store a model element in its own physical resource, just ask the logical
+resource to separate it into a new resource on a URI of your choosing.  Don't
+forget to ask first whether it <i>can</i> be separated (the metamodel may
+implement rules restricting what can be separated; see below):
+</p>
+<pre class="snippet">
+Resource r1 = 
+	editingDomain.createResource("file://c:/eclipse/workspace/aProject/test.rmplibrary", 
+					RMPLibraryPackage.eINSTANCE.getLibrary());
+ILogicalResource logical = editingDomain.asLogicalResource(r1);
+
+// ... fill the resource with contents
+
+EObject element = // ... find an element to be separated
+
+if (logical.canSeparate(element)) {
+    try {
+        logical.separate(
+            element,
+            URI.createURI("file://c:/eclipse/workspace/aProject/test.sub1.rmplibrary"));
+    } catch (CannotSeparateException e) {
+        System.out.println("Could not separate the element: " + element);
+        e.printStackTrace();
+    }
+}
+
+editingDomain.saveResource(logical);  // or logical.save(Collections.EMPTY_MAP);
+</pre>
+<p>
+We now have one logical resource stored in two files.
+</p><p>
+Note the use of the <code>ILogicalResource MEditingDomain.asLogicalResource(Resource)</code>
+method to obtain a view of an arbitrary resource as a logical resource.  This is
+necessary because the editing domain might actually instantiate any resource
+implementation, not necessarily a logical resource, depending on the registered
+resource factories.  If the resource is not actually a logical resource, then
+this method creates a wrapper that provides compatibility with the logical
+resource API.
+</p><p>
+In the snippet above, we catch <code>CannotSeparateException</code> despite
+being informed that the separation would be permitted because there may be
+unexpected conditions that prevent the separation from succeeding (such as
+incorrect file permissions).  No attempt is made to actually persist the new
+physical resource until the logical resource is saved, but a metamodel extension
+might be proactive in checking even at this point whether certain I/O limitations
+would be exceeded.
+</p><p>
+To do the inverse of a separation operation, we can <i>absorb</i> an element
+from a separate resource into the same resource as its container:
+</p>
+
+<pre class="snippet">
+if (logical.isSeparate(element)) {
+    try {
+        logical.absorb(element);
+    } catch (CannotAbsorbException e) {
+        System.out.println("Could not absorb the element: " + element);
+        e.printStackTrace();
+    }
+}
+
+editingDomain.saveResource(logical);
+</pre>
+<p>
+Now, our logical resource is again stored in a single file.  Note that the
+<tt>test.sub1.rmplibrary</tt> file is not deleted, though it will be empty.
+This simplifies comparing and merging changes with a source control repository.
+Note also that, like separation, absorption can fail unexpectedly.
+</p><p>
+How does the MSL framework determine whether an element can be separated?  By
+default, any element of any EMF metamodel can be separated, unless it is a
+root of the logical resource or has already been separated.  However, a metamodel
+provider or an application may for some reason want to restrict the elements
+that may be separated.  This is accomplished by registering a policy on the
+<a href="../../reference/extension-points/com_ibm_xtools_emf_msl_core_resourcePolicies.html"><code>org.eclipse.gmf.runtime.emf.core.resourcePolicies</code></a>
+extension point:
+</p>
+<pre class="snippet">
+&lt;extension
+      point="org.eclipse.gmf.runtime.emf.core.resourcePolicies"&gt;
+   &lt;policy
+         class="org.eclipse.gmf.examples.runtime.emf.resources.LibraryResourcePolicy"
+         nsURI="http:///com/ibm/xtools/emf/metamodel/example/pde/rmplibrary.ecore/1.0.0"/&gt;
+&lt;/extension&gt;
+</pre>
+<p>
+The policy implements the
+<a href="../../../reference/api/common/com/ibm/xtools/emf/msl/core/resources/ILogicalResourcePolicy.html"><code>ILogicalResourcePolicy</code></a>
+interface, usually by extending the <code>AbstractLogicalResourcePolicy</code>
+class.  Our example allows only libraries to be separated:
+</p>
+<pre class="snippet">
+public class LibraryResourcePolicy
+    extends AbstractLogicalResourcePolicy {
+
+    public boolean canSeparate(ILogicalResource resource, EObject eObject) {
+        return eObject instanceof Library;
+    }
+}
+</pre>
+<p>
+Policies can also suggest default URIs for new physical resources according to
+some application-specific naming system, implement extra checks when clients
+perform separations or absorptions, etc.
+</p><p>
+By default, logical resources initially load only the root resource (corresponding
+to the logical URI) and automatically load other resources as they are needed
+by access of containment references or proxy resolution.  The <code>ILogicalResource</code>
+interface defines load options to disable incremental loading or to initially
+load the entire logical resource contents.  Automatic incremental loading of
+separate objects from containment references requires a custom <code>EList</code>
+that loads the necessary resources on demand.  Two convenient implementations
+are provided by the MSL for metamodels to use in place of the
+<code>EObjectContainmentEList</code> and <code>EObjectContainmentWithInverseEList</code>
+classes.  However, it may be necessary for a metamodel to be deployable without
+the MSL, in a "pure EMF" configuration.  To address this need, the
+<code>resourcePolicies</code> extension point allows the registration of
+an <code>EFactory</code> that creates alternative <code>*Impl</code> classes
+that use these special lists, to be deployed only in MSL configurations:
+</p>
+<pre class="snippet">
+&lt;extension
+      point="org.eclipse.gmf.runtime.emf.core.resourcePolicies"&gt;
+   &lt;efactory
+          class="org.eclipse.gmf.examples.runtime.emf.resources.LoadingRMPLibraryFactoryImpl"
+          nsURI="http:///com/ibm/xtools/emf/metamodel/example/pde/rmplibrary.ecore/1.0.0"/&gt;
+&lt;/extension&gt;
+</pre>
+<p>
+The MSL framework will use this factory instead of the default when loading
+a logical resource; it does not need to be used by clients to create new objects.
+In our example, only libraries can be separated and only libraries can contain
+other libraries, so our factory simply creates a specialization of the default
+<code>LibraryImpl</code> class:
+</p>
+<pre class="snippet">
+public class LoadingRMPLibraryFactoryImpl
+    extends RMPLibraryFactoryImpl {
+
+    public Library createLibrary() {
+        return new LoadingLibraryImpl();
+    }
+	
+    public EPackage getEPackage() {
+        return RMPLibraryPackage.eINSTANCE;
+    }
+}
+
+class LoadingLibraryImpl
+    extends LibraryImpl {
+
+    public LoadingLibraryImpl() {
+        super();
+
+        // use the custom containment-with-inverse list to perform automatic
+        //   loading of contained elements in this feature.  This pre-empts
+        //   the superclass's lazy initialization of this list
+        branches = new EObjectContainmentWithInverseLoadingEList(
+            Library.class, this, RMPLibraryPackage.LIBRARY__BRANCHES,
+            RMPLibraryPackage.LIBRARY__PARENT_BRANCH);
+    }
+}
+</pre>
+<p>
+Note how we only concern ourselves here with overriding the implementation of
+those features that will be able to contain separate elements.
+</p>
+
+<h2><a name="listeners"></a>MSL Listeners</h2>
+
+<p class="backto"><font size="-1">[<a href="#top">back to top</a>]</font></p>
+
+<p>
+MSL has a different approach to listening than standard EMF. Standard EMF adapters
+can be used, they are referred to as &quot;immediate&quot; listeners. The MSL protocol has enabled
+it to produce &quot;batched&quot; notifications meaning that all notifications produced during
+a write action are batched together until the end when it is given to listeners as a list. This
+enables listeners to be able to get more information at once and helps to prevent the need for
+much stateful information to be kept in the listener. A simple listener can be registered as follows:
+</p>
+
+<pre class="snippet">
+dirtyListener = new MListener(editingDomain,
+	MFilter.RESOURCE_DIRTIED_FILTER) {
+
+	public void onEvent(List events) {
+		System.out.println("A resource has been dirtied.");
+	}
+};
+dirtyListener.startListening();
+</pre>
+
+<p>
+Ensure that the listener object is being referenced by some object other than the editing domain.
+The editing domain keeps listeners using weak reference collections so it is possible that the
+listener could get garbage collected and produce intermittent results. The filter option is
+an added benefit to the MSL listener approach. It allows the listener to filter conveniently for
+common types of notification occurrences.
+</p>
+
+<h2 ><a name="validation"></a>Model Validation</h2>
+
+<p class="backto"><font size="-1">[<a href="#top">back to top</a>]</font></p>
+
+<p>
+As mentioned above, the EMF validation framework forms an integral part of the action protocol
+of MSL. Whenever a write action is opened, the client must catch an <a href="../../../reference/api/common/com/ibm/xtools/emf/msl/core/exceptions/MSLActionAbandonedException.html">MSLActionAbandonedException</a>
+in case the modifications violated a live validation constraint. In this case, all modifications in
+the write action are undone. In order to contribute live validation constraints, read the tutorial
+on <a href="validationTutorial.html">EMF Validation.</a> The MSL does not explicitly define its
+own validation client context. It is up to the client of the MSL to declare their own client contexts
+and context binding in order to hook up their own validation.
+</p>
+
+<p>
+Batch validation can be performed in a similar fashion as mentioned in the validation tutorial.
+The only difference is that a batch validation should be performed in a read action of the
+editing domain to ensure forward compatibility with later versions of MSL.
+</p>
+
+<h2><a name="copy_paste"></a>MSL Copy and Paste Support</h2>
+
+<p class="backto"><font size="-1">[<a href="#top">back to top</a>]</font></p>
+
+<p>
+Copy and paste functionality is available directly through the EMF Clipboard support. See the
+<a href="clipboardTutorial.html">tutorial</a> for more details about how to contribute clipboard
+support to the RMP library metamodel. Clients of the clipboard support using MSL must open a
+read action using the editing domain to perform a copy operation and a write action to perform a 
+paste operation. It is not necessary to register another extension parser for clipboard support
+because the MResourceFactory registered above will make use of UUIDs(Universally Unique IDs), which
+satisfies the EMF Clipboard requirement.
+</p>
+
+<h2><a name="pathmaps"></a>Pathmaps</h2>
+
+<p class="backto"><font size="-1">[<a href="#top">back to top</a>]</font></p>
+
+<p>
+Pathmaps allow us to make inter-resource references when the URIs of resources may change. Without
+the use of pathmaps, moving resources around on the filesystem or in the eclipse workspace could
+prevent EMF from resolving the URIs.
+</p>
+
+<p>
+The way that pathmaps work is to allow resources' URIs to be defined in terms of a pathmap. Whenever 
+resources move around on the filesystem, the pathmap can be updated to point to the new location 
+and allow the inter-resources references to that resource to be resolved. The following code illustrates
+the benefit of pathmaps:
+</p>
+
+<pre class="snippet">
+Resource r3 = editingDomain.createResource("file://c:/eclipse/workspace/test/test2.rmplibrary");
+Resource r4 = editingDomain.createResource("file://c:/eclipse/workspace/test/test3.rmplibrary");
+
+// Add content to r3 and r4
+// r4 has a reference to r3 because one of the writers has written a book that is contained in r3
+
+editingDomain.saveResource(r3);
+editingDomain.saveResource(r4);
+
+editingDomain.unloadResource(r3);
+editingDomain.unloadResource(r4);
+
+// User renames 'test' project to 'MSL Tests'
+
+r3 = editingDomain.loadResource("file://c:/eclipse/workspace/MSL Tests/test2.rmplibrary");
+r4 = editingDomain.loadResource("file://c:/eclipse/workspace/MSL Tests/test3.rmplibrary");
+// BOOM! The writer in r4 has a broken reference to a book that it has written because
+//  the URI was stored using the "file://" URI
+</pre>
+
+<p>
+</p>
+
+<pre class="snippet">
+editingDomain.setPathVariable("TEST_PLUGIN","file://c:/eclipse/workspace/test);
+Resource r3 = editingDomain.createResource("pathmap://TEST_PLUGIN/test2.rmplibrary");
+Resource r4 = editingDomain.createResource("pathmap://TEST_PLUGIN/test3.rmplibrary");
+
+// Add content to r3 and r4
+// r4 has a reference to r3 because one of the writers has written a book that is contained in r3
+
+editingDomain.saveResource(r3);
+editingDomain.saveResource(r4);
+
+editingDomain.unloadResource(r3);
+editingDomain.unloadResource(r4);
+
+// User renames 'test' project to 'MSL Tests'
+editingDomain.setPathVariable("TEST_PLUGIN","file://c:/eclipse/workspace/MSL Tests");
+
+r3 = editingDomain.loadResource("pathmap://TEST_PLUGIN/test2.rmplibrary");
+r4 = editingDomain.loadResource("pathmap://TEST_PLUGIN/test3.rmplibrary");
+// The writer's reference is fully restored to the book that it wrote in r3
+</pre>
+
+<p>
+Pathmaps can be registered using an extension to allow resources to be loaded from a plugin.
+Since plugins will be in different locations depending on the location of the
+user's eclipse installation pathmaps fill this niche perfectly:
+</p>
+
+<pre class="snippet">
+  &lt;extension
+        point=&quot;org.eclipse.gmf.runtime.emf.core.Pathmaps&quot;&gt;
+     &lt;pathmap
+           path=&quot;libraries&quot;
+           name=&quot;CORE_LIBRARIES&quot;
+           plugin=&quot;org.eclipse.gmf.examples.runtime.emf&quot;/&gt;
+  &lt;/extension&gt;
+</pre>
+
+<p>
+This extension will be used later in this tutorial to allow the unique library of congress
+resource to be loaded directly from the example plugin in its libraries folder.
+</p>
+
+<h2><a name="metamodel_support"></a>MSL Metamodel Support</h2>
+
+<p class="backto"><font size="-1">[<a href="#top">back to top</a>]</font></p>
+
+<p>
+The metamodel support extension allows clients to contribute behaviour that is not directly
+expressed in the EMF metamodel into their MSL environment. For example, there may be an EReference
+defined in the metamodel that allows any EObject of any specialization of a particular
+EClass to be contained within the EReference. The metamodel writers may wish to provide further
+granularity to the exact EClasses that may be contained. Perhaps it doesn't make sense in certain
+cases for instances of one EClass to be contained within another EClass. Metamodel support can
+contribute what is called &quot;semantic procedures&quot; such as automatic naming to new
+EObjects of that metamodel. Finally, metamodel support can be used to load certain &quot;library&quot;
+resources that contribute content that is commonly referenced by user resources. We will contribute
+the following metamodel support for the RMP Library metamodel in MSL:
+</p>
+
+<pre class="snippet">
+public class LibraryMetaModel
+	implements IMetamodelSupport {
+
+	private static final String CORE_LIBRARIES_PATHMAP = "CORE_LIBRARIES"; //$NON-NLS-1$
+	
+	/*
+	 * @see org.eclipse.gmf.runtime.emf.core.services.metamodel.IMetamodelSupport#canDestroy(org.eclipse.emf.ecore.EObject)
+	 */
+	public boolean canDestroy(EObject eObject) {
+		return true;
+	}
+
+	/*
+	 * @see org.eclipse.gmf.runtime.emf.core.services.metamodel.IMetamodelSupport#canContain(org.eclipse.emf.ecore.EClass,
+	 *      org.eclipse.emf.ecore.EReference, org.eclipse.emf.ecore.EClass)
+	 */
+	public boolean canContain(EClass eContainer, EReference eReference,
+			EClass eClass) {
+		return true;
+	}
+
+	/*
+	 * @see org.eclipse.gmf.runtime.emf.core.services.metamodel.IMetamodelSupport#handleEvent(org.eclipse.emf.common.notify.Notification)
+	 */
+	public void handleEvent(Notification event) {
+		if (!(event.getNotifier() instanceof EObject)) {
+			return;
+		}
+		
+		if (event.getFeature() instanceof EReference &amp;&amp;
+				((EReference)event.getFeature()).isContainment()) {
+			if (event.getEventType() == Notification.ADD) {
+				autoName((EObject)event.getNotifier(), (EReference)event.getFeature(), (EObject)event.getNewValue());
+			} else if (event.getEventType() == Notification.ADD_MANY) {
+				autoName((EObject)event.getNotifier(), (EReference)event.getFeature(), (Collection)event.getNewValue());
+			}
+		}
+	}
+	
+	private void setName(EObject eObj, String name) {
+		EClass eCls = eObj.eClass();
+		
+		if (eCls == RMPLibraryPackage.eINSTANCE.getLibrary()) {
+			((Library)eObj).setName(name);
+		} else if (eCls == RMPLibraryPackage.eINSTANCE.getBook()) {
+			((Book)eObj).setTitle(name);
+		} else if (eCls == RMPLibraryPackage.eINSTANCE.getWriter()) {
+			((Writer)eObj).setName(name);
+		}
+	}
+	
+	private String getName(EObject eObj) {
+		if (eObj.eClass() == RMPLibraryPackage.eINSTANCE.getBook()) {
+			return ((Book)eObj).getTitle();
+		} else {
+			return EObjectUtil.getName(eObj);
+		}
+	}
+	
+	/**
+	 * Auto-name object.
+	 */
+	private void autoName(EObject container, EReference reference,
+			EObject eObject) {
+
+		if (reference.isMany()) {
+			int max = 1;
+			for (Iterator i = ((Collection)container.eGet(reference)).iterator(); i.hasNext();) {
+				String name = getName((EObject)i.next());
+				if (name == null)
+					continue;
+				int number = extractNumeric(eObject.eClass().getName(),name);
+				if ( number &gt;= max) {
+					max = number+1;
+				}
+			}
+			
+			setName(eObject, eObject.eClass().getName() + max);
+		} else {
+			setName(eObject, eObject.eClass().getName());
+		}
+	}
+
+	private int extractNumeric(String prefix, String fullName) {
+		if (fullName.startsWith(prefix)) {
+			String suffix = fullName.substring(prefix.length(),fullName.length());
+			if (suffix.length() &gt; 0) {
+				try {
+					return Integer.parseInt(suffix);
+				} catch (NumberFormatException e) {
+					// Do nothing, fall out and return 1;
+				}
+			} 
+		}
+		
+		return 0;
+	}
+
+	/**
+	 * Auto-name objects.
+	 */
+	private void autoName(EObject container, EReference reference,
+			Collection objects) {
+
+		for (Iterator i = objects.iterator(); i.hasNext();) {
+
+			Object object = i.next();
+
+			if (object instanceof EObject) {
+
+				EObject eObject = (EObject) object;
+
+				autoName(container, reference, eObject);
+			}
+		}
+	}
+
+	/*
+	 * @see org.eclipse.gmf.runtime.emf.core.services.metamodel.IMetamodelSupport#postProcess(org.eclipse.emf.ecore.EObject)
+	 */
+	public void postProcess(final EObject root) {
+		// The library of congress will always exist
+		//  and its model should always be in the resource set.
+		root
+			.eResource()
+			.getResourceSet()
+			.getResource(
+				URI.createURI("pathmap://" + CORE_LIBRARIES_PATHMAP + "/" + "LibraryOfCongress.rmplibrary"), true); //$NON-NLS-1$ //$NON-NLS-2$//$NON-NLS-3$
+	}
+}
+</pre>
+
+<p>
+It is nice to have every writer and book automatically given a new unique name whenever
+someone adds them to a library. Also, the library of congress is loaded as a post-process
+whenever a resource is loaded. The library of congress contains some static content that
+all users of the library metamodel in MSL would like to have automatically loaded. Notice
+that URI of the resource makes use of the plugin extension that we defined above. The library
+of congress resource file is located in the libraries folder and deployed as part of our plugin.
+There is no additional destroy and/or containment semantics that we wish to add using our
+metamodel support. The extension and factory are defined with the following code and xml:
+</p>
+
+<pre class="snippet">
+public class LibraryMetaModelProvider
+	extends AbstractProvider
+	implements IMetamodelSupportProvider {
+
+	/* Attribute for the meta model support object */
+	private IMetamodelSupport metaModelSupport = null;
+
+	public IMetamodelSupport getMetamodelSupport(EPackage ePackage) {
+		if (metaModelSupport == null) {
+			metaModelSupport = new LibraryMetaModel();
+		}
+
+		return metaModelSupport;
+	}
+
+	public boolean provides(IOperation operation) {
+		if (operation instanceof GetMetamodelSupportOperation) {
+			GetMetamodelSupportOperation getMetaModelOperation = (GetMetamodelSupportOperation) operation;
+
+			EPackage ePackage = getMetaModelOperation.getEPackage();
+
+			return (ePackage == RMPLibraryPackage.eINSTANCE);
+		}
+
+		return false;
+	}
+}
+</pre>
+
+<p>
+</p>
+
+<pre class="snippet">
+   &lt;extension
+         id=&quot;LibraryMetaModelProvider&quot;
+         name=&quot;Library MetaModel Provider&quot;
+         point=&quot;org.eclipse.gmf.runtime.emf.core.MetaModelProviders&quot;&gt;
+      &lt;MetaModelProvider
+            class=&quot;org.eclipse.gmf.examples.runtime.emf.metamodel.LibraryMetaModelProvider&quot;&gt;
+         &lt;Priority name=&quot;High&quot; /&gt;
+       &lt;/MetaModelProvider&gt;
+   &lt;/extension&gt;
+</pre>
+
+<h2><a name="principles"></a><a name="summary"></a><a name="models"></a><a name="api"></a>Summary</h2>
+
+<p class="backto"><font size="-1">[<a href="#top">back to top</a>]</font></p>
+
+<p>
+In this tutorial, we did the following:
+</p>
+<ol>
+<li>Created an MSL editing domain</li>
+<li>Registered the MSL resource factory for the .rmplibrary file extension</li>
+<li>Made changes to MSL resources using an undo interval and a write action</li>
+<li>Undid and redid the changes made during an undo interval</li>
+<li>Created logical resources consisting of multiple files</li>
+<li>Customized the management of logical resources for library models</li>
+<li>Registerd an MSL listener that informed us whenever a resource was dirtied</li>
+<li>Learned how live validation can be used to enforce resource integrity during write actions</li>
+<li>Learned how to perform batch validation when using MSL</li>
+<li>Learned how to do copying and pasting in MSL</li>
+<li>Created pathmaps to allow us to move resources around in the file system while maintaining inter-resource references</li>
+<li>Created metamodel support for the RMP Library metamodel in the MSL to add nice features such as autonaming, automatically load the library of congress resource</li>
+</ol>
+
+<hr/>
+
+<p><img border="0" width="324" height="14" src="../copyright.gif"></p>
+</body>
+
+</html>

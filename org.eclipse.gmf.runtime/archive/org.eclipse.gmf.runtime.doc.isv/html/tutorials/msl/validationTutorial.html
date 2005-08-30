@@ -1,0 +1,893 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns:st1="urn:schemas-microsoft-com:office:smarttags"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=iso-8859-1">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 10">
+<meta name=Originator content="Microsoft Word 10">
+<link rel=File-List
+href="Service%20and%20Provider%20Tutorial_files/filelist.xml">
+<link rel=Edit-Time-Data
+href="Service%20and%20Provider%20Tutorial_files/editdata.mso">
+<!--[if !mso]>
+<style>
+v\:* {behavior:url(#default#VML);}
+o\:* {behavior:url(#default#VML);}
+w\:* {behavior:url(#default#VML);}
+.shape {behavior:url(#default#VML);}
+</style>
+<![endif]-->
+<title>Tutorial: EMF Validation General</title>
+<o:SmartTagType namespaceuri="urn:schemas-microsoft-com:office:smarttags"
+ name="date"/>
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>jcorchis</o:Author>
+  <o:LastAuthor>jcorchis</o:LastAuthor>
+  <o:Revision>36</o:Revision>
+  <o:TotalTime>4441</o:TotalTime>
+  <o:Created>2005-04-21T14:33:00Z</o:Created>
+  <o:LastSaved>2005-05-05T17:51:00Z</o:LastSaved>
+  <o:Pages>1</o:Pages>
+  <o:Words>2133</o:Words>
+  <o:Characters>12164</o:Characters>
+  <o:Company>Rational Software</o:Company>
+  <o:Lines>101</o:Lines>
+  <o:Paragraphs>28</o:Paragraphs>
+  <o:CharactersWithSpaces>14269</o:CharactersWithSpaces>
+  <o:Version>10.6735</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:SpellingState>Clean</w:SpellingState>
+  <w:GrammarState>Clean</w:GrammarState>
+  <w:BrowserLevel>MicrosoftInternetExplorer4</w:BrowserLevel>
+ </w:WordDocument>
+</xml><![endif]--><!--[if !mso]><object
+ classid="clsid:38481807-CA0E-42D2-BF39-B33AF135CC4D" id=ieooui></object>
+<style>
+st1\:*{behavior:url(#ieooui) }
+</style>
+<![endif]-->
+<link rel=Stylesheet type="text/css" media=all href="../technote.css">
+<style>
+<!--
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-parent:"";
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+h1
+	{mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:1;
+	font-size:24.0pt;
+	font-family:"Times New Roman";
+	font-weight:bold;}
+h2
+	{mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:2;
+	font-size:18.0pt;
+	font-family:"Times New Roman";
+	font-weight:bold;}
+h3
+	{mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:3;
+	font-size:13.5pt;
+	font-style:italic;}
+p.MsoCaption, li.MsoCaption, div.MsoCaption
+	{mso-style-noshow:yes;
+	mso-style-next:Normal;
+	margin-top:6.0pt;
+	margin-right:0in;
+	margin-bottom:6.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";
+	font-weight:bold;}
+a:link, span.MsoHyperlink
+	{color:blue;
+	text-decoration:underline;
+	text-underline:single;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:blue;
+	text-decoration:underline;
+	text-underline:single;}
+p
+	{mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+code
+	{font-family:"Courier New";
+	mso-ascii-font-family:"Courier New";
+	mso-fareast-font-family:"Times New Roman";
+	mso-hansi-font-family:"Courier New";
+	mso-bidi-font-family:"Courier New";}
+pre
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:24.0pt;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt;
+	font-size:10.0pt;
+	font-family:"Courier New";
+	mso-fareast-font-family:"Times New Roman";}
+p.notabene, li.notabene, div.notabene
+	{mso-style-name:notabene;
+	mso-margin-top-alt:auto;
+	margin-right:48.0pt;
+	mso-margin-bottom-alt:auto;
+	margin-left:48.0pt;
+	mso-pagination:widow-orphan;
+	border:none;
+	mso-border-top-alt:solid windowtext .75pt;
+	mso-border-bottom-alt:solid windowtext .75pt;
+	padding:0in;
+	mso-padding-alt:4.0pt 0in 4.0pt 0in;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+p.question, li.question, div.question
+	{mso-style-name:question;
+	mso-margin-top-alt:auto;
+	margin-right:48.0pt;
+	mso-margin-bottom-alt:auto;
+	margin-left:48.0pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";
+	font-style:italic;}
+p.backto, li.backto, div.backto
+	{mso-style-name:backto;
+	mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+span.SpellE
+	{mso-style-name:"";
+	mso-spl-e:yes;}
+span.GramE
+	{mso-style-name:"";
+	mso-gram-e:yes;}
+@page Section1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.25in 1.0in 1.25in;
+	mso-header-margin:35.4pt;
+	mso-footer-margin:35.4pt;
+	mso-paper-source:0;}
+div.Section1
+	{page:Section1;}
+ /* List Definitions */
+ @list l0
+	{mso-list-id:1754820217;
+	mso-list-template-ids:-806848416;}
+@list l0:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l0:level2
+	{mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l0:level3
+	{mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l0:level4
+	{mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l0:level5
+	{mso-level-tab-stop:2.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l0:level6
+	{mso-level-tab-stop:3.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l0:level7
+	{mso-level-tab-stop:3.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l0:level8
+	{mso-level-tab-stop:4.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l0:level9
+	{mso-level-tab-stop:4.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+ol
+	{margin-bottom:0in;}
+ul
+	{margin-bottom:0in;}
+-->
+</style>
+<!--[if gte mso 10]>
+<style>
+ /* Style Definitions */
+ table.MsoNormalTable
+	{mso-style-name:"Table Normal";
+	mso-tstyle-rowband-size:0;
+	mso-tstyle-colband-size:0;
+	mso-style-noshow:yes;
+	mso-style-parent:"";
+	mso-padding-alt:0in 5.4pt 0in 5.4pt;
+	mso-para-margin:0in;
+	mso-para-margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;}
+table.MsoTableGrid
+	{mso-style-name:"Table Grid";
+	mso-tstyle-rowband-size:0;
+	mso-tstyle-colband-size:0;
+	margin-left:24.0pt;
+	border:solid windowtext 1.0pt;
+	mso-border-alt:solid windowtext .5pt;
+	mso-padding-alt:0in 5.4pt 0in 5.4pt;
+	mso-border-insideh:.5pt solid windowtext;
+	mso-border-insidev:.5pt solid windowtext;
+	mso-para-margin:0in;
+	mso-para-margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;}
+</style>
+<![endif]-->
+</head>
+
+<body lang=EN-US link=blue vlink=blue style='tab-interval:.5in'>
+
+<div class=Section1>
+
+<p class=MsoNormal><a name=top></a><img width=629 height=192 id="_x0000_i1025"
+src="../logo.gif" border=0></p>
+
+<h1 align=center style='text-align:center'>Tutorial: EMF Validation General</h1>
+
+<table class=MsoNormalTable border=0 cellspacing=8 cellpadding=0
+ style='mso-cellspacing:6.0pt;margin-left:24.0pt;mso-padding-alt:0in 5.4pt 0in 5.4pt'>
+ <tr style='mso-yfti-irow:0;mso-yfti-lastrow:yes'>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>Version: 0.1</p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>Date: June 07, 2005</p>
+  </td>
+ </tr>
+</table>
+
+<h2>Contents</h2>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:48.0pt;text-indent:-.25in;mso-list:l0 level1 lfo2;tab-stops:list .5in'><![if !supportLists]><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Symbol;
+mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol'><span
+style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'> </span></span></span><![endif]><a
+href="#overview">Overview</a></p>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:48.0pt;text-indent:-.25in;mso-list:l0 level1 lfo2;tab-stops:list .5in'><![if !supportLists]><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Symbol;
+mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol'><span
+style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'> </span></span></span><![endif]><a
+href="#refs">References</a></p>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:48.0pt;text-indent:-.25in;mso-list:l0 level1 lfo2;tab-stops:list .5in'><![if !supportLists]><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Symbol;
+mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol'><span
+style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'> </span></span></span><![endif]><a
+href="#intro">Introduction</a></p>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:48.0pt;text-indent:-.25in;mso-list:l0 level1 lfo2;tab-stops:list .5in'><![if !supportLists]><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Symbol;
+mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol'><span
+style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'> </span></span></span><![endif]><a
+href="#construct_batch_constraint">Constructing a Batch Model Constraint</a></p>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:48.0pt;text-indent:-.25in;mso-list:l0 level1 lfo2;tab-stops:list .5in'><![if !supportLists]><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Symbol;
+mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol'><span
+style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'> </span></span></span><![endif]><a
+href="#create_const_provider_extension">Creating the Constraint Provider Extension</a></p>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:48.0pt;text-indent:-.25in;mso-list:l0 level1 lfo2;tab-stops:list .5in'><![if !supportLists]><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Symbol;
+mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol'><span
+style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'> </span></span></span><![endif]><a
+href="#create_client_context">Creating a Client Context</a></p>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:48.0pt;text-indent:-.25in;mso-list:l0 level1 lfo2;tab-stops:list .5in'><![if !supportLists]><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Symbol;
+mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol'><span
+style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'> </span></span></span><![endif]><a
+href="#execute_batch_validate">Executing Batch Validation</a></p>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:48.0pt;text-indent:-.25in;mso-list:l0 level1 lfo2;tab-stops:list .5in'><![if !supportLists]><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Symbol;
+mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol'><span
+style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'> </span></span></span><![endif]><a
+href="#morph_to_live_constraint">Transforming a Batch Constraint into a Live Constraint</a></p>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:48.0pt;text-indent:-.25in;mso-list:l0 level1 lfo2;tab-stops:list .5in'><![if !supportLists]><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Symbol;
+mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol'><span
+style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'> </span></span></span><![endif]><a
+href="#execute_live_validate">Executing Live Validation</a></p>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:48.0pt;text-indent:-.25in;mso-list:l0 level1 lfo2;tab-stops:list .5in'><![if !supportLists]><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Symbol;
+mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol'><span
+style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'> </span></span></span><![endif]><a
+href="#summary">Summary</a></p>
+
+<div class=MsoNormal align=center style='text-align:center'>
+
+<hr size=2 width="100%" align=center>
+
+</div>
+
+<h2><a name="overview"></a>Overview</h2>
+
+<p class=backto><span style='font-size:10.0pt'>[<a href="#top"><span
+class=GramE>back</span> to top</a>]</span></p>
+
+<p>
+The EMF validation framework provides a means to evaluate and ensure the well-formedness of
+EMF models. Validation comes in two forms: batch and live. While batch validation allows a client to
+explicitly evaluate a group of EObjects and their contents, live validation can be used by clients
+to listen on change notifications to EObjects to immediately verify that the change does not
+violate the well-formedness of the model.
+</p>
+<p>
+Client contexts can be specified to ensure that certain constraints do not get executed outside of
+a certain context. A context is defined by the client to set up their own boundaries from other
+clients.
+</p>
+
+<h2><a name=refs></a>References</h2>
+
+<p class=backto><span style='font-size:10.0pt'>[<a href="#top"><span
+class=GramE>back</span> to top</a>]</span></p>
+
+<p>
+This tutorial assumes that the reader has a knowledge of EMF, and the eclipse PDE development
+environment. It is essential that the reader understands the basic reflective mechanisms of EMF 
+as well as its adapter/notifier system for broadcasting events.
+</p>
+<p>
+For reference, the full <A HREF="../../examples-guide/msl/validationExample.html">example</A> for this tutorial is available.
+</p>
+
+<h2><a name=intro></a>Introduction</h2>
+
+<p class=backto><span style='font-size:10.0pt'>[<a href="#top"><span
+class=GramE>back</span> to top</a>]</span></p>
+
+<p>
+In order to demonstrate EMF Validation, we will be making use of the RMP library metamodel. This metamodel
+ is a variant of the standard EMF example metamodel used in many of its tutorials.
+</p>
+<p>
+For those readers who are not familiar with this metamodel, it models a library with books and writers.
+The most important aspect of the library metamodel for this tutorial is the fact that books are modeled
+as EObjects whose EClass is <code>Book</code> and they contain a EStructuralFeature called <code>pages</code>
+that stores an integer number of pages contained in the book.
+</p>
+<p>
+The goal of this tutorial is to create a batch/live EMF validation constraint that will 
+catch cases where there is no unique identifier for the book,library or writer. Also, this tutorial
+will demonstrate how to create a client context allowing a client to run the batch/live constraints
+on a group of EObjects or Notifications.
+</p>
+
+<h2><a name=construct_batch_constraint></a>Constructing a Batch Model Constraint</h2>
+
+<p class=backto><span style='font-size:10.0pt'>[<a href="#top"><span
+class=GramE>back</span> to top</a>]</span></p>
+
+<p>
+A model constraint is written as a subclass of the <a href="../../../reference/api/common/com/ibm/xtools/emf/validation/AbstractModelConstraint.html">AbstractModelConstraint</a> that overrides
+the <a href="../../../reference/api/common/com/ibm/xtools/emf/validation/AbstractModelConstraint.html#validate(org.eclipse.emf.validation.IValidationContext)">validate()</a> method. The validate method has the task of taking the input from the validation
+context and returning either a <a href="../../../reference/api/common/com/ibm/xtools/emf/validation/IValidationContext.html#createSuccessStatus()">ctx.createSuccessStatus()</a> or <a href="../../../reference/api/common/com/ibm/xtools/emf/validation/IValidationContext.html#createFailureStatus(java.lang.Object[])">ctx.createFailureStatus().</a>
+</p>
+<p>
+Our batch constraint takes the following form:
+</p>
+
+<pre class="snippet">
+public class NonEmptyNamesConstraint
+	extends AbstractModelConstraint {
+
+	public IStatus validate(IValidationContext ctx) {
+		EObject eObj = ctx.getTarget();
+		EMFEventType eType = ctx.getEventType();
+		
+		// In the case of batch mode.
+		if (eType == EMFEventType.NULL) {
+			String name = null;
+			if (eObj instanceof Writer) {
+				name = ((Writer)eObj).getName(); 
+			} else if (eObj instanceof Library) {
+				name = ((Library)eObj).getName();
+			} else if (eObj instanceof Book) {
+				name = ((Book)eObj).getTitle();
+			}
+			
+			if (name == null || name.length() == 0) {
+				return ctx.createFailureStatus(new Object[] {eObj.eClass().getName()});
+			}
+		}
+		
+		return ctx.createSuccessStatus();
+	}
+
+}
+</pre>
+
+<p>
+The target EObject is retrieved from the <a href="../../../reference/api/common/com/ibm/xtools/emf/validation/IValidationContext.html">IValidationContext</a> by calling the <a href="../../../reference/api/common/com/ibm/xtools/emf/validation/IValidationContext.html#getTarget()">getTarget()</a>
+method. In order to rule out live validation cases, we check to ensure that the <a href="../../../reference/api/common/com/ibm/xtools/emf/validation/IValidationContext.html#getEventType()">getEventType()</a>
+is <a href="../../../reference/api/common/com/ibm/xtools/emf/validation/EMFEventType.html#NULL">EMFEventType.NULL.</a> If our constraint provider extension is written correctly, we should
+never be called to perform a live validation.
+</p>
+<p>
+The constraint checks each type of object to ensure that its identifier is not null or empty. In the case
+of a failure, it returns a failure status and places the name of the EObject's EClass to be formatted as
+part of the failure message. Read the following section for more information on the failure message.
+</p>
+
+<h2 style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><a
+name=create_const_provider_extension></a>Creating the Constraint Provider Extension</h2>
+
+<p class=backto style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span
+style='font-size:10.0pt'>[<a href="#top"><span class=GramE>back</span> to top</a>]</span></p>
+
+<pre class="snippet">
+   &lt;extension
+         point=&quot;org.eclipse.emf.validation.constraintProviders&quot;&gt;
+      &lt;category
+            name=&quot;RMP Library Constraints&quot;
+            id=&quot;org.eclipse.emf.validation.pde.example.general.ui.library&quot;/&gt;
+      &lt;constraintProvider cache=&quot;true&quot;&gt;
+         &lt;package namespaceUri=&quot;http:///com/ibm/xtools/emf/metamodel/example/pde/rmplibrary.ecore/1.0.0&quot;/&gt;
+         &lt;constraints categories=&quot;org.eclipse.emf.validation.pde.example.general.ui.library&quot;&gt;
+            &lt;constraint
+                  lang=&quot;Java&quot;
+                  class=&quot;org.eclipse.emf.validation.examples.constraints.NonEmptyNamesConstraint&quot;
+                  severity=&quot;ERROR&quot;
+                  mode=&quot;Batch&quot;
+                  name=&quot;Non-Empty Names&quot;
+                  id=&quot;org.eclipse.emf.validation.pde.example.general.ui.NameNotEmpty&quot;
+                  statusCode=&quot;1&quot;&gt;
+               &lt;description&gt;
+                  All items in an RMP library model should have some unique identifier or name.
+               &lt;/description&gt;
+               &lt;message&gt;
+                  A {0} has been found to have no unique identifier (name or title).
+               &lt;/message&gt;
+               &lt;target class=&quot;Library&quot;/&gt;
+               &lt;target class=&quot;Writer&quot;/&gt;
+               &lt;target class=&quot;Book&quot;/&gt;
+               &lt;/target&gt;
+            &lt;/constraint&gt;
+         &lt;/constraints&gt;
+      &lt;/constraintProvider&gt;
+   &lt;/extension&gt;
+</pre>
+
+<p>
+The above extension registers a validation category and activates the NonEmptyNamesConstraint in the validation
+service. Categories can be nested and constraints can be placed into one or more of these categories by their
+category identifier. It is worth noting that categories can be defined as mandatory, which means that any
+constraints in that category cannot be enabled/disabled by the client or user. A constraint must only be
+a member of one mandatory category to become mandatory itself even if it is contained in multiple categories.
+</p>
+
+<p>
+The constraintProvider node refers specifically to the URI of the RMP library EPackage so that references 
+in the extension to EClasses and EStructuralFeatures can be properly imported by the service. Finally, 
+the constraints node registers our constraint node into the validation service into our category.
+</p>
+
+<p>
+The constraint node has a number of useful options. For the scope of this tutorial, we will be using
+the &quot;Java&quot; language. By specifying the Java language, we are indicating that the algorithm
+of the constraint will be written in the form of an AbstractModelConstraint class that can be loaded
+in order to perform the validation. The severity of our constraint is an error because it makes it very
+difficult to discern unnamed writers, libraries or books in our editor. We have chosen the batch mode for
+now because we only want users to discover the error if they run validation explicitly. The status code
+was chosen to be a unique number for this plugin.
+</p>
+
+<p>
+The description and message provide communication to users. The description is used in parts of the user
+interface to list different constraints, provide enablement and to offer a description of the purpose of the
+constraint. The message could be presented to the user to give details of a constraint that failed on a
+particular EObject. The message may contain any number of {0}, {1}, {2} ... substitutions. These substitutions
+are replaced with the objects passed to the <code>ctx.createFailureStatus(new Object[] {...})</code> call 
+in order(see code above).
+</p>
+
+<p>
+Finally, there are the target nodes. If no target nodes are specified then any EObject of any EClass
+will given to our validator. In our constraint, we are only interested in Writers, Books and Libraries from
+the RMP library metamodel. These EClasses are qualified by the EPackage URI we provided in the package
+node mentioned above.
+</p>
+
+<p>
+So far, this would be nearly sufficient to develop a new constraint into an application that
+is already using the validation service and has its own constraints. The only remaining item 
+would be to ensure that this constraint gets bound to the client context of that application. 
+More details on this in the following section.
+</p>
+
+<h2 style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'>
+<a name=create_client_context></a>Creating a Client Context</h2>
+
+<p style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span
+style='font-size:10.0pt'>[<a href="#top"><span class=GramE>back</span> to top</a>]</span></p>
+
+<p>
+Client contexts are used by application writers to define the context in which their validation
+will occur. This prevents constraints that were provided by a third-party for a third-party
+application from being executed in the wrong context. In our case, we don't want our constraint
+to be executed in any other context other than our own so we will create our own client context
+and bind our constraint category to our context. The following extension illustrates how this
+is done:
+</p>
+
+<pre class="snippet">
+   &lt;extension
+         point=&quot;org.eclipse.emf.validation.constraintBindings&quot;&gt;
+      &lt;clientContext
+            default=&quot;false&quot;
+            id=&quot;org.eclipse.emf.validation.pde.example.general.ui.libraryContext&quot;&gt;
+         &lt;selector class=&quot;org.eclipse.emf.validation.examples.constraints.ValidationDelegateClientSelector&quot;/&gt;
+      &lt;/clientContext&gt;
+      &lt;binding
+            context=&quot;org.eclipse.emf.validation.pde.example.general.ui.libraryContext&quot;
+            category=&quot;org.eclipse.emf.validation.pde.example.general.ui.library&quot;/&gt;
+   &lt;/extension&gt; 
+</pre>
+
+<p>
+This extension registers the client context that is not a &quot;default&quot; context. Default contexts
+will accumulate constraints and categories that have not been bound to any context. We provide a unique
+identifier and a selector class for this context. The selector has the purpose of discovering whether
+an EObject belongs to the context. A context binding is set up to link our category with our client
+context. The selector is a simple static latch that we will latch whenever we call the validation service
+in the next section:
+</p>
+
+<pre class="snippet">
+// NOTE: This is _NOT_ a recommended approach to writing a client selector.
+//       Suggested approaches:
+//           -Check the resource of the EObject either by identity or by URI
+//            as long as this resource is somehow unique to this application
+//           -Check the identity of the resource set to ensure that it is some
+//            private object
+//           -Check the identify of the EObject itself to see if it belongs to
+//            some private collection
+//           -Check the EClass of the EObject but only if the metamodel is private
+//            this application and will not be used by other contexts
+public class ValidationDelegateClientSelector
+	implements IClientSelector {
+
+	public static boolean running = false;
+	
+	public boolean selects(Object object) {
+		return running;
+	}
+}
+</pre>
+
+<p>
+Using a client selector is not the only approach that can be used to categorize an EObject as part
+of a client context. An alternative would be to use an XML enablement expression in an enablement node
+of the clientContext node in the constraint bindings extension. These expressions can be constructed 
+in the XML to reflectively produce a true/false value when evaluated against a Java object. 
+See the <a href="/help/topic/org.eclipse.platform.doc.isv/reference/api/org/eclipse/core/expressions/package-summary.html">org.eclipse.core.expressions</a> package for more details.
+</p>
+
+<h2 style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><a
+name="execute_batch_validate"></a>Executing Batch Validation</h2>
+
+<p style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'>[<a
+href="#top"><span class=GramE><span style='font-size:10.0pt'>back</span></span><span
+style='font-size:10.0pt'> to top</span></a>]</p>
+
+<p>
+Now that the constraint has been registered and the category has been bound to our client context we
+can call the validation service to perform a batch validation like this:
+</p>
+
+<pre class="snippet">
+ValidationDelegateClientSelector.running = true;
+
+IBatchValidator validator = (IBatchValidator)ModelValidationService.getInstance()
+	.newValidator(EvaluationMode.BATCH);
+validator.setIncludeLiveConstraints(true);
+
+IStatus status = validator.validate(selectedEObjects);
+ValidationDelegateClientSelector.running = false;
+</pre>
+
+<p>
+The first part of this code snippet enables the latch so that the validation service will determine
+that the provided EObjects belong to our client context. We requested a batch validation and asked
+that the batch validator include live validation constraints because live validation constraints
+are often written to handle the batch validation case. Finally, we validate the selected EObjects
+and are given back the status of the validation. This status obeys the regular <code>IStatus</code>
+rules and may be a composite or a non-composite status object. The status may have an ERROR/WARNING/OK
+code, which indicates the worst status code of all of the statuses given back by the evaluated
+constraints. In order to prevent our client context from interfering with other client contexts,
+we release the client selector latch. Once the batch validator has been constructed, it can be reused
+to perform validation at a later time.
+</p>
+
+<h2 style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><a
+name="morph_to_live_constraint"></a>Transforming a Batch Constraint into a Live Constraint</h2>
+
+<p style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'>[<a
+href="#top"><span class=GramE><span style='font-size:10.0pt'>back</span></span><span
+style='font-size:10.0pt'> to top</span></a>]</p>
+
+<p>
+Our constraint can be modified to be a live constraint so it can be used by the validation service
+to validate notifications coming from notifiers of an EMF model. Within the notification, information
+such as the modified structural feature, the old value and the new value is available to our constraint.
+Also, our extension may specify the exact structural features that we are interested in validating.
+Here is the modified constraint class and extension:
+</p>
+
+<pre class="snippet">
+public class NonEmptyNamesConstraint
+	extends AbstractModelConstraint {
+
+	public IStatus validate(IValidationContext ctx) {
+		EObject eObj = ctx.getTarget();
+		EMFEventType eType = ctx.getEventType();
+		
+		// In the case of batch mode.
+		if (eType == EMFEventType.NULL) {
+			String name = null;
+			if (eObj instanceof Writer) {
+				name = ((Writer)eObj).getName(); 
+			} else if (eObj instanceof Library) {
+				name = ((Library)eObj).getName();
+			} else if (eObj instanceof Book) {
+				name = ((Book)eObj).getTitle();
+			}
+			
+			if (name == null || name.length() == 0) {
+				return ctx.createFailureStatus(new Object[] {eObj.eClass().getName()});
+			}
+		// In the case of live mode.
+		} else {
+			Object newValue = ctx.getFeatureNewValue();
+			
+			if (newValue == null || ((String)newValue).length() == 0) {
+				return ctx.createFailureStatus(new Object[] {eObj.eClass().getName()});
+			}
+		}
+		
+		return ctx.createSuccessStatus();
+	}
+
+}
+</pre>
+
+<p>
+The changes to the class include a new case where it is invoked in live validation mode. In this case,
+the exact structural feature does not need to be checked because the extension below will register the constraint
+against only one specific identification feature for each EClass. Finally, it checks the new value
+of the identification feature to ensure that it is not null nor empty.
+</p>
+
+<pre class="snippet">
+   &lt;extension
+         point=&quot;org.eclipse.emf.validation.constraintProviders&quot;&gt;
+      &lt;category
+            name=&quot;RMP Library Constraints&quot;
+            id=&quot;org.eclipse.emf.validation.pde.example.general.ui.library&quot;/&gt;
+      &lt;constraintProvider cache=&quot;true&quot;&gt;
+         &lt;package namespaceUri=&quot;http:///com/ibm/xtools/emf/metamodel/example/pde/rmplibrary.ecore&quot;/&gt;
+         &lt;constraints categories=&quot;org.eclipse.emf.validation.pde.example.general.ui.library&quot;&gt;
+            &lt;constraint
+                  lang=&quot;Java&quot;
+                  class=&quot;org.eclipse.emf.validation.examples.constraints.NonEmptyNamesConstraint&quot;
+                  severity=&quot;ERROR&quot;
+                  mode=&quot;Live&quot;
+                  name=&quot;Non-Empty Names&quot;
+                  id=&quot;org.eclipse.emf.validation.pde.example.general.ui.NameNotEmpty&quot;
+                  statusCode=&quot;1&quot;&gt;
+               &lt;description&gt;
+                  All items in an RMP library model should have some unique identifier or name.
+               &lt;/description&gt;
+               &lt;message&gt;
+                  A {0} has been found to have no unique identifier (name or title).
+               &lt;/message&gt;
+               &lt;target class=&quot;Library&quot;&gt;
+                  &lt;event name=&quot;Set&quot;&gt;
+                     &lt;feature name=&quot;name&quot;/&gt;
+                  &lt;/event&gt;
+                  &lt;event name=&quot;Unset&quot;&gt;
+                     &lt;feature name=&quot;name&quot;/&gt;
+                  &lt;/event&gt;
+               &lt;/target&gt;
+               &lt;target class=&quot;Writer&quot;&gt;
+                  &lt;event name=&quot;Set&quot;&gt;
+                     &lt;feature name=&quot;name&quot;/&gt;
+                  &lt;/event&gt;
+                  &lt;event name=&quot;Unset&quot;&gt;
+                     &lt;feature name=&quot;name&quot;/&gt;
+                  &lt;/event&gt;
+               &lt;/target&gt;
+               &lt;target class=&quot;Book&quot;&gt;
+                  &lt;event name=&quot;Set&quot;&gt;
+                     &lt;feature name=&quot;title&quot;/&gt;
+                  &lt;/event&gt;
+                  &lt;event name=&quot;Unset&quot;&gt;
+                     &lt;feature name=&quot;title&quot;/&gt;
+                  &lt;/event&gt;
+               &lt;/target&gt;
+            &lt;/constraint&gt;
+         &lt;/constraints&gt;
+      &lt;/constraintProvider&gt;
+   &lt;/extension&gt;
+</pre>
+
+<p>
+The extension has changed in a few key places. We have modified its mode to be &quot;Live.&quot; This
+constraint will still get called by the validation service for batch validation because we called
+<a href="../../../reference/api/common/com/ibm/xtools/emf/validation/service/IBatchValidator.html#setIncludeLiveConstraints(boolean)">validator.setIncludeLiveConstraints(true);</a> when we perform batch validation in the case
+above (see Executing Batch Validation). We have augmented each of the target nodes to include specific
+notification events and structural features for each EClass. The validation service will only call our
+constraint if the notification matches the EClass, EStructuralFeature and event type we have specified.
+</p>
+
+<h2 style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><a
+name="execute_live_validate"></a>Executing Live Validation</h2>
+
+<p style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'>[<a
+href="#top"><span class=GramE><span style='font-size:10.0pt'>back</span></span><span
+style='font-size:10.0pt'> to top</span></a>]
+
+<p>
+Live validation is not called in the typical way that batch validation is called. We will be attaching
+an adapter to a group of notifiers in order to get notifications when those notifiers are changed. If the
+adapter is attached as a content adapter to a resource, then notifications will be given for all EObjects
+contained in that EObject:
+</p>
+
+<pre class="snippet">
+Resource r = (Resource)i.next();
+
+if (!resourceHasAdapter(r)) {
+	EContentAdapter liveValidationContentAdapter = new LiveValidationContentAdapter();
+	r.eAdapters().add(liveValidationContentAdapter);
+}
+</pre>
+
+<p>
+The content adapter will have to modify the client context latch as we did in the batch validation.
+This will guarantee that our notifier EObjects will be included in our client context, which will
+allow the validation service to call our constraint:
+</p>
+
+<pre class="snippet">
+class LiveValidationContentAdapter extends EContentAdapter {
+	private ILiveValidator validator = null;
+
+	LiveValidationContentAdapter() {
+	}
+
+	public void notifyChanged(final Notification notification) {
+		super.notifyChanged(notification);
+		
+		if (validator == null)
+			ILiveValidator validator = 
+				(ILiveValidator)ModelValidationService.getInstance().newValidator(EvaluationMode.LIVE);
+			
+		}
+		
+		ValidationDelegateClientSelector.running = true;
+		
+		IStatus status = validator.validate(notification);
+		
+		if (!status.isOK()) {
+			if (status.isMultiStatus()) {
+				status = status.getChildren()[0];
+			}
+			
+			System.out.println("The current modification has violated one or more live constraints");
+		}
+		
+		ValidationDelegateClientSelector.running = false;
+	}
+}
+</pre>
+
+<p>
+As in the case of the batch validation, the details of the validation failures/successes can be
+retrieved through the returned IStatus object.
+</p>
+
+<h2 style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><a
+name=principles></a><a name=summary></a><a name=models></a><a name=api></a>Summary</h2>
+
+<p style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span
+style='font-size:10.0pt'>[<a href="#top"><span class=GramE>back</span> to top</a>]</span></p>
+
+<p>
+In this tutorial, we did the following:
+<ol>
+<li>Developed a batch validation constraint</li>
+<li>Created the constraint provider extension</li>
+<li>Created a client context for use in our application</li>
+<li>Ran validation against a collection of EObjects in batch mode</li>
+<li>Transformed the batch validation constraint into a dual mode live/batch validation constraint</li>
+<li>Modified the constraint provider extension appropriately</li>
+<li>Developed a content adapter to provide live validation for a particular EMF resource</li>
+</ol>
+</p>
+
+<div class=MsoNormal align=center style='text-align:center;tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'>
+<hr size=2 width="100%" align=center>
+
+</div>
+
+<p style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><img
+border=0 width=324 height=14 id="_x0000_i1029" src="../copyright.gif"></p>
+
+</div>
+
+</body>
+
+</html>

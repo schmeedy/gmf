@@ -1,0 +1,252 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=iso-8859-1">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 10">
+<meta name=Originator content="Microsoft Word 10">
+<link rel=File-List href="index_files/filelist.xml">
+<link rel=Edit-Time-Data href="index_files/editdata.mso">
+<!--[if !mso]>
+<style>
+v\:* {behavior:url(#default#VML);}
+o\:* {behavior:url(#default#VML);}
+w\:* {behavior:url(#default#VML);}
+.shape {behavior:url(#default#VML);}
+</style>
+<![endif]-->
+<title>Rational Modeling Platform Examples</title>
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>Steven R. Shaw</o:Author>
+  <o:LastAuthor>Steven R. Shaw</o:LastAuthor>
+  <o:Revision>3</o:Revision>
+  <o:TotalTime>1</o:TotalTime>
+  <o:Created>2005-05-25T17:00:00Z</o:Created>
+  <o:LastSaved>2005-05-25T17:01:00Z</o:LastSaved>
+  <o:Pages>1</o:Pages>
+  <o:Words>105</o:Words>
+  <o:Characters>600</o:Characters>
+  <o:Company>IBM</o:Company>
+  <o:Lines>5</o:Lines>
+  <o:Paragraphs>1</o:Paragraphs>
+  <o:CharactersWithSpaces>704</o:CharactersWithSpaces>
+  <o:Version>10.4219</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:Zoom>120</w:Zoom>
+  <w:SpellingState>Clean</w:SpellingState>
+  <w:GrammarState>Clean</w:GrammarState>
+  <w:BrowserLevel>MicrosoftInternetExplorer4</w:BrowserLevel>
+ </w:WordDocument>
+</xml><![endif]-->
+<link rel=Stylesheet type="text/css" media=all href="../book.css">
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:Courier;
+	panose-1:2 7 4 9 2 2 5 2 4 4;
+	mso-font-charset:0;
+	mso-generic-font-family:modern;
+	mso-font-format:other;
+	mso-font-pitch:fixed;
+	mso-font-signature:3 0 0 0 1 0;}
+@font-face
+	{font-family:Wingdings;
+	panose-1:5 0 0 0 0 0 0 0 0 0;
+	mso-font-charset:2;
+	mso-generic-font-family:auto;
+	mso-font-pitch:variable;
+	mso-font-signature:0 268435456 0 0 -2147483648 0;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-parent:"";
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";
+	color:windowtext;}
+h1
+	{margin-top:3.15pt;
+	margin-right:0in;
+	margin-bottom:.65pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:1;
+	font-size:18.0pt;
+	font-weight:bold;}
+h2
+	{margin-top:15.65pt;
+	margin-right:0in;
+	margin-bottom:1.9pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:2;
+	font-size:14.0pt;
+	font-weight:bold;}
+h3
+	{margin-top:12.5pt;
+	margin-right:0in;
+	margin-bottom:1.9pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:3;
+	font-size:11.0pt;
+	font-weight:bold;}
+h4
+	{margin-top:12.5pt;
+	margin-right:0in;
+	margin-bottom:1.9pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:4;
+	font-size:10.0pt;
+	font-weight:bold;
+	font-style:italic;}
+h5
+	{mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:5;
+	font-size:10.0pt;
+	font-weight:bold;}
+h6
+	{mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:6;
+	font-size:10.0pt;
+	font-weight:bold;}
+p
+	{font-size:10.0pt;
+	mso-fareast-font-family:"Times New Roman";}
+pre
+	{margin-top:0in;
+	margin-bottom:0in;
+	margin-bottom:.0001pt;
+	font-size:9.0pt;
+	mso-fareast-font-family:"Times New Roman";
+	mso-bidi-font-family:"Courier New";}
+p.code, li.code, div.code
+	{mso-style-name:code;
+	font-size:10.0pt;
+	mso-fareast-font-family:"Times New Roman";}
+p.note, li.note, div.note
+	{mso-style-name:note;
+	font-size:11.0pt;
+	mso-fareast-font-family:"Times New Roman";}
+p.NormalWeb1, li.NormalWeb1, div.NormalWeb1
+	{mso-style-name:"Normal \(Web\)1";
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	mso-fareast-font-family:"Times New Roman";}
+span.GramE
+	{mso-style-name:"";
+	mso-gram-e:yes;}
+@page Section1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.25in 1.0in 1.25in;
+	mso-header-margin:.5in;
+	mso-footer-margin:.5in;
+	mso-paper-source:0;}
+div.Section1
+	{page:Section1;}
+ /* List Definitions */
+ @list l0
+	{mso-list-id:1618022396;
+	mso-list-template-ids:-1151960368;}
+@list l0:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+ol
+	{margin-bottom:0in;}
+ul
+	{margin-bottom:0in;}
+-->
+</style>
+<!--[if gte mso 10]>
+<style>
+ /* Style Definitions */
+ table.MsoNormalTable
+	{mso-style-name:"Table Normal";
+	mso-tstyle-rowband-size:0;
+	mso-tstyle-colband-size:0;
+	mso-style-noshow:yes;
+	mso-style-parent:"";
+	mso-padding-alt:0in 5.4pt 0in 5.4pt;
+	mso-para-margin:0in;
+	mso-para-margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:"Times New Roman";
+	color:windowtext;}
+</style>
+<![endif]-->
+<meta http-equiv=Content-Style-Type content="text/css">
+<!--[if gte mso 9]><xml>
+ <o:shapedefaults v:ext="edit" spidmax="2050"/>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <o:shapelayout v:ext="edit">
+  <o:idmap v:ext="edit" data="1"/>
+ </o:shapelayout></xml><![endif]-->
+</head>
+
+<body bgcolor=white lang=EN-US link=blue vlink=blue style='tab-interval:.5in'>
+
+<div class=Section1>
+
+<h1>RMP Examples Index</h1>
+
+<p>This index provides links to guides of the various examples available that
+demonstrate RMP functionality and integration points<span class=GramE>..</span></p>
+
+<h3>Examples<br>
+<br>
+RMP Diagram Layer </h3>
+
+<ul style='margin-top:0in' type=disc>
+ <li class=MsoNormal style='color:black;mso-list:l0 level1 lfo1;tab-stops:list .5in'><span
+     style='font-size:10.0pt;font-family:Arial'><a
+     href="RMP%20Diagram%20Layer%20Geometric%20Shapes%20Example%20Guide.htm">Geometric
+     Shapes Example Guide</a><o:p></o:p></span></li>
+ <li class=MsoNormal style='color:black;mso-list:l0 level1 lfo1;tab-stops:list .5in'><span
+     style='font-size:10.0pt;font-family:Arial'><a
+     href="RMP%20Diagram%20Layer%20Logic%20Example%20Guide.htm">Logic Example
+     Guide</a><o:p></o:p></span></li>
+ <li class=MsoNormal style='color:black;mso-list:l0 level1 lfo1;tab-stops:list .5in'><span
+     style='font-size:10.0pt;font-family:Arial'><a
+     href="RMP%20Diagram%20Layer%20Layout%20Service%20Example%20Guide.htm">Layout
+     Service Example Guide</a><o:p></o:p></span></li>
+ <li class=MsoNormal style='color:black;mso-list:l0 level1 lfo1;tab-stops:list .5in'><span
+     style='font-size:10.0pt;font-family:Arial'>TODO: Decoration Service
+     Example Guide<o:p></o:p></span></li>
+</ul>
+
+<p><a href="../../hglegal.htm"><span style='text-decoration:none;text-underline:
+none'><img border=0 width=324 height=14 id="_x0000_i1025" src="../../cpy.gif"
+alt="Legal notices"></span></a></p>
+
+</div>
+
+</body>
+
+</html>

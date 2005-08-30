@@ -1,0 +1,211 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=PowerPoint.Slide>
+<meta name=Generator content="Microsoft PowerPoint 10">
+<link id=Main-File rel=Main-File href="../RMP%20for%20GMF.htm">
+<link rel=Preview href=preview.wmf>
+<!--[if !mso]>
+<style>
+v\:* {behavior:url(#default#VML);}
+o\:* {behavior:url(#default#VML);}
+p\:* {behavior:url(#default#VML);}
+.shape {behavior:url(#default#VML);}
+v\:textbox {display:none;}
+</style>
+<![endif]-->
+<title>Introduction to the Rational Modeling Platform</title>
+<meta name=Description
+content="5/31/2005: Example: Creating a Logic diagram editor (Cont.)">
+<link rel=next href="v3_slide0253.htm">
+</head>
+
+<body background="v3_master08_background.gif" bgcolor=white alink="#0099CC"
+link=silver vlink="#FF9900" text=white topmargin=0 leftmargin=0>
+
+<table border=0 valign=top width=650 height=487 cellpadding=0 cellspacing=0>
+ <tr>
+  <td width=17 height=0 nowrap><img src="v3_space.gif" border=0></td>
+  <td width=67 height=0 nowrap><img src="v3_space.gif" border=0></td>
+  <td width=519 height=0 nowrap><img src="v3_space.gif" border=0></td>
+  <td width=8 height=0 nowrap><img src="v3_space.gif" border=0></td>
+ </tr>
+ <tr>
+  <td width=650 height=47 colspan=5></td>
+ </tr>
+ <tr>
+  <td width=17 height=29></td>
+  <td width=586 height=29 colspan=2>
+  <table border=0 valign=top cellpadding=0 cellspacing=0>
+   <tr>
+    <td width=586 height=29><font face=Arial color="#4B6BAF" size=5><b>Example:
+    </b>Creating a Logic diagram editor (Cont.)</font><br>
+    </td>
+   </tr>
+  </table>
+  </td>
+  <td width=47 height=29 colspan=2></td>
+ </tr>
+ <tr>
+  <td width=650 height=24 colspan=5></td>
+ </tr>
+ <tr>
+  <td width=84 height=286 colspan=2></td>
+  <td width=527 height=286 colspan=2>
+  <table border=0 valign=top cellpadding=0 cellspacing=0>
+   <tr>
+    <td width=16 height=0 nowrap><img src="v3_space.gif" border=0></td>
+    <td width=1 height=0 nowrap><img src="v3_space.gif" border=0></td>
+    <td width=15 height=0 nowrap><img src="v3_space.gif" border=0></td>
+    <td width=73 height=0 nowrap><img src="v3_space.gif" border=0></td>
+    <td width=105 height=0 nowrap><img src="v3_space.gif" border=0></td>
+    <td width=55 height=0 nowrap><img src="v3_space.gif" border=0></td>
+    <td width=32 height=0 nowrap><img src="v3_space.gif" border=0></td>
+    <td width=69 height=0 nowrap><img src="v3_space.gif" border=0></td>
+    <td width=12 height=0 nowrap><img src="v3_space.gif" border=0></td>
+    <td width=11 height=0 nowrap><img src="v3_space.gif" border=0></td>
+    <td width=96 height=0 nowrap><img src="v3_space.gif" border=0></td>
+    <td width=8 height=0 nowrap><img src="v3_space.gif" border=0></td>
+    <td width=26 height=0 nowrap><img src="v3_space.gif" border=0></td>
+    <td width=4 height=0 nowrap><img src="v3_space.gif" border=0></td>
+    <td width=1 height=0 nowrap><img src="v3_space.gif" border=0></td>
+   </tr>
+   <tr>
+    <td width=16 height=19><font face=Wingdings color="#0099CC" size=3>§</font></td>
+    <td width=373 height=19 colspan=9><font face=Arial color=black size=3>5.
+    Creating the controller (EditPart) for the shape.</font><br>
+    </td>
+    <td width=138 height=19 colspan=6></td>
+   </tr>
+   <tr>
+    <td width=527 height=5 colspan=16></td>
+   </tr>
+   <tr>
+    <td width=16 height=17></td>
+    <td width=16 height=17 colspan=2><font face=Webdings color="#0099CC"
+    size=2>4</font></td>
+    <td width=487 height=17 colspan=10><font face=Arial color=black size=2>Create
+    a EditPart Provider class that will create the editpart controller for</font><br>
+    </td>
+    <td width=8 height=17 colspan=3></td>
+   </tr>
+   <tr>
+    <td width=527 height=1 colspan=16></td>
+   </tr>
+   <tr>
+    <td width=32 height=17 colspan=3></td>
+    <td width=233 height=17 colspan=3><font face=Arial color=black size=2>the
+    shape<span style='mso-spacerun:yes'>  </span>(LogicEditPartProvider)</font><br>
+    </td>
+    <td width=262 height=17 colspan=10></td>
+   </tr>
+   <tr>
+    <td width=527 height=7 colspan=16></td>
+   </tr>
+   <tr>
+    <td width=16 height=17></td>
+    <td width=16 height=17 colspan=2><font face=Webdings color="#0099CC"
+    size=2>4</font></td>
+    <td width=492 height=17 colspan=12><font face=Arial color=black size=2>In
+    the EditPart provider class, override the getNodeEditPartClass method</font><br>
+    </td>
+    <td width=3 height=17></td>
+   </tr>
+   <tr>
+    <td width=32 height=17 colspan=3></td>
+    <td width=491 height=17 colspan=11><font face=Arial color=black size=2>to
+    return the EditPart class name based on the View type passed into the</font><br>
+    </td>
+    <td width=4 height=17 colspan=2></td>
+   </tr>
+   <tr>
+    <td width=527 height=1 colspan=16></td>
+   </tr>
+   <tr>
+    <td width=32 height=17 colspan=3></td>
+    <td width=178 height=17 colspan=2><font face=Arial color=black size=2>method.
+    (i.e. LEDEditPart)</font><br>
+    </td>
+    <td width=317 height=17 colspan=11></td>
+   </tr>
+   <tr>
+    <td width=527 height=7 colspan=16></td>
+   </tr>
+   <tr>
+    <td width=16 height=17></td>
+    <td width=16 height=17 colspan=2><font face=Webdings color="#0099CC"
+    size=2>4</font></td>
+    <td width=453 height=17 colspan=8><font face=Arial color=black size=2>Define
+    the EditPart extension point and add the on-demand loading</font><br>
+    </td>
+    <td width=42 height=17 colspan=5></td>
+   </tr>
+   <tr>
+    <td width=32 height=17 colspan=3></td>
+    <td width=73 height=17><font face=Arial color=black size=2>conditions.</font><br>
+    </td>
+    <td width=422 height=17 colspan=12></td>
+   </tr>
+   <tr>
+    <td width=527 height=28 colspan=16></td>
+   </tr>
+   <tr>
+    <td width=16 height=19><font face=Wingdings color="#0099CC" size=3>§</font></td>
+    <td width=362 height=19 colspan=8><font face=Arial color=black size=3>6.
+    Displaying the shape on the diagram surface.</font><br>
+    </td>
+    <td width=149 height=19 colspan=7></td>
+   </tr>
+   <tr>
+    <td width=527 height=5 colspan=16></td>
+   </tr>
+   <tr>
+    <td width=16 height=17></td>
+    <td width=16 height=17 colspan=2><font face=Webdings color="#0099CC"
+    size=2>4</font></td>
+    <td width=461 height=17 colspan=9><font face=Arial color=black size=2>Create
+    a new draw2d IFigure subclass that overrides the paintFigure</font><br>
+    </td>
+    <td width=34 height=17 colspan=4></td>
+   </tr>
+   <tr>
+    <td width=32 height=17 colspan=3></td>
+    <td width=334 height=17 colspan=5><font face=Arial color=black size=2>routine
+    to draw the figure as desired. (LEDFigure)</font><br>
+    </td>
+    <td width=161 height=17 colspan=8></td>
+   </tr>
+   <tr>
+    <td width=527 height=7 colspan=16></td>
+   </tr>
+   <tr>
+    <td width=16 height=17></td>
+    <td width=16 height=17 colspan=2><font face=Webdings color="#0099CC"
+    size=2>4</font></td>
+    <td width=495 height=17 colspan=13><font face=Arial color=black size=2>In
+    the EditPart created in step 4, override the createNodeFigure routine to</font><br>
+    </td>
+   </tr>
+   <tr>
+    <td width=527 height=1 colspan=16></td>
+   </tr>
+   <tr>
+    <td width=32 height=17 colspan=3></td>
+    <td width=265 height=17 colspan=4><font face=Arial color=black size=2>return
+    the new Figure you just created..</font><br>
+    </td>
+    <td width=230 height=17 colspan=9></td>
+   </tr>
+  </table>
+  </td>
+  <td width=39 height=286></td>
+ </tr>
+ <tr>
+  <td width=650 height=101 colspan=5></td>
+ </tr>
+</table>
+
+</body>
+
+</html>

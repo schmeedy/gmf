@@ -1,0 +1,1388 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns:st1="urn:schemas-microsoft-com:office:smarttags"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=iso-8859-1">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 10">
+<meta name=Originator content="Microsoft Word 10">
+<link rel=File-List
+href="Service%20and%20Provider%20Tutorial_files/filelist.xml">
+<link rel=Edit-Time-Data
+href="Service%20and%20Provider%20Tutorial_files/editdata.mso">
+<!--[if !mso]>
+<style>
+v\:* {behavior:url(#default#VML);}
+o\:* {behavior:url(#default#VML);}
+w\:* {behavior:url(#default#VML);}
+.shape {behavior:url(#default#VML);}
+</style>
+<![endif]-->
+<title>Tutorial: &amp;lt;&amp;lt;Feature Name&amp;gt;&amp;gt;</title>
+<o:SmartTagType namespaceuri="urn:schemas-microsoft-com:office:smarttags"
+ name="date"/>
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>jcorchis</o:Author>
+  <o:LastAuthor>jcorchis</o:LastAuthor>
+  <o:Revision>36</o:Revision>
+  <o:TotalTime>4441</o:TotalTime>
+  <o:Created>2005-04-21T14:33:00Z</o:Created>
+  <o:LastSaved>2005-05-05T17:51:00Z</o:LastSaved>
+  <o:Pages>1</o:Pages>
+  <o:Words>2133</o:Words>
+  <o:Characters>12164</o:Characters>
+  <o:Company>Rational Software</o:Company>
+  <o:Lines>101</o:Lines>
+  <o:Paragraphs>28</o:Paragraphs>
+  <o:CharactersWithSpaces>14269</o:CharactersWithSpaces>
+  <o:Version>10.6735</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:SpellingState>Clean</w:SpellingState>
+  <w:GrammarState>Clean</w:GrammarState>
+  <w:BrowserLevel>MicrosoftInternetExplorer4</w:BrowserLevel>
+ </w:WordDocument>
+</xml><![endif]--><!--[if !mso]><object
+ classid="clsid:38481807-CA0E-42D2-BF39-B33AF135CC4D" id=ieooui></object>
+<style>
+st1\:*{behavior:url(#ieooui) }
+</style>
+<![endif]-->
+<link rel=Stylesheet type="text/css" media=all href=technote.css>
+<style>
+<!--
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-parent:"";
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+h1
+	{mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:1;
+	font-size:24.0pt;
+	font-family:"Times New Roman";
+	font-weight:bold;}
+h2
+	{mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:2;
+	font-size:18.0pt;
+	font-family:"Times New Roman";
+	font-weight:bold;}
+h3
+	{mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:3;
+	font-size:13.5pt;
+	font-style:italic;}
+p.MsoCaption, li.MsoCaption, div.MsoCaption
+	{mso-style-noshow:yes;
+	mso-style-next:Normal;
+	margin-top:6.0pt;
+	margin-right:0in;
+	margin-bottom:6.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";
+	font-weight:bold;}
+a:link, span.MsoHyperlink
+	{color:blue;
+	text-decoration:underline;
+	text-underline:single;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:blue;
+	text-decoration:underline;
+	text-underline:single;}
+p
+	{mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+code
+	{font-family:"Courier New";
+	mso-ascii-font-family:"Courier New";
+	mso-fareast-font-family:"Times New Roman";
+	mso-hansi-font-family:"Courier New";
+	mso-bidi-font-family:"Courier New";}
+pre
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:24.0pt;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt;
+	font-size:10.0pt;
+	font-family:"Courier New";
+	mso-fareast-font-family:"Times New Roman";}
+p.notabene, li.notabene, div.notabene
+	{mso-style-name:notabene;
+	mso-margin-top-alt:auto;
+	margin-right:48.0pt;
+	mso-margin-bottom-alt:auto;
+	margin-left:48.0pt;
+	mso-pagination:widow-orphan;
+	border:none;
+	mso-border-top-alt:solid windowtext .75pt;
+	mso-border-bottom-alt:solid windowtext .75pt;
+	padding:0in;
+	mso-padding-alt:4.0pt 0in 4.0pt 0in;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+p.question, li.question, div.question
+	{mso-style-name:question;
+	mso-margin-top-alt:auto;
+	margin-right:48.0pt;
+	mso-margin-bottom-alt:auto;
+	margin-left:48.0pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";
+	font-style:italic;}
+p.backto, li.backto, div.backto
+	{mso-style-name:backto;
+	mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+span.SpellE
+	{mso-style-name:"";
+	mso-spl-e:yes;}
+span.GramE
+	{mso-style-name:"";
+	mso-gram-e:yes;}
+@page Section1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.25in 1.0in 1.25in;
+	mso-header-margin:35.4pt;
+	mso-footer-margin:35.4pt;
+	mso-paper-source:0;}
+div.Section1
+	{page:Section1;}
+ /* List Definitions */
+ @list l0
+	{mso-list-id:1754820217;
+	mso-list-template-ids:-806848416;}
+@list l0:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l0:level2
+	{mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l0:level3
+	{mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l0:level4
+	{mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l0:level5
+	{mso-level-tab-stop:2.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l0:level6
+	{mso-level-tab-stop:3.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l0:level7
+	{mso-level-tab-stop:3.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l0:level8
+	{mso-level-tab-stop:4.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l0:level9
+	{mso-level-tab-stop:4.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+ol
+	{margin-bottom:0in;}
+ul
+	{margin-bottom:0in;}
+-->
+</style>
+<!--[if gte mso 10]>
+<style>
+ /* Style Definitions */
+ table.MsoNormalTable
+	{mso-style-name:"Table Normal";
+	mso-tstyle-rowband-size:0;
+	mso-tstyle-colband-size:0;
+	mso-style-noshow:yes;
+	mso-style-parent:"";
+	mso-padding-alt:0in 5.4pt 0in 5.4pt;
+	mso-para-margin:0in;
+	mso-para-margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;}
+table.MsoTableGrid
+	{mso-style-name:"Table Grid";
+	mso-tstyle-rowband-size:0;
+	mso-tstyle-colband-size:0;
+	margin-left:24.0pt;
+	border:solid windowtext 1.0pt;
+	mso-border-alt:solid windowtext .5pt;
+	mso-padding-alt:0in 5.4pt 0in 5.4pt;
+	mso-border-insideh:.5pt solid windowtext;
+	mso-border-insidev:.5pt solid windowtext;
+	mso-para-margin:0in;
+	mso-para-margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;}
+</style>
+<![endif]-->
+</head>
+
+<body lang=EN-US link=blue vlink=blue style='tab-interval:.5in'>
+
+<div class=Section1>
+
+<p class=MsoNormal><a name=top></a><img width=629 height=192 id="_x0000_i1025"
+src=logo.gif border=0></p>
+
+<h1 align=center style='text-align:center'>Tutorial: Service and Provider</h1>
+
+<table class=MsoNormalTable border=0 cellspacing=8 cellpadding=0
+ style='mso-cellspacing:6.0pt;margin-left:24.0pt;mso-padding-alt:0in 5.4pt 0in 5.4pt'>
+ <tr style='mso-yfti-irow:0;mso-yfti-lastrow:yes'>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>Version: 0.1</p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>Date: <st1:date Year="2005" Day="29" Month="4">April 29,
+   2005</st1:date></p>
+  </td>
+ </tr>
+</table>
+
+<h2>Contents</h2>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:48.0pt;text-indent:-.25in;mso-list:l0 level1 lfo2;tab-stops:list .5in'><![if !supportLists]><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Symbol;
+mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol'><span
+style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'> </span></span></span><![endif]><a
+href="#_Overview">Overview</a></p>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:48.0pt;text-indent:-.25in;mso-list:l0 level1 lfo2;tab-stops:list .5in'><![if !supportLists]><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Symbol;
+mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol'><span
+style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'> </span></span></span><![endif]><a
+href="#refs">References</a></p>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:48.0pt;text-indent:-.25in;mso-list:l0 level1 lfo2;tab-stops:list .5in'><![if !supportLists]><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Symbol;
+mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol'><span
+style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'> </span></span></span><![endif]><a
+href="#trace">Introduction</a></p>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:48.0pt;text-indent:-.25in;mso-list:l0 level1 lfo2;tab-stops:list .5in'><![if !supportLists]><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Symbol;
+mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol'><span
+style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'> </span></span></span><![endif]><a
+href="#reqs">Creating the Widget Service</a></p>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:48.0pt;text-indent:-.25in;mso-list:l0 level1 lfo2;tab-stops:list .5in'><![if !supportLists]><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Symbol;
+mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol'><span
+style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'> </span></span></span><![endif]><a
+href="#constraints">Creating the Widget Providers</a></p>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:48.0pt;text-indent:-.25in;mso-list:l0 level1 lfo2;tab-stops:list .5in'><![if !supportLists]><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Symbol;
+mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol'><span
+style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'> </span></span></span><![endif]><a
+href="#_Provider_Priorities">Provider Priorities</a></p>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:48.0pt;text-indent:-.25in;mso-list:l0 level1 lfo2;tab-stops:list .5in'><![if !supportLists]><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Symbol;
+mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol'><span
+style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'> </span></span></span><![endif]><a
+href="#_Execution_Strategies">Execution Strategies</a></p>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:48.0pt;text-indent:-.25in;mso-list:l0 level1 lfo2;tab-stops:list .5in'><![if !supportLists]><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Symbol;
+mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol'><span
+style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'> </span></span></span><![endif]><a
+href="#_Example">The Client</a></p>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:48.0pt;text-indent:-.25in;mso-list:l0 level1 lfo2;tab-stops:list .5in'><![if !supportLists]><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Symbol;
+mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol'><span
+style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'> </span></span></span><![endif]><a
+href="#models">Summary</a></p>
+
+<div class=MsoNormal align=center style='text-align:center'>
+
+<hr size=2 width="100%" align=center>
+
+</div>
+
+<h2><a name=intro></a><a name="_Overview"></a>Overview</h2>
+
+<p class=backto><span style='font-size:10.0pt'>[<a href="#top"><span
+class=GramE>back</span> to top</a>]</span></p>
+
+<p>The RMP Service Provider infrastructure provides a framework for building
+Services for clients to execute a unit of work.<span style='mso-spacerun:yes'> 
+</span>The Service depends on Providers who actually perform the work on behalf
+of the Service.<span style='mso-spacerun:yes'>  </span>Providers have a
+Priority and an optional Policy which dictate how the Service will determine
+which Provider(s) to use when executing a request on behalf of a client.<a
+name=refs></a><span style='mso-spacerun:yes'>  </span>The Service may be
+optimized in some capacity.</p>
+
+<h2>References</h2>
+
+<p class=backto><span style='font-size:10.0pt'>[<a href="#top"><span
+class=GramE>back</span> to top</a>]</span></p>
+
+<p>This tutorial assumes the reader is familiar with Eclipse extension point
+architecture.<span style='mso-spacerun:yes'>  </span>There is an abundance of on-line
+help in Eclipse for those unfamiliar with extension points.<span
+style='mso-spacerun:yes'>  </span>For reference, the full source for this
+tutorial is available <a href="service_provider_src.zip">here</a>.</p>
+
+<h2><a name=trace></a>Introduction</h2>
+
+<p class=backto><span style='font-size:10.0pt'>[<a href="#top"><span
+class=GramE>back</span> to top</a>]</span></p>
+
+<p>To demonstrate the Provider Service we will create a simple example Widget
+Service and two Widget Provider.<span style='mso-spacerun:yes'>  </span>Then we
+will create a client to uses the Widget Service to create Widgets.<span
+style='mso-spacerun:yes'>  </span>This tutorial requires only the <span
+class=SpellE>org.eclipse.gmf.runtime.common.core</span> <span class=SpellE>plugins</span>
+and its dependencies to run.</p>
+
+<h2><a name=reqs></a>Creating the Widget Service</h2>
+
+<p class=backto><span style='font-size:10.0pt'>[<a href="#top"><span
+class=GramE>back</span> to top</a>]</span></p>
+
+<p>The first step in creating a Widget Service is defining the API for your Widget
+Providers.<span style='mso-spacerun:yes'>  </span>This is done using a Java
+interfaces.<span style='mso-spacerun:yes'>  </span>The Service Provider
+infrastructure defines an <span class=SpellE><code><span style='font-size:10.0pt'>IProvider</span></code></span>
+interface that is used to define the base interface for clients. This interface
+provides the call-backs to Providers via the <span class=GramE><code><span
+style='font-size:10.0pt'>provides(</span></code></span><span class=SpellE><code><span
+style='font-size:10.0pt'>IOperation</span></code></span><code><span
+style='font-size:10.0pt'>) </span></code>method.<span
+style='mso-spacerun:yes'>  </span><span class=SpellE><code><span
+style='font-size:10.0pt'>IProvider</span></code></span> also provides a
+mechanism for Providers to receive provider change events from the
+Service.<span style='mso-spacerun:yes'>  </span>It is expected that new Providers
+extend this interface for their own purposes.<span style='mso-spacerun:yes'> 
+</span>In order to keep this tutorial simple, the Providers created in this
+tutorial do not listen to provider changes.</p>
+
+<p>To support the creation of Widgets, we will create <span class=SpellE>IWidgetProvider</span>.<span
+style='mso-spacerun:yes'>  </span>The <span class=SpellE>IWidgetProvider</span>
+extends the <span class=SpellE>IProvider</span> interface and also defines the <span
+class=SpellE><span class=GramE>createWidget</span></span><span class=GramE>(</span>)
+method where Providers carry-out the actual work of creating widgets when asked
+by the <span class=SpellE>WidgetService</span>. </p>
+
+<div style='margin-left:24.0pt'>
+
+<div style='border:solid windowtext 1.0pt;mso-border-alt:solid windowtext .75pt;
+padding:4.0pt 4.0pt 4.0pt 4.0pt'><pre style='margin-left:0in;border:none;
+mso-border-alt:solid windowtext .75pt;padding:0in;mso-padding-alt:4.0pt 4.0pt 4.0pt 4.0pt'><span
+style='color:navy'>public interface <span class=SpellE>IWidgetProvider</span><o:p></o:p></span></pre><pre
+style='margin-left:0in;border:none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 4.0pt 4.0pt 4.0pt'><span style='color:navy'><span
+style='mso-tab-count:1'>    </span>extends <span class=SpellE>IProvider</span> {<o:p></o:p></span></pre><pre
+style='margin-left:0in;border:none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 4.0pt 4.0pt 4.0pt'><span style='color:navy'><span
+style='mso-tab-count:1'>    </span><o:p></o:p></span></pre><pre
+style='margin-left:0in;border:none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 4.0pt 4.0pt 4.0pt'><span style='color:navy'><span
+style='mso-tab-count:1'>    </span>Object <span class=SpellE>createWidget</span>(<span
+class=SpellE>int</span> <span class=SpellE>orderSize</span>);<span
+style='mso-tab-count:1'>   </span><o:p></o:p></span></pre><pre
+style='margin-left:0in;border:none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 4.0pt 4.0pt 4.0pt'><span style='color:navy'><o:p>&nbsp;</o:p></span></pre><pre
+style='margin-left:0in;border:none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 4.0pt 4.0pt 4.0pt'><span style='color:navy'>}</span><span
+style='font-size:12.0pt;font-family:"Times New Roman";color:navy'><o:p></o:p></span></pre></div>
+
+</div>
+
+<p><span style='mso-spacerun:yes'> </span>Next, create the actual <span
+class=SpellE>WidgetService</span>.<span style='mso-spacerun:yes'>  </span>This
+is done by extending the abstract base class Service and implementing <span
+class=SpellE>IWidgetProvider</span>.<span style='mso-spacerun:yes'> 
+</span>Take a minute to read the code before we go through it in more detail.</p>
+
+<div style='border:solid windowtext 1.0pt;mso-border-alt:solid windowtext .75pt;
+padding:4.0pt 4.0pt 4.0pt 4.0pt;margin-left:24.0pt;margin-right:0in'><pre
+style='margin-left:0in;border:none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 4.0pt 4.0pt 4.0pt'><span class=GramE><code><span
+style='color:navy'>public</span></code></span><code><span style='color:navy'> class <span
+class=SpellE>WidgetService</span><o:p></o:p></span></code></pre><pre
+style='margin-left:0in;border:none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 4.0pt 4.0pt 4.0pt'><code><span
+style='color:navy'><span style='mso-tab-count:1'>    </span><span class=GramE>extends</span> Service<o:p></o:p></span></code></pre><pre
+style='margin-left:0in;border:none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 4.0pt 4.0pt 4.0pt'><code><span
+style='color:navy'><span style='mso-tab-count:1'>    </span><span class=GramE>implements</span> <span
+class=SpellE>IWidgetProvider</span> {<o:p></o:p></span></code></pre><pre
+style='margin-left:0in;border:none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 4.0pt 4.0pt 4.0pt'><code><span
+style='color:navy'><o:p>&nbsp;</o:p></span></code></pre><pre style='margin-left:
+0in;border:none;mso-border-alt:solid windowtext .75pt;padding:0in;mso-padding-alt:
+4.0pt 4.0pt 4.0pt 4.0pt'><code><span style='color:navy'><span style='mso-tab-count:
+1'>    </span><span class=GramE>private</span> final static <span class=SpellE>WidgetService</span> service = new <span
+class=SpellE>WidgetService</span>();<o:p></o:p></span></code></pre><pre
+style='margin-left:0in;border:none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 4.0pt 4.0pt 4.0pt'><code><span
+style='color:navy'><o:p>&nbsp;</o:p></span></code></pre><pre style='margin-left:
+0in;border:none;mso-border-alt:solid windowtext .75pt;padding:0in;mso-padding-alt:
+4.0pt 4.0pt 4.0pt 4.0pt'><code><span style='color:navy'><span style='mso-tab-count:
+1'>    </span><span class=GramE>public</span> static <span class=SpellE>WidgetService</span> <span
+class=SpellE>getInstance</span>() {<o:p></o:p></span></code></pre><pre
+style='margin-left:0in;border:none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 4.0pt 4.0pt 4.0pt'><code><span
+style='color:navy'><span style='mso-tab-count:2'>           </span><span
+class=GramE>return</span> service;<o:p></o:p></span></code></pre><pre
+style='margin-left:0in;border:none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 4.0pt 4.0pt 4.0pt'><code><span
+style='color:navy'><span style='mso-tab-count:1'>    </span>}<o:p></o:p></span></code></pre><pre
+style='margin-left:0in;border:none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 4.0pt 4.0pt 4.0pt'><code><span
+style='color:navy'><o:p>&nbsp;</o:p></span></code></pre><pre style='margin-left:
+0in;border:none;mso-border-alt:solid windowtext .75pt;padding:0in;mso-padding-alt:
+4.0pt 4.0pt 4.0pt 4.0pt'><code><span style='color:navy'><span style='mso-tab-count:
+1'>    </span><span class=GramE>public</span> Object <span class=SpellE>createWidget</span>(<span
+class=SpellE>int</span> <span class=SpellE>orderSize</span>) {<o:p></o:p></span></code></pre><pre
+style='margin-left:0in;border:none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 4.0pt 4.0pt 4.0pt'><code><span
+style='color:navy'><span style='mso-tab-count:2'>           </span><span
+class=GramE>return</span> execute(new <span class=SpellE>CreateWidgetOperation</span>(<span
+class=SpellE>orderSize</span>));<o:p></o:p></span></code></pre><pre
+style='margin-left:0in;border:none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 4.0pt 4.0pt 4.0pt'><code><span
+style='color:navy'><span style='mso-tab-count:2'>           </span><o:p></o:p></span></code></pre><pre
+style='margin-left:0in;border:none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 4.0pt 4.0pt 4.0pt'><code><span
+style='color:navy'><span style='mso-tab-count:1'>    </span>}<span
+style='mso-tab-count:1'>       </span><o:p></o:p></span></code></pre><pre
+style='margin-left:0in;border:none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 4.0pt 4.0pt 4.0pt'><code><span
+style='color:navy'><span style='mso-tab-count:1'>    </span><o:p></o:p></span></code></pre><pre
+style='margin-left:0in;border:none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 4.0pt 4.0pt 4.0pt'><code><span
+style='color:navy'><span style='mso-tab-count:1'>    </span><span class=GramE>public</span> Object execute(<span
+class=SpellE>IOperation</span> operation) {<o:p></o:p></span></code></pre><pre
+style='margin-left:0in;border:none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 4.0pt 4.0pt 4.0pt'><code><span
+style='color:navy'><span style='mso-tab-count:2'>           </span> List results = <span
+class=GramE>execute(</span><span class=SpellE>ExecutionStrategy.FIRST</span>, operation);<o:p></o:p></span></code></pre><pre
+style='margin-left:0in;border:none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 4.0pt 4.0pt 4.0pt'><code><span
+style='color:navy'><span style='mso-tab-count:2'>           </span> <span
+class=GramE>return</span> <span class=SpellE>results.isEmpty</span>() ? null : results;<o:p></o:p></span></code></pre><pre
+style='margin-left:0in;border:none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 4.0pt 4.0pt 4.0pt'><code><span
+style='color:navy'><span style='mso-tab-count:1'>    </span>}<o:p></o:p></span></code></pre><pre
+style='margin-left:0in;border:none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 4.0pt 4.0pt 4.0pt'><code><span
+style='color:navy'><span style='mso-tab-count:1'>    </span><o:p></o:p></span></code></pre><pre
+style='margin-left:0in;border:none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 4.0pt 4.0pt 4.0pt'><code><span
+style='color:navy'><span style='mso-tab-count:1'>    </span><span class=GramE>protected</span> <span
+class=SpellE>Service.ProviderDescriptor</span> <span class=SpellE>newProviderDescriptor</span>(<span
+class=SpellE>IConfigurationElement</span> element) {<o:p></o:p></span></code></pre><pre
+style='margin-left:0in;border:none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 4.0pt 4.0pt 4.0pt'><code><span
+style='color:navy'><span style='mso-tab-count:2'>           </span><span
+class=GramE>return</span> new <span class=SpellE>WidgetProviderDescriptor</span>(element);<o:p></o:p></span></code></pre><pre
+style='margin-left:0in;border:none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 4.0pt 4.0pt 4.0pt'><code><span
+style='color:navy'><span style='mso-tab-count:1'>    </span>}<span
+style='mso-tab-count:1'>       </span><o:p></o:p></span></code></pre><pre
+style='margin-left:0in;border:none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 4.0pt 4.0pt 4.0pt'><code><span
+style='color:navy'><span style='mso-tab-count:1'>    </span><o:p></o:p></span></code></pre><pre
+style='margin-left:0in;border:none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 4.0pt 4.0pt 4.0pt'><code><span
+style='color:navy'><span style='mso-tab-count:1'>    </span><o:p></o:p></span></code></pre><pre
+style='margin-left:0in;border:none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 4.0pt 4.0pt 4.0pt'><code><span
+style='color:navy'><span style='mso-tab-count:1'>    </span><span class=GramE>protected</span> static class <span
+class=SpellE>WidgetProviderDescriptor</span><o:p></o:p></span></code></pre><pre
+style='margin-left:0in;border:none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 4.0pt 4.0pt 4.0pt'><code><span
+style='color:navy'><span style='mso-tab-count:2'>           </span><span
+class=GramE>extends</span> <span class=SpellE>Service.ProviderDescriptor</span> {<o:p></o:p></span></code></pre><pre
+style='margin-left:0in;border:none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 4.0pt 4.0pt 4.0pt'><code><span
+style='color:navy'><o:p>&nbsp;</o:p></span></code></pre><pre style='margin-left:
+0in;border:none;mso-border-alt:solid windowtext .75pt;padding:0in;mso-padding-alt:
+4.0pt 4.0pt 4.0pt 4.0pt'><code><span style='color:navy'><span style='mso-tab-count:
+2'>           </span><span class=GramE>private</span> <span class=SpellE>WidgetServiceProviderConfiguration</span> <span
+class=SpellE>providerConfiguration</span>;<o:p></o:p></span></code></pre><pre
+style='margin-left:0in;border:none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 4.0pt 4.0pt 4.0pt'><code><span
+style='color:navy'><o:p>&nbsp;</o:p></span></code></pre><pre style='margin-left:
+0in;border:none;mso-border-alt:solid windowtext .75pt;padding:0in;mso-padding-alt:
+4.0pt 4.0pt 4.0pt 4.0pt'><code><span style='color:navy'><span style='mso-tab-count:
+2'>           </span><span class=GramE>public</span> <span class=SpellE>WidgetProviderDescriptor</span>(<span
+class=SpellE>IConfigurationElement</span> element) {<o:p></o:p></span></code></pre><pre
+style='margin-left:0in;border:none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 4.0pt 4.0pt 4.0pt'><code><span
+style='color:navy'><span style='mso-tab-count:2'>           </span><span
+style='mso-tab-count:1'>        </span><span class=GramE>super(</span>element);<o:p></o:p></span></code></pre><pre
+style='margin-left:0in;border:none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 4.0pt 4.0pt 4.0pt'><code><span
+style='color:navy'><o:p>&nbsp;</o:p></span></code></pre><pre style='margin-left:
+0in;border:none;mso-border-alt:solid windowtext .75pt;padding:0in;mso-padding-alt:
+4.0pt 4.0pt 4.0pt 4.0pt'><code><span style='color:navy'><span style='mso-tab-count:
+3'>                   </span><span class=SpellE>this.providerConfiguration</span> =<o:p></o:p></span></code></pre><pre
+style='margin-left:0in;border:none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 4.0pt 4.0pt 4.0pt'><code><span
+style='color:navy'><span style='mso-tab-count:4'>                           </span><span
+class=SpellE><span class=GramE>WidgetServiceProviderConfiguration.parse</span></span><span
+class=GramE>(</span>element);<o:p></o:p></span></code></pre><pre
+style='margin-left:0in;border:none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 4.0pt 4.0pt 4.0pt'><code><span
+style='color:navy'><span style='mso-tab-count:3'>                   </span><span
+class=GramE>assert</span> null != element : &quot;NULL configuration element&quot;; //$NON-NLS-1$<o:p></o:p></span></code></pre><pre
+style='margin-left:0in;border:none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 4.0pt 4.0pt 4.0pt'><code><span
+style='color:navy'><span style='mso-tab-count:2'>           </span>}<o:p></o:p></span></code></pre><pre
+style='margin-left:0in;border:none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 4.0pt 4.0pt 4.0pt'><code><span
+style='color:navy'><o:p>&nbsp;</o:p></span></code></pre><pre style='margin-left:
+0in;border:none;mso-border-alt:solid windowtext .75pt;padding:0in;mso-padding-alt:
+4.0pt 4.0pt 4.0pt 4.0pt'><code><span style='color:navy'><span style='mso-tab-count:
+2'>           </span><span class=GramE>public</span> <span class=SpellE>boolean</span> provides(<span
+class=SpellE>IOperation</span> operation) {<o:p></o:p></span></code></pre><pre
+style='margin-left:0in;border:none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 4.0pt 4.0pt 4.0pt'><code><span
+style='color:navy'><span style='mso-tab-count:3'>                   </span><span
+class=GramE>if</span> (<span class=SpellE>getPolicy</span>() != null)<o:p></o:p></span></code></pre><pre
+style='margin-left:0in;border:none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 4.0pt 4.0pt 4.0pt'><code><span
+style='color:navy'><span style='mso-tab-count:4'>                           </span><span
+class=GramE>return</span> <span class=SpellE>getPolicy</span>().provides(operation);<o:p></o:p></span></code></pre><pre
+style='margin-left:0in;border:none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 4.0pt 4.0pt 4.0pt'><code><span
+style='color:navy'><span style='mso-tab-count:3'>                   </span><span
+class=GramE>if</span> (provider == null) {<o:p></o:p></span></code></pre><pre
+style='margin-left:0in;border:none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 4.0pt 4.0pt 4.0pt'><code><span
+style='color:navy'><span style='mso-tab-count:4'>                           </span><span
+class=GramE>if</span> (<span class=SpellE>isSupportedInExtention</span>(operation)) {<o:p></o:p></span></code></pre><pre
+style='margin-left:0in;border:none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 4.0pt 4.0pt 4.0pt'><code><span
+style='color:navy'><span style='mso-tab-count:5'>                                  </span><span
+class=SpellE><span class=GramE>providerConfiguration</span></span> = null;<o:p></o:p></span></code></pre><pre
+style='margin-left:0in;border:none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 4.0pt 4.0pt 4.0pt'><code><span
+style='color:navy'><span style='mso-tab-count:5'>                                  </span><span
+class=GramE>return</span> <span class=SpellE>getProvider</span>().provides(operation);<o:p></o:p></span></code></pre><pre
+style='margin-left:0in;border:none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 4.0pt 4.0pt 4.0pt'><code><span
+style='color:navy'><span style='mso-tab-count:4'>                           </span>}<o:p></o:p></span></code></pre><pre
+style='margin-left:0in;border:none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 4.0pt 4.0pt 4.0pt'><code><span
+style='color:navy'><span style='mso-tab-count:4'>                           </span><span
+class=GramE>return</span> false;<o:p></o:p></span></code></pre><pre
+style='margin-left:0in;border:none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 4.0pt 4.0pt 4.0pt'><code><span
+style='color:navy'><span style='mso-tab-count:3'>                   </span>}<o:p></o:p></span></code></pre><pre
+style='margin-left:0in;border:none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 4.0pt 4.0pt 4.0pt'><code><span
+style='color:navy'><span style='mso-tab-count:3'>                   </span><span
+class=GramE>return</span> <span class=SpellE>getProvider</span>().provides(operation);<o:p></o:p></span></code></pre><pre
+style='margin-left:0in;border:none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 4.0pt 4.0pt 4.0pt'><code><span
+style='color:navy'><span style='mso-tab-count:2'>           </span>}<o:p></o:p></span></code></pre><pre
+style='margin-left:0in;border:none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 4.0pt 4.0pt 4.0pt'><code><span
+style='color:navy'><o:p>&nbsp;</o:p></span></code></pre><pre style='margin-left:
+0in;border:none;mso-border-alt:solid windowtext .75pt;padding:0in;mso-padding-alt:
+4.0pt 4.0pt 4.0pt 4.0pt'><code><span style='color:navy'><span style='mso-tab-count:
+2'>           </span><span class=GramE>private</span> <span class=SpellE>boolean</span> <span
+class=SpellE>isSupportedInExtention</span>(<span class=SpellE>IOperation</span> operation) {<o:p></o:p></span></code></pre><pre
+style='margin-left:0in;border:none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 4.0pt 4.0pt 4.0pt'><code><span
+style='color:navy'><span style='mso-tab-count:3'>                   </span><o:p></o:p></span></code></pre><pre
+style='margin-left:0in;border:none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 4.0pt 4.0pt 4.0pt'><code><span
+style='color:navy'><span style='mso-tab-count:3'>                   </span><span
+class=GramE>if</span> (operation <span class=SpellE>instanceof</span> <span
+class=SpellE>CreateWidgetOperation</span>) {<o:p></o:p></span></code></pre><pre
+style='margin-left:0in;border:none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 4.0pt 4.0pt 4.0pt'><code><span
+style='color:navy'><span style='mso-tab-count:4'>                           </span><span
+class=GramE>return</span> <span class=SpellE>providerConfiguration.supports</span>(((<span
+class=SpellE>CreateWidgetOperation</span>)operation).<span class=SpellE>getOrderSize</span>());<o:p></o:p></span></code></pre><pre
+style='margin-left:0in;border:none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 4.0pt 4.0pt 4.0pt'><code><span
+style='color:navy'><span style='mso-tab-count:3'>                   </span>}<o:p></o:p></span></code></pre><pre
+style='margin-left:0in;border:none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 4.0pt 4.0pt 4.0pt'><code><span
+style='color:navy'><span style='mso-tab-count:3'>                   </span><span
+class=GramE>return</span> false;<o:p></o:p></span></code></pre><pre
+style='margin-left:0in;border:none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 4.0pt 4.0pt 4.0pt'><code><span
+style='color:navy'><span style='mso-tab-count:2'>           </span>}<o:p></o:p></span></code></pre><pre
+style='margin-left:0in;border:none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 4.0pt 4.0pt 4.0pt'><code><span
+style='color:navy'><span style='mso-tab-count:1'>    </span>}<span
+style='mso-tab-count:1'>       </span><o:p></o:p></span></code></pre><pre
+style='margin-left:0in;border:none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 4.0pt 4.0pt 4.0pt'><code><span
+style='color:navy'>}<o:p></o:p></span></code></pre></div>
+
+<p>First, notice that the <span class=SpellE>WidgetService</span> is a static instance.<span
+style='mso-spacerun:yes'>  </span>This is needed to support the initialization of
+the Widget <span class=GramE>Providers,</span> we will get to that in more
+detail in a minute.</p>
+
+<p>Next, notice that the <span class=SpellE>WidgetService</span> implements <span
+class=SpellE>IWidgetProvider</span> by delegating the service request to the
+actual Service.<span style='mso-spacerun:yes'>  </span>This is done by calling the
+Service&#8217;s <span class=GramE>execute(</span><span class=SpellE>ExecutionStrategy</span>,
+<span class=SpellE>IOperation</span>) method.<span style='mso-spacerun:yes'> 
+</span>Again, don&#8217;t worry about the understanding the <span class=SpellE>ExecutionStrategy</span>,
+we explain the <span class=SpellE>ExecutionStrategies</span> that later.<span
+style='mso-spacerun:yes'>  </span>At this point the Service will find Providers
+for the given <span class=SpellE>IOperation</span> and delegate the work
+required in the <span class=SpellE>IOperation</span> to them.<span
+style='mso-spacerun:yes'>  </span>Then return the results for the work done by
+the Providers back to the client.</p>
+
+<p>Now back to the Provider initialization.<span style='mso-spacerun:yes'> 
+</span>In order to know about potential Providers for a given <span
+class=SpellE>IOperation</span>, the Service will find them by examining all the
+extensions of <span class=SpellE>widgetProvider</span> extension-point.<span
+style='mso-spacerun:yes'>  </span>These <span class=SpellE>widgetProviders</span>
+are registered with the Service as <span class=SpellE>WidgetProviderDescriptors</span>.<span
+style='mso-spacerun:yes'>  </span>Which are used by the service to determine if
+a particular Provider provides for the operation via <span class=GramE>provides(</span><span
+class=SpellE>IOperation</span>).<span style='mso-spacerun:yes'>  </span>Since
+the providers are registered this way we don&#8217;t have to worry about a <span
+class=SpellE>plugin</span> not being loaded in order to contribute to the
+Service.<span style='mso-spacerun:yes'>  </span>The service will load the
+Provider&#8217;s corresponding <span class=SpellE>plugin</span> when required.</p>
+
+<p><span style='mso-bidi-font-size:10.0pt'>Registration of the Providers is done
+in the <span class=GramE>startup(</span>) method of the <span class=SpellE>WidgetService&#8217;s</span>
+corresponding <span class=SpellE>xxPlugin.java</span>.<span
+style='mso-spacerun:yes'>  </span>The following code fragment shows the
+mechanics of the static initialization of Providers.<o:p></o:p></span></p>
+
+<div style='margin-left:24.0pt'>
+
+<div style='border:solid windowtext 1.0pt;mso-border-alt:solid windowtext .75pt;
+padding:4.0pt 4.0pt 4.0pt 4.0pt'><pre style='margin-left:0in;border:none;
+mso-border-alt:solid windowtext .75pt;padding:0in;mso-padding-alt:4.0pt 4.0pt 4.0pt 4.0pt'><span
+style='color:navy'><span style='mso-tab-count:1'>    </span><span class=GramE>public</span> static final String WIDGET_SERVICE_EXTENSION_POINT = &#8220;<span
+class=SpellE>widgetProviders</span>&#8221;;<o:p></o:p></span></pre><pre
+style='margin-left:0in;border:none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 4.0pt 4.0pt 4.0pt'><span style='color:navy'><o:p>&nbsp;</o:p></span></pre><pre
+style='margin-left:0in;border:none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 4.0pt 4.0pt 4.0pt'><span style='color:navy'><span
+style='mso-tab-count:1'>    </span><span class=GramE>public</span> void startup() {<o:p></o:p></span></pre><pre
+style='margin-left:0in;border:none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 4.0pt 4.0pt 4.0pt'><span style='color:navy'><span style='mso-spacerun:yes'>          </span><span
+class=SpellE><span class=GramE>super.startup</span></span><span class=GramE>(</span>);<o:p></o:p></span></pre><pre
+style='margin-left:0in;border:none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 4.0pt 4.0pt 4.0pt'><span style='color:navy'><span style='mso-spacerun:yes'>          </span><span
+class=SpellE><span class=GramE>configureWidgetProviders</span></span><span
+class=GramE>(</span>);<o:p></o:p></span></pre><pre style='margin-left:0in;
+border:none;mso-border-alt:solid windowtext .75pt;padding:0in;mso-padding-alt:
+4.0pt 4.0pt 4.0pt 4.0pt'><span style='color:navy'><span style='mso-spacerun:yes'>   </span>}<o:p></o:p></span></pre><pre
+style='margin-left:0in;border:none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 4.0pt 4.0pt 4.0pt'><span style='color:navy'><o:p>&nbsp;</o:p></span></pre><pre
+style='margin-left:0in;border:none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 4.0pt 4.0pt 4.0pt'><span style='color:navy'><span
+style='mso-tab-count:1'>    </span><span class=GramE>public</span> void <span
+class=SpellE>configureWidgetProviders</span>() {<o:p></o:p></span></pre><pre
+style='margin-left:0in;border:none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 4.0pt 4.0pt 4.0pt'><span style='color:navy'><span
+style='mso-tab-count:2'>           </span><span class=SpellE>WidgetService.getInstance</span>().<span
+class=SpellE>configureProviders</span>(<o:p></o:p></span></pre><pre
+style='margin-left:0in;border:none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 4.0pt 4.0pt 4.0pt'><span style='color:navy'><span
+style='mso-tab-count:3'>                   </span><span class=SpellE>Platform.getExtensionRegistry</span>().<span
+class=SpellE>getExtensionPoint</span>(<span class=SpellE>getPluginId</span>(),<o:p></o:p></span></pre><pre
+style='margin-left:0in;border:none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 4.0pt 4.0pt 4.0pt'><span style='color:navy'><span
+style='mso-tab-count:4'>                           </span>WIDGET_SERVICE_EXTENSION_POINT).<span
+class=SpellE>getConfigurationElements</span>());<span style='mso-tab-count:
+2'>   </span><o:p></o:p></span></pre><pre style='margin-left:0in;border:none;
+mso-border-alt:solid windowtext .75pt;padding:0in;mso-padding-alt:4.0pt 4.0pt 4.0pt 4.0pt'><span
+style='mso-tab-count:1'>    </span>}<span style='mso-tab-count:1'>       </span></pre></div>
+
+</div>
+
+<p>Finally, define the &#8220;<span class=SpellE>widgetProviders</span>&#8221; extension-point
+for Providers to extend in the <span class=SpellE>plugin.xml</span>.<o:p></o:p></p>
+
+<div style='border:solid windowtext 1.0pt;mso-border-alt:solid windowtext .75pt;
+padding:4.0pt 4.0pt 4.0pt 4.0pt;margin-left:24.0pt;margin-right:0in'><pre
+style='margin-left:0in;border:none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 4.0pt 4.0pt 4.0pt'><code><span
+style='color:navy'>&lt;extension-point id=&quot;<span class=SpellE>widgetProviders</span>&quot; name=&quot;%<span
+class=SpellE>extPoint.widgetProviders</span>&quot; schema=&quot;schema/<span
+class=SpellE>widgetProviders.exsd</span>&quot;/&gt;<o:p></o:p></span></code></pre></div>
+
+<p style='margin-left:0in;tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><o:p>&nbsp;</o:p></p>
+
+<h2 style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><a
+name=constraints></a>Creating the Providers</h2>
+
+<p class=backto style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span
+style='font-size:10.0pt'>[<a href="#top"><span class=GramE>back</span> to top</a>]</span></p>
+
+<p style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'>Now
+we create the Providers that actually carry-out the requests on behalf of the
+Service.<span style='mso-spacerun:yes'>  </span>The first step in creating a
+Provider is to create an extension of the <span class=SpellE>widgetProvider</span>
+extension-point for the <span class=SpellE>WidgetProvider</span>.<span
+style='mso-spacerun:yes'>  </span>In the extension, you also define what type
+of request the Provider can handle and the Priority of the Provider.<span
+style='mso-spacerun:yes'>  </span>For our <span class=SpellE>WidgetProvider</span>,
+we have a low Priority Provider that supports widget order sizes between 50 and
+5000 widgets.</p>
+
+<div style='margin-left:24.0pt'>
+
+<div style='border:solid windowtext 1.0pt;mso-border-alt:solid windowtext .75pt;
+padding:4.0pt 4.0pt 4.0pt 4.0pt'><pre style='margin-left:0in;border:none;
+mso-border-alt:solid windowtext .75pt;padding:0in;mso-padding-alt:4.0pt 4.0pt 4.0pt 4.0pt'><span
+style='color:navy;background:white;mso-highlight:white'><span style='mso-spacerun:yes'>   </span>&lt;extension point=&quot;org.eclipse.gmf.examples.runtime.common.service.widgetProviders&quot;&gt;</span><span
+style='color:navy'><o:p></o:p></span></pre><pre style='margin-left:0in;
+border:none;mso-border-alt:solid windowtext .75pt;padding:0in;mso-padding-alt:
+4.0pt 4.0pt 4.0pt 4.0pt'><span style='color:navy;background:white;mso-highlight:
+white'><span style='mso-spacerun:yes'>      </span>&lt;<span class=SpellE>widgetProvider</span> class=&quot;org.eclipse.gmf.examples.runtime.common.service.providers.WidgetProvider&quot;&gt;</span><span
+style='color:navy'><o:p></o:p></span></pre><pre style='margin-left:0in;
+border:none;mso-border-alt:solid windowtext .75pt;padding:0in;mso-padding-alt:
+4.0pt 4.0pt 4.0pt 4.0pt'><span style='color:navy;background:white;mso-highlight:
+white'><span style='mso-spacerun:yes'>         </span>&lt;Priority name=&quot;Low&quot;/&gt;</span><span
+style='color:navy'><o:p></o:p></span></pre><pre style='margin-left:0in;
+border:none;mso-border-alt:solid windowtext .75pt;padding:0in;mso-padding-alt:
+4.0pt 4.0pt 4.0pt 4.0pt'><span style='color:navy;background:white;mso-highlight:
+white'><span style='mso-spacerun:yes'>         </span>&lt;<span class=SpellE>orderSize</span> max=&quot;5000&quot; min=&quot;50&quot;/&gt;</span><span
+style='color:navy'><o:p></o:p></span></pre><pre style='margin-left:0in;
+border:none;mso-border-alt:solid windowtext .75pt;padding:0in;mso-padding-alt:
+4.0pt 4.0pt 4.0pt 4.0pt'><span style='color:navy;background:white;mso-highlight:
+white'><span style='mso-spacerun:yes'>      </span>&lt;/<span class=SpellE>widgetProvider</span>&gt;</span><span
+style='color:navy'><o:p></o:p></span></pre><pre style='margin-left:0in;
+border:none;mso-border-alt:solid windowtext .75pt;padding:0in;mso-padding-alt:
+4.0pt 4.0pt 4.0pt 4.0pt'><span style='color:navy;background:white;mso-highlight:
+white'><span style='mso-spacerun:yes'>   </span>&lt;/extension&gt;</span><span
+style='color:navy'><o:p></o:p></span></pre></div>
+
+</div>
+
+<p style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'>Next
+we implement <span class=SpellE>WidgetProvider.java</span> as follows. The key
+point here is to ensure that your XML based configuration matches the Provider
+itself.<span style='mso-spacerun:yes'>  </span>In this case we are concerned
+with matching the order size.</p>
+
+<div style='margin-left:24.0pt'>
+
+<div style='border:solid windowtext 1.0pt;mso-border-alt:solid windowtext .75pt;
+padding:4.0pt 4.0pt 4.0pt 4.0pt'><pre style='margin-left:0in;border:none;
+mso-border-alt:solid windowtext .75pt;padding:0in;mso-padding-alt:4.0pt 4.0pt 4.0pt 4.0pt'><span
+style='color:navy'><span style='mso-tab-count:1'>    </span><span class=GramE>public</span> <span
+class=SpellE>boolean</span> provides(<span class=SpellE>IOperation</span> operation) {<o:p></o:p></span></pre><pre
+style='margin-left:0in;border:none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 4.0pt 4.0pt 4.0pt'><span style='color:navy'><span
+style='mso-tab-count:2'>           </span>if (operation <span class=SpellE>instanceof</span> <span
+class=SpellE>CreateWidgetOperation</span>) {<o:p></o:p></span></pre><pre
+style='margin-left:0in;border:none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 4.0pt 4.0pt 4.0pt'><span style='color:navy'><span
+style='mso-tab-count:3'>                   </span><span class=SpellE>int</span> <span
+class=SpellE>orderSize</span> = ((<span class=SpellE>CreateWidgetOperation</span>)operation).<span
+class=SpellE>getOrderSize</span>();<o:p></o:p></span></pre><pre
+style='margin-left:0in;border:none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 4.0pt 4.0pt 4.0pt'><span style='color:navy'><span
+style='mso-tab-count:3'>                   </span>return (<span class=SpellE>orderSize</span> &gt;= 100 &amp;&amp; <span
+class=SpellE>orderSize</span> &lt;= 10000);<o:p></o:p></span></pre><pre
+style='margin-left:0in;border:none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 4.0pt 4.0pt 4.0pt'><span style='color:navy'><span
+style='mso-tab-count:2'>           </span>}<o:p></o:p></span></pre><pre
+style='margin-left:0in;border:none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 4.0pt 4.0pt 4.0pt'><span style='color:navy'><span
+style='mso-tab-count:2'>           </span>return false;<o:p></o:p></span></pre><pre
+style='margin-left:0in;border:none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 4.0pt 4.0pt 4.0pt'><span style='color:navy'><span
+style='mso-tab-count:1'>    </span>}<o:p></o:p></span></pre><pre
+style='margin-left:0in;border:none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 4.0pt 4.0pt 4.0pt'><span style='color:navy'><o:p>&nbsp;</o:p></span></pre><pre
+style='margin-left:0in;border:none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 4.0pt 4.0pt 4.0pt'><span style='color:navy'><span
+style='mso-tab-count:1'>    </span><span class=GramE>public</span> Object <span
+class=SpellE>createWidget</span>(<span class=SpellE>int</span> <span
+class=SpellE>orderSize</span>) {<o:p></o:p></span></pre><pre style='margin-left:
+0in;border:none;mso-border-alt:solid windowtext .75pt;padding:0in;mso-padding-alt:
+4.0pt 4.0pt 4.0pt 4.0pt'><span style='color:navy'><span style='mso-tab-count:
+2'>           </span>List widgets = new <span class=SpellE><span class=GramE>ArrayList</span></span><span
+class=GramE>(</span><span class=SpellE>orderSize</span>);<o:p></o:p></span></pre><pre
+style='margin-left:0in;border:none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 4.0pt 4.0pt 4.0pt'><span style='color:navy'><span
+style='mso-tab-count:2'>           </span><span class=GramE>for</span> (<span
+class=SpellE>int</span> <span class=SpellE>i</span> = 0; <span class=SpellE>i</span> &lt; <span
+class=SpellE>orderSize</span>; <span class=SpellE>i</span>++) {<o:p></o:p></span></pre><pre
+style='margin-left:0in;border:none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 4.0pt 4.0pt 4.0pt'><span style='color:navy'><span
+style='mso-tab-count:3'>                   </span><span class=SpellE><span
+class=GramE>widgets.add</span></span><span class=GramE>(</span>I, &#8220;widget&#8221;);<o:p></o:p></span></pre><pre
+style='margin-left:0in;border:none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 4.0pt 4.0pt 4.0pt'><span style='color:navy'><span
+style='mso-tab-count:2'>           </span>}<o:p></o:p></span></pre><pre
+style='margin-left:0in;border:none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 4.0pt 4.0pt 4.0pt'><span style='color:navy'><span
+style='mso-tab-count:2'>           </span><span class=GramE>return</span> widgets;<o:p></o:p></span></pre><pre
+style='margin-left:0in;border:none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 4.0pt 4.0pt 4.0pt'><span style='color:navy'><span
+style='mso-tab-count:1'>    </span>}<o:p></o:p></span></pre></div>
+
+</div>
+
+<p style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'>To
+create the second provider follow the same steps are the first.<span
+style='mso-spacerun:yes'>  </span>However, there are a few subtle
+differences.<span style='mso-spacerun:yes'>  </span>Change the Provider
+priority from Low to High and change the order size<span
+style='mso-spacerun:yes'>  </span>to 100 &lt;= order size &lt;= 10000.</p>
+
+<div style='margin-left:24.0pt'>
+
+<div style='border:solid windowtext 1.0pt;mso-border-alt:solid windowtext .75pt;
+padding:4.0pt 4.0pt 4.0pt 4.0pt'><pre style='margin-left:0in;border:none;
+mso-border-alt:solid windowtext .75pt;padding:0in;mso-padding-alt:4.0pt 4.0pt 4.0pt 4.0pt'><span
+style='color:navy;background:white;mso-highlight:white'><span style='mso-spacerun:yes'>   </span>&lt;extension point=&quot;org.eclipse.gmf.examples.runtime.common.service.widgetProviders&quot;&gt;</span><span
+style='color:navy'><o:p></o:p></span></pre><pre style='margin-left:0in;
+border:none;mso-border-alt:solid windowtext .75pt;padding:0in;mso-padding-alt:
+4.0pt 4.0pt 4.0pt 4.0pt'><span style='color:navy;background:white;mso-highlight:
+white'><span style='mso-spacerun:yes'>      </span>&lt;<span class=SpellE>widgetProvider</span> class=&quot;org.eclipse.gmf.examples.runtime.common.service.providers.SuperWidgetProvider&quot;&gt;</span><span
+style='color:navy'><o:p></o:p></span></pre><pre style='margin-left:0in;
+border:none;mso-border-alt:solid windowtext .75pt;padding:0in;mso-padding-alt:
+4.0pt 4.0pt 4.0pt 4.0pt'><span style='color:navy;background:white;mso-highlight:
+white'><span style='mso-spacerun:yes'>         </span>&lt;Priority name=&quot;High&quot;/&gt;</span><span
+style='color:navy'><o:p></o:p></span></pre><pre style='margin-left:0in;
+border:none;mso-border-alt:solid windowtext .75pt;padding:0in;mso-padding-alt:
+4.0pt 4.0pt 4.0pt 4.0pt'><span style='color:navy;background:white;mso-highlight:
+white'><span style='mso-spacerun:yes'>         </span>&lt;<span class=SpellE>orderSize</span> max=&quot;10000&quot; min=&quot;100&quot;/&gt; </span><span
+style='color:navy'><o:p></o:p></span></pre><pre style='margin-left:0in;
+border:none;mso-border-alt:solid windowtext .75pt;padding:0in;mso-padding-alt:
+4.0pt 4.0pt 4.0pt 4.0pt'><span style='color:navy;background:white;mso-highlight:
+white'><span style='mso-spacerun:yes'>      </span>&lt;/<span class=SpellE>widgetProvider</span>&gt;<span style='mso-spacerun:yes'>     </span></span><span
+style='color:navy'><o:p></o:p></span></pre><pre style='margin-left:0in;
+border:none;mso-border-alt:solid windowtext .75pt;padding:0in;mso-padding-alt:
+4.0pt 4.0pt 4.0pt 4.0pt'><span style='color:navy;background:white;mso-highlight:
+white'><span style='mso-spacerun:yes'>  </span><span style='mso-spacerun:yes'> </span>&lt;/extension&gt;<span style='mso-spacerun:yes'>   </span></span><span
+style='color:navy'><o:p></o:p></span></pre></div>
+
+</div>
+
+<p style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'>Again,
+create <span class=SpellE>SuperWidgetProvider</span> by implementing <span
+class=SpellE>IWidgetProvider</span>.</p>
+
+<div style='margin-left:24.0pt'>
+
+<div style='border:solid windowtext 1.0pt;mso-border-alt:solid windowtext .75pt;
+padding:4.0pt 4.0pt 4.0pt 4.0pt'><pre style='margin-left:0in;border:none;
+mso-border-alt:solid windowtext .75pt;padding:0in;mso-padding-alt:4.0pt 4.0pt 4.0pt 4.0pt'><code><span
+style='color:navy'><span style='mso-tab-count:1'>    </span><span class=GramE>public</span> <span
+class=SpellE>boolean</span> provides(<span class=SpellE>IOperation</span> operation) {<o:p></o:p></span></code></pre><pre
+style='margin-left:0in;border:none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 4.0pt 4.0pt 4.0pt'><code><span
+style='color:navy'><span style='mso-tab-count:2'>           </span>if (operation <span
+class=SpellE>instanceof</span> <span class=SpellE>CreateWidgetOperation</span>) {<o:p></o:p></span></code></pre><pre
+style='margin-left:0in;border:none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 4.0pt 4.0pt 4.0pt'><code><span
+style='color:navy'><span style='mso-tab-count:3'>                   </span><span
+class=SpellE>int</span> <span class=SpellE>orderSize</span> = ((<span
+class=SpellE>CreateWidgetOperation</span>)operation).<span class=SpellE>getOrderSize</span>();<o:p></o:p></span></code></pre><pre
+style='margin-left:0in;border:none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 4.0pt 4.0pt 4.0pt'><code><span
+style='color:navy'><span style='mso-tab-count:3'>                   </span>return (<span
+class=SpellE>orderSize</span> &gt;= 50 &amp;&amp; <span class=SpellE>orderSize</span> &lt;= 5000);<o:p></o:p></span></code></pre><pre
+style='margin-left:0in;border:none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 4.0pt 4.0pt 4.0pt'><code><span
+style='color:navy'><span style='mso-tab-count:2'>           </span>}<o:p></o:p></span></code></pre><pre
+style='margin-left:0in;border:none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 4.0pt 4.0pt 4.0pt'><code><span
+style='color:navy'><span style='mso-tab-count:2'>           </span>return false;<o:p></o:p></span></code></pre><pre
+style='margin-left:0in;border:none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 4.0pt 4.0pt 4.0pt'><code><span
+style='color:navy'><span style='mso-tab-count:1'>    </span>}<o:p></o:p></span></code></pre><pre
+style='margin-left:0in;border:none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 4.0pt 4.0pt 4.0pt'><code><span
+style='color:navy'><o:p>&nbsp;</o:p></span></code></pre><pre style='margin-left:
+0in;border:none;mso-border-alt:solid windowtext .75pt;padding:0in;mso-padding-alt:
+4.0pt 4.0pt 4.0pt 4.0pt'><code><span style='color:navy'><span style='mso-tab-count:
+1'>    </span><span class=GramE>public</span> Object <span class=SpellE>createWidget</span>(<span
+class=SpellE>int</span> <span class=SpellE>orderSize</span>) {<o:p></o:p></span></code></pre><pre
+style='margin-left:0in;border:none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 4.0pt 4.0pt 4.0pt'><code><span
+style='color:navy'><span style='mso-tab-count:2'>           </span>List widgets = new <span
+class=SpellE><span class=GramE>ArrayList</span></span><span class=GramE>(</span><span
+class=SpellE>orderSize</span>);<o:p></o:p></span></code></pre><pre
+style='margin-left:0in;border:none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 4.0pt 4.0pt 4.0pt'><code><span
+style='color:navy'><span style='mso-tab-count:2'>           </span><span
+class=GramE>for</span> (<span class=SpellE>int</span> <span class=SpellE>i</span> = 0; I &lt; <span
+class=SpellE>orderSize</span>; <span class=SpellE>i</span>++) {<o:p></o:p></span></code></pre><pre
+style='margin-left:0in;border:none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 4.0pt 4.0pt 4.0pt'><code><span
+style='color:navy'><span style='mso-tab-count:3'>                   </span><span
+class=SpellE><span class=GramE>widgets.add</span></span><span class=GramE>(</span><span
+class=SpellE>i</span>, &#8220;widget&#8221;);<o:p></o:p></span></code></pre><pre
+style='margin-left:0in;border:none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 4.0pt 4.0pt 4.0pt'><code><span
+style='color:navy'><span style='mso-tab-count:2'>           </span>}<o:p></o:p></span></code></pre><pre
+style='margin-left:0in;border:none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 4.0pt 4.0pt 4.0pt'><code><span
+style='color:navy'><span style='mso-tab-count:2'>           </span><span
+class=GramE>return</span> widgets;<o:p></o:p></span></code></pre><pre
+style='margin-left:0in;border:none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 4.0pt 4.0pt 4.0pt'><code><span
+style='color:navy'><span style='mso-tab-count:2'>           </span><o:p></o:p></span></code></pre><pre
+style='margin-left:0in;border:none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 4.0pt 4.0pt 4.0pt'><code><span
+style='color:navy'><span style='mso-tab-count:1'>    </span>}<o:p></o:p></span></code></pre></div>
+
+</div>
+
+<h2 style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><a
+name="_Provider_Priorities"></a>Provider Priorities</h2>
+
+<p style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'>[<a
+href="#top"><span class=GramE><span style='font-size:10.0pt'>back</span></span><span
+style='font-size:10.0pt'> to top</span></a>]</p>
+
+<p style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'>Provider
+Priorities are closely tied to <span class=SpellE>ExecutionStrategies</span> (described
+in the next section).<span style='mso-spacerun:yes'>  </span>For now know that
+a Provider must have a Priority and that Priority assigns an importance to the
+Provider.<span style='mso-spacerun:yes'>  </span>The following Priorities are
+defined by RMP.</p>
+
+<div style='margin-left:24.0pt'>
+
+<div style='border:solid windowtext 1.0pt;mso-border-alt:solid windowtext .75pt;
+padding:4.0pt 4.0pt 4.0pt 4.0pt'><pre style='margin-left:0in;border:none;
+mso-border-alt:solid windowtext .75pt;padding:0in;mso-padding-alt:4.0pt 4.0pt 4.0pt 4.0pt'><span
+style='font-size:12.0pt;color:navy'><span style='mso-tab-count:1'>   </span><span
+class=SpellE>ProviderPriority.HIGHEST</span><o:p></o:p></span></pre><pre
+style='margin-left:0in;border:none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 4.0pt 4.0pt 4.0pt'><span style='font-size:
+12.0pt;color:navy'><span style='mso-tab-count:1'>   </span><span class=SpellE>ProviderPriority.HIGH</span><o:p></o:p></span></pre><pre
+style='margin-left:0in;border:none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 4.0pt 4.0pt 4.0pt'><span style='font-size:
+12.0pt;color:navy'><span style='mso-tab-count:1'>   </span><span class=SpellE>ProviderPriority.MEDIUM</span><o:p></o:p></span></pre><pre
+style='margin-left:0in;border:none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 4.0pt 4.0pt 4.0pt'><span style='font-size:
+12.0pt;color:navy'><span style='mso-tab-count:1'>   </span><span class=SpellE>ProviderPriority.LOW</span><o:p></o:p></span></pre><pre
+style='margin-left:0in;border:none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 4.0pt 4.0pt 4.0pt'><span style='font-size:
+12.0pt;color:navy'><span style='mso-tab-count:1'>   </span><span class=SpellE>ProviderPriority.LOWEST</span><b><o:p></o:p></b></span></pre></div>
+
+</div>
+
+<h2 style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><a
+name="_Execution_Strategies"></a>Execution Strategies</h2>
+
+<p style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'>[<a
+href="#top"><span class=GramE><span style='font-size:10.0pt'>back</span></span><span
+style='font-size:10.0pt'> to top</span></a>]</p>
+
+<p style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'>When
+collecting Providers for a given <span class=SpellE>IOperation</span> the
+Service can be instructed to find the Providers in a well-defined way.<span
+style='mso-spacerun:yes'>  </span><span style='mso-field-code:" REF _Ref102967140 \\h "'>Table
+<span style='mso-no-proof:yes'>1</span> Execution Strategies<!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000E0000005F005200650066003100300032003900360037003100340030000000</w:data>
+</xml><![endif]--></span> below defines that ways in which the Service finds
+Providers to carryout the unit of work.</p>
+
+<div align=center>
+
+<table class=MsoTableGrid border=1 cellspacing=0 cellpadding=0
+ style='margin-left:30.2pt;border-collapse:collapse;border:none;mso-border-alt:
+ solid windowtext .5pt;mso-yfti-tbllook:480;mso-padding-alt:0in 5.4pt 0in 5.4pt;
+ mso-border-insideh:.5pt solid windowtext;mso-border-insidev:.5pt solid windowtext'>
+ <tr style='mso-yfti-irow:0'>
+  <td width=295 valign=top style='width:221.4pt;border:solid windowtext 1.0pt;
+  mso-border-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p style='margin-left:0in;tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><b
+  style='mso-bidi-font-weight:normal'>Strategy<o:p></o:p></b></p>
+  </td>
+  <td width=295 valign=top style='width:221.4pt;border:solid windowtext 1.0pt;
+  border-left:none;mso-border-left-alt:solid windowtext .5pt;mso-border-alt:
+  solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p style='margin-left:0in;tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><b
+  style='mso-bidi-font-weight:normal'>Description<o:p></o:p></b></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:1'>
+  <td width=295 valign=top style='width:221.4pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'><pre><span class=SpellE><span style='font-size:
+  12.0pt'>ExecutionStrategy.FIRST</span></span><span style='font-size:12.0pt'><o:p></o:p></span></pre></td>
+  <td width=295 valign=top style='width:221.4pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p style='margin-left:0in;tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'>The
+  Service will select the first Provider with the highest Priority that is
+  capable of the service request.</p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:2'>
+  <td width=295 valign=top style='width:221.4pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'><pre><span class=SpellE><span style='font-size:
+  12.0pt'>ExecutionStrategy.LAST</span></span><span style='font-size:12.0pt'><o:p></o:p></span></pre></td>
+  <td width=295 valign=top style='width:221.4pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p style='margin-left:0in;tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'>The
+  Service will use the last Provider with the lowest Priority that is capable
+  of the service request.</p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:3'>
+  <td width=295 valign=top style='width:221.4pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'><pre><span class=SpellE><span style='font-size:
+  12.0pt'>ExecutionStrategy.FORWARD</span></span><span style='font-size:12.0pt'><o:p></o:p></span></pre></td>
+  <td width=295 valign=top style='width:221.4pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p style='margin-left:0in;tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'>The
+  Services will use all the Providers in order of highest Priority to the
+  lowest that are capable of providing the service request.<span
+  style='mso-spacerun:yes'>  </span>The results from the Providers are placed in
+  a List that matches the relative descending order of the Provider priorities.</p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:4;mso-yfti-lastrow:yes'>
+  <td width=295 valign=top style='width:221.4pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'><pre><span class=SpellE><span style='font-size:
+  12.0pt'>ExecutionStrategy.REVERSE</span></span><span style='font-size:12.0pt'><o:p></o:p></span></pre></td>
+  <td width=295 valign=top style='width:221.4pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p style='margin-left:0in;tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'>The
+  Service will use all the Providers in order of lowest Priority to the highest
+  that are capable of providing the service request.<span
+  style='mso-spacerun:yes'>  </span>The results from the Providers are placed
+  in a List that matches the relative ascending order of the Provider
+  priorities.</p>
+  </td>
+ </tr>
+</table>
+
+</div>
+
+<p class=MsoCaption align=center style='text-align:center;tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><a
+name="_Ref102967140">Table </a><!--[if supportFields]><span style='mso-bookmark:
+_Ref102967140'></span><span style='mso-element:field-begin'></span><span
+style='mso-bookmark:_Ref102967140'><span style='mso-spacerun:yes'> </span>SEQ
+Table \* ARABIC <span style='mso-element:field-separator'></span></span><![endif]--><span
+style='mso-bookmark:_Ref102967140'><span style='mso-no-proof:yes'>1</span></span><!--[if supportFields]><span
+style='mso-bookmark:_Ref102967140'></span><span style='mso-element:field-end'></span><![endif]--><span
+style='mso-bookmark:_Ref102967140'> Execution Strategies</span></p>
+
+<h2 style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><a
+name="_Example"></a>The Client</h2>
+
+<p style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'>[<a
+href="#top"><span class=GramE><span style='font-size:10.0pt'>back</span></span><span
+style='font-size:10.0pt'> to top</span></a>]</p>
+
+<p style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'>To
+use the <span class=SpellE>WidgetService</span> we&#8217;ll simply create a
+client in the form of a Workbench action.<span style='mso-spacerun:yes'> 
+</span>Add the following to the <span class=SpellE>plugin.xml</span>.</p>
+
+<div style='margin-left:24.0pt'>
+
+<div style='border:solid windowtext 1.0pt;mso-border-alt:solid windowtext .75pt;
+padding:4.0pt 4.0pt 4.0pt 4.0pt'><pre style='margin-left:0in;border:none;
+mso-border-alt:solid windowtext .75pt;padding:0in;mso-padding-alt:4.0pt 4.0pt 4.0pt 4.0pt'><span
+style='color:navy;background:white;mso-highlight:white'><span style='mso-spacerun:yes'>   </span>&lt;extension point=&quot;<span
+class=SpellE>org.eclipse.ui.actionSets</span>&quot;&gt;</span><span
+style='color:navy'><o:p></o:p></span></pre><pre style='margin-left:0in;
+border:none;mso-border-alt:solid windowtext .75pt;padding:0in;mso-padding-alt:
+4.0pt 4.0pt 4.0pt 4.0pt'><span style='color:navy;background:white;mso-highlight:
+white'><span style='mso-spacerun:yes'>      </span>&lt;<span class=SpellE>actionSet</span> </span><span
+style='color:navy'><o:p></o:p></span></pre><pre style='margin-left:0in;
+border:none;mso-border-alt:solid windowtext .75pt;padding:0in;mso-padding-alt:
+4.0pt 4.0pt 4.0pt 4.0pt'><span style='color:navy;background:white;mso-highlight:
+white'><span style='mso-spacerun:yes'>         </span>label=&quot;Widget <span
+class=SpellE>Serice</span> <span class=SpellE>ActionSet</span>&quot;</span><span
+style='color:navy'><o:p></o:p></span></pre><pre style='margin-left:0in;
+border:none;mso-border-alt:solid windowtext .75pt;padding:0in;mso-padding-alt:
+4.0pt 4.0pt 4.0pt 4.0pt'><span style='color:navy;background:white;mso-highlight:
+white'><span style='mso-spacerun:yes'>         </span>visible=&quot;true&quot;</span><span
+style='color:navy'><o:p></o:p></span></pre><pre style='margin-left:0in;
+border:none;mso-border-alt:solid windowtext .75pt;padding:0in;mso-padding-alt:
+4.0pt 4.0pt 4.0pt 4.0pt'><span style='color:navy;background:white;mso-highlight:
+white'><span style='mso-spacerun:yes'>         </span>id=&quot;<span
+class=SpellE>com.ibm.xtools.common.core.examples.client.actionSet</span>&quot;&gt;</span><span
+style='color:navy'><o:p></o:p></span></pre><pre style='margin-left:0in;
+border:none;mso-border-alt:solid windowtext .75pt;padding:0in;mso-padding-alt:
+4.0pt 4.0pt 4.0pt 4.0pt'><span style='color:navy;background:white;mso-highlight:
+white'><span style='mso-spacerun:yes'>         </span>&lt;menu id=&quot;<span
+class=SpellE>com.ibm.xtools.common.core.examples.client.Menu</span>&quot;</span><span
+style='color:navy'><o:p></o:p></span></pre><pre style='margin-left:0in;
+border:none;mso-border-alt:solid windowtext .75pt;padding:0in;mso-padding-alt:
+4.0pt 4.0pt 4.0pt 4.0pt'><span style='color:navy;background:white;mso-highlight:
+white'><span style='mso-spacerun:yes'>            </span>label=&quot;Widget Service&quot;</span><span
+style='color:navy'><o:p></o:p></span></pre><pre style='margin-left:0in;
+border:none;mso-border-alt:solid windowtext .75pt;padding:0in;mso-padding-alt:
+4.0pt 4.0pt 4.0pt 4.0pt'><span style='color:navy;background:white;mso-highlight:
+white'><span style='mso-spacerun:yes'>            </span>path=&quot;additions&quot;&gt;</span><span
+style='color:navy'><o:p></o:p></span></pre><pre style='margin-left:0in;
+border:none;mso-border-alt:solid windowtext .75pt;padding:0in;mso-padding-alt:
+4.0pt 4.0pt 4.0pt 4.0pt'><span style='color:navy;background:white;mso-highlight:
+white'><span style='mso-spacerun:yes'>            </span>&lt;separator name=&quot;group1&quot;/&gt;</span><span
+style='color:navy'><o:p></o:p></span></pre><pre style='margin-left:0in;
+border:none;mso-border-alt:solid windowtext .75pt;padding:0in;mso-padding-alt:
+4.0pt 4.0pt 4.0pt 4.0pt'><span style='color:navy;background:white;mso-highlight:
+white'><span style='mso-spacerun:yes'>         </span>&lt;/menu&gt;</span><span
+style='color:navy'><o:p></o:p></span></pre><pre style='margin-left:0in;
+border:none;mso-border-alt:solid windowtext .75pt;padding:0in;mso-padding-alt:
+4.0pt 4.0pt 4.0pt 4.0pt'><span style='color:navy;background:white;mso-highlight:
+white'><span style='mso-spacerun:yes'>         </span>&lt;action id=&quot;<span
+class=SpellE>com.ibm.xtools.common.core.examples.runExampleAction</span>&quot;</span><span
+style='color:navy'><o:p></o:p></span></pre><pre style='margin-left:0in;
+border:none;mso-border-alt:solid windowtext .75pt;padding:0in;mso-padding-alt:
+4.0pt 4.0pt 4.0pt 4.0pt'><span style='color:navy;background:white;mso-highlight:
+white'><span style='mso-spacerun:yes'>            </span><span class=GramE>label</span>=&quot;Run Widget Example&quot;</span><span
+style='color:navy'><o:p></o:p></span></pre><pre style='margin-left:0in;
+border:none;mso-border-alt:solid windowtext .75pt;padding:0in;mso-padding-alt:
+4.0pt 4.0pt 4.0pt 4.0pt'><span style='color:navy;background:white;mso-highlight:
+white'><span style='mso-spacerun:yes'>            </span>menubarPath=&quot;com.ibm.xtools.common.core.examples.client.Menu/group1&quot;</span><span
+style='color:navy'><o:p></o:p></span></pre><pre style='margin-left:0in;
+border:none;mso-border-alt:solid windowtext .75pt;padding:0in;mso-padding-alt:
+4.0pt 4.0pt 4.0pt 4.0pt'><span style='color:navy;background:white;mso-highlight:
+white'><span style='mso-spacerun:yes'>            </span>class=&quot;org.eclipse.gmf.examples.runtime.common.service.client.RunExampleAction&quot;&gt;</span><span
+style='color:navy'><o:p></o:p></span></pre><pre style='margin-left:0in;
+border:none;mso-border-alt:solid windowtext .75pt;padding:0in;mso-padding-alt:
+4.0pt 4.0pt 4.0pt 4.0pt'><span style='color:navy;background:white;mso-highlight:
+white'><span style='mso-spacerun:yes'>         </span>&lt;/action&gt;<span style='mso-spacerun:yes'>   </span></span><span
+style='color:navy'><o:p></o:p></span></pre><pre style='margin-left:0in;
+border:none;mso-border-alt:solid windowtext .75pt;padding:0in;mso-padding-alt:
+4.0pt 4.0pt 4.0pt 4.0pt'><span style='color:navy;background:white;mso-highlight:
+white'><span style='mso-spacerun:yes'>      </span>&lt;/<span class=SpellE>actionSet</span>&gt;</span><span
+style='color:navy'><o:p></o:p></span></pre><pre style='margin-left:0in;
+border:none;mso-border-alt:solid windowtext .75pt;padding:0in;mso-padding-alt:
+4.0pt 4.0pt 4.0pt 4.0pt'><span style='color:navy;background:white;mso-highlight:
+white'><span style='mso-spacerun:yes'>   </span>&lt;/extension&gt;</span><span
+style='color:navy'><o:p></o:p></span></pre></div>
+
+</div>
+
+<p>Next, implement the <span class=SpellE><span style='background:white;
+mso-highlight:white'>RunExampleAction</span>&#8217;s</span> <span class=GramE>run(</span>)
+method with the following code <span class=SpellE>snipet</span>.</p>
+
+<div style='margin-left:24.0pt'>
+
+<div style='border:solid windowtext 1.0pt;mso-border-alt:solid windowtext .75pt;
+padding:4.0pt 4.0pt 4.0pt 4.0pt'><pre style='margin-left:0in;border:none;
+mso-border-alt:solid windowtext .75pt;padding:0in;mso-padding-alt:4.0pt 4.0pt 4.0pt 4.0pt'><span
+style='mso-tab-count:1'>    </span><span class=GramE>public</span> void run(<span
+class=SpellE>IAction</span> action) {</pre><pre style='margin-left:0in;
+border:none;mso-border-alt:solid windowtext .75pt;padding:0in;mso-padding-alt:
+4.0pt 4.0pt 4.0pt 4.0pt'><span style='mso-tab-count:2'>           </span>Object widgets = <span
+class=SpellE>WidgetService.getInstance</span>().<span class=SpellE>createWidget</span>(1000);</pre><pre
+style='margin-left:0in;border:none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 4.0pt 4.0pt 4.0pt'><span style='mso-tab-count:
+2'>           </span><span class=SpellE>System.out.println</span>(widgets == null ? &quot;No widgets created&quot; : &quot;Created &quot; + ((Object[])widgets).length + &quot; widgets&quot;);//$NON-NLS-3$//$NON-NLS-2$//$NON-NLS-1$</pre><pre
+style='margin-left:0in;border:none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 4.0pt 4.0pt 4.0pt'><span style='mso-tab-count:
+2'>           </span>widgets = <span class=SpellE>WidgetService.getInstance</span>().<span
+class=SpellE>createWidget</span>(30);</pre><pre style='margin-left:0in;
+border:none;mso-border-alt:solid windowtext .75pt;padding:0in;mso-padding-alt:
+4.0pt 4.0pt 4.0pt 4.0pt'><span style='color:navy'><span style='mso-tab-count:
+2'>           </span><span class=SpellE>System.out.println</span>(widgets == null ? &quot;No widgets created&quot; : &quot;Created &quot; + ((Object[])widgets).length + &quot; widgets&quot;);//$NON-NLS-3$//$NON-NLS-2$//$NON-NLS-1$<o:p></o:p></span></pre><pre
+style='margin-left:0in;border:none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 4.0pt 4.0pt 4.0pt'><span style='mso-tab-count:
+2'>           </span>widgets = <span class=SpellE>WidgetService.getInstance</span>().<span
+class=SpellE>createWidget</span>(76);</pre><pre style='margin-left:0in;
+border:none;mso-border-alt:solid windowtext .75pt;padding:0in;mso-padding-alt:
+4.0pt 4.0pt 4.0pt 4.0pt'><span style='mso-tab-count:2'>           </span><span
+class=SpellE>System.out.println</span>(widgets == null ? &quot;No widgets created&quot; : &quot;Created &quot; + ((Object[])widgets).length + &quot; widgets&quot;);//$NON-NLS-3$//$NON-NLS-2$//$NON-NLS-1$</pre><pre
+style='margin-left:0in;border:none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 4.0pt 4.0pt 4.0pt'><span style='mso-tab-count:
+1'>    </span><span style='mso-tab-count:1'>        </span></pre><pre
+style='margin-left:0in;border:none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 4.0pt 4.0pt 4.0pt'><span style='mso-tab-count:
+1'>    </span>}</pre></div>
+
+</div>
+
+<p>Run the workbench and execution the &#8220;Run Widget Action&#8221;.<span
+style='mso-spacerun:yes'>  </span>You should see following in the Console
+view.<span style='mso-spacerun:yes'>  </span><span class=GramE>Not very
+exciting, but enough to demonstrate the Service Provider infrastructure.</span><span
+style='mso-spacerun:yes'>  </span><span style='mso-spacerun:yes'>  </span>In
+all cases the <span class=SpellE>ExecutionStrategy.FIRST</span> is used.<span
+style='mso-spacerun:yes'>  </span>The first client request for a 1000 widgets
+is provided <span class=GramE>by <span style='mso-spacerun:yes'> </span><span
+class=SpellE>SuperWidgetProvider</span></span> since is has a higher Priority
+than the <span class=SpellE>WidgetProvider</span> and it is capable of handling
+the order size.<span style='mso-spacerun:yes'>  </span>In the second client
+request, no widgets were created since neither of the <span class=SpellE>widgetProvider</span>
+handles the order size.<span style='mso-spacerun:yes'>  </span>Lastly, the
+small order is provided by the <span class=SpellE>WidgetProvider</span> since
+the <span class=SpellE>SuperWidgetProvider</span> does not handle order smaller
+than 100 widgets.</p>
+
+<div style='border:solid windowtext 1.0pt;mso-border-alt:solid windowtext .75pt;
+padding:4.0pt 4.0pt 4.0pt 4.0pt;margin-left:24.0pt;margin-right:0in'><pre
+style='margin-left:0in;border:none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 4.0pt 4.0pt 4.0pt'><span style='color:navy;
+background:white;mso-highlight:white'>Created 1000 widgets</span><span
+style='color:navy'><o:p></o:p></span></pre><pre style='margin-left:0in;
+border:none;mso-border-alt:solid windowtext .75pt;padding:0in;mso-padding-alt:
+4.0pt 4.0pt 4.0pt 4.0pt'><span style='color:navy;background:white;mso-highlight:
+white'>No widgets created</span><span style='color:navy'><o:p></o:p></span></pre><pre
+style='margin-left:0in;border:none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 4.0pt 4.0pt 4.0pt'><span style='color:navy;
+background:white;mso-highlight:white'>Created 76 widgets</span><span
+style='color:navy'><o:p></o:p></span></pre></div>
+
+<p>As a simple exercise change the <span class=SpellE>ExecutionStrategy</span>
+used by the <span class=SpellE>WidgetService</span> to see the behavior change.<span
+style='mso-spacerun:yes'>  </span>You can also change the order sizes and
+Priority of the Providers.</p>
+
+<div class=MsoNormal align=center style='text-align:center;tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'>
+
+<hr size=2 width="100%" align=center>
+
+</div>
+
+<h2 style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><a
+name=principles></a><a name=examples></a><a name=models></a><a name=api></a>Summary</h2>
+
+<p style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span
+style='font-size:10.0pt'>[<a href="#top"><span class=GramE>back</span> to top</a>]</span></p>
+
+<p style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'>To
+create and demonstrate the Service Provider Infrastructure we:</p>
+
+<p style='margin-left:1.0in;text-indent:-.25in;mso-list:l0 level2 lfo2;
+tab-stops:45.8pt list 1.0in left 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><![if !supportLists]><span
+style='mso-list:Ignore'>1.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]>Defined the <span class=SpellE>IWidgetProvider</span> interface
+by extending the base <span class=SpellE>IProvider</span> interface,</p>
+
+<p style='margin-left:1.0in;text-indent:-.25in;mso-list:l0 level2 lfo2;
+tab-stops:45.8pt list 1.0in left 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><![if !supportLists]><span
+style='mso-list:Ignore'>2.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]>Created the <span class=SpellE>WidgetService</span> by
+extending Service and implementing <span class=SpellE>IWidgetProvider</span>,</p>
+
+<p style='margin-left:1.0in;text-indent:-.25in;mso-list:l0 level2 lfo2;
+tab-stops:45.8pt list 1.0in left 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><![if !supportLists]><span
+style='mso-list:Ignore'>3.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]>Create the <span class=SpellE>WidgetDescriptor</span>
+to load the <span class=SpellE>WidgetProvider&#8217;s</span> XML descriptors,</p>
+
+<p style='margin-left:1.0in;text-indent:-.25in;mso-list:l0 level2 lfo2;
+tab-stops:45.8pt list 1.0in left 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><![if !supportLists]><span
+style='mso-list:Ignore'>4.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]>Created the <span class=SpellE>widgetProvider</span> <span
+class=SpellE>extention</span>-point,</p>
+
+<p style='margin-left:1.0in;text-indent:-.25in;mso-list:l0 level2 lfo2;
+tab-stops:45.8pt list 1.0in left 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><![if !supportLists]><span
+style='mso-list:Ignore'>5.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]>Add the <span class=SpellE>widgetProvider</span>
+extensions to the <span class=SpellE>plugin.xml</span>,</p>
+
+<p style='margin-left:1.0in;text-indent:-.25in;mso-list:l0 level2 lfo2;
+tab-stops:45.8pt list 1.0in left 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><![if !supportLists]><span
+style='mso-list:Ignore'>6.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]>Created a widget Provider by implementing <span
+class=SpellE>IWidgetProvider</span>, and </p>
+
+<p style='margin-left:1.0in;text-indent:-.25in;mso-list:l0 level2 lfo2;
+tab-stops:45.8pt list 1.0in left 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><![if !supportLists]><span
+style='mso-list:Ignore'>7.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]>Finally, created a simple client to use the Widget
+Service. </p>
+
+<div class=MsoNormal align=center style='text-align:center;tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'>
+
+<hr size=2 width="100%" align=center>
+
+</div>
+
+<p style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><img
+border=0 width=324 height=14 id="_x0000_i1029" src=copyright.gif></p>
+
+</div>
+
+</body>
+
+</html>

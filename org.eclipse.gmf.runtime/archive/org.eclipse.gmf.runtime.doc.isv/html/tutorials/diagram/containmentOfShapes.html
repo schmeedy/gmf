@@ -1,0 +1,674 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns:st1="urn:schemas-microsoft-com:office:smarttags"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=iso-8859-1">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 10">
+<meta name=Originator content="Microsoft Word 10">
+<link rel=File-List href="Tutorial_files/filelist.xml">
+<link rel=Edit-Time-Data href="Tutorial_files/editdata.mso">
+<!--[if !mso]>
+<style>
+v\:* {behavior:url(#default#VML);}
+o\:* {behavior:url(#default#VML);}
+w\:* {behavior:url(#default#VML);}
+.shape {behavior:url(#default#VML);}
+</style>
+<![endif]-->
+<title>Tutorial: &amp;lt;&amp;lt;Feature Name&amp;gt;&amp;gt;</title>
+<o:SmartTagType namespaceuri="urn:schemas-microsoft-com:office:smarttags"
+ name="City"/>
+<o:SmartTagType namespaceuri="urn:schemas-microsoft-com:office:smarttags"
+ name="place"/>
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>jcorchis</o:Author>
+  <o:LastAuthor>jcorchis</o:LastAuthor>
+  <o:Revision>7</o:Revision>
+  <o:TotalTime>111</o:TotalTime>
+  <o:Created>2005-04-21T14:33:00Z</o:Created>
+  <o:LastSaved>2005-04-21T18:18:00Z</o:LastSaved>
+  <o:Pages>1</o:Pages>
+  <o:Words>636</o:Words>
+  <o:Characters>3627</o:Characters>
+  <o:Company>Rational Software</o:Company>
+  <o:Lines>30</o:Lines>
+  <o:Paragraphs>8</o:Paragraphs>
+  <o:CharactersWithSpaces>4255</o:CharactersWithSpaces>
+  <o:Version>10.6735</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:SpellingState>Clean</w:SpellingState>
+  <w:GrammarState>Clean</w:GrammarState>
+  <w:BrowserLevel>MicrosoftInternetExplorer4</w:BrowserLevel>
+ </w:WordDocument>
+</xml><![endif]--><!--[if !mso]><object
+ classid="clsid:38481807-CA0E-42D2-BF39-B33AF135CC4D" id=ieooui></object>
+<style>
+st1\:*{behavior:url(#ieooui) }
+</style>
+<![endif]-->
+<link rel=Stylesheet type="text/css" media=all href=technote.css>
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:Wingdings;
+	panose-1:5 0 0 0 0 0 0 0 0 0;
+	mso-font-charset:2;
+	mso-generic-font-family:auto;
+	mso-font-pitch:variable;
+	mso-font-signature:0 268435456 0 0 -2147483648 0;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-parent:"";
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+h1
+	{mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:1;
+	font-size:24.0pt;
+	font-family:"Times New Roman";
+	font-weight:bold;}
+h2
+	{mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:2;
+	font-size:18.0pt;
+	font-family:"Times New Roman";
+	font-weight:bold;}
+h3
+	{mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:3;
+	font-size:13.5pt;
+	font-style:italic;}
+a:link, span.MsoHyperlink
+	{color:blue;
+	text-decoration:underline;
+	text-underline:single;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:blue;
+	text-decoration:underline;
+	text-underline:single;}
+p
+	{mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+code
+	{font-family:"Courier New";
+	mso-ascii-font-family:"Courier New";
+	mso-fareast-font-family:"Times New Roman";
+	mso-hansi-font-family:"Courier New";
+	mso-bidi-font-family:"Courier New";}
+pre
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:24.0pt;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt;
+	font-size:10.0pt;
+	font-family:"Courier New";
+	mso-fareast-font-family:"Times New Roman";}
+p.notabene, li.notabene, div.notabene
+	{mso-style-name:notabene;
+	mso-margin-top-alt:auto;
+	margin-right:48.0pt;
+	mso-margin-bottom-alt:auto;
+	margin-left:48.0pt;
+	mso-pagination:widow-orphan;
+	border:none;
+	mso-border-top-alt:solid windowtext .75pt;
+	mso-border-bottom-alt:solid windowtext .75pt;
+	padding:0in;
+	mso-padding-alt:4.0pt 0in 4.0pt 0in;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+p.question, li.question, div.question
+	{mso-style-name:question;
+	mso-margin-top-alt:auto;
+	margin-right:48.0pt;
+	mso-margin-bottom-alt:auto;
+	margin-left:48.0pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";
+	font-style:italic;}
+p.backto, li.backto, div.backto
+	{mso-style-name:backto;
+	mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+span.SpellE
+	{mso-style-name:"";
+	mso-spl-e:yes;}
+span.GramE
+	{mso-style-name:"";
+	mso-gram-e:yes;}
+@page Section1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.25in 1.0in 1.25in;
+	mso-header-margin:35.4pt;
+	mso-footer-margin:35.4pt;
+	mso-paper-source:0;}
+div.Section1
+	{page:Section1;}
+ /* List Definitions */
+ @list l0
+	{mso-list-id:1754820217;
+	mso-list-template-ids:-806848416;}
+@list l0:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+ol
+	{margin-bottom:0in;}
+ul
+	{margin-bottom:0in;}
+-->
+</style>
+<!--[if gte mso 10]>
+<style>
+ /* Style Definitions */
+ table.MsoNormalTable
+	{mso-style-name:"Table Normal";
+	mso-tstyle-rowband-size:0;
+	mso-tstyle-colband-size:0;
+	mso-style-noshow:yes;
+	mso-style-parent:"";
+	mso-padding-alt:0in 5.4pt 0in 5.4pt;
+	mso-para-margin:0in;
+	mso-para-margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;}
+</style>
+<![endif]-->
+</head>
+
+<body lang=EN-US link=blue vlink=blue style='tab-interval:.5in'>
+
+<div class=Section1>
+
+<p class=MsoNormal><a name=top></a><img width=629 height=192 id="_x0000_i1025"
+src="../logo.gif" border=0></p>
+
+<h1 align=center style='text-align:center'>Tutorial: Supporting containment of shapes</h1>
+
+<table class=MsoNormalTable border=0 cellspacing=8 cellpadding=0
+ style='mso-cellspacing:6.0pt;margin-left:24.0pt'>
+ <tr style='mso-yfti-irow:0;mso-yfti-lastrow:yes'>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>Version: 0.1</p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>Date:  August 11, 2005</p>
+  </td>
+ </tr>
+</table>
+
+<h2>Contents</h2>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:48.0pt;text-indent:-.25in;mso-list:l0 level1 lfo1;tab-stops:list .5in'><![if !supportLists]><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Symbol;
+mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol'><span
+style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'> </span></span></span><![endif]><a
+href="#_Overview">Overview</a></p>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:48.0pt;text-indent:-.25in;mso-list:l0 level1 lfo1;tab-stops:list .5in'><![if !supportLists]><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Symbol;
+mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol'><span
+style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'> </span></span></span><![endif]><a
+href="#_References">References</a></p>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:48.0pt;text-indent:-.25in;mso-list:l0 level1 lfo1;tab-stops:list .5in'><![if !supportLists]><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Symbol;
+mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol'><span
+style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'> </span></span></span><![endif]><a
+href="#_Introduction">Introduction</a><BR>
+<![if !supportLists]><SPAN
+	style="font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Symbol;
+mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol"><SPAN
+	style="mso-list:Ignore">·<SPAN style='font:7.0pt "Times New Roman"'> </SPAN></SPAN></SPAN><![endif]><A
+	href="#supportContainment">Supporting containment of shapes</A><A
+	href="#_Introduction"></A><BR>
+<![if !supportLists]><SPAN
+	style="font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Symbol;
+mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol"><SPAN
+	style="mso-list:Ignore">·<SPAN style='font:7.0pt "Times New Roman"'> </SPAN></SPAN></SPAN><![endif]><A
+	href="#showContainment">Show containment feedback inside the container</A></p><p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:48.0pt;text-indent:-.25in;mso-list:l0 level1 lfo1;tab-stops:list .5in'><![if !supportLists]><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Symbol;
+mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol'><span
+style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'> </span></span></span><![endif]><a
+	href="#summary">Summary</a></p>
+
+<div class=MsoNormal align=center style='text-align:center'>
+
+<hr size=2 width="100%" align=center></div>
+
+<h2><a name="_Overview"></a>Overview</h2>
+
+<p class=backto><span style='font-size:10.0pt'>[<a href="#top"><span
+class=GramE>back</span> to top</a>]</span></p>
+
+<p>This tutorial provides the reader with the steps to containment of shapes with-in other shapes on the diagram surface.</p>
+
+<h2><a name="_References"></a>References</h2>
+
+<p class=backto><span style='font-size:10.0pt'>[<a href="#top"><span
+class=GramE>back</span> to top</a>]</span></p><p>
+
+This tutorial references the following tutoral:<BR>
+<BR>
+<A href="createShape.html">Create a shape</A>
+</p>
+
+<h2><a name="_Introduction"></a>Introduction</h2>
+
+<p class=backto><span style='font-size:10.0pt'>[<a href="#top"><span
+class=GramE>back</span> to top</a>]</span></p>
+
+<p>In this tutorial, we will use the Logic Diagram Example to illustrate how to create a circuit shape that can contain other logic elements (i.e. LED, And Gate etc.). To gain familiarity with the Logic Diagram Example, refer to the <A
+	href="../../examples-guide/diagram/logicExample.htm">Logic Example
+Guide</A>. </p>
+
+<H2><A name="_Step1"></A></H2>
+<H2><A name="_Toc104273255"><![if !supportLists]><SPAN
+	style="mso-fareast-font-family:
+Arial;mso-bidi-font-family:Arial"><SPAN
+	style="mso-list:Ignore"></SPAN></SPAN></A><A name="supportContainment">Supporting
+containment of shapes</A><BR>
+<SPAN style="font-size:10.0pt">[<A href="#top"><SPAN class="GramE">back</SPAN>
+to top</A>]</SPAN></H2>
+<P><BR>
+Having shapes contain other shapes is a common scenario that many
+diagram editors need to handle.<SPAN style="mso-spacerun:yes">  </SPAN>This
+is seen in the logic example in the Circuit shape.<SPAN
+	style="mso-spacerun:yes">  </SPAN>The top level Circuit shape is added
+to the palette and diagram surface in the same manner as the LED shape.<SPAN
+	style="mso-spacerun:yes">  </SPAN>The difference is in how the view
+factory initializes the view on creation.<SPAN style="mso-spacerun:yes"> 
+</SPAN>It is initializes with a sub view that allows for containment
+with-in the top level view.<SPAN style="mso-spacerun:yes">  </SPAN>To
+demonstrate this we?ll consider how the Circuit shape was added to the
+Logic example.</P>
+<H3><A name="_Toc104273256">Example: Circuit Shape displaying
+containment</A><BR>
+<IMG border="0" width="237" height="275" src="circuitContainer.gif"
+	v:shapes="_x0000_i1030">
+</H3>
+
+<P class="MsoNormal" style="margin-left:.5in"></P>
+
+<H3><A name="_Toc104273257">Add entry to the contribution for the
+palette provider for the Circuit shape</A></H3>
+
+<P class="MsoNormal" style="margin-left:.5in">See <A
+	href="createShape.html#palette">#Add entries to the contribution for
+the palette provider.</A></P>
+
+<P class="MsoNormal" style="margin-left:.5in"></P><H3><SPAN style="mso-bookmark:_Toc104273259">Add new View provider entry
+for the Circuit shape</SPAN></H3>
+
+<P class="MsoNormal" style="margin-left:.5in">This mechanism is the same
+as the LED shape except that we will create a sub view inside the
+Circuit shape that will store the children views.<SPAN
+	style="mso-spacerun:yes">  </SPAN>It is necessary to encapsulate this
+within a sub view because we want to have the ability to collapse the
+sub view to hide the children.</P>
+
+<P class="MsoNormal" style="margin-left:.5in">See <A
+	href="createShape.html#notation">#Add new View provider entry</A></P>
+
+<P class="MsoNormal" style="margin-left:.5in"><o:p>&nbsp;</o:p></P>
+
+<P class="MsoNormal" style="margin-left:.5in">In the CircuitViewFactory
+class we create the notation view for the Circuit and additionally we
+will create a child that will be the container for views created by the
+user from the palette with-in the Circuit.</P>
+
+<P class="MsoNormal" style="margin-left:.5in"><o:p>&nbsp;</o:p></P>
+
+<P class="MsoNormal" style="margin-left:.5in">In CircuitViewFactory:</P>
+
+<P class="MsoNormal" style="margin-left:.5in"><SPAN
+	style='font-size:8.0pt;
+font-family:"Courier New"'>/**<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal" style="margin-left:.5in"><SPAN
+	style='font-size:8.0pt;
+font-family:"Courier New"'><SPAN
+	style="mso-spacerun:yes"> </SPAN>* @see
+org.eclipse.gmf.runtime.diagram.ui.internal.view.AbstractNodeView#<SPAN
+	class="GramE">decorateView(</SPAN>org.eclipse.gmf.runtime.diagram.ui.internal.view.IContainerView,<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal" style="margin-left:.5in"><SPAN
+	style='font-size:8.0pt;
+font-family:"Courier New"'><SPAN
+	style="mso-spacerun:yes"> </SPAN>*<SPAN style="mso-spacerun:yes">     
+</SPAN>org.eclipse.core.runtime.IAdaptable, java.lang.String, int, <SPAN
+	class="GramE">boolean</SPAN>)<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal" style="margin-left:.5in"><SPAN
+	style='font-size:8.0pt;
+font-family:"Courier New"'><SPAN
+	style="mso-spacerun:yes"> </SPAN>*/<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal" style="margin-left:.5in"><SPAN class="GramE"><SPAN
+	style='font-size:8.0pt;font-family:"Courier New"'>protected</SPAN></SPAN><SPAN
+	style='font-size:8.0pt;font-family:"Courier New"'> void
+decorateView(IContainerView containerView,<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal" style="margin-left:.5in"><SPAN
+	style='font-size:8.0pt;
+font-family:"Courier New"'><SPAN
+	style="mso-tab-count:2">              </SPAN></SPAN><SPAN lang="FR"
+	style='font-size:8.0pt;font-family:"Courier New";mso-ansi-language:
+FR'>IAdaptable
+semanticAdapter, String semanticHint, int index,<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal" style="margin-left:.5in"><SPAN lang="FR"
+	style='font-size:
+8.0pt;font-family:"Courier New";mso-ansi-language:FR'><SPAN
+	style="mso-tab-count:
+2">              </SPAN></SPAN><SPAN
+	class="GramE"><SPAN style='font-size:8.0pt;
+font-family:"Courier New"'>boolean</SPAN></SPAN><SPAN
+	style='font-size:8.0pt;
+font-family:"Courier New"'> persisted) {<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal" style="margin-left:.5in"><SPAN
+	style='font-size:8.0pt;
+font-family:"Courier New"'><SPAN
+	style="mso-tab-count:1">       </SPAN><SPAN class="GramE">super.decorateView(</SPAN>containerView,
+semanticAdapter, semanticHint, index,<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal" style="margin-left:.5in"><SPAN
+	style='font-size:8.0pt;
+font-family:"Courier New"'><SPAN
+	style="mso-tab-count:2">              </SPAN><SPAN class="GramE">persisted</SPAN>);<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal" style="margin-left:.5in"><SPAN
+	style='font-size:8.0pt;
+font-family:"Courier New"'><SPAN
+	style="mso-tab-count:2">              </SPAN><o:p></o:p></SPAN></P>
+
+<P class="MsoNormal" style="margin-left:.5in"><SPAN
+	style='font-size:8.0pt;
+font-family:"Courier New"'><SPAN
+	style="mso-tab-count:1">       </SPAN><SPAN class="GramE">getViewService(</SPAN>).createNodeView(semanticAdapter,
+this,<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal" style="margin-left:.5in"><SPAN
+	style='font-size:8.0pt;
+font-family:"Courier New"'><SPAN
+	style="mso-tab-count:3">                     </SPAN>&quot;LogicCompartment&quot;,
+IView.APPEND); //$NON-NLS-1$<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal" style="margin-left:.5in"><SPAN
+	style='font-size:8.0pt;
+font-family:"Courier New"'>}<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal" style="margin-left:.5in"><SPAN
+	style='font-size:8.0pt;
+font-family:"Courier New"'><o:p>&nbsp;</o:p></SPAN></P>
+
+<H3><A name="_Toc104273260">Add new EditPart provider entry for the
+Circuit shape</A></H3>
+
+<P class="MsoNormal" style="margin-left:.5in">The controller for this
+container view is an EditPart called the ?ShapeCompartmentEditPart?.<SPAN
+	style="mso-spacerun:yes">  </SPAN>This EditPart is collapsible and
+simulates some of the behavior of the root diagram drawing surface.<SPAN
+	style="mso-spacerun:yes">  </SPAN>In the Logic example we override the
+default ?ShapeCompartmentEditPart? with a class called
+?LogicShapeCompartmentEditPart?.<SPAN style="mso-spacerun:yes">  </SPAN>This
+override is needed to improve the usability of the drag behavior.<SPAN
+	style="mso-spacerun:yes">  </SPAN>By default, the shape compartment
+allows marquee selection of children with-in its bounds.<SPAN
+	style="mso-spacerun:yes">  </SPAN>However, this makes it difficult to
+move the top level shape.<SPAN style="mso-spacerun:yes">  </SPAN>We
+decided to override this behavior to allow for more intuitive drag
+behavior of the Circuit itself.<SPAN style="mso-spacerun:yes">  </SPAN>To
+create the ?LogicShapeCompartmentEditPart? create the EditPart provider
+entry for it with the id ?LogicCompartment? in the LogicEditPartProvider
+class.</P>
+
+<P class="MsoNormal" style="margin-left:.5in">See<A
+	href="createShape.html#editpart"> </A><A
+	href="createShape.html#editpart">#Add new EditPart provider entry</A></P>
+
+<P class="MsoNormal" style="margin-left:.5in"><o:p>&nbsp;</o:p></P>
+
+<P class="MsoNormal" style="margin-left:.5in">To let the circuit contain
+a subcontainer for the shapecompartment, set the layout manager as
+ConstrainedToolbarLayout when creating a circuit figure. Otherwise the
+circuit can not position the contained shape compartment correctly
+with-in <SPAN class="GramE">it?s</SPAN> bounds.</P>
+
+<P class="MsoNormal" style="margin-left:.5in"><o:p>&nbsp;</o:p></P>
+
+<P class="MsoNormal" style="margin-left:.5in">In CircuitEditPart:<I
+	style="mso-bidi-font-style:normal"><SPAN style="color:black"><o:p></o:p></SPAN></I></P>
+
+<P class="MsoNormal" style="margin-left:.5in"><SPAN
+	style='font-size:8.0pt;
+font-family:"Courier New"'>/**<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal" style="margin-left:.5in"><SPAN
+	style='font-size:8.0pt;
+font-family:"Courier New"'><SPAN
+	style="mso-spacerun:yes"> </SPAN>* Creates a new Circuit Figure and
+returns it.<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal" style="margin-left:.5in"><SPAN
+	style='font-size:8.0pt;
+font-family:"Courier New"'><SPAN
+	style="mso-spacerun:yes"> </SPAN>*<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal" style="margin-left:.5in"><SPAN
+	style='font-size:8.0pt;
+font-family:"Courier New"'><SPAN
+	style="mso-spacerun:yes"> </SPAN>* <SPAN class="GramE">@return<SPAN
+	style="mso-spacerun:yes">  </SPAN>Figure</SPAN> representing the
+circuit.<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal" style="margin-left:.5in"><SPAN
+	style='font-size:8.0pt;
+font-family:"Courier New"'><SPAN
+	style="mso-spacerun:yes"> </SPAN>*/<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal" style="margin-left:.5in"><SPAN class="GramE"><SPAN
+	style='font-size:8.0pt;font-family:"Courier New"'>protected</SPAN></SPAN><SPAN
+	style='font-size:8.0pt;font-family:"Courier New"'> NodeFigure
+createMainFigure() {<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal" style="margin-left:.5in"><SPAN
+	style='font-size:8.0pt;
+font-family:"Courier New"'><SPAN
+	style="mso-tab-count:1">       </SPAN>NodeFigure nf <SPAN class="GramE">=<SPAN
+	style="mso-spacerun:yes">  </SPAN>FigureFactory.createNewCircuit</SPAN>();<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal" style="margin-left:.5in"><SPAN
+	style='font-size:8.0pt;
+font-family:"Courier New"'><SPAN
+	style="mso-tab-count:1">       </SPAN>ConstrainedToolbarLayout layout =
+new <SPAN class="GramE">ConstrainedToolbarLayout(</SPAN>);<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal" style="margin-left:.5in"><SPAN
+	style='font-size:8.0pt;
+font-family:"Courier New"'><SPAN
+	style="mso-tab-count:1">       </SPAN><SPAN class="GramE">nf.setLayoutManager(</SPAN>layout);<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal" style="margin-left:.5in"><SPAN
+	style='font-size:8.0pt;
+font-family:"Courier New"'><SPAN
+	style="mso-tab-count:1">       </SPAN><SPAN class="GramE">return</SPAN>
+nf;<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal" style="margin-left:.5in"><SPAN
+	style='font-size:8.0pt;
+font-family:"Courier New"'>}<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal" style="margin-left:.5in"><o:p>&nbsp;</o:p></P>
+
+<P><A name="_Toc104273261"><!><SPAN
+	style="mso-fareast-font-family:
+Arial;mso-bidi-font-family:Arial"><SPAN
+	style="mso-list:Ignore"></SPAN></SPAN></A></P>
+<H2><A name="showContainment">Show containment feedback inside the
+container</A><BR>
+<SPAN style="font-size:10.0pt">[<A href="#top"><SPAN class="GramE">back</SPAN>
+to top</A>]</SPAN></H2>
+
+
+<P class="MsoNormal" style="margin-left:.5in">Install a new edit policy
+?ContainerHighlightEditPolicy?on CircuitEditPart to highlight circuits
+when selected. Make ContainerHighlightEditPolicy subclass from
+ContainerEditPolicy in org.eclipse.gmf.runtime.diagram.ui plug-in. Overwrite
+?showTargetFeedback? function in AbstractEditPolicy class.</P>
+
+<P class="MsoNormal" style="margin-left:.5in"><o:p>&nbsp;</o:p></P>
+
+<P class="MsoNormal" style="margin-left:.5in"><SPAN style="color:black">In
+ContainerHighlightEditPolicy:<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal" style="margin-left:.5in"><SPAN style="color:black"><o:p>&nbsp;</o:p></SPAN></P>
+
+<P class="MsoNormal" style="margin-left:.5in"><SPAN class="GramE"><SPAN
+	style='font-size:8.0pt;font-family:"Courier New"'>public</SPAN></SPAN><SPAN
+	style='font-size:8.0pt;font-family:"Courier New"'> void
+showTargetFeedback(Request request){<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal" style="margin-left:.5in"><SPAN
+	style='font-size:8.0pt;
+font-family:"Courier New"'><SPAN
+	style="mso-tab-count:1">       </SPAN><SPAN class="GramE">if(</SPAN>request.getType().equals(RequestConstants.REQ_MOVE)
+||<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal" style="margin-left:.5in"><SPAN
+	style='font-size:8.0pt;
+font-family:"Courier New"'><SPAN
+	style="mso-tab-count:2">              </SPAN><SPAN class="GramE">request.getType(</SPAN>).equals(RequestConstants.REQ_ADD)
+||<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal" style="margin-left:.5in"><SPAN
+	style='font-size:8.0pt;
+font-family:"Courier New"'><SPAN
+	style="mso-tab-count:2">              </SPAN><SPAN class="GramE">request.getType(</SPAN>).equals(RequestConstants.REQ_CLONE)
+||<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal" style="margin-left:.5in"><SPAN
+	style='font-size:8.0pt;
+font-family:"Courier New"'><SPAN
+	style="mso-tab-count:2">              </SPAN><SPAN class="GramE">request.getType(</SPAN>).equals(RequestConstants.REQ_CONNECTION_START)
+||<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal" style="margin-left:.5in"><SPAN
+	style='font-size:8.0pt;
+font-family:"Courier New"'><SPAN
+	style="mso-tab-count:2">              </SPAN><SPAN class="GramE">request.getType(</SPAN>).equals(RequestConstants.REQ_CONNECTION_END)
+||<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal" style="margin-left:.5in"><SPAN
+	style='font-size:8.0pt;
+font-family:"Courier New"'><SPAN
+	style="mso-tab-count:2">              </SPAN><SPAN class="GramE">request.getType(</SPAN>).equals(RequestConstants.REQ_CREATE)<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal" style="margin-left:.5in"><SPAN
+	style='font-size:8.0pt;
+font-family:"Courier New"'><SPAN
+	style="mso-tab-count:1">       </SPAN>)<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal" style="margin-left:.5in"><SPAN
+	style='font-size:8.0pt;
+font-family:"Courier New"'><SPAN
+	style="mso-tab-count:1">       </SPAN><SPAN class="GramE">showHighlight(</SPAN>);<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal" style="margin-left:.5in"><SPAN
+	style='font-size:8.0pt;
+font-family:"Courier New"'>}<o:p></o:p></SPAN></P>
+<P><I style="mso-bidi-font-style:normal"><SPAN
+	style='font-size:11.0pt;mso-bidi-font-size:
+10.0pt;font-family:Arial;mso-fareast-font-family:"Times New Roman";mso-bidi-font-family:
+"Times New Roman";mso-ansi-language:EN-US;mso-fareast-language:EN-US;
+mso-bidi-language:AR-SA'><BR
+	clear="all" style="page-break-before:always">
+</SPAN></I></P>
+<H3><A name="_Toc104273262">Example: Circuit shape structure</A><BR>
+<SPAN style='font-size:8.0pt;font-family:"Courier New"'><IMG border="0"
+	width="623" height="406" src="circuitStructure.gif"
+	v:shapes="_x0000_i1031"></SPAN>
+</H3><P class="MsoNormal" style="margin-left:.5in"></P>
+<P></P>
+
+<div class=MsoNormal align=center style='text-align:center'>
+
+<hr size=2 width="100%" align=center>
+
+</div>
+
+<H2><A name="summary">Summary</A></H2>
+
+<P><SPAN style="font-size:10.0pt">[<A href="#top"><SPAN class="GramE">back</SPAN>
+to top</A>]</SPAN></P>
+
+<P>In this tutorial, we did the following:</P>
+<OL>
+	<LI>Created container shape</LI><LI>Learned how to display containment feedback when dragging inside container.</LI>
+</OL>
+
+<div class=MsoNormal align=center style='text-align:center'>
+
+<hr size=2 width="100%" align=center>
+
+</div>
+
+<P><IMG border="0" width="324" height="14" id="_x0000_i1028"
+	src="../copyright.gif"></P>
+
+</div>
+
+</body>
+
+</html>

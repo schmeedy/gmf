@@ -1,0 +1,52 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <title>Clipboard Example</title>
+</head>
+<body>
+
+<h2>Clipboard Example</h2>
+
+<h3>Introduction</h3>
+<p>
+This example describes the usage of the clipboard framework within the SDK.
+It demonstrates how to copy and paste library model elements to and from the system clipboard respectively.
+</p>
+
+<h3>References</h3>
+<p>
+Please refer to the document <a href="exampleOverview.html">Model Services Layer Examples Overview</a>
+for reviewing the library meta-model used as the basis for demonstrating the capabilities in this example.
+</p>
+
+<h3>Description</h3>
+<p>
+This example plug-in is named <code>org.eclipse.gmf.examples.runtime.emf.clipboard</code>.
+This plug-in contributes the <b>Clipboard</b> menu to the library
+editor's main menu and context menu. The menu has two actions:
+<ol><li><b>Copy:</b> 
+Supports rich copy support for books and writers. A writer's books are always copied when the writer is copied</li>
+<li><b>Paste:</b> Pasting a writer into a library that already has a writer of the same name merges the pasted
+writer into the existing one (most notably, adding to its books). <b>Undo/Redo</b> support for the paste operation uses
+the EMF <code>ChangeRecorder</code> API</li></ol>
+</p>
+
+<p>Please refer to the tutorial <a href="../../tutorials/msl/clipboardTutorial.html">Clipboard Tutorial</a> 
+for reviewing the code samples within this example</p>
+
+<img src="./clipboard.GIF" alt="Clipboard Example Contributions"/>
+
+<h3>Usage</h3>
+<p>
+Refer to this example if you need:
+<ol>
+<li>
+To implement fairly complex meta-model specific semantics for copy/paste operations,
+where some relationships between model elements need special treatment</li>
+</ol>
+</p>
+
+<p><a href="../../hglegal.htm"><img SRC="../../cpy.gif" ALT="Copyright IBM Corporation 2005.  All Rights Reserved." border="0"></a>
+</body>
+</html>

@@ -1,0 +1,178 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=PowerPoint.Slide>
+<meta name=Generator content="Microsoft PowerPoint 10">
+<link id=Main-File rel=Main-File href="../RMP%20for%20GMF.htm">
+<link rel=Preview href=preview.wmf>
+<!--[if !mso]>
+<style>
+v\:* {behavior:url(#default#VML);}
+o\:* {behavior:url(#default#VML);}
+p\:* {behavior:url(#default#VML);}
+.shape {behavior:url(#default#VML);}
+v\:textbox {display:none;}
+</style>
+<![endif]-->
+<title>Introduction to the Rational Modeling Platform</title>
+<meta name=Description
+content="5/31/2005: Diagram &amp; Notation Domains: EditPolicy Service">
+<link rel=next href="v3_slide0245.htm">
+</head>
+
+<body background="v3_master08_background.gif" bgcolor=white alink="#0099CC"
+link=silver vlink="#FF9900" text=white topmargin=0 leftmargin=0>
+
+<table border=0 valign=top width=650 height=487 cellpadding=0 cellspacing=0>
+ <tr>
+  <td width=17 height=0 nowrap><img src="v3_space.gif" border=0></td>
+  <td width=67 height=0 nowrap><img src="v3_space.gif" border=0></td>
+  <td width=58 height=0 nowrap><img src="v3_space.gif" border=0></td>
+  <td width=365 height=0 nowrap><img src="v3_space.gif" border=0></td>
+  <td width=99 height=0 nowrap><img src="v3_space.gif" border=0></td>
+  <td width=8 height=0 nowrap><img src="v3_space.gif" border=0></td>
+ </tr>
+ <tr>
+  <td width=650 height=47 colspan=7></td>
+ </tr>
+ <tr>
+  <td width=17 height=29></td>
+  <td width=597 height=29 colspan=5>
+  <table border=0 valign=top cellpadding=0 cellspacing=0>
+   <tr>
+    <td width=597 height=29><font face=Arial color="#4B6BAF" size=5><b>Diagram
+    &amp; Notation Domains: </b>EditPolicy Service</font><br>
+    </td>
+   </tr>
+  </table>
+  </td>
+  <td width=36 height=29></td>
+ </tr>
+ <tr>
+  <td width=650 height=45 colspan=7></td>
+ </tr>
+ <tr>
+  <td width=84 height=177 colspan=2></td>
+  <td width=522 height=177 colspan=3>
+  <table border=0 valign=top cellpadding=0 cellspacing=0>
+   <tr>
+    <td width=16 height=0 nowrap><img src="v3_space.gif" border=0></td>
+    <td width=1 height=0 nowrap><img src="v3_space.gif" border=0></td>
+    <td width=16 height=0 nowrap><img src="v3_space.gif" border=0></td>
+    <td width=1 height=0 nowrap><img src="v3_space.gif" border=0></td>
+    <td width=45 height=0 nowrap><img src="v3_space.gif" border=0></td>
+    <td width=123 height=0 nowrap><img src="v3_space.gif" border=0></td>
+    <td width=69 height=0 nowrap><img src="v3_space.gif" border=0></td>
+    <td width=141 height=0 nowrap><img src="v3_space.gif" border=0></td>
+    <td width=22 height=0 nowrap><img src="v3_space.gif" border=0></td>
+    <td width=49 height=0 nowrap><img src="v3_space.gif" border=0></td>
+    <td width=7 height=0 nowrap><img src="v3_space.gif" border=0></td>
+    <td width=17 height=0 nowrap><img src="v3_space.gif" border=0></td>
+   </tr>
+   <tr>
+    <td width=16 height=17><font face=Wingdings color="#0099CC" size=2>§</font></td>
+    <td width=418 height=17 colspan=8><font face=Arial color=black size=2>An
+    Editpolicy provider creates EditPolicies for a given editpart.</font><br>
+    </td>
+    <td width=88 height=17 colspan=4></td>
+   </tr>
+   <tr>
+    <td width=16 height=17><font face=Wingdings color="#0099CC" size=2>§</font></td>
+    <td width=474 height=17 colspan=10><font face=Arial color=black size=2>Providers
+    implement the IEditPolicyProvider with the following method:</font><br>
+    </td>
+    <td width=32 height=17 colspan=2></td>
+   </tr>
+   <tr>
+    <td width=522 height=4 colspan=13></td>
+   </tr>
+   <tr>
+    <td width=16 height=15></td>
+    <td width=17 height=15 colspan=2><font face=Webdings color="#0099CC"
+    size=1>4</font></td>
+    <td width=238 height=15 colspan=4><font face=Arial color=black size=1>void
+    createEditPolicies(EditPart editpart)</font><br>
+    </td>
+    <td width=251 height=15 colspan=6></td>
+   </tr>
+   <tr>
+    <td width=522 height=2 colspan=13></td>
+   </tr>
+   <tr>
+    <td width=16 height=17><font face=Wingdings color="#0099CC" size=2>§</font></td>
+    <td width=506 height=17 colspan=12><font face=Arial color=black size=2>The
+    service gives all interested providers a chance to create editpolicies for</font><br>
+    </td>
+   </tr>
+   <tr>
+    <td width=522 height=1 colspan=13></td>
+   </tr>
+   <tr>
+    <td width=16 height=17></td>
+    <td width=396 height=17 colspan=7><font face=Arial color=black size=2>the
+    given editpart in order of priority from lowest to highest.</font><br>
+    </td>
+    <td width=110 height=17 colspan=5></td>
+   </tr>
+   <tr>
+    <td width=16 height=17><font face=Wingdings color="#0099CC" size=2>§</font></td>
+    <td width=491 height=17 colspan=11><font face=Arial color=black size=2>Overriding
+    an editpolicy is done by assigning a new one in the same role.</font><br>
+    </td>
+    <td width=15 height=17></td>
+   </tr>
+   <tr>
+    <td width=522 height=1 colspan=13></td>
+   </tr>
+   <tr>
+    <td width=16 height=17><font face=Wingdings color="#0099CC" size=2>§</font></td>
+    <td width=467 height=17 colspan=9><font face=Arial color=black size=2>Assigning
+    ‘null’ to an editpolicy role is equivalent to removing that role</font><br>
+    </td>
+    <td width=39 height=17 colspan=3></td>
+   </tr>
+   <tr>
+    <td width=16 height=17></td>
+    <td width=63 height=17 colspan=4><font face=Arial color=black size=2>behavior.</font><br>
+    </td>
+    <td width=443 height=17 colspan=8></td>
+   </tr>
+   <tr>
+    <td width=16 height=17><font face=Wingdings color="#0099CC" size=2>§</font></td>
+    <td width=491 height=17 colspan=11><font face=Arial color=black size=2>The
+    service is very useful for adding/removing behavior without having to</font><br>
+    </td>
+    <td width=15 height=17></td>
+   </tr>
+   <tr>
+    <td width=522 height=1 colspan=13></td>
+   </tr>
+   <tr>
+    <td width=16 height=17></td>
+    <td width=186 height=17 colspan=5><font face=Arial color=black size=2>subclass
+    targeted editparts.</font><br>
+    </td>
+    <td width=320 height=17 colspan=7></td>
+   </tr>
+  </table>
+  </td>
+  <td width=44 height=177 colspan=2></td>
+ </tr>
+ <tr>
+  <td width=650 height=21 colspan=7></td>
+ </tr>
+ <tr>
+  <td width=142 height=103 colspan=3></td>
+  <td width=365 height=103><img src="v3_slide0244_image045.jpg" border=0
+  width=365 height=103></td>
+  <td width=143 height=103 colspan=3></td>
+ </tr>
+ <tr>
+  <td width=650 height=65 colspan=7></td>
+ </tr>
+</table>
+
+</body>
+
+</html>

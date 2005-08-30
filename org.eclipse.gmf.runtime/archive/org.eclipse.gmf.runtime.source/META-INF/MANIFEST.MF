@@ -1,0 +1,7 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: %Plugin.name
+Bundle-SymbolicName: org.eclipse.gmf.runtime.source; singleton:=true
+Bundle-Version: 7.0.0
+Bundle-Vendor: %Plugin.providerName
+Bundle-Localization: plugin

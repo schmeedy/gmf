@@ -1,0 +1,2948 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="Stylesheet" type="text/css" href="technote.css">
+<title>Model Services Layer - How-to Guide</title>
+</head>
+
+<body lang="EN-US" link="blue" vlink="blue">
+
+<a name=top></a><img width="629" height="192" src="..\logo.gif" border="0">
+
+<h1 align="center">Diagram Services Layer - How-to Guide</h1>
+
+<table  border="0" cellspacing="8" cellpadding="0">
+ <tr>
+  <td>Version: 0.1</td>
+  <td>Date: August 11, 2005</td>
+ </tr>
+</table>
+
+<h2>Contents</h2>
+
+<ul>
+  <li><a href="#introduction">Introduction</a></li>
+  <li><a href="#refs">References</a></li>
+  <li><A href="#notationStyles">How to add new notation styles to an
+	existing shape</A></li>
+  <li><a href="#clipboardFramework"></a><A href="#overrideShapeLook">How
+	to override an existing shapes look</A></li>
+  <li><a href="#validationFramework"><A
+		name="preferenceChange0" href="#preferenceChange">How to change shape appearances based on a
+	global preference change</A></a></li>
+  <li><a href="#overrideConnectionLook">How to o<A
+		name="overrideConnectionLook0">verride the look of a connection</A></a></li>
+  <li><a href="#readOnlyViews"><SPAN class="GramE"><SPAN
+		style="mso-bookmark:
+_Toc105513761"><A name="readOnlyViews0"
+		href="#readOnlyViews">How to open multiple read-only views on a
+	diagram</A></SPAN></SPAN></a></li>
+	<LI><A name="changeColor0" href="#changeColor">How to </A><A
+		href="#changeColor"><SPAN style="mso-bookmark:_Toc105513763">change
+	the color of a shape dynamicaly</SPAN></A></LI>
+	<LI><A name="shapeResizable0" href="#shapeResizable">How to make a shape resizable vs.
+	non-resizable</A></LI>
+</ul>
+
+<hr/>
+
+<h2><a name="introduction"></a></a>Introduction</h2>
+<p class="backto"><font size="-1">[<a href="#top">back to top</a>]</font></p>
+
+<p>
+This guide is a repository for questions on how to accomplish specific tasks within
+the diagram services layer.
+</p>
+
+<h2><a name="refs"></a>References</h2>
+<p class="backto"><font size="-1">[<a href="#top">back to top</a>]</font></p><p></p>
+
+<h2><SPAN
+	style="mso-bookmark:_Toc105513756"><A name="notationStyles">How to add notation styles to an existing shape</A></SPAN></h2>
+<p class="backto"><font size="-1">[<a href="#top">back to top</a>]</font></p>
+
+<P style="text-indent:0in;mso-list:none">Each shape node view class
+(Node) will typically need to install a set of styles that allow a
+certain look of the notation to be persisted.<SPAN
+	style="mso-spacerun:yes">  </SPAN>Usually the default style ?<SPAN
+	class="SpellE">ShapeStyle</SPAN>? will be adequate since this covers
+colors, text, etc.<SPAN style="mso-spacerun:yes">  </SPAN>However, it
+may be useful to add additional styles and/or have custom styles not
+accounted for in the notation meta-model (<SPAN class="SpellE">com.ibm.xtools.notation</SPAN>).<SPAN
+	style="mso-spacerun:yes">  </SPAN>For instance, a domain editor may
+wish to toggle the display of a particular shape to have different
+looks.<SPAN style="mso-spacerun:yes">  </SPAN>The property to store this
+is notational and consequently should be part of the notation
+meta-model.<SPAN style="mso-spacerun:yes">  </SPAN></P>
+
+<P>Create
+a new notation meta-model ?sub-class?.<SPAN style="mso-spacerun:yes">  </SPAN>Since
+the property is typically an attribute of a node, this can be
+represented in a Style subclass.</P>
+
+<P class="MsoNormal"
+	style="margin-left:.75in;text-indent:-.25in;mso-list:l2 level1 lfo4;
+tab-stops:list .75in"><!><SPAN
+	style="mso-list:Ignore">-<SPAN style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</SPAN></SPAN><!>Open Rational Rose</P>
+
+<P class="MsoNormal"
+	style="margin-left:.75in;text-indent:-.25in;mso-list:l2 level1 lfo4;
+tab-stops:list .75in"><!><SPAN
+	style="mso-list:Ignore">-<SPAN style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</SPAN></SPAN><!>Select &quot;File Import&quot; using type Category Files (*.cat)</P>
+
+<P class="MsoNormal"
+	style="margin-left:.75in;text-indent:-.25in;mso-list:l2 level1 lfo4;
+tab-stops:list .75in"><!><SPAN
+	style="mso-list:Ignore">-<SPAN style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</SPAN></SPAN><!>Navigate to the <SPAN class="SpellE">com.ibm.xtools.notation</SPAN>
+plug-in and fine in the source directories the cat file \<SPAN
+	class="SpellE">src\rosemodel\com.ibm.xtools.notation.Notation.cat</SPAN>
+and the <SPAN class="SpellE">org.eclipse.emf.Ecore.cat</SPAN> files.</P>
+
+<P class="MsoNormal"
+	style="margin-left:.75in;text-indent:-.25in;mso-list:l2 level1 lfo4;
+tab-stops:list .75in"><!><SPAN
+	style="mso-list:Ignore">-<SPAN style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</SPAN></SPAN><!>Create a new package under your <SPAN class="SpellE">LogicalView</SPAN>
+describing your notation meta-model (i.e. <SPAN class="SpellE">mynotation</SPAN>)</P>
+
+<P class="MsoNormal"
+	style="margin-left:.75in;text-indent:-.25in;mso-list:l2 level1 lfo4;
+tab-stops:list .75in"><!><SPAN
+	style="mso-list:Ignore">-<SPAN style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</SPAN></SPAN><!>Drag the style you wish to extend from the notation
+meta-model imported package onto the main diagram of the package you
+just created.</P>
+
+<P class="MsoNormal"
+	style="margin-left:.75in;text-indent:-.25in;mso-list:l2 level1 lfo4;
+tab-stops:list .75in"><!><SPAN
+	style="mso-list:Ignore">-<SPAN style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</SPAN></SPAN><!>Create your new style class with the appropriate
+attributes and draw a generalization to the style you wish to extend
+from.</P>
+
+<P class="MsoNormal"
+	style="margin-left:.75in;text-indent:-.25in;mso-list:l2 level1 lfo4;
+tab-stops:list .75in"><!><SPAN
+	style="mso-list:Ignore">-<SPAN style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</SPAN></SPAN><!>Right click on the package and select &quot;control <SPAN
+	class="SpellE">mynotation&quot;</SPAN></P>
+
+<P class="MsoNormal"
+	style="margin-left:.75in;text-indent:-.25in;mso-list:l2 level1 lfo4;
+tab-stops:list .75in"><!><SPAN
+	style="mso-list:Ignore">-<SPAN style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</SPAN></SPAN><!>Save model</P>
+
+<P class="MsoNormal"
+	style="margin-left:.75in;text-indent:-.25in;mso-list:l2 level1 lfo4;
+tab-stops:list .75in"><!><SPAN
+	style="mso-list:Ignore">-<SPAN style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</SPAN></SPAN><!>Go to Eclipse, choose &quot;New Project / Eclipse Modeling
+Framework / EMF Project&quot;</P>
+
+<P class="MsoNormal"
+	style="margin-left:.75in;text-indent:-.25in;mso-list:l2 level1 lfo4;
+tab-stops:list .75in"><!><SPAN
+	style="mso-list:Ignore">-<SPAN style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</SPAN></SPAN><!>Name the project com.*.<SPAN class="SpellE">mynotation</SPAN></P>
+
+<P class="MsoNormal"
+	style="margin-left:.75in;text-indent:-.25in;mso-list:l2 level1 lfo4;
+tab-stops:list .75in"><!><SPAN
+	style="mso-list:Ignore">-<SPAN style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</SPAN></SPAN><!>Select &quot;Load from a Rose class model&quot;</P>
+
+<P class="MsoNormal"
+	style="margin-left:.75in;text-indent:-.25in;mso-list:l2 level1 lfo4;
+tab-stops:list .75in"><!><SPAN
+	style="mso-list:Ignore">-<SPAN style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</SPAN></SPAN><!>Navigate to the rose model you just created.<SPAN
+	style="mso-spacerun:yes">  </SPAN>Hit &quot;Next&quot; until you get to the
+&quot;Package Selection&quot; page.</P>
+
+<P class="MsoNormal"
+	style="margin-left:.75in;text-indent:-.25in;mso-list:l2 level1 lfo4;
+tab-stops:list .75in"><!><SPAN
+	style="mso-list:Ignore">-<SPAN style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</SPAN></SPAN><!>Click &quot;Browse&quot;</P>
+
+<P class="MsoNormal"
+	style="margin-left:.75in;text-indent:-.25in;mso-list:l2 level1 lfo4;
+tab-stops:list .75in"><!><SPAN
+	style="mso-list:Ignore">-<SPAN style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</SPAN></SPAN><!>Navigate to notation meta-model directory (<SPAN
+	class="SpellE">com.ibm.xtools.notation/src/model</SPAN>) and in the
+right hand pane select <SPAN class="SpellE">notation.genmodel</SPAN>.</P>
+
+<P class="MsoNormal"
+	style="margin-left:.75in;text-indent:-.25in;mso-list:l2 level1 lfo4;
+tab-stops:list .75in"><!><SPAN
+	style="mso-list:Ignore">-<SPAN style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</SPAN></SPAN><!>In the bottom pane select the Notation and <SPAN
+	class="SpellE">Ecore</SPAN> check-boxes under the notation root.</P>
+
+<P class="MsoNormal"
+	style="margin-left:.75in;text-indent:-.25in;mso-list:l2 level1 lfo4;
+tab-stops:list .75in"><!><SPAN
+	style="mso-list:Ignore">-<SPAN style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</SPAN></SPAN><!>Select the <SPAN class="SpellE">mynotation</SPAN></P>
+
+<P class="MsoNormal"
+	style="margin-left:.75in;text-indent:-.25in;mso-list:l2 level1 lfo4;
+tab-stops:list .75in"><!><SPAN
+	style="mso-list:Ignore">-<SPAN style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</SPAN></SPAN><!>Click &quot;Finish&quot;</P>
+
+<P class="MsoNormal"
+	style="margin-left:.75in;text-indent:-.25in;mso-list:l2 level1 lfo4;
+tab-stops:list .75in"><!><SPAN
+	style="mso-list:Ignore">-<SPAN style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</SPAN></SPAN><!>Open the <SPAN class="SpellE">mynotation.genmodel</SPAN>.<SPAN
+	style="mso-spacerun:yes">  </SPAN>Right click on the root in the editor
+and choose &quot;Generate Model Code&quot; and the &quot;Generate Edit Code&quot; menu
+items.</P>
+
+<H4 class="MsoNormal"><SPAN class="GramE">Modifying an already existing
+and generated notation meta-model.</SPAN></H4>
+
+<P class="MsoNormal"
+	style="margin-left:.75in;text-indent:-.25in;mso-list:l1 level1 lfo6;
+tab-stops:list .75in"><!><SPAN
+	style="mso-list:Ignore">-<SPAN style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</SPAN></SPAN><!>Make the changes in the Rose model and save.<SPAN
+	style="mso-spacerun:yes">  </SPAN>In the directory/<SPAN class="SpellE">src</SPAN>/model,
+right click on the <SPAN class="SpellE">mynotation.genmodel</SPAN> file
+and choose &quot;reload&quot; to reflect the changes.<SPAN
+	style="mso-spacerun:yes">  </SPAN></P>
+
+<P class="MsoNormal"
+	style="margin-left:.75in;text-indent:-.25in;mso-list:l1 level1 lfo6;
+tab-stops:list .75in"><!><SPAN
+	style="mso-list:Ignore">-<SPAN style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</SPAN></SPAN><!>Hit &quot;Next&quot; in the wizard until ?Finish? appears and the
+click that.</P>
+
+<P class="MsoNormal"
+	style="margin-left:.75in;text-indent:-.25in;mso-list:l2 level1 lfo4;
+tab-stops:list .75in"><!><SPAN
+	style="mso-list:Ignore">-<SPAN style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</SPAN></SPAN><!>Open the <SPAN class="SpellE">mynotation.genmodel</SPAN>.<SPAN
+	style="mso-spacerun:yes">  </SPAN>Right click on the root in the editor
+and choose &quot;Generate Model Code&quot; and the &quot;Generate Edit Code&quot; menu
+items.</P>
+
+<H4><A name="_Toc105513757">Reflect the changes of the new style value
+on the diagram editor</A></H4>
+
+<P class="MsoNormal"
+	style="margin-left:.75in;text-indent:-.25in;mso-list:l2 level1 lfo4;
+tab-stops:list .75in"><!><SPAN
+	style="mso-list:Ignore">-<SPAN style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</SPAN></SPAN><!>Instrument the new style in the &quot;<SPAN class="SpellE">createStyles</SPAN>&quot;
+function of View Factory subclass that creates the top level view you
+wish to store the style on.</P>
+
+<P class="MsoNormal"
+	style="margin-left:.75in;text-indent:-.25in;mso-list:l2 level1 lfo4;
+tab-stops:list .75in"><!><SPAN
+	style="mso-list:Ignore">-<SPAN style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</SPAN></SPAN><!>Overwrite &quot;<SPAN class="SpellE">refreshVisuals</SPAN>&quot;
+and &quot;<SPAN class="SpellE">handlePropertyChangeEvent</SPAN>&quot; functions in
+the <SPAN class="SpellE">EditPart</SPAN> class associated with the
+notation view and create new function &quot;<SPAN class="SpellE">refreshValue&quot;</SPAN>
+called within the &quot;refreshVisuals&quot; override which will perform the update of the figures based on the style change.<BR>
+</P>
+
+<DIV
+	style="border:solid windowtext 1.0pt;mso-border-alt:solid windowtext .75pt;
+padding:4.0pt 4.0pt 4.0pt 4.0pt;margin-left:48.0pt;margin-right:24.0pt">Code Snippet:
+<BR>
+<BR>
+<FONT face="Courier New" size="-1">protected void handlePropertyChangeEvent(
+PropertyChangeEvent evt) {<BR>
+&nbsp;&nbsp;&nbsp;if
+(evt.getPropertyName().equals(MetaModelUtil.getID(MyNotationPackage.eINSTANCE.getMyStyle_Value())))<BR>
+&nbsp;&nbsp;&nbsp;refreshValue();<BR>
+else<BR>
+&nbsp;&nbsp;&nbsp;super.handlePropertyChangeEvent(evt);<BR>
+} </FONT><BR>
+<BR>
+<FONT face="Courier New" size="-2">/**<BR>
+<SPAN style="mso-spacerun:yes"> </SPAN>* Apart from the usual visual
+update, it also<BR>
+<SPAN style="mso-spacerun:yes"> </SPAN><SPAN class="GramE">* updates any
+necessary values in the figure world<BR>
+</SPAN><SPAN style="mso-spacerun:yes"> </SPAN>*/<BR>
+<SPAN class="GramE">protected</SPAN>
+void <SPAN class="SpellE">refreshVisuals</SPAN>() {<BR>
+<SPAN style="mso-tab-count:1">            </SPAN><SPAN class="SpellE"><SPAN
+	class="GramE">super.refreshVisuals</SPAN></SPAN><SPAN class="GramE">(</SPAN>);<BR>
+<SPAN style="mso-tab-count:1">            </SPAN><SPAN class="SpellE"><SPAN
+	class="GramE">refreshValue</SPAN></SPAN><SPAN class="GramE">(</SPAN>);<BR>
+}</FONT><BR>
+<BR>
+
+<FONT face="Courier New" size="-2">/**<BR><SPAN
+	style="mso-spacerun:yes"> </SPAN>* Refreshes the style value property<SPAN
+	style="mso-spacerun:yes"> </SPAN><BR>
+  &nbsp;*/<BR>
+<SPAN class="GramE">protected</SPAN> void <SPAN class="SpellE">refreshValue</SPAN>(){<BR>
+<SPAN class="SpellE"> MyStyle</SPAN> style =<SPAN
+	style="mso-spacerun:yes">      </SPAN>(<SPAN class="SpellE">MyStyle</SPAN><SPAN
+	class="GramE">)<SPAN class="SpellE">getView</SPAN></SPAN>().<SPAN
+	class="SpellE">getStyle</SPAN>(<SPAN class="SpellE">mynotationPackage.eINSTANCE.getMyStyle</SPAN>());<BR>
+<SPAN style="mso-tab-count:1">            </SPAN><SPAN class="GramE">if(</SPAN>style
+!= null)<BR>
+<SPAN style="mso-tab-count:2">                        </SPAN><SPAN
+	class="SpellE"><SPAN class="GramE">getMyFigure</SPAN></SPAN><SPAN
+	class="GramE">(</SPAN>).<SPAN class="SpellE">setValue</SPAN>(<SPAN
+	class="SpellE">style.getValue</SPAN>());<BR>
+}</FONT>
+
+<P class="MsoNormal" style="margin-left:.5in"><FONT face="Courier New"
+	size="-2"></FONT></P>
+</DIV>
+<H2><A name="overrideShapeLook">How to override an existing shapes look?</A></H2>
+
+<P class="MsoNormal"
+	style="mso-layout-grid-align:none;text-autospace:none"><FONT size="-1">[<A
+	href="#top">back to top</A>]</FONT><BR>
+</P>
+
+<OL style="margin-top:0in" start="1" type="1">
+	<LI class="MsoNormal"
+		style="color:black;mso-list:l6 level1 lfo9;tab-stops:list .5in;
+     mso-layout-grid-align:none;text-autospace:none"><SPAN
+		style="font-size:
+     10.0pt;font-family:Helv;mso-bidi-font-family:Helv">First
+	you'll need to determine the <SPAN class="SpellE">AbstractViewFactory</SPAN>
+	subclass that represents the shape that you are creating.<SPAN
+		style="mso-spacerun:yes">  </SPAN>This hierarchy is responsible for
+	the construction and initialization of the notation that <SPAN
+		class="GramE">persists</SPAN> the shape.<SPAN style="mso-spacerun:yes"> 
+	</SPAN>To determine this, find the <SPAN class="SpellE">ViewProvider</SPAN>
+	that provides the notation for the View and the class should be in a
+	map with the semantic hint as a key.<SPAN style="mso-spacerun:yes">  </SPAN>Alternatively
+	you could set a breakpoint in the <SPAN class="SpellE">AbstractViewFactory#createStyles</SPAN>
+	method and see what type of View factory &quot;this&quot; is after a palette
+	creation or drag/drop operation.<SPAN style="mso-spacerun:yes">  </SPAN>This
+	will be the View factory class that you will need to inherit from in
+	your provider.<o:p></o:p></SPAN></LI>
+</OL>
+
+<P class="MsoNormal"
+	style="margin-left:.25in;mso-layout-grid-align:none;
+text-autospace:none"><SPAN
+	style="font-size:10.0pt;font-family:Helv;mso-bidi-font-family:
+Helv;color:black"><o:p>&nbsp;</o:p></SPAN></P>
+
+<OL style="margin-top:0in" start="2" type="1">
+	<LI class="MsoNormal"
+		style="color:black;mso-list:l6 level1 lfo9;tab-stops:list .5in;
+     mso-layout-grid-align:none;text-autospace:none"><SPAN
+		style="font-size:
+     10.0pt;font-family:Helv;mso-bidi-font-family:Helv">If
+	you don't already have a custom view provider for your shape the
+	following steps are necessary.<SPAN style="mso-spacerun:yes">  </SPAN>If
+	you do, then proceed to step (3).<o:p></o:p></SPAN></LI>
+	<OL style="margin-top:0in" start="1" type="a">
+		<LI class="MsoNormal"
+			style="color:black;mso-list:l6 level2 lfo9;tab-stops:
+      list 1.0in;mso-layout-grid-align:none;text-autospace:none"><SPAN
+			style="font-size:10.0pt;font-family:Helv;mso-bidi-font-family:Helv">Create
+		a new subclass of <SPAN class="SpellE">AbstractViewProvider</SPAN> to
+		provide for your shape.<SPAN style="mso-spacerun:yes">  </SPAN>This is
+		necessary because you wish to customize the initialization of the
+		shape for your semantic domain.<o:p></o:p></SPAN></LI>
+		<LI class="MsoNormal"
+			style="color:black;mso-list:l6 level2 lfo9;tab-stops:
+      list 1.0in;mso-layout-grid-align:none;text-autospace:none"><SPAN
+			style="font-size:10.0pt;font-family:Helv;mso-bidi-font-family:Helv">Add
+		xml code in your plug-<SPAN class="SpellE">in.xml</SPAN> to allow your
+		new provider to provide for the semantic element.<SPAN
+			style="mso-spacerun:yes">  </SPAN>To provide for a semantic type some
+		condition about the element the view is for, there is a &quot;method&quot; tag
+		that allows qualification of the provider (see below).<SPAN
+			style="mso-spacerun:yes">  </SPAN>The xml descriptor is a first line
+		of defense to avoid loading your plug-in.<SPAN
+			style="mso-spacerun:yes">  </SPAN><o:p></o:p></SPAN></LI>
+	</OL>
+</OL>
+
+<P class="MsoNormal"
+	style="margin-left:.75in;mso-layout-grid-align:none;
+text-autospace:none"><SPAN
+	style="font-size:10.0pt;font-family:Helv;mso-bidi-font-family:
+Helv;color:black"><o:p>&nbsp;</o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="text-indent:.5in;mso-layout-grid-align:none;
+text-autospace:none"><SPAN
+	class="GramE"><SPAN
+	style="font-size:10.0pt;
+font-family:Helv;mso-bidi-font-family:Helv;color:black">Ex
+1.</SPAN></SPAN><SPAN
+	style="font-size:10.0pt;font-family:Helv;mso-bidi-font-family:Helv;color:black"><SPAN
+	style="mso-spacerun:yes">  </SPAN><SPAN class="GramE">Using the
+semantic element as the element type to provide against.</SPAN><o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="margin-left:.5in;mso-layout-grid-align:none;
+text-autospace:none"><SPAN
+	style='font-size:9.0pt;font-family:"Courier New";
+color:navy;background:white;mso-highlight:white'>&lt;extension</SPAN><SPAN
+	style='font-size:9.0pt;font-family:"Courier New"'><o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="margin-left:.5in;mso-layout-grid-align:none;
+text-autospace:none"><SPAN
+	style='font-size:9.0pt;font-family:"Courier New";
+color:black;background:white;mso-highlight:white'><SPAN
+	style="mso-spacerun:yes">         </SPAN></SPAN><SPAN class="GramE"><SPAN
+	style='font-size:9.0pt;font-family:"Courier New";color:navy;background:white;
+mso-highlight:white'>point</SPAN></SPAN><SPAN
+	style='font-size:9.0pt;
+font-family:"Courier New";color:navy;background:white;mso-highlight:white'>=</SPAN><SPAN
+	style='font-size:9.0pt;font-family:"Courier New";color:green;background:white;
+mso-highlight:white'>&quot;<SPAN
+	class="SpellE">org.eclipse.gmf.runtime.diagram.ui.viewProviders</SPAN>&quot;</SPAN><SPAN
+	style='font-size:9.0pt;font-family:"Courier New";color:navy;background:white;
+mso-highlight:white'>&gt;</SPAN><SPAN
+	style='font-size:9.0pt;font-family:"Courier New"'><o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="margin-left:.5in;mso-layout-grid-align:none;
+text-autospace:none"><SPAN
+	style='font-size:9.0pt;font-family:"Courier New";
+color:black;background:white;mso-highlight:white'><SPAN
+	style="mso-spacerun:yes">      </SPAN></SPAN><SPAN
+	style='font-size:9.0pt;
+font-family:"Courier New";color:navy;background:white;mso-highlight:white'>&lt;<SPAN
+	class="SpellE">viewProvider</SPAN></SPAN><SPAN
+	style='font-size:9.0pt;font-family:
+"Courier New"'><SPAN
+	style="mso-tab-count:1">  </SPAN><o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="margin-left:1.0in;text-indent:.5in;mso-layout-grid-align:
+none;text-autospace:none"><SPAN
+	class="GramE"><SPAN
+	style='font-size:9.0pt;
+font-family:"Courier New";color:navy;background:white;mso-highlight:white'>class</SPAN></SPAN><SPAN
+	style='font-size:9.0pt;font-family:"Courier New";color:navy;background:white;
+mso-highlight:white'>=</SPAN><SPAN
+	style='font-size:9.0pt;font-family:"Courier New";
+color:green;background:white;mso-highlight:white'>&quot;&lt;<SPAN
+	class="SpellE">YourFullyQualfiedClass</SPAN>&quot;</SPAN><SPAN
+	style='font-size:9.0pt;font-family:"Courier New";color:navy;background:white;
+mso-highlight:white'>&gt;</SPAN><SPAN
+	style='font-size:9.0pt;font-family:"Courier New"'><o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="margin-left:.5in;mso-layout-grid-align:none;
+text-autospace:none"><SPAN
+	style='font-size:9.0pt;font-family:"Courier New";
+color:black;background:white;mso-highlight:white'><SPAN
+	style="mso-spacerun:yes">         </SPAN><SPAN style="mso-tab-count:1">    
+</SPAN></SPAN><SPAN
+	style='font-size:9.0pt;font-family:"Courier New";color:navy;background:white;
+mso-highlight:white'>&lt;Priority</SPAN><SPAN
+	style='font-size:9.0pt;
+font-family:"Courier New"'><o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="margin-left:.5in;mso-layout-grid-align:none;
+text-autospace:none"><SPAN
+	style='font-size:9.0pt;font-family:"Courier New";
+color:black;background:white;mso-highlight:white'><SPAN
+	style="mso-spacerun:yes">               </SPAN></SPAN><SPAN
+	class="GramE"><SPAN
+	style='font-size:9.0pt;font-family:"Courier New";color:navy;background:white;
+mso-highlight:white'>name</SPAN></SPAN><SPAN
+	style='font-size:9.0pt;font-family:
+"Courier New";color:navy;background:white;mso-highlight:white'>=</SPAN><SPAN
+	style='font-size:9.0pt;font-family:"Courier New";color:green;background:white;
+mso-highlight:white'>&quot;Highest&quot;</SPAN><SPAN
+	style='font-size:9.0pt;
+font-family:"Courier New";color:navy;background:white;mso-highlight:white'>&gt;</SPAN><SPAN
+	style='font-size:9.0pt;font-family:"Courier New"'><o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="margin-left:.5in;mso-layout-grid-align:none;
+text-autospace:none"><SPAN
+	style='font-size:9.0pt;font-family:"Courier New";
+color:black;background:white;mso-highlight:white'><SPAN
+	style="mso-spacerun:yes">         </SPAN><SPAN style="mso-tab-count:1">    
+</SPAN></SPAN><SPAN
+	style='font-size:9.0pt;font-family:"Courier New";color:navy;background:white;
+mso-highlight:white'>&lt;/Priority&gt;</SPAN><SPAN
+	style='font-size:9.0pt;
+font-family:"Courier New"'><o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="margin-left:.5in;mso-layout-grid-align:none;
+text-autospace:none"><SPAN
+	style='font-size:9.0pt;font-family:"Courier New";
+color:black;background:white;mso-highlight:white'><SPAN
+	style="mso-spacerun:yes">         </SPAN></SPAN><SPAN
+	style='font-size:9.0pt;
+font-family:"Courier New";color:navy;background:white;mso-highlight:white'>&lt;object</SPAN><SPAN
+	style='font-size:9.0pt;font-family:"Courier New";color:black;background:white;
+mso-highlight:white'>
+</SPAN><SPAN style='font-size:9.0pt;font-family:"Courier New"'><o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="margin-left:1.0in;text-indent:.5in;mso-layout-grid-align:
+none;text-autospace:none"><SPAN
+	class="GramE"><SPAN
+	style='font-size:9.0pt;
+font-family:"Courier New";color:navy;background:white;mso-highlight:white'>class</SPAN></SPAN><SPAN
+	style='font-size:9.0pt;font-family:"Courier New";color:navy;background:white;
+mso-highlight:white'>=</SPAN><SPAN
+	style='font-size:9.0pt;font-family:"Courier New";
+color:green;background:white;mso-highlight:white'>&quot;</SPAN><SPAN
+	style='font-size:9.0pt;font-family:"Courier New";color:green'>&lt;<SPAN
+	class="SpellE">YourFullyQualfiedSemanticClassToProvideFor</SPAN>&gt;<SPAN
+	style="background:white;mso-highlight:white">&quot;</SPAN></SPAN><SPAN
+	style='font-size:9.0pt;font-family:"Courier New"'><o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="margin-left:.5in;mso-layout-grid-align:none;
+text-autospace:none"><SPAN
+	style='font-size:9.0pt;font-family:"Courier New";
+color:black;background:white;mso-highlight:white'><SPAN
+	style="mso-spacerun:yes">         </SPAN><SPAN style="mso-tab-count:1">    
+</SPAN><SPAN style="mso-spacerun:yes">   </SPAN></SPAN><SPAN
+	class="GramE"><SPAN
+	style='font-size:9.0pt;font-family:"Courier New";color:navy;background:white;
+mso-highlight:white'>id</SPAN></SPAN><SPAN
+	style='font-size:9.0pt;font-family:
+"Courier New";color:navy;background:white;mso-highlight:white'>=</SPAN><SPAN
+	style='font-size:9.0pt;font-family:"Courier New";color:green;background:white;
+mso-highlight:white'>&quot;Nodes&quot;</SPAN><SPAN
+	style='font-size:9.0pt;
+font-family:"Courier New";color:navy;background:white;mso-highlight:white'>&gt;</SPAN><SPAN
+	style='font-size:9.0pt;font-family:"Courier New"'><o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="margin-left:.5in;mso-layout-grid-align:none;
+text-autospace:none"><SPAN
+	style='font-size:9.0pt;font-family:"Courier New";
+color:black;background:white;mso-highlight:white'><SPAN
+	style="mso-spacerun:yes">         </SPAN></SPAN><SPAN
+	style='font-size:9.0pt;
+font-family:"Courier New";color:navy;background:white;mso-highlight:white'>&lt;/object&gt;</SPAN><SPAN
+	style='font-size:9.0pt;font-family:"Courier New"'><o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="margin-left:1.0in;mso-layout-grid-align:none;
+text-autospace:none"><SPAN
+	style='font-size:9.0pt;font-family:"Courier New";
+color:navy;background:white;mso-highlight:white'><SPAN
+	style="mso-spacerun:yes">  </SPAN>&lt;method name=?<SPAN class="SpellE"><SPAN
+	class="GramE">getSomeMethodCallValue</SPAN></SPAN><SPAN class="GramE">(</SPAN>?)?
+<SPAN class="SpellE">notValue</SPAN>=?null?&gt;<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="margin-left:1.0in;mso-layout-grid-align:none;
+text-autospace:none"><SPAN
+	style='font-size:9.0pt;font-family:"Courier New";
+color:navy;background:white;mso-highlight:white'><SPAN
+	style="mso-spacerun:yes">   </SPAN>&lt;<SPAN class="GramE">context</SPAN>&gt;</SPAN><SPAN
+	style='font-size:9.0pt;font-family:"Courier New";color:black;background:white;
+mso-highlight:white'><SPAN
+	style="mso-tab-count:1">  </SPAN></SPAN><SPAN class="SpellE"><SPAN
+	style='font-size:9.0pt;font-family:"Courier New";color:navy;
+background:white;mso-highlight:white'>viewClass</SPAN></SPAN><SPAN
+	style='font-size:9.0pt;font-family:"Courier New";color:navy;background:white;
+mso-highlight:white'>=</SPAN><SPAN
+	style='font-size:9.0pt;font-family:"Courier New";
+color:green;background:white;mso-highlight:white'>&quot;<SPAN
+	class="SpellE">com.ibm.xtools.notation.Node</SPAN>&quot;</SPAN><SPAN
+	style='font-size:9.0pt;font-family:"Courier New"'><o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="margin-left:.5in;mso-layout-grid-align:none;
+text-autospace:none"><SPAN
+	style='font-size:9.0pt;font-family:"Courier New";
+color:black;background:white;mso-highlight:white'><SPAN
+	style="mso-spacerun:yes">         </SPAN><SPAN style="mso-tab-count:1">    
+</SPAN></SPAN><SPAN lang="FR"
+	style='font-size:9.0pt;font-family:"Courier New";color:navy;background:
+white;mso-highlight:white;mso-ansi-language:FR'>semanticHints=</SPAN><SPAN
+	lang="FR"
+	style='font-size:9.0pt;font-family:"Courier New";color:green;
+background:white;mso-highlight:white;mso-ansi-language:FR'>&quot;&quot;</SPAN><SPAN
+	lang="FR"
+	style='font-size:9.0pt;font-family:"Courier New";mso-ansi-language:
+FR'><o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="margin-left:.5in;mso-layout-grid-align:none;
+text-autospace:none"><SPAN
+	lang="FR"
+	style='font-size:9.0pt;font-family:"Courier New";
+color:black;background:white;mso-highlight:white;mso-ansi-language:FR'><SPAN
+	style="mso-spacerun:yes">         </SPAN><SPAN style="mso-tab-count:1">    
+</SPAN></SPAN><SPAN lang="FR"
+	style='font-size:9.0pt;font-family:"Courier New";color:navy;background:
+white;mso-highlight:white;mso-ansi-language:FR'>elements=</SPAN><SPAN
+	lang="FR"
+	style='font-size:9.0pt;font-family:"Courier New";color:green;background:white;
+mso-highlight:white;mso-ansi-language:FR'>&quot;Nodes&quot;</SPAN><SPAN
+	lang="FR"
+	style='font-size:9.0pt;font-family:"Courier New";color:navy;background:
+white;mso-highlight:white;mso-ansi-language:FR'>&gt;</SPAN><SPAN
+	lang="FR"
+	style='font-size:9.0pt;font-family:"Courier New";mso-ansi-language:FR'><o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="margin-left:.5in;mso-layout-grid-align:none;
+text-autospace:none"><SPAN
+	lang="FR"
+	style='font-size:9.0pt;font-family:"Courier New";
+color:black;background:white;mso-highlight:white;mso-ansi-language:FR'><SPAN
+	style="mso-spacerun:yes">         </SPAN></SPAN><SPAN lang="FR"
+	style='font-size:
+9.0pt;font-family:"Courier New";color:navy;background:white;mso-highlight:white;
+mso-ansi-language:FR'>&lt;/context&gt;</SPAN><SPAN
+	lang="FR"
+	style='font-size:
+9.0pt;font-family:"Courier New";color:black;background:white;mso-highlight:
+white;mso-ansi-language:FR'><SPAN
+	style="mso-spacerun:yes">       </SPAN><o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="margin-left:.5in;text-indent:.5in;mso-layout-grid-align:
+none;text-autospace:none"><SPAN
+	lang="FR"
+	style='font-size:9.0pt;font-family:
+"Courier New";color:navy;background:white;mso-highlight:white;mso-ansi-language:
+FR'>&lt;/viewProvider&gt;</SPAN><SPAN
+	lang="FR"
+	style='font-size:9.0pt;
+font-family:"Courier New";mso-ansi-language:FR'><o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="margin-left:.5in;mso-layout-grid-align:none;
+text-autospace:none"><SPAN
+	lang="FR"
+	style='font-size:9.0pt;font-family:"Courier New";
+color:black;background:white;mso-highlight:white;mso-ansi-language:FR'><SPAN
+	style="mso-spacerun:yes">   </SPAN></SPAN><SPAN
+	style='font-size:9.0pt;
+font-family:"Courier New";color:navy;background:white;mso-highlight:white'>&lt;/extension&gt;</SPAN><SPAN
+	style='font-size:9.0pt;font-family:"Courier New";color:navy'><o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="mso-layout-grid-align:none;text-autospace:none"><SPAN
+	style='font-size:10.0pt;font-family:"Courier New";color:navy'><o:p>&nbsp;</o:p></SPAN></P>
+
+<P class="MsoNormal" style="margin-left:.5in"><SPAN class="GramE">Ex 2.</SPAN>
+Alternative is to check against the proxy interface and retrieve the
+type ID.<SPAN style="mso-spacerun:yes">  </SPAN>This is useful if you
+wish to provide your view against unresolved elements.<SPAN
+	style="mso-spacerun:yes">  </SPAN>When an element is a proxy you
+wouldn't be able to make a conditional check against some semantic
+property because it wouldn't be accessible in the case of an unresolved
+reference.<SPAN style="mso-spacerun:yes">  </SPAN>If the element were
+unresolved the other overridden provider would kick-in instead.</P>
+
+<P class="MsoNormal"
+	style="margin-left:.5in;mso-layout-grid-align:none;
+text-autospace:none"><SPAN
+	style='font-size:9.0pt;font-family:"Courier New";
+color:navy;background:white;mso-highlight:white'>&lt;extension</SPAN><SPAN
+	style='font-size:9.0pt;font-family:"Courier New"'><o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="margin-left:.5in;mso-layout-grid-align:none;
+text-autospace:none"><SPAN
+	style='font-size:9.0pt;font-family:"Courier New";
+color:black;background:white;mso-highlight:white'><SPAN
+	style="mso-spacerun:yes">         </SPAN></SPAN><SPAN class="GramE"><SPAN
+	style='font-size:9.0pt;font-family:"Courier New";color:navy;background:white;
+mso-highlight:white'>point</SPAN></SPAN><SPAN
+	style='font-size:9.0pt;
+font-family:"Courier New";color:navy;background:white;mso-highlight:white'>=</SPAN><SPAN
+	style='font-size:9.0pt;font-family:"Courier New";color:green;background:white;
+mso-highlight:white'>&quot;<SPAN
+	class="SpellE">org.eclipse.gmf.runtime.diagram.ui.viewProviders</SPAN>&quot;</SPAN><SPAN
+	style='font-size:9.0pt;font-family:"Courier New";color:navy;background:white;
+mso-highlight:white'>&gt;</SPAN><SPAN
+	style='font-size:9.0pt;font-family:"Courier New"'><o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="margin-left:.5in;mso-layout-grid-align:none;
+text-autospace:none"><SPAN
+	style='font-size:9.0pt;font-family:"Courier New";
+color:black;background:white;mso-highlight:white'><SPAN
+	style="mso-spacerun:yes">      </SPAN></SPAN><SPAN
+	style='font-size:9.0pt;
+font-family:"Courier New";color:navy;background:white;mso-highlight:white'>&lt;<SPAN
+	class="SpellE">viewProvider</SPAN></SPAN><SPAN
+	style='font-size:9.0pt;font-family:
+"Courier New"'><SPAN
+	style="mso-tab-count:1">  </SPAN><o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="margin-left:1.0in;text-indent:.5in;mso-layout-grid-align:
+none;text-autospace:none"><SPAN
+	class="GramE"><SPAN
+	style='font-size:9.0pt;
+font-family:"Courier New";color:navy;background:white;mso-highlight:white'>class</SPAN></SPAN><SPAN
+	style='font-size:9.0pt;font-family:"Courier New";color:navy;background:white;
+mso-highlight:white'>=</SPAN><SPAN
+	style='font-size:9.0pt;font-family:"Courier New";
+color:green;background:white;mso-highlight:white'>&quot;&lt;<SPAN
+	class="SpellE">YourFullyQualfiedClass</SPAN>&quot;</SPAN><SPAN
+	style='font-size:9.0pt;font-family:"Courier New";color:navy;background:white;
+mso-highlight:white'>&gt;</SPAN><SPAN
+	style='font-size:9.0pt;font-family:"Courier New"'><o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="margin-left:.5in;mso-layout-grid-align:none;
+text-autospace:none"><SPAN
+	style='font-size:9.0pt;font-family:"Courier New";
+color:black;background:white;mso-highlight:white'><SPAN
+	style="mso-spacerun:yes">         </SPAN><SPAN style="mso-tab-count:1">    
+</SPAN></SPAN><SPAN
+	style='font-size:9.0pt;font-family:"Courier New";color:navy;background:white;
+mso-highlight:white'>&lt;Priority</SPAN><SPAN
+	style='font-size:9.0pt;
+font-family:"Courier New"'><o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="margin-left:.5in;mso-layout-grid-align:none;
+text-autospace:none"><SPAN
+	style='font-size:9.0pt;font-family:"Courier New";
+color:black;background:white;mso-highlight:white'><SPAN
+	style="mso-spacerun:yes">               </SPAN></SPAN><SPAN
+	class="GramE"><SPAN
+	style='font-size:9.0pt;font-family:"Courier New";color:navy;background:white;
+mso-highlight:white'>name</SPAN></SPAN><SPAN
+	style='font-size:9.0pt;font-family:
+"Courier New";color:navy;background:white;mso-highlight:white'>=</SPAN><SPAN
+	style='font-size:9.0pt;font-family:"Courier New";color:green;background:white;
+mso-highlight:white'>&quot;Highest&quot;</SPAN><SPAN
+	style='font-size:9.0pt;
+font-family:"Courier New";color:navy;background:white;mso-highlight:white'>&gt;</SPAN><SPAN
+	style='font-size:9.0pt;font-family:"Courier New"'><o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="margin-left:.5in;mso-layout-grid-align:none;
+text-autospace:none"><SPAN
+	style='font-size:9.0pt;font-family:"Courier New";
+color:black;background:white;mso-highlight:white'><SPAN
+	style="mso-spacerun:yes">         </SPAN><SPAN style="mso-tab-count:1">    
+</SPAN></SPAN><SPAN
+	style='font-size:9.0pt;font-family:"Courier New";color:navy;background:white;
+mso-highlight:white'>&lt;/Priority&gt;</SPAN><SPAN
+	style='font-size:9.0pt;
+font-family:"Courier New"'><o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="margin-left:1.5in;mso-layout-grid-align:none;
+text-autospace:none"><SPAN
+	style='font-size:9.0pt;font-family:"Courier New";
+color:navy;background:white;mso-highlight:white'>&lt;object</SPAN><SPAN
+	style='font-size:9.0pt;font-family:"Courier New";color:black;background:white;
+mso-highlight:white'>
+</SPAN><SPAN
+	style='font-size:9.0pt;font-family:"Courier New";
+color:navy;background:white;mso-highlight:white'>class=</SPAN><SPAN
+	style='font-size:9.0pt;font-family:"Courier New";color:green;background:white;
+mso-highlight:white'>&quot;<SPAN
+	class="SpellE"><SPAN class="GramE">com.ibm.xtools.msl.core.internal.util.IProxyEObject</SPAN></SPAN><SPAN
+	class="GramE">(</SPAN><SPAN class="SpellE">com.ibm.xtools.msl.core</SPAN>)&quot;</SPAN><SPAN
+	style='font-size:9.0pt;font-family:"Courier New";color:black;background:white;
+mso-highlight:white'>
+</SPAN><SPAN
+	style='font-size:9.0pt;font-family:"Courier New";
+color:navy;background:white;mso-highlight:white'>id=</SPAN><SPAN
+	style='font-size:9.0pt;font-family:"Courier New";color:green;background:white;
+mso-highlight:white'>&quot;<SPAN
+	class="SpellE">YourSemanticType</SPAN>&quot;</SPAN><SPAN
+	style='font-size:9.0pt;font-family:"Courier New";color:navy;background:white;
+mso-highlight:white'>&gt;</SPAN><SPAN
+	style='font-size:9.0pt;font-family:"Courier New"'><o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="margin-left:1.0in;text-indent:.5in;mso-layout-grid-align:
+none;text-autospace:none"><SPAN
+	style='font-size:9.0pt;font-family:"Courier New";
+color:navy;background:white;mso-highlight:white'>&lt;method</SPAN><SPAN
+	style='font-size:9.0pt;font-family:"Courier New";color:black;background:white;
+mso-highlight:white'>
+</SPAN><SPAN
+	style='font-size:9.0pt;font-family:"Courier New";
+color:navy;background:white;mso-highlight:white'>name=</SPAN><SPAN
+	style='font-size:9.0pt;font-family:"Courier New";color:green;background:white;
+mso-highlight:white'>&quot;<SPAN
+	class="SpellE"><SPAN class="GramE">getProxyClassID</SPAN></SPAN><SPAN
+	class="GramE">(</SPAN>)&quot;</SPAN><SPAN
+	style='font-size:9.0pt;font-family:
+"Courier New";color:black;background:white;mso-highlight:white'>
+</SPAN><SPAN
+	style='font-size:9.0pt;font-family:"Courier New";color:navy;background:white;
+mso-highlight:white'>value=</SPAN><SPAN
+	style='font-size:9.0pt;font-family:
+"Courier New";color:green;background:white;mso-highlight:white'>&quot;&lt;<SPAN
+	class="SpellE">YourSemanticType</SPAN>&gt;&quot;</SPAN><SPAN
+	style='font-size:
+9.0pt;font-family:"Courier New";color:navy;background:white;mso-highlight:white'>&gt;</SPAN><SPAN
+	style='font-size:9.0pt;font-family:"Courier New"'><o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="margin-left:.5in;mso-layout-grid-align:none;
+text-autospace:none"><SPAN
+	style='font-size:9.0pt;font-family:"Courier New";
+color:black;background:white;mso-highlight:white'><SPAN
+	style="mso-spacerun:yes">            </SPAN></SPAN><SPAN
+	style='font-size:9.0pt;
+font-family:"Courier New";color:navy;background:white;mso-highlight:white'>&lt;/method&gt;</SPAN><SPAN
+	style='font-size:9.0pt;font-family:"Courier New"'><o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="margin-left:1.0in;mso-layout-grid-align:none;
+text-autospace:none"><SPAN
+	style='font-size:9.0pt;font-family:"Courier New";
+color:black;background:white;mso-highlight:white'><SPAN
+	style="mso-spacerun:yes">         </SPAN></SPAN><SPAN
+	style='font-size:9.0pt;
+font-family:"Courier New";color:navy;background:white;mso-highlight:white'>&lt;/object&gt;<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="margin-left:1.0in;mso-layout-grid-align:none;
+text-autospace:none"><SPAN
+	style='font-size:9.0pt;font-family:"Courier New";
+color:navy;background:white;mso-highlight:white'><SPAN
+	style="mso-spacerun:yes">   </SPAN>&lt;<SPAN class="GramE">context</SPAN>&gt;</SPAN><SPAN
+	style='font-size:9.0pt;font-family:"Courier New";color:black;background:white;
+mso-highlight:white'><SPAN
+	style="mso-tab-count:1">  </SPAN></SPAN><SPAN class="SpellE"><SPAN
+	style='font-size:9.0pt;font-family:"Courier New";color:navy;
+background:white;mso-highlight:white'>viewClass</SPAN></SPAN><SPAN
+	style='font-size:9.0pt;font-family:"Courier New";color:navy;background:white;
+mso-highlight:white'>=</SPAN><SPAN
+	style='font-size:9.0pt;font-family:"Courier New";
+color:green;background:white;mso-highlight:white'>&quot;<SPAN
+	class="SpellE">com.ibm.xtools.notation.Node</SPAN>&quot;</SPAN><SPAN
+	style='font-size:9.0pt;font-family:"Courier New"'><o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="margin-left:.5in;mso-layout-grid-align:none;
+text-autospace:none"><SPAN
+	style='font-size:9.0pt;font-family:"Courier New";
+color:black;background:white;mso-highlight:white'><SPAN
+	style="mso-spacerun:yes">         </SPAN><SPAN style="mso-tab-count:1">    
+</SPAN></SPAN><SPAN lang="FR"
+	style='font-size:9.0pt;font-family:"Courier New";color:navy;background:
+white;mso-highlight:white;mso-ansi-language:FR'>semanticHints=</SPAN><SPAN
+	lang="FR"
+	style='font-size:9.0pt;font-family:"Courier New";color:green;
+background:white;mso-highlight:white;mso-ansi-language:FR'>&quot;&quot;</SPAN><SPAN
+	lang="FR"
+	style='font-size:9.0pt;font-family:"Courier New";mso-ansi-language:
+FR'><o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="margin-left:.5in;mso-layout-grid-align:none;
+text-autospace:none"><SPAN
+	lang="FR"
+	style='font-size:9.0pt;font-family:"Courier New";
+color:black;background:white;mso-highlight:white;mso-ansi-language:FR'><SPAN
+	style="mso-spacerun:yes">         </SPAN><SPAN style="mso-tab-count:1">    
+</SPAN></SPAN><SPAN lang="FR"
+	style='font-size:9.0pt;font-family:"Courier New";color:navy;background:
+white;mso-highlight:white;mso-ansi-language:FR'>elements=</SPAN><SPAN
+	lang="FR"
+	style='font-size:9.0pt;font-family:"Courier New";color:green;background:white;
+mso-highlight:white;mso-ansi-language:FR'>&quot;Nodes&quot;</SPAN><SPAN
+	lang="FR"
+	style='font-size:9.0pt;font-family:"Courier New";color:navy;background:
+white;mso-highlight:white;mso-ansi-language:FR'>&gt;</SPAN><SPAN
+	lang="FR"
+	style='font-size:9.0pt;font-family:"Courier New";mso-ansi-language:FR'><o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="margin-left:.5in;mso-layout-grid-align:none;
+text-autospace:none"><SPAN
+	lang="FR"
+	style='font-size:9.0pt;font-family:"Courier New";
+color:black;background:white;mso-highlight:white;mso-ansi-language:FR'><SPAN
+	style="mso-spacerun:yes">         </SPAN></SPAN><SPAN lang="FR"
+	style='font-size:
+9.0pt;font-family:"Courier New";color:navy;background:white;mso-highlight:white;
+mso-ansi-language:FR'>&lt;/context&gt;</SPAN><SPAN
+	lang="FR"
+	style='font-size:
+9.0pt;font-family:"Courier New";color:black;background:white;mso-highlight:
+white;mso-ansi-language:FR'><SPAN
+	style="mso-spacerun:yes">       </SPAN><o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="margin-left:.5in;text-indent:.5in;mso-layout-grid-align:
+none;text-autospace:none"><SPAN
+	lang="FR"
+	style='font-size:9.0pt;font-family:
+"Courier New";color:navy;background:white;mso-highlight:white;mso-ansi-language:
+FR'>&lt;/viewProvider&gt;</SPAN><SPAN
+	lang="FR"
+	style='font-size:9.0pt;
+font-family:"Courier New";mso-ansi-language:FR'><o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="margin-left:.5in;mso-layout-grid-align:none;
+text-autospace:none"><SPAN
+	lang="FR"
+	style='font-size:9.0pt;font-family:"Courier New";
+color:black;background:white;mso-highlight:white;mso-ansi-language:FR'><SPAN
+	style="mso-spacerun:yes">   </SPAN></SPAN><SPAN
+	style='font-size:9.0pt;
+font-family:"Courier New";color:navy;background:white;mso-highlight:white'>&lt;/extension&gt;</SPAN><SPAN
+	style='font-size:9.0pt;font-family:"Courier New";color:navy'><o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="margin-left:.75in;mso-layout-grid-align:none;
+text-autospace:none"><SPAN
+	style="font-size:10.0pt;font-family:Helv;mso-bidi-font-family:
+Helv;color:black"><o:p>&nbsp;</o:p></SPAN></P>
+
+<OL style="margin-top:0in" start="3" type="1">
+	<LI class="MsoNormal"
+		style="color:black;mso-list:l6 level1 lfo9;tab-stops:list .5in;
+     mso-layout-grid-align:none;text-autospace:none"><SPAN
+		style="font-size:
+     10.0pt;font-family:Helv;mso-bidi-font-family:Helv">In
+	your new <SPAN class="SpellE">ViewProvider</SPAN> class, override the
+	method <SPAN class="SpellE">getNodeViewClass</SPAN> to provide based on
+	semantic element type.<SPAN style="mso-spacerun:yes">  </SPAN>I'm
+	assuming there's something specific about your semantic model that
+	would allow you to do this in a mutually exclusive manner.<SPAN
+		style="mso-spacerun:yes">  </SPAN>Consequently you should make the
+	same </SPAN><SPAN style="color:windowtext">conditional check against
+	the semantic property that was in the xml </SPAN><SPAN
+		style="font-size:10.0pt;font-family:Helv;
+     mso-bidi-font-family:Helv">to
+	avoid the other provider from kicking in.<o:p></o:p></SPAN></LI>
+</OL>
+
+<P class="MsoNormal"
+	style="margin-left:.5in;mso-layout-grid-align:none;
+text-autospace:none"><SPAN
+	class="GramE"><SPAN
+	style='font-size:9.0pt;font-family:
+"Courier New";color:black'>i.e.</SPAN></SPAN><SPAN
+	style='font-size:9.0pt;
+font-family:"Courier New";color:black'> <o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="margin-left:.5in;mso-layout-grid-align:none;
+text-autospace:none"><SPAN
+	style='font-size:9.0pt;font-family:"Courier New";
+color:black'><SPAN
+	style="mso-tab-count:1">       </SPAN><SPAN class="GramE">protected</SPAN>
+Class <SPAN class="SpellE">getNodeViewClass</SPAN>(<SPAN class="SpellE">IAdaptable</SPAN>
+<SPAN class="SpellE">semanticAdapter</SPAN>,<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="margin-left:.5in;mso-layout-grid-align:none;
+text-autospace:none"><SPAN
+	style='font-size:9.0pt;font-family:"Courier New";
+color:black'><SPAN
+	style="mso-tab-count:2">              </SPAN>View <SPAN class="SpellE">containerView</SPAN>,
+String <SPAN class="SpellE">semanticHint</SPAN>) {<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="margin-left:.5in;mso-layout-grid-align:none;
+text-autospace:none"><SPAN
+	style='font-size:9.0pt;font-family:"Courier New";
+color:black'><o:p>&nbsp;</o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="margin-left:.5in;mso-layout-grid-align:none;
+text-autospace:none"><SPAN
+	style='font-size:9.0pt;font-family:"Courier New";
+color:black'><SPAN
+	style="mso-tab-count:2">              </SPAN>Element el = <SPAN
+	class="SpellE"><SPAN class="GramE">getSemanticElement</SPAN></SPAN><SPAN
+	class="GramE">(</SPAN><SPAN class="SpellE">semanticAdapter</SPAN>);<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="margin-left:.5in;mso-layout-grid-align:none;
+text-autospace:none"><SPAN
+	style='font-size:9.0pt;font-family:"Courier New";
+color:black'><SPAN
+	style="mso-tab-count:2">              </SPAN>If (<SPAN class="GramE">el
+!</SPAN>= null) {<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="margin-left:.5in;mso-layout-grid-align:none;
+text-autospace:none"><SPAN
+	style='font-size:9.0pt;font-family:"Courier New";
+color:black'><SPAN
+	style="mso-tab-count:3">                     </SPAN>...<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="margin-left:.5in;mso-layout-grid-align:none;
+text-autospace:none"><SPAN
+	style='font-size:9.0pt;font-family:"Courier New";
+color:black'><SPAN
+	style="mso-tab-count:3">                     </SPAN>If (? /* check
+condition)<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="margin-left:.5in;mso-layout-grid-align:none;
+text-autospace:none"><SPAN
+	style='font-size:9.0pt;font-family:"Courier New";
+color:black'><SPAN
+	style="mso-tab-count:4">                           </SPAN>Return &lt;<SPAN
+	class="SpellE">YourNewViewClass.class</SPAN>&gt;<SPAN
+	style="mso-tab-count:
+1">   </SPAN><o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="margin-left:1.0in;text-indent:.5in;mso-layout-grid-align:
+none;text-autospace:none"><SPAN
+	style='font-size:9.0pt;font-family:"Courier New";
+color:black'>}<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="margin-left:.5in;mso-layout-grid-align:none;
+text-autospace:none"><SPAN
+	style='font-size:9.0pt;font-family:"Courier New";
+color:black'><SPAN
+	style="mso-tab-count:2">              </SPAN><o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="margin-left:.5in;mso-layout-grid-align:none;
+text-autospace:none"><SPAN
+	style='font-size:9.0pt;font-family:"Courier New";
+color:black'><SPAN
+	style="mso-tab-count:2">              </SPAN><SPAN class="GramE">return</SPAN>
+null;<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="margin-left:.5in;mso-layout-grid-align:none;
+text-autospace:none"><SPAN
+	style='font-size:9.0pt;font-family:"Courier New";
+color:black'><SPAN
+	style="mso-tab-count:1">       </SPAN>}<SPAN style="mso-tab-count:1">     
+</SPAN></SPAN><SPAN
+	style="font-size:10.0pt;
+font-family:Courier;mso-bidi-font-family:Helv;color:black"><o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="margin-left:.25in;mso-layout-grid-align:none;
+text-autospace:none"><SPAN
+	style="font-size:10.0pt;font-family:Helv;mso-bidi-font-family:
+Helv;color:black"><o:p>&nbsp;</o:p></SPAN></P>
+
+<OL style="margin-top:0in" start="4" type="1">
+	<LI class="MsoNormal"
+		style="color:black;mso-list:l6 level1 lfo9;tab-stops:list .5in;
+     mso-layout-grid-align:none;text-autospace:none"><SPAN
+		style="font-size:
+     10.0pt;font-family:Helv;mso-bidi-font-family:Helv">Finally,
+	you need to create a new View notation class of the class you
+	discovered in (1.).<SPAN style="mso-spacerun:yes">  </SPAN>Override <SPAN
+		class="SpellE">AbstractNodeViewFactory#decorateView</SPAN> in order to
+	change the default settings on the shape.<SPAN style="mso-spacerun:yes"> 
+	</SPAN>For instance if you want to change the default visibility of
+	certain compartments, you would do the following<o:p></o:p></SPAN></LI>
+</OL>
+
+<P class="MsoNormal"
+	style="margin-left:.5in;mso-layout-grid-align:none;
+text-autospace:none"><SPAN
+	style='font-size:9.0pt;font-family:"Courier New";
+color:black'><o:p>&nbsp;</o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="margin-left:1.0in;mso-layout-grid-align:none;
+text-autospace:none"><SPAN
+	class="GramE"><SPAN
+	style='font-size:9.0pt;font-family:
+"Courier New";color:black'>protected</SPAN></SPAN><SPAN
+	style='font-size:9.0pt;
+font-family:"Courier New";color:black'> void <SPAN
+	class="SpellE">decorateView</SPAN>(View <SPAN class="SpellE">containerView</SPAN>,
+View <SPAN class="SpellE">view</SPAN>, <o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="margin-left:1.0in;text-indent:.5in;mso-layout-grid-align:
+none;text-autospace:none"><SPAN
+	class="SpellE"><SPAN
+	style='font-size:9.0pt;
+font-family:"Courier New";color:black'>IAdaptable</SPAN></SPAN><SPAN
+	style='font-size:9.0pt;font-family:"Courier New";color:black'> <SPAN
+	class="SpellE">semanticElement</SPAN>, String <SPAN class="SpellE">semanticHint</SPAN>,
+<SPAN class="SpellE">int</SPAN> index, <o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="margin-left:1.0in;text-indent:.5in;mso-layout-grid-align:
+none;text-autospace:none"><SPAN
+	class="SpellE"><SPAN class="GramE"><SPAN
+	style='font-size:9.0pt;font-family:"Courier New";color:black'>boolean</SPAN></SPAN></SPAN><SPAN
+	style='font-size:9.0pt;font-family:"Courier New";color:black'>
+persisted) {<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="margin-left:1.5in;mso-layout-grid-align:none;
+text-autospace:none"><SPAN
+	style='font-size:9.0pt;font-family:"Courier New";
+color:black'><o:p>&nbsp;</o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="margin-left:1.5in;mso-layout-grid-align:none;
+text-autospace:none"><SPAN
+	class="SpellE"><SPAN class="GramE"><SPAN
+	style='font-size:9.0pt;font-family:"Courier New";color:black'>super.decorateView</SPAN></SPAN></SPAN><SPAN
+	class="GramE"><SPAN
+	style='font-size:9.0pt;font-family:"Courier New";color:black'>(</SPAN></SPAN><SPAN
+	class="SpellE"><SPAN
+	style='font-size:9.0pt;font-family:"Courier New";color:black'>containerView</SPAN></SPAN><SPAN
+	style='font-size:9.0pt;font-family:"Courier New";color:black'>, <SPAN
+	class="SpellE">semanticAdapter</SPAN>, <SPAN class="SpellE">semanticHint</SPAN>,
+index, persisted);<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="margin-left:.5in;text-indent:.5in;mso-layout-grid-align:
+none;text-autospace:none"><SPAN
+	style='font-size:9.0pt;font-family:"Courier New";
+color:black'><o:p>&nbsp;</o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="margin-left:1.5in;mso-layout-grid-align:none;
+text-autospace:none"><SPAN
+	style='font-size:9.0pt;font-family:"Courier New";
+color:black'>View <SPAN
+	class="SpellE">subView</SPAN> = <o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="margin-left:2.0in;mso-layout-grid-align:none;
+text-autospace:none"><SPAN
+	class="SpellE"><SPAN class="GramE"><SPAN
+	style='font-size:9.0pt;font-family:"Courier New";color:black'>ViewUtil.getChildBySemanticHint</SPAN></SPAN></SPAN><SPAN
+	class="GramE"><SPAN
+	style='font-size:9.0pt;font-family:"Courier New";color:black'>(</SPAN></SPAN><SPAN
+	class="SpellE"><SPAN
+	style='font-size:9.0pt;font-family:"Courier New";color:black'>containerView</SPAN></SPAN><SPAN
+	style='font-size:9.0pt;font-family:"Courier New";color:black'>, &lt;<SPAN
+	class="SpellE">MySemanticHintString</SPAN>&gt;);<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="margin-left:1.0in;text-indent:.5in;mso-layout-grid-align:
+none;text-autospace:none"><SPAN
+	class="GramE"><SPAN
+	style='font-size:9.0pt;
+font-family:"Courier New";color:black'>if</SPAN></SPAN><SPAN
+	style='font-size:
+9.0pt;font-family:"Courier New";color:black'> (<SPAN
+	class="SpellE">subView</SPAN>!= null) {<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="margin-left:2.0in;mso-layout-grid-align:none;
+text-autospace:none"><SPAN
+	class="SpellE"><SPAN class="GramE"><SPAN
+	style='font-size:9.0pt;font-family:"Courier New";color:black'>subView.setVisible</SPAN></SPAN></SPAN><SPAN
+	class="GramE"><SPAN
+	style='font-size:9.0pt;font-family:"Courier New";color:black'>(</SPAN></SPAN><SPAN
+	style='font-size:9.0pt;font-family:"Courier New";color:black'>false);<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="margin-left:1.0in;text-indent:.5in;mso-layout-grid-align:
+none;text-autospace:none"><SPAN
+	style='font-size:9.0pt;font-family:"Courier New";
+color:black'>}<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="margin-left:.5in;text-indent:.5in;mso-layout-grid-align:
+none;text-autospace:none"><SPAN
+	style='font-size:9.0pt;font-family:"Courier New";
+color:black'>}<SPAN
+	style="mso-tab-count:2">             </SPAN><o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="tab-stops:0in .5in 1.0in 1.5in 2.0in 2.5in 3.0in;
+mso-layout-grid-align:none;text-autospace:none"><SPAN
+	style="font-size:10.0pt;
+font-family:Helv;mso-bidi-font-family:Helv;color:black"><o:p>&nbsp;</o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="margin-left:.5in;tab-stops:0in .5in 1.0in 1.5in 2.0in 2.5in 3.0in;
+mso-layout-grid-align:none;text-autospace:none"><SPAN
+	style="font-size:10.0pt;
+font-family:Helv;mso-bidi-font-family:Helv;color:black">Alternatively
+you could override the method <SPAN class="SpellE">initializeFromPreferences</SPAN>
+to retrieve values from the users preference store and then initialize
+settings accordingly.<SPAN style="mso-spacerun:yes">  </SPAN>However,
+this will get called before population of the contained views, so it can
+only be used to initialize top level view settings. <SPAN class="GramE">i.e</SPAN>.
+fill / outline color.</SPAN><BR>
+<BR>
+<BR>
+</P>
+
+<H2><A name="preferenceChange">How to change shape appearances based on
+a global preference change</A></H2>
+
+<P class="MsoNormal"><FONT size="-1">[<A href="#top">back to top</A>]</FONT></P>
+
+<P class="MsoNormal"
+	style="margin-left:.25in;mso-layout-grid-align:none;
+text-autospace:none"><SPAN
+	style="font-size:10.0pt;font-family:Helv;mso-bidi-font-family:
+Helv;color:black">Often
+in a domain application it is useful to control shape appearances at a
+global level.<SPAN style="mso-spacerun:yes">  </SPAN>This alleviates
+user management of the individual shapes appearance and avoids
+persistence issues.<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="margin-left:.25in;mso-layout-grid-align:none;
+text-autospace:none"><SPAN
+	style="font-size:10.0pt;font-family:Helv;mso-bidi-font-family:
+Helv;color:black">The
+way to accomplish this is to have a global workspace preference that
+your <SPAN class="SpellE">EditPart</SPAN> listens to and responds
+accordingly.<B><SPAN style="mso-spacerun:yes">  </SPAN></B><o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="margin-left:.25in;mso-layout-grid-align:none;
+text-autospace:none"><SPAN
+	style="font-size:10.0pt;font-family:Helv;mso-bidi-font-family:
+Helv;color:black">1.<SPAN
+	style="mso-spacerun:yes">  </SPAN>First you need to add a listener on
+your <SPAN class="SpellE">EditPart</SPAN> controller (please refer to
+Eclipse on-line help for adding an application specific preference
+store).<SPAN style="mso-spacerun:yes">  </SPAN>To do <SPAN class="GramE">this
+add</SPAN> a nested class in your <SPAN class="SpellE">EditPart</SPAN>
+that implements the <SPAN class="SpellE">IPropertyChangeListener</SPAN>
+interface for listening to the Preference store.<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="margin-left:.25in;tab-stops:0in .25in .75in 1.25in 1.75in 2.25in 2.75in 3.25in;
+mso-layout-grid-align:none;text-autospace:none"><SPAN
+	style='font-size:9.0pt;
+font-family:"Courier New";color:black'><SPAN
+	style="mso-spacerun:yes">   </SPAN><SPAN style="mso-tab-count:1">    </SPAN><o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="margin-left:.25in;tab-stops:0in .25in .75in 1.25in 1.75in 2.25in 2.75in 3.25in;
+mso-layout-grid-align:none;text-autospace:none"><SPAN
+	style='font-size:9.0pt;
+font-family:"Courier New";color:black'><SPAN
+	style="mso-tab-count:1">       </SPAN>/**<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="margin-left:.25in;tab-stops:0in .25in .75in 1.25in 1.75in 2.25in 2.75in 3.25in;
+mso-layout-grid-align:none;text-autospace:none"><SPAN
+	style='font-size:9.0pt;
+font-family:"Courier New";color:black'><SPAN
+	style="mso-tab-count:1">       </SPAN>* Listener for the <SPAN
+	class="SpellE">PreferenceStore</SPAN>.<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="margin-left:.25in;tab-stops:0in .25in .75in 1.25in 1.75in 2.25in 2.75in 3.25in;
+mso-layout-grid-align:none;text-autospace:none"><SPAN
+	style='font-size:9.0pt;
+font-family:"Courier New";color:black'><SPAN
+	style="mso-tab-count:1">       </SPAN>* Listen and respond for changes
+to the <o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="margin-left:.25in;tab-stops:0in .25in .75in 1.25in 1.75in 2.25in 2.75in 3.25in;
+mso-layout-grid-align:none;text-autospace:none"><SPAN
+	style='font-size:9.0pt;
+font-family:"Courier New";color:black'><SPAN
+	style="mso-tab-count:1">       </SPAN>* <SPAN class="GramE">preference</SPAN>
+store value.<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="margin-left:.25in;tab-stops:0in .25in .75in 1.25in 1.75in 2.25in 2.75in 3.25in;
+mso-layout-grid-align:none;text-autospace:none"><SPAN
+	style='font-size:9.0pt;
+font-family:"Courier New";color:black'><SPAN
+	style="mso-tab-count:1">       </SPAN>* <o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="margin-left:.25in;tab-stops:0in .25in .75in 1.25in 1.75in 2.25in 2.75in 3.25in;
+mso-layout-grid-align:none;text-autospace:none"><SPAN
+	style='font-size:9.0pt;
+font-family:"Courier New";color:black'><SPAN
+	style="mso-tab-count:1">       </SPAN>*/<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="margin-left:.25in;tab-stops:0in .25in .75in 1.25in 1.75in 2.25in 2.75in 3.25in;
+mso-layout-grid-align:none;text-autospace:none"><SPAN
+	style='font-size:9.0pt;
+font-family:"Courier New";color:black'><SPAN
+	style="mso-tab-count:1">       </SPAN><SPAN class="GramE">protected</SPAN>
+class <SPAN class="SpellE">PreferencePropertyChangeListener</SPAN><o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="margin-left:.25in;tab-stops:0in .25in .75in 1.25in 1.75in 2.25in 2.75in 3.25in;
+mso-layout-grid-align:none;text-autospace:none"><SPAN
+	style='font-size:9.0pt;
+font-family:"Courier New";color:black'><SPAN
+	style="mso-tab-count:2">              </SPAN><SPAN class="GramE">implements</SPAN>
+<SPAN class="SpellE">IPropertyChangeListener</SPAN> {<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="margin-left:.25in;tab-stops:0in .25in .75in 1.25in 1.75in 2.25in 2.75in 3.25in;
+mso-layout-grid-align:none;text-autospace:none"><SPAN
+	style='font-size:9.0pt;
+font-family:"Courier New";color:black'><SPAN
+	style="mso-tab-count:1">       </SPAN><o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="margin-left:.25in;tab-stops:0in .25in .75in 1.25in 1.75in 2.25in 2.75in 3.25in;
+mso-layout-grid-align:none;text-autospace:none"><SPAN
+	style='font-size:9.0pt;
+font-family:"Courier New";color:black'><SPAN
+	style="mso-tab-count:2">              </SPAN><SPAN class="GramE">public</SPAN>
+void <SPAN class="SpellE">propertyChange</SPAN>(<SPAN class="SpellE">PropertyChangeEvent</SPAN>
+event) {<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="margin-left:.25in;tab-stops:0in .25in .75in 1.25in 1.75in 2.25in 2.75in 3.25in;
+mso-layout-grid-align:none;text-autospace:none"><SPAN
+	style='font-size:9.0pt;
+font-family:"Courier New";color:black'><SPAN
+	style="mso-tab-count:1">       </SPAN><o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="margin-left:.25in;tab-stops:0in .25in .75in 1.25in 1.75in 2.25in 2.75in 3.25in;
+mso-layout-grid-align:none;text-autospace:none"><SPAN
+	style='font-size:9.0pt;
+font-family:"Courier New";color:black'><SPAN
+	style="mso-tab-count:3">                     </SPAN>// if the property
+is not the event we?re interested in then <o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="margin-left:.25in;tab-stops:0in .25in .75in 1.25in 1.75in 2.25in 2.75in 3.25in;
+mso-layout-grid-align:none;text-autospace:none"><SPAN
+	style='font-size:9.0pt;
+font-family:"Courier New";color:black'><SPAN
+	style="mso-tab-count:1">       </SPAN><SPAN style="mso-tab-count:2">             
+</SPAN>// do nothing, return <SPAN style="mso-tab-count:3">               
+</SPAN><SPAN style="mso-spacerun:yes">           </SPAN><o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="margin-left:.25in;tab-stops:0in .25in .75in 1.25in 1.75in 2.25in 2.75in 3.25in;
+mso-layout-grid-align:none;text-autospace:none"><SPAN
+	style='font-size:9.0pt;
+font-family:"Courier New";color:black'><SPAN
+	style="mso-tab-count:3">                     </SPAN><SPAN class="GramE">if</SPAN>
+(event<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="margin-left:.25in;tab-stops:0in .25in .75in 1.25in 1.75in 2.25in 2.75in 3.25in;
+mso-layout-grid-align:none;text-autospace:none"><SPAN
+	style='font-size:9.0pt;
+font-family:"Courier New";color:black'><SPAN
+	style="mso-tab-count:4">                           </SPAN>.<SPAN
+	class="SpellE"><SPAN class="GramE">getProperty</SPAN></SPAN><SPAN
+	class="GramE">()</SPAN><o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="margin-left:.25in;tab-stops:0in .25in .75in 1.25in 1.75in 2.25in 2.75in 3.25in;
+mso-layout-grid-align:none;text-autospace:none"><SPAN
+	style='font-size:9.0pt;
+font-family:"Courier New";color:black'><SPAN
+	style="mso-tab-count:4">                           </SPAN>.<SPAN
+	class="GramE">equals(</SPAN>&lt;<SPAN class="SpellE">MyPreferenceIdentifier</SPAN>&gt;))
+{<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="margin-left:.25in;tab-stops:0in .25in .75in 1.25in 1.75in 2.25in 2.75in 3.25in;
+mso-layout-grid-align:none;text-autospace:none"><SPAN
+	style='font-size:9.0pt;
+font-family:"Courier New";color:black'><SPAN
+	style="mso-tab-count:4">                           </SPAN>/* call
+appropriate refresh method */<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="margin-left:.25in;tab-stops:0in .25in .75in 1.25in 1.75in 2.25in 2.75in 3.25in;
+mso-layout-grid-align:none;text-autospace:none"><SPAN
+	style='font-size:9.0pt;
+font-family:"Courier New";color:black'><SPAN
+	style="mso-tab-count:4">                           </SPAN><SPAN
+	class="SpellE"><SPAN class="GramE">refreshGlobalPreferenceAttribute</SPAN></SPAN><SPAN
+	class="GramE">(</SPAN>);<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="margin-left:.25in;tab-stops:0in .25in .75in 1.25in 1.75in 2.25in 2.75in 3.25in;
+mso-layout-grid-align:none;text-autospace:none"><SPAN
+	style='font-size:9.0pt;
+font-family:"Courier New";color:black'><SPAN
+	style="mso-tab-count:4">                           </SPAN><SPAN
+	class="SpellE"><SPAN class="GramE">getFigure</SPAN></SPAN><SPAN
+	class="GramE">(</SPAN>).repaint();<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="margin-left:.25in;tab-stops:0in .25in .75in 1.25in 1.75in 2.25in 2.75in 3.25in;
+mso-layout-grid-align:none;text-autospace:none"><SPAN
+	style='font-size:9.0pt;
+font-family:"Courier New";color:black'><SPAN
+	style="mso-tab-count:3">                     </SPAN>}<SPAN
+	style="mso-tab-count:3">                    </SPAN><o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="margin-left:.25in;tab-stops:0in .25in .75in 1.25in 1.75in 2.25in 2.75in 3.25in;
+mso-layout-grid-align:none;text-autospace:none"><SPAN
+	style='font-size:9.0pt;
+font-family:"Courier New";color:black'><SPAN
+	style="mso-tab-count:2">              </SPAN>}<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="margin-left:.25in;tab-stops:0in .25in .75in 1.25in 1.75in 2.25in 2.75in 3.25in;
+mso-layout-grid-align:none;text-autospace:none"><SPAN
+	style='font-size:9.0pt;
+font-family:"Courier New";color:black'><SPAN
+	style="mso-tab-count:1">       </SPAN>}<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="margin-left:.25in;tab-stops:0in .25in .75in 1.25in 1.75in 2.25in 2.75in 3.25in;
+mso-layout-grid-align:none;text-autospace:none"><SPAN
+	style='font-size:9.0pt;
+font-family:"Courier New";color:black'><SPAN
+	style="mso-tab-count:1">       </SPAN><o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="margin-left:.25in;mso-layout-grid-align:none;
+text-autospace:none"><SPAN
+	style="font-size:10.0pt;font-family:Helv;mso-bidi-font-family:
+Helv;color:black">2.<SPAN
+	style="mso-spacerun:yes">  </SPAN>Next you need to add this new class
+as a listener to the property store.<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="tab-stops:0in .25in .75in 1.25in 1.75in 2.25in 2.75in 3.25in;
+mso-layout-grid-align:none;text-autospace:none"><SPAN
+	style='font-size:9.0pt;
+font-family:"Courier New";color:black'><o:p>&nbsp;</o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="margin-left:.25in;tab-stops:0in .25in .75in 1.25in 1.75in 2.25in 2.75in 3.25in;
+mso-layout-grid-align:none;text-autospace:none"><SPAN
+	style='font-size:9.0pt;
+font-family:"Courier New";color:black'><SPAN
+	style="mso-tab-count:1">       </SPAN>/**<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="margin-left:.25in;tab-stops:0in .25in .75in 1.25in 1.75in 2.25in 2.75in 3.25in;
+mso-layout-grid-align:none;text-autospace:none"><SPAN
+	style='font-size:9.0pt;
+font-family:"Courier New";color:black'><SPAN
+	style="mso-tab-count:1">       </SPAN><SPAN style="mso-spacerun:yes"> </SPAN>*
+Initializes the <SPAN class="SpellE">preferenceStore</SPAN> property
+change<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="margin-left:.25in;tab-stops:0in .25in .75in 1.25in 1.75in 2.25in 2.75in 3.25in;
+mso-layout-grid-align:none;text-autospace:none"><SPAN
+	style='font-size:9.0pt;
+font-family:"Courier New";color:black'><SPAN
+	style="mso-tab-count:1">       </SPAN><SPAN style="mso-spacerun:yes"> </SPAN>*
+<SPAN class="GramE">listener</SPAN>.<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="margin-left:.25in;tab-stops:0in .25in .75in 1.25in 1.75in 2.25in 2.75in 3.25in;
+mso-layout-grid-align:none;text-autospace:none"><SPAN
+	style='font-size:9.0pt;
+font-family:"Courier New";color:black'><SPAN
+	style="mso-tab-count:1">       </SPAN><SPAN style="mso-spacerun:yes"> </SPAN>*/<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="margin-left:.25in;tab-stops:0in .25in .75in 1.25in 1.75in 2.25in 2.75in 3.25in;
+mso-layout-grid-align:none;text-autospace:none"><SPAN
+	style='font-size:9.0pt;
+font-family:"Courier New";color:black'><SPAN
+	style="mso-tab-count:1">       </SPAN><SPAN class="GramE">private</SPAN>
+void <SPAN class="SpellE">initPreferenceStoreListener</SPAN>() {<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="margin-left:.25in;tab-stops:0in .25in .75in 1.25in 1.75in 2.25in 2.75in 3.25in;
+mso-layout-grid-align:none;text-autospace:none"><SPAN
+	style='font-size:9.0pt;
+font-family:"Courier New";color:black'><SPAN
+	style="mso-tab-count:2">              </SPAN><SPAN class="SpellE"><SPAN
+	class="GramE">preferenceListener</SPAN></SPAN> = new <SPAN
+	class="SpellE">PreferencePropertyChangeListener</SPAN>();<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="margin-left:.25in;tab-stops:0in .25in .75in 1.25in 1.75in 2.25in 2.75in 3.25in;
+mso-layout-grid-align:none;text-autospace:none"><SPAN
+	style='font-size:9.0pt;
+font-family:"Courier New";color:black'><SPAN
+	style="mso-tab-count:3">              </SPAN>IPreferenceStore
+preferenceStore = (IPreferenceStore)
+getDiagramPreferencesHint().getPreferenceStore();</SPAN></P><P class="MsoNormal"
+	style="margin-left:.25in;tab-stops:0in .25in .75in 1.25in 1.75in 2.25in 2.75in 3.25in;
+mso-layout-grid-align:none;text-autospace:none"><SPAN
+	style='font-size:9.0pt;
+font-family:"Courier New";color:black'><SPAN
+	style="mso-tab-count:2">              </SPAN><SPAN class="SpellE"><SPAN
+	class="GramE">preferenceStore.addPropertyChangeListener</SPAN></SPAN><SPAN
+	class="GramE">(</SPAN><SPAN class="SpellE">preferenceListener</SPAN>);<o:p></o:p></SPAN></P><P class="MsoNormal"
+	style="margin-left:.25in;tab-stops:0in .25in .75in 1.25in 1.75in 2.25in 2.75in 3.25in;
+mso-layout-grid-align:none;text-autospace:none"><SPAN
+	style='font-size:9.0pt;
+font-family:"Courier New";color:black'><SPAN
+	style="mso-tab-count:1">       </SPAN>}<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="margin-left:.25in;tab-stops:0in .25in .75in 1.25in 1.75in 2.25in 2.75in 3.25in;
+mso-layout-grid-align:none;text-autospace:none"><SPAN
+	style='font-size:9.0pt;
+font-family:"Courier New";color:black'><o:p>&nbsp;</o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="margin-left:.25in;tab-stops:0in .25in .75in 1.25in 1.75in 2.25in 2.75in 3.25in;
+mso-layout-grid-align:none;text-autospace:none"><SPAN
+	style='font-size:9.0pt;
+font-family:"Courier New";color:black'><SPAN
+	style="mso-tab-count:1">       </SPAN><SPAN class="GramE">protected</SPAN>
+void <SPAN class="SpellE">addNotationalListeners</SPAN>() {<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="margin-left:.25in;tab-stops:0in .25in .75in 1.25in 1.75in 2.25in 2.75in 3.25in;
+mso-layout-grid-align:none;text-autospace:none"><SPAN
+	style='font-size:9.0pt;
+font-family:"Courier New";color:black'><SPAN
+	style="mso-tab-count:2">              </SPAN><SPAN class="SpellE"><SPAN
+	class="GramE">super.addNotationalListeners</SPAN></SPAN><SPAN
+	class="GramE">(</SPAN>);<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="margin-left:.25in;tab-stops:0in .25in .75in 1.25in 1.75in 2.25in 2.75in 3.25in;
+mso-layout-grid-align:none;text-autospace:none"><SPAN
+	style='font-size:9.0pt;
+font-family:"Courier New";color:black'><SPAN
+	style="mso-tab-count:2">              </SPAN></SPAN><SPAN
+	class="SpellE"><SPAN class="GramE"><SPAN
+	style='font-size:9.0pt;font-family:"Courier New";
+color:red'>initPreferenceStoreListener</SPAN></SPAN></SPAN><SPAN
+	class="GramE"><SPAN
+	style='font-size:9.0pt;font-family:"Courier New";color:red'>(</SPAN></SPAN><SPAN
+	style='font-size:9.0pt;font-family:"Courier New";color:red'>);<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="margin-left:.25in;tab-stops:0in .25in .75in 1.25in 1.75in 2.25in 2.75in 3.25in;
+mso-layout-grid-align:none;text-autospace:none"><SPAN
+	style='font-size:9.0pt;
+font-family:"Courier New";color:black'><SPAN
+	style="mso-tab-count:1">       </SPAN>}<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="margin-left:.25in;mso-layout-grid-align:none;
+text-autospace:none"><SPAN
+	style='font-size:9.0pt;font-family:"Courier New";
+color:black'><o:p>&nbsp;</o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="margin-left:.25in;mso-layout-grid-align:none;
+text-autospace:none"><SPAN
+	style="font-size:10.0pt;font-family:Helv;mso-bidi-font-family:
+Helv;color:black">3.<SPAN
+	style="mso-spacerun:yes">  </SPAN>Then you need to handle the property
+change event in a method.<SPAN style="mso-spacerun:yes">  </SPAN>This
+requires retrieving the preference global value from the store and then
+making the appropriate changes to the figure to reflect the global
+value.<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="margin-left:.25in;mso-layout-grid-align:none;
+text-autospace:none"><SPAN
+	style="font-size:10.0pt;font-family:Helv;mso-bidi-font-family:
+Helv;color:black"><o:p>&nbsp;</o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="margin-left:.25in;tab-stops:0in .25in .75in 1.25in 1.75in 2.25in 2.75in 3.25in;
+mso-layout-grid-align:none;text-autospace:none"><SPAN
+	style='font-size:9.0pt;
+font-family:"Courier New";color:black'><SPAN
+	style="mso-tab-count:1">       </SPAN>/**<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="margin-left:.25in;tab-stops:0in .25in .75in 1.25in 1.75in 2.25in 2.75in 3.25in;
+mso-layout-grid-align:none;text-autospace:none"><SPAN
+	style='font-size:9.0pt;
+font-family:"Courier New";color:black'><SPAN
+	style="mso-tab-count:1">       </SPAN><SPAN style="mso-spacerun:yes"> </SPAN>*
+Refreshes this classifier node figure's gradient fill to reflect <o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="margin-left:.25in;tab-stops:0in .25in .75in 1.25in 1.75in 2.25in 2.75in 3.25in;
+mso-layout-grid-align:none;text-autospace:none"><SPAN
+	style='font-size:9.0pt;
+font-family:"Courier New";color:black'><SPAN
+	style="mso-tab-count:1">       </SPAN><SPAN style="mso-spacerun:yes"> </SPAN>*
+<SPAN class="GramE">the</SPAN> preference store value for gradient fill.<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="margin-left:.25in;tab-stops:0in .25in .75in 1.25in 1.75in 2.25in 2.75in 3.25in;
+mso-layout-grid-align:none;text-autospace:none"><SPAN
+	style='font-size:9.0pt;
+font-family:"Courier New";color:black'><SPAN
+	style="mso-tab-count:1">       </SPAN><SPAN style="mso-spacerun:yes"> </SPAN>*/<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="margin-left:.25in;tab-stops:0in .25in .75in 1.25in 1.75in 2.25in 2.75in 3.25in;
+mso-layout-grid-align:none;text-autospace:none"><SPAN
+	style='font-size:9.0pt;
+font-family:"Courier New";color:black'><SPAN
+	style="mso-tab-count:1">       </SPAN><SPAN class="GramE">protected</SPAN>
+void <SPAN class="SpellE">refreshGlobalPreferenceAttribute</SPAN>() {<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="margin-left:.25in;tab-stops:0in .25in .75in 1.25in 1.75in 2.25in 2.75in 3.25in;
+mso-layout-grid-align:none;text-autospace:none"><SPAN
+	style='font-size:9.0pt;
+font-family:"Courier New";color:black'><SPAN
+	style="mso-tab-count:2">             </SPAN><SPAN
+	style="mso-tab-count:3"></SPAN>IPreferenceStore preferenceStore =
+(IPreferenceStore) getDiagramPreferencesHint().getPreferenceStore();</SPAN></P>
+
+<P class="MsoNormal"
+	style="margin-left:.25in;tab-stops:0in .25in .75in 1.25in 1.75in 2.25in 2.75in 3.25in;
+mso-layout-grid-align:none;text-autospace:none"><SPAN
+	style='font-size:9.0pt;
+font-family:"Courier New";color:black'><SPAN
+	style="mso-tab-count:2">              </SPAN>//refresh gradient<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="margin-left:.25in;tab-stops:0in .25in .75in 1.25in 1.75in 2.25in 2.75in 3.25in;
+mso-layout-grid-align:none;text-autospace:none"><SPAN
+	style='font-size:9.0pt;
+font-family:"Courier New";color:black'><SPAN
+	style="mso-tab-count:2">              </SPAN><SPAN class="SpellE"><SPAN
+	class="GramE">boolean</SPAN></SPAN> <SPAN class="SpellE">myGlobalPreference</SPAN>
+= true;<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="margin-left:.25in;tab-stops:0in .25in .75in 1.25in 1.75in 2.25in 2.75in 3.25in;
+mso-layout-grid-align:none;text-autospace:none"><SPAN
+	style='font-size:9.0pt;
+font-family:"Courier New";color:black'><SPAN
+	style="mso-tab-count:2">              </SPAN><SPAN class="SpellE"><SPAN
+	class="GramE">myGlobalPreference</SPAN></SPAN> = <SPAN class="SpellE">preferenceStore.getBoolean</SPAN>(
+&lt;<SPAN class="SpellE">MyPreferenceIdentifier</SPAN>&gt;);<SPAN
+	style="mso-tab-count:2">           </SPAN><SPAN style="mso-tab-count:1">      
+</SPAN><o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="margin-left:.25in;tab-stops:0in .25in .75in 1.25in 1.75in 2.25in 2.75in 3.25in;
+mso-layout-grid-align:none;text-autospace:none"><SPAN
+	style='font-size:9.0pt;
+font-family:"Courier New";color:black'><SPAN
+	style="mso-tab-count:2">              </SPAN>?<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="tab-stops:0in .25in .75in 1.25in 1.75in 2.25in 2.75in 3.25in;
+mso-layout-grid-align:none;text-autospace:none"><SPAN
+	style='font-size:9.0pt;
+font-family:"Courier New";color:black'><SPAN
+	style="mso-tab-count:3">                 </SPAN>/* do figure
+synchronization */<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="margin-left:.25in;tab-stops:0in .25in .75in 1.25in 1.75in 2.25in 2.75in 3.25in;
+mso-layout-grid-align:none;text-autospace:none"><SPAN
+	style='font-size:9.0pt;
+font-family:"Courier New";color:black'><SPAN
+	style="mso-tab-count:2">              </SPAN><SPAN class="SpellE"><SPAN
+	class="GramE">getFigure</SPAN></SPAN><SPAN class="GramE">(</SPAN>).repaint();<o:p></o:p></SPAN></P><P class="MsoNormal"
+	style="margin-left:.25in;tab-stops:0in .25in .75in 1.25in 1.75in 2.25in 2.75in 3.25in;
+mso-layout-grid-align:none;text-autospace:none"><SPAN
+	style='font-size:9.0pt;
+font-family:"Courier New";color:black'><SPAN
+	style="mso-tab-count:1">       </SPAN>}<o:p></o:p></SPAN></P>
+<P><BR></P><P class="MsoNormal"><o:p>&nbsp;</o:p></P>
+
+<H2><A name="overrideConnectionLook">How to override the look of a connection</A></H2>
+
+<P class="MsoNormal"><FONT size="-1">[<A href="#top">back to top</A>]</FONT></P>
+
+<P class="MsoNormal">To accomplish this you need to hook into the
+controller of the connection which is the <SPAN class="SpellE">EditPart</SPAN>
+which synchronizes the model and figure worlds.<SPAN
+	style="mso-spacerun:yes">  </SPAN>You need to create a new <SPAN
+	class="SpellE">EditPart</SPAN> provider which is registered against the
+<SPAN class="SpellE">EditPartService</SPAN> that will override the
+existing <SPAN class="SpellE">EditPart</SPAN> provider to provide a new
+<SPAN class="SpellE">EditPart</SPAN> for the connection shape you?re
+interested in.</P>
+
+<P class="MsoNormal"><o:p>&nbsp;</o:p></P>
+
+<P class="MsoNormal"
+	style="mso-layout-grid-align:none;text-autospace:none"><SPAN
+	style="font-size:10.0pt;color:black">Similar to the View service
+extensions, the <SPAN class="SpellE">EditPart</SPAN> provider consists
+of 3 different components.<SPAN style="mso-spacerun:yes">  </SPAN><o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="mso-layout-grid-align:none;text-autospace:none"><SPAN
+	style="font-size:10.0pt;color:black"><o:p>&nbsp;</o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="mso-layout-grid-align:none;text-autospace:none"><SPAN
+	style="font-size:10.0pt;color:black">1. The xml descriptor
+specification of the extension in the plug-<SPAN class="SpellE">in.xml</SPAN>
+file.<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="mso-layout-grid-align:none;text-autospace:none"><SPAN
+	style="font-size:10.0pt;color:black">2. The provider class which is
+specified by the xml and provides the mapping of the type to your <SPAN
+	class="SpellE">EditPart</SPAN> class<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="mso-layout-grid-align:none;text-autospace:none"><SPAN
+	style="font-size:10.0pt;color:black">3. The actual <SPAN class="SpellE">EditPart</SPAN>
+class that will override the existing behavior.<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="mso-layout-grid-align:none;text-autospace:none"><SPAN
+	style="font-size:10.0pt;color:black"><o:p>&nbsp;</o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="mso-layout-grid-align:none;text-autospace:none"><SPAN
+	style="font-size:10.0pt;font-family:Helv;mso-bidi-font-family:Helv;color:black">First
+the xml:<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="mso-layout-grid-align:none;text-autospace:none"><SPAN
+	style='font-size:10.0pt;font-family:"Courier New";color:navy'>&lt;/extension&gt;<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="mso-layout-grid-align:none;text-autospace:none"><SPAN
+	style='font-size:10.0pt;font-family:"Courier New";color:black'><SPAN
+	style="mso-spacerun:yes">      </SPAN></SPAN><SPAN
+	style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&lt;extension<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="mso-layout-grid-align:none;text-autospace:none"><SPAN
+	style='font-size:10.0pt;font-family:"Courier New";color:black'><SPAN
+	style="mso-spacerun:yes">         </SPAN></SPAN><SPAN class="GramE"><SPAN
+	style='font-size:10.0pt;font-family:"Courier New";color:navy'>point</SPAN></SPAN><SPAN
+	style='font-size:10.0pt;font-family:"Courier New";color:navy'>=</SPAN><SPAN
+	style='font-size:10.0pt;font-family:"Courier New";color:green'>&quot;<SPAN
+	class="SpellE">org.eclipse.gmf.runtime.diagram.ui.editpartProviders</SPAN>&quot;</SPAN><SPAN
+	style='font-size:10.0pt;font-family:"Courier New";color:navy'>&gt;<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="mso-layout-grid-align:none;text-autospace:none"><SPAN
+	style='font-size:10.0pt;font-family:"Courier New";color:black'><SPAN
+	style="mso-spacerun:yes">      </SPAN></SPAN><SPAN
+	style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&lt;<SPAN
+	class="SpellE">editpartProvider</SPAN><o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="mso-layout-grid-align:none;text-autospace:none"><SPAN
+	style='font-size:10.0pt;font-family:"Courier New";color:black'><SPAN
+	style="mso-spacerun:yes">            </SPAN></SPAN><SPAN class="GramE"><SPAN
+	style='font-size:10.0pt;font-family:"Courier New";color:navy'>class</SPAN></SPAN><SPAN
+	style='font-size:10.0pt;font-family:"Courier New";color:navy'>=</SPAN><SPAN
+	style='font-size:10.0pt;font-family:"Courier New";color:green'>&quot;com.&lt;<SPAN
+	class="SpellE">myPath</SPAN>&gt;.<SPAN class="SpellE">MyOverrideProvider</SPAN>&quot;</SPAN><SPAN
+	style='font-size:10.0pt;font-family:"Courier New";color:navy'>&gt;<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="mso-layout-grid-align:none;text-autospace:none"><SPAN
+	style='font-size:10.0pt;font-family:"Courier New";color:black'><SPAN
+	style="mso-spacerun:yes">         </SPAN></SPAN><SPAN
+	style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&lt;Priority<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="mso-layout-grid-align:none;text-autospace:none"><SPAN
+	style='font-size:10.0pt;font-family:"Courier New";color:black'><SPAN
+	style="mso-spacerun:yes">               </SPAN></SPAN><SPAN
+	class="GramE"><SPAN
+	style='font-size:10.0pt;font-family:"Courier New";color:navy'>name</SPAN></SPAN><SPAN
+	style='font-size:10.0pt;font-family:"Courier New";color:navy'>=</SPAN><SPAN
+	style='font-size:10.0pt;font-family:"Courier New";color:green'>&quot;Low&quot;</SPAN><SPAN
+	style='font-size:10.0pt;font-family:"Courier New";color:navy'>&gt;<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="mso-layout-grid-align:none;text-autospace:none"><SPAN
+	style='font-size:10.0pt;font-family:"Courier New";color:black'><SPAN
+	style="mso-spacerun:yes">         </SPAN></SPAN><SPAN
+	style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&lt;/Priority&gt;<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="mso-layout-grid-align:none;text-autospace:none"><SPAN
+	style='font-size:10.0pt;font-family:"Courier New";color:black'><SPAN
+	style="mso-spacerun:yes">         </SPAN></SPAN><SPAN
+	style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&lt;object<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="mso-layout-grid-align:none;text-autospace:none"><SPAN
+	style='font-size:10.0pt;font-family:"Courier New";color:black'><SPAN
+	style="mso-spacerun:yes">               </SPAN></SPAN><SPAN
+	class="GramE"><SPAN
+	style='font-size:10.0pt;font-family:"Courier New";color:navy'>class</SPAN></SPAN><SPAN
+	style='font-size:10.0pt;font-family:"Courier New";color:navy'>=</SPAN><SPAN
+	style='font-size:10.0pt;font-family:"Courier New";color:green'>&quot;<SPAN
+	class="SpellE">com.ibm.xtools.notation.Edge</SPAN>&quot;<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="mso-layout-grid-align:none;text-autospace:none"><SPAN
+	style='font-size:10.0pt;font-family:"Courier New";color:black'><SPAN
+	style="mso-spacerun:yes">               </SPAN></SPAN><SPAN
+	class="GramE"><SPAN
+	style='font-size:10.0pt;font-family:"Courier New";color:navy'>id</SPAN></SPAN><SPAN
+	style='font-size:10.0pt;font-family:"Courier New";color:navy'>=</SPAN><SPAN
+	style='font-size:10.0pt;font-family:"Courier New";color:green'>&quot;<SPAN
+	class="SpellE">MyConnectionOverride</SPAN>&quot;</SPAN><SPAN
+	style='font-size:
+10.0pt;font-family:"Courier New";color:navy'>&gt;<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="mso-layout-grid-align:none;text-autospace:none"><SPAN
+	style='font-size:10.0pt;font-family:"Courier New";color:black'><SPAN
+	style="mso-spacerun:yes">             </SPAN></SPAN><SPAN
+	style='font-size:
+10.0pt;font-family:"Courier New";color:navy'>&lt;method<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="mso-layout-grid-align:none;text-autospace:none"><SPAN
+	style='font-size:10.0pt;font-family:"Courier New";color:black'><SPAN
+	style="mso-spacerun:yes">                  </SPAN></SPAN><SPAN
+	class="GramE"><SPAN
+	style='font-size:10.0pt;font-family:"Courier New";color:navy'>name</SPAN></SPAN><SPAN
+	style='font-size:10.0pt;font-family:"Courier New";color:navy'>=</SPAN><SPAN
+	style='font-size:10.0pt;font-family:"Courier New";color:green'>&quot;<SPAN
+	class="SpellE">getElement</SPAN>()&quot;</SPAN><SPAN
+	style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&gt;<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="mso-layout-grid-align:none;text-autospace:none"><SPAN
+	style='font-size:10.0pt;font-family:"Courier New";color:black'><SPAN
+	style="mso-spacerun:yes">            </SPAN><SPAN
+	style="mso-tab-count:1">      </SPAN></SPAN><SPAN
+	style='font-size:10.0pt;font-family:"Courier New";color:navy'>&lt;value</SPAN><SPAN
+	style='font-size:10.0pt;font-family:"Courier New";color:black'> </SPAN><SPAN
+	style='font-size:10.0pt;font-family:"Courier New";color:navy'>class=</SPAN><SPAN
+	style='font-size:10.0pt;font-family:"Courier New";color:green'>&quot;&lt;class
+path to semantic element&gt;&quot;</SPAN><SPAN
+	style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>/&gt;<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="mso-layout-grid-align:none;text-autospace:none"><SPAN
+	style='font-size:10.0pt;font-family:"Courier New";color:black'><SPAN
+	style="mso-spacerun:yes">            </SPAN></SPAN><SPAN
+	style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&lt;/method&gt;<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="mso-layout-grid-align:none;text-autospace:none"><SPAN
+	style='font-size:10.0pt;font-family:"Courier New";color:black'><SPAN
+	style="mso-spacerun:yes">         </SPAN></SPAN><SPAN
+	style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&lt;/object&gt;<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="mso-layout-grid-align:none;text-autospace:none"><SPAN
+	style='font-size:10.0pt;font-family:"Courier New";color:black'><SPAN
+	style="mso-spacerun:yes">      </SPAN><SPAN style="mso-tab-count:1">     
+</SPAN></SPAN><SPAN
+	style='font-size:10.0pt;font-family:"Courier New";color:navy'>&lt;context<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="mso-layout-grid-align:none;text-autospace:none"><SPAN
+	style='font-size:10.0pt;font-family:"Courier New";color:black'><SPAN
+	style="mso-spacerun:yes">               </SPAN></SPAN><SPAN
+	class="GramE"><SPAN
+	style='font-size:10.0pt;font-family:"Courier New";color:navy'>views</SPAN></SPAN><SPAN
+	style='font-size:10.0pt;font-family:"Courier New";color:navy'>=</SPAN><SPAN
+	style='font-size:10.0pt;font-family:"Courier New";color:green'>&quot;<SPAN
+	class="SpellE">MyConnectionOverride</SPAN>&quot;</SPAN><SPAN
+	style='font-size:
+10.0pt;font-family:"Courier New";color:navy'>&gt;<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="mso-layout-grid-align:none;text-autospace:none"><SPAN
+	style='font-size:10.0pt;font-family:"Courier New";color:black'><SPAN
+	style="mso-spacerun:yes">        </SPAN></SPAN><SPAN
+	style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&lt;/context&gt;</SPAN><SPAN
+	style='font-size:10.0pt;font-family:"Courier New";color:black'><SPAN
+	style="mso-spacerun:yes">       </SPAN><SPAN style="mso-tab-count:1">    
+</SPAN><o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="mso-layout-grid-align:none;text-autospace:none"><SPAN
+	style='font-size:10.0pt;font-family:"Courier New";color:black'><SPAN
+	style="mso-spacerun:yes">      </SPAN></SPAN><SPAN
+	style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&lt;/<SPAN
+	class="SpellE">editpartProvider</SPAN>&gt;<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="mso-layout-grid-align:none;text-autospace:none"><SPAN
+	style='font-size:10.0pt;font-family:"Courier New";color:black'><SPAN
+	style="mso-spacerun:yes">   </SPAN></SPAN><SPAN
+	style='font-size:10.0pt;
+font-family:"Courier New";color:navy'>&lt;/extension&gt;<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="mso-layout-grid-align:none;text-autospace:none"><SPAN
+	style='font-size:10.0pt;font-family:"Courier New";color:navy'><o:p>&nbsp;</o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="mso-layout-grid-align:none;text-autospace:none"><SPAN
+	style="font-size:10.0pt;font-family:Helv;mso-bidi-font-family:Helv;color:black">In
+this descriptor we are specifying the provider class that and a priority
+level that the provider will be at relative to other providers.<SPAN
+	style="mso-spacerun:yes">  </SPAN>In this case, we know that the
+existing provider for the relationship is at the &quot;Lowest&quot;
+priority, so we can provide ours at one level higher - i.e.
+&quot;Low&quot;.<SPAN style="mso-spacerun:yes">  </SPAN>The object tag
+lets us specify the view category we're supplying the <SPAN
+	class="SpellE">EditPart</SPAN> for and the criteria under which our
+provider will be loaded.<SPAN style="mso-spacerun:yes">  </SPAN>In this
+case, we chose a broad criteria and our provider will be loaded when the
+connector is of the semantic relationship we expect.<SPAN
+	style="mso-spacerun:yes">  </SPAN>In the actual java code of our
+provider class we can restrict the actual criteria to be based <SPAN
+	class="GramE">on a more strict criteria</SPAN>, such as some aspect or
+property of the semantic relationship.<SPAN style="mso-spacerun:yes">  </SPAN><o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="mso-layout-grid-align:none;text-autospace:none"><SPAN
+	style='font-size:10.0pt;font-family:"Courier New";color:navy'><o:p>&nbsp;</o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="mso-layout-grid-align:none;text-autospace:none"><SPAN
+	style="font-size:10.0pt;font-family:Helv;mso-bidi-font-family:Helv;color:black">Next
+the provider class is fairly straightforward.<SPAN
+	style="mso-spacerun:yes">  </SPAN>It extends from the abstract class <SPAN
+	class="SpellE">AbstractEditPartProvider</SPAN> and overrides the method
+for retrieving the connector <SPAN class="SpellE">editpart</SPAN>.<SPAN
+	style="mso-spacerun:yes">  </SPAN>In the following example, it?s
+providing a custom <SPAN class="SpellE">EditPart</SPAN> when the shape
+has a particular keyword installed.<SPAN style="mso-spacerun:yes">  </SPAN>More
+commonly, you would switch based on the semantic type which is set to
+the value you've defined in your <SPAN class="SpellE">IElementType</SPAN>.<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="mso-layout-grid-align:none;text-autospace:none"><SPAN
+	style="font-size:10.0pt;font-family:Helv;mso-bidi-font-family:Helv;color:black"><o:p>&nbsp;</o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="tab-stops:0in .5in 1.0in 1.5in 2.0in 2.5in 3.0in;
+mso-layout-grid-align:none;text-autospace:none"><SPAN
+	class="GramE"><SPAN
+	style="font-size:10.0pt;font-family:Courier;mso-bidi-font-family:Courier;
+color:black">public</SPAN></SPAN><SPAN
+	style="font-size:10.0pt;font-family:
+Courier;mso-bidi-font-family:Courier;color:black">
+class <SPAN class="SpellE">MyEditPartProvider</SPAN> extends <SPAN
+	class="SpellE">AbstractEditPartProvider</SPAN> {<SPAN
+	style="mso-tab-count:1">      </SPAN><o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="tab-stops:0in .5in 1.0in 1.5in 2.0in 2.5in 3.0in;
+mso-layout-grid-align:none;text-autospace:none"><SPAN
+	style="font-size:10.0pt;
+font-family:Courier;mso-bidi-font-family:Courier;color:black"><SPAN
+	style="mso-tab-count:1">      </SPAN><o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="tab-stops:0in .5in 1.0in 1.5in 2.0in 2.5in 3.0in;
+mso-layout-grid-align:none;text-autospace:none"><SPAN
+	style="font-size:10.0pt;
+font-family:Courier;mso-bidi-font-family:Courier;color:black"><SPAN
+	style="mso-tab-count:1">      </SPAN><SPAN class="GramE">protected</SPAN>
+Class <SPAN class="SpellE">getConnectorEditPartClass</SPAN>(View <SPAN
+	class="SpellE">view</SPAN>) {<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="tab-stops:0in .5in 1.0in 1.5in 2.0in 2.5in 3.0in;
+mso-layout-grid-align:none;text-autospace:none"><SPAN
+	style="font-size:10.0pt;
+font-family:Courier;mso-bidi-font-family:Courier;color:black"><SPAN
+	style="mso-tab-count:2">            </SPAN><SPAN class="SpellE">EObject</SPAN>
+el = <SPAN class="SpellE"><SPAN class="GramE">view.getElement</SPAN></SPAN><SPAN
+	class="GramE">(</SPAN>);<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="tab-stops:0in .5in 1.0in 1.5in 2.0in 2.5in 3.0in;
+mso-layout-grid-align:none;text-autospace:none"><SPAN
+	style="font-size:10.0pt;
+font-family:Courier;mso-bidi-font-family:Courier;color:black"><SPAN
+	style="mso-tab-count:2">            </SPAN><SPAN class="GramE">if</SPAN>
+(el != null &amp;&amp; el <SPAN class="SpellE">instanceof</SPAN> &lt;<SPAN
+	class="SpellE">MySemanticElement</SPAN> class&gt; ) {<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="tab-stops:0in .5in 1.0in 1.5in 2.0in 2.5in 3.0in;
+mso-layout-grid-align:none;text-autospace:none"><SPAN
+	style="font-size:10.0pt;
+font-family:Courier;mso-bidi-font-family:Courier;color:black"><SPAN
+	style="mso-tab-count:3">                  </SPAN><SPAN class="GramE">if</SPAN>
+(? &lt;some condition is <SPAN class="SpellE">satisified</SPAN>&gt; )<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="tab-stops:0in .5in 1.0in 1.5in 2.0in 2.5in 3.0in;
+mso-layout-grid-align:none;text-autospace:none"><SPAN
+	style="font-size:10.0pt;
+font-family:Courier;mso-bidi-font-family:Courier;color:black"><SPAN
+	style="mso-tab-count:4">                        </SPAN><SPAN
+	class="GramE">return</SPAN> <SPAN class="SpellE">MyCustomEditPart.class</SPAN>;<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="tab-stops:0in .5in 1.0in 1.5in 2.0in 2.5in 3.0in;
+mso-layout-grid-align:none;text-autospace:none"><SPAN
+	style="font-size:10.0pt;
+font-family:Courier;mso-bidi-font-family:Courier;color:black"><SPAN
+	style="mso-tab-count:3">                  </SPAN>}<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="tab-stops:0in .5in 1.0in 1.5in 2.0in 2.5in 3.0in;
+mso-layout-grid-align:none;text-autospace:none"><SPAN
+	style="font-size:10.0pt;
+font-family:Courier;mso-bidi-font-family:Courier;color:black"><SPAN
+	style="mso-tab-count:2">            </SPAN>}<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="tab-stops:0in .5in 1.0in 1.5in 2.0in 2.5in 3.0in;
+mso-layout-grid-align:none;text-autospace:none"><SPAN
+	style="font-size:10.0pt;
+font-family:Courier;mso-bidi-font-family:Courier;color:black"><SPAN
+	style="mso-tab-count:2">            </SPAN><o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="tab-stops:0in .5in 1.0in 1.5in 2.0in 2.5in 3.0in;
+mso-layout-grid-align:none;text-autospace:none"><SPAN
+	style="font-size:10.0pt;
+font-family:Courier;mso-bidi-font-family:Courier;color:black"><SPAN
+	style="mso-tab-count:2">            </SPAN><SPAN class="GramE">return</SPAN>
+null;<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="tab-stops:0in .5in 1.0in 1.5in 2.0in 2.5in 3.0in;
+mso-layout-grid-align:none;text-autospace:none"><SPAN
+	style="font-size:10.0pt;
+font-family:Courier;mso-bidi-font-family:Courier;color:black"><SPAN
+	style="mso-tab-count:1">      </SPAN>}<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="tab-stops:0in .5in 1.0in 1.5in 2.0in 2.5in 3.0in;
+mso-layout-grid-align:none;text-autospace:none"><SPAN
+	style="font-size:10.0pt;
+font-family:Courier;mso-bidi-font-family:Courier;color:black">}<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="mso-layout-grid-align:none;text-autospace:none"><SPAN
+	style="font-size:10.0pt;font-family:Courier;mso-bidi-font-family:Courier;
+color:black"><o:p>&nbsp;</o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="mso-layout-grid-align:none;text-autospace:none"><SPAN
+	style="font-size:10.0pt;font-family:Helv;mso-bidi-font-family:Helv;color:black">Finally
+we can look at the <SPAN class="SpellE">EditPart</SPAN> class itself.<SPAN
+	style="mso-spacerun:yes">  </SPAN>In this case we are only interested
+in overriding the look of the connection.<SPAN style="mso-spacerun:yes"> 
+</SPAN>Consequently, we have to override the method that creates the
+figure in the connection edit part.<SPAN style="mso-spacerun:yes">  </SPAN>This
+method is the <SPAN class="SpellE"><SPAN class="GramE">createConnectionFigure</SPAN></SPAN><SPAN
+	class="GramE">(</SPAN>).<SPAN style="mso-spacerun:yes">  </SPAN>Then we
+simply use the appropriate Draw2d API's to instantiate a different <SPAN
+	class="SpellE">polyline</SPAN> figure with the look we desire:<o:p></o:p></SPAN></P><P class="MsoNormal"
+	style="tab-stops:0in .5in 1.0in 1.5in 2.0in 2.5in 3.0in;
+mso-layout-grid-align:none;text-autospace:none"><SPAN
+	class="GramE"><SPAN
+	style="font-size:10.0pt;font-family:Courier;mso-bidi-font-family:Courier;
+color:black">public</SPAN></SPAN><SPAN
+	style="font-size:10.0pt;font-family:
+Courier;mso-bidi-font-family:Courier;color:black">
+class <SPAN class="SpellE">MyCustomEditPart</SPAN> extends <SPAN
+	class="SpellE">OriginalEditPart</SPAN> {<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="tab-stops:0in .5in 1.0in 1.5in 2.0in 2.5in 3.0in;
+mso-layout-grid-align:none;text-autospace:none"><SPAN
+	style="font-size:10.0pt;
+font-family:Courier;mso-bidi-font-family:Courier;color:black"><SPAN
+	style="mso-tab-count:1">      </SPAN>/**<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="tab-stops:0in .5in 1.0in 1.5in 2.0in 2.5in 3.0in;
+mso-layout-grid-align:none;text-autospace:none"><SPAN
+	style="font-size:10.0pt;
+font-family:Courier;mso-bidi-font-family:Courier;color:black"><SPAN
+	style="mso-tab-count:1">      </SPAN><SPAN style="mso-spacerun:yes"> </SPAN>*
+@<SPAN class="SpellE">param</SPAN> view<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="tab-stops:0in .5in 1.0in 1.5in 2.0in 2.5in 3.0in;
+mso-layout-grid-align:none;text-autospace:none"><SPAN
+	style="font-size:10.0pt;
+font-family:Courier;mso-bidi-font-family:Courier;color:black"><SPAN
+	style="mso-tab-count:1">      </SPAN><SPAN style="mso-spacerun:yes"> </SPAN>*/<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="tab-stops:0in .5in 1.0in 1.5in 2.0in 2.5in 3.0in;
+mso-layout-grid-align:none;text-autospace:none"><SPAN
+	style="font-size:10.0pt;
+font-family:Courier;mso-bidi-font-family:Courier;color:black"><SPAN
+	style="mso-tab-count:1">      </SPAN><SPAN class="GramE">public</SPAN>
+<SPAN class="SpellE">MyCustomEditPart</SPAN> (View <SPAN class="SpellE">view</SPAN>)
+{<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="tab-stops:0in .5in 1.0in 1.5in 2.0in 2.5in 3.0in;
+mso-layout-grid-align:none;text-autospace:none"><SPAN
+	style="font-size:10.0pt;
+font-family:Courier;mso-bidi-font-family:Courier;color:black"><SPAN
+	style="mso-tab-count:2">            </SPAN><SPAN class="GramE">super(</SPAN>view);<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="tab-stops:0in .5in 1.0in 1.5in 2.0in 2.5in 3.0in;
+mso-layout-grid-align:none;text-autospace:none"><SPAN
+	style="font-size:10.0pt;
+font-family:Courier;mso-bidi-font-family:Courier;color:black"><SPAN
+	style="mso-tab-count:2">            </SPAN>// TODO Auto-generated
+constructor stub<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="tab-stops:0in .5in 1.0in 1.5in 2.0in 2.5in 3.0in;
+mso-layout-grid-align:none;text-autospace:none"><SPAN
+	style="font-size:10.0pt;
+font-family:Courier;mso-bidi-font-family:Courier;color:black"><SPAN
+	style="mso-tab-count:1">      </SPAN>}<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="tab-stops:0in .5in 1.0in 1.5in 2.0in 2.5in 3.0in;
+mso-layout-grid-align:none;text-autospace:none"><SPAN
+	style="font-size:10.0pt;
+font-family:Courier;mso-bidi-font-family:Courier;color:black"><SPAN
+	style="mso-tab-count:1">      </SPAN><SPAN class="GramE">protected</SPAN>
+Connection <SPAN class="SpellE">createConnectionFigure</SPAN>() {<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="tab-stops:0in .5in 1.0in 1.5in 2.0in 2.5in 3.0in;
+mso-layout-grid-align:none;text-autospace:none"><SPAN
+	style="font-size:10.0pt;
+font-family:Courier;mso-bidi-font-family:Courier;color:black"><SPAN
+	style="mso-tab-count:2">            </SPAN><SPAN class="SpellE">PolylineConnectionEx</SPAN>
+<SPAN class="SpellE">conn</SPAN> = new <SPAN class="SpellE"><SPAN
+	class="GramE">PolylineConnectionEx</SPAN></SPAN><SPAN class="GramE">(</SPAN>);<o:p></o:p></SPAN></P><P class="MsoNormal"
+	style="tab-stops:0in .5in 1.0in 1.5in 2.0in 2.5in 3.0in;
+mso-layout-grid-align:none;text-autospace:none"><SPAN
+	style="font-size:10.0pt;
+font-family:Courier;mso-bidi-font-family:Courier;color:black"><SPAN
+	style="mso-tab-count:2">            </SPAN><SPAN class="SpellE"><SPAN
+	class="GramE">conn.setLineStyle</SPAN></SPAN><SPAN class="GramE">(</SPAN><SPAN
+	class="SpellE">Graphics.LINE_SOLID</SPAN>);<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="tab-stops:0in .5in 1.0in 1.5in 2.0in 2.5in 3.0in;
+mso-layout-grid-align:none;text-autospace:none"><SPAN
+	style="font-size:10.0pt;
+font-family:Courier;mso-bidi-font-family:Courier;color:black"><SPAN
+	style="mso-tab-count:2">            </SPAN><SPAN class="SpellE">OpenArrowDecoration</SPAN>
+<SPAN class="SpellE">sourceDecorative</SPAN> = new <SPAN class="SpellE"><SPAN
+	class="GramE">OpenArrowDecoration</SPAN></SPAN><SPAN class="GramE">(</SPAN>);<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="tab-stops:0in .5in 1.0in 1.5in 2.0in 2.5in 3.0in;
+mso-layout-grid-align:none;text-autospace:none"><SPAN
+	style="font-size:10.0pt;
+font-family:Courier;mso-bidi-font-family:Courier;color:black"><SPAN
+	style="mso-tab-count:2">            </SPAN><SPAN class="SpellE"><SPAN
+	class="GramE">sourceDecorative.setTemplate</SPAN></SPAN><SPAN
+	class="GramE">(</SPAN><SPAN class="SpellE">OpenArrowDecoration.TRIANGLE_TIP</SPAN>);<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="tab-stops:0in .5in 1.0in 1.5in 2.0in 2.5in 3.0in;
+mso-layout-grid-align:none;text-autospace:none"><SPAN
+	style="font-size:10.0pt;
+font-family:Courier;mso-bidi-font-family:Courier;color:black"><SPAN
+	style="mso-tab-count:2">            </SPAN><SPAN class="SpellE"><SPAN
+	class="GramE">sourceDecorative.setScale</SPAN></SPAN><SPAN
+	class="GramE">(</SPAN><SPAN class="SpellE">MapMode.DPtoLP</SPAN>(10),<SPAN
+	class="SpellE">MapMode.DPtoLP</SPAN>(5));<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="tab-stops:0in .5in 1.0in 1.5in 2.0in 2.5in 3.0in;
+mso-layout-grid-align:none;text-autospace:none"><SPAN
+	style="font-size:10.0pt;
+font-family:Courier;mso-bidi-font-family:Courier;color:black"><SPAN
+	style="mso-tab-count:2">            </SPAN><SPAN class="SpellE"><SPAN
+	class="GramE">sourceDecorative.setLineStyle</SPAN></SPAN><SPAN
+	class="GramE">(</SPAN><SPAN class="SpellE">Graphics.LINE_SOLID</SPAN>);<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="tab-stops:0in .5in 1.0in 1.5in 2.0in 2.5in 3.0in;
+mso-layout-grid-align:none;text-autospace:none"><SPAN
+	style="font-size:10.0pt;
+font-family:Courier;mso-bidi-font-family:Courier;color:black"><SPAN
+	style="mso-tab-count:2">            </SPAN><SPAN class="SpellE"><SPAN
+	class="GramE">conn.setSourceDecoration</SPAN></SPAN><SPAN class="GramE">(</SPAN><SPAN
+	class="SpellE">sourceDecorative</SPAN>);<o:p></o:p></SPAN></P><P class="MsoNormal"
+	style="tab-stops:0in .5in 1.0in 1.5in 2.0in 2.5in 3.0in;
+mso-layout-grid-align:none;text-autospace:none"><SPAN
+	style="font-size:10.0pt;
+font-family:Courier;mso-bidi-font-family:Courier;color:black"><SPAN
+	style="mso-tab-count:2">            </SPAN><SPAN class="GramE">return</SPAN>
+<SPAN class="SpellE">conn</SPAN>;<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="tab-stops:0in .5in 1.0in 1.5in 2.0in 2.5in 3.0in;
+mso-layout-grid-align:none;text-autospace:none"><SPAN
+	style="font-size:10.0pt;
+font-family:Courier;mso-bidi-font-family:Courier;color:black"><SPAN
+	style="mso-tab-count:1">      </SPAN>}<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="tab-stops:0in .5in 1.0in 1.5in 2.0in 2.5in 3.0in;
+mso-layout-grid-align:none;text-autospace:none"><SPAN
+	style="font-size:10.0pt;
+font-family:Courier;mso-bidi-font-family:Courier;color:black">}<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="mso-layout-grid-align:none;text-autospace:none"><SPAN
+	style="font-size:10.0pt;font-family:Courier;mso-bidi-font-family:Courier;
+color:black"><o:p>&nbsp;</o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="mso-layout-grid-align:none;text-autospace:none"><SPAN
+	style="font-size:10.0pt;font-family:Arial;color:black">Then when you
+create the relationship which fits the new <SPAN class="SpellE">critera</SPAN>
+of the xml and provider, then it will render using the new figure you
+created in the custom <SPAN class="SpellE">EditPart</SPAN>.<o:p></o:p></SPAN></P>
+<P><BR>
+</P>
+<H2><SPAN class="GramE"><SPAN style="mso-bookmark:
+_Toc105513761"><A name="readOnlyViews">How to open multiple read-only
+views on a diagram</A></SPAN></SPAN><BR>
+<FONT size="-1">[<A href="#top">back to top</A>]</FONT></H2>
+<P class="MsoNormal">It is possible to view the same notation data in 2
+different viewers.<SPAN style="mso-spacerun:yes">  </SPAN>Since GEF /
+Presentation implements the MFC design pattern, it is a simple matter to
+view the same data in different viewers.<SPAN style="mso-spacerun:yes"> 
+</SPAN>The &quot;Model&quot; (Notation) is the same in both viewers and
+synchronized with different &quot;View&quot; (Figure) data through unique
+controllers (<SPAN class="SpellE">EditParts</SPAN>) in each viewer.</P>
+
+<P><BR>
+<SPAN style="mso-bookmark:_Toc105513762">Creating a read-only viewer of
+an existing diagram</SPAN>
+</P>
+<P><BR>
+If you wish to have a read-only view of the
+diagram, this is probably well suited to be displayed in an Eclipse View
+instead of a full-fledged editor.</P>
+<P class="MsoNormal">In your implementation of the <SPAN class="SpellE">IViewPart</SPAN>
+the <SPAN class="SpellE">createPartControl</SPAN> would create the
+Viewer to display the diagram.<SPAN style="mso-spacerun:yes">  </SPAN>The
+<SPAN class="SpellE">DiagramEditPart</SPAN> is retrieved and explicitly
+set to disable the <SPAN class="SpellE">EditMode</SPAN> capability.<SPAN
+	style="mso-spacerun:yes">  </SPAN>It is a perquisite that a <SPAN
+	class="SpellE">DiagramView</SPAN> object is ?in-hand?.<SPAN
+	style="mso-spacerun:yes">  </SPAN>This could be retrieved by invoking
+an action from the Diagram element in the Model Explorer.</P>
+
+<P class="MsoNormal">// the assumption of this method is that the <SPAN
+	class="SpellE">DiagramView</SPAN> has been pre-loaded</P>
+
+<P class="MsoNormal"><SPAN class="GramE"><SPAN
+	style='font-size:8.0pt;font-family:
+"Courier New"'>private</SPAN></SPAN><SPAN
+	style='font-size:8.0pt;font-family:
+"Courier New"'> <SPAN
+	class="SpellE">GraphicalViewer</SPAN> viewer;<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"><SPAN
+	style='font-size:8.0pt;font-family:"Courier New"'><o:p>&nbsp;</o:p></SPAN></P>
+
+<P class="MsoNormal"><SPAN class="GramE"><SPAN
+	style='font-size:8.0pt;font-family:
+"Courier New"'>private</SPAN></SPAN><SPAN
+	style='font-size:8.0pt;font-family:
+"Courier New"'> <SPAN
+	class="SpellE">GraphicalViewer</SPAN> viewer;<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"><SPAN class="GramE"><SPAN
+	style='font-size:8.0pt;font-family:
+"Courier New"'>public</SPAN></SPAN><SPAN
+	style='font-size:8.0pt;font-family:
+"Courier New"'> class <SPAN
+	class="SpellE">TraceDiagramGraphicalViewer</SPAN> extends <SPAN
+	class="SpellE">DiagramGraphicalViewer</SPAN> {<B><I><o:p></o:p></I></B></SPAN></P>
+
+<P class="MsoNormal" style="margin-left:.5in"><SPAN
+	style='font-size:8.0pt;
+font-family:"Courier New"'>// no implementatio<SPAN
+	style="mso-bidi-font-weight:
+bold;mso-bidi-font-style:italic">n.<SPAN
+	style="mso-spacerun:yes">  </SPAN>This class is extended from <o:p></o:p></SPAN></SPAN></P>
+
+<P class="MsoNormal" style="margin-left:.5in"><SPAN
+	style='font-size:8.0pt;
+font-family:"Courier New";mso-bidi-font-weight:bold;mso-bidi-font-style:italic'>//
+</SPAN><SPAN class="SpellE"><SPAN
+	style='font-size:8.0pt;font-family:"Courier New"'>DiagramGraphicalViewer</SPAN></SPAN><SPAN
+	style='font-size:8.0pt;font-family:"Courier New"'> for type information
+only.<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"><SPAN
+	style='font-size:8.0pt;font-family:"Courier New"'>}<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"><SPAN
+	style='font-size:8.0pt;font-family:"Courier New"'><SPAN
+	style="mso-tab-count:1">       </SPAN><o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"><SPAN class="GramE"><SPAN
+	style='font-size:8.0pt;font-family:
+"Courier New"'>public</SPAN></SPAN><SPAN
+	style='font-size:8.0pt;font-family:
+"Courier New"'> void <SPAN
+	class="SpellE">createPartControl</SPAN>(Composite comp) {<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"><SPAN
+	style='font-size:8.0pt;font-family:"Courier New"'><SPAN
+	style="mso-tab-count:1">       </SPAN><SPAN class="GramE">viewer</SPAN>
+= new <SPAN class="SpellE">TraceDiagramGraphicalViewer</SPAN>();<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"><SPAN
+	style='font-size:8.0pt;font-family:"Courier New"'><SPAN
+	style="mso-tab-count:1">       </SPAN><SPAN class="SpellE"><SPAN
+	class="GramE">viewer.createControl</SPAN></SPAN><SPAN class="GramE">(</SPAN>comp);<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"><SPAN
+	style='font-size:8.0pt;font-family:"Courier New"'><SPAN
+	style="mso-tab-count:1">       </SPAN><SPAN class="SpellE"><SPAN
+	class="GramE">viewer.getControl</SPAN></SPAN><SPAN class="GramE">(</SPAN>).<SPAN
+	class="SpellE">setBackground</SPAN>(<SPAN class="SpellE">ColorConstants.listBackground</SPAN>);<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"><SPAN
+	style='font-size:8.0pt;font-family:"Courier New"'><SPAN
+	style="mso-tab-count:1">       </SPAN><SPAN class="SpellE">DiagramEditDomain</SPAN>
+<SPAN class="SpellE">editDomain</SPAN> = new <SPAN class="SpellE"><SPAN
+	class="GramE">DiagramEditDomain</SPAN></SPAN><SPAN class="GramE">(</SPAN>null);<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"><SPAN
+	style='font-size:8.0pt;font-family:"Courier New"'><SPAN
+	style="mso-tab-count:1">       </SPAN><SPAN class="SpellE"><SPAN
+	class="GramE">editDomain.setCommandStack</SPAN></SPAN><SPAN
+	class="GramE">(</SPAN>new <SPAN class="SpellE">DiagramCommandStack</SPAN>(<SPAN
+	class="SpellE">editDomain</SPAN>));<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"><SPAN
+	style='font-size:8.0pt;font-family:"Courier New"'><SPAN
+	style="mso-tab-count:1">       </SPAN><SPAN class="SpellE"><SPAN
+	class="GramE">viewer.setEditDomain</SPAN></SPAN><SPAN class="GramE">(</SPAN><SPAN
+	class="SpellE">editDomain</SPAN>);<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"><SPAN
+	style='font-size:8.0pt;font-family:"Courier New"'><SPAN
+	style="mso-tab-count:1">       </SPAN><SPAN class="SpellE"><SPAN
+	class="GramE">viewer.setRootEditPart</SPAN></SPAN><SPAN class="GramE">(</SPAN>new
+<SPAN class="SpellE">DiagramRootEditPart</SPAN>());<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"><SPAN
+	style='font-size:8.0pt;font-family:"Courier New"'><SPAN
+	style="mso-tab-count:1">       </SPAN><SPAN class="SpellE"><SPAN
+	class="GramE">viewer.setEditPartFactory</SPAN></SPAN><SPAN
+	class="GramE">(</SPAN><SPAN class="SpellE">EditPartService.getInstance</SPAN>());<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"><SPAN
+	style='font-size:8.0pt;font-family:"Courier New"'><SPAN
+	style="mso-tab-count:1">       </SPAN><SPAN class="GramE">viewer</SPAN><o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"><SPAN
+	style='font-size:8.0pt;font-family:"Courier New"'><SPAN
+	style="mso-tab-count:3">                     </SPAN>.<SPAN
+	class="SpellE"><SPAN class="GramE">setContents</SPAN></SPAN><SPAN
+	class="GramE">(</SPAN><SPAN class="SpellE">ViewService.getInstance</SPAN>().<SPAN
+	class="SpellE">incarnateView</SPAN>(<SPAN class="SpellE">GeoDiagramEditor.diagView</SPAN>));<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"><SPAN
+	style='font-size:8.0pt;font-family:"Courier New"'><SPAN
+	style="mso-tab-count:1">       </SPAN><SPAN class="SpellE"><SPAN
+	class="GramE">viewer.flush</SPAN></SPAN><SPAN class="GramE">(</SPAN>);<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"><SPAN
+	style='font-size:8.0pt;font-family:"Courier New"'><SPAN
+	style="mso-tab-count:1">       </SPAN><B
+	style="mso-bidi-font-weight:normal">// now disable editing<o:p></o:p></B></SPAN></P>
+
+<P class="MsoNormal"><B style="mso-bidi-font-weight:normal"><SPAN
+	style='font-size:8.0pt;font-family:"Courier New"'><SPAN
+	style="mso-tab-count:
+1">       </SPAN><SPAN class="SpellE"><SPAN
+	class="GramE">Assert.isTrue</SPAN></SPAN><SPAN class="GramE">(</SPAN><SPAN
+	class="SpellE">viewer.getContents</SPAN>() <SPAN class="SpellE">instanceof</SPAN>
+<SPAN class="SpellE">DiagramEditPart</SPAN>);<o:p></o:p></SPAN></B></P>
+
+<P class="MsoNormal"><B style="mso-bidi-font-weight:normal"><SPAN
+	style='font-size:8.0pt;font-family:"Courier New"'><SPAN
+	style="mso-tab-count:
+2">       </SPAN><SPAN class="SpellE">DiagramEditPart</SPAN>
+<SPAN class="SpellE">diagEP</SPAN> = (<SPAN class="SpellE">DiagramEditPart</SPAN>)
+<SPAN class="SpellE"><SPAN class="GramE">viewer.getContents</SPAN></SPAN><SPAN
+	class="GramE">(</SPAN>);<o:p></o:p></SPAN></B></P>
+
+<P class="MsoNormal"><B style="mso-bidi-font-weight:normal"><SPAN
+	style='font-size:8.0pt;font-family:"Courier New"'><SPAN
+	style="mso-tab-count:
+1">       </SPAN><SPAN class="SpellE"><SPAN
+	class="GramE">diagEP.disableEditMode</SPAN></SPAN><SPAN class="GramE">(</SPAN>);</SPAN></B><BR>
+</P>
+<H3 class="MsoNormal"><BR>
+<FONT face="Courier New"> </FONT><A name="_Toc1055137640">Screen
+snapshot of multiple views of diagram:</A><BR>
+<SPAN style='font-size:10.0pt;font-family:"Courier New"'><IMG border="0"
+	width="570" height="499" src="multipleview.jpg" v:shapes="_x0000_i1025"></SPAN>
+<BR>
+<BR>
+<A name="_Toc105513763"><SPAN
+	style="mso-fareast-font-family:
+Arial;mso-bidi-font-family:Arial"><SPAN
+	style="mso-list:Ignore"></SPAN></SPAN></A></H3>
+<H2 class="MsoNormal"><A name="changeColor">How to </A><SPAN
+	style="mso-bookmark:_Toc105513763">change the color of a
+shape dynamicaly</SPAN><BR><FONT size="-1">[<A href="#top">back to top</A>]</FONT>
+</H2>
+<P class="MsoNormal">In the example <A href="#readOnlyViews0">#<SPAN
+	class="GramE">Creating</SPAN> a read-only viewer of an existing diagram</A> it is necessary to create
+a new <SPAN class="SpellE">GraphicalViewer</SPAN> class (<SPAN
+	class="SpellE">TraceDiagramGraphicalViewer</SPAN>) for the type
+information to distinguish <SPAN class="SpellE">EditParts</SPAN> hosted
+in a regular editor vs. a custom Viewer to allow for animation.<SPAN
+	style="mso-spacerun:yes">  </SPAN>Changing the colors of individual <SPAN
+	class="SpellE">EditParts</SPAN> can be achieved dynamically by
+installing an <SPAN class="SpellE">EditPolicy</SPAN> on the <SPAN
+	class="SpellE">EditParts</SPAN> condition on them being owned by the
+new Viewer class above.<BR>
+<BR>
+The <SPAN class="SpellE">EditPolicy</SPAN> will then listen to the
+appropriate condition and change the color of the <SPAN class="SpellE">EditPart's</SPAN>
+figures accordingly.<SPAN style="mso-spacerun:yes">  </SPAN><BR>
+<BR>
+First we need to define an <SPAN class="SpellE">EditPolicyProvider</SPAN>
+that will install this new <SPAN class="SpellE">editpolicy</SPAN>.<SPAN
+	style="mso-spacerun:yes">  </SPAN>The Extension code in the <SPAN
+	class="SpellE">plugin.xml</SPAN> would look something like the
+following: <BR>
+</P>
+
+<DIV
+	style="border:solid windowtext 1.0pt;mso-border-alt:solid windowtext .75pt;
+padding:4.0pt 4.0pt 4.0pt 4.0pt;margin-left:48.0pt;margin-right:24.0pt">
+<P class="MsoNormal"
+	style="mso-layout-grid-align:none;text-autospace:none"><SPAN
+	style='font-size:8.0pt;font-family:"Courier New";color:navy;background:white;
+mso-highlight:white'>&lt;extension</SPAN><SPAN
+	style='font-size:8.0pt;
+font-family:"Courier New"'><o:p></o:p></SPAN><BR>
+&nbsp;&nbsp;<SPAN class="GramE"><SPAN
+	style='font-size:8.0pt;font-family:
+"Courier New";color:navy;background:white;mso-highlight:white'>id</SPAN></SPAN><SPAN
+	style='font-size:8.0pt;font-family:"Courier New";color:navy;background:white;
+mso-highlight:white'>=</SPAN><SPAN
+	style='font-size:8.0pt;font-family:"Courier New";
+color:green;background:white;mso-highlight:white'>&quot;<SPAN
+	class="SpellE">TraceEditPolicyProvider</SPAN>&quot;</SPAN><SPAN
+	style='font-size:8.0pt;font-family:"Courier New"'><o:p></o:p></SPAN><BR>
+<SPAN
+	class="GramE"><SPAN
+	style='font-size:8.0pt;font-family:
+"Courier New";color:navy;background:white;mso-highlight:white'>name</SPAN></SPAN><SPAN
+	style='font-size:8.0pt;font-family:"Courier New";color:navy;background:white;
+mso-highlight:white'>=</SPAN><SPAN
+	style='font-size:8.0pt;font-family:"Courier New";
+color:green;background:white;mso-highlight:white'>&quot;<SPAN
+	class="SpellE">TraceEditPolicyProvider</SPAN>&quot;</SPAN><SPAN
+	style='font-size:8.0pt;font-family:"Courier New"'><o:p></o:p></SPAN><BR>
+<SPAN
+	class="GramE"><SPAN
+	style='font-size:8.0pt;font-family:
+"Courier New";color:navy;background:white;mso-highlight:white'>point</SPAN></SPAN><SPAN
+	style='font-size:8.0pt;font-family:"Courier New";color:navy;background:white;
+mso-highlight:white'>=</SPAN><SPAN
+	style='font-size:8.0pt;font-family:"Courier New";
+color:green;background:white;mso-highlight:white'>&quot;<SPAN
+	class="SpellE">org.eclipse.gmf.runtime.diagram.ui.editpolicyProviders</SPAN>&quot;</SPAN><SPAN
+	style='font-size:8.0pt;font-family:"Courier New";color:navy;background:white;
+mso-highlight:white'>&gt;</SPAN><SPAN
+	style='font-size:8.0pt;font-family:"Courier New"'><o:p></o:p></SPAN><BR>
+<SPAN
+	style='font-size:8.0pt;font-family:"Courier New";
+color:navy;background:white;mso-highlight:white'>&lt;<SPAN
+	class="SpellE">editpolicyProvider</SPAN></SPAN><SPAN
+	style='font-size:8.0pt;font-family:"Courier New"'><o:p></o:p></SPAN><SPAN
+	class="GramE"><SPAN
+	style='font-size:8.0pt;
+font-family:"Courier New";color:navy;background:white;mso-highlight:white'><BR>
+class</SPAN></SPAN><SPAN
+	style='font-size:8.0pt;font-family:"Courier New";color:navy;background:white;
+mso-highlight:white'>=</SPAN><SPAN
+	style='font-size:8.0pt;font-family:"Courier New";
+color:green;background:white;mso-highlight:white'>&quot;&lt;package
+namespace&gt;.<SPAN class="SpellE">TraceDiagramEditPolicyProvider</SPAN>&quot;</SPAN><SPAN
+	style='font-size:8.0pt;font-family:"Courier New";color:navy;background:white;
+mso-highlight:white'>&gt;</SPAN><SPAN
+	style='font-size:8.0pt;font-family:"Courier New";
+color:green;background:white;mso-highlight:white'><o:p></o:p></SPAN><BR>
+<SPAN
+	style='font-size:8.0pt;font-family:"Courier New";
+color:navy;background:white;mso-highlight:white'>&lt;Priority</SPAN><SPAN
+	style='font-size:8.0pt;font-family:"Courier New"'><o:p></o:p></SPAN><BR>
+<SPAN
+	class="GramE"><SPAN
+	style='font-size:8.0pt;
+font-family:"Courier New";color:navy;background:white;mso-highlight:white'>name</SPAN></SPAN><SPAN
+	style='font-size:8.0pt;font-family:"Courier New";color:navy;background:white;
+mso-highlight:white'>=</SPAN><SPAN
+	style='font-size:8.0pt;font-family:"Courier New";
+color:green;background:white;mso-highlight:white'>&quot;Low&quot;</SPAN><SPAN
+	style='font-size:8.0pt;font-family:"Courier New";color:navy;background:white;
+mso-highlight:white'>&gt;</SPAN><SPAN
+	style='font-size:8.0pt;font-family:"Courier New"'><o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="text-indent:.5in;mso-layout-grid-align:none;
+text-autospace:none"><SPAN
+	style='font-size:8.0pt;font-family:"Courier New";
+color:navy;background:white;mso-highlight:white'>&lt;/Priority&gt;</SPAN><SPAN
+	style='font-size:8.0pt;font-family:"Courier New"'><o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="text-indent:.5in;mso-layout-grid-align:none;
+text-autospace:none"><SPAN
+	style='font-size:8.0pt;font-family:"Courier New";
+color:navy;background:white;mso-highlight:white'>&lt;object</SPAN><SPAN
+	style='font-size:8.0pt;font-family:"Courier New"'><o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="margin-left:.5in;text-indent:.5in;mso-layout-grid-align:
+none;text-autospace:none"><SPAN
+	class="GramE"><SPAN
+	style='font-size:8.0pt;
+font-family:"Courier New";color:navy;background:white;mso-highlight:white'>class</SPAN></SPAN><SPAN
+	style='font-size:8.0pt;font-family:"Courier New";color:navy;background:white;
+mso-highlight:white'>=</SPAN><SPAN
+	style='font-size:8.0pt;font-family:"Courier New";
+color:green;background:white;mso-highlight:white'>&quot;<SPAN
+	class="SpellE">org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart</SPAN>&quot;</SPAN><SPAN
+	style='font-size:8.0pt;font-family:"Courier New"'><o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="margin-left:.5in;text-indent:.5in;mso-layout-grid-align:
+none;text-autospace:none"><SPAN
+	class="GramE"><SPAN
+	style='font-size:8.0pt;
+font-family:"Courier New";color:navy;background:white;mso-highlight:white'>id</SPAN></SPAN><SPAN
+	style='font-size:8.0pt;font-family:"Courier New";color:navy;background:white;
+mso-highlight:white'>=</SPAN><SPAN
+	style='font-size:8.0pt;font-family:"Courier New";
+color:green;background:white;mso-highlight:white'>&quot;<SPAN
+	class="SpellE">TraceEditPart</SPAN>&quot;</SPAN><SPAN
+	style='font-size:8.0pt;font-family:"Courier New";color:navy;background:white;
+mso-highlight:white'>&gt;</SPAN><SPAN
+	style='font-size:8.0pt;font-family:"Courier New"'><o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="margin-left:.5in;text-indent:.5in;mso-layout-grid-align:
+none;text-autospace:none"><SPAN
+	style='font-size:8.0pt;font-family:"Courier New";
+color:navy;background:white;mso-highlight:white'>&lt;method</SPAN><SPAN
+	style='font-size:8.0pt;font-family:"Courier New";color:black;background:white;
+mso-highlight:white'>
+</SPAN><SPAN
+	style='font-size:8.0pt;font-family:"Courier New";
+color:navy;background:white;mso-highlight:white'>name=</SPAN><SPAN
+	style='font-size:8.0pt;font-family:"Courier New";color:green;background:white;
+mso-highlight:white'>&quot;<SPAN
+	class="SpellE"><SPAN class="GramE">getViewer</SPAN></SPAN><SPAN
+	class="GramE">(</SPAN>)&quot;</SPAN><SPAN
+	style='font-size:8.0pt;font-family:
+"Courier New";color:navy;background:white;mso-highlight:white'>&gt;</SPAN><SPAN
+	style='font-size:8.0pt;font-family:"Courier New"'><o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="mso-layout-grid-align:none;text-autospace:none"><SPAN
+	style='font-size:8.0pt;font-family:"Courier New";color:black;background:white;
+mso-highlight:white'><SPAN
+	style="mso-spacerun:yes">                 </SPAN></SPAN><SPAN
+	style='font-size:8.0pt;font-family:"Courier New";color:navy;background:white;
+mso-highlight:white'>&lt;</SPAN><SPAN
+	style='font-size:8.0pt;font-family:"Courier New"'>value class<SPAN
+	style="color:navy;background:white;mso-highlight:white">=</SPAN><SPAN
+	style="color:green;background:white;mso-highlight:white">&quot;</SPAN><SPAN
+	style="color:navy;background:white;mso-highlight:white">=</SPAN><SPAN
+	style="color:green;background:white;mso-highlight:white">&quot;&lt;package
+namespace&gt;.<SPAN class="SpellE">TraceDiagramGraphicalViewer</SPAN>&quot;</SPAN><SPAN
+	style="color:navy;background:white;mso-highlight:white">/&gt;</SPAN><SPAN
+	style="color:black;background:blue;mso-highlight:blue"><o:p></o:p></SPAN></SPAN></P>
+
+<P class="MsoNormal"
+	style="margin-left:.5in;text-indent:.5in;mso-layout-grid-align:
+none;text-autospace:none"><SPAN
+	style='font-size:8.0pt;font-family:"Courier New";
+color:navy;background:white;mso-highlight:white'>&lt;/method&gt;</SPAN><SPAN
+	style='font-size:8.0pt;font-family:"Courier New";color:black;background:white;
+mso-highlight:white'>
+</SPAN><SPAN style='font-size:8.0pt;font-family:"Courier New"'><o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="margin-left:.5in;text-indent:.5in;mso-layout-grid-align:
+none;text-autospace:none"><SPAN
+	style='font-size:8.0pt;font-family:"Courier New";
+color:navy;background:white;mso-highlight:white'>&lt;/object&gt;</SPAN><SPAN
+	style='font-size:8.0pt;font-family:"Courier New"'><o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="margin-left:1.0in;text-indent:.5in;mso-layout-grid-align:
+none;text-autospace:none"><SPAN
+	style='font-size:8.0pt;font-family:"Courier New";
+color:navy;background:white;mso-highlight:white'>&lt;context</SPAN><SPAN
+	style='font-size:8.0pt;font-family:"Courier New"'><o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="margin-left:1.5in;text-indent:.5in;mso-layout-grid-align:
+none;text-autospace:none"><SPAN
+	class="SpellE"><SPAN class="GramE"><SPAN
+	style='font-size:8.0pt;font-family:"Courier New";color:navy;background:white;
+mso-highlight:white'>editparts</SPAN></SPAN></SPAN><SPAN
+	style='font-size:8.0pt;
+font-family:"Courier New";color:navy;background:white;mso-highlight:white'>=</SPAN><SPAN
+	style='font-size:8.0pt;font-family:"Courier New";color:green;background:white;
+mso-highlight:white'>&quot;<SPAN
+	class="SpellE">TraceEditPart</SPAN>&quot;</SPAN><SPAN
+	style='font-size:8.0pt;font-family:"Courier New";color:navy;background:white;
+mso-highlight:white'>&gt;</SPAN><SPAN
+	style='font-size:8.0pt;font-family:"Courier New"'><o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="margin-left:1.0in;text-indent:.5in;mso-layout-grid-align:
+none;text-autospace:none"><SPAN
+	style='font-size:8.0pt;font-family:"Courier New";
+color:navy;background:white;mso-highlight:white'>&lt;/context&gt;</SPAN><SPAN
+	style='font-size:8.0pt;font-family:"Courier New"'><o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="margin-left:.5in;mso-layout-grid-align:none;
+text-autospace:none"><SPAN
+	style='font-size:8.0pt;font-family:"Courier New";
+color:navy;background:white;mso-highlight:white'>&lt;/<SPAN
+	class="SpellE">editpolicyProvider</SPAN>&gt;</SPAN><SPAN
+	style='font-size:8.0pt;font-family:"Courier New"'><o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"><SPAN
+	style='font-size:8.0pt;font-family:"Courier New";
+color:navy;background:white;mso-highlight:white'><SPAN
+	style="mso-spacerun:yes"> </SPAN>&lt;/extension&gt;</SPAN><SPAN
+	style='font-size:8.0pt;font-family:"Courier New";color:navy'><o:p></o:p></SPAN></P>
+</DIV>
+<DIV class="Section1"><FONT face="Courier New"><BR></FONT><FONT
+	face="Times New Roman">Finally, the <SPAN class="SpellE">EditPolicy</SPAN>
+class itself can be defined.<SPAN style="mso-spacerun:yes">  </SPAN>In
+this particular example, we are adding a Mouse listener <SPAN
+	class="GramE">the allows</SPAN> us to trace mouse movement entering and
+exiting the host <SPAN class="SpellE">EditPart</SPAN>.<SPAN
+	style="mso-spacerun:yes">  </SPAN>On entry, we color the figure to red
+and on exit set it back to the original color.</FONT><FONT
+	face="Courier New"><BR>
+<BR>
+</FONT>
+
+<DIV
+	style="border:solid windowtext 1.0pt;mso-border-alt:solid windowtext .75pt;
+padding:4.0pt 4.0pt 4.0pt 4.0pt;margin-left:48.0pt;margin-right:24.0pt">
+<P class="MsoNormal"><SPAN class="GramE"><SPAN
+	style='font-size:10.0pt;font-family:
+"Courier New"'>public</SPAN></SPAN><SPAN
+	style='font-size:10.0pt;font-family:
+"Courier New"'> class <SPAN
+	class="SpellE">TraceDiagramEditPolicy</SPAN> extends <SPAN
+	class="SpellE">GraphicalEditPolicy</SPAN> {<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"><SPAN
+	style='font-size:10.0pt;font-family:"Courier New"'><SPAN
+	style="mso-tab-count:1">      </SPAN><SPAN class="GramE">private</SPAN>
+class <SPAN class="SpellE">TraceMouseMotionListener</SPAN> extends <SPAN
+	class="SpellE">MouseMotionListener.Stub</SPAN> {<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"><SPAN
+	style='font-size:10.0pt;font-family:"Courier New"'><SPAN
+	style="mso-tab-count:2">            </SPAN><SPAN class="GramE">private</SPAN>
+Color <SPAN class="SpellE">color</SPAN>;<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"><SPAN
+	style='font-size:10.0pt;font-family:"Courier New"'><SPAN
+	style="mso-tab-count:2">            </SPAN>/**<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"><SPAN
+	style='font-size:10.0pt;font-family:"Courier New"'><SPAN
+	style="mso-tab-count:2">            </SPAN><SPAN
+	style="mso-spacerun:yes"> </SPAN>* @see
+com.ibm.etools.draw2d.MouseMotionListener#<SPAN class="GramE">mouseEntered(</SPAN><SPAN
+	class="SpellE">MouseEvent</SPAN>)<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"><SPAN
+	style='font-size:10.0pt;font-family:"Courier New"'><SPAN
+	style="mso-tab-count:2">            </SPAN><SPAN
+	style="mso-spacerun:yes"> </SPAN>*/<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"><SPAN
+	style='font-size:10.0pt;font-family:"Courier New"'><SPAN
+	style="mso-tab-count:2">            </SPAN><SPAN class="GramE">public</SPAN>
+void <SPAN class="SpellE">mouseEntered</SPAN>(<SPAN class="SpellE">MouseEvent</SPAN>
+me) {<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"><SPAN
+	style='font-size:10.0pt;font-family:"Courier New"'><SPAN
+	style="mso-tab-count:3">                  </SPAN><SPAN class="GramE">color</SPAN>
+= <SPAN class="SpellE">getHostFigure</SPAN>().<SPAN class="SpellE">getForegroundColor</SPAN>();<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"><SPAN
+	style='font-size:10.0pt;font-family:"Courier New"'><SPAN
+	style="mso-tab-count:3">                  </SPAN><SPAN class="SpellE"><SPAN
+	class="GramE">getHostFigure</SPAN></SPAN><SPAN class="GramE">(</SPAN>).<SPAN
+	class="SpellE">setForegroundColor</SPAN>(new Color(null, new RGB(255,
+0, 0)));<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"><SPAN
+	style='font-size:10.0pt;font-family:"Courier New"'><SPAN
+	style="mso-tab-count:3">                  </SPAN><SPAN class="SpellE"><SPAN
+	class="GramE">getHostFigure</SPAN></SPAN><SPAN class="GramE">(</SPAN>).invalidate();<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"><SPAN
+	style='font-size:10.0pt;font-family:"Courier New"'><SPAN
+	style="mso-tab-count:2">            </SPAN>}<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"><SPAN
+	style='font-size:10.0pt;font-family:"Courier New"'><SPAN
+	style="mso-tab-count:2">            </SPAN>/**<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"><SPAN
+	style='font-size:10.0pt;font-family:"Courier New"'><SPAN
+	style="mso-tab-count:2">            </SPAN><SPAN
+	style="mso-spacerun:yes"> </SPAN>* @see
+com.ibm.etools.draw2d.MouseMotionListener#<SPAN class="GramE">mouseExited(</SPAN><SPAN
+	class="SpellE">MouseEvent</SPAN>)<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"><SPAN
+	style='font-size:10.0pt;font-family:"Courier New"'><SPAN
+	style="mso-tab-count:2">            </SPAN><SPAN
+	style="mso-spacerun:yes"> </SPAN>*/<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"><SPAN
+	style='font-size:10.0pt;font-family:"Courier New"'><SPAN
+	style="mso-tab-count:2">            </SPAN><SPAN class="GramE">public</SPAN>
+void <SPAN class="SpellE">mouseExited</SPAN>(<SPAN class="SpellE">MouseEvent</SPAN>
+me) {<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"><SPAN
+	style='font-size:10.0pt;font-family:"Courier New"'><SPAN
+	style="mso-tab-count:3">                  </SPAN><SPAN class="SpellE"><SPAN
+	class="GramE">getHostFigure</SPAN></SPAN><SPAN class="GramE">(</SPAN>).<SPAN
+	class="SpellE">setForegroundColor</SPAN>(color);<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"><SPAN
+	style='font-size:10.0pt;font-family:"Courier New"'><SPAN
+	style="mso-tab-count:3">                  </SPAN><SPAN class="SpellE"><SPAN
+	class="GramE">getHostFigure</SPAN></SPAN><SPAN class="GramE">(</SPAN>).invalidate();<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"><SPAN
+	style='font-size:10.0pt;font-family:"Courier New"'><SPAN
+	style="mso-tab-count:2">            </SPAN>}<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"><SPAN
+	style='font-size:10.0pt;font-family:"Courier New"'><SPAN
+	style="mso-tab-count:1">      </SPAN>}<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"><SPAN
+	style='font-size:10.0pt;font-family:"Courier New"'><SPAN
+	style="mso-tab-count:1">      </SPAN><o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"><SPAN
+	style='font-size:10.0pt;font-family:"Courier New"'><SPAN
+	style="mso-tab-count:1">      </SPAN>/** mouse motion listener for the
+owner shape and handles */<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"><SPAN
+	style='font-size:10.0pt;font-family:"Courier New"'><SPAN
+	style="mso-tab-count:1">      </SPAN><SPAN class="GramE">private</SPAN>
+<SPAN class="SpellE">TraceMouseMotionListener</SPAN> <SPAN
+	class="SpellE">myMouseListener</SPAN> = new <SPAN class="SpellE">TraceMouseMotionListener</SPAN>();<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"><SPAN
+	style='font-size:10.0pt;font-family:"Courier New"'><SPAN
+	style="mso-tab-count:1">      </SPAN>/**<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"><SPAN
+	style='font-size:10.0pt;font-family:"Courier New"'><SPAN
+	style="mso-tab-count:1">      </SPAN><SPAN style="mso-spacerun:yes"> </SPAN>*
+<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"><SPAN
+	style='font-size:10.0pt;font-family:"Courier New"'><SPAN
+	style="mso-tab-count:1">      </SPAN><SPAN style="mso-spacerun:yes"> </SPAN>*
+@see <SPAN class="SpellE">org.eclipse.gef.EditPolicy#<SPAN class="GramE">activate</SPAN></SPAN><SPAN
+	class="GramE">()</SPAN><o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"><SPAN
+	style='font-size:10.0pt;font-family:"Courier New"'><SPAN
+	style="mso-tab-count:1">      </SPAN><SPAN style="mso-spacerun:yes"> </SPAN>*/<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"><SPAN
+	style='font-size:10.0pt;font-family:"Courier New"'><SPAN
+	style="mso-tab-count:1">      </SPAN><SPAN class="GramE">public</SPAN>
+void activate() {<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"><SPAN
+	style='font-size:10.0pt;font-family:"Courier New"'><SPAN
+	style="mso-tab-count:2">            </SPAN><SPAN class="SpellE"><SPAN
+	class="GramE">super.activate</SPAN></SPAN><SPAN class="GramE">(</SPAN>);<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"><SPAN
+	style='font-size:10.0pt;font-family:"Courier New"'><SPAN
+	style="mso-tab-count:2">            </SPAN><SPAN class="SpellE"><SPAN
+	class="GramE">getHostFigure</SPAN></SPAN><SPAN class="GramE">(</SPAN>).<SPAN
+	class="SpellE">addMouseMotionListener</SPAN>(<SPAN class="SpellE">myMouseListener</SPAN>);<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"><SPAN
+	style='font-size:10.0pt;font-family:"Courier New"'><SPAN
+	style="mso-tab-count:1">      </SPAN>}<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"><SPAN
+	style='font-size:10.0pt;font-family:"Courier New"'><SPAN
+	style="mso-tab-count:1">      </SPAN>/**<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"><SPAN
+	style='font-size:10.0pt;font-family:"Courier New"'><SPAN
+	style="mso-tab-count:1">      </SPAN><SPAN style="mso-spacerun:yes"> </SPAN>*
+<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"><SPAN
+	style='font-size:10.0pt;font-family:"Courier New"'><SPAN
+	style="mso-tab-count:1">      </SPAN><SPAN style="mso-spacerun:yes"> </SPAN>*
+@see <SPAN class="SpellE">org.eclipse.gef.EditPolicy#<SPAN class="GramE">deactivate</SPAN></SPAN><SPAN
+	class="GramE">()</SPAN><o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"><SPAN
+	style='font-size:10.0pt;font-family:"Courier New"'><SPAN
+	style="mso-tab-count:1">      </SPAN><SPAN style="mso-spacerun:yes"> </SPAN>*/<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"><SPAN
+	style='font-size:10.0pt;font-family:"Courier New"'><SPAN
+	style="mso-tab-count:1">      </SPAN><SPAN class="GramE">public</SPAN>
+void deactivate() {<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"><SPAN
+	style='font-size:10.0pt;font-family:"Courier New"'><SPAN
+	style="mso-tab-count:2">            </SPAN><SPAN class="SpellE"><SPAN
+	class="GramE">getHostFigure</SPAN></SPAN><SPAN class="GramE">(</SPAN>).<SPAN
+	class="SpellE">removeMouseMotionListener</SPAN>(<SPAN class="SpellE">myMouseListener</SPAN>);<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"><SPAN
+	style='font-size:10.0pt;font-family:"Courier New"'><SPAN
+	style="mso-tab-count:2">            </SPAN><SPAN class="SpellE"><SPAN
+	class="GramE">super.deactivate</SPAN></SPAN><SPAN class="GramE">(</SPAN>);<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"><SPAN
+	style='font-size:10.0pt;font-family:"Courier New"'><SPAN
+	style="mso-tab-count:1">      </SPAN>}<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"><SPAN
+	style='font-size:10.0pt;font-family:"Courier New"'>} <SPAN
+	style="mso-spacerun:yes"></SPAN></SPAN></P></DIV>
+<FONT face="Courier New"><BR></FONT><H2><SPAN class="GramE"><SPAN class="GramE"><SPAN
+	style="mso-bookmark:
+_Toc105513761"><A name="shapeResizable">How to make a shape resizable
+vs. non-resizable</A><BR></SPAN></SPAN></SPAN><FONT
+	size="-1">[<A href="#top">back to top</A>]</FONT></H2>
+<H4><A name="_Toc1042732470">How do I make a shape resizable?</A></H4>
+Shapes
+subclassed from ShapeEditPart are resizable by default.<SPAN
+	style="mso-spacerun:yes">  </SPAN>The resizable editpolicy is a special
+case in that it is installed via the LayoutEditPolicy on the diagram in
+the routine createChildEditPolicy.<SPAN style="mso-spacerun:yes">  </SPAN>The
+RMP-DL has <SPAN class="GramE">it?s</SPAN> own LayoutEditPolicy called
+XYLayoutEditPolicy which calls inside createChildEditPolicy a public
+method of ShapeEditPart called getPrimaryDragEditPolicy.<SPAN
+	style="mso-spacerun:yes">  </SPAN>The default implementation returns a
+ShapeResizableEditPolicy which supports the drag resize handles.<o:p></o:p>
+<BR>
+<BR>
+If
+the shape doesn?t appear to be resizable, make sure that you're not
+overriding the getPrimaryDragEditPolicy method in your EditPart and / or
+set a breakpoint there to make sure it's returning the
+ShapeResizableEditPolicy.<o:p></o:p>
+<BR>
+<H4><A name="_Toc1042732480">How do I make a shape non-resizable?</A>
+<BR>
+<BR>
+<SPAN
+	style="font-size:10.0pt;font-family:Helv;mso-bidi-font-family:
+Helv;color:black">Override the getPrimaryDragEditPolicy in your
+EditPart to return the NonResizableEditPolicyEx</SPAN></H4>
+ 
+<P class="MsoNormal"
+	style="mso-layout-grid-align:none;text-autospace:none"><SPAN
+	style="font-size:10.0pt;font-family:Helv;mso-bidi-font-family:Helv;color:black">Example
+(in LEDEditPart):<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="mso-layout-grid-align:none;text-autospace:none"><SPAN
+	style='font-size:8.0pt;font-family:"Courier New";color:black'><SPAN
+	style="mso-tab-count:1">       </SPAN>/**<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="mso-layout-grid-align:none;text-autospace:none"><SPAN
+	style='font-size:8.0pt;font-family:"Courier New";color:black'><SPAN
+	style="mso-tab-count:1">       </SPAN><SPAN style="mso-spacerun:yes"> </SPAN>*
+@see org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeEditPart#<SPAN
+	class="GramE">getPrimaryDragEditPolicy()</SPAN><o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="mso-layout-grid-align:none;text-autospace:none"><SPAN
+	style='font-size:8.0pt;font-family:"Courier New";color:black'><SPAN
+	style="mso-tab-count:1">       </SPAN><SPAN style="mso-spacerun:yes"> </SPAN>*/<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="mso-layout-grid-align:none;text-autospace:none"><SPAN
+	style='font-size:8.0pt;font-family:"Courier New";color:black'><SPAN
+	style="mso-tab-count:1">       </SPAN><SPAN class="GramE">public</SPAN>
+EditPolicy getPrimaryDragEditPolicy() {<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="mso-layout-grid-align:none;text-autospace:none"><SPAN
+	style='font-size:8.0pt;font-family:"Courier New";color:black'><SPAN
+	style="mso-tab-count:2">              </SPAN><SPAN class="GramE">return</SPAN>
+new NonResizableEditPolicyEx();<o:p></o:p></SPAN></P>
+
+<P class="MsoNormal"
+	style="mso-layout-grid-align:none;text-autospace:none"><SPAN
+	style='font-size:8.0pt;font-family:"Courier New";color:black'><SPAN
+	style="mso-tab-count:1">       </SPAN>}<o:p></o:p></SPAN></P><H3 style="margin-left:0in;text-indent:0in;mso-list:none"><SPAN
+	style="font-size:10.0pt;mso-bidi-font-family:Arial;
+font-style:normal"></SPAN></H3></DIV>
+</body>
+
+</html>

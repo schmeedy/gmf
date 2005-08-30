@@ -1,0 +1,402 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project default="gather.source" basedir=".">
+
+	<target name="init">
+
+		<property name="workspace.folder" value="${basedir}/.."/>
+		<property name="src.public.folder" value="${basedir}/src"/>
+
+		<available file="${src.public.folder}" type="dir" property="src.public.folder.present"/>
+
+		<defaultexcludes add="**/BuildInfo.java"/>
+		
+	</target>
+	
+	<target name="gather.source" depends="init" unless="src.public.folder.present">
+
+		<mkdir dir="${src.public.folder}"/>
+
+		<delete>
+    		<fileset dir="${src.public.folder}" includes="**.*"/>
+	    </delete>
+	    
+
+		<!-- START COMMON -->
+		<!-- org.eclipse.gmf.runtime.common.core -->
+	    <antcall target="build.source.zip">
+	      <param name="plugin.id" value="org.eclipse.gmf.runtime.common.core"/>
+	      <param name="plugin.jar" value="xtoolscore"/>
+	      <param name="plugin.version" value="7.0.0"/>
+		</antcall>
+	    
+		<!-- org.eclipse.gmf.runtime.common.core.provider -->
+	    <antcall target="build.source.zip">
+	      <param name="plugin.id" value="org.eclipse.gmf.runtime.common.core.provider"/>
+	      <param name="plugin.jar" value="xtoolscoreprovider"/>
+	      <param name="plugin.version" value="7.0.0"/>
+		</antcall>
+	    
+		<!-- org.eclipse.gmf.runtime.common.ui -->
+	    <antcall target="build.source.zip">
+	      <param name="plugin.id" value="org.eclipse.gmf.runtime.common.ui"/>
+	      <param name="plugin.jar" value="xtoolsui"/>
+	      <param name="plugin.version" value="7.0.0"/>
+		</antcall>
+		
+		<!-- org.eclipse.gmf.runtime.common.ui.action -->
+	    <antcall target="build.source.zip">
+	      <param name="plugin.id" value="org.eclipse.gmf.runtime.common.ui.action"/>
+	      <param name="plugin.jar" value="commonuiaction"/>
+	      <param name="plugin.version" value="7.0.0"/>
+		</antcall>
+		
+		<!-- org.eclipse.gmf.runtime.common.ui.action.ide -->
+	    <antcall target="build.source.zip">
+	      <param name="plugin.id" value="org.eclipse.gmf.runtime.common.ui.action.ide"/>
+	      <param name="plugin.jar" value="commonuiactionide"/>
+	      <param name="plugin.version" value="7.0.0"/>
+		</antcall>
+	    
+		<!-- org.eclipse.gmf.runtime.common.ui.pathvariables.ide -->
+	    <antcall target="build.source.zip">
+	      <param name="plugin.id" value="org.eclipse.gmf.runtime.common.ui.pathvariables.ide"/>
+	      <param name="plugin.jar" value="pathvariables"/>
+	      <param name="plugin.version" value="7.0.0"/>
+		</antcall>
+	    
+		<!-- org.eclipse.gmf.runtime.common.ui.printing -->
+	    <antcall target="build.source.zip">
+	      <param name="plugin.id" value="org.eclipse.gmf.runtime.common.ui.printing"/>
+	      <param name="plugin.jar" value="xtoolsprinting"/>
+	      <param name="plugin.version" value="7.0.0"/>
+		</antcall>
+	    
+		<!-- com.ibm.xtools.common.printing.win32 -->
+	    <antcall target="build.source.zip">
+	      <param name="plugin.id" value="org.eclipse.gmf.runtime.common.ui.printing.win32"/>
+	      <param name="plugin.jar" value="printingwin32"/>
+	      <param name="plugin.version" value="7.0.0"/>
+		</antcall>
+		
+		<!-- org.eclipse.gmf.runtime.common.ui.services -->
+	    <antcall target="build.source.zip">
+	      <param name="plugin.id" value="org.eclipse.gmf.runtime.common.ui.services"/>
+	      <param name="plugin.jar" value="uiservices"/>
+	      <param name="plugin.version" value="7.0.0"/>
+		</antcall>
+		
+		<!-- org.eclipse.gmf.runtime.common.ui.services.action -->
+	    <antcall target="build.source.zip">
+	      <param name="plugin.id" value="org.eclipse.gmf.runtime.common.ui.services.action"/>
+	      <param name="plugin.jar" value="uiservicesaction"/>
+	      <param name="plugin.version" value="7.0.0"/>
+		</antcall>
+		
+		<!-- org.eclipse.gmf.runtime.common.ui.services.dnd -->
+	    <antcall target="build.source.zip">
+	      <param name="plugin.id" value="org.eclipse.gmf.runtime.common.ui.services.dnd"/>
+	      <param name="plugin.jar" value="uiservicesdnd"/>
+	      <param name="plugin.version" value="7.0.0"/>
+		</antcall>
+		
+		<!-- org.eclipse.gmf.runtime.common.ui.services.dnd.ide -->
+	    <antcall target="build.source.zip">
+	      <param name="plugin.id" value="org.eclipse.gmf.runtime.common.ui.services.dnd.ide"/>
+	      <param name="plugin.jar" value="uiservicesdndide"/>
+	      <param name="plugin.version" value="7.0.0"/>
+		</antcall>
+				
+		<!-- org.eclipse.gmf.runtime.common.ui.services.properties -->
+	    <antcall target="build.source.zip">
+	      <param name="plugin.id" value="org.eclipse.gmf.runtime.common.ui.services.properties"/>
+	      <param name="plugin.jar" value="properties"/>
+	      <param name="plugin.version" value="7.0.0"/>
+		</antcall>
+
+		<!-- org.eclipse.gmf.runtime.emf.clipboard.core -->
+	    <antcall target="build.source.zip">
+	      <param name="plugin.id" value="org.eclipse.gmf.runtime.emf.clipboard.core"/>
+	      <param name="plugin.jar" value="clipboard"/>
+	      <param name="plugin.version" value="7.0.0"/>
+		</antcall>
+		
+		<!-- org.eclipse.gmf.runtime.emf.commands.core -->
+	    <antcall target="build.source.zip">
+	      <param name="plugin.id" value="org.eclipse.gmf.runtime.emf.commands.core"/>
+	      <param name="plugin.jar" value="mslcommands"/>
+	      <param name="plugin.version" value="7.0.0"/>
+		</antcall>
+	    
+		<!-- org.eclipse.gmf.runtime.emf.core -->
+	    <antcall target="build.source.zip">
+	      <param name="plugin.id" value="org.eclipse.gmf.runtime.emf.core"/>
+	      <param name="plugin.jar" value="emfmsl"/>
+	      <param name="plugin.version" value="7.0.0"/>
+		</antcall>
+
+		<!-- org.eclipse.gmf.runtime.emf.ui -->
+	    <antcall target="build.source.zip">
+	      <param name="plugin.id" value="org.eclipse.gmf.runtime.emf.ui"/>
+	      <param name="plugin.jar" value="emfmslui"/>
+	      <param name="plugin.version" value="7.0.0"/>
+		</antcall>
+
+		<!-- org.eclipse.gmf.runtime.emf.ui.properties -->
+	    <antcall target="build.source.zip">
+	      <param name="plugin.id" value="org.eclipse.gmf.runtime.emf.ui.properties"/>
+	      <param name="plugin.jar" value="emfuiproperties"/>
+	      <param name="plugin.version" value="7.0.0"/>
+		</antcall>
+
+		<!-- org.eclipse.emf.ocl -->
+	    <antcall target="build.source.zip">
+	      <param name="plugin.id" value="org.eclipse.emf.ocl"/>
+	      <param name="plugin.jar" value="ocl"/>
+	      <param name="plugin.version" value="7.0.0"/>
+		</antcall>
+
+		<!-- org.eclipse.emf.query -->
+	    <antcall target="build.source.zip">
+	      <param name="plugin.id" value="org.eclipse.emf.query"/>
+	      <param name="plugin.jar" value="emfquery"/>
+	      <param name="plugin.version" value="7.0.0"/>
+		</antcall>
+
+		<!-- org.eclipse.emf.query.ocl -->
+	    <antcall target="build.source.zip">
+	      <param name="plugin.id" value="org.eclipse.emf.query.ocl"/>
+	      <param name="plugin.jar" value="emfqueryocl"/>
+	      <param name="plugin.version" value="7.0.0"/>
+		</antcall>
+
+		<!-- org.eclipse.gmf.runtime.emf.type.core -->
+	    <antcall target="build.source.zip">
+	      <param name="plugin.id" value="org.eclipse.gmf.runtime.emf.type.core"/>
+	      <param name="plugin.jar" value="emftype"/>
+	      <param name="plugin.version" value="7.0.0"/>
+		</antcall>
+
+		<!-- org.eclipse.gmf.runtime.emf.type.ui -->
+	    <antcall target="build.source.zip">
+	      <param name="plugin.id" value="org.eclipse.gmf.runtime.emf.type.ui"/>
+	      <param name="plugin.jar" value="emfTypeUI"/>
+	      <param name="plugin.version" value="7.0.0"/>
+		</antcall>
+
+		<!-- org.eclipse.gmf.runtime.emf.ui.transfer.providers -->
+	    <antcall target="build.source.zip">
+	      <param name="plugin.id" value="org.eclipse.gmf.runtime.emf.ui.transfer.providers"/>
+	      <param name="plugin.jar" value="emfdndprovider"/>
+	      <param name="plugin.version" value="7.0.0"/>
+		</antcall>
+
+		<!-- org.eclipse.emf.validation -->
+	    <antcall target="build.source.zip">
+	      <param name="plugin.id" value="org.eclipse.emf.validation"/>
+	      <param name="plugin.jar" value="emf-validation"/>
+	      <param name="plugin.version" value="7.0.0"/>
+		</antcall>
+
+		<!-- org.eclipse.emf.validation.ocl -->
+	    <antcall target="build.source.zip">
+	      <param name="plugin.id" value="org.eclipse.emf.validation.ocl"/>
+	      <param name="plugin.jar" value="ocl-constraints"/>
+	      <param name="plugin.version" value="7.0.0"/>
+		</antcall>
+
+		<!-- org.eclipse.emf.validation.ui -->
+	    <antcall target="build.source.zip">
+	      <param name="plugin.id" value="org.eclipse.emf.validation.ui"/>
+	      <param name="plugin.jar" value="validation-ui"/>
+	      <param name="plugin.version" value="7.0.0"/>
+		</antcall>
+		
+		<!-- org.eclipse.emf.validation.ui.ide -->
+	    <antcall target="build.source.zip">
+	      <param name="plugin.id" value="org.eclipse.emf.validation.ui.ide"/>
+	      <param name="plugin.jar" value="validation-uiide"/>
+	      <param name="plugin.version" value="7.0.0"/>
+		</antcall>
+	        		
+		<!-- START DIAGRAM -->	
+		
+		<!-- org.eclipse.gmf.runtime.diagram.core -->
+	    <antcall target="build.source.zip">
+	      <param name="plugin.id" value="org.eclipse.gmf.runtime.diagram.core"/>
+	      <param name="plugin.jar" value="diagram"/>
+	      <param name="plugin.version" value="7.0.0"/>
+		</antcall>
+		
+		<!-- org.eclipse.gmf.runtime.diagram.ui -->
+	    <antcall target="build.source.zip">
+	      <param name="plugin.id" value="org.eclipse.gmf.runtime.diagram.ui"/>
+	      <param name="plugin.jar" value="diagramui"/>
+	      <param name="plugin.version" value="7.0.0"/>
+		</antcall>
+		
+		<!-- org.eclipse.gmf.runtime.diagram.ui.actions -->
+	    <antcall target="build.source.zip">
+	      <param name="plugin.id" value="org.eclipse.gmf.runtime.diagram.ui.actions"/>
+	      <param name="plugin.jar" value="diagramactions"/>
+	      <param name="plugin.version" value="7.0.0"/>
+		</antcall>
+		
+		<!-- org.eclipse.gmf.runtime.diagram.ui.dnd -->
+	    <antcall target="build.source.zip">
+	      <param name="plugin.id" value="org.eclipse.gmf.runtime.diagram.ui.dnd"/>
+	      <param name="plugin.jar" value="diagramdnd"/>
+	      <param name="plugin.version" value="7.0.0"/>
+		</antcall>
+				
+		<!-- org.eclipse.gmf.runtime.diagram.ui.geoshapes -->
+	    <antcall target="build.source.zip">
+	      <param name="plugin.id" value="org.eclipse.gmf.runtime.diagram.ui.geoshapes"/>
+	      <param name="plugin.jar" value="geoshapes"/>
+	      <param name="plugin.version" value="7.0.0"/>
+		</antcall>
+		
+		<!-- org.eclipse.gmf.runtime.diagram.ui.printing -->
+	    <antcall target="build.source.zip">
+	      <param name="plugin.id" value="org.eclipse.gmf.runtime.diagram.ui.printing"/>
+	      <param name="plugin.jar" value="diagramprinting"/>
+	      <param name="plugin.version" value="7.0.0"/>
+		</antcall>
+		
+		<!-- org.eclipse.gmf.runtime.diagram.ui.printing.render -->
+	    <antcall target="build.source.zip">
+	      <param name="plugin.id" value="org.eclipse.gmf.runtime.diagram.ui.printing.render"/>
+	      <param name="plugin.jar" value="printingrender"/>
+	      <param name="plugin.version" value="7.0.0"/>
+		</antcall>
+		
+		<!-- org.eclipse.gmf.runtime.diagram.ui.properties -->
+	    <antcall target="build.source.zip">
+	      <param name="plugin.id" value="org.eclipse.gmf.runtime.diagram.ui.properties"/>
+	      <param name="plugin.jar" value="properties"/>
+	      <param name="plugin.version" value="7.0.0"/>
+		</antcall>
+		
+		<!-- org.eclipse.gmf.runtime.diagram.ui.providers -->
+	    <antcall target="build.source.zip">
+	      <param name="plugin.id" value="org.eclipse.gmf.runtime.diagram.ui.providers"/>
+	      <param name="plugin.jar" value="diagramproviders"/>
+	      <param name="plugin.version" value="7.0.0"/>
+		</antcall>
+		
+		<!-- org.eclipse.gmf.runtime.diagram.ui.providers.ide -->
+	    <antcall target="build.source.zip">
+	      <param name="plugin.id" value="org.eclipse.gmf.runtime.diagram.ui.providers.ide"/>
+	      <param name="plugin.jar" value="diagramproviderside"/>
+	      <param name="plugin.version" value="7.0.0"/>
+		</antcall>
+		
+		<!-- org.eclipse.gmf.runtime.diagram.ui.render -->
+	    <antcall target="build.source.zip">
+	      <param name="plugin.id" value="org.eclipse.gmf.runtime.diagram.ui.render"/>
+	      <param name="plugin.jar" value="diagramrender"/>
+	      <param name="plugin.version" value="7.0.0"/>
+		</antcall>
+		
+		<!-- org.eclipse.gmf.runtime.diagram.ui.resources.editor -->
+	    <antcall target="build.source.zip">
+	      <param name="plugin.id" value="org.eclipse.gmf.runtime.diagram.ui.resources.editor"/>
+	      <param name="plugin.jar" value="editor"/>
+	      <param name="plugin.version" value="7.0.0"/>
+		</antcall>
+
+		<!-- org.eclipse.gmf.runtime.diagram.ui.resources.editor.ide -->
+	    <antcall target="build.source.zip">
+	      <param name="plugin.id" value="org.eclipse.gmf.runtime.diagram.ui.resources.editor.ide"/>
+	      <param name="plugin.jar" value="editoride"/>
+	      <param name="plugin.version" value="7.0.0"/>
+		</antcall>
+		
+		<!-- org.eclipse.gmf.runtime.draw2d.ui -->
+	    <antcall target="build.source.zip">
+	      <param name="plugin.id" value="org.eclipse.gmf.runtime.draw2d.ui"/>
+	      <param name="plugin.jar" value="xdraw2d"/>
+	      <param name="plugin.version" value="7.0.0"/>
+		</antcall>
+		
+		<!-- org.eclipse.gmf.runtime.draw2d.ui.render -->
+	    <antcall target="build.source.zip">
+	      <param name="plugin.id" value="org.eclipse.gmf.runtime.draw2d.ui.render"/>
+	      <param name="plugin.jar" value="xdraw2dren"/>
+	      <param name="plugin.version" value="7.0.0"/>
+		</antcall>
+		
+		<!-- org.eclipse.gmf.runtime.gef.ui -->
+	    <antcall target="build.source.zip">
+	      <param name="plugin.id" value="org.eclipse.gmf.runtime.gef.ui"/>
+	      <param name="plugin.jar" value="xtoolsgef"/>
+	      <param name="plugin.version" value="7.0.0"/>
+		</antcall>
+
+		<!-- com.ibm.xtools.notation -->
+	    <antcall target="build.source.zip">
+	      <param name="plugin.id" value="com.ibm.xtools.notation"/>
+	      <param name="plugin.jar" value="notation"/>
+	      <param name="plugin.version" value="7.0.0"/>
+		</antcall>
+		
+		<!-- com.ibm.xtools.notation.edit -->
+	    <antcall target="build.source.zip">
+	      <param name="plugin.id" value="com.ibm.xtools.notation.edit"/>
+	      <param name="plugin.jar" value="notationedit"/>
+	      <param name="plugin.version" value="7.0.0"/>
+		</antcall>
+		
+		<!-- com.ibm.xtools.notation.msl -->
+	    <antcall target="build.source.zip">
+	      <param name="plugin.id" value="com.ibm.xtools.notation.msl"/>
+	      <param name="plugin.jar" value="notationmsl"/>
+	      <param name="plugin.version" value="7.0.0"/>
+		</antcall>
+
+		<!-- TODO: Add more plug-ins here -->
+
+
+	</target>
+		
+	<target name="build.source.zip">
+
+		<mkdir dir="${src.public.folder}/${plugin.id}_${plugin.version}"/>
+
+		<available file="${workspace.folder}/${plugin.id}/src" type="dir" property="source.folder.present"/>
+		
+	    <antcall target="zip.source">
+	      <param name="zip.file" value="${src.public.folder}/${plugin.id}_${plugin.version}/${plugin.jar}src.zip"/>
+	      <param name="src.dir" value="${workspace.folder}/${plugin.id}/src"/>
+		</antcall>
+
+		<available file="${workspace.folder}/${plugin.id}/schema" type="dir" property="schema.folder.present"/>
+		
+	    <antcall target="copy.schema">
+	      <param name="to.dir" value="${src.public.folder}/${plugin.id}_${plugin.version}/schema"/>
+	      <param name="schema.dir" value="${workspace.folder}/${plugin.id}/schema"/>
+		</antcall>
+
+	</target>
+
+
+	<target name="zip.source" if="source.folder.present" >
+
+		<zip destfile="${zip.file}"
+			filesonly="false"
+			whenempty="skip" 
+			basedir="${src.dir}" />
+	
+	</target>
+
+	<target name="copy.schema" if="schema.folder.present" >
+
+		<copy todir="${to.dir}">
+	    	<fileset dir="${schema.dir}"/>
+		</copy>
+	
+	</target>
+
+
+
+	
+</project>

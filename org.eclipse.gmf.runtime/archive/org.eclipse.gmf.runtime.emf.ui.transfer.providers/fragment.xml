@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<!--                                                                        -->
+<!-- Licensed Materials - Property of IBM                                   -->
+<!-- (C) Copyright IBM Corp. 2002, 2005.  All Rights Reserved.              -->
+<!--                                                                        -->
+<!-- US Government Users Restricted Rights - Use, duplication or disclosure -->
+<!-- restricted by GSA ADP Schedule Contract with IBM Corp.                 -->
+<!--                                                                        -->
+
+<fragment>
+   <extension
+         id="transferAdapterProviders"
+         name="%ext.transferAdapterProviders"
+         point="org.eclipse.gmf.runtime.common.ui.services.dnd.transferAdapterProviders">
+      <TransferAdapterProvider
+            class="org.eclipse.gmf.runtime.emf.ui.transfer.providers.internal.EcoreTransferAdapterProvider"
+            id="EcoreTransferAdapterProvider">
+         <Priority
+               name="Lowest">
+         </Priority>
+         <AdapterType
+               operation="drop">
+            <TransferId
+                  id="EcoreLocalSelectionTransfer">
+            </TransferId>
+         </AdapterType>
+         <AdapterType
+               operation="drag">
+            <TransferId
+                  id="EcoreLocalSelectionTransfer">
+            </TransferId>
+         </AdapterType>
+      </TransferAdapterProvider>
+   </extension>
+</fragment>

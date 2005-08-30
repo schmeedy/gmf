@@ -1,0 +1,541 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=PowerPoint.Slide>
+<meta name=Generator content="Microsoft PowerPoint 10">
+<link id=Main-File rel=Main-File href="../RMP%20for%20GMF.htm">
+<link rel=Preview href=preview.wmf>
+<!--[if !mso]>
+<style>
+v\:* {behavior:url(#default#VML);}
+o\:* {behavior:url(#default#VML);}
+p\:* {behavior:url(#default#VML);}
+.shape {behavior:url(#default#VML);}
+v\:textbox {display:none;}
+</style>
+<![endif]-->
+<title>Introduction to the Rational Modeling Platform</title>
+<meta name=Description
+content="5/31/2005: Diagram &amp; Notation Domains: Architecture">
+<link rel=next href="v3_slide0238.htm">
+</head>
+
+<body background="v3_slide0237_background.gif" bgcolor=white alink="#0099CC"
+link=silver vlink="#FF9900" text=white topmargin=0 leftmargin=0>
+
+<table border=0 valign=top width=650 height=487 cellpadding=0 cellspacing=0>
+ <tr>
+  <td width=12 height=0 nowrap><img src="v3_space.gif" border=0></td>
+  <td width=5 height=0 nowrap><img src="v3_space.gif" border=0></td>
+  <td width=12 height=0 nowrap><img src="v3_space.gif" border=0></td>
+  <td width=59 height=0 nowrap><img src="v3_space.gif" border=0></td>
+  <td width=4 height=0 nowrap><img src="v3_space.gif" border=0></td>
+  <td width=3 height=0 nowrap><img src="v3_space.gif" border=0></td>
+  <td width=11 height=0 nowrap><img src="v3_space.gif" border=0></td>
+  <td width=20 height=0 nowrap><img src="v3_space.gif" border=0></td>
+  <td width=21 height=0 nowrap><img src="v3_space.gif" border=0></td>
+  <td width=6 height=0 nowrap><img src="v3_space.gif" border=0></td>
+  <td width=2 height=0 nowrap><img src="v3_space.gif" border=0></td>
+  <td width=3 height=0 nowrap><img src="v3_space.gif" border=0></td>
+  <td width=38 height=0 nowrap><img src="v3_space.gif" border=0></td>
+  <td width=41 height=0 nowrap><img src="v3_space.gif" border=0></td>
+  <td width=2 height=0 nowrap><img src="v3_space.gif" border=0></td>
+  <td width=9 height=0 nowrap><img src="v3_space.gif" border=0></td>
+  <td width=4 height=0 nowrap><img src="v3_space.gif" border=0></td>
+  <td width=2 height=0 nowrap><img src="v3_space.gif" border=0></td>
+  <td width=33 height=0 nowrap><img src="v3_space.gif" border=0></td>
+  <td width=3 height=0 nowrap><img src="v3_space.gif" border=0></td>
+  <td width=1 height=0 nowrap><img src="v3_space.gif" border=0></td>
+  <td width=12 height=0 nowrap><img src="v3_space.gif" border=0></td>
+  <td width=1 height=0 nowrap><img src="v3_space.gif" border=0></td>
+  <td width=22 height=0 nowrap><img src="v3_space.gif" border=0></td>
+  <td width=19 height=0 nowrap><img src="v3_space.gif" border=0></td>
+  <td width=1 height=0 nowrap><img src="v3_space.gif" border=0></td>
+  <td width=7 height=0 nowrap><img src="v3_space.gif" border=0></td>
+  <td width=22 height=0 nowrap><img src="v3_space.gif" border=0></td>
+  <td width=5 height=0 nowrap><img src="v3_space.gif" border=0></td>
+  <td width=13 height=0 nowrap><img src="v3_space.gif" border=0></td>
+  <td width=33 height=0 nowrap><img src="v3_space.gif" border=0></td>
+  <td width=11 height=0 nowrap><img src="v3_space.gif" border=0></td>
+  <td width=15 height=0 nowrap><img src="v3_space.gif" border=0></td>
+  <td width=7 height=0 nowrap><img src="v3_space.gif" border=0></td>
+  <td width=59 height=0 nowrap><img src="v3_space.gif" border=0></td>
+  <td width=10 height=0 nowrap><img src="v3_space.gif" border=0></td>
+  <td width=7 height=0 nowrap><img src="v3_space.gif" border=0></td>
+  <td width=9 height=0 nowrap><img src="v3_space.gif" border=0></td>
+  <td width=26 height=0 nowrap><img src="v3_space.gif" border=0></td>
+  <td width=1 height=0 nowrap><img src="v3_space.gif" border=0></td>
+  <td width=1 height=0 nowrap><img src="v3_space.gif" border=0></td>
+  <td width=1 height=0 nowrap><img src="v3_space.gif" border=0></td>
+  <td width=1 height=0 nowrap><img src="v3_space.gif" border=0></td>
+  <td width=6 height=0 nowrap><img src="v3_space.gif" border=0></td>
+  <td width=33 height=0 nowrap><img src="v3_space.gif" border=0></td>
+  <td width=8 height=0 nowrap><img src="v3_space.gif" border=0></td>
+  <td width=1 height=0 nowrap><img src="v3_space.gif" border=0></td>
+  <td width=1 height=0 nowrap><img src="v3_space.gif" border=0></td>
+  <td width=1 height=0 nowrap><img src="v3_space.gif" border=0></td>
+ </tr>
+ <tr>
+  <td width=650 height=47 colspan=50></td>
+ </tr>
+ <tr>
+  <td width=17 height=29 colspan=2></td>
+  <td width=527 height=29 colspan=36>
+  <table border=0 valign=top cellpadding=0 cellspacing=0>
+   <tr>
+    <td width=527 height=29><font face=Arial color="#4B6BAF" size=5><b>Diagram
+    &amp; Notation Domains: </b>Architecture</font><br>
+    </td>
+   </tr>
+  </table>
+  </td>
+  <td width=106 height=29 colspan=12></td>
+ </tr>
+ <tr>
+  <td width=650 height=6 colspan=50></td>
+ </tr>
+ <tr>
+  <td width=29 height=19 colspan=3></td>
+  <td width=506 height=19 colspan=34>
+  <table border=0 valign=top cellpadding=0 cellspacing=0>
+   <tr>
+    <td width=16 height=0 nowrap><img src="v3_space.gif" border=0></td>
+    <td width=1 height=0 nowrap><img src="v3_space.gif" border=0></td>
+   </tr>
+   <tr>
+    <td width=16 height=19><font face=Wingdings color="#0099CC" size=3>§</font></td>
+    <td width=490 height=19 colspan=2><font face=Arial color=black size=3>Defines
+    a generic persistence model for GEF’s MVC architecture</font><br>
+    </td>
+   </tr>
+  </table>
+  </td>
+  <td width=115 height=19 colspan=13></td>
+ </tr>
+ <tr>
+  <td width=650 height=49 colspan=50></td>
+ </tr>
+ <tr>
+  <td width=106 height=15 colspan=7></td>
+  <td width=41 height=15 colspan=2>
+  <table border=0 valign=top cellpadding=0 cellspacing=0>
+   <tr>
+    <td width=41 height=15 align=center><font face=Arial size=1><b>Model</b></font><br>
+    </td>
+   </tr>
+  </table>
+  </td>
+  <td width=179 height=15 colspan=15></td>
+  <td width=67 height=15 colspan=6>
+  <table border=0 valign=top cellpadding=0 cellspacing=0>
+   <tr>
+    <td width=67 height=15 align=center><font face=Arial size=1><b>Controller</b></font><br>
+    </td>
+   </tr>
+  </table>
+  </td>
+  <td width=187 height=15 colspan=14></td>
+  <td width=33 height=15>
+  <table border=0 valign=top cellpadding=0 cellspacing=0>
+   <tr>
+    <td width=33 height=15 align=center><font face=Arial size=1><b>View</b></font><br>
+    </td>
+   </tr>
+  </table>
+  </td>
+  <td width=37 height=15 colspan=5></td>
+ </tr>
+ <tr>
+  <td width=650 height=52 colspan=50></td>
+ </tr>
+ <tr>
+  <td width=95 height=7 colspan=6></td>
+  <td width=63 height=30 colspan=6 rowspan=3>
+  <table border=0 valign=top cellpadding=0 cellspacing=0>
+   <tr>
+    <td width=11 height=0 nowrap><img src="v3_space.gif" border=0></td>
+    <td width=41 height=0 nowrap><img src="v3_space.gif" border=0></td>
+   </tr>
+   <tr>
+    <td width=63 height=15 colspan=3 align=center><font face=Arial size=1><b>Business</b></font><br>
+    </td>
+   </tr>
+   <tr>
+    <td width=11 height=15></td>
+    <td width=41 height=15 align=center><font face=Arial size=1><b>Model</b></font><br>
+    </td>
+    <td width=11 height=15></td>
+   </tr>
+  </table>
+  </td>
+  <td width=492 height=7 colspan=38></td>
+ </tr>
+ <tr>
+  <td width=95 height=15 colspan=6></td>
+  <td width=187 height=15 colspan=13></td>
+  <td width=30 height=15 colspan=3>
+  <table border=0 valign=top cellpadding=0 cellspacing=0>
+   <tr>
+    <td width=30 height=15 align=center><font face=Arial size=1><b>GEF</b></font><br>
+    </td>
+   </tr>
+  </table>
+  </td>
+  <td width=195 height=15 colspan=11></td>
+  <td width=53 height=15 colspan=9>
+  <table border=0 valign=top cellpadding=0 cellspacing=0>
+   <tr>
+    <td width=53 height=15 align=center><font face=Arial size=1><b>Draw2D</b></font><br>
+    </td>
+   </tr>
+  </table>
+  </td>
+  <td width=27 height=15 colspan=2></td>
+ </tr>
+ <tr>
+  <td width=95 height=8 colspan=6></td>
+  <td width=492 height=8 colspan=38></td>
+ </tr>
+ <tr>
+  <td width=650 height=33 colspan=50></td>
+ </tr>
+ <tr>
+  <td width=574 height=7 colspan=43></td>
+  <td width=47 height=15 colspan=3 rowspan=4>
+  <table border=0 valign=top cellpadding=0 cellspacing=0>
+   <tr>
+    <td width=47 height=15 align=center><font face=Arial size=1><b>figures</b></font><br>
+    </td>
+   </tr>
+  </table>
+  </td>
+  <td width=29 height=7 colspan=4></td>
+ </tr>
+ <tr>
+  <td width=153 height=2 colspan=10></td>
+  <td width=86 height=45 colspan=5 rowspan=13>
+  <table border=0 valign=top cellpadding=0 cellspacing=0>
+   <tr>
+    <td width=2 height=0 nowrap><img src="v3_space.gif" border=0></td>
+    <td width=23 height=0 nowrap><img src="v3_space.gif" border=0></td>
+    <td width=36 height=0 nowrap><img src="v3_space.gif" border=0></td>
+    <td width=23 height=0 nowrap><img src="v3_space.gif" border=0></td>
+   </tr>
+   <tr>
+    <td width=2 height=15></td>
+    <td width=82 height=15 colspan=3 align=center><font color=black size=1><b>«notational»</b></font><br>
+    </td>
+    <td width=2 height=15></td>
+   </tr>
+   <tr>
+    <td width=86 height=15 colspan=5 align=center><font face=Arial color=black
+    size=1><b>c.i.x.notation</b></font><br>
+    </td>
+   </tr>
+   <tr>
+    <td width=25 height=15 colspan=2></td>
+    <td width=36 height=15 align=center><font face=Arial color=black size=1><b>.View</b></font><br>
+    </td>
+    <td width=25 height=15 colspan=2></td>
+   </tr>
+  </table>
+  </td>
+  <td width=335 height=2 colspan=28></td>
+  <td width=29 height=2 colspan=4></td>
+ </tr>
+ <tr>
+  <td width=153 height=1 colspan=10></td>
+  <td width=15 height=1 colspan=3></td>
+  <td width=33 height=13 rowspan=5>
+  <table border=0 valign=top cellpadding=0 cellspacing=0>
+   <tr>
+    <td width=33 height=13 align=center><font face=Arial color=black size=1><b>reads</b></font><br>
+    </td>
+   </tr>
+  </table>
+  </td>
+  <td width=287 height=1 colspan=24></td>
+  <td width=29 height=1 colspan=4></td>
+ </tr>
+ <tr>
+  <td width=92 height=5 colspan=5></td>
+  <td width=61 height=13 colspan=5 rowspan=5>
+  <table border=0 valign=top cellpadding=0 cellspacing=0>
+   <tr>
+    <td width=61 height=13 align=center><font face=Arial color=black size=1><b>references</b></font><br>
+    </td>
+   </tr>
+  </table>
+  </td>
+  <td width=15 height=5 colspan=3></td>
+  <td width=287 height=5 colspan=24></td>
+  <td width=29 height=5 colspan=4></td>
+ </tr>
+ <tr>
+  <td width=92 height=1 colspan=5></td>
+  <td width=15 height=1 colspan=3></td>
+  <td width=363 height=1 colspan=31></td>
+ </tr>
+ <tr>
+  <td width=12 height=3></td>
+  <td width=76 height=30 colspan=3 rowspan=7>
+  <table border=0 valign=top cellpadding=0 cellspacing=0>
+   <tr>
+    <td width=12 height=0 nowrap><img src="v3_space.gif" border=0></td>
+    <td width=53 height=0 nowrap><img src="v3_space.gif" border=0></td>
+   </tr>
+   <tr>
+    <td width=76 height=15 colspan=3 align=center><font color=black size=1><b>«semantic»</b></font><br>
+    </td>
+   </tr>
+   <tr>
+    <td width=76 height=1 colspan=3></td>
+   </tr>
+   <tr>
+    <td width=12 height=15></td>
+    <td width=53 height=15 align=center><font face=Arial color=black size=1><b>EObject</b></font><br>
+    </td>
+    <td width=11 height=15></td>
+   </tr>
+  </table>
+  </td>
+  <td width=4 height=3></td>
+  <td width=15 height=3 colspan=3></td>
+  <td width=363 height=3 colspan=31></td>
+ </tr>
+ <tr>
+  <td width=12 height=3></td>
+  <td width=4 height=3></td>
+  <td width=15 height=3 colspan=3></td>
+  <td width=17 height=3 colspan=4></td>
+  <td width=122 height=15 colspan=8 rowspan=3>
+  <table border=0 valign=top cellpadding=0 cellspacing=0>
+   <tr>
+    <td width=122 height=15 align=center><font face=Arial size=1><b>IGraphicalEditPart</b></font><br>
+    </td>
+   </tr>
+  </table>
+  </td>
+  <td width=224 height=3 colspan=19></td>
+ </tr>
+ <tr>
+  <td width=12 height=1></td>
+  <td width=4 height=1></td>
+  <td width=65 height=1 colspan=8></td>
+  <td width=224 height=1 colspan=19></td>
+ </tr>
+ <tr>
+  <td width=12 height=11></td>
+  <td width=65 height=11 colspan=6></td>
+  <td width=65 height=11 colspan=8></td>
+  <td width=224 height=11 colspan=19></td>
+ </tr>
+ <tr>
+  <td width=12 height=4></td>
+  <td width=65 height=4 colspan=6></td>
+  <td width=411 height=4 colspan=35></td>
+ </tr>
+ <tr>
+  <td width=12 height=3></td>
+  <td width=65 height=3 colspan=6></td>
+  <td width=13 height=3 colspan=2></td>
+  <td width=39 height=13 colspan=4 rowspan=3>
+  <table border=0 valign=top cellpadding=0 cellspacing=0>
+   <tr>
+    <td width=39 height=13 align=center><font face=Arial color=black size=1><b>listens</b></font><br>
+    </td>
+   </tr>
+  </table>
+  </td>
+  <td width=359 height=3 colspan=29></td>
+ </tr>
+ <tr>
+  <td width=12 height=5></td>
+  <td width=65 height=5 colspan=6></td>
+  <td width=13 height=5 colspan=2></td>
+  <td width=280 height=5 colspan=19></td>
+  <td width=53 height=15 colspan=9 rowspan=5>
+  <table border=0 valign=top cellpadding=0 cellspacing=0>
+   <tr>
+    <td width=53 height=15 align=center><font face=Arial size=1><b>handles</b></font><br>
+    </td>
+   </tr>
+  </table>
+  </td>
+  <td width=26 height=5></td>
+ </tr>
+ <tr>
+  <td width=153 height=5 colspan=10></td>
+  <td width=13 height=5 colspan=2></td>
+  <td width=280 height=5 colspan=19></td>
+  <td width=26 height=5></td>
+ </tr>
+ <tr>
+  <td width=153 height=1 colspan=10></td>
+  <td width=332 height=1 colspan=25></td>
+  <td width=26 height=1></td>
+ </tr>
+ <tr>
+  <td width=571 height=3 colspan=40></td>
+  <td width=26 height=3></td>
+ </tr>
+ <tr>
+  <td width=437 height=1 colspan=32></td>
+  <td width=91 height=13 colspan=4 rowspan=3>
+  <table border=0 valign=top cellpadding=0 cellspacing=0>
+   <tr>
+    <td width=91 height=13 align=center><font face=Arial color=black size=1><b>creates/updates</b></font><br>
+    </td>
+   </tr>
+  </table>
+  </td>
+  <td width=43 height=1 colspan=4></td>
+  <td width=26 height=1></td>
+ </tr>
+ <tr>
+  <td width=437 height=1 colspan=32></td>
+  <td width=122 height=1 colspan=14></td>
+ </tr>
+ <tr>
+  <td width=346 height=11 colspan=26></td>
+  <td width=7 height=48 rowspan=6><img src="v3_slide0237_image038.gif"
+  border=0 width=7 height=48></td>
+  <td width=84 height=11 colspan=5></td>
+  <td width=122 height=11 colspan=14></td>
+ </tr>
+ <tr>
+  <td width=346 height=7 colspan=26></td>
+  <td width=297 height=7 colspan=23></td>
+ </tr>
+ <tr>
+  <td width=126 height=8 colspan=8></td>
+  <td width=70 height=13 colspan=5 rowspan=2>
+  <table border=0 valign=top cellpadding=0 cellspacing=0>
+   <tr>
+    <td width=70 height=13 align=center><font face=Arial color=black size=1><b>manipulates</b></font><br>
+    </td>
+   </tr>
+  </table>
+  </td>
+  <td width=150 height=8 colspan=13></td>
+  <td width=297 height=8 colspan=23></td>
+ </tr>
+ <tr>
+  <td width=126 height=5 colspan=8></td>
+  <td width=150 height=5 colspan=13></td>
+  <td width=219 height=5 colspan=14></td>
+  <td width=49 height=15 colspan=5 rowspan=2>
+  <table border=0 valign=top cellpadding=0 cellspacing=0>
+   <tr>
+    <td width=49 height=15 align=center><font face=Arial size=1><b>layouts</b></font><br>
+    </td>
+   </tr>
+  </table>
+  </td>
+  <td width=29 height=5 colspan=4></td>
+ </tr>
+ <tr>
+  <td width=346 height=10 colspan=26></td>
+  <td width=219 height=10 colspan=14></td>
+  <td width=29 height=10 colspan=4></td>
+ </tr>
+ <tr>
+  <td width=346 height=7 colspan=26></td>
+  <td width=297 height=7 colspan=23></td>
+ </tr>
+ <tr>
+  <td width=650 height=5 colspan=50></td>
+ </tr>
+ <tr>
+  <td width=248 height=10 colspan=16></td>
+  <td width=42 height=13 colspan=4 rowspan=2>
+  <table border=0 valign=top cellpadding=0 cellspacing=0>
+   <tr>
+    <td width=42 height=13 align=center><font face=Arial size=1><b>returns</b></font><br>
+    </td>
+   </tr>
+  </table>
+  </td>
+  <td width=90 height=10 colspan=9></td>
+  <td width=72 height=13 colspan=4 rowspan=2>
+  <table border=0 valign=top cellpadding=0 cellspacing=0>
+   <tr>
+    <td width=72 height=13 align=center><font face=Arial size=1><b>understands</b></font><br>
+    </td>
+   </tr>
+  </table>
+  </td>
+  <td width=198 height=10 colspan=17></td>
+ </tr>
+ <tr>
+  <td width=155 height=3 colspan=11></td>
+  <td width=82 height=30 colspan=3 rowspan=4>
+  <table border=0 valign=top cellpadding=0 cellspacing=0>
+   <tr>
+    <td width=4 height=0 nowrap><img src="v3_space.gif" border=0></td>
+    <td width=74 height=0 nowrap><img src="v3_space.gif" border=0></td>
+   </tr>
+   <tr>
+    <td width=82 height=15 colspan=3 align=center><font color=black size=1><b>«notational»</b></font><br>
+    </td>
+   </tr>
+   <tr>
+    <td width=4 height=15></td>
+    <td width=74 height=15 align=center><font face=Arial color=black size=1><b>commands</b></font><br>
+    </td>
+    <td width=4 height=15></td>
+   </tr>
+  </table>
+  </td>
+  <td width=11 height=3 colspan=2></td>
+  <td width=90 height=3 colspan=9></td>
+  <td width=198 height=3 colspan=17></td>
+ </tr>
+ <tr>
+  <td width=155 height=2 colspan=11></td>
+  <td width=413 height=2 colspan=36></td>
+ </tr>
+ <tr>
+  <td width=155 height=15 colspan=11></td>
+  <td width=66 height=15 colspan=8></td>
+  <td width=77 height=15 colspan=7>
+  <table border=0 valign=top cellpadding=0 cellspacing=0>
+   <tr>
+    <td width=77 height=15 align=center><font face=Arial size=1><b>editpolicies</b></font><br>
+    </td>
+   </tr>
+  </table>
+  </td>
+  <td width=79 height=15 colspan=5></td>
+  <td width=59 height=15>
+  <table border=0 valign=top cellpadding=0 cellspacing=0>
+   <tr>
+    <td width=59 height=15 align=center><font face=Arial size=1><b>requests</b></font><br>
+    </td>
+   </tr>
+  </table>
+  </td>
+  <td width=55 height=15 colspan=7></td>
+  <td width=49 height=15 colspan=5>
+  <table border=0 valign=top cellpadding=0 cellspacing=0>
+   <tr>
+    <td width=49 height=15 align=center><font face=Arial size=1><b>routers</b></font><br>
+    </td>
+   </tr>
+  </table>
+  </td>
+  <td width=28 height=15 colspan=3></td>
+ </tr>
+ <tr>
+  <td width=155 height=10 colspan=11></td>
+  <td width=413 height=10 colspan=36></td>
+ </tr>
+ <tr>
+  <td width=650 height=57 colspan=50></td>
+ </tr>
+</table>
+
+</body>
+
+</html>

@@ -1,0 +1,154 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <title>Clipboard Example</title>
+</head>
+<body>
+
+<h2>Layout Service Example</h2>
+
+<h3>Introduction</h3>
+<p>
+This guide describes the Layout Service example in the SDK.<SPAN style="mso-spacerun:yes">  </SPAN>This
+example demonstrates a how to create a custom provider for the Layout Service
+which can be invoked from with-in a diagram editor.</p>
+
+<h3>References</h3>
+<p>
+Please refer to the document <a href="exampleOverview.html">Model Services Layer Examples Overview</a>
+for reviewing the library meta-model used as the basis for demonstrating the capabilities in this example.
+</p>
+
+<h3>Description</h3>
+<P>This plug-in is named <SPAN class="SpellE">org.eclipse.gmf.examples.runtime.diagram.layout</SPAN>.
+	<SPAN style="mso-spacerun:yes"> </SPAN>The purpose of the plug-in is <SPAN
+	class="GramE">provide</SPAN> an action that invokes a custom layout.<SPAN
+	style="mso-spacerun:yes">  </SPAN>In this case the custom layout is
+	called a ?Square? layout which will calculate a square area based on
+	the number of shapes and arrange the shapes in a grid with-in the
+	calculated square.<BR>
+<BR>The algorithm for this custom layout is defined
+	inside a provider called ?<SPAN class="SpellE">SquareLayoutProvider</SPAN>?.<SPAN
+	style="mso-spacerun:yes">  </SPAN>To register this provider, an
+	extension for the <SPAN class="SpellE">org.eclipse.gmf.runtime.diagram.ui.layoutProviders</SPAN>
+	extension point must be added to the <SPAN class="SpellE">plugin.xml</SPAN>
+	file.</P>
+<P class="MsoNormal"><SPAN class="GramE">i.e.</SPAN></P>
+
+<P class="MsoNormal"
+	style="line-height:normal;mso-pagination:widow-orphan;
+mso-layout-grid-align:none;text-autospace:none"><SPAN
+	style='font-size:10.0pt;
+font-family:"Courier New";color:black;background:white;mso-highlight:white'><SPAN
+	style="mso-spacerun:yes">   </SPAN></SPAN><SPAN
+	style='font-size:10.0pt;
+font-family:"Courier New";color:navy;background:white;mso-highlight:white'>&lt;extension</SPAN><SPAN
+	style='font-size:10.0pt;font-family:"Courier New"'></SPAN><BR>
+<SPAN
+	style='font-size:10.0pt;
+font-family:"Courier New";color:black;background:white;mso-highlight:white'><SPAN
+	style="mso-spacerun:yes">         </SPAN></SPAN><SPAN class="GramE"><SPAN
+	style='font-size:10.0pt;font-family:"Courier New";color:navy;background:white;
+mso-highlight:white'>point</SPAN></SPAN><SPAN
+	style='font-size:10.0pt;
+font-family:"Courier New";color:navy;background:white;mso-highlight:white'>=</SPAN><SPAN
+	style='font-size:10.0pt;font-family:"Courier New";color:green;background:white;
+mso-highlight:white'>&quot;<SPAN
+	class="SpellE">com.ibm.xtools.presentation.layoutProviders</SPAN>&quot;</SPAN><SPAN
+	style='font-size:10.0pt;font-family:"Courier New";color:navy;background:white;
+mso-highlight:white'>&gt;</SPAN><SPAN
+	style='font-size:10.0pt;font-family:"Courier New"'></SPAN><BR>
+<SPAN
+	style='font-size:10.0pt;
+font-family:"Courier New";color:black;background:white;mso-highlight:white'><SPAN
+	style="mso-spacerun:yes">      </SPAN></SPAN><SPAN
+	style='font-size:10.0pt;
+font-family:"Courier New";color:navy;background:white;mso-highlight:white'>&lt;<SPAN
+	class="SpellE">layoutProvider</SPAN></SPAN><SPAN
+	style='font-size:10.0pt;
+font-family:"Courier New"'></SPAN><SPAN
+	style='font-size:10.0pt;
+font-family:"Courier New";color:black;background:white;mso-highlight:white'><SPAN
+	style="mso-spacerun:yes">            </SPAN></SPAN><SPAN class="GramE"><SPAN
+	style='font-size:10.0pt;font-family:"Courier New";color:navy;background:white;
+mso-highlight:white'>class</SPAN></SPAN><SPAN
+	style='font-size:10.0pt;
+font-family:"Courier New";color:navy;background:white;mso-highlight:white'>=</SPAN><SPAN
+	style='font-size:10.0pt;font-family:"Courier New";color:green;background:white;
+mso-highlight:white'>&quot;org.eclipse.gmf.examples.runtime.diagram.layout.provider.SquareLayoutProvider&quot;</SPAN><SPAN
+	style='font-size:10.0pt;font-family:"Courier New";color:navy;background:white;
+mso-highlight:white'>&gt;</SPAN><SPAN
+	style='font-size:10.0pt;font-family:"Courier New"'></SPAN><SPAN
+	style='font-size:10.0pt;
+font-family:"Courier New";color:black;background:white;mso-highlight:white'><SPAN
+	style="mso-spacerun:yes"><BR>
+         </SPAN></SPAN><SPAN
+	style='font-size:10.0pt;
+font-family:"Courier New";color:navy;background:white;mso-highlight:white'>&lt;Priority</SPAN><SPAN
+	style='font-size:10.0pt;font-family:"Courier New"'></SPAN><BR>
+<SPAN
+	style='font-size:10.0pt;
+font-family:"Courier New";color:black;background:white;mso-highlight:white'><SPAN
+	style="mso-spacerun:yes">               </SPAN></SPAN><SPAN
+	class="GramE"><SPAN
+	style='font-size:10.0pt;font-family:"Courier New";color:navy;background:white;
+mso-highlight:white'>name</SPAN></SPAN><SPAN
+	style='font-size:10.0pt;
+font-family:"Courier New";color:navy;background:white;mso-highlight:white'>=</SPAN><SPAN
+	style='font-size:10.0pt;font-family:"Courier New";color:green;background:white;
+mso-highlight:white'>&quot;Medium&quot;</SPAN><SPAN
+	style='font-size:10.0pt;
+font-family:"Courier New";color:navy;background:white;mso-highlight:white'>&gt;</SPAN><SPAN
+	style='font-size:10.0pt;font-family:"Courier New"'></SPAN><BR>
+<SPAN
+	style='font-size:10.0pt;
+font-family:"Courier New";color:black;background:white;mso-highlight:white'><SPAN
+	style="mso-spacerun:yes">         </SPAN></SPAN><SPAN
+	style='font-size:10.0pt;
+font-family:"Courier New";color:navy;background:white;mso-highlight:white'>&lt;/Priority&gt;</SPAN><SPAN
+	style='font-size:10.0pt;font-family:"Courier New"'></SPAN><BR>
+<SPAN
+	style='font-size:10.0pt;
+font-family:"Courier New";color:black;background:white;mso-highlight:white'><SPAN
+	style="mso-spacerun:yes">      </SPAN></SPAN><SPAN
+	style='font-size:10.0pt;
+font-family:"Courier New";color:navy;background:white;mso-highlight:white'>&lt;/<SPAN
+	class="SpellE">layoutProvider</SPAN>&gt;</SPAN><SPAN
+	style='font-size:10.0pt;
+font-family:"Courier New";color:black;background:white;mso-highlight:white'>
+</SPAN><SPAN style='font-size:10.0pt;font-family:"Courier New"'></SPAN><BR>
+<SPAN
+	style='font-size:10.0pt;font-family:"Courier New";
+color:black;background:white;mso-highlight:white'><SPAN
+	style="mso-spacerun:yes">   </SPAN></SPAN><SPAN
+	style='font-size:10.0pt;
+font-family:"Courier New";color:navy;background:white;mso-highlight:white'>&lt;/extension&gt;</SPAN><BR>
+<BR>If we examine the ?<SPAN class="SpellE">SquareLayoutProvider</SPAN>?
+java class, in the provides() routine, it is merely checking to see if the
+nodes on the diagram can be laid-out according to the algorithm and also
+verifying that the layout type being passed through the <SPAN
+	class="SpellE">ILayoutNodesOperation</SPAN>
+is of type ?SQUARE_LAYOUT?.<SPAN style="mso-spacerun:yes">  </SPAN>This check
+is necessary because we only want to invoke this layout when our specific
+action is called, not when a default arrange action is invoked.<SPAN
+	style="mso-spacerun:yes"></SPAN><BR>
+<BR>The <SPAN class="SpellE"><SPAN class="GramE">layoutNodes</SPAN></SPAN><SPAN
+	class="GramE">(</SPAN>?) routine is where the actual computation takes
+place.<SPAN style="mso-spacerun:yes">  </SPAN>It returns a ?<SPAN
+	class="SpellE">Runnable</SPAN>?
+that performs the execution of the layout.<BR>
+<BR><IMG border="0" src="image004.gif" width="852"
+	height="466">
+</P>
+<H3>Usage</H3>
+<P>Refer to this example if you need:</P>
+<OL>
+	<LI>How to create a
+manipulate shapes positions programmatically</LI>
+	<LI>How to create a
+	custom layout provider that can be invoked through a specific action</LI>
+</OL>
+<P><A href="../../hglegal.htm"><IMG src="../../cpy.gif"
+	alt="Copyright IBM Corporation 2005.  All Rights Reserved." border="0"></A></P></body>
+</html>
