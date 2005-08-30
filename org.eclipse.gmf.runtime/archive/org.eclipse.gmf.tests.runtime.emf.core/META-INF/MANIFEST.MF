@@ -1,0 +1,27 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: %Plugin.name
+Bundle-SymbolicName: org.eclipse.gmf.tests.runtime.emf.core; singleton:=true
+Bundle-Version: 7.0.0
+Bundle-ClassPath: tests.jar
+Bundle-Vendor: %Plugin.providerName
+Bundle-Localization: plugin
+Export-Package: org.eclipse.gmf.tests.runtime.emf.core.internal.commands,
+ org.eclipse.gmf.tests.runtime.emf.core.internal.expressions,
+ org.eclipse.gmf.tests.runtime.emf.core.internal.multithread.testcases,
+ org.eclipse.gmf.tests.runtime.emf.core.internal.resources,
+ org.eclipse.gmf.tests.runtime.emf.core.internal,
+ org.eclipse.gmf.tests.runtime.emf.core
+Require-Bundle: org.junit,
+ org.eclipse.core.runtime,
+ org.eclipse.core.expressions,
+ org.eclipse.gmf.runtime.emf.core,
+ org.eclipse.gmf.runtime.emf.commands.core,
+ org.eclipse.emf.validation,
+ org.eclipse.emf.ecore,
+ org.eclipse.uml2,
+ org.eclipse.uml2.edit,
+ org.eclipse.emf.ecore.xmi,
+ org.eclipse.gmf.runtime.common.core,
+ org.eclipse.gmf.tests.runtime.common.core,
+ org.eclipse.emf.examples.library

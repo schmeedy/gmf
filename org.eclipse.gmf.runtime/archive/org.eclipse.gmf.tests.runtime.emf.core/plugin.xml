@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<plugin>
+
+     <extension point="org.eclipse.emf.validation.constraintProviders">
+      <constraintProvider>
+         <package namespaceUri="*" />
+         <constraints categories="junit/validation/framework">
+            <constraint
+                name="MSL Core Test Constraint"
+                statusCode="1"
+                mode="Live"
+                lang="Java"
+                id="test1"
+                class="org.eclipse.gmf.tests.runtime.emf.core.ValidationTestCase$TestConstraint">
+               <message>
+                  A Junit test constraint failed as expected.
+               </message>
+            </constraint>
+         </constraints>
+      </constraintProvider>
+   </extension>
+   
+   <extension point="org.eclipse.emf.validation.constraintBindings">
+      <clientContext
+            id="org.eclipse.gmf.tests.runtime.emf.core.junit">
+         <selector
+            class="org.eclipse.gmf.tests.runtime.emf.core.ValidationTestCase$TestSelector"/>
+      </clientContext>
+      <binding context="org.eclipse.gmf.tests.runtime.emf.core.junit">
+         <constraint ref="org.eclipse.gmf.tests.runtime.emf.core.test1"/>
+      </binding>
+   </extension>
+  
+   <extension
+         name="Test Metamodel Provider"
+         point="org.eclipse.gmf.runtime.emf.core.MetaModelProviders">
+      <MetaModelProvider class="org.eclipse.gmf.tests.runtime.emf.core.MetamodelProviderTestCase$Provider">
+         <Priority name="Lowest"/>
+      </MetaModelProvider>
+   </extension>
+   
+   <extension
+         point="org.eclipse.gmf.runtime.emf.core.resourcePolicies">
+      <!-- This is not a mistake.  We need to register two policies for our test. -->
+      <policy
+            class="org.eclipse.gmf.runtime.emf.core.internal.resources.tests.LogicalResourcePolicyManagerTest$TestPolicy">
+         <epackage
+               nsURI="http:///com/ibm/xtools/emf/msl/core/tests/logrestest.ecore"/>
+      </policy>
+      <policy
+            class="org.eclipse.gmf.runtime.emf.core.internal.resources.tests.LogicalResourcePolicyManagerTest$TestPolicy">
+         <epackage
+               nsURI="http:///com/ibm/xtools/emf/msl/core/tests/logrestest.ecore"/>
+      </policy>
+   </extension>
+   
+</plugin>

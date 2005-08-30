@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<plugin>
+
+   <extension
+         id="LibraryMetaModelProvider"
+         name="Library MetaModel Provider"
+         point="org.eclipse.gmf.runtime.emf.core.MetaModelProviders">
+      <MetaModelProvider
+            class="org.eclipse.gmf.examples.runtime.emf.metamodel.LibraryMetaModelProvider">
+         <Priority name="High" />
+       </MetaModelProvider>
+   </extension>
+   
+   <extension
+         point="org.eclipse.emf.ecore.extension_parser">
+      <parser
+            type="rmplibrary"
+            class="org.eclipse.gmf.runtime.emf.core.resources.MResourceFactory">
+      </parser>
+   </extension>
+
+  <extension point = "org.eclipse.ui.editors">
+    <editor
+          class="org.eclipse.gmf.examples.runtime.emf.editor.MSLLibraryEditor"
+          icon="icons/full/obj16/RMPLibraryModelFile.gif"
+          default="false"
+          contributorClass="org.eclipse.gmf.examples.runtime.emf.actions.MSLLibraryActionBarContributor"
+          name="%_UI_RMPLibraryEditor_label"
+          id="org.eclipse.gmf.examples.runtime.emf.presentation.MSLLibraryEditorID"
+          extensions="rmplibrary">
+    </editor>
+  </extension>
+  <extension
+        point="org.eclipse.emf.validation.constraintBindings">
+     <clientContext id="org.eclipse.gmf.examples.runtime.emf.clientContext">
+        <selector class="org.eclipse.gmf.examples.runtime.emf.constraints.ValidationDelegateClientSelector"/>
+     </clientContext>
+     <binding
+           context="org.eclipse.gmf.examples.runtime.emf.clientContext"
+           category="org.eclipse.gmf.examples.runtime.emf.category"/>
+  </extension>
+  <extension
+        point="org.eclipse.emf.validation.constraintProviders">
+     <category
+           mandatory="true"
+           name="%MSLLibraryValidationCategory"
+           id="org.eclipse.gmf.examples.runtime.emf.category"/>
+     <constraintProvider cache="true">
+        <package namespaceUri="*"/>
+        <package namespaceUri="http:///com/ibm/xtools/emf/metamodel/example/pde/rmplibrary.ecore/1.0.0"/>
+        <constraints categories="org.eclipse.gmf.examples.runtime.emf.category">
+           <constraint
+                 lang="Java"
+                 class="org.eclipse.gmf.examples.runtime.emf.constraints.TooManyWritersConstraint"
+                 severity="ERROR"
+                 mode="Live"
+                 name="%MSLLibraryValidation.tooManyWriters"
+                 id="org.eclipse.gmf.examples.runtime.emf.tooManyWriters"
+                 statusCode="1">
+              <target class="Library">
+                 <event name="Add">
+                    <feature name="writers"/>
+                 </event>
+                 <event name="Add Many">
+                    <feature name="writers"/>
+                 </event>
+              </target>
+              <message>
+                 %MSLLibraryValidation.tooManyWriters.message
+              </message>
+              <description>
+                 %MSLLibraryValidation.tooManyWriters.description
+              </description>
+           </constraint>
+           <constraint
+                 lang="Java"
+                 class="org.eclipse.gmf.examples.runtime.emf.constraints.TooGenreSpecificConstraint"
+                 severity="WARNING"
+                 mode="Batch"
+                 name="%MSLLibraryValidation.tooGenreSpecific"
+                 id="org.eclipse.gmf.examples.runtime.emf.tooGenreSpecific"
+                 statusCode="2">
+              <target class="Writer"/>
+              <description>
+                 %MSLLibraryValidation.tooGenreSpecific.description
+              </description>
+              <message>
+                 %MSLLibraryValidation.tooGenreSpecific.message
+              </message>
+           </constraint>
+           <constraint
+                 lang="Java"
+                 class="org.eclipse.gmf.examples.runtime.emf.constraints.ReadOnlyResourceConstraint"
+                 severity="ERROR"
+                 mode="Live"
+                 name="%MSLLibraryValidation.readOnlyResource"
+                 id="org.eclipse.gmf.examples.runtime.emf.readOnlyResource"
+                 statusCode="3">
+               <description>
+                  %MSLLibraryValidation.readOnlyResource.description
+               </description>
+               <message>
+                  %MSLLibraryValidation.readOnlyResource.message
+               </message>
+           </constraint>
+        </constraints>
+     </constraintProvider>
+  </extension>
+  <extension
+        point="org.eclipse.ui.popupMenus">
+     <viewerContribution
+           targetID="org.eclipse.gmf.examples.runtime.emf.presentation.MSLLibraryEditorID"
+           id="org.eclipse.gmf.examples.runtime.emf.viewerContribution">
+        <menu
+              label="%_UI_MSLMenu_label"
+              id="org.eclipse.gmf.examples.runtime.emf.mslMenu">
+           <groupMarker name="units"/>
+           <groupMarker name="edit"/>
+           <groupMarker name="resource"/>
+           <groupMarker name="pathmap"/>
+           <groupMarker name="event"/>
+           <groupMarker name="validation"/>
+           <separator name="additions"/>
+        </menu>
+        <action
+              label="%ValidateElementsAction.label"
+              class="org.eclipse.gmf.examples.runtime.emf.actions.BatchValidationDelegate"
+              icon="icons/validate.gif"
+              menubarPath="org.eclipse.gmf.examples.runtime.emf.mslMenu/validation"
+              id="org.eclipse.gmf.examples.runtime.emf.validateElements"/>
+        <action
+              label="%UnloadResource"
+              class="org.eclipse.gmf.examples.runtime.emf.actions.UnloadResourceDelegate"
+              menubarPath="org.eclipse.gmf.examples.runtime.emf.mslMenu/resource"
+              id="org.eclipse.gmf.examples.runtime.emf.unloadResource"/>
+        <action
+              label="%LoadResource"
+              class="org.eclipse.gmf.examples.runtime.emf.actions.LoadResourceDelegate"
+              menubarPath="org.eclipse.gmf.examples.runtime.emf.mslMenu/resource"
+              id="org.eclipse.gmf.examples.runtime.emf.loadResource"/>
+        <action
+              label="%SetPathmap"
+              class="org.eclipse.gmf.examples.runtime.emf.actions.SetPathmapDelegate"
+              menubarPath="org.eclipse.gmf.examples.runtime.emf.mslMenu/pathmap"
+              id="org.eclipse.gmf.examples.runtime.emf.setPathmap"/>
+        <action
+              label="%ShowMSLEvents"
+              class="org.eclipse.gmf.examples.runtime.emf.actions.ShowMSLEventsDelegate"
+              style="toggle"
+              state="false"
+              menubarPath="org.eclipse.gmf.examples.runtime.emf.mslMenu/event"
+              id="org.eclipse.gmf.examples.runtime.emf.enableEventDisplay"/>
+        <action
+              label="%CreateResource"
+              class="org.eclipse.gmf.examples.runtime.emf.actions.CreateResourceDelegate"
+              menubarPath="org.eclipse.gmf.examples.runtime.emf.mslMenu/resource"
+              id="org.eclipse.gmf.examples.runtime.emf.createResource"/>
+        <action
+              class="org.eclipse.gmf.examples.runtime.emf.actions.MSLLibraryActionBarContributor$MSLEditAction"
+              id="org.eclipse.gmf.examples.runtime.emf.edit"
+              label="%EditEObject"
+              menubarPath="org.eclipse.gmf.examples.runtime.emf.mslMenu/edit"/>
+        <action
+              class="org.eclipse.gmf.examples.runtime.emf.actions.MSLLibraryActionBarContributor$UncontrolUnitDelegate"
+              id="org.eclipse.gmf.examples.runtime.emf.uncontrol"
+              label="%UncontrolUnitAction.label"
+              menubarPath="org.eclipse.gmf.examples.runtime.emf.mslMenu/units"/>
+        <action
+              class="org.eclipse.gmf.examples.runtime.emf.actions.MSLLibraryActionBarContributor$ControlUnitDelegate"
+              id="org.eclipse.gmf.examples.runtime.emf.control"
+              label="%ControlUnitAction.label"
+              menubarPath="org.eclipse.gmf.examples.runtime.emf.mslMenu/units"/>
+     </viewerContribution>
+  </extension>
+  <extension
+        point="org.eclipse.gmf.runtime.emf.core.Pathmaps">
+     <pathmap
+           path="libraries"
+           name="CORE_LIBRARIES"
+           plugin="org.eclipse.gmf.examples.runtime.emf"/>
+  </extension>
+  <extension
+        point="org.eclipse.gmf.runtime.emf.clipboard.core.clipboardSupport">
+     <factory
+           class="org.eclipse.gmf.examples.runtime.emf.clipboard.LibraryClipboardSupportFactory"
+           nsURI="http:///com/ibm/xtools/emf/metamodel/example/pde/rmplibrary.ecore/1.0.0"
+           priority="highest"/>
+  </extension>
+  <extension
+        point="org.eclipse.gmf.runtime.emf.core.resourcePolicies">
+     <policy
+           class="org.eclipse.gmf.examples.runtime.emf.resources.LibraryResourcePolicy">
+        <epackage 
+              nsURI="http:///com/ibm/xtools/emf/metamodel/example/pde/rmplibrary.ecore/1.0.0"/>
+      </policy>
+      
+      <efactory
+            class="org.eclipse.gmf.examples.runtime.emf.resources.LoadingRMPLibraryFactoryImpl"
+            nsURI="http:///com/ibm/xtools/emf/metamodel/example/pde/rmplibrary.ecore/1.0.0"/>
+  </extension>
+   
+</plugin>

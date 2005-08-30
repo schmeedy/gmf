@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--xtools2_universal_type_manager-->
+<org.eclipse.emf.examples.library:Library xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:org.eclipse.emf.examples.library="http:///com/ibm/xtools/emf/metamodel/example/pde/rmplibrary.ecore/1.0.0" xmi:id="_bWtI0NEbEdmDGZF3keyQyA" name="Library of Congress">
+  <writers xmi:id="_ka0NoNEbEdmDGZF3keyQyA" name="Master Librarian" books="_oX-mwNEbEdmDGZF3keyQyA"/>
+  <books xmi:id="_oX-mwNEbEdmDGZF3keyQyA" title="All Books In Existence" pages="10000" author="_ka0NoNEbEdmDGZF3keyQyA"/>
+</org.eclipse.emf.examples.library:Library>

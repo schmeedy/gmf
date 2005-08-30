@@ -1,0 +1,25 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: %Plugin.name
+Bundle-SymbolicName: org.eclipse.gmf.examples.runtime.emf; singleton:=true
+Bundle-Version: 7.0.0
+Bundle-ClassPath: mslExample.jar
+Bundle-Activator: org.eclipse.gmf.examples.runtime.emf.MSLExamplePlugin
+Bundle-Vendor: %Plugin.providerName
+Bundle-Localization: plugin
+Export-Package: org.eclipse.gmf.examples.runtime.emf,
+ org.eclipse.gmf.examples.runtime.emf.actions,
+ org.eclipse.gmf.examples.runtime.emf.constraints,
+ org.eclipse.gmf.examples.runtime.emf.dialogs,
+ org.eclipse.gmf.examples.runtime.emf.editor,
+ org.eclipse.gmf.examples.runtime.emf.listener,
+ org.eclipse.gmf.examples.runtime.emf.metamodel,
+ org.eclipse.gmf.examples.runtime.emf.properties
+Require-Bundle: org.eclipse.gmf.runtime.emf.core,
+ org.eclipse.jface,
+ org.eclipse.ui,
+ org.eclipse.emf.examples.library,
+ org.eclipse.emf.examples.library.edit,
+ org.eclipse.emf.examples.library.editor,
+ org.eclipse.gmf.runtime.common.ui
+Eclipse-AutoStart: true

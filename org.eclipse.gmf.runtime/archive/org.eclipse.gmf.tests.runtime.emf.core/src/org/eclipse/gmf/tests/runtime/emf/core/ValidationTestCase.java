@@ -1,0 +1,248 @@
+/*
+ *+------------------------------------------------------------------------+
+ *| Licensed Materials - Property of IBM                                   |
+ *| (C) Copyright IBM Corp. 2004, 2005.  All Rights Reserved.              |
+ *|                                                                        |
+ *| US Government Users Restricted Rights - Use, duplication or disclosure |
+ *| restricted by GSA ADP Schedule Contract with IBM Corp.                 |
+ *+------------------------------------------------------------------------+
+ */
+
+package org.eclipse.gmf.tests.runtime.emf.core;
+
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Iterator;
+import java.util.List;
+
+import org.eclipse.core.runtime.IStatus;
+import org.eclipse.emf.ecore.EModelElement;
+import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.uml2.UML2Package;
+import org.eclipse.uml2.VisibilityKind;
+
+import org.eclipse.gmf.runtime.emf.core.EObjectHelper;
+import org.eclipse.gmf.runtime.emf.core.IValidationStatus;
+import org.eclipse.gmf.runtime.emf.core.edit.MEditingDomain;
+import org.eclipse.gmf.runtime.emf.core.exceptions.MSLActionAbandonedException;
+import org.eclipse.gmf.runtime.emf.core.internal.util.MSLUtil;
+import org.eclipse.gmf.runtime.emf.core.util.EObjectUtil;
+import org.eclipse.gmf.runtime.emf.core.util.OperationUtil;
+import org.eclipse.gmf.runtime.emf.core.util.ResourceUtil;
+import org.eclipse.emf.validation.AbstractModelConstraint;
+import org.eclipse.emf.validation.IValidationContext;
+import org.eclipse.emf.validation.model.IClientSelector;
+
+/**
+ * Tests the integration of the Validation Framework into the MSL plug-in.
+ * 
+ * @author Christian W. Damus (cdamus)
+ */
+public class ValidationTestCase
+	extends BaseTestCase {
+
+	private static final String BAD_CLASS_NAME = "ChristiansFooClass"; //$NON-NLS-1$
+	private static final String PLUGIN_ID = "org.eclipse.gmf.tests.runtime.emf.core";  //$NON-NLS-1$
+	/**
+	 * Turns the constraint enablement on or off.  Avoids interfering
+	 * with other test cases that work with this metaclass. 
+	 */
+	static boolean validationFlag = false;
+	static boolean validationParticipationFlag = true;
+	
+	public ValidationTestCase(String name) {
+		super(name);
+	}
+
+	public static final class TestConstraint
+		extends AbstractModelConstraint {
+
+		public IStatus validate(IValidationContext ctx) {
+			if (!validationFlag) {
+				return ctx.createSuccessStatus();
+			} else {
+				return ctx.createFailureStatus(null);
+			}
+		}
+	}
+	
+	public static final class TestSelector implements IClientSelector {
+		public boolean selects(Object object) {
+			return validationFlag;
+		}
+	}
+
+	public void test_singleBatchValidation() {
+		EObjectHelper helper = new EObjectHelper(MEditingDomain.INSTANCE);
+		Resource resource = ResourceUtil.create(null, UML2Package.eINSTANCE
+			.getModel(), 0);
+
+		EModelElement root = (EModelElement) ResourceUtil
+			.getFirstRoot(resource);
+
+		OperationUtil.openUndoInterval(""); //$NON-NLS-1$
+
+		OperationUtil.startWrite();
+
+		EModelElement c1 = (EModelElement) EObjectUtil.create(root,
+			UML2Package.eINSTANCE.getPackage_OwnedMember(),
+			UML2Package.eINSTANCE.getClass_(), BAD_CLASS_NAME);
+
+		EObjectUtil.create(c1, UML2Package.eINSTANCE
+			.getStructuredClassifier_OwnedAttribute(), UML2Package.eINSTANCE
+			.getProperty(), "x"); //$NON-NLS-1$
+
+		c1.eSet(UML2Package.eINSTANCE
+			.getPackageableElement_PackageableElement_visibility(),
+			VisibilityKind.PUBLIC_LITERAL);
+
+		try {
+			OperationUtil.completeAndValidate();
+		} catch (MSLActionAbandonedException e) {
+			fail("Action abandoned: " + e.getStatus()); //$NON-NLS-1$
+		} finally {
+			OperationUtil.closeUndoInterval();
+		}
+
+		validationFlag = true;
+		List statuses = MSLUtil.getValidationProblems(
+			helper.validate(Collections.singleton(c1), null));
+		validationFlag = false;
+
+		assertNotNull(statuses);
+
+		assertFalse(statuses.isEmpty());
+
+		int failed = 0;
+		for (Iterator iter = statuses.iterator(); iter.hasNext();) {
+			IValidationStatus next = (IValidationStatus) iter.next();
+
+			if (!next.isOK() && next.getPlugin().equals(PLUGIN_ID)) {
+				failed++;
+			}
+		}
+
+		// the model created by this method violates at least one constraint
+		assertFalse(failed == 0);
+	}
+
+	public void test_multipleBatchValidation() {
+		EObjectHelper helper = new EObjectHelper(MEditingDomain.INSTANCE);
+		Resource resource = ResourceUtil.create(null, UML2Package.eINSTANCE
+			.getModel(), 0);
+
+		EModelElement root = (EModelElement) ResourceUtil
+			.getFirstRoot(resource);
+
+		OperationUtil.openUndoInterval(""); //$NON-NLS-1$
+
+		OperationUtil.startWrite();
+
+		EModelElement c1 = (EModelElement) EObjectUtil.create(root,
+			UML2Package.eINSTANCE.getPackage_OwnedMember(),
+			UML2Package.eINSTANCE.getClass_(), BAD_CLASS_NAME);
+
+		EModelElement p1 = (EModelElement) EObjectUtil.create(c1,
+			UML2Package.eINSTANCE.getStructuredClassifier_OwnedAttribute(),
+			UML2Package.eINSTANCE.getProperty(), "x"); //$NON-NLS-1$
+
+		c1.eSet(UML2Package.eINSTANCE
+			.getPackageableElement_PackageableElement_visibility(),
+			VisibilityKind.PUBLIC_LITERAL);
+
+		try {
+			OperationUtil.completeAndValidate();
+		} catch (MSLActionAbandonedException e) {
+			fail("Action abandoned: " + e.getStatus()); //$NON-NLS-1$
+		} finally {
+			OperationUtil.closeUndoInterval();
+		}
+
+		validationFlag = true;
+		List statuses = MSLUtil.getValidationProblems(
+			helper.validate(Arrays.asList(new Object[] {c1, p1}), null));
+		validationFlag = false;
+
+		assertNotNull(statuses);
+
+		assertFalse(statuses.isEmpty());
+
+		int failed = 0;
+		for (Iterator iter = statuses.iterator(); iter.hasNext();) {
+			IValidationStatus next = (IValidationStatus) iter.next();
+
+			if (!next.isOK() && next.getPlugin().equals(PLUGIN_ID)) {
+				failed++;
+			}
+		}
+
+		// the model created by this method violates at least one constraint
+		assertFalse(failed == 0);
+	}
+
+	public void test_liveValidation() {
+		Resource resource = ResourceUtil.create(null, UML2Package.eINSTANCE
+			.getModel(), 0);
+
+		EModelElement root = (EModelElement) ResourceUtil
+			.getFirstRoot(resource);
+
+		OperationUtil.openUndoInterval(""); //$NON-NLS-1$
+
+		OperationUtil.startWrite();
+
+		EModelElement c1 = (EModelElement) EObjectUtil.create(root,
+			UML2Package.eINSTANCE.getPackage_OwnedMember(),
+			UML2Package.eINSTANCE.getClass_(), BAD_CLASS_NAME);
+
+		c1.eSet(UML2Package.eINSTANCE.getNamedElement_Name(), BAD_CLASS_NAME);
+
+		MSLActionAbandonedException e = null;
+
+		// turn on the test live constraint
+		validationFlag = true;
+
+		try {
+			OperationUtil.completeAndValidate();
+
+			// should not get here
+			fail("Exception not thrown."); //$NON-NLS-1$
+		} catch (MSLActionAbandonedException ex) {
+			// good!  We pass the test
+			e = ex;
+		} finally {
+			// turn off the test live constraint
+			validationFlag = false;
+
+			OperationUtil.closeUndoInterval();
+		}
+
+		assertNotNull(e.getStatus());
+		List statuses = MSLUtil.getValidationProblems(e.getStatus());
+
+		assertNotNull(statuses);
+
+		assertFalse(statuses.isEmpty());
+
+		int failed = 0;
+		for (Iterator iter = statuses.iterator(); iter.hasNext();) {
+			IValidationStatus next = (IValidationStatus) iter.next();
+
+			if (!next.isOK() && next.getPlugin().equals(PLUGIN_ID)) {
+				failed++;
+			}
+		}
+
+		// the model created by this method violates at least one constraint:
+		//   the one that asserts that classifiers not be named
+		//   'ChristiansFooClass', defined by this test plug-in
+		assertFalse(failed == 0);
+
+		// check that the model was rolled back
+		Collection types = (Collection) root.eGet(UML2Package.eINSTANCE
+			.getPackage_OwnedType());
+
+		assertEquals(0, types.size());
+	}
+}
