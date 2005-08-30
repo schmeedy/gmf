@@ -332,23 +332,23 @@
 	      <param name="plugin.version" value="7.0.0"/>
 		</antcall>
 
-		<!-- com.ibm.xtools.notation -->
+		<!-- org.eclipse.gmf.runtime.notation -->
 	    <antcall target="build.source.zip">
-	      <param name="plugin.id" value="com.ibm.xtools.notation"/>
+	      <param name="plugin.id" value="org.eclipse.gmf.runtime.notation"/>
 	      <param name="plugin.jar" value="notation"/>
 	      <param name="plugin.version" value="7.0.0"/>
 		</antcall>
 		
-		<!-- com.ibm.xtools.notation.edit -->
+		<!-- org.eclipse.gmf.runtime.notation.edit -->
 	    <antcall target="build.source.zip">
-	      <param name="plugin.id" value="com.ibm.xtools.notation.edit"/>
+	      <param name="plugin.id" value="org.eclipse.gmf.runtime.notation.edit"/>
 	      <param name="plugin.jar" value="notationedit"/>
 	      <param name="plugin.version" value="7.0.0"/>
 		</antcall>
 		
-		<!-- com.ibm.xtools.notation.msl -->
+		<!-- org.eclipse.gmf.runtime.notation.providers -->
 	    <antcall target="build.source.zip">
-	      <param name="plugin.id" value="com.ibm.xtools.notation.msl"/>
+	      <param name="plugin.id" value="org.eclipse.gmf.runtime.notation.providers"/>
 	      <param name="plugin.jar" value="notationmsl"/>
 	      <param name="plugin.version" value="7.0.0"/>
 		</antcall>

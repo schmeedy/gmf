@@ -286,7 +286,7 @@
 
 		<javadoc-subsystem subsystem="diagram" tocTitle="Diagram Layer">
 			<package-sets>
-				<packageset dir="../com.ibm.xtools.notation/src"/>
+				<packageset dir="../org.eclipse.gmf.runtime.notation/src"/>
 				<packageset dir="../org.eclipse.gmf.runtime.diagram.core/src"/>
 				<packageset dir="../org.eclipse.gmf.runtime.diagram.ui/src"/>
 				<packageset dir="../org.eclipse.gmf.runtime.diagram.ui.dnd/src"/>
@@ -299,7 +299,7 @@
 				<packageset dir="../org.eclipse.gmf.runtime.diagram.ui.resources.editor.ide/src"/>
 			</package-sets>
 			<package-groups>
-				<group title="Diagram Packages" packages="com.ibm.xtools.notation*,org.eclipse.gmf.runtime.diagram.core*"/>
+				<group title="Diagram Packages" packages="org.eclipse.gmf.runtime.notation*,org.eclipse.gmf.runtime.diagram.core*"/>
 			</package-groups>
 		</javadoc-subsystem>
 		
