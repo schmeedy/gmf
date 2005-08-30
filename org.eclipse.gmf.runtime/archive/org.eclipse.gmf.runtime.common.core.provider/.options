@@ -1,0 +1,19 @@
+# Debugging options for the org.eclipse.gmf.runtime.common.core.provider plug-in
+
+# Turn on general debugging for the org.eclipse.gmf.runtime.common.core.provider plug-in
+org.eclipse.gmf.runtime.common.core.provider/debug=true
+
+# Trace when exceptions are caught
+org.eclipse.gmf.runtime.common.core.provider/debug/exceptions/catching=false
+# Trace when exceptions are thrown
+org.eclipse.gmf.runtime.common.core.provider/debug/exceptions/throwing=false
+
+# Trace when methods are entered
+org.eclipse.gmf.runtime.common.core.provider/debug/methods/entering=false
+# Trace when methods are exited
+org.eclipse.gmf.runtime.common.core.provider/debug/methods/exiting=false
+
+# Trace ElementActionFilterProvider
+org.eclipse.gmf.runtime.common.core.provider/debug/ElementActionFilterProvider/tracing=false
+# Trace StorageUnitActionFilterProvider
+org.eclipse.gmf.runtime.common.core.provider/debug/StorageUnitActionFilterProvider/tracing=false
