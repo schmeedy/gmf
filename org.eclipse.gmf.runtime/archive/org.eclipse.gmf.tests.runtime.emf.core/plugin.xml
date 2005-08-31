@@ -44,12 +44,12 @@
          point="org.eclipse.gmf.runtime.emf.core.resourcePolicies">
       <!-- This is not a mistake.  We need to register two policies for our test. -->
       <policy
-            class="org.eclipse.gmf.runtime.emf.core.internal.resources.tests.LogicalResourcePolicyManagerTest$TestPolicy">
+            class="org.eclipse.gmf.tests.runtime.emf.core.internal.resources.LogicalResourcePolicyManagerTest$TestPolicy">
          <epackage
                nsURI="http:///com/ibm/xtools/emf/msl/core/tests/logrestest.ecore"/>
       </policy>
       <policy
-            class="org.eclipse.gmf.runtime.emf.core.internal.resources.tests.LogicalResourcePolicyManagerTest$TestPolicy">
+            class="org.eclipse.gmf.tests.runtime.emf.core.internal.resources.LogicalResourcePolicyManagerTest$TestPolicy">
          <epackage
                nsURI="http:///com/ibm/xtools/emf/msl/core/tests/logrestest.ecore"/>
       </policy>
