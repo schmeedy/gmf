@@ -3,12 +3,12 @@
 
 <toc label="Diagram Layer" href="reference/extension-points/index.html#DiagramLayer">
 	<topic label="Diagram Layer" href="reference/extension-points/index.html#DiagramLayer">
-		<topic label="org.eclipse.gmf.runtime.diagram.core.viewProviders" href="reference/extension-points/com_ibm_xtools_diagram_viewProviders.html" />
-		<topic label="org.eclipse.gmf.runtime.diagram.ui.editpartProviders" href="reference/extension-points/com_ibm_xtools_diagram_ui_editpartProviders.html" />
-		<topic label="org.eclipse.gmf.runtime.diagram.ui.editpolicyProviders" href="reference/extension-points/com_ibm_xtools_diagram_ui_editpolicyProviders.html" />
-		<topic label="org.eclipse.gmf.runtime.diagram.ui.paletteProviders" href="reference/extension-points/com_ibm_xtools_diagram_ui_paletteProviders.html" />
-		<topic label="org.eclipse.gmf.runtime.diagram.ui.decoratorProviders" href="reference/extension-points/com_ibm_xtools_diagram_ui_decoratorProviders.html" />
-		<topic label="org.eclipse.gmf.runtime.diagram.ui.layoutProviders" href="reference/extension-points/com_ibm_xtools_diagram_ui_layoutProviders.html" />
+		<topic label="org.eclipse.gmf.runtime.diagram.core.viewProviders" href="reference/extension-points/org_eclipse_gmf_runtime_diagram_core_viewProviders.html" />
+		<topic label="org.eclipse.gmf.runtime.diagram.ui.editpartProviders" href="reference/extension-points/org_eclipse_gmf_runtime_diagram_ui_editpartProviders.html" />
+		<topic label="org.eclipse.gmf.runtime.diagram.ui.editpolicyProviders" href="reference/extension-points/org_eclipse_gmf_runtime_diagram_ui_editpolicyProviders.html" />
+		<topic label="org.eclipse.gmf.runtime.diagram.ui.paletteProviders" href="reference/extension-points/org_eclipse_gmf_runtime_diagram_ui_paletteProviders.html" />
+		<topic label="org.eclipse.gmf.runtime.diagram.ui.decoratorProviders" href="reference/extension-points/org_eclipse_gmf_runtime_diagram_ui_decoratorProviders.html" />
+		<topic label="org.eclipse.gmf.runtime.diagram.ui.layoutProviders" href="reference/extension-points/org_eclipse_gmf_runtime_diagram_ui_layoutProviders.html" />
 
 	</topic>
 </toc>

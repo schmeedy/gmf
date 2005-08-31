@@ -125,7 +125,7 @@ to and pasting them from the system clipboard. The following are the
 main extension points and classes to be used when providing clipboard support:
 
 <ol>
-<li>Extension point <a href="../../reference/extension-points/com_ibm_xtools_emf_clipboard_clipboardSupport.html">org.eclipse.gmf.runtime.emf.clipboard.core.clipboardSupport</a> allows
+<li>Extension point <a href="../../reference/extension-points/org_eclipse_gmf_runtime_emf_clipboard_core_clipboardSupport.html">org.eclipse.gmf.runtime.emf.clipboard.core.clipboardSupport</a> allows
 extensions to implement fairly complex meta-model specific semantics for copy/paste operations, where some
 relationships between model elements need special treatment</li>
 <li>Providers register an implementation of the <code>IClipboardSupportFactory</code> interface for supporting clipboard
@@ -176,7 +176,7 @@ customizable model traversal algorithms, constraint parsing for languages, confi
 application contexts and validation listeners. The following are the main extension points and classes to be used with
 the validation framework.
 <ol>
-<li>The extension point <a href="../../reference/extension-points/com_ibm_xtools_emf_validation_constraintProviders.html">org.eclipse.emf.validation.constraintProviders</a> is used to provide constraints. Static
+<li>The extension point <a href="../../reference/extension-points/org_eclipse_emf_validation_constraintProviders.html">org.eclipse.emf.validation.constraintProviders</a> is used to provide constraints. Static
 constraint providers declare constraints in the plugin.xml. Constraints are grouped into hierarchically structured
 categories. Constraint providers target one or more EPackages by namespace URI. A group of constraints declares
 categories in which they are members. Each constraint has a variety of meta-data associated with it (
@@ -184,20 +184,20 @@ Language, ID, severity, mode, name, message, triggers, etc.). Dynamic constraint
 constraints cannot be declared statically. e.g., where constraints are defined in models or other resources. Dynamic
 providers declare a class implementing the <code>IModelConstraintProvider</code> interface. This class is responsible
 for making constraints available on the appropriate triggers, organizing them into categories, etc.</li>
-<li>The extension point <a href="../../reference/extension-points/com_ibm_xtools_emf_validation_traversal.html">org.eclipse.emf.validation.traversal</a> is used to provide
+<li>The extension point <a href="../../reference/extension-points/org_eclipse_emf_validation_traversal.html">org.eclipse.emf.validation.traversal</a> is used to provide
 customizable model traversal algorithms. Batch validation traverses a subset of the model starting from the user’s
 selections. No traversal is performed in live validation. Some meta-models require custom strategies for traversal. The
 default strategy simply iterates the content tree via <code>eAllContents()</code> API. Some meta-models do not use EMF containment
 relationships extensively, or implement logical models on multiple distinct resources, making containment-based
 traversal impractical.</li>
-<li>The extension point <a href="../../reference/extension-points/com_ibm_xtools_emf_validation_constraintParsers.html">org.eclipse.emf.validation.constraintParsers</a> is used to provide
+<li>The extension point <a href="../../reference/extension-points/org_eclipse_emf_validation_constraintParsers.html">org.eclipse.emf.validation.constraintParsers</a> is used to provide
 constraint parsing for languages. The validation framework provides support for two languages: Java and OCL. Clients can
 provide support for other constraint languages via constraint parsers. The <code>Language ID</code>:  used in the <code>lang</code>
 attribute of constraint elements in the constraint XML. The <code>Class</code>:  identifies an implementation of the 
 <code>IXmlConstraintParser</code> interface, which constructs a constraint from the XML configuration data. Constraint
 parsers are responsible for parsing the content of a constraint element in the plugin.xml to produce <code>IModelConstraint</code>
 objects.</li>
-<li>The extension point <a href="../../reference/extension-points/com_ibm_xtools_emf_validation_constraintBindings.html">org.eclipse.emf.validation.constraintBindings</a>
+<li>The extension point <a href="../../reference/extension-points/org_eclipse_emf_validation_constraintBindings.html">org.eclipse.emf.validation.constraintBindings</a>
 allows clients of the EMF Validation framework to define "client contexts" that describe the objects that they are
 interested in validating, and to bind them to constraints that they are interested in enforcing on these objects.
 A client context can declare an <code>enablement</code> expression that matches model elements that are included in the context. Where
@@ -207,7 +207,7 @@ category). Binding to constraint categories has the advantage of allowing new co
 to automatically be bound to the appropriate client context, even if the constraint is defined in a plug-in that
 is unaware of that context or its binding to the category. Category bindings are inherited by sub-categories from their
 ancestors.</li>
-<li>The extension point <a href="../../reference/extension-points/com_ibm_xtools_emf_validation_validationListeners.html">org.eclipse.emf.validation.validationListeners</a>
+<li>The extension point <a href="../../reference/extension-points/org_eclipse_emf_validation_validationListeners.html">org.eclipse.emf.validation.validationListeners</a>
 is used to define validation listeners for the validation service (<code>org.eclipse.emf.validation.service.ModelValidationService</code>).
 The validation service will inform this listener whenever validation has occurred, loading it if necessary in order to do so.
 This is most useful for cases where client plug-ins need to find out about validation events even before they are loaded.
@@ -295,12 +295,6 @@ Applies to those EMF meta-models that model classifiers in a run-time system</li
 <p>
 The following are the main extension points and classes to be used with this framework:
 <ol>
-<li><b>User Model Support</b>: The extension point <a href="../../reference/extension-points/com_ibm_xtools_emf_msl_core_userModelSupport.html">org.eclipse.gmf.runtime.emf.core.userModelSupport</a>
-allows EMF meta-model providers to adapt elements of the models to the EClassifier API. Providers register an
-implementation of the <code>IUserModelSupportFactory</code> interface that can create adapters that cast elements
-of an EMF model as <code>EClassifiers</code>. A support factory is responsible for creating <code>IUserModelSupport</code>
-for the packages on which it is registered. Clients can use the utility class <code>UserModelUtil</code> to create
-instances for specific EMF meta-models.</li>
 <li><b>Unified Transaction Semantics</b>: The class <code>MEditingDomain</code> exposes an editing domain that manages the
 EMF based models in the modeling platform. This class integrates some of the core capabilities like model access, batched
 notifications, multi-threaded access control and evaluation of live constraints in its <code>run..</code> methods.
@@ -311,14 +305,14 @@ collection of <code>MUndoInterval</code> instances. The class <code>AbstractMode
 of all concrete commands that perform model operations. Clients must provide a definition of the <code>doExecute()</code>
 method to perform some operation. All model commands have an associated undo interval, through which they can be undone
 or redone.</li>
-<li><b>Logical resource support</b>: The extension point <a href="../../reference/extension-points/com_ibm_xtools_emf_msl_core_resourcePolicies.html">org.eclipse.gmf.runtime.emf.core.resourcePolicies</a> is defined for
+<li><b>Logical resource support</b>: The extension point <a href="../../reference/extension-points/org_eclipse_gmf_runtime_emf_core_resourcePolicies.html">org.eclipse.gmf.runtime.emf.core.resourcePolicies</a> is defined for
 EMF meta-model providers to provide policies that customize the resource structure for their models.  The <code>ILogicalResource</code>
 interface provides a logical view in memory of a tree structure that is persisted in multiple physical resources.
 Metamodel-specific customizations are provided as <code>ILogicalResourcePolicy</code> implementations that define
 the locations in a logical structure where boundaries in the physical structure are permitted and provide automatic
 naming of physical resources.  <code>EFactory</code> implementations registered on this extension point provide support
 for incremental loading of logical resources.</li>
-<li><b>Path map support</b>: The extension point <a href="../../reference/extension-points/com_ibm_xtools_emf_msl_core_Pathmaps.html">org.eclipse.gmf.runtime.emf.core.Pathmaps</a> is defined for path map
+<li><b>Path map support</b>: The extension point <a href="../../reference/extension-points/org_eclipse_gmf_runtime_emf_core_Pathmaps.html">org.eclipse.gmf.runtime.emf.core.Pathmaps</a> is defined for path map
 variables. Path map variables allow for portability of URIs, similar to Eclipse's core path variables. The actual location
 indicated by a URI depends on the run-time binding of the path variable. Thus, different environments can work with the
 same resource URIs even though the resources are stored in different physical locations. Path map support is integrated
@@ -346,7 +340,7 @@ Some of the custom event types supported are
   <li><code>EventTypes.IMPORT</code>, <code>EventTypes.EXPORT</code></li>
   <li><code>EventTypes.UNRESOLVE</code></li>
   <li><code>EventTypes.SEPARATE</code>, <code>EventTypes.ABSORB</code>, <code>EventTypes.LOAD</code></li></ul></li>
-<li><b>Meta-model Support</b>: The extension point <a href="../../reference/extension-points/com_ibm_xtools_emf_msl_core_MetaModelProviders.html">org.eclipse.gmf.runtime.emf.core. MetaModelProviders</a> allows 
+<li><b>Meta-model Support</b>: The extension point <a href="../../reference/extension-points/org_eclipse_gmf_runtime_emf_core_MetaModelProviders.html">org.eclipse.gmf.runtime.emf.core. MetaModelProviders</a> allows 
 clients to provide meta-model support services. Providers implement the interface <code>IMetamodelSupportProvider</code>.
 The implementation of the interface method <code>getMetamodelSupport</code> returns the <code>IMetamodelSupport</code> object.
 The service gives all interested providers a chance to create meta-model support objects for the given <code>EPackage</code> in

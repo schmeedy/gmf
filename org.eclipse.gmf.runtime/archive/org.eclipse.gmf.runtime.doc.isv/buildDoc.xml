@@ -27,50 +27,50 @@
 
 			<!-- START COMMON FRAMEWORKS LAYER SCHEMAS -->
 			<!-- When adding common frameworks layer extension points please also update the TOC: toc-common-ext-pt -->
-			<include name="org.eclipse.gmf.runtime.common.core/doc/com_ibm_xtools_common_core_logListeners.html"/>
-			<include name="org.eclipse.gmf.runtime.common.core/doc/com_ibm_xtools_common_core_propertiesConfiguration.html"/>
+			<include name="org.eclipse.gmf.runtime.common.core/doc/org_eclipse_gmf_runtime_common_core_logListeners.html"/>
+			<include name="org.eclipse.gmf.runtime.common.core/doc/org_eclipse_gmf_runtime_common_core_propertiesConfiguration.html"/>
 			
-			<include name="org.eclipse.gmf.runtime.common.ui.services/doc/com_ibm_xtools_common_ui_services_editorProviders.html"/>
-			<include name="org.eclipse.gmf.runtime.common.ui.services/doc/com_ibm_xtools_common_ui_services_iconProviders.html"/>
-			<include name="org.eclipse.gmf.runtime.common.ui.services/doc/com_ibm_xtools_common_ui_services_markerNavigationProviders.html"/>			
-			<include name="org.eclipse.gmf.runtime.common.ui.services/doc/com_ibm_xtools_common_ui_services_parserProviders.html"/>
+			<include name="org.eclipse.gmf.runtime.common.ui.services/doc/org_eclipse_gmf_runtime_common_ui_services_editorProviders.html"/>
+			<include name="org.eclipse.gmf.runtime.common.ui.services/doc/org_eclipse_gmf_runtime_common_ui_services_iconProviders.html"/>
+			<include name="org.eclipse.gmf.runtime.common.ui.services/doc/org_eclipse_gmf_runtime_common_ui_services_markerNavigationProviders.html"/>			
+			<include name="org.eclipse.gmf.runtime.common.ui.services/doc/org_eclipse_gmf_runtime_common_ui_services_parserProviders.html"/>
 
-			<include name="org.eclipse.gmf.runtime.common.ui.services.action/doc/com_ibm_xtools_common_ui_services_action_actionFilterProviders.html"/>
-			<include name="org.eclipse.gmf.runtime.common.ui.services.action/doc/com_ibm_xtools_common_ui_services_action_contributionItemProviders.html"/>
-			<include name="org.eclipse.gmf.runtime.common.ui.services.action/doc/com_ibm_xtools_common_ui_services_action_globalActionHandlerProviders.html"/>
+			<include name="org.eclipse.gmf.runtime.common.ui.services.action/doc/org_eclipse_gmf_runtime_common_ui_services_action_actionFilterProviders.html"/>
+			<include name="org.eclipse.gmf.runtime.common.ui.services.action/doc/org_eclipse_gmf_runtime_common_ui_services_action_contributionItemProviders.html"/>
+			<include name="org.eclipse.gmf.runtime.common.ui.services.action/doc/org_eclipse_gmf_runtime_common_ui_services_action_globalActionHandlerProviders.html"/>
 
-			<include name="org.eclipse.gmf.runtime.common.ui.services.dnd/doc/com_ibm_xtools_common_ui_services_dnd_dragDropListenerProviders.html"/>
-			<include name="org.eclipse.gmf.runtime.common.ui.services.dnd/doc/com_ibm_xtools_common_ui_services_dnd_transferAdapterProviders.html"/>
+			<include name="org.eclipse.gmf.runtime.common.ui.services.dnd/doc/org_eclipse_gmf_runtime_common_ui_services_dnd_dragDropListenerProviders.html"/>
+			<include name="org.eclipse.gmf.runtime.common.ui.services.dnd/doc/org_eclipse_gmf_runtime_common_ui_services_dnd_transferAdapterProviders.html"/>
 
-			<include name="org.eclipse.gmf.runtime.common.ui.services.properties/doc/com_ibm_xtools_common_ui_services_properties_propertiesProviders.html"/>
-			<include name="org.eclipse.gmf.runtime.common.ui.services.properties/doc/com_ibm_xtools_common_ui_services_properties_propertyModifiers.html"/>
+			<include name="org.eclipse.gmf.runtime.common.ui.services.properties/doc/org_eclipse_gmf_runtime_common_ui_services_properties_propertiesProviders.html"/>
+			<include name="org.eclipse.gmf.runtime.common.ui.services.properties/doc/org_eclipse_gmf_runtime_common_ui_services_properties_propertyModifiers.html"/>
 
-			<include name="org.eclipse.gmf.runtime.emf.core/doc/com_ibm_xtools_emf_msl_core_MetaModelProviders.html"/>
-			<include name="org.eclipse.gmf.runtime.emf.core/doc/com_ibm_xtools_emf_msl_core_Pathmaps.html"/>
-			<include name="org.eclipse.gmf.runtime.emf.core/doc/com_ibm_xtools_emf_msl_core_resourcePolicies.html"/>
-			<include name="org.eclipse.gmf.runtime.emf.core/doc/com_ibm_xtools_emf_msl_core_userModelSupport.html"/>
+			<include name="org.eclipse.gmf.runtime.emf.core/doc/org_eclipse_gmf_runtime_emf_core_MetaModelProviders.html"/>
+			<include name="org.eclipse.gmf.runtime.emf.core/doc/org_eclipse_gmf_runtime_emf_core_Pathmaps.html"/>
+			<include name="org.eclipse.gmf.runtime.emf.core/doc/org_eclipse_gmf_runtime_emf_core_resourcePolicies.html"/>
 			
-			<include name="org.eclipse.gmf.runtime.emf.ui/doc/com_ibm_xtools_emf_msl_ui_modelingAssistantProviders.html"/>
+			<include name="org.eclipse.gmf.runtime.emf.ui/doc/org_eclipse_gmf_runtime_emf_ui_modelingAssistantProviders.html"/>
 			
-			<include name="org.eclipse.gmf.runtime.emf.clipboard.core/doc/com_ibm_xtools_emf_clipboard_clipboardSupport.html"/>
+			<include name="org.eclipse.gmf.runtime.emf.clipboard.core/doc/org_eclipse_gmf_runtime_emf_clipboard_core_clipboardSupport.html"/>
 			
-			<include name="org.eclipse.gmf.runtime.emf.type.core/doc/com_ibm_xtools_emf_type_elementTypes.html"/>
+			<include name="org.eclipse.gmf.runtime.emf.type.core/doc/org_eclipse_gmf_runtime_emf_type_core_elementTypes.html"/>
 						
-			<include name="org.eclipse.emf.validation/doc/com_ibm_xtools_emf_validation_constraintBindings.html"/>			
-			<include name="org.eclipse.emf.validation/doc/com_ibm_xtools_emf_validation_constraintProviders.html"/>
-			<include name="org.eclipse.emf.validation/doc/com_ibm_xtools_emf_validation_constraintParsers.html"/>
-			<include name="org.eclipse.emf.validation/doc/com_ibm_xtools_emf_validation_traversal.html"/>
-			<include name="org.eclipse.emf.validation/doc/com_ibm_xtools_emf_validation_validationListeners.html"/>
+			<include name="org.eclipse.emf.validation/doc/org_eclipse_emf_validation_constraintBindings.html"/>			
+			<include name="org.eclipse.emf.validation/doc/org_eclipse_emf_validation_constraintProviders.html"/>
+			<include name="org.eclipse.emf.validation/doc/org_eclipse_emf_validation_constraintParsers.html"/>
+			<include name="org.eclipse.emf.validation/doc/org_eclipse_emf_validation_traversal.html"/>
+			<include name="org.eclipse.emf.validation/doc/org_eclipse_emf_validation_validationListeners.html"/>
 
 			<!-- START DIAGRAM LAYER SCHEMAS -->
 			<!-- When adding diagram layer extension points please also update the TOC: toc-diagram-ext-pt -->
-			<include name="org.eclipse.gmf.runtime.diagram.core/doc/com_ibm_xtools_diagram_viewProviders.html"/>
+			<include name="org.eclipse.gmf.runtime.diagram.core/doc/org_eclipse_gmf_runtime_diagram_core_viewProviders.html"/>
+			<include name="org.eclipse.gmf.runtime.diagram.core/doc/org_eclipse_gmf_runtime_diagram_core_semanticProviders.html"/>
 			
-			<include name="org.eclipse.gmf.runtime.diagram.ui/doc/com_ibm_xtools_diagram_ui_editpartProviders.html"/>
-			<include name="org.eclipse.gmf.runtime.diagram.ui/doc/com_ibm_xtools_diagram_ui_editpolicyProviders.html"/>
-			<include name="org.eclipse.gmf.runtime.diagram.ui/doc/com_ibm_xtools_diagram_ui_paletteProviders.html"/>
-			<include name="org.eclipse.gmf.runtime.diagram.ui/doc/com_ibm_xtools_diagram_ui_decoratorProviders.html"/>
-			<include name="org.eclipse.gmf.runtime.diagram.ui/doc/com_ibm_xtools_diagram_ui_layoutProviders.html"/>
+			<include name="org.eclipse.gmf.runtime.diagram.ui/doc/org_eclipse_gmf_runtime_diagram_ui_editpartProviders.html"/>
+			<include name="org.eclipse.gmf.runtime.diagram.ui/doc/org_eclipse_gmf_runtime_diagram_ui_editpolicyProviders.html"/>
+			<include name="org.eclipse.gmf.runtime.diagram.ui/doc/org_eclipse_gmf_runtime_diagram_ui_paletteProviders.html"/>
+			<include name="org.eclipse.gmf.runtime.diagram.ui/doc/org_eclipse_gmf_runtime_diagram_ui_decoratorProviders.html"/>
+			<include name="org.eclipse.gmf.runtime.diagram.ui/doc/org_eclipse_gmf_runtime_diagram_ui_layoutProviders.html"/>
 						
 			
 			
@@ -258,7 +258,6 @@
 		    	<packageset dir="../org.eclipse.gmf.runtime.emf.core/src"/>
 		    	<packageset dir="../org.eclipse.gmf.runtime.emf.ui/src"/>
 		    	<packageset dir="../org.eclipse.gmf.runtime.emf.ui.properties/src"/>
-		    	<packageset dir="../com.ibm.xtools.emf.msl.ocl/src"/>
 		    	<packageset dir="../org.eclipse.emf.ocl/src"/>
 		    	<packageset dir="../org.eclipse.emf.query/src"/>
 		    	<packageset dir="../org.eclipse.emf.query.ocl/src"/>
@@ -274,7 +273,7 @@
 				<group title="Common Core Packages" packages="org.eclipse.gmf.runtime.common.core*"/>
 				<group title="Common UI Packages" packages="org.eclipse.gmf.runtime.common.ui*"/>
 				<group title="Draw2D Packages" packages="com.ibm.xtools.draw2d*"/>
-				<group title="EMF Modeling Services Layer Packages" packages="com.ibm.xtools.emf.msl*"/>
+				<group title="EMF Modeling Services Layer Packages" packages="org.eclipse.gmf.runtime.emf*"/>
 				<group title="EMF Query Packages" packages="org.eclipse.emf.query*"/>
 				<group title="EMF OCL Packages" packages="org.eclipse.emf.ocl*"/>
 				<group title="EMF Clipboard Support Packages" packages="org.eclipse.gmf.runtime.emf.clipboard.core*"/>

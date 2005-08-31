@@ -3,30 +3,30 @@
 
 <toc label="Common Frameworks Layer" href="reference/extension-points/index.html#CommonFrameworkLayer">
 	<topic label="Common Frameworks Layer" href="reference/extension-points/index.html#CommonFrameworkLayer">
-		<topic label="org.eclipse.gmf.runtime.common.core.logListeners" href="reference/extension-points/com_ibm_xtools_common_core_logListeners.html" />
-		<topic label="org.eclipse.gmf.runtime.common.core.propertiesConfiguration" href="reference/extension-points/com_ibm_xtools_common_core_propertiesConfiguration.html" />
-		<topic label="org.eclipse.gmf.runtime.common.ui.services.editorProviders" href="reference/extension-points/com_ibm_xtools_common_ui_services_editorProviders.html" />
-		<topic label="org.eclipse.gmf.runtime.common.ui.services.iconProviders" href="reference/extension-points/com_ibm_xtools_common_ui_services_iconProviders.html" />
-		<topic label="org.eclipse.gmf.runtime.common.ui.services.markerNavigationProviders" href="reference/extension-points/com_ibm_xtools_common_ui_services_markerNavigationProviders.html" />
-		<topic label="org.eclipse.gmf.runtime.common.ui.services.parserProviders" href="reference/extension-points/com_ibm_xtools_common_ui_services_parserProviders.html" />
-		<topic label="org.eclipse.gmf.runtime.common.ui.services.action.actionFilterProviders" href="reference/extension-points/com_ibm_xtools_common_ui_services_action_actionFilterProviders.html" />
-		<topic label="org.eclipse.gmf.runtime.common.ui.services.action.contributionItemProviders" href="reference/extension-points/com_ibm_xtools_common_ui_services_action_contributionItemProviders.html" />
-		<topic label="org.eclipse.gmf.runtime.common.ui.services.action.globalActionHandlerProviders" href="reference/extension-points/com_ibm_xtools_common_ui_services_action_globalActionHandlerProviders.html" />
-		<topic label="org.eclipse.gmf.runtime.common.ui.services.dnd.dragDropListenerProviders" href="reference/extension-points/com_ibm_xtools_common_ui_services_dnd_dragDropListenerProviders.html" />
-		<topic label="org.eclipse.gmf.runtime.common.ui.services.dnd.transferAdapterProviders" href="reference/extension-points/com_ibm_xtools_common_ui_services_dnd_transferAdapterProviders.html" />
-		<topic label="org.eclipse.gmf.runtime.common.ui.services.properties.propertiesProviders" href="reference/extension-points/com_ibm_xtools_common_ui_services_properties_propertiesProviders.html" />
-		<topic label="org.eclipse.gmf.runtime.common.ui.services.properties.propertyModifiers" href="reference/extension-points/com_ibm_xtools_common_ui_services_properties_propertyModifiers.html" />
-		<topic label="org.eclipse.gmf.runtime.emf.core.MetaModelProviders" href="reference/extension-points/com_ibm_xtools_emf_msl_core_MetaModelProviders.html" />
-		<topic label="org.eclipse.gmf.runtime.emf.core.Pathmaps" href="reference/extension-points/com_ibm_xtools_emf_msl_core_Pathmaps.html" />
-		<topic label="org.eclipse.gmf.runtime.emf.core.resourcePolicies" href="reference/extension-points/com_ibm_xtools_emf_msl_core_resourcePolicies.html" />
-		<topic label="org.eclipse.gmf.runtime.emf.ui.modelingAssistantProviders" href="reference/extension-points/com_ibm_xtools_emf_msl_ui_modelingAssistantProviders.html" />
-		<topic label="org.eclipse.gmf.runtime.emf.clipboard.core.clipboardSupport" href="reference/extension-points/com_ibm_xtools_emf_clipboard_clipboardSupport.html" />
-		<topic label="org.eclipse.gmf.runtime.emf.type.core.elementTypes" href="reference/extension-points/com_ibm_xtools_emf_type_elementTypes.html" />
-		<topic label="org.eclipse.emf.validation.constraintBindings" href="reference/extension-points/com_ibm_xtools_emf_validation_constraintBindings.html" />
-		<topic label="org.eclipse.emf.validation.constraintProviders" href="reference/extension-points/com_ibm_xtools_emf_validation_constraintProviders.html" />
-		<topic label="org.eclipse.emf.validation.constraintParsers" href="reference/extension-points/com_ibm_xtools_emf_validation_constraintParsers.html" />
-		<topic label="org.eclipse.emf.validation.traversal" href="reference/extension-points/com_ibm_xtools_emf_validation_traversal.html" />
-		<topic label="org.eclipse.emf.validation.validationListeners" href="reference/extension-points/com_ibm_xtools_emf_validation_validationListeners.html" />
+		<topic label="org.eclipse.gmf.runtime.common.core.logListeners" href="reference/extension-points/org_eclipse_gmf_runtime_common_core_logListeners.html" />
+		<topic label="org.eclipse.gmf.runtime.common.core.propertiesConfiguration" href="reference/extension-points/org_eclipse_gmf_runtime_common_core_propertiesConfiguration.html" />
+		<topic label="org.eclipse.gmf.runtime.common.ui.services.editorProviders" href="reference/extension-points/org_eclipse_gmf_runtime_common_ui_services_editorProviders.html" />
+		<topic label="org.eclipse.gmf.runtime.common.ui.services.iconProviders" href="reference/extension-points/org_eclipse_gmf_runtime_common_ui_services_iconProviders.html" />
+		<topic label="org.eclipse.gmf.runtime.common.ui.services.markerNavigationProviders" href="reference/extension-points/org_eclipse_gmf_runtime_common_ui_services_markerNavigationProviders.html" />
+		<topic label="org.eclipse.gmf.runtime.common.ui.services.parserProviders" href="reference/extension-points/org_eclipse_gmf_runtime_common_ui_services_parserProviders.html" />
+		<topic label="org.eclipse.gmf.runtime.common.ui.services.action.actionFilterProviders" href="reference/extension-points/org_eclipse_gmf_runtime_common_ui_services_action_actionFilterProviders.html" />
+		<topic label="org.eclipse.gmf.runtime.common.ui.services.action.contributionItemProviders" href="reference/extension-points/org_eclipse_gmf_runtime_common_ui_services_action_contributionItemProviders.html" />
+		<topic label="org.eclipse.gmf.runtime.common.ui.services.action.globalActionHandlerProviders" href="reference/extension-points/org_eclipse_gmf_runtime_common_ui_services_action_globalActionHandlerProviders.html" />
+		<topic label="org.eclipse.gmf.runtime.common.ui.services.dnd.dragDropListenerProviders" href="reference/extension-points/org_eclipse_gmf_runtime_common_ui_services_dnd_dragDropListenerProviders.html" />
+		<topic label="org.eclipse.gmf.runtime.common.ui.services.dnd.transferAdapterProviders" href="reference/extension-points/org_eclipse_gmf_runtime_common_ui_services_dnd_transferAdapterProviders.html" />
+		<topic label="org.eclipse.gmf.runtime.common.ui.services.properties.propertiesProviders" href="reference/extension-points/org_eclipse_gmf_runtime_common_ui_services_properties_propertiesProviders.html" />
+		<topic label="org.eclipse.gmf.runtime.common.ui.services.properties.propertyModifiers" href="reference/extension-points/org_eclipse_gmf_runtime_common_ui_services_properties_propertyModifiers.html" />
+		<topic label="org.eclipse.gmf.runtime.emf.core.MetaModelProviders" href="reference/extension-points/org_eclipse_gmf_runtime_emf_core_MetaModelProviders.html" />
+		<topic label="org.eclipse.gmf.runtime.emf.core.Pathmaps" href="reference/extension-points/org_eclipse_gmf_runtime_emf_core_Pathmaps.html" />
+		<topic label="org.eclipse.gmf.runtime.emf.core.resourcePolicies" href="reference/extension-points/org_eclipse_gmf_runtime_emf_core_resourcePolicies.html" />
+		<topic label="org.eclipse.gmf.runtime.emf.ui.modelingAssistantProviders" href="reference/extension-points/org_eclipse_gmf_runtime_emf_ui_modelingAssistantProviders.html" />
+		<topic label="org.eclipse.gmf.runtime.emf.clipboard.core.clipboardSupport" href="reference/extension-points/org_eclipse_gmf_runtime_emf_clipboard_core_clipboardSupport.html" />
+		<topic label="org.eclipse.gmf.runtime.emf.type.core.elementTypes" href="reference/extension-points/org_eclipse_gmf_runtime_emf_type_elementTypes.html" />
+		<topic label="org.eclipse.emf.validation.constraintBindings" href="reference/extension-points/org_eclipse_emf_validation_constraintBindings.html" />
+		<topic label="org.eclipse.emf.validation.constraintProviders" href="reference/extension-points/org_eclipse_emf_validation_constraintProviders.html" />
+		<topic label="org.eclipse.emf.validation.constraintParsers" href="reference/extension-points/org_eclipse_emf_validation_constraintParsers.html" />
+		<topic label="org.eclipse.emf.validation.traversal" href="reference/extension-points/org_eclipse_emf_validation_traversal.html" />
+		<topic label="org.eclipse.emf.validation.validationListeners" href="reference/extension-points/org_eclipse_emf_validation_validationListeners.html" />
 
 	</topic>
 </toc>
