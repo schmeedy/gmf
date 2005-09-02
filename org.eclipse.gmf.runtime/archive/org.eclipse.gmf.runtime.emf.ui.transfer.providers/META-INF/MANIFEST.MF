@@ -2,10 +2,10 @@ Manifest-Version: 1.0
 Bundle-SymbolicName: org.eclipse.gmf.runtime.emf.ui.transfer.providers;singleton=true
 Bundle-Vendor: %Fragment.providerName
 Bundle-Name: %Fragment.name
-Bundle-Version: 7.0.0
+Bundle-Version: 1.0.0
 Bundle-Localization: ecoreTransferProviderFragment
 Bundle-ClassPath: emfdndprovider.jar
-Fragment-Host: org.eclipse.gmf.runtime.common.core.provider;bundle-version="7.0.0"
+Fragment-Host: org.eclipse.gmf.runtime.common.core.provider;bundle-version="1.0.0"
 Require-Bundle: org.eclipse.emf.edit.ui,
  org.eclipse.gmf.runtime.common.ui.services.dnd
 Provide-Package: org.eclipse.gmf.runtime.emf.ui.transfer.providers.internal
