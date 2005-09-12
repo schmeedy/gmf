@@ -74,7 +74,11 @@ public class SanityTestCase
 		EObject f1 = EObjectUtil.create(p1, UML2Package.eINSTANCE
 			.getPackage_OwnedMember(), UML2Package.eINSTANCE.getInterface());
 
-		assertEquals(EObjectUtil.getName(f1), "Interface1"); //$NON-NLS-1$
+		assertNotNull(f1);
+		
+		// This has been commented out because we cannot assume that there are
+		//  any semantic procedures at this layer. ChrisM
+		//assertEquals(EObjectUtil.getName(f1), "Interface1"); //$NON-NLS-1$
 
 		try {
 			OperationUtil.completeAndValidate();

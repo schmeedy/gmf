@@ -138,11 +138,13 @@ public class EObjectHelperTestCase
 					OperationUtil.runAsWrite(new Runnable() {
 
 						public void run() {
+							assertEquals(class1,generalization.getGeneral());
+							
 							/* Delete first model's class */
 							eObjectHelper.destroy(class1);
 
-							/* Make sure Generalization object is gone */
-							assertTrue(class2.getGeneralizations().size() == 0);
+							/* Make sure the generalization no longer points to class1 */
+							assertNull(generalization.getGeneral());
 						}
 					});
 				} catch (MSLActionAbandonedException e) {
