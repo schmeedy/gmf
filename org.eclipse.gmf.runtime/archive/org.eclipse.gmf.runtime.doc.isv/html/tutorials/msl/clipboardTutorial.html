@@ -544,9 +544,9 @@ of an EObject of a particular EClass and whether to copy the contents of an ERef
 The reason for the first piece of information is made clear in the RMP library metamodel because
 although the Writer and Library EClasses has a "name" EAttribute, the Book has a "title" EAttribute.
 In cases where a paste will cause a collision with another EObject of the same EClass, the
-<a href="../../../reference/api/common/com/ibm/xtools/emf/clipboard/IClipboardSupport.html#getPasteCollisionAction(org.eclipse.emf.ecore.EClass)">getPasteCollisionAction()</a> method will dictate whether the EObjects should be merged,
+<a href="../../reference/api/common/org/eclipse/gmf/runtime/emf/clipboard/core/IClipboardSupport.html#getPasteCollisionAction(org.eclipse.emf.ecore.EClass)">getPasteCollisionAction()</a> method will dictate whether the EObjects should be merged,
 added, cloned, replaced and other possible actions (see the PasteAction class). The final piece of
-information provided by the <a href="../../../reference/api/common/com/ibm/xtools/emf/clipboard/IClipboardSupport.html#isCopyAlways(org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EReference, java.lang.Object)">isCopyAlways()</a> method will provide information regarding which
+information provided by the <a href="../../reference/api/common/org/eclipse/gmf/runtime/emf/clipboard/core/IClipboardSupport.html#isCopyAlways(org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EReference, java.lang.Object)">isCopyAlways()</a> method will provide information regarding which
 EReferences should be copied along with the EObject. In our case, we request that the author's books
 be copied along with the author. The AbstractClipboardSupport class provides a default implementation
 that specifies that all containment EReferences should be copied while all derived or transient EReferences

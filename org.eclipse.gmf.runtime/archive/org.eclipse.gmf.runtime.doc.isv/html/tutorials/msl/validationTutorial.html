@@ -431,9 +431,9 @@ on a group of EObjects or Notifications.
 class=GramE>back</span> to top</a>]</span></p>
 
 <p>
-A model constraint is written as a subclass of the <a href="../../../reference/api/common/com/ibm/xtools/emf/validation/AbstractModelConstraint.html">AbstractModelConstraint</a> that overrides
-the <a href="../../../reference/api/common/com/ibm/xtools/emf/validation/AbstractModelConstraint.html#validate(org.eclipse.emf.validation.IValidationContext)">validate()</a> method. The validate method has the task of taking the input from the validation
-context and returning either a <a href="../../../reference/api/common/com/ibm/xtools/emf/validation/IValidationContext.html#createSuccessStatus()">ctx.createSuccessStatus()</a> or <a href="../../../reference/api/common/com/ibm/xtools/emf/validation/IValidationContext.html#createFailureStatus(java.lang.Object[])">ctx.createFailureStatus().</a>
+A model constraint is written as a subclass of the <a href="../../reference/api/common/org/eclipse/emf/validation/AbstractModelConstraint.html">AbstractModelConstraint</a> that overrides
+the <a href="../../reference/api/common/org/eclipse/emf/validation/AbstractModelConstraint.html#validate(org.eclipse.emf.validation.IValidationContext)">validate()</a> method. The validate method has the task of taking the input from the validation
+context and returning either a <a href="../../reference/api/common/org/eclipse/emf/validation/IValidationContext.html#createSuccessStatus()">ctx.createSuccessStatus()</a> or <a href="../../reference/api/common/org/eclipse/emf/validation/IValidationContext.html#createFailureStatus(java.lang.Object[])">ctx.createFailureStatus().</a>
 </p>
 <p>
 Our batch constraint takes the following form:
@@ -470,9 +470,9 @@ public class NonEmptyNamesConstraint
 </pre>
 
 <p>
-The target EObject is retrieved from the <a href="../../../reference/api/common/com/ibm/xtools/emf/validation/IValidationContext.html">IValidationContext</a> by calling the <a href="../../../reference/api/common/com/ibm/xtools/emf/validation/IValidationContext.html#getTarget()">getTarget()</a>
-method. In order to rule out live validation cases, we check to ensure that the <a href="../../../reference/api/common/com/ibm/xtools/emf/validation/IValidationContext.html#getEventType()">getEventType()</a>
-is <a href="../../../reference/api/common/com/ibm/xtools/emf/validation/EMFEventType.html#NULL">EMFEventType.NULL.</a> If our constraint provider extension is written correctly, we should
+The target EObject is retrieved from the <a href="../../reference/api/common/org/eclipse/emf/validation/IValidationContext.html">IValidationContext</a> by calling the <a href="../../reference/api/common/org/eclipse/emf/validation/IValidationContext.html#getTarget()">getTarget()</a>
+method. In order to rule out live validation cases, we check to ensure that the <a href="../../reference/api/common/org/eclipse/emf/validation/IValidationContext.html#getEventType()">getEventType()</a>
+is <a href="../../reference/api/common/org/eclipse/emf/validation/EMFEventType.html#NULL">EMFEventType.NULL.</a> If our constraint provider extension is written correctly, we should
 never be called to perform a live validation.
 </p>
 <p>
@@ -612,10 +612,10 @@ in the next section:
 //            as long as this resource is somehow unique to this application
 //           -Check the identity of the resource set to ensure that it is some
 //            private object
-//           -Check the identify of the EObject itself to see if it belongs to
+//           -Check the identity of the EObject itself to see if it belongs to
 //            some private collection
 //           -Check the EClass of the EObject but only if the metamodel is private
-//            this application and will not be used by other contexts
+//            to this application and will not be used by other contexts
 public class ValidationDelegateClientSelector
 	implements IClientSelector {
 
@@ -786,7 +786,7 @@ of the identification feature to ensure that it is not null nor empty.
 <p>
 The extension has changed in a few key places. We have modified its mode to be &quot;Live.&quot; This
 constraint will still get called by the validation service for batch validation because we called
-<a href="../../../reference/api/common/com/ibm/xtools/emf/validation/service/IBatchValidator.html#setIncludeLiveConstraints(boolean)">validator.setIncludeLiveConstraints(true);</a> when we perform batch validation in the case
+<a href="../../reference/api/common/org/eclipse/emf/validation/service/IBatchValidator.html#setIncludeLiveConstraints(boolean)">validator.setIncludeLiveConstraints(true);</a> when we perform batch validation in the case
 above (see Executing Batch Validation). We have augmented each of the target nodes to include specific
 notification events and structural features for each EClass. The validation service will only call our
 constraint if the notification matches the EClass, EStructuralFeature and event type we have specified.

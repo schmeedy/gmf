@@ -107,7 +107,7 @@ Other references:
 The first responsibility of the OCL interpreter is to parse OCL expressions.
 This capability by itself allows us to validate the well-formedness of OCL text.
 We do this by creating a
-<code><a href="../../../reference/api/common/com/ibm/xtools/emf/ocl/query/Query.html">Query</a></code>
+<code><a href="../../reference/api/common/org/eclipse/emf/ocl/query/Query.html">Query</a></code>
 instance which automatically validates itself when it is constructed:
 </p>
 <pre class="snippet">
@@ -145,17 +145,17 @@ reasons why it would fail to parse (in which case an
 <p>
 More interesting than validating an OCL expression is evaluating it on some
 object.  The
-<code><a href="../../../reference/api/common/com/ibm/xtools/emf/ocl/query/Query.html">Query</a></code>
+<code><a href="../../reference/api/common/org/eclipse/emf/ocl/query/Query.html">Query</a></code>
 interface provides two methods for evaluating expressions:
 </p>
 <ul>
-  <li><code><a href="../../../reference/api/common/com/ibm/xtools/emf/ocl/query/Query.html#evaluate(org.eclipse.emf.ecore.EObject)">evaluate(EObject eobj)</a></code>:
+  <li><code><a href="../../reference/api/common/org/eclipse/emf/ocl/query/Query.html#evaluate(org.eclipse.emf.ecore.EObject)">evaluate(EObject eobj)</a></code>:
       evaluates the expression on the specified object, returning the result.
       The caller is expected to know the result type, which could be a
       primitive, <code>EObject</code>, or a collection.  There are variants
       of this method for evaluation of the query on multiple objects and on
       no object at all (for queries that require no "self" context).</li>
-  <li><code><a href="../../../reference/api/common/com/ibm/xtools/emf/ocl/query/Query.html#check(org.eclipse.emf.ecore.EObject)">check(EObject eobj)</a></code>:
+  <li><code><a href="../../reference/api/common/org/eclipse/emf/ocl/query/Query.html#check(org.eclipse.emf.ecore.EObject)">check(EObject eobj)</a></code>:
       This method evaluates a special kind of OCL expression called a
       <i>constraint</i>.  Constraints are distinguished from other OCL queries
       by having a boolean value; thus, they can be used to implement invariant
@@ -166,7 +166,7 @@ interface provides two methods for evaluating expressions:
 <p>
 In order to support the <code>allInstances()</code> operation on OCL types,
 the <code>Query</code> API provides the
-<code><a href="../../../reference/api/common/com/ibm/xtools/emf/ocl/query/Query.html#setExtentMap(java.util.Map)">setExtentMap(Map extentMap)</a></code>
+<code><a href="../../reference/api/common/org/eclipse/emf/ocl/query/Query.html#setExtentMap(java.util.Map)">setExtentMap(Map extentMap)</a></code>
 method.  This assigns a mapping of <code>EClass</code>es to the sets of
 their instances.  We will use this in evaluating a query expression that finds
 books that have the same title as a designated book:
@@ -230,7 +230,7 @@ The RMP OCL Interpreter models the OCL language using EMF.  Thus, the AST that
 results from parsing text is actually an EMF model in its own right.
 </p><p>
 By implementing the 
-<code><a href="../../../reference/api/common/com/ibm/xtools/emf/ocl/expressions/Visitor.html">Visitor</a></code>
+<code><a href="../../reference/api/common/org/eclipse/emf/ocl/expressions/Visitor.html">Visitor</a></code>
 interface, we can walk the AST of an OCL expression to transform it in some way.
 This is exactly what the interpreter, itself, does when evaluating an
 expression:  it just walks the expression using an evaluation visitor.  For

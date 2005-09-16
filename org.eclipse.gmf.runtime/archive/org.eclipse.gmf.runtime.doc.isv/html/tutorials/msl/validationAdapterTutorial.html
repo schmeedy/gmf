@@ -76,7 +76,7 @@ Other references:
       in this tutorial, install the
       <a href="../../examples-guide/msl/exampleOverview.html">RMP Library Metamodel</a>
       example which provides a generated editor.</li>
-  <li><a href="../../../reference/api/common/com/ibm/xtools/emf/validation/service/ModelValidationService.html">ModelValidationService</a> API</li>
+  <li><a href="../../reference/api/common/org/eclipse/emf/validation/service/ModelValidationService.html">ModelValidationService</a> API</li>
   <li><a href="/help/topic/org.eclipse.emf.doc/references/javadoc/org/eclipse/emf/ecore/EValidator.html">EValidator</a> API</li>
 </ul>
 
@@ -135,7 +135,7 @@ public class EValidatorAdapter
 </pre>
 <p>
 The snippet above shows how we use the
-<code><a href="../../../reference/api/common/com/ibm/xtools/emf/validation/service/ModelValidationService.html">ModelValidationService</a></code>
+<code><a href="../../reference/api/common/org/eclipse/emf/validation/service/ModelValidationService.html">ModelValidationService</a></code>
 to create a validator object to perform batch (user-triggered) validation.  We
 want to include any constraints that also run in live mode, and are not
 interested in receiving informational statuses indicating which constraints
@@ -144,7 +144,7 @@ pass.
 <p>
 First, we perform the superclass's validation (whatever that might be), then
 delegate to our
-<code><a href="../../../reference/api/common/com/ibm/xtools/emf/validation/service/IBatchValidator.html">IBatchValidator</a></code>
+<code><a href="../../reference/api/common/org/eclipse/emf/validation/service/IBatchValidator.html">IBatchValidator</a></code>
 instance to evaluate constraints contributed to the RMP EMF Validation Framework
 and convert the results to EMF
 <code><a href="/help/topic/org.eclipse.emf.doc/references/javadoc/org/eclipse/emf/common/util/Diagnostic.html">Diagnostic</a></code>s:
@@ -210,7 +210,7 @@ containers, using the <code>context</code> map provided by the diagnostician:
 </pre>
 <p>
 Finally, we need to convert the <code>IStatus</code> objects reported by the
-<code><a href="../../../reference/api/common/com/ibm/xtools/emf/validation/service/IBatchValidator.html">IBatchValidator</a></code>
+<code><a href="../../reference/api/common/org/eclipse/emf/validation/service/IBatchValidator.html">IBatchValidator</a></code>
 to represent constraint violations to
 <code><a href="/help/topic/org.eclipse.emf.doc/references/javadoc/org/eclipse/emf/common/util/Diagnostic.html">Diagnostic</a></code>s:
 </p>

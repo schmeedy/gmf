@@ -88,7 +88,7 @@ that can contain <code>Writers</code> as well as books.
 <p class="backto"><font size="-1">[<a href="#top">back to top</a>]</font></p>
 
 <p>
-An <a href="../../../reference/api/common/com/ibm/xtools/emf/msl/core/edit/MEditingDomain.html">MEditingDomain</a> is the entry point to any usage of the MSL. An editing domain
+An <a href="../../reference/api/common/org/eclipse/gmf/runtime/emf/core/edit/MEditingDomain.html">MEditingDomain</a> is the entry point to any usage of the MSL. An editing domain
 provides an EMF resource set, which contains all of the EObjects that are going to be
 managed using the MSL.
 <p>
@@ -99,7 +99,7 @@ editingDomain = MEditingDomain.createNewDomain();
 </pre>
 
 <p>It is suggested that any resource that is contained within
-an MSL resource set be an instance provided by the <a href="../../../reference/api/common/com/ibm/xtools/emf/msl/core/resources/MResourceFactory.html">MResourceFactory</a>. Therefore,
+an MSL resource set be an instance provided by the <a href="../../reference/api/common/org/eclipse/gmf/runtime/emf/core/resources/MResourceFactory.html">MResourceFactory</a>. Therefore,
 we must associate our file extensions(.rmplibrary) with the MResourceFactory in a extension 
 parser plugin extension:
 </p>
@@ -209,7 +209,7 @@ editingDomain.saveResource(r1);
 
 <p>
 The MSL's default resource implementation conforms to the
-<a href="../../../reference/api/common/com/ibm/xtools/emf/msl/core/resources/ILogicalResource.html"><code>ILogicalResource</code></a>
+<a href="../../reference/api/common/org/eclipse/gmf/runtime/emf/core/resources/ILogicalResource.html"><code>ILogicalResource</code></a>
 interface.  This resource creates an in-memory logical view of an EMF tree
 (or forest) structure that is persisted in multiple physical resources, all of
 which are XMI-compliant.  The central concept in the logical-to-physical mapping
@@ -293,7 +293,7 @@ default, any element of any EMF metamodel can be separated, unless it is a
 root of the logical resource or has already been separated.  However, a metamodel
 provider or an application may for some reason want to restrict the elements
 that may be separated.  This is accomplished by registering a policy on the
-<a href="../../reference/extension-points/com_ibm_xtools_emf_msl_core_resourcePolicies.html"><code>org.eclipse.gmf.runtime.emf.core.resourcePolicies</code></a>
+<a href="../../reference/extension-points/org_eclipse_gmf_runtime_emf_core_resourcePolicies.html"><code>org.eclipse.gmf.runtime.emf.core.resourcePolicies</code></a>
 extension point:
 </p>
 <pre class="snippet">
@@ -306,7 +306,7 @@ extension point:
 </pre>
 <p>
 The policy implements the
-<a href="../../../reference/api/common/com/ibm/xtools/emf/msl/core/resources/ILogicalResourcePolicy.html"><code>ILogicalResourcePolicy</code></a>
+<a href="../../reference/api/common/org/eclipse/gmf/runtime/emf/core/resources/ILogicalResourcePolicy.html"><code>ILogicalResourcePolicy</code></a>
 interface, usually by extending the <code>AbstractLogicalResourcePolicy</code>
 class.  Our example allows only libraries to be separated:
 </p>
@@ -425,7 +425,7 @@ common types of notification occurrences.
 
 <p>
 As mentioned above, the EMF validation framework forms an integral part of the action protocol
-of MSL. Whenever a write action is opened, the client must catch an <a href="../../../reference/api/common/com/ibm/xtools/emf/msl/core/exceptions/MSLActionAbandonedException.html">MSLActionAbandonedException</a>
+of MSL. Whenever a write action is opened, the client must catch an <a href="../../reference/api/common/org/eclipse/gmf/runtime/emf/core/exceptions/MSLActionAbandonedException.html">MSLActionAbandonedException</a>
 in case the modifications violated a live validation constraint. In this case, all modifications in
 the write action are undone. In order to contribute live validation constraints, read the tutorial
 on <a href="validationTutorial.html">EMF Validation.</a> The MSL does not explicitly define its
