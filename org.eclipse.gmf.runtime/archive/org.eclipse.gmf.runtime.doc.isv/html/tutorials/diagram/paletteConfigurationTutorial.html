@@ -1,0 +1,666 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns:st1="urn:schemas-microsoft-com:office:smarttags"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=iso-8859-1">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 10">
+<meta name=Originator content="Microsoft Word 10">
+<link rel=Edit-Time-Data href="Tutorial_files/editdata.mso">
+<title>Tutorial: &amp;lt;&amp;lt;Feature Name&amp;gt;&amp;gt;</title>
+<o:SmartTagType namespaceuri="urn:schemas-microsoft-com:office:smarttags"
+ name="City"/>
+<o:SmartTagType namespaceuri="urn:schemas-microsoft-com:office:smarttags"
+ name="place"/>
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>jcorchis</o:Author>
+  <o:LastAuthor>jcorchis</o:LastAuthor>
+  <o:Revision>7</o:Revision>
+  <o:TotalTime>111</o:TotalTime>
+  <o:Created>2005-04-21T14:33:00Z</o:Created>
+  <o:LastSaved>2005-04-21T18:18:00Z</o:LastSaved>
+  <o:Pages>1</o:Pages>
+  <o:Words>636</o:Words>
+  <o:Characters>3627</o:Characters>
+  <o:Company>Rational Software</o:Company>
+  <o:Lines>30</o:Lines>
+  <o:Paragraphs>8</o:Paragraphs>
+  <o:CharactersWithSpaces>4255</o:CharactersWithSpaces>
+  <o:Version>10.6735</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:SpellingState>Clean</w:SpellingState>
+  <w:GrammarState>Clean</w:GrammarState>
+  <w:BrowserLevel>MicrosoftInternetExplorer4</w:BrowserLevel>
+ </w:WordDocument>
+</xml><![endif]-->
+<link rel=Stylesheet type="text/css" media=all href=technote.css>
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:Wingdings;
+	panose-1:5 0 0 0 0 0 0 0 0 0;
+	mso-font-charset:2;
+	mso-generic-font-family:auto;
+	mso-font-pitch:variable;
+	mso-font-signature:0 268435456 0 0 -2147483648 0;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-parent:"";
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+h1
+	{mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:1;
+	font-size:24.0pt;
+	font-family:"Times New Roman";
+	font-weight:bold;}
+h2
+	{mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:2;
+	font-size:18.0pt;
+	font-family:"Times New Roman";
+	font-weight:bold;}
+h3
+	{mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:3;
+	font-size:13.5pt;
+	font-style:italic;}
+a:link, span.MsoHyperlink
+	{color:blue;
+	text-decoration:underline;
+	text-underline:single;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:blue;
+	text-decoration:underline;
+	text-underline:single;}
+p
+	{mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+code
+	{font-family:"Courier New";
+	mso-ascii-font-family:"Courier New";
+	mso-fareast-font-family:"Times New Roman";
+	mso-hansi-font-family:"Courier New";
+	mso-bidi-font-family:"Courier New";}
+pre
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:24.0pt;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt;
+	font-size:10.0pt;
+	font-family:"Courier New";
+	mso-fareast-font-family:"Times New Roman";}
+p.notabene, li.notabene, div.notabene
+	{mso-style-name:notabene;
+	mso-margin-top-alt:auto;
+	margin-right:48.0pt;
+	mso-margin-bottom-alt:auto;
+	margin-left:48.0pt;
+	mso-pagination:widow-orphan;
+	border:none;
+	mso-border-top-alt:solid windowtext .75pt;
+	mso-border-bottom-alt:solid windowtext .75pt;
+	padding:0in;
+	mso-padding-alt:4.0pt 0in 4.0pt 0in;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+p.question, li.question, div.question
+	{mso-style-name:question;
+	mso-margin-top-alt:auto;
+	margin-right:48.0pt;
+	mso-margin-bottom-alt:auto;
+	margin-left:48.0pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";
+	font-style:italic;}
+p.backto, li.backto, div.backto
+	{mso-style-name:backto;
+	mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+span.SpellE
+	{mso-style-name:"";
+	mso-spl-e:yes;}
+span.GramE
+	{mso-style-name:"";
+	mso-gram-e:yes;}
+@page Section1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.25in 1.0in 1.25in;
+	mso-header-margin:35.4pt;
+	mso-footer-margin:35.4pt;
+	mso-paper-source:0;}
+div.Section1
+	{page:Section1;}
+ /* List Definitions */
+ @list l0
+	{mso-list-id:1754820217;
+	mso-list-template-ids:-806848416;}
+@list l0:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+ol
+	{margin-bottom:0in;}
+ul
+	{margin-bottom:0in;}
+-->
+</style>
+<!--[if gte mso 10]>
+<style>
+ /* Style Definitions */
+ table.MsoNormalTable
+	{mso-style-name:"Table Normal";
+	mso-tstyle-rowband-size:0;
+	mso-tstyle-colband-size:0;
+	mso-style-noshow:yes;
+	mso-style-parent:"";
+	mso-padding-alt:0in 5.4pt 0in 5.4pt;
+	mso-para-margin:0in;
+	mso-para-margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;}
+</style>
+<![endif]-->
+</head>
+
+<body lang=EN-US link=blue vlink=blue style='tab-interval:.5in'>
+
+<div class=Section1>
+
+<p class=MsoNormal><a name=top></a>
+<img border="0" src="..\logo.gif" width="629" height="192"></p>
+
+<h1 align=center style='text-align:center'>Tutorial: Configuring and Extending 
+the Diagram Palette</h1>
+
+<table class=MsoNormalTable border=0 cellspacing=8 cellpadding=0
+ style='mso-cellspacing:6.0pt;margin-left:24.0pt'>
+ <tr style='mso-yfti-irow:0;mso-yfti-lastrow:yes'>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>Version: 0.1</p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>Date: September 13, 2005</p>
+  </td>
+ </tr>
+</table>
+
+<h2>Contents</h2>
+<ul>
+	<li><a
+href="#_Overview">Overview</a></li>
+	<li><a
+href="#_References">References</a></li>
+	<li><a
+href="#_Introduction">Introduction</a></li>
+	<li><a href="#_PaletteProviderExtension">Adding a Palette Provider Extension</a></li>
+	<li><a href="#_PaletteProviderFactoryClass">Creating and Registering the 
+	Palette Provider and Factory Classes</a></li>
+	<li><a href="#_PaletteDrawer">Creating a Palette Drawer</a></li>
+	<li><a href="#_PaletteStack">Creating a Palette Stack</a></li>
+	<li><a href="#_PaletteTool">Creating a Palette Tool</a></li>
+	<li><a href="#_AddToExisting">Adding a Palette Tool/Stack to an 
+	Existing Drawer or Stack</a></li>
+	<li><a href="#_Summary">Summary</a></li>
+</ul>
+<div class=MsoNormal align=center style='text-align:center'>
+
+&nbsp;<hr size=2 width="100%" align=center></div>
+
+<h2><a name="_Overview"></a>Overview</h2>
+
+<p class=backto><span style='font-size:10.0pt'>[<a href="#top"><span
+class=GramE>back</span> to top</a>]</span></p>
+
+<p>The palette is a UI control that displays a set of tools to be used in 
+conjunction with the active diagram editor. The tools may be used for selection, 
+object creation or any other action to be performed on the active diagram. This 
+tutorial provides the reader with a guide for configuration of palette 
+drawers, tools and stacks.</p>
+
+<h2><a name="_References"></a>References</h2>
+
+<p class=backto><span style='font-size:10.0pt'>[<a href="#top"><span
+class=GramE>back</span> to top</a>]</span></p>
+
+This tutorial references the following extension point:<BR>
+<BR><DIV
+	style="border:solid windowtext 1.0pt;mso-border-alt:solid windowtext .75pt;
+padding:4.0pt 4.0pt 4.0pt 4.0pt;margin-left:48.0pt;margin-right:24.0pt"><PRE
+	style="margin-left:0in;border:none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 4.0pt 4.0pt 4.0pt">org.eclipse.gmf.runtime.diagram.ui.paletteProviders</PRE></DIV>
+
+<p>More information about this extension points can be found in the palette 
+provider's schema <a href="../../reference/extension-points/org_eclipse_gmf_runtime_diagram_ui_paletteProviders.html">documentation</a>.</p>
+
+<h2><a name="_Introduction"></a>Introduction</h2>
+
+<p class=backto><span style='font-size:10.0pt'>[<a href="#top"><span
+class=GramE>back</span> to top</a>]</span></p>
+
+<p>In this tutorial, we will use the Logic Diagram Example to illustrate how to 
+configure the palette diagram for a logic diagram. To gain familiarity with the 
+Logic Diagram Example, refer to the <A
+	href="../../examples-guide/RMP Diagram Layer Logic Example Guide.htm">RMP 
+Diagram Layer Logic Example Guide</A>. </p>
+
+<p>&nbsp;</p>
+
+<H2><a name="_PaletteProviderExtension"></a>Adding a Palette Provider Extension</H2>
+
+<P class="backto"><SPAN style="font-size:10.0pt">[<A href="#top" style="color: blue; text-decoration: underline; text-underline: single"><SPAN
+	class="GramE">back</SPAN> to top</A>]</SPAN></P>
+
+Add an extension to register the palette drawer, stack and tools. The governing 
+extension point for palette contribution is:<pre style="mso-border-alt: solid windowtext .75pt; mso-padding-alt: 4.0pt 4.0pt 4.0pt 4.0pt; tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt; font-size: 10.0pt; font-family: Courier New; border: medium none; margin-left: 0in; margin-right: 0in; margin-top: 0in; margin-bottom: .0001pt; padding: 0in">
+</pre>
+<div style="border:solid windowtext 1.0pt;mso-border-alt:solid windowtext .75pt;
+padding:4.0pt 4.0pt 4.0pt 4.0pt;margin-left:48.0pt;margin-right:24.0pt">
+	<PRE
+	style="margin-left:0in;border:medium none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 4.0pt 4.0pt 4.0pt; tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt; font-size:10.0pt; font-family:Courier New; margin-right:0in; margin-top:0in; margin-bottom:.0001pt">org.eclipse.gmf.runtime.diagram.ui.paletteProviders</PRE>
+</div>
+<p>Please refer to the org.eclipse.gmf.runtime.diagram.ui.paletteProviders 
+extension point <a href="../../reference/extension-points/org_eclipse_gmf_runtime_diagram_ui_paletteProviders.html">documentation</a> for specific information on the tags and 
+attributes to use. The full extension XML can be found in 
+org.eclipse.gmf.examples.runtime.diagram.logic/plugin.xml.<BR>
+</p>
+<DIV
+	style="border:solid windowtext 1.0pt;mso-border-alt:solid windowtext .75pt;
+padding:4.0pt 4.0pt 4.0pt 4.0pt;margin-left:48.0pt;margin-right:24.0pt">
+	<PRE
+	style="margin-left:0in;border:medium none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 4.0pt 4.0pt 4.0pt; tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt; font-size:10.0pt; font-family:Courier New; margin-right:0in; margin-top:0in; margin-bottom:.0001pt"><span class="GramE"><span style="color: #000080">&lt;!-- Palette Provider --&gt;
+<b>&lt;extension
+  id=&quot;presentationPaletteProvider&quot;
+  name=&quot;%ext.presentationPaletteProvider&quot;
+  point=&quot;org.eclipse.gmf.runtime.diagram.ui.paletteProviders&quot;&gt;
+</b></span></span></PRE>
+	<PRE
+	style="margin-left:0in;border:medium none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 4.0pt 4.0pt 4.0pt; tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt; font-size:10.0pt; font-family:Courier New; margin-right:0in; margin-top:0in; margin-bottom:.0001pt"><span class="GramE"><span style="color: #000080">  ...</span></span></PRE>
+	<PRE
+	style="margin-left:0in;border:medium none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 4.0pt 4.0pt 4.0pt; tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt; font-size:10.0pt; font-family:Courier New; margin-right:0in; margin-top:0in; margin-bottom:.0001pt"><span class="GramE"><span style="color: #000080">
+&lt;/extension&gt;</span></span></PRE></DIV>
+
+<p>The contribution given above will result in the following Logic Designer 
+palette drawer, stack and tools:</p>
+<p>
+<img border="0" src="logicDesignerPaletteDrawer.jpg" width="129" height="216">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<img border="0" src="logicDesignerPaletteStack.jpg" width="131" height="270"></p>
+<H2>&nbsp;</H2>
+<H2><a name="_PaletteProviderFactoryClass"></a>Creating and Registering the 
+Palette Provider and 
+Factory Classes</H2>
+
+<P class="backto"><SPAN style="font-size:10.0pt">[<A href="#top" style="color: blue; text-decoration: underline; text-underline: single"><SPAN
+	class="GramE">back</SPAN> to top</A>]</SPAN></P>
+
+<p>The palette provider class reads the XML palette contributions from the 
+provider's extension point and contributes them to an editor's palette based on 
+the contribution criteria.</p>
+<p>The factory contribution is explained
+<a href="#_PaletteFactoryClassExplanation">below</a> along with an excerpt from
+<a href="#_LogicPaletteFactory">LogicPaletteFactory</a>.<BR>
+</p>
+<DIV
+	style="border:solid windowtext 1.0pt;mso-border-alt:solid windowtext .75pt;
+padding:4.0pt 4.0pt 4.0pt 4.0pt;margin-left:48.0pt;margin-right:24.0pt">
+	<PRE
+	style="margin-left:0in;border:medium none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 4.0pt 4.0pt 4.0pt; tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt; font-size:10.0pt; font-family:Courier New; margin-right:0in; margin-top:0in; margin-bottom:.0001pt"><span class="GramE"><span style="color: #000080">&lt;!-- Palette Provider --&gt;
+&lt;extension
+  ...
+</span></span></PRE>
+	<PRE
+	style="margin-left:0in;border:medium none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 4.0pt 4.0pt 4.0pt; tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt; font-size:10.0pt; font-family:Courier New; margin-right:0in; margin-top:0in; margin-bottom:.0001pt"><span class="GramE"><span style="color: #000080">  <b>&lt;paletteProvider </b></span><b><font color="#0000FF">class=&quot;org.eclipse.gmf.runtime.diagram.ui.providers.internal.DefaultPaletteProvider&quot;</font></b><span style="color: #000080"><b>&gt;</b>
+  &lt;Priority name=&quot;Low&quot;&gt;
+  &lt;/Priority&gt;
+  &lt;editor id=&quot;LogicEditor&quot;&gt;
+  &lt;/editor&gt;
+  <b>&lt;contribution </b></span></span></PRE>
+	<PRE
+	style="margin-left:0in;border:medium none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 4.0pt 4.0pt 4.0pt; tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt; font-size:10.0pt; font-family:Courier New; margin-right:0in; margin-top:0in; margin-bottom:.0001pt"><span class="GramE"><span style="color: #000080"><b>    </span><font color="#0000FF">factoryClass=&quot;org.eclipse.gmf.examples.runtime.diagram.logic.internal.providers.LogicPaletteFactory&quot;</font><span style="color: #000080">&gt;</span></b><span style="color: #000080">
+</span></span></PRE>
+	<PRE
+	style="margin-left:0in;border:medium none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 4.0pt 4.0pt 4.0pt; tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt; font-size:10.0pt; font-family:Courier New; margin-right:0in; margin-top:0in; margin-bottom:.0001pt"><span class="GramE"><span style="color: #000080">   ...</span></span></PRE>
+	<PRE
+	style="margin-left:0in;border:medium none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 4.0pt 4.0pt 4.0pt; tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt; font-size:10.0pt; font-family:Courier New; margin-right:0in; margin-top:0in; margin-bottom:.0001pt"><span class="GramE"><span style="color: #000080">
+&lt;/extension&gt;</span></span></PRE></DIV>
+
+
+<P class="backto"><font size="3"><a name="_PaletteFactoryClassExplanation"></a>The contribution factoryClass defines the 
+factory class used to </font>map the tools to a tool type (e.g. CreationTool). 
+You may want to define a new tool in order to add new functionality to your 
+tool.<BR><BR>
+</P>
+<DIV
+	style="border:solid windowtext 1.0pt;mso-border-alt:solid windowtext .75pt;
+padding:4.0pt 4.0pt 4.0pt 4.0pt;margin-left:48.0pt;margin-right:24.0pt">
+	<PRE
+	style="margin-left:0in;border:medium none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 4.0pt 4.0pt 4.0pt; tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt; font-size:10.0pt; font-family:Courier New; margin-right:0in; margin-top:0in; margin-bottom:.0001pt"><span class="GramE"><span style="color: #000080">public class <a name="_LogicPaletteFactory">LogicPaletteFactory</a>
+	extends PaletteFactory.Adapter {
+</span></span>
+<font color="#008000">/** list of supported tool types. */
+</font><span class="GramE"><span style="color: #000080">private Map toolMap = new HashMap();
+</span></span></PRE>
+	<PRE
+	style="margin-left:0in;border:medium none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 4.0pt 4.0pt 4.0pt; tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt; font-size:10.0pt; font-family:Courier New; margin-right:0in; margin-top:0in; margin-bottom:.0001pt"><span class="GramE"><span style="color: #000080">{
+  toolMap.put( LogicConstants.TOOL_LED, new CreationTool(LogicSemanticType.LED) );
+  toolMap.put( LogicConstants.TOOL_CIRCUIT, new CreationTool(LogicSemanticType.CIRCUIT) );
+  toolMap.put( LogicConstants.TOOL_ORGATE, new CreationTool(LogicSemanticType.ORGATE) );
+  toolMap.put( LogicConstants.TOOL_ANDGATE, new CreationTool(LogicSemanticType.ANDGATE) );
+  toolMap.put( LogicConstants.TOOL_XORGATE, new CreationTool(LogicSemanticType.XORGATE) );
+  toolMap.put( LogicConstants.TOOL_FLOWCONTAINER, new CreationTool(LogicSemanticType.FLOWCONTAINER) );
+}</span></span>
+
+<font color="#008000">/** list of supported tool types. */
+</font><span class="GramE"><span style="color: #000080">private Map connectorMap = new HashMap();
+</span></span></PRE>
+	<PRE
+	style="margin-left:0in;border:medium none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 4.0pt 4.0pt 4.0pt; tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt; font-size:10.0pt; font-family:Courier New; margin-right:0in; margin-top:0in; margin-bottom:.0001pt"><span class="GramE"><span style="color: #000080">{
+  connectorMap.put( LogicConstants.TOOL_CONNECTION, new ConnectorCreationTool(LogicSemanticType.WIRE) );
+}
+</span></span>
+<font color="#008000">/*
+*   Create the tool according to type  </font></PRE>
+	<PRE
+	style="margin-left:0in;border:medium none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 4.0pt 4.0pt 4.0pt; tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt; font-size:10.0pt; font-family:Courier New; margin-right:0in; margin-top:0in; margin-bottom:.0001pt"><font color="#008000">*/
+</font><span class="GramE"><span style="color: #000080">  public Tool createTool(String toolId) {
+
+    if (toolId.equals(LogicConstants.TOOL_CONNECTION)) {
+      return (ConnectorCreationTool)connectorMap.get(toolId);
+    } else {
+      return (CreationTool)toolMap.get(toolId);
+    }
+  }
+}</span></span></PRE></DIV>
+<p>&nbsp;</p>
+
+<H2><a name="_PaletteDrawer"></a>Creating a Palette Drawer</H2>
+
+<P class="backto"><SPAN style="font-size:10.0pt">[<A href="#top" style="color: blue; text-decoration: underline; text-underline: single"><SPAN
+	class="GramE">back</SPAN> to top</A>]</SPAN></P>
+<p>A palette drawer is used to group a set of associated tools. The drawer can 
+be open and closed by the application user.</p>
+<p>The palette drawer can be added and removed by adding and removing the entry 
+tag with kind set to drawer. The schema <a href="../../reference/extension-points/org_eclipse_gmf_runtime_diagram_ui_paletteProviders.html">documentation<a> specifies the rules for 
+attributes. These attributes include the label, description, path, icon and id. 
+The stack and tools that will reside under the drawer will need to include the 
+drawer id in their respective paths. Note that removing a drawer requires 
+removal of its stacks and tools.</p>
+<p>The order of the drawers, stacks and tools depend on the associated priority 
+and position with respect to other entries in the same XML document. <BR>
+</p>
+<DIV
+	style="border:solid windowtext 1.0pt;mso-border-alt:solid windowtext .75pt;
+padding:4.0pt 4.0pt 4.0pt 4.0pt;margin-left:48.0pt;margin-right:24.0pt">
+	<PRE
+	style="margin-left:0in;border:medium none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 4.0pt 4.0pt 4.0pt; tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt; font-size:10.0pt; font-family:Courier New; margin-right:0in; margin-top:0in; margin-bottom:.0001pt"><span class="GramE"><span style="color: #000080">&lt;!-- Palette Provider --&gt;
+&lt;extension
+</span></span></PRE>
+	<PRE
+	style="margin-left:0in;border:medium none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 4.0pt 4.0pt 4.0pt; tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt; font-size:10.0pt; font-family:Courier New; margin-right:0in; margin-top:0in; margin-bottom:.0001pt"><span class="GramE"><span style="color: #000080">  ...</span></span></PRE>
+	<PRE
+	style="margin-left:0in;border:medium none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 4.0pt 4.0pt 4.0pt; tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt; font-size:10.0pt; font-family:Courier New; margin-right:0in; margin-top:0in; margin-bottom:.0001pt">&nbsp;</PRE>
+	<PRE
+	style="margin-left:0in;border:medium none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 4.0pt 4.0pt 4.0pt; tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt; font-size:10.0pt; font-family:Courier New; margin-right:0in; margin-top:0in; margin-bottom:.0001pt"><span class="GramE"><span style="color: #000080">  <b>&lt;entry </b></span></span></PRE>
+	<PRE
+	style="margin-left:0in;border:medium none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 4.0pt 4.0pt 4.0pt; tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt; font-size:10.0pt; font-family:Courier New; margin-right:0in; margin-top:0in; margin-bottom:.0001pt"><span class="GramE"><span style="color: #000080; font-weight:700">    label=&quot;%LogicDrawer.Label&quot; </span><font color="#0000FF"><span style="font-weight:700">kind=&quot;drawer&quot;</span></font><span style="color: #000080; font-weight:700"> description=&quot;%LogicDrawer.Description&quot; </span></span></PRE>
+	<PRE
+	style="margin-left:0in;border:medium none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 4.0pt 4.0pt 4.0pt; tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt; font-size:10.0pt; font-family:Courier New; margin-right:0in; margin-top:0in; margin-bottom:.0001pt"><span class="GramE"><span style="color: #000080"><b>    path=&quot;/&quot; small_icon=&quot;icons/comp.gif&quot; id=&quot;logicDrawer&quot;&gt;
+    &lt;expand&gt;
+      &lt;content&gt;
+        &lt;!-- expand by default for LogicEditors --&gt;
+      &lt;/content&gt;
+    &lt;/expand&gt;
+ &lt;/entry&gt;</b>
+</span></span></PRE>
+	<PRE
+	style="margin-left:0in;border:medium none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 4.0pt 4.0pt 4.0pt; tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt; font-size:10.0pt; font-family:Courier New; margin-right:0in; margin-top:0in; margin-bottom:.0001pt"><span class="GramE"><span style="color: #000080">...</span></span></PRE>
+	<PRE
+	style="margin-left:0in;border:medium none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 4.0pt 4.0pt 4.0pt; tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt; font-size:10.0pt; font-family:Courier New; margin-right:0in; margin-top:0in; margin-bottom:.0001pt"><span class="GramE"><span style="color: #000080">
+&lt;/extension&gt;</span></span></PRE></DIV>
+
+<p>&nbsp;</p>
+
+<H2><a name="_PaletteStack"></a>Creating a Palette Stack</H2>
+
+<P class="backto"><SPAN style="font-size:10.0pt">[<A href="#top" style="color: blue; text-decoration: underline; text-underline: single"><SPAN
+	class="GramE">back</SPAN> to top</A>]</SPAN></P>
+<p>A palette stack is used to group a set of closely related tools (e.g. gate 
+types on a logic diagram).</p>
+<p>The palette drawer can be added and removed by adding and removing the entry 
+tag with kind set to stack. The schema <a href="../../reference/extension-points/org_eclipse_gmf_runtime_diagram_ui_paletteProviders.html">documentation<a> specifies the rules for 
+attributes. These attributes include the label, description, path, icon and id. 
+The tools that will reside within the stack will need to include the stack id in 
+their respective paths. Note that removing a stack requires removal of the 
+stack's tools.<BR>
+</p>
+<DIV
+	style="border:solid windowtext 1.0pt;mso-border-alt:solid windowtext .75pt;
+padding:4.0pt 4.0pt 4.0pt 4.0pt;margin-left:48.0pt;margin-right:24.0pt">
+	<PRE
+	style="margin-left:0in;border:medium none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 4.0pt 4.0pt 4.0pt; tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt; font-size:10.0pt; font-family:Courier New; margin-right:0in; margin-top:0in; margin-bottom:.0001pt"><span class="GramE"><span style="color: #000080">&lt;!-- Palette Provider --&gt;
+&lt;extension
+</span></span></PRE>
+	<PRE
+	style="margin-left:0in;border:medium none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 4.0pt 4.0pt 4.0pt; tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt; font-size:10.0pt; font-family:Courier New; margin-right:0in; margin-top:0in; margin-bottom:.0001pt"><span class="GramE"><span style="color: #000080"> ...</span></span></PRE>
+	<PRE
+	style="margin-left:0in;border:medium none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 4.0pt 4.0pt 4.0pt; tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt; font-size:10.0pt; font-family:Courier New; margin-right:0in; margin-top:0in; margin-bottom:.0001pt"><span class="GramE"><span style="color: #000080">
+ <b>&lt;entry label=&quot;%GateStack.Label&quot; </span><font color="#0000FF">kind=&quot;stack&quot;</font><span style="color: #000080"> description=&quot;%GateStack.Description&quot; small_icon=&quot;icons/or24.gif&quot; path=&quot;/logicDrawer/&quot; id=&quot;noteStack&quot;&gt;
+ &lt;/entry&gt;</span></b><span style="color: #000080">
+</span></span></PRE>
+	<PRE
+	style="margin-left:0in;border:medium none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 4.0pt 4.0pt 4.0pt; tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt; font-size:10.0pt; font-family:Courier New; margin-right:0in; margin-top:0in; margin-bottom:.0001pt"><span class="GramE"><span style="color: #000080"> ...</span></span></PRE>
+	<PRE
+	style="margin-left:0in;border:medium none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 4.0pt 4.0pt 4.0pt; tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt; font-size:10.0pt; font-family:Courier New; margin-right:0in; margin-top:0in; margin-bottom:.0001pt">&nbsp;</PRE>
+	<PRE
+	style="margin-left:0in;border:medium none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 4.0pt 4.0pt 4.0pt; tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt; font-size:10.0pt; font-family:Courier New; margin-right:0in; margin-top:0in; margin-bottom:.0001pt"><span class="GramE"><span style="color: #000080">&lt;/extension&gt;</span></span></PRE></DIV>
+
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+<H2><a name="_PaletteTool"></a>Creating a Palette Tool</H2>
+
+<P class="backto"><SPAN style="font-size:10.0pt">[<A href="#top" style="color: blue; text-decoration: underline; text-underline: single"><SPAN
+	class="GramE">back</SPAN> to top</A>]</SPAN></P>
+<p>The palette tool can be added and removed by adding and removing the entry 
+tag with kind set to tool. The schema <a href="../../reference/extension-points/org_eclipse_gmf_runtime_diagram_ui_paletteProviders.html">documentation<a> specifies the rules for 
+attributes. These attributes include the label, description, path, icon and id.<BR>
+</p>
+<DIV
+	style="border:solid windowtext 1.0pt;mso-border-alt:solid windowtext .75pt;
+padding:4.0pt 4.0pt 4.0pt 4.0pt;margin-left:48.0pt;margin-right:24.0pt">
+	<PRE
+	style="margin-left:0in;border:medium none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 4.0pt 4.0pt 4.0pt; tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt; font-size:10.0pt; font-family:Courier New; margin-right:0in; margin-top:0in; margin-bottom:.0001pt"><span class="GramE"><span style="color: #000080">&lt;!-- Palette Provider --&gt;
+&lt;extension
+</span></span></PRE>
+	<PRE
+	style="margin-left:0in;border:medium none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 4.0pt 4.0pt 4.0pt; tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt; font-size:10.0pt; font-family:Courier New; margin-right:0in; margin-top:0in; margin-bottom:.0001pt"><span class="GramE"><span style="color: #000080"> ...
+</span></span></PRE>
+	<PRE
+	style="margin-left:0in;border:medium none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 4.0pt 4.0pt 4.0pt; tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt; font-size:10.0pt; font-family:Courier New; margin-right:0in; margin-top:0in; margin-bottom:.0001pt"><span class="GramE"><span style="color: #000080"> <b>&lt;entry label=&quot;%LogicFlowTool.Label&quot; </span><font color="#0000FF">kind=&quot;tool&quot;</font><span style="color: #000080"> description=&quot;%LogicFlowTool.Description&quot; large_icon=&quot;icons/logicflow24.gif&quot; path=&quot;/logicDrawer/&quot; small_icon=&quot;icons/logicflow16.gif&quot; id=&quot;FlowContainer&quot;&gt;
+ &lt;/entry&gt;</span></b><span style="color: #000080">
+</span></span></PRE>
+	<PRE
+	style="margin-left:0in;border:medium none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 4.0pt 4.0pt 4.0pt; tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt; font-size:10.0pt; font-family:Courier New; margin-right:0in; margin-top:0in; margin-bottom:.0001pt"><span class="GramE"><span style="color: #000080"> ...</span></span></PRE>
+	<PRE
+	style="margin-left:0in;border:medium none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 4.0pt 4.0pt 4.0pt; tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt; font-size:10.0pt; font-family:Courier New; margin-right:0in; margin-top:0in; margin-bottom:.0001pt"><span class="GramE"><span style="color: #000080">
+&lt;/extension&gt;</span></span></PRE></DIV>
+
+<p>&nbsp;</p>
+
+<H2><a name="_AddToExisting"></a>Adding a Palette Tool/Stack to an 
+Existing Drawer or Stack</H2>
+
+<P class="backto"><SPAN style="font-size:10.0pt">[<A href="#top" style="color: blue; text-decoration: underline; text-underline: single"><SPAN
+	class="GramE">back</SPAN> to top</A>]</SPAN></P>
+<p>To add or remove an existing drawer or stack, the user must specify the path 
+to the existing drawer or stack in the entry tag attributes. The palette service 
+execution is based on a REVERSE strategy and therefore the new tool or stack 
+must have a higher priority than that of the destination.</p>
+<p>The following XML will contribute a new logic tool into the Logic Drawer set 
+up in the logic example. The palette factory class will need to set up the tool 
+internally as well. Note the priority is set to medium and that the contribution 
+is made by adding this excerpt to <font face="Courier New" size="2">
+org.eclipse.gmf.runtime.diagram.ui.geoshapes\plugin.xml</font> file.<BR>
+</p>
+<DIV
+	style="border:solid windowtext 1.0pt;mso-border-alt:solid windowtext .75pt;
+padding:4.0pt 4.0pt 4.0pt 4.0pt;margin-left:48.0pt;margin-right:24.0pt">
+	<PRE
+	style="margin-left:0in;border:medium none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 4.0pt 4.0pt 4.0pt; tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt; font-size:10.0pt; font-family:Courier New; margin-right:0in; margin-top:0in; margin-bottom:.0001pt"><span class="GramE"><span style="color: #000080">&lt;!-- Palette Provider --&gt;
+&lt;extension
+  id=&quot;presentationPaletteProvider&quot;
+  name=&quot;%ext.presentationPaletteProvider&quot;
+  point=&quot;org.eclipse.gmf.runtime.diagram.ui.paletteProviders&quot;&gt;
+</span></span></PRE>
+	<PRE
+	style="margin-left:0in;border:medium none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 4.0pt 4.0pt 4.0pt; tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt; font-size:10.0pt; font-family:Courier New; margin-right:0in; margin-top:0in; margin-bottom:.0001pt"><span class="GramE"><span style="color: #000080">  &lt;paletteProvider class=&quot;org.eclipse.gmf.runtime.diagram.ui.providers.internal.DefaultPaletteProvider&quot;&gt;
+  &lt;Priority name=&quot;Medium&quot;&gt;
+  &lt;/Priority&gt;
+  &lt;editor id=&quot;LogicEditor&quot;&gt;
+  &lt;/editor&gt;
+  &lt;contribution </span></span></PRE>
+	<PRE
+	style="margin-left:0in;border:medium none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 4.0pt 4.0pt 4.0pt; tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt; font-size:10.0pt; font-family:Courier New; margin-right:0in; margin-top:0in; margin-bottom:.0001pt"><span class="GramE"><span style="color: #000080">    factoryClass=&quot;org.eclipse.gmf.runtime.diagram.ui.geoshapes.internal.providers.GeoshapePaletteFactory&quot;&gt;
+</span></span></PRE>
+	<PRE
+	style="margin-left:0in;border:medium none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 4.0pt 4.0pt 4.0pt; tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt; font-size:10.0pt; font-family:Courier New; margin-right:0in; margin-top:0in; margin-bottom:.0001pt"><span class="GramE"><span style="color: #000080"><b> &lt;entry label=&quot;%NewLogicTool.Label&quot; kind=&quot;tool&quot; description=&quot;%NewLogicTool.Description&quot; large_icon=&quot;icons/newlogic24.gif&quot; path=&quot;/logicDrawer/&quot; small_icon=&quot;icons/newlogic16.gif&quot; id=&quot;NewTool&quot;&gt;
+ &lt;/entry&gt;
+</b> &lt;/contribution&gt;
+ &lt;/paletteProvider&gt;
+&lt;/extension&gt;</span></span></PRE></DIV>
+
+<p>The drawer now appears:</p>
+<p><img border="0" src="addedTool.jpg" width="127" height="141"></p>
+<p>The label needs to be set in the appropriate plugin.properties file. It has 
+been left uninterpolated for emphasis.</p>
+<p>&nbsp;</p>
+
+<p></p>
+
+<div class=MsoNormal align=center style='text-align:center'>
+
+<hr size=2 width="100%" align=center>
+
+</div>
+
+<h2><a name=_Summary></a>
+Summary</h2>
+
+<p><span style='font-size:10.0pt'>[<a href="#top"><span class=GramE>back</span>
+to top</a>]</span></p>
+
+<P>In this tutorial, we did the following:</P>
+<ul>
+	<li>
+	<a href="#_PaletteProviderExtension" style="color: blue; text-decoration: underline; text-underline: single">
+	Added a Palette Provider Extension</a></li>
+	<li>
+	<a href="#_PaletteProviderFactoryClass" style="color: blue; text-decoration: underline; text-underline: single">
+	Created and Registed the Palette Provider and 
+Factory Classes</a></li>
+	<li>
+	<a href="#_PaletteDrawer" style="color: blue; text-decoration: underline; text-underline: single">
+	Created a Palette Drawer</a></li>
+	<li>
+	<a href="#_PaletteStack" style="color: blue; text-decoration: underline; text-underline: single">
+	Created a Palette Stack</a></li>
+	<li>
+	<a href="#_PaletteTool" style="color: blue; text-decoration: underline; text-underline: single">
+	Created a Palette Tool</a></li>
+	<li><a href="#_AddToExisting">Added a Palette Tool to an Existing Drawer</a></li>
+</ul>
+<div class=MsoNormal align=center style='text-align:center'>&nbsp;<hr size=2 width="100%" align=center>
+</div>
+<p><font size="2"><font color="#336699">Copyright (c) 2005 IBM Corporation and 
+others.<br>
+All rights reserved. This program and the accompanying materials <br>
+are made available under the terms of the Eclipse Public License v1.0 <br>
+which accompanies this distribution, and is available at
+<a href="http://www.eclipse.org/legal/epl-v10.html">http://www.eclipse.org/legal/epl-v10.html</font></a></p>
+
+</div>
+
+</body>
+
+</html>

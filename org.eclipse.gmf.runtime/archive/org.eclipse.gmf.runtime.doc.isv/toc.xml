@@ -69,6 +69,7 @@
 			<topic label="Creating a shape" href="tutorials/diagram/createShape.html" />		
 			<topic label="Creating connections" href="tutorials/diagram/createConnection.html" />		
 			<topic label="Diagram Preferences" href="tutorials/diagram/diagramPreferencesTutorial.html" />		
+			<topic label="Configuring and Extending the Diagram Palette" href="tutorials/diagram/paletteConfigurationTutorial.html" />		
 			<topic label="Modifying a container to support automatic layout" href="tutorials/diagram/containmentOfShapes.html" />		
 			<topic label="Supporting containment of shapes" href="tutorials/diagram/automaticLayout.html" />				
 			<anchor id="tutorial-diagram-layer-in" />
