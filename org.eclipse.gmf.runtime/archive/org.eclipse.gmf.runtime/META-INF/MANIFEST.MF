@@ -1,9 +1,9 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Diagram Run-Time Model
+Bundle-Name: %pluginName
 Bundle-SymbolicName: org.eclipse.gmf.runtime; singleton:=true
 Bundle-Version: 1.0.0
-Bundle-Vendor: Eclipse.org
+Bundle-Vendor: %providerName
 Export-Package: org.eclipse.gmf.diagramrt,
  org.eclipse.gmf.diagramrt.impl,
  org.eclipse.gmf.diagramrt.util
