@@ -28,11 +28,11 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import org.eclipse.emf.examples.library.Book;
-import org.eclipse.emf.examples.library.Library;
-import org.eclipse.emf.examples.library.RMPLibraryFactory;
-import org.eclipse.emf.examples.library.RMPLibraryPackage;
-import org.eclipse.emf.examples.library.Writer;
+import org.eclipse.emf.examples.extlibrary.Book;
+import org.eclipse.emf.examples.extlibrary.EXTLibraryFactory;
+import org.eclipse.emf.examples.extlibrary.EXTLibraryPackage;
+import org.eclipse.emf.examples.extlibrary.Library;
+import org.eclipse.emf.examples.extlibrary.Writer;
 import org.eclipse.gmf.runtime.emf.core.EventTypes;
 import org.eclipse.gmf.runtime.emf.core.edit.DemuxedMListener;
 import org.eclipse.gmf.runtime.emf.core.edit.MFilter;
@@ -74,12 +74,12 @@ public class IncrementalLoadingTest
 		String subunit1Frag = logres.getURIFragment(subunit1);
 		String subunit3Frag = logres.getURIFragment(subunit3);
 		
-		Book book = RMPLibraryFactory.eINSTANCE.createBook();
+		Book book = EXTLibraryFactory.eINSTANCE.createBook();
 		subunit1.getBooks().add(book);
 		book.setTitle("Book"); //$NON-NLS-1$
 		String bookFrag = logres.getURIFragment(book);
 		
-		Writer writer = RMPLibraryFactory.eINSTANCE.createWriter();
+		Writer writer = EXTLibraryFactory.eINSTANCE.createWriter();
 		subunit3.getWriters().add(writer);
 		writer.setName("Sherlock Holmes"); //$NON-NLS-1$
 		writer.getBooks().add(book);  // cross-unit reference
@@ -151,30 +151,30 @@ public class IncrementalLoadingTest
 			fail("Should not fail to separate: " + e); //$NON-NLS-1$
 		}
 		
-		String library2Name = "/" + PROJECT_NAME + "/logres2.rmplibrary"; //$NON-NLS-1$//$NON-NLS-2$
+		String library2Name = "/" + PROJECT_NAME + "/logres2.extlibrary"; //$NON-NLS-1$//$NON-NLS-2$
 		ILogicalResource logres2 = createNewLogicalResource(
 			URI.createPlatformResourceURI(library2Name));
-		Library library2 = RMPLibraryFactory.eINSTANCE.createLibrary();
+		Library library2 = EXTLibraryFactory.eINSTANCE.createLibrary();
 		logres2.getContents().add(library2);
 		library2.setName("Library 2"); //$NON-NLS-1$
 		
-		subunit3 = RMPLibraryFactory.eINSTANCE.createLibrary();
+		subunit3 = EXTLibraryFactory.eINSTANCE.createLibrary();
 		library2.getBranches().add(subunit3);
 		subunit3.setName("Library 2 Subunit"); //$NON-NLS-1$
 		
-		String library2SubunitName = "/" + PROJECT_NAME + "/logres2.1.rmplibrary"; //$NON-NLS-1$//$NON-NLS-2$
+		String library2SubunitName = "/" + PROJECT_NAME + "/logres2.1.extlibrary"; //$NON-NLS-1$//$NON-NLS-2$
 		try {
 			logres2.separate(subunit3, URI.createPlatformResourceURI(library2SubunitName));
 		} catch (CannotSeparateException e) {
 			fail("Should not fail to separate: " + e); //$NON-NLS-1$
 		}
 			
-		Book book = RMPLibraryFactory.eINSTANCE.createBook();
+		Book book = EXTLibraryFactory.eINSTANCE.createBook();
 		subunit1.getBooks().add(book);
 		book.setTitle("Book"); //$NON-NLS-1$
 		String bookFrag = logres.getURIFragment(book);
 		
-		Writer writer = RMPLibraryFactory.eINSTANCE.createWriter();
+		Writer writer = EXTLibraryFactory.eINSTANCE.createWriter();
 		subunit3.getWriters().add(writer);
 		writer.setName("Sherlock Holmes"); //$NON-NLS-1$
 		writer.getBooks().add(book);  // cross-unit reference
@@ -297,7 +297,7 @@ public class IncrementalLoadingTest
 		
 		assertSame(parent, event.getNotifier());
 		assertEquals(EventTypes.LOAD, event.getEventType());
-		assertSame(RMPLibraryPackage.eINSTANCE.getLibrary_Branches(), event.getFeature());
+		assertSame(EXTLibraryPackage.eINSTANCE.getLibrary_Branches(), event.getFeature());
 		assertSame(subunit1, parent.getBranches().get(event.getPosition()));
 		
 		// listen for notifications of loading on the parent element
@@ -317,7 +317,7 @@ public class IncrementalLoadingTest
 		
 		assertSame(parent, event.getNotifier());
 		assertEquals(EventTypes.LOAD, event.getEventType());
-		assertSame(RMPLibraryPackage.eINSTANCE.getLibrary_Branches(), event.getFeature());
+		assertSame(EXTLibraryPackage.eINSTANCE.getLibrary_Branches(), event.getFeature());
 		assertSame(subunit3, parent.getBranches().get(event.getPosition()));
 	}
 	
@@ -418,12 +418,12 @@ public class IncrementalLoadingTest
 		String subunit1Frag = logres.getURIFragment(subunit1);
 		String subunit3Frag = logres.getURIFragment(subunit3);
 		
-		Book book = RMPLibraryFactory.eINSTANCE.createBook();
+		Book book = EXTLibraryFactory.eINSTANCE.createBook();
 		subunit1.getBooks().add(book);
 		book.setTitle("Book"); //$NON-NLS-1$
 		String bookFrag = logres.getURIFragment(book);
 		
-		Writer writer = RMPLibraryFactory.eINSTANCE.createWriter();
+		Writer writer = EXTLibraryFactory.eINSTANCE.createWriter();
 		subunit3.getWriters().add(writer);
 		writer.setName("Sherlock Holmes"); //$NON-NLS-1$
 		writer.getBooks().add(book);  // cross-unit reference
@@ -787,12 +787,12 @@ public class IncrementalLoadingTest
 		String subunit1Frag = logres.getURIFragment(subunit1);
 		String subunit3Frag = logres.getURIFragment(subunit3);
 		
-		Book book = RMPLibraryFactory.eINSTANCE.createBook();
+		Book book = EXTLibraryFactory.eINSTANCE.createBook();
 		subunit1.getBooks().add(book);
 		book.setTitle("Book"); //$NON-NLS-1$
 		String bookFrag = logres.getURIFragment(book);
 		
-		Writer writer = RMPLibraryFactory.eINSTANCE.createWriter();
+		Writer writer = EXTLibraryFactory.eINSTANCE.createWriter();
 		subunit3.getWriters().add(writer);
 		writer.setName("Sherlock Holmes"); //$NON-NLS-1$
 		writer.getBooks().add(book);  // cross-unit reference

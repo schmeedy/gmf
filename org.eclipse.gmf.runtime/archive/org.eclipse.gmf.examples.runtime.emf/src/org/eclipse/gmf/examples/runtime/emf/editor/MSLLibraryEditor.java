@@ -54,6 +54,7 @@ import org.eclipse.emf.edit.ui.dnd.LocalTransfer;
 import org.eclipse.emf.edit.ui.dnd.ViewerDragAdapter;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryContentProvider;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
+import org.eclipse.emf.examples.extlibrary.presentation.EXTLibraryEditorPlugin;
 import org.eclipse.jface.action.IMenuListener;
 import org.eclipse.jface.action.IMenuManager;
 import org.eclipse.jface.action.IStatusLineManager;
@@ -110,7 +111,6 @@ import org.eclipse.ui.views.properties.IPropertySheetPage;
 import org.eclipse.ui.views.properties.PropertySheet;
 import org.eclipse.ui.views.properties.PropertySheetPage;
 
-import org.eclipse.emf.examples.library.presentation.RMPLibraryEditorPlugin;
 import org.eclipse.gmf.runtime.emf.core.edit.MEditingDomain;
 import org.eclipse.gmf.runtime.emf.core.edit.MFilter;
 import org.eclipse.gmf.runtime.emf.core.edit.MListener;
@@ -338,7 +338,7 @@ public class MSLLibraryEditor
 
 					changedResources.addAll(visitor.getChangedResources());
 				} catch (CoreException exception) {
-					RMPLibraryEditorPlugin.INSTANCE.log(exception);
+					EXTLibraryEditorPlugin.INSTANCE.log(exception);
 				}
 			}
 		}
@@ -382,7 +382,7 @@ public class MSLLibraryEditor
 					try {
 						resource.load(Collections.EMPTY_MAP);
 					} catch (IOException exception) {
-						RMPLibraryEditorPlugin.INSTANCE.log(exception);
+						EXTLibraryEditorPlugin.INSTANCE.log(exception);
 					}
 				}
 			}
@@ -601,7 +601,7 @@ public class MSLLibraryEditor
 			//
 			editingDomain.loadResource(modelFile.getFile().getLocation().toOSString());
 		} catch (Exception exception) {
-			RMPLibraryEditorPlugin.INSTANCE.log(exception);
+			EXTLibraryEditorPlugin.INSTANCE.log(exception);
 		}
 	}
 
@@ -1057,7 +1057,7 @@ public class MSLLibraryEditor
 				}
 			}
 		} catch (Exception exception) {
-			RMPLibraryEditorPlugin.INSTANCE.log(exception);
+			EXTLibraryEditorPlugin.INSTANCE.log(exception);
 		}
 
 		return false;
@@ -1078,7 +1078,7 @@ public class MSLLibraryEditor
 				}
 			}
 		} catch (Exception exception) {
-			RMPLibraryEditorPlugin.INSTANCE.log(exception);
+			EXTLibraryEditorPlugin.INSTANCE.log(exception);
 		}
 		
 		// Do the work within an operation because this is a long running
@@ -1104,7 +1104,7 @@ public class MSLLibraryEditor
 							}
 						});
 				} catch (Exception exception) {
-					RMPLibraryEditorPlugin.INSTANCE.log(exception);
+					EXTLibraryEditorPlugin.INSTANCE.log(exception);
 				}
 			}
 		};
@@ -1121,7 +1121,7 @@ public class MSLLibraryEditor
 		} catch (Exception exception) {
 			// Something went wrong that shouldn't.
 			//
-			RMPLibraryEditorPlugin.INSTANCE.log(exception);
+			EXTLibraryEditorPlugin.INSTANCE.log(exception);
 		}
 	}
 
@@ -1175,7 +1175,7 @@ public class MSLLibraryEditor
 				}
 			}
 		} catch (CoreException exception) {
-			RMPLibraryEditorPlugin.INSTANCE.log(exception);
+			EXTLibraryEditorPlugin.INSTANCE.log(exception);
 		}
 	}
 
@@ -1278,14 +1278,14 @@ public class MSLLibraryEditor
 	 * This looks up a string in the plugin's plugin.properties file.
 	 */
 	private static String getString(String key) {
-		return RMPLibraryEditorPlugin.INSTANCE.getString(key);
+		return EXTLibraryEditorPlugin.INSTANCE.getString(key);
 	}
 
 	/**
 	 * This looks up a string in plugin.properties, making a substitution.
 	 */
 	private static String getString(String key, Object s1) {
-		return RMPLibraryEditorPlugin.INSTANCE
+		return EXTLibraryEditorPlugin.INSTANCE
 			.getString(key, new Object[] {s1});
 	}
 

@@ -29,13 +29,13 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.osgi.framework.Bundle;
 
-import org.eclipse.emf.examples.library.AudoVisualItem;
-import org.eclipse.emf.examples.library.Book;
-import org.eclipse.emf.examples.library.Library;
-import org.eclipse.emf.examples.library.Periodical;
-import org.eclipse.emf.examples.library.Person;
-import org.eclipse.emf.examples.library.Writer;
-import org.eclipse.emf.examples.library.util.RMPLibrarySwitch;
+import org.eclipse.emf.examples.extlibrary.AudoVisualItem;
+import org.eclipse.emf.examples.extlibrary.Book;
+import org.eclipse.emf.examples.extlibrary.Library;
+import org.eclipse.emf.examples.extlibrary.Periodical;
+import org.eclipse.emf.examples.extlibrary.Person;
+import org.eclipse.emf.examples.extlibrary.Writer;
+import org.eclipse.emf.examples.extlibrary.util.EXTLibrarySwitch;
 import org.eclipse.gmf.runtime.emf.core.edit.MEditingDomain;
 import org.eclipse.gmf.runtime.emf.core.edit.MResourceOption;
 import org.eclipse.gmf.runtime.emf.core.edit.MRunnable;
@@ -63,7 +63,7 @@ public class BaseCoreTests
 	protected Library root;
 	
 	protected static final String PROJECT_NAME = "mslcoretests"; //$NON-NLS-1$
-	protected static final String RESOURCE_NAME = "/" + PROJECT_NAME + "/logres.rmplibrary";  //$NON-NLS-1$//$NON-NLS-2$
+	protected static final String RESOURCE_NAME = "/" + PROJECT_NAME + "/logres.extlibrary";  //$NON-NLS-1$//$NON-NLS-2$
 
 	public BaseCoreTests() {
 		super();
@@ -97,7 +97,7 @@ public class BaseCoreTests
 							try {
 								Resource originalRes = domain.loadResource(URI
 									.createURI(MslCoreTestsBundle.getEntry(
-										"/test_models/test_model.rmplibrary") //$NON-NLS-1$
+										"/test_models/test_model.extlibrary") //$NON-NLS-1$
 										.toString()).toString(), MResourceOption.URI);
 								originalRes.setURI(URI.createPlatformResourceURI(RESOURCE_NAME));
 								originalRes.save(Collections.EMPTY_MAP);
@@ -395,7 +395,7 @@ public class BaseCoreTests
 	 *
 	 * @author Christian W. Damus (cdamus)
 	 */
-	private static final class GetName extends RMPLibrarySwitch {
+	private static final class GetName extends EXTLibrarySwitch {
 		static final GetName INSTANCE = new GetName();
 		
 		private GetName() {

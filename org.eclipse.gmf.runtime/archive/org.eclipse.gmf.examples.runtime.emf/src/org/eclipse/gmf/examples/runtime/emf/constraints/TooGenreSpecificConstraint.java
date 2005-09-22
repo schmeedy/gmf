@@ -16,9 +16,9 @@ import java.util.Iterator;
 
 import org.eclipse.core.runtime.IStatus;
 
-import org.eclipse.emf.examples.library.Book;
-import org.eclipse.emf.examples.library.BookCategory;
-import org.eclipse.emf.examples.library.Writer;
+import org.eclipse.emf.examples.extlibrary.Book;
+import org.eclipse.emf.examples.extlibrary.BookCategory;
+import org.eclipse.emf.examples.extlibrary.Writer;
 import org.eclipse.gmf.runtime.emf.core.util.EObjectUtil;
 import org.eclipse.emf.validation.AbstractModelConstraint;
 import org.eclipse.emf.validation.IValidationContext;

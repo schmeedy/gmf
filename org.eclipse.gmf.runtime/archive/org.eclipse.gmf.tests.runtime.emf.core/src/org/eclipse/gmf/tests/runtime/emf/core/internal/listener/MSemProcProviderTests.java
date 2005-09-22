@@ -15,8 +15,8 @@ import java.util.List;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EStructuralFeature;
 
-import org.eclipse.emf.examples.library.Library;
-import org.eclipse.emf.examples.library.RMPLibraryPackage;
+import org.eclipse.emf.examples.extlibrary.EXTLibraryPackage;
+import org.eclipse.emf.examples.extlibrary.Library;
 import org.eclipse.gmf.runtime.emf.core.EventTypes;
 import org.eclipse.gmf.runtime.emf.core.edit.MFilter;
 import org.eclipse.gmf.runtime.emf.core.edit.MListener;
@@ -123,7 +123,7 @@ public class MSemProcProviderTests
 				Object notifier = event.getNotifier();
 				if(notifier instanceof Library) {
 					EStructuralFeature feature = (EStructuralFeature)event.getFeature();
-					if(feature == RMPLibraryPackage.eINSTANCE.getLibrary_Name()) {
+					if(feature == EXTLibraryPackage.eINSTANCE.getLibrary_Name()) {
 						String newName = event.getNewStringValue();
 						if(newName.equals("OPL")) //$NON-NLS-1$
 							return true;

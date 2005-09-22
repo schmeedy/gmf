@@ -16,12 +16,12 @@ import java.util.ResourceBundle;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.edit.provider.resource.ResourceItemProviderAdapterFactory;
+import org.eclipse.emf.examples.extlibrary.EXTLibraryPackage;
+import org.eclipse.emf.examples.extlibrary.provider.EXTLibraryEditPlugin;
+import org.eclipse.emf.examples.extlibrary.provider.EXTLibraryItemProviderAdapterFactory;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.osgi.framework.BundleContext;
 
-import org.eclipse.emf.examples.library.RMPLibraryPackage;
-import org.eclipse.emf.examples.library.provider.RMPLibraryEditPlugin;
-import org.eclipse.emf.examples.library.provider.RMPLibraryItemProviderAdapterFactory;
 import org.eclipse.gmf.runtime.emf.core.internal.util.MSLAdapterFactoryManager;
 import org.eclipse.gmf.runtime.emf.core.internal.util.MSLMetaModelManager;
 
@@ -38,7 +38,7 @@ public class MSLExamplePlugin
 	private ResourceBundle resourceBundle;
 
 	//Library item provider factory
-	private static AdapterFactory libraryFactory = new RMPLibraryItemProviderAdapterFactory();
+	private static AdapterFactory libraryFactory = new EXTLibraryItemProviderAdapterFactory();
 
 	/**
 	 * The constructor.
@@ -61,8 +61,8 @@ public class MSLExamplePlugin
 		throws Exception {
 		super.start(context);
 
-		MSLMetaModelManager.register(RMPLibraryPackage.eINSTANCE,
-			RMPLibraryEditPlugin.INSTANCE);
+		MSLMetaModelManager.register(EXTLibraryPackage.eINSTANCE,
+			EXTLibraryEditPlugin.INSTANCE);
 		MSLAdapterFactoryManager.register(libraryFactory);
 		MSLAdapterFactoryManager.register(new ResourceItemProviderAdapterFactory());
 	}

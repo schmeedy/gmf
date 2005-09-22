@@ -23,8 +23,8 @@ import org.eclipse.emf.common.notify.impl.AdapterImpl;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
 
-import org.eclipse.emf.examples.library.Library;
-import org.eclipse.emf.examples.library.RMPLibraryFactory;
+import org.eclipse.emf.examples.extlibrary.EXTLibraryFactory;
+import org.eclipse.emf.examples.extlibrary.Library;
 import org.eclipse.gmf.runtime.emf.core.internal.resources.AbstractResourceWrapper;
 import org.eclipse.gmf.runtime.emf.core.resources.CannotAbsorbException;
 import org.eclipse.gmf.runtime.emf.core.resources.CannotSeparateException;
@@ -163,7 +163,7 @@ public class LogicalResourceWrapperTest
 			AbstractResourceWrapper.unwrap(logres),
 			AbstractResourceWrapper.unwrap((Resource) resources.get(root)));
 		
-		Library second = RMPLibraryFactory.eINSTANCE.createLibrary();
+		Library second = EXTLibraryFactory.eINSTANCE.createLibrary();
 		logres.getContents().add(second);  // test adding a root
 		
 		// check that the resource map is dynamically updated
@@ -175,7 +175,7 @@ public class LogicalResourceWrapperTest
 			AbstractResourceWrapper.unwrap(logres),
 			AbstractResourceWrapper.unwrap((Resource) resources.get(second)));
 		
-		Library third = RMPLibraryFactory.eINSTANCE.createLibrary();
+		Library third = EXTLibraryFactory.eINSTANCE.createLibrary();
 		logres.getContents().set(1, third);  // test setting a root
 		assertEquals(2, resources.size());
 		assertSame(
@@ -228,7 +228,7 @@ public class LogicalResourceWrapperTest
 	//
 	
 	/**
-	 * Replaces the *.rmplibrary extension with *.xmi so that the editing domain
+	 * Replaces the *.extlibrary extension with *.xmi so that the editing domain
 	 * will not create logical resources, but instead default XMI resources.
 	 */
 	protected ILogicalResource createNewLogicalResource(URI uri) {

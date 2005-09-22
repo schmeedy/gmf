@@ -23,9 +23,9 @@ import org.eclipse.uml2.TemplateParameter;
 import org.eclipse.uml2.UML2Factory;
 import org.eclipse.uml2.UML2Package;
 
-import org.eclipse.emf.examples.library.Book;
-import org.eclipse.emf.examples.library.Library;
-import org.eclipse.emf.examples.library.RMPLibraryFactory;
+import org.eclipse.emf.examples.extlibrary.Book;
+import org.eclipse.emf.examples.extlibrary.EXTLibraryFactory;
+import org.eclipse.emf.examples.extlibrary.Library;
 import org.eclipse.gmf.runtime.emf.core.EventTypes;
 import org.eclipse.gmf.runtime.emf.core.edit.MEditingDomain;
 import org.eclipse.gmf.runtime.emf.core.edit.MResourceOption;
@@ -172,9 +172,9 @@ public class EObjectUtilTestCase extends BaseTestCase {
 	}
 	
 	public void testPreDestroyEvents_RATLC00536942() {
-		final Library mainBranch = RMPLibraryFactory.eINSTANCE.createLibrary();
-		final Library l = RMPLibraryFactory.eINSTANCE.createLibrary();
-		final Book b = RMPLibraryFactory.eINSTANCE.createBook();
+		final Library mainBranch = EXTLibraryFactory.eINSTANCE.createLibrary();
+		final Library l = EXTLibraryFactory.eINSTANCE.createLibrary();
+		final Book b = EXTLibraryFactory.eINSTANCE.createBook();
 		
 		MEditingDomain domain = MEditingDomain.createNewDomain();
 		final Resource r = domain.createResource("foo://",MResourceOption.URI); //$NON-NLS-1$

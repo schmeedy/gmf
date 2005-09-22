@@ -14,8 +14,8 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.eclipse.emf.ecore.util.ExtendedMetaData;
+import org.eclipse.emf.examples.extlibrary.EXTLibraryPackage;
 
-import org.eclipse.emf.examples.library.RMPLibraryPackage;
 import org.eclipse.gmf.runtime.emf.core.edit.MEditingDomain;
 import org.eclipse.gmf.runtime.emf.core.internal.domain.MSLEditingDomain;
 
@@ -29,8 +29,8 @@ import junit.framework.TestCase;
  */
 public class BackwardForwardCompatibilityTestCase extends TestCase {
 	public void testEPackageVersionMistmatchLookup() {
-		// Grab the namespace URI of the RMPLibrary EPackage
-		String nsURI = RMPLibraryPackage.eINSTANCE.getNsURI();
+		// Grab the namespace URI of the EXTLibrary EPackage
+		String nsURI = EXTLibraryPackage.eINSTANCE.getNsURI();
 		
 		// Grab the version major, middle and minor numbers.
 		String pattern = "(\\d+)\\.(\\d+)\\.(\\d+)"; //$NON-NLS-1$
@@ -43,7 +43,7 @@ public class BackwardForwardCompatibilityTestCase extends TestCase {
 		
 		// Now, we will alter the version number of the URI to ensure that the
 		//  extended metadata matcher will give us back the original EPackage. Note there 
-		//  should only be one version of the RMP Library metamodel in the registry for this
+		//  should only be one version of the EXT Library metamodel in the registry for this
 		//  test case to work.
 		
 		String newVersionNsURI = nsURI.replaceFirst(pattern,(major+1)+"."+middle+"."+minor);  //$NON-NLS-1$ //$NON-NLS-2$
@@ -54,13 +54,13 @@ public class BackwardForwardCompatibilityTestCase extends TestCase {
 		ExtendedMetaData domainExtendedMetaData = editingDomain.getExtendedMetaData();
 		
 		assertSame(domainExtendedMetaData.getPackage(newVersionNsURI),
-				RMPLibraryPackage.eINSTANCE);
+				EXTLibraryPackage.eINSTANCE);
 		
 		String olderVersionNsURI = nsURI.replaceFirst(pattern,(major-1)+"."+middle+"."+minor); //$NON-NLS-1$ //$NON-NLS-2$
 		
 		assertFalse(nsURI.equals(olderVersionNsURI));
 		
 		assertSame(domainExtendedMetaData.getPackage(olderVersionNsURI),
-				RMPLibraryPackage.eINSTANCE);
+				EXTLibraryPackage.eINSTANCE);
 	}
 }

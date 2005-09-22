@@ -26,11 +26,11 @@ import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import org.eclipse.emf.examples.library.Book;
-import org.eclipse.emf.examples.library.Library;
-import org.eclipse.emf.examples.library.RMPLibraryFactory;
-import org.eclipse.emf.examples.library.RMPLibraryPackage;
-import org.eclipse.emf.examples.library.Writer;
+import org.eclipse.emf.examples.extlibrary.Book;
+import org.eclipse.emf.examples.extlibrary.EXTLibraryFactory;
+import org.eclipse.emf.examples.extlibrary.EXTLibraryPackage;
+import org.eclipse.emf.examples.extlibrary.Library;
+import org.eclipse.emf.examples.extlibrary.Writer;
 import org.eclipse.gmf.runtime.emf.core.resources.CannotSeparateException;
 import org.eclipse.gmf.runtime.emf.core.resources.ILogicalResource;
 
@@ -313,10 +313,10 @@ public class CrossReferenceTest
 	 * multiple parent units.  Both parents must be loaded, recursively.
 	 */
 	public void test_loadNonRootUnit_multiParents() {
-		Library subunit4 = RMPLibraryFactory.eINSTANCE.createLibrary();
+		Library subunit4 = EXTLibraryFactory.eINSTANCE.createLibrary();
 		subunit3.getBranches().add(subunit4);
 		subunit4.setName("level 3-1-Subunit"); //$NON-NLS-1$
-		Book book4 = RMPLibraryFactory.eINSTANCE.createBook();
+		Book book4 = EXTLibraryFactory.eINSTANCE.createBook();
 		subunit4.getBooks().add(book4);
 		book4.setTitle("Level3-1 Book"); //$NON-NLS-1$
 		
@@ -521,15 +521,15 @@ public class CrossReferenceTest
 		
 		ILogicalResource logres2 = createNewLogicalResource(
 			URI.createPlatformResourceURI(RESOURCE_NAME2));
-		Library library2 = RMPLibraryFactory.eINSTANCE.createLibrary();
+		Library library2 = EXTLibraryFactory.eINSTANCE.createLibrary();
 		logres2.getContents().add(library2);
 		library2.setName("Library 2"); //$NON-NLS-1$
 		
-		subunit3 = RMPLibraryFactory.eINSTANCE.createLibrary();
+		subunit3 = EXTLibraryFactory.eINSTANCE.createLibrary();
 		library2.getBranches().add(subunit3);
 		subunit3.setName("Library 2 Subunit"); //$NON-NLS-1$
 		
-		String library2SubunitName = "/" + PROJECT_NAME + "/logres2.1.rmplibrary"; //$NON-NLS-1$//$NON-NLS-2$
+		String library2SubunitName = "/" + PROJECT_NAME + "/logres2.1.extlibrary"; //$NON-NLS-1$//$NON-NLS-2$
 		try {
 			logres2.separate(subunit3, URI.createPlatformResourceURI(library2SubunitName));
 		} catch (CannotSeparateException e) {
@@ -539,7 +539,7 @@ public class CrossReferenceTest
 		Book book = (Book) find(subunit1, "Level2 Book"); //$NON-NLS-1$
 		String bookFrag = logres.getURIFragment(book);
 		
-		Writer writer = RMPLibraryFactory.eINSTANCE.createWriter();
+		Writer writer = EXTLibraryFactory.eINSTANCE.createWriter();
 		subunit3.getWriters().add(writer);
 		writer.setName("Level2 Writer"); //$NON-NLS-1$
 		writer.getBooks().add(book);  // cross-resource reference
@@ -567,7 +567,7 @@ public class CrossReferenceTest
 		assertTrue(proxy.eIsProxy());
 		assertEquals(logres.getURI(), EcoreUtil.getURI(proxy).trimFragment());
 		
-		proxy = (EObject) book.eGet(RMPLibraryPackage.eINSTANCE.getBook_Author(), false);
+		proxy = (EObject) book.eGet(EXTLibraryPackage.eINSTANCE.getBook_Author(), false);
 		// cannot assertTrue(proxy.eIsProxy()) because MSL's indexer resolves it
 		assertEquals(logres2.getURI(), EcoreUtil.getURI(proxy).trimFragment());
 		

@@ -12,9 +12,9 @@
 
 package org.eclipse.gmf.examples.runtime.emf.resources;
 
-import org.eclipse.emf.examples.library.Library;
-import org.eclipse.emf.examples.library.RMPLibraryPackage;
-import org.eclipse.emf.examples.library.impl.LibraryImpl;
+import org.eclipse.emf.examples.extlibrary.EXTLibraryPackage;
+import org.eclipse.emf.examples.extlibrary.Library;
+import org.eclipse.emf.examples.extlibrary.impl.LibraryImpl;
 import org.eclipse.gmf.runtime.emf.core.util.EObjectContainmentWithInverseLoadingEList;
 
 
@@ -36,8 +36,8 @@ class LoadingLibraryImpl
 		//   loading of contained elements in this feature.  This pre-empts
 		//   the superclass's lazy initialization of this list
 		branches = new EObjectContainmentWithInverseLoadingEList(
-			Library.class, this, RMPLibraryPackage.LIBRARY__BRANCHES,
-			RMPLibraryPackage.LIBRARY__PARENT_BRANCH);
+			Library.class, this, EXTLibraryPackage.LIBRARY__BRANCHES,
+			EXTLibraryPackage.LIBRARY__PARENT_BRANCH);
 	}
 
 }

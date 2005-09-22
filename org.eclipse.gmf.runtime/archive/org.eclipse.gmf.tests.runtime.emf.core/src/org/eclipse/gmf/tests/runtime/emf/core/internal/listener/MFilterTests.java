@@ -29,7 +29,7 @@ import org.eclipse.gmf.tests.runtime.emf.core.BaseCoreTests;
 public class MFilterTests
 	extends BaseCoreTests {
 
-	private static final String RMPLIBRARY_CONTENTTYPE = "org.eclipse.emf.examples.library.rationalModelingPlatformLibrary"; //$NON-NLS-1$
+	private static final String EXTLIBRARY_CONTENTTYPE = "org.eclipse.emf.examples.library.rationalModelingPlatformLibrary"; //$NON-NLS-1$
 
 	public MFilterTests() {
 		super();
@@ -48,7 +48,7 @@ public class MFilterTests
 		};
 		
 		/* Set the filter */
-		regularListener.setFilter(new MFilter.ResourceContentType(Collections.singleton(RMPLIBRARY_CONTENTTYPE)));
+		regularListener.setFilter(new MFilter.ResourceContentType(Collections.singleton(EXTLIBRARY_CONTENTTYPE)));
 		regularListener.startListening();
 
 		/* Load the resource */
@@ -86,7 +86,7 @@ public class MFilterTests
 		};
 		
 		/* Set the filter */
-		regularListener.setFilter(new MFilter.ResourceContentType(Collections.singleton(RMPLIBRARY_CONTENTTYPE))); //$NON-NLS-1$
+		regularListener.setFilter(new MFilter.ResourceContentType(Collections.singleton(EXTLIBRARY_CONTENTTYPE))); //$NON-NLS-1$
 
 		/* Load the resource */
 		domain.loadResource(testResource);

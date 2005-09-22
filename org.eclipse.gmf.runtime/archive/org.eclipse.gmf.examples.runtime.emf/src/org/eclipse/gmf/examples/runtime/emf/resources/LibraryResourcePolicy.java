@@ -17,7 +17,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.xmi.XMIResource;
 
-import org.eclipse.emf.examples.library.Library;
+import org.eclipse.emf.examples.extlibrary.Library;
 import org.eclipse.gmf.runtime.emf.core.resources.AbstractLogicalResourcePolicy;
 import org.eclipse.gmf.runtime.emf.core.resources.CannotSeparateException;
 import org.eclipse.gmf.runtime.emf.core.resources.ILogicalResource;

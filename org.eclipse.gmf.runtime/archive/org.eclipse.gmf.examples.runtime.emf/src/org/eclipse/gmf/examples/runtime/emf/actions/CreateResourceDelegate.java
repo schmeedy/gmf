@@ -24,6 +24,7 @@ import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.ui.EMFEditUIPlugin;
+import org.eclipse.emf.examples.extlibrary.EXTLibraryPackage;
 import org.eclipse.jface.action.IAction;
 import org.eclipse.jface.dialogs.Dialog;
 import org.eclipse.jface.viewers.ISelection;
@@ -47,7 +48,6 @@ import org.eclipse.ui.IEditorActionDelegate;
 import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.dialogs.ContainerSelectionDialog;
 
-import org.eclipse.emf.examples.library.RMPLibraryPackage;
 import org.eclipse.gmf.runtime.emf.core.edit.MEditingDomain;
 import org.eclipse.gmf.examples.runtime.emf.MSLExamplePlugin;
 import org.eclipse.gmf.examples.runtime.emf.editor.MSLLibraryEditor;
@@ -61,7 +61,7 @@ import org.eclipse.gmf.examples.runtime.emf.editor.MSLLibraryEditor;
 public class CreateResourceDelegate
 	implements IEditorActionDelegate, IActionDelegate2 {
 
-	private static final String DEFAULT_RESOURCE_NAME = "My1.rmplibrary"; //$NON-NLS-1$
+	private static final String DEFAULT_RESOURCE_NAME = "My1.extlibrary"; //$NON-NLS-1$
 	
 	/**
 	 * Error message to display when an exception occured
@@ -248,7 +248,7 @@ public class CreateResourceDelegate
 		protected void okPressed() {
 			resourceURIs = getResourceURIs();
 			if (domain != null) {
-				Resource res = ((MEditingDomain) domain).createResource(resourceURIs,RMPLibraryPackage.eINSTANCE.getLibrary());
+				Resource res = ((MEditingDomain) domain).createResource(resourceURIs,EXTLibraryPackage.eINSTANCE.getLibrary());
 				((MEditingDomain) domain).saveResource(res);
 			}
 			super.okPressed();

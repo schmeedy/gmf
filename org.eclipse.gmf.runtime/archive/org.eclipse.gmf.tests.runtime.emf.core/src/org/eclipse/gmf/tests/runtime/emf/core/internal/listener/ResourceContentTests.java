@@ -20,8 +20,8 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 
-import org.eclipse.emf.examples.library.Library;
-import org.eclipse.emf.examples.library.RMPLibraryFactory;
+import org.eclipse.emf.examples.extlibrary.EXTLibraryFactory;
+import org.eclipse.emf.examples.extlibrary.Library;
 import org.eclipse.gmf.runtime.emf.core.edit.DemuxedMListener;
 import org.eclipse.gmf.runtime.emf.core.edit.MFilter;
 import org.eclipse.gmf.runtime.emf.core.edit.MListener;
@@ -84,7 +84,7 @@ public class ResourceContentTests
 		/* Unload the resource */
 		assertTrue(testResource != null && testResource.isLoaded());
 		
-		final Library tempLib = RMPLibraryFactory.eINSTANCE.createLibrary();
+		final Library tempLib = EXTLibraryFactory.eINSTANCE.createLibrary();
 		final int[] eventsCounter1 = {0};
 		MListener regularListener = new MListener(domain) {
 			public void onEvent(List events) {

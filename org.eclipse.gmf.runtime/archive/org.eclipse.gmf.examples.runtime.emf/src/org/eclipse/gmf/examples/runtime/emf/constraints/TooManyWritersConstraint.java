@@ -13,7 +13,7 @@ package org.eclipse.gmf.examples.runtime.emf.constraints;
 
 import org.eclipse.core.runtime.IStatus;
 
-import org.eclipse.emf.examples.library.Library;
+import org.eclipse.emf.examples.extlibrary.Library;
 import org.eclipse.gmf.runtime.emf.core.util.EObjectUtil;
 import org.eclipse.emf.validation.AbstractModelConstraint;
 import org.eclipse.emf.validation.IValidationContext;

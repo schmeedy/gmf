@@ -35,13 +35,13 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.osgi.framework.Bundle;
 
-import org.eclipse.emf.examples.library.AudoVisualItem;
-import org.eclipse.emf.examples.library.Book;
-import org.eclipse.emf.examples.library.Library;
-import org.eclipse.emf.examples.library.Periodical;
-import org.eclipse.emf.examples.library.Person;
-import org.eclipse.emf.examples.library.Writer;
-import org.eclipse.emf.examples.library.util.RMPLibrarySwitch;
+import org.eclipse.emf.examples.extlibrary.AudoVisualItem;
+import org.eclipse.emf.examples.extlibrary.Book;
+import org.eclipse.emf.examples.extlibrary.Library;
+import org.eclipse.emf.examples.extlibrary.Periodical;
+import org.eclipse.emf.examples.extlibrary.Person;
+import org.eclipse.emf.examples.extlibrary.Writer;
+import org.eclipse.emf.examples.extlibrary.util.EXTLibrarySwitch;
 import org.eclipse.gmf.runtime.emf.core.edit.MEditingDomain;
 import org.eclipse.gmf.runtime.emf.core.edit.MResourceOption;
 import org.eclipse.gmf.runtime.emf.core.edit.MUndoInterval;
@@ -63,11 +63,11 @@ public abstract class BaseLogicalResourceTest extends TestCase {
 		Platform.getBundle("org.eclipse.gmf.tests.runtime.emf.core"); //$NON-NLS-1$
 	
 	protected static final String PROJECT_NAME = "logrestest"; //$NON-NLS-1$
-	protected static final String RESOURCE_NAME = "/" + PROJECT_NAME + "/logres.rmplibrary";  //$NON-NLS-1$//$NON-NLS-2$
-	protected static final String RESOURCE_NAME2 = "/" + PROJECT_NAME + "/logres2.rmplibrary";  //$NON-NLS-1$//$NON-NLS-2$
-	protected static final String SUBUNIT_NAME1 = "/" + PROJECT_NAME + "/logres.1.rmplibrary";  //$NON-NLS-1$//$NON-NLS-2$
-	protected static final String SUBUNIT_NAME2 = "/" + PROJECT_NAME + "/logres.2.rmplibrary";  //$NON-NLS-1$//$NON-NLS-2$
-	protected static final String SUBUNIT_NAME3 = "/" + PROJECT_NAME + "/logres.3.rmplibrary";  //$NON-NLS-1$//$NON-NLS-2$
+	protected static final String RESOURCE_NAME = "/" + PROJECT_NAME + "/logres.extlibrary";  //$NON-NLS-1$//$NON-NLS-2$
+	protected static final String RESOURCE_NAME2 = "/" + PROJECT_NAME + "/logres2.extlibrary";  //$NON-NLS-1$//$NON-NLS-2$
+	protected static final String SUBUNIT_NAME1 = "/" + PROJECT_NAME + "/logres.1.extlibrary";  //$NON-NLS-1$//$NON-NLS-2$
+	protected static final String SUBUNIT_NAME2 = "/" + PROJECT_NAME + "/logres.2.extlibrary";  //$NON-NLS-1$//$NON-NLS-2$
+	protected static final String SUBUNIT_NAME3 = "/" + PROJECT_NAME + "/logres.3.extlibrary";  //$NON-NLS-1$//$NON-NLS-2$
 	
 	protected MEditingDomain domain;
 	private boolean isReading;
@@ -202,7 +202,7 @@ public abstract class BaseLogicalResourceTest extends TestCase {
 		
 		try {
 			res.setURI(URI.createURI(MslCoreTestsBundle.getEntry(
-				"/test_models/test_model.rmplibrary").toString())); //$NON-NLS-1$
+				"/test_models/test_model.extlibrary").toString())); //$NON-NLS-1$
 		
 			// no special options needed to load the monolithic test model
 			res.load(Collections.EMPTY_MAP);
@@ -574,7 +574,7 @@ public abstract class BaseLogicalResourceTest extends TestCase {
 	 *
 	 * @author Christian W. Damus (cdamus)
 	 */
-	private static final class GetName extends RMPLibrarySwitch {
+	private static final class GetName extends EXTLibrarySwitch {
 		static final GetName INSTANCE = new GetName();
 		
 		private GetName() {

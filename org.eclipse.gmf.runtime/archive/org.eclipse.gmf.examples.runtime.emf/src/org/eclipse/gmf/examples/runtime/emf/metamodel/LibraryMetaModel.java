@@ -20,15 +20,15 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
 
-import org.eclipse.emf.examples.library.Book;
-import org.eclipse.emf.examples.library.Library;
-import org.eclipse.emf.examples.library.RMPLibraryPackage;
-import org.eclipse.emf.examples.library.Writer;
+import org.eclipse.emf.examples.extlibrary.Book;
+import org.eclipse.emf.examples.extlibrary.EXTLibraryPackage;
+import org.eclipse.emf.examples.extlibrary.Library;
+import org.eclipse.emf.examples.extlibrary.Writer;
 import org.eclipse.gmf.runtime.emf.core.services.metamodel.IMetamodelSupport;
 import org.eclipse.gmf.runtime.emf.core.util.EObjectUtil;
 
 /**
- * Meta-model support implementation for the RMP library meta model.
+ * Meta-model support implementation for the EXT library meta model.
  * 
  * @see org.eclipse.gmf.runtime.emf.core.services.metamodel.IMetamodelSupport
  */
@@ -74,17 +74,17 @@ public class LibraryMetaModel
 	private void setName(EObject eObj, String name) {
 		EClass eCls = eObj.eClass();
 		
-		if (eCls == RMPLibraryPackage.eINSTANCE.getLibrary()) {
+		if (eCls == EXTLibraryPackage.eINSTANCE.getLibrary()) {
 			((Library)eObj).setName(name);
-		} else if (eCls == RMPLibraryPackage.eINSTANCE.getBook()) {
+		} else if (eCls == EXTLibraryPackage.eINSTANCE.getBook()) {
 			((Book)eObj).setTitle(name);
-		} else if (eCls == RMPLibraryPackage.eINSTANCE.getWriter()) {
+		} else if (eCls == EXTLibraryPackage.eINSTANCE.getWriter()) {
 			((Writer)eObj).setName(name);
 		}
 	}
 	
 	private String getName(EObject eObj) {
-		if (eObj.eClass() == RMPLibraryPackage.eINSTANCE.getBook()) {
+		if (eObj.eClass() == EXTLibraryPackage.eINSTANCE.getBook()) {
 			return ((Book)eObj).getTitle();
 		} else {
 			return EObjectUtil.getName(eObj);
@@ -159,6 +159,6 @@ public class LibraryMetaModel
 			.eResource()
 			.getResourceSet()
 			.getResource(
-				URI.createURI("pathmap://" + CORE_LIBRARIES_PATHMAP + "/" + "LibraryOfCongress.rmplibrary"), true); //$NON-NLS-1$ //$NON-NLS-2$//$NON-NLS-3$
+				URI.createURI("pathmap://" + CORE_LIBRARIES_PATHMAP + "/" + "LibraryOfCongress.extlibrary"), true); //$NON-NLS-1$ //$NON-NLS-2$//$NON-NLS-3$
 	}
 }

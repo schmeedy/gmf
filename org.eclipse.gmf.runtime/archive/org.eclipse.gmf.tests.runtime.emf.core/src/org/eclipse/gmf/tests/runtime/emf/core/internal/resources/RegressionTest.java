@@ -20,9 +20,9 @@ import junit.framework.TestSuite;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
 
-import org.eclipse.emf.examples.library.Library;
-import org.eclipse.emf.examples.library.RMPLibraryFactory;
-import org.eclipse.emf.examples.library.RMPLibraryPackage;
+import org.eclipse.emf.examples.extlibrary.EXTLibraryFactory;
+import org.eclipse.emf.examples.extlibrary.EXTLibraryPackage;
+import org.eclipse.emf.examples.extlibrary.Library;
 import org.eclipse.gmf.runtime.emf.core.internal.resourcemap.ResourceMap;
 import org.eclipse.gmf.runtime.emf.core.internal.resources.AbstractResourceWrapper;
 import org.eclipse.gmf.runtime.emf.core.resources.CannotAbsorbException;
@@ -50,14 +50,14 @@ public class RegressionTest
 	 * it moved back into the resource contents.
 	 */
 	public void test_reparentLogicalRoot_RATLC00537428() {
-		Library other = RMPLibraryFactory.eINSTANCE.createLibrary();
+		Library other = EXTLibraryFactory.eINSTANCE.createLibrary();
 		logres.getContents().add(other);
 		
 		root.getBranches().add(other);
 		
 		assertSame(root, other.eContainer());
 		assertSame(
-			RMPLibraryPackage.eINSTANCE.getLibrary_Branches(),
+			EXTLibraryPackage.eINSTANCE.getLibrary_Branches(),
 			other.eContainmentFeature());
 		assertEquals(Collections.singletonList(root), logres.getContents());
 	}

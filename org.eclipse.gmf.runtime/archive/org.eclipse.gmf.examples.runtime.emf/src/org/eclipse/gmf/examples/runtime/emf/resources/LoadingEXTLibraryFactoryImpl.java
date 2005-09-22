@@ -14,23 +14,23 @@ package org.eclipse.gmf.examples.runtime.emf.resources;
 
 import org.eclipse.emf.ecore.EPackage;
 
-import org.eclipse.emf.examples.library.Library;
-import org.eclipse.emf.examples.library.RMPLibraryPackage;
-import org.eclipse.emf.examples.library.impl.RMPLibraryFactoryImpl;
+import org.eclipse.emf.examples.extlibrary.EXTLibraryPackage;
+import org.eclipse.emf.examples.extlibrary.Library;
+import org.eclipse.emf.examples.extlibrary.impl.EXTLibraryFactoryImpl;
 
 
 /**
  * Example of a custom {@link org.eclipse.emf.ecore.EFactory} implementation
- * for auto-loading the sub-units of a logical resource, for the RMP Library
+ * for auto-loading the sub-units of a logical resource, for the EXT Library
  * example metamodel.
  */
-public class LoadingRMPLibraryFactoryImpl
-	extends RMPLibraryFactoryImpl {
+public class LoadingEXTLibraryFactoryImpl
+	extends EXTLibraryFactoryImpl {
 
 	/**
 	 * Initializes me.
 	 */
-	public LoadingRMPLibraryFactoryImpl() {
+	public LoadingEXTLibraryFactoryImpl() {
 		super();
 	}
 
@@ -43,11 +43,11 @@ public class LoadingRMPLibraryFactoryImpl
 	}
 	
 	public EPackage getEPackage() {
-		// must appear to belong to the RMP Library Package.  Note that we
+		// must appear to belong to the EXT Library Package.  Note that we
 		//   cannot assign our EPackage using the setEPackage(...) method
 		//   because that would inverse-add us to the EPackage, which is
 		//   not good
-		return RMPLibraryPackage.eINSTANCE;
+		return EXTLibraryPackage.eINSTANCE;
 	}
 
 }

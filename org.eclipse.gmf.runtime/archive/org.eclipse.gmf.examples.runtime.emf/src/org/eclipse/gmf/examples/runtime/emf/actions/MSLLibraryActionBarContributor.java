@@ -61,8 +61,8 @@ import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.actions.ActionFactory;
 
 import org.eclipse.gmf.runtime.common.core.util.Log;
-import org.eclipse.emf.examples.library.actions.RMPLibraryExtendedActionBarContributor;
-import org.eclipse.emf.examples.library.presentation.RMPLibraryEditorPlugin;
+import org.eclipse.emf.examples.extlibrary.actions.EXTLibraryExtendedActionBarContributor;
+import org.eclipse.emf.examples.extlibrary.presentation.EXTLibraryEditorPlugin;
 import org.eclipse.gmf.runtime.emf.core.edit.MEditingDomain;
 import org.eclipse.gmf.runtime.emf.core.edit.MFilter;
 import org.eclipse.gmf.runtime.emf.core.edit.MListener;
@@ -88,7 +88,7 @@ import org.eclipse.gmf.examples.runtime.emf.properties.PropertySheetDialog;
  * @author cmcgee
  */
 public class MSLLibraryActionBarContributor
-	extends RMPLibraryExtendedActionBarContributor {
+	extends EXTLibraryExtendedActionBarContributor {
 
 	private static final String CREATE_ACTION_LABEL = MSLExamplePlugin.getResourceString("CreateAction.label"); //$NON-NLS-1$
 	private static final String CREATE_ACTION_TITLE = MSLExamplePlugin.getResourceString("CreateAction.title"); //$NON-NLS-1$
@@ -923,10 +923,10 @@ public class MSLLibraryActionBarContributor
 	}
 
 	/*
-	 * @see org.eclipse.emf.examples.library.presentation.RMPLibraryActionBarContributor#contributeToMenu(org.eclipse.jface.action.IMenuManager)
+	 * @see org.eclipse.emf.examples.extlibrary.presentation.EXTLibraryActionBarContributor#contributeToMenu(org.eclipse.jface.action.IMenuManager)
 	 */
 	public void contributeToMenu(IMenuManager menuManager) {
-		IMenuManager submenuManager = new MenuManager(MSLExamplePlugin.getResourceString("MSLLibraryEditor_menu"), "org.eclipse.gmf.examples.runtime.emf.rmplibraryMenuID"); //$NON-NLS-1$ //$NON-NLS-2$
+		IMenuManager submenuManager = new MenuManager(MSLExamplePlugin.getResourceString("MSLLibraryEditor_menu"), "org.eclipse.gmf.examples.runtime.emf.extlibraryMenuID"); //$NON-NLS-1$ //$NON-NLS-2$
 		menuManager.insertAfter("additions", submenuManager); //$NON-NLS-1$
 		submenuManager.add(new Separator("settings")); //$NON-NLS-1$
 		submenuManager.add(new Separator("actions")); //$NON-NLS-1$
@@ -935,12 +935,12 @@ public class MSLLibraryActionBarContributor
 
 		// Prepare for CreateChild item addition or removal.
 		//
-		createChildMenuManager = new MenuManager(RMPLibraryEditorPlugin.INSTANCE.getString("_UI_CreateChild_menu_item")); //$NON-NLS-1$
+		createChildMenuManager = new MenuManager(EXTLibraryEditorPlugin.INSTANCE.getString("_UI_CreateChild_menu_item")); //$NON-NLS-1$
 		submenuManager.insertBefore("additions", createChildMenuManager); //$NON-NLS-1$
 
 		// Prepare for CreateSibling item addition or removal.
 		//
-		createSiblingMenuManager = new MenuManager(RMPLibraryEditorPlugin.INSTANCE.getString("_UI_CreateSibling_menu_item")); //$NON-NLS-1$
+		createSiblingMenuManager = new MenuManager(EXTLibraryEditorPlugin.INSTANCE.getString("_UI_CreateSibling_menu_item")); //$NON-NLS-1$
 		submenuManager.insertBefore("additions", createSiblingMenuManager); //$NON-NLS-1$
 
 		// Force an update because Eclipse hides empty menus now.

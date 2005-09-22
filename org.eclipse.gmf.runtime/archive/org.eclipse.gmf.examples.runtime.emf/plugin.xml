@@ -23,7 +23,7 @@
    <extension
          point="org.eclipse.emf.ecore.extension_parser">
       <parser
-            type="rmplibrary"
+            type="extlibrary"
             class="org.eclipse.gmf.runtime.emf.core.resources.MResourceFactory">
       </parser>
    </extension>
@@ -31,12 +31,12 @@
   <extension point = "org.eclipse.ui.editors">
     <editor
           class="org.eclipse.gmf.examples.runtime.emf.editor.MSLLibraryEditor"
-          icon="icons/full/obj16/RMPLibraryModelFile.gif"
+          icon="icons/full/obj16/EXTLibraryModelFile.gif"
           default="false"
           contributorClass="org.eclipse.gmf.examples.runtime.emf.actions.MSLLibraryActionBarContributor"
-          name="%_UI_RMPLibraryEditor_label"
+          name="%_UI_EXTLibraryEditor_label"
           id="org.eclipse.gmf.examples.runtime.emf.presentation.MSLLibraryEditorID"
-          extensions="rmplibrary">
+          extensions="extlibrary">
     </editor>
   </extension>
   <extension
@@ -56,7 +56,7 @@
            id="org.eclipse.gmf.examples.runtime.emf.category"/>
      <constraintProvider cache="true">
         <package namespaceUri="*"/>
-        <package namespaceUri="http:///com/ibm/xtools/emf/metamodel/example/pde/rmplibrary.ecore/1.0.0"/>
+        <package namespaceUri="http:///org/eclipse/emf/examples/library/extlibrary.ecore/1.0.0"/>
         <constraints categories="org.eclipse.gmf.examples.runtime.emf.category">
            <constraint
                  lang="Java"
@@ -192,7 +192,7 @@
         point="org.eclipse.gmf.runtime.emf.clipboard.core.clipboardSupport">
      <factory
            class="org.eclipse.gmf.examples.runtime.emf.clipboard.LibraryClipboardSupportFactory"
-           nsURI="http:///com/ibm/xtools/emf/metamodel/example/pde/rmplibrary.ecore/1.0.0"
+           nsURI="http:///org/eclipse/emf/examples/library/extlibrary.ecore/1.0.0"
            priority="highest"/>
   </extension>
   <extension
@@ -200,12 +200,12 @@
      <policy
            class="org.eclipse.gmf.examples.runtime.emf.resources.LibraryResourcePolicy">
         <epackage 
-              nsURI="http:///com/ibm/xtools/emf/metamodel/example/pde/rmplibrary.ecore/1.0.0"/>
+              nsURI="http:///org/eclipse/emf/examples/library/extlibrary.ecore/1.0.0"/>
       </policy>
       
       <efactory
-            class="org.eclipse.gmf.examples.runtime.emf.resources.LoadingRMPLibraryFactoryImpl"
-            nsURI="http:///com/ibm/xtools/emf/metamodel/example/pde/rmplibrary.ecore/1.0.0"/>
+            class="org.eclipse.gmf.examples.runtime.emf.resources.LoadingEXTLibraryFactoryImpl"
+            nsURI="http:///org/eclipse/emf/examples/library/extlibrary.ecore/1.0.0"/>
   </extension>
    
 </plugin>

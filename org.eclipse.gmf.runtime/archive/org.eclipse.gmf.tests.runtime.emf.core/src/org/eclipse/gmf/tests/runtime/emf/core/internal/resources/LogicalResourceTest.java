@@ -31,11 +31,11 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 
-import org.eclipse.emf.examples.library.Book;
-import org.eclipse.emf.examples.library.Library;
-import org.eclipse.emf.examples.library.RMPLibraryFactory;
-import org.eclipse.emf.examples.library.RMPLibraryPackage;
-import org.eclipse.emf.examples.library.Writer;
+import org.eclipse.emf.examples.extlibrary.Book;
+import org.eclipse.emf.examples.extlibrary.EXTLibraryFactory;
+import org.eclipse.emf.examples.extlibrary.EXTLibraryPackage;
+import org.eclipse.emf.examples.extlibrary.Library;
+import org.eclipse.emf.examples.extlibrary.Writer;
 import org.eclipse.gmf.runtime.emf.core.EventTypes;
 import org.eclipse.gmf.runtime.emf.core.edit.DemuxedMListener;
 import org.eclipse.gmf.runtime.emf.core.edit.MEditingDomain;
@@ -115,7 +115,7 @@ public class LogicalResourceTest
 		assertEquals(logres.getURI(), unit.getURI());
 		
 		// test adding another root
-		Library otherRoot = RMPLibraryFactory.eINSTANCE.createLibrary();
+		Library otherRoot = EXTLibraryFactory.eINSTANCE.createLibrary();
 		logres.getContents().add(otherRoot);
 		
 		assertEquals(2, resources.size());
@@ -124,7 +124,7 @@ public class LogicalResourceTest
 		assertEquals(logres.getURI(), unit.getURI());
 		
 		// test replacing a root using the set() method
-		Library yetAnotherRoot = RMPLibraryFactory.eINSTANCE.createLibrary();
+		Library yetAnotherRoot = EXTLibraryFactory.eINSTANCE.createLibrary();
 		logres.getContents().set(1, yetAnotherRoot);
 		
 		assertEquals(2, resources.size());
@@ -435,7 +435,7 @@ public class LogicalResourceTest
 	 */
 	public void test_multipleSubunitsOfSameParent() {
 		// create a third child of the root element
-		subunit3 = RMPLibraryFactory.eINSTANCE.createLibrary();
+		subunit3 = EXTLibraryFactory.eINSTANCE.createLibrary();
 		root.getBranches().add(subunit3);
 		subunit3.setName("level1-2"); //$NON-NLS-1$
 		
@@ -667,7 +667,7 @@ public class LogicalResourceTest
 		Map resources = logres.getMappedResources();
 		assertEquals(3, resources.size());
 		
-		String newName = "/" + PROJECT_NAME + "/newuri.rmplibrary"; //$NON-NLS-1$ //$NON-NLS-2$
+		String newName = "/" + PROJECT_NAME + "/newuri.extlibrary"; //$NON-NLS-1$ //$NON-NLS-2$
 		logres.setURI(URI.createPlatformResourceURI(newName));
 		
 		// reduced to a single physical resource
@@ -953,7 +953,7 @@ public class LogicalResourceTest
 		
 		assertSame(parent, event.getNotifier());
 		assertEquals(EventTypes.SEPARATE, event.getEventType());
-		assertSame(RMPLibraryPackage.eINSTANCE.getLibrary_Branches(), event.getFeature());
+		assertSame(EXTLibraryPackage.eINSTANCE.getLibrary_Branches(), event.getFeature());
 		assertEquals(logicalUri, ((Resource) event.getOldValue()).getURI());
 		assertEquals(subunitUri, ((Resource) event.getNewValue()).getURI());
 		
@@ -969,7 +969,7 @@ public class LogicalResourceTest
 		
 		assertSame(parent, event.getNotifier());
 		assertEquals(EventTypes.ABSORB, event.getEventType());
-		assertSame(RMPLibraryPackage.eINSTANCE.getLibrary_Branches(), event.getFeature());
+		assertSame(EXTLibraryPackage.eINSTANCE.getLibrary_Branches(), event.getFeature());
 		assertEquals(subunitUri, ((Resource) event.getOldValue()).getURI());
 		assertEquals(logicalUri, ((Resource) event.getNewValue()).getURI());
 		
@@ -1116,7 +1116,7 @@ public class LogicalResourceTest
 	 */
 	public void test_compatibility_6_0() {
 		URI uri = URI.createURI(MslCoreTestsBundle.getEntry(
-				"/test_models/test_6_0_format.rmplibrary").toString()); //$NON-NLS-1$
+				"/test_models/test_6_0_format.extlibrary").toString()); //$NON-NLS-1$
 		logres = createNewLogicalResource(uri);
 		loadLogicalResource();
 		
@@ -1147,7 +1147,7 @@ public class LogicalResourceTest
 	 */
 	public void test_load_errors_RATLC00537775() {
 		URI uri = URI.createURI(MslCoreTestsBundle.getEntry(
-				"/test_models/test_corrupted_model.rmplibrary").toString()); //$NON-NLS-1$
+				"/test_models/test_corrupted_model.extlibrary").toString()); //$NON-NLS-1$
 		logres = createNewLogicalResource(uri);
 
 		Map options = new java.util.HashMap();
@@ -1177,7 +1177,7 @@ public class LogicalResourceTest
 	public void test_load_errors_RATLC00537693() {
 		final MEditingDomain editingDomain = MEditingDomain.createNewDomain();
 		URI uri = URI.createURI(MslCoreTestsBundle.getEntry(
-				"/test_models/test_corrupted_model.rmplibrary").toString()); //$NON-NLS-1$
+				"/test_models/test_corrupted_model.extlibrary").toString()); //$NON-NLS-1$
 		
 		final Resource[] r = new Resource[1];
 		

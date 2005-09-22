@@ -12,16 +12,16 @@
 package org.eclipse.gmf.examples.runtime.emf.metamodel;
 
 import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.emf.examples.extlibrary.EXTLibraryPackage;
 
 import org.eclipse.gmf.runtime.common.core.service.AbstractProvider;
 import org.eclipse.gmf.runtime.common.core.service.IOperation;
-import org.eclipse.emf.examples.library.RMPLibraryPackage;
 import org.eclipse.gmf.runtime.emf.core.services.metamodel.GetMetamodelSupportOperation;
 import org.eclipse.gmf.runtime.emf.core.services.metamodel.IMetamodelSupport;
 import org.eclipse.gmf.runtime.emf.core.services.metamodel.IMetamodelSupportProvider;
 
 /**
- * Implementation of meta-model provider for the RMP library meta-model.
+ * Implementation of meta-model provider for the EXT library meta-model.
  * 
  * @see org.eclipse.gmf.runtime.emf.core.services.metamodel.IMetamodelSupportProvider
  */
@@ -52,7 +52,7 @@ public class LibraryMetaModelProvider
 
 			EPackage ePackage = getMetaModelOperation.getEPackage();
 
-			return (ePackage == RMPLibraryPackage.eINSTANCE);
+			return (ePackage == EXTLibraryPackage.eINSTANCE);
 		}
 
 		return false;

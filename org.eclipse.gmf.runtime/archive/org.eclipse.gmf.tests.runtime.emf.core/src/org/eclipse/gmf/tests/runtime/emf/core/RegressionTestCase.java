@@ -21,8 +21,8 @@ import org.eclipse.emf.ecore.xmi.ClassNotFoundException;
 import org.eclipse.emf.ecore.xmi.FeatureNotFoundException;
 import org.eclipse.emf.ecore.xmi.PackageNotFoundException;
 
-import org.eclipse.emf.examples.library.Library;
-import org.eclipse.emf.examples.library.RMPLibraryFactory;
+import org.eclipse.emf.examples.extlibrary.EXTLibraryFactory;
+import org.eclipse.emf.examples.extlibrary.Library;
 import org.eclipse.gmf.runtime.emf.core.edit.MResourceOption;
 import org.eclipse.gmf.runtime.emf.core.edit.MRunnable;
 import org.eclipse.gmf.runtime.emf.core.edit.MUndoInterval;
@@ -49,7 +49,7 @@ public class RegressionTestCase
 	/** Tests undo/redo of addition of a root element to a resource. */
 	public void test_undoRootElementAdd_RATLC00537680() {
 		if (writing()) {
-			Library lib = RMPLibraryFactory.eINSTANCE.createLibrary();
+			Library lib = EXTLibraryFactory.eINSTANCE.createLibrary();
 			lib.setName("NewlyAdded"); //$NON-NLS-1$
 			testResource.getContents().add(lib);
 		} else {
@@ -92,7 +92,7 @@ public class RegressionTestCase
 
 	/** Tests undo/redo of moving of a root element in a resource. */
 	public void test_undoRootElementMove_RATLC00537680() {
-		final Library secondRoot = RMPLibraryFactory.eINSTANCE.createLibrary();
+		final Library secondRoot = EXTLibraryFactory.eINSTANCE.createLibrary();
 		secondRoot.setName("secondRoot"); //$NON-NLS-1$
 		
 		// first, add a second root that we can move
@@ -143,7 +143,7 @@ public class RegressionTestCase
 	 * when it has an unresolved schema reference.
 	 */
 	public void test_loadWithUnresolvedPackage_RATLC00537775() {
-		Resource res = createTestResource("test_unknownPackage.rmplibrary"); //$NON-NLS-1$
+		Resource res = createTestResource("test_unknownPackage.extlibrary"); //$NON-NLS-1$
 		
 		try {
 			// try regular mode
@@ -189,7 +189,7 @@ public class RegressionTestCase
 	 * when it has an unresolved class reference.
 	 */
 	public void test_loadWithUnresolvedClass_RATLC00537775() {
-		Resource res = createTestResource("test_unknownClass.rmplibrary"); //$NON-NLS-1$
+		Resource res = createTestResource("test_unknownClass.extlibrary"); //$NON-NLS-1$
 		
 		try {
 			// try regular mode
@@ -235,7 +235,7 @@ public class RegressionTestCase
 	 * when it has an unresolved feature reference.
 	 */
 	public void test_loadWithUnresolvedFeature_RATLC00537775() {
-		Resource res = createTestResource("test_unknownFeature.rmplibrary"); //$NON-NLS-1$
+		Resource res = createTestResource("test_unknownFeature.extlibrary"); //$NON-NLS-1$
 		
 		try {
 			// try regular mode

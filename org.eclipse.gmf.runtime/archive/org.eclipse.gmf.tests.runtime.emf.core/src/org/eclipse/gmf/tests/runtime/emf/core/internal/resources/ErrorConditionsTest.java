@@ -24,7 +24,7 @@ import org.eclipse.core.resources.ResourceAttributes;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.emf.common.util.URI;
 
-import org.eclipse.emf.examples.library.Library;
+import org.eclipse.emf.examples.extlibrary.Library;
 import org.eclipse.gmf.runtime.emf.core.resources.CannotAbsorbException;
 import org.eclipse.gmf.runtime.emf.core.resources.CannotSeparateException;
 import org.eclipse.gmf.runtime.emf.core.resources.ILogicalResource;

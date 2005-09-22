@@ -26,8 +26,8 @@ import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EcoreFactory;
 import org.eclipse.emf.ecore.resource.impl.ResourceImpl;
 
-import org.eclipse.emf.examples.library.Library;
-import org.eclipse.emf.examples.library.RMPLibraryFactory;
+import org.eclipse.emf.examples.extlibrary.EXTLibraryFactory;
+import org.eclipse.emf.examples.extlibrary.Library;
 import org.eclipse.gmf.runtime.emf.core.resources.CannotSeparateException;
 import org.eclipse.gmf.runtime.emf.core.resources.ILogicalResource;
 
@@ -60,7 +60,7 @@ public class RefactoringTest
 		Library parent = subunit1.getParentBranch();
 		EList branches = parent.getBranches();
 		
-		Library newLibrary = RMPLibraryFactory.eINSTANCE.createLibrary();
+		Library newLibrary = EXTLibraryFactory.eINSTANCE.createLibrary();
 		branches.add(newLibrary);
 		newLibrary.setName("New Library"); //$NON-NLS-1$
 		String newFrag = logres.getURIFragment(newLibrary);
@@ -343,7 +343,7 @@ public class RefactoringTest
 		
 		ILogicalResource logres2 = createNewLogicalResource(
 			URI.createPlatformResourceURI(RESOURCE_NAME2));
-		Library library2 = RMPLibraryFactory.eINSTANCE.createLibrary();
+		Library library2 = EXTLibraryFactory.eINSTANCE.createLibrary();
 		logres2.getContents().add(library2);
 		library2.setName("Library 2"); //$NON-NLS-1$
 		
@@ -412,7 +412,7 @@ public class RefactoringTest
 	public void test_moveRootWithinContentsList() {
 		String rootFrag = logres.getURIFragment(root);
 		
-		Library newLibrary = RMPLibraryFactory.eINSTANCE.createLibrary();
+		Library newLibrary = EXTLibraryFactory.eINSTANCE.createLibrary();
 		EList contents = logres.getContents();
 		contents.add(newLibrary);
 		newLibrary.setName("New Library"); //$NON-NLS-1$
@@ -608,7 +608,7 @@ public class RefactoringTest
 		
 		ILogicalResource logres2 = createNewLogicalResource(
 			URI.createPlatformResourceURI(RESOURCE_NAME2));
-		Library library2 = RMPLibraryFactory.eINSTANCE.createLibrary();
+		Library library2 = EXTLibraryFactory.eINSTANCE.createLibrary();
 		logres2.getContents().add(library2);
 		library2.setName("Library 2"); //$NON-NLS-1$
 		
