@@ -6,5 +6,4 @@ Bundle-Version: 1.0.0
 Bundle-Activator: org.eclipse.gmf.runtime.common.core.provider.internal.CommonCoreProviderPlugin
 Bundle-Vendor: %Plugin.providerName
 Bundle-Localization: plugin
-Require-Bundle: org.eclipse.gmf.runtime.common.core
 Eclipse-AutoStart: true
