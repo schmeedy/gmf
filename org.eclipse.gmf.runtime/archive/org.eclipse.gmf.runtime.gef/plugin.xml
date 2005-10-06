@@ -1,19 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?eclipse version="3.0"?>
 <plugin>
-   <extension
-         point="org.eclipse.ui.popupMenus">
-      <objectContribution
-            adaptable="true"
-            id="org,eclipse.gmf.diagramrt.gef.ui.contribution1"
-            objectClass="org.eclipse.gmf.runtime.DiagramNode">
-         <action
-               label="Change color"
-               class="org.eclipse.gmf.runtime.actions.ChangeForegroundColorAction"
-               menubarPath="additions"
-               enablesFor="+"
-               id="gmf.diagramrt.gef.ui.foregroundColorAction">
-         </action>
-      </objectContribution>
-   </extension>
 </plugin>
