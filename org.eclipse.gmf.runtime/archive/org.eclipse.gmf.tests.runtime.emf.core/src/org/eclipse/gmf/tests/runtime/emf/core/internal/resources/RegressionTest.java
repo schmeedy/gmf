@@ -18,8 +18,8 @@ import junit.framework.Test;
 import junit.framework.TestSuite;
 
 import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
-
 import org.eclipse.emf.examples.extlibrary.EXTLibraryFactory;
 import org.eclipse.emf.examples.extlibrary.EXTLibraryPackage;
 import org.eclipse.emf.examples.extlibrary.Library;
@@ -27,6 +27,7 @@ import org.eclipse.gmf.runtime.emf.core.internal.resourcemap.ResourceMap;
 import org.eclipse.gmf.runtime.emf.core.internal.resources.AbstractResourceWrapper;
 import org.eclipse.gmf.runtime.emf.core.resources.CannotAbsorbException;
 import org.eclipse.gmf.runtime.emf.core.resources.CannotSeparateException;
+import org.eclipse.gmf.runtime.emf.core.util.EObjectUtil;
 
 
 /**
@@ -149,5 +150,55 @@ public class RegressionTest
 			"Subunit has wrong parent", //$NON-NLS-1$
 			resmap,
 			resmap2.getChildEntry(subunit2).getParentMap());
+	}
+
+	/**
+	 * Tests that after moving a logical root into another container and then
+	 * back to being a logical root, the logical root is properly saved.
+	 */
+	public void test_rerootLogicalRoot_RATLC00538194() {
+		Library library = EXTLibraryFactory.eINSTANCE.createLibrary();
+
+		// add the library to the logical resource
+		logres.getContents().add(library);
+		
+		// logical resource should contain library
+		assertEquals(2, logres.getContents().size());
+		assertSame(logres.getContents().get(1), library);
+		
+		// remove the library from the logical resource
+		logres.getContents().remove(library);
+
+		assertFalse(logres.getMappedResources().containsKey(library));
+
+		// move the library into the branches containment list of another library
+		root.getBranches().add(library);
+		
+		// library should not be part of the resource map because it was added
+		// to the list of branches in the root
+		assertFalse(logres.getMappedResources().containsKey(library));
+		
+		// move the library back to being a root
+		logres.getContents().add(library);
+		
+		// logical resource should contain library
+		assertEquals(2, logres.getContents().size());
+		assertSame(logres.getContents().get(1), library);
+
+		// store the library ID for comparison later
+		String libraryID = EObjectUtil.getID(library);
+
+		saveLogicalResource();
+		
+		assertFalse(logres.isModified());
+		
+		// discard and re-load the resource
+		createLogicalResource(RESOURCE_NAME);
+		
+		loadLogicalResource();
+		
+		// logical resource unit should contain library after reloading
+		assertEquals(2, logres.getContents().size());
+		assertEquals(libraryID, EObjectUtil.getID((EObject)logres.getContents().get(1)));
 	}
 }
