@@ -3,7 +3,6 @@ Bundle-ManifestVersion: 2
 Bundle-Name: GMF bridge to GEF Plug-in
 Bundle-SymbolicName: org.eclipse.gmf.runtime.gef; singleton:=true
 Bundle-Version: 1.0.0
-Bundle-Activator: org.eclipse.gmf.runtime.gef.Plugin
 Bundle-Vendor: Eclipse.org
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.gef;visibility:=reexport
