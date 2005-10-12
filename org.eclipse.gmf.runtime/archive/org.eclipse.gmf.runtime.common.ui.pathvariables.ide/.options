@@ -1,6 +1,6 @@
 # Debugging options for the org.eclipse.gmf.runtime.common.ui.pathvariables.ide plug-in
 
-# Turn on general debugging for the com.ibm.xtools.modeler plug-in
+# Turn on general debugging for the plug-in
 org.eclipse.gmf.runtime.common.ui.pathvariables.ide/debug=true
 
 # Trace when exceptions are caught

@@ -36,7 +36,6 @@
 		<project>org.eclipse.gmf.runtime.emf.clipboard.core</project>
 		<project>org.eclipse.gmf.runtime.emf.commands.core</project>
 		<project>org.eclipse.gmf.runtime.emf.core</project>
-		<project>com.ibm.xtools.emf.msl.ocl</project>
 		<project>org.eclipse.gmf.runtime.emf.ui</project>
 		<project>org.eclipse.gmf.runtime.emf.ui.properties</project>
 		<project>org.eclipse.emf.ocl</project>

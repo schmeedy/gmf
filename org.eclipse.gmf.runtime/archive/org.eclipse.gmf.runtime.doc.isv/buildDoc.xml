@@ -280,14 +280,14 @@
 			<package-groups>
 				<group title="Common Core Packages" packages="org.eclipse.gmf.runtime.common.core*"/>
 				<group title="Common UI Packages" packages="org.eclipse.gmf.runtime.common.ui*"/>
-				<group title="Draw2D Packages" packages="com.ibm.xtools.draw2d*"/>
+				<group title="Draw2D Packages" packages="org.eclipse.gmf.runtime.draw2d*"/>
 				<group title="EMF Modeling Services Layer Packages" packages="org.eclipse.gmf.runtime.emf*"/>
 				<group title="EMF Query Packages" packages="org.eclipse.emf.query*"/>
 				<group title="EMF OCL Packages" packages="org.eclipse.emf.ocl*"/>
 				<group title="EMF Clipboard Support Packages" packages="org.eclipse.gmf.runtime.emf.clipboard.core*"/>
 				<group title="EMF Validation Framework Packages" packages="org.eclipse.emf.validation*"/>
 				<group title="EMF Element Type Framework Packages" packages="org.eclipse.gmf.runtime.emf.type.core*"/>
-				<group title="GEF Packages" packages="com.ibm.xtools.gef*"/>
+				<group title="GEF Packages" packages="org.eclipse.gmf.runtime.gef*"/>
 			</package-groups>
 		</javadoc-subsystem>
 

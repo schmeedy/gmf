@@ -79,7 +79,7 @@
 	      <param name="plugin.version" value="7.0.0"/>
 		</antcall>
 	    
-		<!-- com.ibm.xtools.common.printing.win32 -->
+		<!-- org.eclipse.gmf.runtime.common.ui.printing.win32 -->
 	    <antcall target="build.source.zip">
 	      <param name="plugin.id" value="org.eclipse.gmf.runtime.common.ui.printing.win32"/>
 	      <param name="plugin.jar" value="printingwin32"/>
