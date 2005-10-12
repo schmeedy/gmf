@@ -11,6 +11,7 @@
 
 package org.eclipse.gmf.tests.runtime.emf.core.internal.multithread.testcases;
 
+import org.eclipse.gmf.runtime.emf.core.edit.MRunnable;
 import org.eclipse.gmf.runtime.emf.core.util.OperationUtil;
 
 
@@ -62,8 +63,8 @@ class WriteThread extends SimpleOperationThread {
 			 */
 			public void run() {
 				try {
-					OperationUtil.runAsWrite(new Runnable() {
-						public void run() {
+					OperationUtil.runAsWrite(new MRunnable() {
+						public Object run() {
 							startTime = System.currentTimeMillis();
 							try {
 								sleep(Constants.SLEEP_TIME);
@@ -72,6 +73,7 @@ class WriteThread extends SimpleOperationThread {
 							}
 							isExecuted = true;
 							endTime = System.currentTimeMillis();
+							return null;
 						}
 					});
 				} catch(Exception e) {

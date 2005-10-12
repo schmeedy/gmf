@@ -16,15 +16,15 @@ import java.util.HashMap;
 import junit.framework.TestCase;
 
 import org.eclipse.emf.ecore.resource.Resource;
-import org.eclipse.uml2.Generalization;
-import org.eclipse.uml2.Model;
-import org.eclipse.uml2.UML2Package;
-
 import org.eclipse.gmf.runtime.emf.core.EObjectHelper;
 import org.eclipse.gmf.runtime.emf.core.edit.MEditingDomain;
+import org.eclipse.gmf.runtime.emf.core.edit.MRunnable;
 import org.eclipse.gmf.runtime.emf.core.exceptions.MSLActionAbandonedException;
 import org.eclipse.gmf.runtime.emf.core.util.OperationUtil;
 import org.eclipse.gmf.runtime.emf.core.util.ResourceUtil;
+import org.eclipse.uml2.Generalization;
+import org.eclipse.uml2.Model;
+import org.eclipse.uml2.UML2Package;
 
 /**
  * @author fplante
@@ -60,9 +60,9 @@ public class EObjectHelperTestCase
 
 			public void run() {
 				try {
-					OperationUtil.runAsWrite(new Runnable() {
+					OperationUtil.runAsWrite(new MRunnable() {
 
-						public void run() {
+						public Object run() {
 
 							/* Created a model with a class */
 							resource1 = ResourceUtil.create(
@@ -104,6 +104,7 @@ public class EObjectHelperTestCase
 							} catch (IOException e) {
 								throw new RuntimeException(e);
 							}
+							return null;
 						}
 					});
 				} catch (Exception e) {
@@ -137,9 +138,9 @@ public class EObjectHelperTestCase
 
 			public void run() {
 				try {
-					OperationUtil.runAsWrite(new Runnable() {
+					OperationUtil.runAsWrite(new MRunnable() {
 
-						public void run() {
+						public Object run() {
 							assertEquals(class1,generalization.getGeneral());
 							
 							/* Delete first model's class */
@@ -147,6 +148,7 @@ public class EObjectHelperTestCase
 
 							/* Make sure the generalization no longer points to class1 */
 							assertNull(generalization.getGeneral());
+							return null;
 						}
 					});
 				} catch (MSLActionAbandonedException e) {

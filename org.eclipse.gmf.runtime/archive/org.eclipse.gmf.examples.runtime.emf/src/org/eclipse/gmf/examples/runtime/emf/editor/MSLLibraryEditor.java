@@ -55,6 +55,13 @@ import org.eclipse.emf.edit.ui.dnd.ViewerDragAdapter;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryContentProvider;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
 import org.eclipse.emf.examples.extlibrary.presentation.EXTLibraryEditorPlugin;
+import org.eclipse.gmf.examples.runtime.emf.listener.LibraryListener;
+import org.eclipse.gmf.runtime.emf.core.edit.MEditingDomain;
+import org.eclipse.gmf.runtime.emf.core.edit.MFilter;
+import org.eclipse.gmf.runtime.emf.core.edit.MListener;
+import org.eclipse.gmf.runtime.emf.core.edit.MResourceOption;
+import org.eclipse.gmf.runtime.emf.core.internal.util.MSLAdapterFactoryManager;
+import org.eclipse.gmf.runtime.emf.core.util.ResourceUtil;
 import org.eclipse.jface.action.IMenuListener;
 import org.eclipse.jface.action.IMenuManager;
 import org.eclipse.jface.action.IStatusLineManager;
@@ -79,18 +86,19 @@ import org.eclipse.jface.viewers.TreeViewer;
 import org.eclipse.jface.viewers.Viewer;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.CTabFolder;
-import org.eclipse.swt.custom.TableTree;
 import org.eclipse.swt.dnd.DND;
 import org.eclipse.swt.dnd.Transfer;
 import org.eclipse.swt.events.ControlAdapter;
 import org.eclipse.swt.events.ControlEvent;
 import org.eclipse.swt.graphics.Point;
+import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Menu;
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableColumn;
 import org.eclipse.swt.widgets.Tree;
+import org.eclipse.swt.widgets.TreeColumn;
 import org.eclipse.ui.IActionBars;
 import org.eclipse.ui.IEditorInput;
 import org.eclipse.ui.IEditorPart;
@@ -110,14 +118,6 @@ import org.eclipse.ui.views.contentoutline.IContentOutlinePage;
 import org.eclipse.ui.views.properties.IPropertySheetPage;
 import org.eclipse.ui.views.properties.PropertySheet;
 import org.eclipse.ui.views.properties.PropertySheetPage;
-
-import org.eclipse.gmf.runtime.emf.core.edit.MEditingDomain;
-import org.eclipse.gmf.runtime.emf.core.edit.MFilter;
-import org.eclipse.gmf.runtime.emf.core.edit.MListener;
-import org.eclipse.gmf.runtime.emf.core.edit.MResourceOption;
-import org.eclipse.gmf.runtime.emf.core.internal.util.MSLAdapterFactoryManager;
-import org.eclipse.gmf.runtime.emf.core.util.ResourceUtil;
-import org.eclipse.gmf.examples.runtime.emf.listener.LibraryListener;
 
 /**
  * This is an example of an MSL Library model editor.
@@ -185,6 +185,11 @@ public class MSLLibraryEditor
 	 * icons.
 	 */
 	protected TableViewer tableViewer;
+
+	/**
+	 * This shows how a tree view with columns works.
+	 */
+	protected TreeViewer treeViewerWithColumns;
 
 	/**
 	 * This shows how a table view works. A table can be used as a list with
@@ -790,7 +795,7 @@ public class MSLLibraryEditor
 				MSLLibraryEditor.this) {
 
 				public Viewer createViewer(Composite composite) {
-					return new TableTreeViewer(composite);
+					return new TreeViewer(composite);
 				}
 
 				public void requestActivation() {
@@ -800,36 +805,34 @@ public class MSLLibraryEditor
 			};
 			viewerPane.createControl(getContainer());
 
-			tableTreeViewer = (TableTreeViewer) viewerPane.getViewer();
+			treeViewerWithColumns = (TreeViewer) viewerPane.getViewer();
 
-			TableTree tableTree = tableTreeViewer.getTableTree();
-			TableLayout layout = new TableLayout();
-			tableTree.getTable().setLayout(layout);
-			tableTree.getTable().setHeaderVisible(true);
-			tableTree.getTable().setLinesVisible(true);
+			Tree tree = treeViewerWithColumns.getTree();
+			tree.setLayout(new FillLayout());
+			tree.setHeaderVisible(true);
+			tree.setLinesVisible(true);
 
-			TableColumn objectColumn = new TableColumn(tableTree.getTable(),
-				SWT.NONE);
-			layout.addColumnData(new ColumnWeightData(3, 100, true));
+			TreeColumn objectColumn = new TreeColumn(tree, SWT.NONE);
 			objectColumn.setText(getString("_UI_ObjectColumn_label")); //$NON-NLS-1$
 			objectColumn.setResizable(true);
+			objectColumn.setWidth(250);
 
-			TableColumn selfColumn = new TableColumn(tableTree.getTable(),
-				SWT.NONE);
-			layout.addColumnData(new ColumnWeightData(2, 100, true));
+			TreeColumn selfColumn = new TreeColumn(tree, SWT.NONE);
 			selfColumn.setText(getString("_UI_SelfColumn_label")); //$NON-NLS-1$
 			selfColumn.setResizable(true);
+			selfColumn.setWidth(200);
 
-			tableTreeViewer.setColumnProperties(new String[] {"a", "b"}); //$NON-NLS-1$ //$NON-NLS-2$
-			tableTreeViewer
+			treeViewerWithColumns.setColumnProperties(new String[] {"a", "b"}); //$NON-NLS-1$ //$NON-NLS-2$
+			treeViewerWithColumns
 				.setContentProvider(new AdapterFactoryContentProvider(
 					adapterFactory));
-			tableTreeViewer.setLabelProvider(new AdapterFactoryLabelProvider(
-				adapterFactory));
+			treeViewerWithColumns
+				.setLabelProvider(new AdapterFactoryLabelProvider(
+					adapterFactory));
 
-			createContextMenuFor(tableTreeViewer);
+			createContextMenuFor(treeViewerWithColumns);
 			int pageIndex = addPage(viewerPane.getControl());
-			setPageText(pageIndex, getString("_UI_TableTreePage_label")); //$NON-NLS-1$
+			setPageText(pageIndex, getString("_UI_TreeWithColumnsPage_label")); //$NON-NLS-1$
 		}
 
 		setActivePage(0);
@@ -846,8 +849,8 @@ public class MSLLibraryEditor
 				}
 			}
 		});
-		
-		mslListener = new LibraryListener(editingDomain,this);
+
+		mslListener = new LibraryListener(editingDomain, this);
 		mslListener.startListening();
 	}
 
@@ -892,7 +895,7 @@ public class MSLLibraryEditor
 		if (key.equals(IContentOutlinePage.class)) {
 			return getContentOutlinePage();
 		} else if (key.equals(IPropertySheetPage.class)) {
-				return getPropertySheetPage();	
+			return getPropertySheetPage();
 		} else if (key.equals(IGotoMarker.class)) {
 			return this;
 		} else {
@@ -1046,12 +1049,12 @@ public class MSLLibraryEditor
 	public boolean isDirty() {
 		try {
 			EList resources = editingDomain.getResourceSet().getResources();
-			if ( resources != null && !resources.isEmpty() ) {
+			if (resources != null && !resources.isEmpty()) {
 				Iterator iter = resources.iterator();
-				while ( iter.hasNext() ) {
+				while (iter.hasNext()) {
 					Resource res = (Resource) iter.next();
-					if ( res != null && res.isLoaded() && res.isModified() 
-							&& ResourceUtil.isModifiable(res)) {
+					if (res != null && res.isLoaded() && res.isModified()
+						&& ResourceUtil.isModifiable(res)) {
 						return true;
 					}
 				}
@@ -1067,13 +1070,13 @@ public class MSLLibraryEditor
 		final Collection dirtyResources = new HashSet();
 		try {
 			EList resources = editingDomain.getResourceSet().getResources();
-			if ( resources != null && !resources.isEmpty() ) {
+			if (resources != null && !resources.isEmpty()) {
 				Iterator iter = resources.iterator();
-				while ( iter.hasNext() ) {
+				while (iter.hasNext()) {
 					Resource res = (Resource) iter.next();
-					if ( res != null && res.isLoaded() && res.isModified()
+					if (res != null && res.isLoaded() && res.isModified()
 							&& ResourceUtil.isModifiable(res)) { //$NON-NLS-1$
-						dirtyResources.add(res);					
+						dirtyResources.add(res);
 					}
 				}
 			}
@@ -1149,7 +1152,8 @@ public class MSLLibraryEditor
 	}
 
 	protected void doSaveAs(URI uri, IEditorInput editorInput) {
-		editingDomain.saveResourceAs((Resource)editingDomain.getResourceSet().getResources().get(0), uri.toString(), MResourceOption.URI);
+		editingDomain.saveResourceAs((Resource) editingDomain.getResourceSet()
+			.getResources().get(0), uri.toString(), MResourceOption.URI);
 		setInput(editorInput);
 		setPartName(editorInput.getName());
 		IProgressMonitor progressMonitor = getActionBars()

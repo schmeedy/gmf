@@ -21,20 +21,20 @@ import java.util.List;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.emf.ecore.EModelElement;
 import org.eclipse.emf.ecore.resource.Resource;
-import org.eclipse.uml2.UML2Package;
-import org.eclipse.uml2.VisibilityKind;
-
+import org.eclipse.emf.validation.AbstractModelConstraint;
+import org.eclipse.emf.validation.IValidationContext;
+import org.eclipse.emf.validation.model.IClientSelector;
 import org.eclipse.gmf.runtime.emf.core.EObjectHelper;
 import org.eclipse.gmf.runtime.emf.core.IValidationStatus;
 import org.eclipse.gmf.runtime.emf.core.edit.MEditingDomain;
 import org.eclipse.gmf.runtime.emf.core.exceptions.MSLActionAbandonedException;
+import org.eclipse.gmf.runtime.emf.core.internal.commands.MSLUndoStack.ActionLockMode;
+import org.eclipse.gmf.runtime.emf.core.internal.domain.MSLEditingDomain;
 import org.eclipse.gmf.runtime.emf.core.internal.util.MSLUtil;
 import org.eclipse.gmf.runtime.emf.core.util.EObjectUtil;
-import org.eclipse.gmf.runtime.emf.core.util.OperationUtil;
 import org.eclipse.gmf.runtime.emf.core.util.ResourceUtil;
-import org.eclipse.emf.validation.AbstractModelConstraint;
-import org.eclipse.emf.validation.IValidationContext;
-import org.eclipse.emf.validation.model.IClientSelector;
+import org.eclipse.uml2.UML2Package;
+import org.eclipse.uml2.VisibilityKind;
 
 /**
  * Tests the integration of the Validation Framework into the MSL plug-in.
@@ -83,9 +83,9 @@ public class ValidationTestCase
 		EModelElement root = (EModelElement) ResourceUtil
 			.getFirstRoot(resource);
 
-		OperationUtil.openUndoInterval(""); //$NON-NLS-1$
+		((MSLEditingDomain) MEditingDomain.INSTANCE).getUndoStack().openUndoInterval("", "");//$NON-NLS-2$//$NON-NLS-1$
 
-		OperationUtil.startWrite();
+		((MSLEditingDomain) MEditingDomain.INSTANCE).getUndoStack().startAction(ActionLockMode.WRITE);
 
 		EModelElement c1 = (EModelElement) EObjectUtil.create(root,
 			UML2Package.eINSTANCE.getPackage_OwnedMember(),
@@ -100,11 +100,11 @@ public class ValidationTestCase
 			VisibilityKind.PUBLIC_LITERAL);
 
 		try {
-			OperationUtil.completeAndValidate();
+			((MSLEditingDomain) MEditingDomain.INSTANCE).getUndoStack().completeAndValidateAction();
 		} catch (MSLActionAbandonedException e) {
 			fail("Action abandoned: " + e.getStatus()); //$NON-NLS-1$
 		} finally {
-			OperationUtil.closeUndoInterval();
+			((MSLEditingDomain) MEditingDomain.INSTANCE).getUndoStack().closeUndoInterval();
 		}
 
 		validationFlag = true;
@@ -137,9 +137,9 @@ public class ValidationTestCase
 		EModelElement root = (EModelElement) ResourceUtil
 			.getFirstRoot(resource);
 
-		OperationUtil.openUndoInterval(""); //$NON-NLS-1$
+		((MSLEditingDomain) MEditingDomain.INSTANCE).getUndoStack().openUndoInterval("", "");//$NON-NLS-2$//$NON-NLS-1$
 
-		OperationUtil.startWrite();
+		((MSLEditingDomain) MEditingDomain.INSTANCE).getUndoStack().startAction(ActionLockMode.WRITE);
 
 		EModelElement c1 = (EModelElement) EObjectUtil.create(root,
 			UML2Package.eINSTANCE.getPackage_OwnedMember(),
@@ -154,11 +154,11 @@ public class ValidationTestCase
 			VisibilityKind.PUBLIC_LITERAL);
 
 		try {
-			OperationUtil.completeAndValidate();
+			((MSLEditingDomain) MEditingDomain.INSTANCE).getUndoStack().completeAndValidateAction();
 		} catch (MSLActionAbandonedException e) {
 			fail("Action abandoned: " + e.getStatus()); //$NON-NLS-1$
 		} finally {
-			OperationUtil.closeUndoInterval();
+			((MSLEditingDomain) MEditingDomain.INSTANCE).getUndoStack().closeUndoInterval();
 		}
 
 		validationFlag = true;
@@ -190,9 +190,9 @@ public class ValidationTestCase
 		EModelElement root = (EModelElement) ResourceUtil
 			.getFirstRoot(resource);
 
-		OperationUtil.openUndoInterval(""); //$NON-NLS-1$
+		((MSLEditingDomain) MEditingDomain.INSTANCE).getUndoStack().openUndoInterval("", "");//$NON-NLS-2$//$NON-NLS-1$
 
-		OperationUtil.startWrite();
+		((MSLEditingDomain) MEditingDomain.INSTANCE).getUndoStack().startAction(ActionLockMode.WRITE);
 
 		EModelElement c1 = (EModelElement) EObjectUtil.create(root,
 			UML2Package.eINSTANCE.getPackage_OwnedMember(),
@@ -206,7 +206,7 @@ public class ValidationTestCase
 		validationFlag = true;
 
 		try {
-			OperationUtil.completeAndValidate();
+			((MSLEditingDomain) MEditingDomain.INSTANCE).getUndoStack().completeAndValidateAction();
 
 			// should not get here
 			fail("Exception not thrown."); //$NON-NLS-1$
@@ -217,7 +217,7 @@ public class ValidationTestCase
 			// turn off the test live constraint
 			validationFlag = false;
 
-			OperationUtil.closeUndoInterval();
+			((MSLEditingDomain) MEditingDomain.INSTANCE).getUndoStack().closeUndoInterval();
 		}
 
 		assertNotNull(e.getStatus());

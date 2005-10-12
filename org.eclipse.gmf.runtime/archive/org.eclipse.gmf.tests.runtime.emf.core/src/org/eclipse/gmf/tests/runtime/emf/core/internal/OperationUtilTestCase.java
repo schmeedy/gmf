@@ -19,8 +19,11 @@ import org.eclipse.uml2.Model;
 import org.eclipse.uml2.NamedElement;
 import org.eclipse.uml2.UML2Package;
 
+import org.eclipse.gmf.runtime.emf.core.edit.MEditingDomain;
 import org.eclipse.gmf.runtime.emf.core.edit.MRunnable;
 import org.eclipse.gmf.runtime.emf.core.exceptions.MSLActionAbandonedException;
+import org.eclipse.gmf.runtime.emf.core.internal.commands.MSLUndoStack.ActionLockMode;
+import org.eclipse.gmf.runtime.emf.core.internal.domain.MSLEditingDomain;
 import org.eclipse.gmf.tests.runtime.emf.core.BaseTestCase;
 import org.eclipse.gmf.runtime.emf.core.util.OperationUtil;
 import org.eclipse.gmf.runtime.emf.core.util.ResourceUtil;
@@ -265,13 +268,13 @@ public class OperationUtilTestCase
 	 * MRunnable API.
 	 */
 	public void test_upgradeNestedReadActions_MRunnable() {
-		OperationUtil.startRead();
+		((MSLEditingDomain) MEditingDomain.INSTANCE).getUndoStack().startAction(ActionLockMode.READ);
 		
 		// check that we are reading
 		assertTrue("Not reading", isReadActionAtTopOfStack()); //$NON-NLS-1$
 		
 		// force a nested read action (runAsRead() would not nest)
-		OperationUtil.startRead();
+		((MSLEditingDomain) MEditingDomain.INSTANCE).getUndoStack().startAction(ActionLockMode.READ);
 		
 		// check that we are reading
 		assertTrue("Not reading", isReadActionAtTopOfStack()); //$NON-NLS-1$
@@ -288,12 +291,12 @@ public class OperationUtilTestCase
 		// we must be reading again
 		assertTrue("Not reading", isReadActionAtTopOfStack()); //$NON-NLS-1$
 
-		OperationUtil.complete();
+		((MSLEditingDomain) MEditingDomain.INSTANCE).getUndoStack().completeAction();
 		
 		// we must be reading still
 		assertTrue("Not reading", isReadActionAtTopOfStack()); //$NON-NLS-1$
 
-		OperationUtil.complete();
+		((MSLEditingDomain) MEditingDomain.INSTANCE).getUndoStack().completeAction();
 		
 		assertNotNull("Change was abandoned", //$NON-NLS-1$
 			model.getOwnedMember(CLASS_NAME));
@@ -308,13 +311,13 @@ public class OperationUtilTestCase
 		OperationUtil.runInUndoInterval(new Runnable() {
 
 			public void run() {
-				OperationUtil.startRead();
+				((MSLEditingDomain) MEditingDomain.INSTANCE).getUndoStack().startAction(ActionLockMode.READ);
 				
 				// check that we are reading
 				assertTrue("Not reading", isReadActionAtTopOfStack()); //$NON-NLS-1$
 				
 				// force a nested read action (runAsRead() would not nest)
-				OperationUtil.startRead();
+				((MSLEditingDomain) MEditingDomain.INSTANCE).getUndoStack().startAction(ActionLockMode.READ);
 				
 				// check that we are reading
 				assertTrue("Not reading", isReadActionAtTopOfStack()); //$NON-NLS-1$
@@ -328,12 +331,12 @@ public class OperationUtilTestCase
 				// we must be reading again
 				assertTrue("Not reading", isReadActionAtTopOfStack()); //$NON-NLS-1$
 
-				OperationUtil.complete();
+				((MSLEditingDomain) MEditingDomain.INSTANCE).getUndoStack().completeAction();
 				
 				// we must be reading still
 				assertTrue("Not reading", isReadActionAtTopOfStack()); //$NON-NLS-1$
 
-				OperationUtil.complete();
+				((MSLEditingDomain) MEditingDomain.INSTANCE).getUndoStack().completeAction();
 				
 				assertNotNull("Change was abandoned", //$NON-NLS-1$
 					model.getOwnedMember(CLASS_NAME));
@@ -342,6 +345,7 @@ public class OperationUtilTestCase
 	
 	/**
 	 * Tests upgrading a read action to a write action using the Runnable API.
+	 * @deprecated Tests deprecated API.
 	 */
 	public void test_upgradeReadAction_Runnable() {
 		try {
@@ -375,6 +379,7 @@ public class OperationUtilTestCase
 	/**
 	 * Tests upgrading a read action to a write action using the Runnable API.
 	 * This variant opens the read action in the undo interval.
+	 * @deprecated Tests deprecated API.
 	 */
 	public void test_upgradeReadAction_openUndoFirst_Runnable() {
 		OperationUtil.runInUndoInterval(new Runnable() {
@@ -408,6 +413,7 @@ public class OperationUtilTestCase
 	/**
 	 * Tests upgrading multiple nested read actions to a write action using the
 	 * Runnable API.
+	 * @deprecated Tests deprecated API.
 	 */
 	public void test_upgradeNestedReadActions_Runnable() {
 		OperationUtil.startRead();
@@ -449,6 +455,7 @@ public class OperationUtilTestCase
 	 * Tests upgrading multiple read actions to a write action using the
 	 * Runnable API.
 	 * This variant opens the read action in the undo interval.
+	 * @deprecated Tests deprecated API.
 	 */
 	public void test_upgradeNestedReadActions_openUndoFirst_Runnable() {
 		OperationUtil.runInUndoInterval(new Runnable() {

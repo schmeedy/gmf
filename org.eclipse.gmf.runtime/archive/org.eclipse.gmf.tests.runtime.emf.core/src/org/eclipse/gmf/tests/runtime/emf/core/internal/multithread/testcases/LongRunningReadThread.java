@@ -11,6 +11,7 @@
 
 package org.eclipse.gmf.tests.runtime.emf.core.internal.multithread.testcases;
 
+import org.eclipse.gmf.runtime.emf.core.edit.MRunnable;
 import org.eclipse.gmf.runtime.emf.core.util.OperationUtil;
 
 /**
@@ -33,11 +34,11 @@ class LongRunningReadThread extends ReadThread {
 	 */
 	public void run() {
 		try {
-			OperationUtil.runAsRead(new Runnable() {
+			OperationUtil.runAsRead(new MRunnable() {
 				/**
-				 * @see java.lang.Runnable#run()
+				 * @see org.eclipse.gmf.runtime.emf.core.edit.MRunnable#run()
 				 */
-				public void run() {
+				public Object run() {
 					if(notifyObject != null) {
 						synchronized(notifyObject) {
 							notifyObject.notify();
@@ -65,6 +66,7 @@ class LongRunningReadThread extends ReadThread {
 					}
 					isExecuted = true;
 					endTime = System.currentTimeMillis();
+					return null;
 				}
 			});
 		} catch(Exception e) {

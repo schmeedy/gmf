@@ -11,6 +11,7 @@
 
 package org.eclipse.gmf.tests.runtime.emf.core.internal.multithread.testcases;
 
+import org.eclipse.gmf.runtime.emf.core.edit.MRunnable;
 import org.eclipse.gmf.runtime.emf.core.util.OperationUtil;
 
 /**
@@ -64,12 +65,12 @@ class NestedWriteThread
 			 */
 			public void run() {
 				try {
-					OperationUtil.runAsWrite(new Runnable() {
+					OperationUtil.runAsWrite(new MRunnable() {
 
 						/**
-						 * @see java.lang.Runnable#run()
+						 * @see org.eclipse.gmf.runtime.emf.core.edit.MRunnable#run()
 						 */
-						public void run() {
+						public Object run() {
 							startTime = System.currentTimeMillis();
 							try {
 								sleep(Constants.SLEEP_TIME);
@@ -78,12 +79,12 @@ class NestedWriteThread
 							}
 							final boolean bWriting = true;
 							try {
-								OperationUtil.runAsWrite(new Runnable() {
+								OperationUtil.runAsWrite(new MRunnable() {
 
 									/**
-									 * @see java.lang.Runnable#run()
+									 * @see org.eclipse.gmf.runtime.emf.core.edit.MRunnable#run()
 									 */
-									public void run() {
+									public Object run() {
 										innerStartTime = System
 											.currentTimeMillis();
 										try {
@@ -95,6 +96,7 @@ class NestedWriteThread
 											isInnerExecuted = true;
 										innerEndTime = System
 											.currentTimeMillis();
+										return null;
 									}
 								});
 							} catch (Exception e1) {
@@ -107,6 +109,7 @@ class NestedWriteThread
 							}
 							isExecuted = true;
 							endTime = System.currentTimeMillis();
+							return null;
 						}
 					});
 				} catch (Exception e) {
