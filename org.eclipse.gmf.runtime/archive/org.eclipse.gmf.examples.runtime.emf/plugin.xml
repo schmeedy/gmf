@@ -179,6 +179,11 @@
               id="org.eclipse.gmf.examples.runtime.emf.control"
               label="%ControlUnitAction.label"
               menubarPath="org.eclipse.gmf.examples.runtime.emf.mslMenu/units"/>
+        <action
+              class="org.eclipse.gmf.examples.runtime.emf.actions.FindReferencers"
+              id="org.eclipse.gmf.examples.runtime.emf.referencers"
+              label="%FindReferencersAction.label"
+              menubarPath="org.eclipse.gmf.examples.runtime.emf.mslMenu/additions"/>
      </viewerContribution>
   </extension>
   <extension
