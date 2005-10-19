@@ -20,6 +20,7 @@ import junit.textui.TestRunner;
 
 import org.eclipse.core.runtime.IPlatformRunnable;
 import org.eclipse.core.runtime.Platform;
+import org.eclipse.gmf.runtime.emf.core.internal.plugin.MSLPlugin;
 import org.eclipse.gmf.tests.runtime.emf.core.internal.OperationListenerTestCase;
 import org.eclipse.gmf.tests.runtime.emf.core.internal.OperationUtilTestCase;
 import org.eclipse.gmf.tests.runtime.emf.core.internal.commands.MSLUndoStackTestCase;
@@ -57,6 +58,11 @@ public class AllTests
 			e.printStackTrace();
 		}
 
+		// Bugzilla 113092:
+		// force initialization of the MSLPlugin now so that we do not get
+		//   ClassCircularityErrors in the loading of any of its classes
+		MSLPlugin.getDefault();
+		
 		TestSuite suite = new TestSuite("MSL Core Tests"); //$NON-NLS-1$
 
 		suite.addTestSuite(ResourceSetTestCase.class);
