@@ -15,6 +15,8 @@ package org.eclipse.gmf.tests.runtime.emf.core;
 import junit.framework.Test;
 import junit.framework.TestSuite;
 
+import org.eclipse.emf.common.util.BasicEList;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.Resource.IOWrappedException;
 import org.eclipse.emf.ecore.xmi.ClassNotFoundException;
@@ -28,6 +30,7 @@ import org.eclipse.gmf.runtime.emf.core.edit.MRunnable;
 import org.eclipse.gmf.runtime.emf.core.edit.MUndoInterval;
 import org.eclipse.gmf.runtime.emf.core.exceptions.MSLActionAbandonedException;
 import org.eclipse.gmf.runtime.emf.core.exceptions.MSLRuntimeException;
+import org.eclipse.gmf.runtime.emf.core.internal.util.MSLUtil;
 
 
 /**
@@ -274,5 +277,30 @@ public class RegressionTestCase
 //			e.printStackTrace();
 //			fail("Should not have thrown: " + e.getLocalizedMessage()); //$NON-NLS-1$
 //		}
+	}
+	
+	/**
+	 * Tests that the MSLUtil::addObject() method does the correct thing when
+	 * adding an object that is already in the list.  It formerly attempted to
+	 * move the object, but moved the wrong one.
+	 */
+	public void test_MSLUtil_addObject_113261() {
+		EList list = new BasicEList();
+		
+		list.add("a"); //$NON-NLS-1$
+		list.add("b"); //$NON-NLS-1$
+		list.add("c"); //$NON-NLS-1$
+		list.add("d"); //$NON-NLS-1$
+		
+		Object object = list.get(3);
+		
+		// on a copy of this list, do the correct change
+		EList expected = new BasicEList(list);
+		expected.move(0, 3);
+		
+		MSLUtil.addObject(list, object, 0);
+		
+		// check that MSLUtil made the correct change
+		assertEquals(expected, list);
 	}
 }
