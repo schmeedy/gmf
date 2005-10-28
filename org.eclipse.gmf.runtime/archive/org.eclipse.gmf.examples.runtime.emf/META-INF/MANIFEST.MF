@@ -11,6 +11,7 @@ Export-Package: org.eclipse.gmf.examples.runtime.emf,
  org.eclipse.gmf.examples.runtime.emf.constraints,
  org.eclipse.gmf.examples.runtime.emf.dialogs,
  org.eclipse.gmf.examples.runtime.emf.editor,
+ org.eclipse.gmf.examples.runtime.emf.internal.l10n,
  org.eclipse.gmf.examples.runtime.emf.listener,
  org.eclipse.gmf.examples.runtime.emf.metamodel,
  org.eclipse.gmf.examples.runtime.emf.properties

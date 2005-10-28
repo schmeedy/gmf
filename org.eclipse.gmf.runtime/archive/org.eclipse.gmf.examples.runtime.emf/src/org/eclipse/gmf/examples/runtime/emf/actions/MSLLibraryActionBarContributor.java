@@ -11,7 +11,6 @@
 
 package org.eclipse.gmf.examples.runtime.emf.actions;
 
-import java.text.MessageFormat;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -37,6 +36,26 @@ import org.eclipse.emf.edit.ui.action.PasteAction;
 import org.eclipse.emf.edit.ui.action.RedoAction;
 import org.eclipse.emf.edit.ui.action.UndoAction;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryContentProvider;
+import org.eclipse.emf.examples.extlibrary.actions.EXTLibraryExtendedActionBarContributor;
+import org.eclipse.emf.examples.extlibrary.presentation.EXTLibraryEditorPlugin;
+import org.eclipse.gmf.examples.runtime.emf.MSLExamplePlugin;
+import org.eclipse.gmf.examples.runtime.emf.constraints.ValidationDelegateClientSelector;
+import org.eclipse.gmf.examples.runtime.emf.dialogs.ValidationErrorDialog;
+import org.eclipse.gmf.examples.runtime.emf.editor.MSLLibraryEditor;
+import org.eclipse.gmf.examples.runtime.emf.internal.l10n.MSLExampleMessages;
+import org.eclipse.gmf.examples.runtime.emf.properties.PropertySheetDialog;
+import org.eclipse.gmf.runtime.common.core.util.Log;
+import org.eclipse.gmf.runtime.emf.core.edit.MEditingDomain;
+import org.eclipse.gmf.runtime.emf.core.edit.MFilter;
+import org.eclipse.gmf.runtime.emf.core.edit.MListener;
+import org.eclipse.gmf.runtime.emf.core.edit.MRunnable;
+import org.eclipse.gmf.runtime.emf.core.edit.MUndoInterval;
+import org.eclipse.gmf.runtime.emf.core.exceptions.MSLActionAbandonedException;
+import org.eclipse.gmf.runtime.emf.core.resources.CannotAbsorbException;
+import org.eclipse.gmf.runtime.emf.core.resources.CannotSeparateException;
+import org.eclipse.gmf.runtime.emf.core.resources.ILogicalResource;
+import org.eclipse.gmf.runtime.emf.core.util.EObjectUtil;
+import org.eclipse.gmf.runtime.emf.core.util.MetaModelUtil;
 import org.eclipse.jface.action.Action;
 import org.eclipse.jface.action.IAction;
 import org.eclipse.jface.action.IMenuListener;
@@ -50,6 +69,7 @@ import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.SelectionChangedEvent;
+import org.eclipse.osgi.util.NLS;
 import org.eclipse.swt.widgets.Event;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.IActionBars;
@@ -59,26 +79,6 @@ import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.ISharedImages;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.actions.ActionFactory;
-
-import org.eclipse.gmf.runtime.common.core.util.Log;
-import org.eclipse.emf.examples.extlibrary.actions.EXTLibraryExtendedActionBarContributor;
-import org.eclipse.emf.examples.extlibrary.presentation.EXTLibraryEditorPlugin;
-import org.eclipse.gmf.runtime.emf.core.edit.MEditingDomain;
-import org.eclipse.gmf.runtime.emf.core.edit.MFilter;
-import org.eclipse.gmf.runtime.emf.core.edit.MListener;
-import org.eclipse.gmf.runtime.emf.core.edit.MRunnable;
-import org.eclipse.gmf.runtime.emf.core.edit.MUndoInterval;
-import org.eclipse.gmf.runtime.emf.core.exceptions.MSLActionAbandonedException;
-import org.eclipse.gmf.runtime.emf.core.resources.CannotAbsorbException;
-import org.eclipse.gmf.runtime.emf.core.resources.CannotSeparateException;
-import org.eclipse.gmf.runtime.emf.core.resources.ILogicalResource;
-import org.eclipse.gmf.runtime.emf.core.util.EObjectUtil;
-import org.eclipse.gmf.runtime.emf.core.util.MetaModelUtil;
-import org.eclipse.gmf.examples.runtime.emf.MSLExamplePlugin;
-import org.eclipse.gmf.examples.runtime.emf.constraints.ValidationDelegateClientSelector;
-import org.eclipse.gmf.examples.runtime.emf.dialogs.ValidationErrorDialog;
-import org.eclipse.gmf.examples.runtime.emf.editor.MSLLibraryEditor;
-import org.eclipse.gmf.examples.runtime.emf.properties.PropertySheetDialog;
 
 
 /**
@@ -90,19 +90,19 @@ import org.eclipse.gmf.examples.runtime.emf.properties.PropertySheetDialog;
 public class MSLLibraryActionBarContributor
 	extends EXTLibraryExtendedActionBarContributor {
 
-	private static final String CREATE_ACTION_LABEL = MSLExamplePlugin.getResourceString("CreateAction.label"); //$NON-NLS-1$
-	private static final String CREATE_ACTION_TITLE = MSLExamplePlugin.getResourceString("CreateAction.title"); //$NON-NLS-1$
-	private static final String CREATE_ACTION_MESSAGE = MSLExamplePlugin.getResourceString("CreateAction.message"); //$NON-NLS-1$
-	private static final String CREATE_ACTION_UNDO_MESSAGE = MSLExamplePlugin.getResourceString("CreateAction.undoMessage"); //$NON-NLS-1$
-	private static final String CREATE_ACTION_WARNING_POSITIVE_INTEGER = MSLExamplePlugin.getResourceString("CreateAction.warningPositiveInteger"); //$NON-NLS-1$
+	private static final String CREATE_ACTION_LABEL = MSLExampleMessages.CreateAction_label;
+	private static final String CREATE_ACTION_TITLE = MSLExampleMessages.CreateAction_title;
+	private static final String CREATE_ACTION_MESSAGE = MSLExampleMessages.CreateAction_message;
+	private static final String CREATE_ACTION_UNDO_MESSAGE = MSLExampleMessages.CreateAction_undoMessage;
+	private static final String CREATE_ACTION_WARNING_POSITIVE_INTEGER = MSLExampleMessages.CreateAction_warningPositiveInteger;
 	
-	private static final String EDIT_ACTION_UNDO_MESSAGE = MSLExamplePlugin.getResourceString("EditAction.undoMessage"); //$NON-NLS-1$
+	private static final String EDIT_ACTION_UNDO_MESSAGE = MSLExampleMessages.EditAction_undoMessage;
 	
-	private static final String ERROR_LIVE_VALIDATION_TITLE = MSLExamplePlugin.getResourceString("MSLLibraryActionBarContributor.liveValidationError"); //$NON-NLS-1$
+	private static final String ERROR_LIVE_VALIDATION_TITLE = MSLExampleMessages.MSLLibraryActionBarContributor_liveValidationError;
 	
-	private static final String DELETE_ACTION_UNDO_MESSAGE = MSLExamplePlugin.getResourceString("DeleteAction.undoMessage"); //$NON-NLS-1$
+	private static final String DELETE_ACTION_UNDO_MESSAGE = MSLExampleMessages.DeleteAction_undoMessage;
 	
-	private static final String PASTE_ACTION_UNDO_MESSAGE = MSLExamplePlugin.getResourceString("PasteAction.undoMessage"); //$NON-NLS-1$
+	private static final String PASTE_ACTION_UNDO_MESSAGE = MSLExampleMessages.PasteAction_undoMessage;
 	
 	private MListener resourceLoadListener;
 	private List undoIntervals = new ArrayList();
@@ -124,7 +124,7 @@ public class MSLLibraryActionBarContributor
 		private EClass newObjectType;
 		
 		public MSLCreateAction(EObject container, EReference feature, EClass type) {
-			super(MessageFormat.format(CREATE_ACTION_LABEL, new Object[] {type
+			super(NLS.bind(CREATE_ACTION_LABEL, new Object[] {type
 				.getName()}));
 			this.container = container;
 			this.containmentFeature = feature;
@@ -135,7 +135,7 @@ public class MSLLibraryActionBarContributor
 			super.run();
 			
 			InputDialog dialog = new InputDialog(getShell(),
-				CREATE_ACTION_TITLE, MessageFormat.format(
+				CREATE_ACTION_TITLE, NLS.bind(
 					CREATE_ACTION_MESSAGE, new Object[] {newObjectType
 						.getName()}), "1", new IInputValidator() { //$NON-NLS-1$
 
@@ -154,7 +154,7 @@ public class MSLLibraryActionBarContributor
 			
 			if (dialog.open() == InputDialog.OK) {
 				final int number = Integer.parseInt(dialog.getValue());
-				MUndoInterval undoInterval = execute(MessageFormat.format(
+				MUndoInterval undoInterval = execute(NLS.bind(
 					CREATE_ACTION_UNDO_MESSAGE, new Object[] {
 						new Integer(number), newObjectType.getName()}),
 					new Runnable() {
@@ -200,7 +200,7 @@ public class MSLLibraryActionBarContributor
 			
 			final PropertySheetDialog dialog = new PropertySheetDialog(actionBarContrib.getShell(),actionBarContrib.getContentAdapter(),eObj);
 			
-			MUndoInterval undoInterval = actionBarContrib.execute(MessageFormat.format(
+			MUndoInterval undoInterval = actionBarContrib.execute(NLS.bind(
 				EDIT_ACTION_UNDO_MESSAGE, new Object[] {EObjectUtil
 					.getName(eObj)}), new Runnable() {
 
@@ -257,7 +257,7 @@ public class MSLLibraryActionBarContributor
 		/**
 		 * Error message to display when an exception occured
 		 */
-		protected static final String MESSAGE_EXCEPTION = MSLExamplePlugin.getResourceString("message.exception"); //$NON-NLS-1$
+		protected static final String MESSAGE_EXCEPTION = MSLExampleMessages.message_exception;
 
 		/**
 		 * The shell this action is hosted in
@@ -277,7 +277,7 @@ public class MSLLibraryActionBarContributor
 		/**
 		 * The title for the action.
 		 */
-		private String title = MSLExamplePlugin.getResourceString("ControlUnitAction.label"); //$NON-NLS-1$
+		private String title = MSLExampleMessages.ControlUnitAction_label;
 		
 		/** Action bar contributor of the MSL Library example editor. */
 		private MSLLibraryActionBarContributor actionBarContrib;
@@ -382,7 +382,7 @@ public class MSLLibraryActionBarContributor
 		/**
 		 * Error message to display when an exception occured
 		 */
-		protected static final String MESSAGE_EXCEPTION = MSLExamplePlugin.getResourceString("message.exception"); //$NON-NLS-1$
+		protected static final String MESSAGE_EXCEPTION = MSLExampleMessages.message_exception;
 
 		/**
 		 * The shell this action is hosted in
@@ -402,7 +402,7 @@ public class MSLLibraryActionBarContributor
 		/**
 		 * The title for the action.
 		 */
-		private String title = MSLExamplePlugin.getResourceString("UncontrolUnitAction.label"); //$NON-NLS-1$
+		private String title = MSLExampleMessages.UncontrolUnitAction_label;
 		
 		/** Action bar contributor of the MSL Library example editor. */
 		private MSLLibraryActionBarContributor actionBarContrib;
@@ -589,7 +589,7 @@ public class MSLLibraryActionBarContributor
 		}
 
 		public void run() {
-			addUndoInterval(execute(MessageFormat.format(PASTE_ACTION_UNDO_MESSAGE, new Object[] {EObjectUtil.getName(eObj)}),new Runnable() {
+			addUndoInterval(execute(NLS.bind(PASTE_ACTION_UNDO_MESSAGE, new Object[] {EObjectUtil.getName(eObj)}),new Runnable() {
 				public void run() {
 					EObjectUtil.deserialize(eObj,clipboardString,Collections.EMPTY_MAP);
 				}
@@ -926,7 +926,7 @@ public class MSLLibraryActionBarContributor
 	 * @see org.eclipse.emf.examples.extlibrary.presentation.EXTLibraryActionBarContributor#contributeToMenu(org.eclipse.jface.action.IMenuManager)
 	 */
 	public void contributeToMenu(IMenuManager menuManager) {
-		IMenuManager submenuManager = new MenuManager(MSLExamplePlugin.getResourceString("MSLLibraryEditor_menu"), "org.eclipse.gmf.examples.runtime.emf.extlibraryMenuID"); //$NON-NLS-1$ //$NON-NLS-2$
+		IMenuManager submenuManager = new MenuManager(MSLExampleMessages.MSLLibraryEditor_menu, "org.eclipse.gmf.examples.runtime.emf.extlibraryMenuID"); //$NON-NLS-1$
 		menuManager.insertAfter("additions", submenuManager); //$NON-NLS-1$
 		submenuManager.add(new Separator("settings")); //$NON-NLS-1$
 		submenuManager.add(new Separator("actions")); //$NON-NLS-1$

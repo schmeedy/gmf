@@ -12,14 +12,13 @@
 package org.eclipse.gmf.examples.runtime.emf.dialogs;
 
 import org.eclipse.core.runtime.IStatus;
+import org.eclipse.gmf.examples.runtime.emf.internal.l10n.MSLExampleMessages;
 import org.eclipse.jface.viewers.IStructuredContentProvider;
 import org.eclipse.jface.viewers.LabelProvider;
 import org.eclipse.jface.viewers.Viewer;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.dialogs.ListDialog;
-
-import org.eclipse.gmf.examples.runtime.emf.MSLExamplePlugin;
 
 
 /**
@@ -39,8 +38,7 @@ public class ValidationErrorDialog extends ListDialog {
 		setInput(status);
 		setTitle(title);
 		setBlockOnOpen(true);
-		setMessage(MSLExamplePlugin
-			.getResourceString("ValidationErrorDialog.errorMessage")); //$NON-NLS-1$
+		setMessage(MSLExampleMessages.ValidationErrorDialog_errorMessage);
 		
 		setContentProvider(new IStructuredContentProvider() {
 			public void dispose() {
@@ -68,10 +66,10 @@ public class ValidationErrorDialog extends ListDialog {
 					int severity = ((IStatus)element).getSeverity();
 					switch(severity) {
 						case IStatus.ERROR:
-							prefix = MSLExamplePlugin.getResourceString("BatchValidationDelegate.errorPrefix"); //$NON-NLS-1$
+							prefix = MSLExampleMessages.BatchValidationDelegate_errorPrefix;
 							break;
 						case IStatus.WARNING:
-							prefix = MSLExamplePlugin.getResourceString("BatchValidationDelegate.warningPrefix"); //$NON-NLS-1$
+							prefix = MSLExampleMessages.BatchValidationDelegate_warningPrefix;
 							break;
 					}
 					return prefix+((IStatus)element).getMessage();

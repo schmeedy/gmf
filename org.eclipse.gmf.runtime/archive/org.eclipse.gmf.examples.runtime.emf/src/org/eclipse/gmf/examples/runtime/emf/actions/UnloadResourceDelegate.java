@@ -15,6 +15,9 @@ import java.util.Collection;
 import java.util.Iterator;
 
 import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.gmf.examples.runtime.emf.editor.MSLLibraryEditor;
+import org.eclipse.gmf.examples.runtime.emf.internal.l10n.MSLExampleMessages;
+import org.eclipse.gmf.runtime.emf.core.edit.MEditingDomain;
 import org.eclipse.jface.action.IAction;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.viewers.ISelection;
@@ -24,10 +27,6 @@ import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.IActionDelegate2;
 import org.eclipse.ui.IEditorActionDelegate;
 import org.eclipse.ui.IEditorPart;
-
-import org.eclipse.gmf.runtime.emf.core.edit.MEditingDomain;
-import org.eclipse.gmf.examples.runtime.emf.MSLExamplePlugin;
-import org.eclipse.gmf.examples.runtime.emf.editor.MSLLibraryEditor;
 
 /**
  * An action delegate to unload the selected resources.
@@ -40,7 +39,7 @@ public class UnloadResourceDelegate
 	/**
 	 * Error message to display when an exception occured
 	 */
-	protected static final String MESSAGE_EXCEPTION = MSLExamplePlugin.getResourceString("message.exception"); //$NON-NLS-1$
+	protected static final String MESSAGE_EXCEPTION = MSLExampleMessages.message_exception; 
 
 	/**
 	 * The shell this action is hosted in

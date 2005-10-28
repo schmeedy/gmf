@@ -23,6 +23,8 @@ import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.domain.IEditingDomainProvider;
 import org.eclipse.emf.edit.ui.EMFEditUIPlugin;
+import org.eclipse.gmf.examples.runtime.emf.internal.l10n.MSLExampleMessages;
+import org.eclipse.gmf.runtime.emf.core.edit.MEditingDomain;
 import org.eclipse.jface.action.IAction;
 import org.eclipse.jface.dialogs.Dialog;
 import org.eclipse.jface.viewers.ISelection;
@@ -46,9 +48,6 @@ import org.eclipse.ui.IEditorActionDelegate;
 import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.dialogs.ContainerSelectionDialog;
-
-import org.eclipse.gmf.runtime.emf.core.edit.MEditingDomain;
-import org.eclipse.gmf.examples.runtime.emf.MSLExamplePlugin;
 
 
 /**
@@ -150,7 +149,7 @@ public class SetPathmapDelegate
 			
 			Label pathmapLabel = new Label(composite, SWT.LEFT);
 			{
-				pathmapLabel.setText(MSLExamplePlugin.getResourceString("SetPathmapDelegate.pathmapNameLabel")); //$NON-NLS-1$
+				pathmapLabel.setText(MSLExampleMessages.SetPathmapDelegate_pathmapNameLabel);
 				FormData data = new FormData();
 				data.top = new FormAttachment(resourceURIField, CONTROL_OFFSET);
 				data.left = new FormAttachment(0, CONTROL_OFFSET);
@@ -159,7 +158,7 @@ public class SetPathmapDelegate
 			
 			pathmapNameField = new Text(composite, SWT.BORDER);
 			{
-				pathmapNameField.setText(MSLExamplePlugin.getResourceString("SetPathmapDelegate.pathmapDefaultName")); //$NON-NLS-1$
+				pathmapNameField.setText(MSLExampleMessages.SetPathmapDelegate_pathmapDefaultName);
 				FormData data = new FormData();
 				data.top = new FormAttachment(pathmapLabel, CONTROL_OFFSET);
 				data.left = new FormAttachment(0, CONTROL_OFFSET);

@@ -11,20 +11,19 @@
 
 package org.eclipse.gmf.examples.runtime.emf.listener;
 
-import java.text.MessageFormat;
 import java.util.Iterator;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.ui.console.ConsolePlugin;
-import org.eclipse.ui.console.MessageConsole;
-import org.eclipse.ui.part.EditorPart;
-
+import org.eclipse.gmf.examples.runtime.emf.internal.l10n.MSLExampleMessages;
 import org.eclipse.gmf.runtime.common.ui.util.ConsoleUtil;
 import org.eclipse.gmf.runtime.emf.core.edit.MEditingDomain;
 import org.eclipse.gmf.runtime.emf.core.edit.MFilter;
 import org.eclipse.gmf.runtime.emf.core.edit.MListener;
-import org.eclipse.gmf.examples.runtime.emf.MSLExamplePlugin;
+import org.eclipse.osgi.util.NLS;
+import org.eclipse.ui.console.ConsolePlugin;
+import org.eclipse.ui.console.MessageConsole;
+import org.eclipse.ui.part.EditorPart;
 
 /**
  * Listener for batched changes to the library model. This listener will display
@@ -39,7 +38,7 @@ public class LibraryListener
 	public static boolean displayEvents = false;
 	
 	// Create a name for the console
-	public static final String consoleName = MSLExamplePlugin.getResourceString("Console.name"); //$NON-NLS-1$
+	public static final String consoleName = MSLExampleMessages.Console_name;
 	private EditorPart part = null;
 
 	public LibraryListener(MEditingDomain domain, EditorPart part) {
@@ -54,7 +53,7 @@ public class LibraryListener
 		if (displayEvents && part != null && part.getSite() != null) {
 			// Display in the console
 			MessageConsole console = ConsoleUtil.registerConsole(consoleName);
-			ConsoleUtil.printInfo(consoleName, MessageFormat.format(MSLExamplePlugin.getResourceString("LibraryListener.message"), //$NON-NLS-1$
+			ConsoleUtil.printInfo(consoleName, NLS.bind(MSLExampleMessages.LibraryListener_message,
 				new Object[] {new Integer(events.size())}));
 			for (Iterator iter = events.iterator(); iter.hasNext();) {
 				Notification notification = (Notification) iter.next();

@@ -11,19 +11,15 @@
 
 package org.eclipse.gmf.examples.runtime.emf;
 
-import java.util.MissingResourceException;
-import java.util.ResourceBundle;
-
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.edit.provider.resource.ResourceItemProviderAdapterFactory;
 import org.eclipse.emf.examples.extlibrary.EXTLibraryPackage;
 import org.eclipse.emf.examples.extlibrary.provider.EXTLibraryEditPlugin;
 import org.eclipse.emf.examples.extlibrary.provider.EXTLibraryItemProviderAdapterFactory;
-import org.eclipse.ui.plugin.AbstractUIPlugin;
-import org.osgi.framework.BundleContext;
-
 import org.eclipse.gmf.runtime.emf.core.internal.util.MSLAdapterFactoryManager;
 import org.eclipse.gmf.runtime.emf.core.internal.util.MSLMetaModelManager;
+import org.eclipse.ui.plugin.AbstractUIPlugin;
+import org.osgi.framework.BundleContext;
 
 /**
  * The main plugin class to be used in the desktop.
@@ -34,9 +30,6 @@ public class MSLExamplePlugin
 	//The shared instance.
 	private static MSLExamplePlugin plugin;
 
-	//Resource bundle.
-	private ResourceBundle resourceBundle;
-
 	//Library item provider factory
 	private static AdapterFactory libraryFactory = new EXTLibraryItemProviderAdapterFactory();
 
@@ -46,12 +39,6 @@ public class MSLExamplePlugin
 	public MSLExamplePlugin() {
 		super();
 		plugin = this;
-		try {
-			resourceBundle = ResourceBundle
-				.getBundle("org.eclipse.gmf.examples.runtime.emf.MSLExamplePluginResources"); //$NON-NLS-1$
-		} catch (MissingResourceException x) {
-			resourceBundle = null;
-		}
 	}
 
 	/**
@@ -80,27 +67,5 @@ public class MSLExamplePlugin
 	 */
 	public static MSLExamplePlugin getDefault() {
 		return plugin;
-	}
-
-	/**
-	 * Returns the string from the plugin's resource bundle, or 'key' if not
-	 * found.
-	 */
-	public static String getResourceString(String key) {
-		ResourceBundle bundle = MSLExamplePlugin.getDefault()
-			.getResourceBundle();
-		try {
-			return (bundle != null) ? bundle.getString(key)
-				: key;
-		} catch (MissingResourceException e) {
-			return key;
-		}
-	}
-
-	/**
-	 * Returns the plugin's resource bundle,
-	 */
-	public ResourceBundle getResourceBundle() {
-		return resourceBundle;
 	}
 }

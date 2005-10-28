@@ -21,7 +21,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import org.eclipse.gmf.examples.runtime.emf.MSLExamplePlugin;
+import org.eclipse.gmf.examples.runtime.emf.internal.l10n.MSLExampleMessages;
 import org.eclipse.jface.action.IStatusLineManager;
 import org.eclipse.jface.util.ListenerList;
 import org.eclipse.jface.viewers.CellEditor;
@@ -80,10 +80,10 @@ public class PropertySheetViewer extends Viewer {
 
 	private TreeEditor treeEditor;
 
-	private static String[] columnLabels = { MSLExamplePlugin.getResourceString("PropertySheetViewer.property"), //$NON-NLS-1$
-		MSLExamplePlugin.getResourceString("PropertySheetViewer.value") }; //$NON-NLS-1$
+	private static String[] columnLabels = { MSLExampleMessages.PropertySheetViewer_property,
+		MSLExampleMessages.PropertySheetViewer_value };
 	
-	private static String MISCELLANEOUS_CATEGORY_NAME = MSLExamplePlugin.getResourceString("PropertySheetViewer.misc"); //$NON-NLS-1$
+	private static String MISCELLANEOUS_CATEGORY_NAME = MSLExampleMessages.PropertySheetViewer_misc;
 
 	// Cell editor support.
 	private int columnToEdit = 1;

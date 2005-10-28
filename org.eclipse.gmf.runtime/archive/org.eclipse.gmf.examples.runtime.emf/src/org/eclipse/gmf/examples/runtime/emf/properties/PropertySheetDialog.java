@@ -12,6 +12,7 @@
 package org.eclipse.gmf.examples.runtime.emf.properties;
 
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryContentProvider;
+import org.eclipse.gmf.examples.runtime.emf.internal.l10n.MSLExampleMessages;
 import org.eclipse.jface.dialogs.Dialog;
 import org.eclipse.jface.viewers.ISelectionChangedListener;
 import org.eclipse.jface.viewers.SelectionChangedEvent;
@@ -25,8 +26,6 @@ import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.views.properties.IPropertySourceProvider;
 import org.eclipse.ui.views.properties.PropertySheetEntry;
-
-import org.eclipse.gmf.examples.runtime.emf.MSLExamplePlugin;
 
 
 public class PropertySheetDialog
@@ -47,7 +46,7 @@ public class PropertySheetDialog
 	protected void configureShell(Shell newShell) {
 		super.configureShell(newShell);
 		
-		newShell.setText(MSLExamplePlugin.getResourceString("PropertySheetDialog.title")); //$NON-NLS-1$
+		newShell.setText(MSLExampleMessages.PropertySheetDialog_title);
 	}
 
 	protected Control createDialogArea(Composite parent) {
@@ -83,7 +82,7 @@ public class PropertySheetDialog
 		parent.setSize(400,800);
 		
 		final Button reset = new Button(composite,SWT.LEFT);
-		reset.setText(MSLExamplePlugin.getResourceString("PropertySheetDialog.resetProperty")); //$NON-NLS-1$
+		reset.setText(MSLExampleMessages.PropertySheetDialog_resetProperty);
 		reset.addSelectionListener(new SelectionListener() {
 			public void widgetSelected(SelectionEvent e) {
 				propertyViewer.resetProperties();

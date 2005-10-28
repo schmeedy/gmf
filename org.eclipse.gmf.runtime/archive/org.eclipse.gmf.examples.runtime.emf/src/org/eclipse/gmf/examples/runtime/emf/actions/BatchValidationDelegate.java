@@ -18,6 +18,14 @@ import java.util.Set;
 
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.validation.model.EvaluationMode;
+import org.eclipse.emf.validation.model.IConstraintStatus;
+import org.eclipse.emf.validation.service.IBatchValidator;
+import org.eclipse.emf.validation.service.ModelValidationService;
+import org.eclipse.gmf.examples.runtime.emf.constraints.ValidationDelegateClientSelector;
+import org.eclipse.gmf.examples.runtime.emf.dialogs.ValidationErrorDialog;
+import org.eclipse.gmf.examples.runtime.emf.editor.MSLLibraryEditor;
+import org.eclipse.gmf.examples.runtime.emf.internal.l10n.MSLExampleMessages;
 import org.eclipse.jface.action.IAction;
 import org.eclipse.jface.dialogs.Dialog;
 import org.eclipse.jface.dialogs.MessageDialog;
@@ -30,15 +38,6 @@ import org.eclipse.ui.IEditorActionDelegate;
 import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.dialogs.ListDialog;
 
-import org.eclipse.gmf.examples.runtime.emf.MSLExamplePlugin;
-import org.eclipse.gmf.examples.runtime.emf.constraints.ValidationDelegateClientSelector;
-import org.eclipse.gmf.examples.runtime.emf.dialogs.ValidationErrorDialog;
-import org.eclipse.gmf.examples.runtime.emf.editor.MSLLibraryEditor;
-import org.eclipse.emf.validation.model.EvaluationMode;
-import org.eclipse.emf.validation.model.IConstraintStatus;
-import org.eclipse.emf.validation.service.IBatchValidator;
-import org.eclipse.emf.validation.service.ModelValidationService;
-
 /**
  * This action delegate calls upon the validation service to provide a batch
  *  validation of the selected EObjects and their children.
@@ -50,7 +49,7 @@ public class BatchValidationDelegate
 	/**
 	 * Error message to display when an exception occured
 	 */
-	protected static final String MESSAGE_EXCEPTION = MSLExamplePlugin.getResourceString("message.exception"); //$NON-NLS-1$
+	protected static final String MESSAGE_EXCEPTION = MSLExampleMessages.message_exception;
 
 	/**
 	 * The shell this action is hosted in
@@ -70,7 +69,7 @@ public class BatchValidationDelegate
 	/**
 	 * The title for the action.
 	 */
-	private String title = MSLExamplePlugin.getResourceString("BatchValidationDelegate.title"); //$NON-NLS-1$
+	private String title = MSLExampleMessages.BatchValidationDelegate_title;
 	
 	/*
 	 * @see org.eclipse.ui.IActionDelegate#selectionChanged(org.eclipse.jface.action.IAction,
@@ -144,8 +143,8 @@ public class BatchValidationDelegate
 		final IStatus status = validator.validate(selectedEObjects);
 		
 		if (status.isOK()) {
-			MessageDialog.openInformation(shell, title, MSLExamplePlugin
-				.getResourceString("BatchValidationDelegate.successMessage")); //$NON-NLS-1$
+			MessageDialog.openInformation(shell, title,
+				MSLExampleMessages.BatchValidationDelegate_successMessage);
 			return;
 		} else {
 			Dialog dialog = new ValidationErrorDialog(shell,title,status);

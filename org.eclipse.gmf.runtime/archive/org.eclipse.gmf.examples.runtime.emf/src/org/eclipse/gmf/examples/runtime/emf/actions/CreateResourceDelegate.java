@@ -25,6 +25,9 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.ui.EMFEditUIPlugin;
 import org.eclipse.emf.examples.extlibrary.EXTLibraryPackage;
+import org.eclipse.gmf.examples.runtime.emf.editor.MSLLibraryEditor;
+import org.eclipse.gmf.examples.runtime.emf.internal.l10n.MSLExampleMessages;
+import org.eclipse.gmf.runtime.emf.core.edit.MEditingDomain;
 import org.eclipse.jface.action.IAction;
 import org.eclipse.jface.dialogs.Dialog;
 import org.eclipse.jface.viewers.ISelection;
@@ -48,10 +51,6 @@ import org.eclipse.ui.IEditorActionDelegate;
 import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.dialogs.ContainerSelectionDialog;
 
-import org.eclipse.gmf.runtime.emf.core.edit.MEditingDomain;
-import org.eclipse.gmf.examples.runtime.emf.MSLExamplePlugin;
-import org.eclipse.gmf.examples.runtime.emf.editor.MSLLibraryEditor;
-
 /**
  * An action delegate whose purpose is to allow the user to create a new
  *  resource in the resource set of the active MSL Library editor.
@@ -66,7 +65,7 @@ public class CreateResourceDelegate
 	/**
 	 * Error message to display when an exception occured
 	 */
-	protected static final String MESSAGE_EXCEPTION = MSLExamplePlugin.getResourceString("message.exception"); //$NON-NLS-1$
+	protected static final String MESSAGE_EXCEPTION = MSLExampleMessages.message_exception;
 
 	/**
 	 * The shell this action is hosted in
@@ -106,7 +105,7 @@ public class CreateResourceDelegate
 
 		protected void configureShell(Shell shell) {
 			super.configureShell(shell);
-			shell.setText(MSLExamplePlugin.getResourceString("CreateResourceDelegate.title")); //$NON-NLS-1$
+			shell.setText(MSLExampleMessages.CreateResourceDelegate_title);
 		}
 
 		protected Control createDialogArea(Composite parent) {
