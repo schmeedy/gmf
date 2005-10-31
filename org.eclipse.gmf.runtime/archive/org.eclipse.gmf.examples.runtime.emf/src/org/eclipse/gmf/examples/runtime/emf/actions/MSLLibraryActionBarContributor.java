@@ -26,7 +26,6 @@ import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.resource.Resource;
-import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.edit.domain.IEditingDomainProvider;
 import org.eclipse.emf.edit.ui.EMFEditUIPlugin;
 import org.eclipse.emf.edit.ui.action.CopyAction;
@@ -103,6 +102,8 @@ public class MSLLibraryActionBarContributor
 	private static final String DELETE_ACTION_UNDO_MESSAGE = MSLExampleMessages.DeleteAction_undoMessage;
 	
 	private static final String PASTE_ACTION_UNDO_MESSAGE = MSLExampleMessages.PasteAction_undoMessage;
+	
+	private static final String RESOURCE_NAME = MSLExampleMessages.Resource_name;
 	
 	private MListener resourceLoadListener;
 	private List undoIntervals = new ArrayList();
@@ -576,24 +577,43 @@ public class MSLLibraryActionBarContributor
 	}
 	
 	private class MSLPasteAction extends PasteAction {
-		private EObject eObj;
+		private Object obj;
 		
 		public Command createCommand(Collection selection) {
 			return UnexecutableCommand.INSTANCE;
 		}
 
 		public boolean updateSelection(IStructuredSelection selection) {
-			eObj = extractEObjectFromSelection(selection);
+			if (selection.size() == 1) {
+				Object o = selection.getFirstElement();
+				if (o instanceof Resource || o instanceof EObject) {
+					obj = o;
+				}
+			}
 			
-			return eObj != null && clipboardString != null;
+			return obj != null && clipboardString != null;
 		}
 
 		public void run() {
-			addUndoInterval(execute(NLS.bind(PASTE_ACTION_UNDO_MESSAGE, new Object[] {EObjectUtil.getName(eObj)}),new Runnable() {
+			addUndoInterval(execute(NLS.bind(PASTE_ACTION_UNDO_MESSAGE, getName()),new Runnable() {
 				public void run() {
-					EObjectUtil.deserialize(eObj,clipboardString,Collections.EMPTY_MAP);
+					if (obj instanceof EObject) {
+						EObjectUtil.deserialize((EObject)obj, clipboardString, Collections.EMPTY_MAP);
+					} else if (obj instanceof Resource) {
+						EObjectUtil.deserialize((Resource)obj, clipboardString, Collections.EMPTY_MAP);
+					}
 				}
 			}));
+		}
+		
+		private String getName() {
+			if (obj instanceof EObject) {
+				return EObjectUtil.getName((EObject)obj);
+			}
+			if (obj instanceof Resource) {
+				return RESOURCE_NAME;
+			}
+			return null;
 		}
 	}
 	
@@ -795,8 +815,7 @@ public class MSLLibraryActionBarContributor
 			
 			Object o = ((IStructuredSelection)selection).getFirstElement();
 
-			if (!(o instanceof Resource) &&
-					!(o instanceof ResourceSet)) {
+			if (o instanceof EObject) {
 				EObject eObj = (EObject)o;
 				
 				return eObj;

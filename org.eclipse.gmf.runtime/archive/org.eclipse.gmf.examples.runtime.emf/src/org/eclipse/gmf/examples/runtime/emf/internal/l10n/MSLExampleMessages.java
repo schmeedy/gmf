@@ -53,6 +53,7 @@ public class MSLExampleMessages extends NLS {
 	public static String Console_name;
 	public static String ControlUnitAction_label;
 	public static String UncontrolUnitAction_label;
+	public static String Resource_name;
 
 	static {
 		NLS.initializeMessages(BUNDLE_NAME, MSLExampleMessages.class);
