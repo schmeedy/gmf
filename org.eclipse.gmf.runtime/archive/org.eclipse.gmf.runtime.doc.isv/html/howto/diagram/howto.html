@@ -2886,14 +2886,14 @@ RMP-DL has <SPAN class="GramE">it?s</SPAN> own LayoutEditPolicy called
 XYLayoutEditPolicy which calls inside createChildEditPolicy a public
 method of ShapeEditPart called getPrimaryDragEditPolicy.<SPAN
 	style="mso-spacerun:yes">  </SPAN>The default implementation returns a
-ShapeResizableEditPolicy which supports the drag resize handles.<o:p></o:p>
+ResizableShapeEditPolicy which supports the drag resize handles.<o:p></o:p>
 <BR>
 <BR>
 If
 the shape doesn?t appear to be resizable, make sure that you're not
 overriding the getPrimaryDragEditPolicy method in your EditPart and / or
 set a breakpoint there to make sure it's returning the
-ShapeResizableEditPolicy.<o:p></o:p>
+ResizableShapeEditPolicy.<o:p></o:p>
 <BR>
 <H4><A name="_Toc1042732480">How do I make a shape non-resizable?</A>
 <BR>
