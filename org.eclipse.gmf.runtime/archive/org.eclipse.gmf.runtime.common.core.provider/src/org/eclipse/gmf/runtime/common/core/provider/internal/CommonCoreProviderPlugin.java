@@ -18,7 +18,8 @@ import org.eclipse.gmf.runtime.common.core.plugin.XToolsPlugin;
  * The common core provider plug-in.
  * 
  * @author khussey
- *
+ * @deprecated This entire plug-in has been scheduled for removal.
+ * Please see Bugzilla 112797.
  */
 public class CommonCoreProviderPlugin extends XToolsPlugin {
 

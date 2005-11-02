@@ -15,7 +15,8 @@ package org.eclipse.gmf.runtime.common.core.provider.internal;
  * A list of debug options for this plug-in.
  * 
  * @author khussey
- *
+ * @deprecated This entire plug-in has been scheduled for removal.
+ * Please see Bugzilla 112797.
  */
 public final class CommonCoreProviderDebugOptions {
 
