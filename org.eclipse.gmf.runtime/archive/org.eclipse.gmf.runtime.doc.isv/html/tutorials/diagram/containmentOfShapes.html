@@ -20,7 +20,7 @@ w\:* {behavior:url(#default#VML);}
 .shape {behavior:url(#default#VML);}
 </style>
 <![endif]-->
-<title>Tutorial: &amp;lt;&amp;lt;Feature Name&amp;gt;&amp;gt;</title>
+<title>Tutorial: Supporting Containment of Shapes</title>
 <o:SmartTagType namespaceuri="urn:schemas-microsoft-com:office:smarttags"
  name="City"/>
 <o:SmartTagType namespaceuri="urn:schemas-microsoft-com:office:smarttags"
@@ -229,7 +229,7 @@ ul
 <p class=MsoNormal><a name=top></a><img width=629 height=192 id="_x0000_i1025"
 src="../logo.gif" border=0></p>
 
-<h1 align=center style='text-align:center'>Tutorial: Supporting containment of shapes</h1>
+<h1 align=center style='text-align:center'>Tutorial: Supporting Containment of Shapes</h1>
 
 <table class=MsoNormalTable border=0 cellspacing=8 cellpadding=0
  style='mso-cellspacing:6.0pt;margin-left:24.0pt'>
@@ -330,7 +330,7 @@ to the palette and diagram surface in the same manner as the LED shape.<SPAN
 factory initializes the view on creation.<SPAN style="mso-spacerun:yes"> 
 </SPAN>It is initializes with a sub view that allows for containment
 with-in the top level view.<SPAN style="mso-spacerun:yes">  </SPAN>To
-demonstrate this we?ll consider how the Circuit shape was added to the
+demonstrate this we'll consider how the Circuit shape was added to the
 Logic example.</P>
 <H3><A name="_Toc104273256">Example: Circuit Shape displaying
 containment</A><BR>
@@ -457,12 +457,12 @@ font-family:"Courier New"'><o:p>&nbsp;</o:p></SPAN></P>
 Circuit shape</A></H3>
 
 <P class="MsoNormal" style="margin-left:.5in">The controller for this
-container view is an EditPart called the ?ShapeCompartmentEditPart?.<SPAN
+container view is an EditPart called the 'ShapeCompartmentEditPart'.<SPAN
 	style="mso-spacerun:yes">  </SPAN>This EditPart is collapsible and
 simulates some of the behavior of the root diagram drawing surface.<SPAN
 	style="mso-spacerun:yes">  </SPAN>In the Logic example we override the
-default ?ShapeCompartmentEditPart? with a class called
-?LogicShapeCompartmentEditPart?.<SPAN style="mso-spacerun:yes">  </SPAN>This
+default 'ShapeCompartmentEditPart' with a class called
+'LogicShapeCompartmentEditPart'.<SPAN style="mso-spacerun:yes">  </SPAN>This
 override is needed to improve the usability of the drag behavior.<SPAN
 	style="mso-spacerun:yes">  </SPAN>By default, the shape compartment
 allows marquee selection of children with-in its bounds.<SPAN
@@ -470,8 +470,8 @@ allows marquee selection of children with-in its bounds.<SPAN
 move the top level shape.<SPAN style="mso-spacerun:yes">  </SPAN>We
 decided to override this behavior to allow for more intuitive drag
 behavior of the Circuit itself.<SPAN style="mso-spacerun:yes">  </SPAN>To
-create the ?LogicShapeCompartmentEditPart? create the EditPart provider
-entry for it with the id ?LogicCompartment? in the LogicEditPartProvider
+create the 'LogicShapeCompartmentEditPart' create the EditPart provider
+entry for it with the id 'LogicCompartment' in the LogicEditPartProvider
 class.</P>
 
 <P class="MsoNormal" style="margin-left:.5in">See<A
@@ -484,7 +484,7 @@ class.</P>
 a subcontainer for the shapecompartment, set the layout manager as
 ConstrainedToolbarLayout when creating a circuit figure. Otherwise the
 circuit can not position the contained shape compartment correctly
-with-in <SPAN class="GramE">it?s</SPAN> bounds.</P>
+with-in <SPAN class="GramE">it's</SPAN> bounds.</P>
 
 <P class="MsoNormal" style="margin-left:.5in"><o:p>&nbsp;</o:p></P>
 
@@ -563,10 +563,10 @@ to top</A>]</SPAN></H2>
 
 
 <P class="MsoNormal" style="margin-left:.5in">Install a new edit policy
-?ContainerHighlightEditPolicy?on CircuitEditPart to highlight circuits
+'ContainerHighlightEditPolicy' on CircuitEditPart to highlight circuits
 when selected. Make ContainerHighlightEditPolicy subclass from
 ContainerEditPolicy in org.eclipse.gmf.runtime.diagram.ui plug-in. Overwrite
-?showTargetFeedback? function in AbstractEditPolicy class.</P>
+'showTargetFeedback' function in AbstractEditPolicy class.</P>
 
 <P class="MsoNormal" style="margin-left:.5in"><o:p>&nbsp;</o:p></P>
 

@@ -4,7 +4,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
 <link rel="Stylesheet" type="text/css" href="technote.css">
-<title>Model Services Layer - How-to Guide</title>
+<title>Diagram Services Layer - How-to Guide</title>
 </head>
 
 <body lang="EN-US" link="blue" vlink="blue">
@@ -32,8 +32,8 @@
   <li><a href="#validationFramework"><A
 		name="preferenceChange0" href="#preferenceChange">How to change shape appearances based on a
 	global preference change</A></a></li>
-  <li><a href="#overrideConnectionLook">How to o<A
-		name="overrideConnectionLook0">verride the look of a connection</A></a></li>
+  <li><A href="#overrideConnectionLook"
+		name="overrideConnectionLook0">How to override the look of a connection</A></a></li>
   <li><a href="#readOnlyViews"><SPAN class="GramE"><SPAN
 		style="mso-bookmark:
 _Toc105513761"><A name="readOnlyViews0"
@@ -41,7 +41,7 @@ _Toc105513761"><A name="readOnlyViews0"
 	diagram</A></SPAN></SPAN></a></li>
 	<LI><A name="changeColor0" href="#changeColor">How to </A><A
 		href="#changeColor"><SPAN style="mso-bookmark:_Toc105513763">change
-	the color of a shape dynamicaly</SPAN></A></LI>
+	the color of a shape dynamically</SPAN></A></LI>
 	<LI><A name="shapeResizable0" href="#shapeResizable">How to make a shape resizable vs.
 	non-resizable</A></LI>
 </ul>
@@ -66,8 +66,8 @@ the diagram services layer.
 <P style="text-indent:0in;mso-list:none">Each shape node view class
 (Node) will typically need to install a set of styles that allow a
 certain look of the notation to be persisted.<SPAN
-	style="mso-spacerun:yes">  </SPAN>Usually the default style ?<SPAN
-	class="SpellE">ShapeStyle</SPAN>? will be adequate since this covers
+	style="mso-spacerun:yes">  </SPAN>Usually the default style <SPAN
+	class="SpellE">ShapeStyle</SPAN> will be adequate since this covers
 colors, text, etc.<SPAN style="mso-spacerun:yes">  </SPAN>However, it
 may be useful to add additional styles and/or have custom styles not
 accounted for in the notation meta-model (<SPAN class="SpellE">org.eclipse.gmf.runtime.notation</SPAN>).<SPAN
@@ -78,7 +78,7 @@ is notational and consequently should be part of the notation
 meta-model.<SPAN style="mso-spacerun:yes">  </SPAN></P>
 
 <P>Create
-a new notation meta-model ?sub-class?.<SPAN style="mso-spacerun:yes">  </SPAN>Since
+a new notation meta-model sub-class.<SPAN style="mso-spacerun:yes">  </SPAN>Since
 the property is typically an attribute of a node, this can be
 represented in a Style subclass.</P>
 
@@ -225,7 +225,7 @@ and choose &quot;reload&quot; to reflect the changes.<SPAN
 	style="margin-left:.75in;text-indent:-.25in;mso-list:l1 level1 lfo6;
 tab-stops:list .75in"><!><SPAN
 	style="mso-list:Ignore">-<SPAN style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-</SPAN></SPAN><!>Hit &quot;Next&quot; in the wizard until ?Finish? appears and the
+</SPAN></SPAN><!>Hit &quot;Next&quot; in the wizard until &quot;Finish&quot; appears and the
 click that.</P>
 
 <P class="MsoNormal"
@@ -1325,7 +1325,7 @@ mso-layout-grid-align:none;text-autospace:none"><SPAN
 	style='font-size:9.0pt;
 font-family:"Courier New";color:black'><SPAN
 	style="mso-tab-count:3">                     </SPAN>// if the property
-is not the event we?re interested in then <o:p></o:p></SPAN></P>
+is not the event we're interested in then <o:p></o:p></SPAN></P>
 
 <P class="MsoNormal"
 	style="margin-left:.25in;tab-stops:0in .25in .75in 1.25in 1.75in 2.25in 2.75in 3.25in;
@@ -1680,7 +1680,7 @@ which synchronizes the model and figure worlds.<SPAN
 	class="SpellE">EditPart</SPAN> provider which is registered against the
 <SPAN class="SpellE">EditPartService</SPAN> that will override the
 existing <SPAN class="SpellE">EditPart</SPAN> provider to provide a new
-<SPAN class="SpellE">EditPart</SPAN> for the connection shape you?re
+<SPAN class="SpellE">EditPart</SPAN> for the connection shape you're
 interested in.</P>
 
 <P class="MsoNormal"><o:p>&nbsp;</o:p></P>
@@ -1920,7 +1920,7 @@ lets us specify the view category we're supplying the <SPAN
 	class="SpellE">EditPart</SPAN> for and the criteria under which our
 provider will be loaded.<SPAN style="mso-spacerun:yes">  </SPAN>In this
 case, we chose a broad criteria and our provider will be loaded when the
-connector is of the semantic relationship we expect.<SPAN
+connection is of the semantic relationship we expect.<SPAN
 	style="mso-spacerun:yes">  </SPAN>In the actual java code of our
 provider class we can restrict the actual criteria to be based <SPAN
 	class="GramE">on a more strict criteria</SPAN>, such as some aspect or
@@ -1936,8 +1936,8 @@ property of the semantic relationship.<SPAN style="mso-spacerun:yes">  </SPAN><o
 the provider class is fairly straightforward.<SPAN
 	style="mso-spacerun:yes">  </SPAN>It extends from the abstract class <SPAN
 	class="SpellE">AbstractEditPartProvider</SPAN> and overrides the method
-for retrieving the connector <SPAN class="SpellE">editpart</SPAN>.<SPAN
-	style="mso-spacerun:yes">  </SPAN>In the following example, it?s
+for retrieving the connection <SPAN class="SpellE">editpart</SPAN>.<SPAN
+	style="mso-spacerun:yes">  </SPAN>In the following example, it's
 providing a custom <SPAN class="SpellE">EditPart</SPAN> when the shape
 has a particular keyword installed.<SPAN style="mso-spacerun:yes">  </SPAN>More
 commonly, you would switch based on the semantic type which is set to
@@ -1972,7 +1972,7 @@ mso-layout-grid-align:none;text-autospace:none"><SPAN
 	style="font-size:10.0pt;
 font-family:Courier;mso-bidi-font-family:Courier;color:black"><SPAN
 	style="mso-tab-count:1">      </SPAN><SPAN class="GramE">protected</SPAN>
-Class <SPAN class="SpellE">getConnectorEditPartClass</SPAN>(View <SPAN
+Class <SPAN class="SpellE">getEdgeEditPartClass</SPAN>(View <SPAN
 	class="SpellE">view</SPAN>) {<o:p></o:p></SPAN></P>
 
 <P class="MsoNormal"
@@ -2239,7 +2239,7 @@ views on a diagram</A></SPAN></SPAN><BR>
 <FONT size="-1">[<A href="#top">back to top</A>]</FONT></H2>
 <P class="MsoNormal">It is possible to view the same notation data in 2
 different viewers.<SPAN style="mso-spacerun:yes">  </SPAN>Since GEF /
-Presentation implements the MFC design pattern, it is a simple matter to
+GMF implements the MFC design pattern, it is a simple matter to
 view the same data in different viewers.<SPAN style="mso-spacerun:yes"> 
 </SPAN>The &quot;Model&quot; (Notation) is the same in both viewers and
 synchronized with different &quot;View&quot; (Figure) data through unique
@@ -2423,7 +2423,7 @@ Arial;mso-bidi-font-family:Arial"><SPAN
 	style="mso-list:Ignore"></SPAN></SPAN></A></H3>
 <H2 class="MsoNormal"><A name="changeColor">How to </A><SPAN
 	style="mso-bookmark:_Toc105513763">change the color of a
-shape dynamicaly</SPAN><BR><FONT size="-1">[<A href="#top">back to top</A>]</FONT>
+shape dynamically</SPAN><BR><FONT size="-1">[<A href="#top">back to top</A>]</FONT>
 </H2>
 <P class="MsoNormal">In the example <A href="#readOnlyViews0">#<SPAN
 	class="GramE">Creating</SPAN> a read-only viewer of an existing diagram</A> it is necessary to create
@@ -2660,7 +2660,7 @@ color:navy;background:white;mso-highlight:white'><SPAN
 <DIV class="Section1"><FONT face="Courier New"><BR></FONT><FONT
 	face="Times New Roman">Finally, the <SPAN class="SpellE">EditPolicy</SPAN>
 class itself can be defined.<SPAN style="mso-spacerun:yes">  </SPAN>In
-this particular example, we are adding a Mouse listener <SPAN
+this particular example, we are adding a mouse listener <SPAN
 	class="GramE">the allows</SPAN> us to trace mouse movement entering and
 exiting the host <SPAN class="SpellE">EditPart</SPAN>.<SPAN
 	style="mso-spacerun:yes">  </SPAN>On entry, we color the figure to red
@@ -2882,7 +2882,7 @@ subclassed from ShapeEditPart are resizable by default.<SPAN
 	style="mso-spacerun:yes">  </SPAN>The resizable editpolicy is a special
 case in that it is installed via the LayoutEditPolicy on the diagram in
 the routine createChildEditPolicy.<SPAN style="mso-spacerun:yes">  </SPAN>The
-RMP-DL has <SPAN class="GramE">it?s</SPAN> own LayoutEditPolicy called
+GMF diagram layer has <SPAN class="GramE">it's</SPAN> own LayoutEditPolicy called
 XYLayoutEditPolicy which calls inside createChildEditPolicy a public
 method of ShapeEditPart called getPrimaryDragEditPolicy.<SPAN
 	style="mso-spacerun:yes">  </SPAN>The default implementation returns a
@@ -2890,7 +2890,7 @@ ResizableShapeEditPolicy which supports the drag resize handles.<o:p></o:p>
 <BR>
 <BR>
 If
-the shape doesn?t appear to be resizable, make sure that you're not
+the shape doesn't appear to be resizable, make sure that you're not
 overriding the getPrimaryDragEditPolicy method in your EditPart and / or
 set a breakpoint there to make sure it's returning the
 ResizableShapeEditPolicy.<o:p></o:p>

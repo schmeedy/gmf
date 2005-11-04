@@ -20,7 +20,7 @@ w\:* {behavior:url(#default#VML);}
 .shape {behavior:url(#default#VML);}
 </style>
 <![endif]-->
-<title>Tutorial: &amp;lt;&amp;lt;Feature Name&amp;gt;&amp;gt;</title>
+<title>Tutorial: Creating a Shape</title>
 <o:SmartTagType namespaceuri="urn:schemas-microsoft-com:office:smarttags"
  name="City"/>
 <o:SmartTagType namespaceuri="urn:schemas-microsoft-com:office:smarttags"
@@ -229,7 +229,7 @@ ul
 <p class=MsoNormal><a name=top></a><img width=629 height=192 id="_x0000_i1025"
 src="../logo.gif" border=0></p>
 
-<h1 align=center style='text-align:center'>Tutorial: Creating a shape</h1>
+<h1 align=center style='text-align:center'>Tutorial: Creating a Shape</h1>
 
 <table class=MsoNormalTable border=0 cellspacing=8 cellpadding=0
  style='mso-cellspacing:6.0pt;margin-left:24.0pt'>
@@ -349,14 +349,14 @@ class=GramE>back</span> to top</a>]</span></p>
 <BR>
 In order to create a new
 shape in a diagram editor, then it is necessary to utilize the diagram
-layer?s service infrastructure that exposes some extension points that
+layer's service infrastructure that exposes some extension points that
 clients need to provide extensions to.<SPAN style="mso-spacerun:yes">  </SPAN>The
 initial entry point for this extensibility is through the palette
 service.<SPAN style="mso-spacerun:yes">  </SPAN>The palette service
 allows clients to add entries or drawers to an existing palette or
 create one for their own editor.<SPAN style="mso-spacerun:yes">  </SPAN>For
 a detailed description of the service infrastructure, please refer to:
-com.ibm.xtools.platform.doc.isv\html\tutorials\Service and Provider
+org.eclipse.gmf.runtime.doc.isv\html\tutorials\Service and Provider
 Tutorial.html.<BR>
 <BR>
 There are two main entry
@@ -378,7 +378,7 @@ which will construct the tools.<SPAN style="mso-spacerun:yes"><BR>
 <BR></SPAN>If we examine a particular
 shape in the Logic example plug-in (LED), we can see what is necessary
 to display that palette entry.<SPAN style="mso-spacerun:yes">  </SPAN>The
-drawer is defined separately as <SPAN class="GramE">it?s</SPAN> own
+drawer is defined separately as <SPAN class="GramE">it's</SPAN> own
 &lt;entry&gt; in the &lt;contribution&gt; section.<SPAN
 	style="mso-spacerun:yes">  </SPAN>The individual palette entry is
 another &lt;entry&gt; that references the icons, text description and ID
@@ -705,7 +705,7 @@ font-family:"Courier New";color:black;background:white;mso-highlight:white'><SPA
 mso-highlight:white'>&lt;!--</SPAN></SPAN><SPAN
 	style='font-size:8.0pt;
 font-family:"Courier New";color:maroon;background:white;mso-highlight:white'><SPAN
-	style="mso-spacerun:yes">   </SPAN>class=&amp;quot;org.eclipse.gmf.runtime.diagram.ui.parts.IDiagramWorkbenchPart&amp;quot;--&gt;</SPAN><SPAN
+	style="mso-spacerun:yes">   </SPAN>class=&quot;org.eclipse.gmf.runtime.diagram.ui.parts.IDiagramWorkbenchPart&quot;--&gt;</SPAN><SPAN
 	style='font-size:8.0pt;font-family:"Courier New"'><o:p></o:p></SPAN></P>
 
 <P class="MsoNormal"
@@ -825,8 +825,8 @@ shape tool instrumented from a palette factory class.</SPAN><BR></H3><P class="M
 next step is to create the palette factory that will create the
 appropriate tool based on the ID defined in the plugin.xml &lt;entry&gt;
 tag section.<SPAN style="mso-spacerun:yes">  </SPAN>The palette factory
-is specified via the ?factoryClass? tag in the paletteProviders
-extension xml descriptor inside the ?contribution? for the palette
+is specified via the 'factoryClass' tag in the paletteProviders
+extension xml descriptor inside the 'contribution' for the palette
 provider.<SPAN style="mso-spacerun:yes">  </SPAN>The factory class is a
 java class that extends PaletteFactory.Adapter and implements the
 createTool method.<SPAN style="mso-spacerun:yes">  </SPAN>If we consider
@@ -834,7 +834,7 @@ our example above, where we are trying to create the LED element<SPAN
 	class="GramE">,<SPAN style="mso-spacerun:yes">  </SPAN>the</SPAN>
 LogicPaletteFactory class demonstrates how to accomplish this.<SPAN
 	style="mso-spacerun:yes">  </SPAN>Given the semantic ID defined in the
-?id? entry, i.e. ?LED?<SPAN class="GramE">,<SPAN
+'id' entry, i.e. 'LED'<SPAN class="GramE">,<SPAN
 	style="mso-spacerun:yes">  </SPAN>it</SPAN> will create a tool that
 wraps that ID which is used later to decide which notation and semantic
 elements to create when the tool is invoked.<SPAN
@@ -843,7 +843,7 @@ clients <SPAN class="GramE">need can</SPAN> incarnate to create shapes.<SPAN
 	style="mso-spacerun:yes">  </SPAN><SPAN class="GramE">The<SPAN
 	style="mso-spacerun:yes">  </SPAN>CreationTool</SPAN> class is used to
 create shapes or nodes on the diagram surface or the
-ConnectorCreationTool class which is used to create connections or edges
+ConnectionCreationTool class which is used to create connections or edges
 between shapes.<SPAN style="mso-spacerun:yes">  </SPAN>In the case of
 our example, the LED is a shape so we will use the CreationTool.<BR>
 <BR>
@@ -872,7 +872,7 @@ is representing the schematics of a circuit board or transistor.<SPAN
 	style="mso-spacerun:yes">  </SPAN>The model that represents that is
 separate from the notation that is displayed on the diagram.<SPAN
 	style="mso-spacerun:yes">  </SPAN>Consequently it is useful to define a
-semantic model if there was a need to code generate or ?burn? the logic
+semantic model if there was a need to code generate or 'burn' the logic
 onto a board.<SPAN style="mso-spacerun:yes">  </SPAN>To accomplish this,
 we defined an ecore model and used EMF to code <SPAN class="GramE">generate</SPAN>
 a meta-model.
@@ -887,15 +887,15 @@ a meta-model.
 </H3>
 <P>Once the semantic model is created, then there is the matter of how to
 create and manipulate these elements in the context of the diagram
-editor.<SPAN style="mso-spacerun:yes">  </SPAN>The RMP common layer has
+editor.<SPAN style="mso-spacerun:yes">  </SPAN>The GMF common layer has
 an extension-point for defining element types and helper classes that
 allow for editing of these declared types called
-?org.eclipse.gmf.runtime.emf.type.core.elementTypes?.<SPAN style="mso-spacerun:yes"> 
+'org.eclipse.gmf.runtime.emf.type.core.elementTypes'.<SPAN style="mso-spacerun:yes"> 
 </SPAN>When a client provides an extension for this extension point,
 they are declaring a set of elements that the editor supports and hooks
 via these helper classes for editing these elements.<SPAN
 	style="mso-spacerun:yes">  </SPAN>The general mechanism is that the
-tool sends a ?request? through the EditPart hierarchy.<SPAN
+tool sends a 'request' through the EditPart hierarchy.<SPAN
 	style="mso-spacerun:yes">  </SPAN>The SemanticEditPolicy picks up the
 request and gets the appropriate IMetamodelType that is used to retrieve
 the edit command.<SPAN style="mso-spacerun:yes">  </SPAN><BR>
@@ -1114,7 +1114,7 @@ element is needed in order to display on the diagram.<SPAN
 	style="mso-spacerun:yes">  </SPAN>The notation element is instantiated
 from the notation meta-model which is a generic model for persisting
 diagram artifacts.<SPAN style="mso-spacerun:yes">  </SPAN>The notation
-can be thought as the logic persistence for the ?boxes? and ?lines that
+can be thought as the logic persistence for the 'boxes' and 'lines' that
 make up the composition of the diagram elements.<SPAN
 	style="mso-spacerun:yes">  </SPAN>In general, the notation meta-model
 stores position, layout information, color and font and any property
@@ -1131,7 +1131,7 @@ org.eclipse.gmf.runtime.diagram.core.viewProviders extension point.<SPAN
 	style="mso-spacerun:yes">  </SPAN>We indicate the viewClass context
 which indicates the type of View we want to create
 (org.eclipse.gmf.runtime.notation.Node), and provide a hint for our provider to
-be invoked upon (?LED?).<SPAN style="mso-spacerun:yes">  </SPAN><BR>
+be invoked upon ('LED').<SPAN style="mso-spacerun:yes">  </SPAN><BR>
 <BR>
 Once the descriptor code
 is complete, then we need to construct the java class which will
@@ -1502,7 +1502,7 @@ to top</A>]</SPAN></P>
 <P>It can be a little confusing as to where the actually rendering of the
 shape takes place since there are 3 contributing hierarchies to the
 composition of a diagram (View / EditPart / IFigure).<SPAN
-	style="mso-spacerun:yes">  </SPAN>It?s <SPAN class="GramE">more clear</SPAN>
+	style="mso-spacerun:yes">  </SPAN>It's <SPAN class="GramE">more clear</SPAN>
 when you consider explicitly the separation of responsibility of each
 hierarchy.<SPAN style="mso-spacerun:yes">  </SPAN>The 3 hierarchies
 collaborate to make up a pattern called the Model-View-Controller
@@ -1510,11 +1510,11 @@ pattern.<SPAN style="mso-spacerun:yes">  </SPAN>The idea of this pattern
 is that</P>
 <P class="MsoNormal" style="margin-left:.5in">a Model can be maintained
 separately from the UI used to represent it to the user.<SPAN
-	style="mso-spacerun:yes">  </SPAN>In this case the ?View? hierarchy can
+	style="mso-spacerun:yes">  </SPAN>In this case the 'View' hierarchy can
 be considered the model and is needed to persist and manage the diagram
-data.<SPAN style="mso-spacerun:yes">  </SPAN>The ?EditPart? hierarchy is
+data.<SPAN style="mso-spacerun:yes">  </SPAN>The 'EditPart' hierarchy is
 the controller that creates the corresponding IFigure and synchronizes
-it?s attributes with the corresponding View object.<SPAN
+it's attributes with the corresponding View object.<SPAN
 	style="mso-spacerun:yes">  </SPAN>Finally, the IFigure object is merely
 responsible for rendering (actual painting on the diagram) and
 reflecting constraints set by the EditPart hierarchy.</P>

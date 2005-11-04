@@ -20,7 +20,7 @@ w\:* {behavior:url(#default#VML);}
 .shape {behavior:url(#default#VML);}
 </style>
 <![endif]-->
-<title>Tutorial: &amp;lt;&amp;lt;Feature Name&amp;gt;&amp;gt;</title>
+<title>Tutorial: Creating a Connection</title>
 <o:SmartTagType namespaceuri="urn:schemas-microsoft-com:office:smarttags"
  name="City"/>
 <o:SmartTagType namespaceuri="urn:schemas-microsoft-com:office:smarttags"
@@ -229,7 +229,7 @@ ul
 <p class=MsoNormal><a name=top></a><img width=629 height=192 id="_x0000_i1025"
 src="../logo.gif" border=0></p>
 
-<h1 align=center style='text-align:center'>Tutorial: Creating connections</h1>
+<h1 align=center style='text-align:center'>Tutorial: Creating Connections</h1>
 
 <table class=MsoNormalTable border=0 cellspacing=8 cellpadding=0
  style='mso-cellspacing:6.0pt;margin-left:24.0pt'>
@@ -319,7 +319,7 @@ class=GramE>back</span> to top</a>]</span></p>
 Guide</A>. </p>
 
 <H2><A name="_Step1"></A></H2>
-<H2><A name="newConnection">Create a new connector type</A><BR>
+<H2><A name="newConnection">Create a new connection type</A><BR>
 <SPAN style="font-size:10.0pt">[<A href="#top"><SPAN class="GramE">back</SPAN>
 to top</A>]</SPAN>
 <BR>
@@ -333,7 +333,7 @@ which allows logic elements to be connected to each other.<SPAN
 	style="mso-spacerun:yes">  </SPAN>It is literally the wire that carries
 electricity between terminals on circuits and LED elements in the
 circuit board.<SPAN style="mso-spacerun:yes">  </SPAN>The mechanism for
-adding a connector shape on a diagram is very similar to how a shape is
+adding a connection shape on a diagram is very similar to how a shape is
 added except for some subtle difference in API.<SPAN
 	style="mso-spacerun:yes">  </SPAN>This is summarized below.</P>
 
@@ -358,10 +358,10 @@ from a palette factory class</A></H3>
 
 <P class="MsoNormal" style="margin-left:.5in">A new condition needs to
 be added in the LogicPaletteFactory class in the createTool method.<SPAN
-	style="mso-spacerun:yes">  </SPAN>For a connector a
-ConnectorCreationTool instance is created passing in an IElementType
+	style="mso-spacerun:yes">  </SPAN>For a connection a
+ConnectionCreationTool instance is created passing in an IElementType
 hint (wire) that will be sent in a request to return a command for
-creating the connector.</P>
+creating the connection.</P>
 
 <P class="MsoNormal"><o:p>&nbsp;</o:p></P>
 
@@ -382,10 +382,10 @@ invoked upon (wire).<SPAN style="mso-spacerun:yes">  </SPAN>Similar to
 	href="createShape.html#notation"></A><A
 	href="createShape.html#notation">w provider entry</A>
 a mapping of the hint to the view class that will construct the
-connector notation is necessary in the getConnectorViewClass method.<SPAN
+connection notation is necessary in the getConnectionViewClass method.<SPAN
 	style="mso-spacerun:yes">  </SPAN>The WireView.java class will serve
 this purpose.<SPAN style="mso-spacerun:yes">  </SPAN><SPAN class="GramE">The
-WireView class subclasses from AbstractConnectorView.</SPAN><SPAN
+WireView class subclasses from AbstractConnectionView.</SPAN><SPAN
 	style="mso-spacerun:yes">  </SPAN>Please refer to the WireView class
 for details of what initialization is needed.</P>
 
@@ -402,7 +402,7 @@ org.eclipse.gmf.runtime.diagram.ui.editpartProviders extension.<SPAN
 	style="font-size:9.0pt"></SPAN> In the
 LogicEditPartProvider class there is simply a mapping from the View
 class to the EditPart class that needs to be created in the
-getConnectorEditPartClass method.<SPAN style="mso-spacerun:yes">  </SPAN>The
+getConnectionEditPartClass method.<SPAN style="mso-spacerun:yes">  </SPAN>The
 WireEditPart class contains code for managing creating the IFigure (<SPAN
 	class="GramE">PolylineConnectionEx )</SPAN> class and responding to
 property change events.</P>
@@ -411,7 +411,7 @@ property change events.</P>
 	style="mso-fareast-font-family:Arial;mso-bidi-font-family:
 Arial"><SPAN
 	style="mso-list:Ignore"></SPAN></SPAN></P>
-<H2><A name="betweenShapes">Drawing connectors between shapes</A></H2>
+<H2><A name="betweenShapes">Drawing connections between shapes</A></H2>
 
 <SPAN style="font-size:10.0pt">[<A href="#top"><SPAN class="GramE">back</SPAN>
 to top</A>]</SPAN>
@@ -425,13 +425,13 @@ figure display since GEF assumes pixel units when drawing figures onto
 the canvas.<SPAN style="mso-spacerun:yes">  </SPAN></P>
 
 <P style="text-indent:0in;mso-list:none">In the case where we wish to
-connect 2 LED shapes via a wire connector, we'll need to do some
-conversion of the pixel values to HiMetric before the connector can
+connect 2 LED shapes via a wire connection, we'll need to do some
+conversion of the pixel values to HiMetric before the connection can
 accurately connect to the LEDFigure.<SPAN style="mso-spacerun:yes">  </SPAN>The
 function <SPAN class="GramE">MapMode.DPtoLP(</SPAN>int deviceUnit) is
 used to convert a Device Unit (pixels) into a Logical Unit.<SPAN
 	style="mso-spacerun:yes">  </SPAN>This method needs to be instrumented
-in the LEDFigure when drawing the connector nubs around the shape.<SPAN
+in the LEDFigure when drawing the connection nubs around the shape.<SPAN
 	style="mso-spacerun:yes">  </SPAN>Additionally by abstracting the
 pixels through this MapMode, it will allow the platform to support <SPAN
 	class="GramE">a different</SPAN> coordinate systems in the future
