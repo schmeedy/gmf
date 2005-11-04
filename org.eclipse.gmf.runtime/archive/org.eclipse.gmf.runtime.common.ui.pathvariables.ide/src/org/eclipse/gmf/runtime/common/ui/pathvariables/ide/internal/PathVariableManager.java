@@ -11,6 +11,7 @@
 
 package org.eclipse.gmf.runtime.common.ui.pathvariables.ide.internal;
 
+import java.net.URI;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.LinkedList;
@@ -305,5 +306,9 @@ public class PathVariableManager
 		throws CoreException {
 		// The preferences for this plug-in are saved in the Plugin.shutdown
 		// method so we don't have to do it here.
+	}
+
+	public URI resolveURI(URI uri) {
+		return null;
 	}
 }
