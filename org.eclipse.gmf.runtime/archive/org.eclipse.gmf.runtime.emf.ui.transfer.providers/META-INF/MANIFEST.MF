@@ -5,6 +5,5 @@ Bundle-Name: %Fragment.name
 Bundle-Version: 1.0.0
 Bundle-Localization: ecoreTransferProviderFragment
 Fragment-Host: org.eclipse.gmf.runtime.common.ui.services.dnd;bundle-version="1.0.0"
-Require-Bundle: org.eclipse.emf.edit.ui,
- org.eclipse.gmf.runtime.common.ui.services.dnd
+Require-Bundle: org.eclipse.emf.edit.ui
 Provide-Package: org.eclipse.gmf.runtime.emf.ui.transfer.providers.internal
