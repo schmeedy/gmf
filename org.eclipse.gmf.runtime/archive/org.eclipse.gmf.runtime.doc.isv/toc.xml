@@ -38,6 +38,7 @@
 		
 		<anchor id="programmers-guide-diagram-layer-before" />
 		<topic label="Diagram Layer" href="prog-guide/diagram/index.html">
+			<topic label="Developer Guide to the Diagram Runtime" href="prog-guide/diagram/Developer Guide to Diagram Runtime.html" />
 			<topic label="How To Guide For Diagram Layer Components" href="howto/diagram/howto.html" />
 			<anchor id="programmers-guide-diagram-layer-in" />
 		</topic>		
