@@ -87,7 +87,7 @@ public class BaseCoreTests
 		
 		project.open(null);
 	
-		domain = MEditingDomain.INSTANCE;
+		domain = createEditingDomain();
 		
 		domain.runInUndoInterval(new Runnable() {
 			public void run() {
@@ -116,6 +116,11 @@ public class BaseCoreTests
 				
 			}
 		});
+	}
+	
+	/** May be overridden by subclasses to create non-default editing domains. */
+	protected MEditingDomain createEditingDomain() {
+		return MEditingDomain.INSTANCE;
 	}
 
 	protected void tearDown()

@@ -83,6 +83,7 @@ public class AllTests
 		suite.addTestSuite(ReadOperationTest.class);
 		suite.addTestSuite(WriteOperationTest.class);		
 		suite.addTestSuite(ReadWriteOperationTest.class);
+		suite.addTestSuite(EditingDomainExtensibilityTests.class);
 
 		return suite;
 	}
