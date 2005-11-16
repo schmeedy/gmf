@@ -9,6 +9,10 @@ Bundle-Localization: plugin
 Export-Package: org.eclipse.gmf.runtime.common.ui.pathvariables.ide.dialogs,
  org.eclipse.gmf.runtime.common.ui.pathvariables.ide.internal
 Require-Bundle: org.eclipse.ui.ide,
+ org.eclipse.ui.views,
+ org.eclipse.jface.text,
+ org.eclipse.ui.workbench.texteditor,
+ org.eclipse.ui.editors,
  org.eclipse.core.runtime,
  org.eclipse.core.resources,
  org.eclipse.ui
