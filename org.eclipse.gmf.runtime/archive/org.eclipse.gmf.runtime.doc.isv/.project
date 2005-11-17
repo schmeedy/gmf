@@ -2,57 +2,6 @@
 <projectDescription>
 	<name>org.eclipse.gmf.runtime.doc.isv</name>
 	<comment></comment>
-	<projects>
-		<project>org.eclipse.gmf.runtime.doclet</project>
-		<project>org.eclipse.gmf.runtime.common.core</project>
-		<project>org.eclipse.gmf.examples.runtime.common.service</project>
-		<project>org.eclipse.gmf.runtime.common.core.provider</project>
-		<project>org.eclipse.gmf.runtime.common.ui</project>
-		<project>org.eclipse.gmf.runtime.common.ui.action</project>
-		<project>org.eclipse.gmf.runtime.common.ui.action.ide</project>
-		<project>org.eclipse.gmf.runtime.common.ui.pathvariables.ide</project>
-		<project>org.eclipse.gmf.runtime.common.ui.printing</project>
-		<project>org.eclipse.gmf.runtime.common.ui.printing.win32</project>
-		<project>org.eclipse.gmf.runtime.common.ui.services</project>
-		<project>org.eclipse.gmf.runtime.common.ui.services.action</project>
-		<project>org.eclipse.gmf.runtime.common.ui.services.dnd</project>
-		<project>org.eclipse.gmf.runtime.common.ui.services.dnd.ide</project>
-		<project>org.eclipse.gmf.runtime.common.ui.services.properties</project>
-		<project>org.eclipse.gmf.runtime.diagram.core</project>
-		<project>org.eclipse.gmf.runtime.diagram.ui</project>
-		<project>org.eclipse.gmf.runtime.diagram.ui.actions</project>
-		<project>org.eclipse.gmf.runtime.diagram.ui.dnd</project>
-		<project>org.eclipse.gmf.runtime.diagram.ui.geoshapes</project>
-		<project>org.eclipse.gmf.runtime.diagram.ui.printing</project>
-		<project>org.eclipse.gmf.runtime.diagram.ui.printing.render</project>
-		<project>org.eclipse.gmf.runtime.diagram.ui.properties</project>
-		<project>org.eclipse.gmf.runtime.diagram.ui.providers</project>
-		<project>org.eclipse.gmf.runtime.diagram.ui.providers.ide</project>
-		<project>org.eclipse.gmf.runtime.diagram.ui.render</project>
-		<project>org.eclipse.gmf.runtime.diagram.ui.resources.editor</project>
-		<project>org.eclipse.gmf.runtime.diagram.ui.resources.editor.ide</project>
-		<project>org.eclipse.gmf.runtime.draw2d.ui</project>
-		<project>org.eclipse.gmf.runtime.draw2d.ui.render</project>
-		<project>org.eclipse.gmf.runtime.emf.clipboard.core</project>
-		<project>org.eclipse.gmf.runtime.emf.commands.core</project>
-		<project>org.eclipse.gmf.runtime.emf.core</project>
-		<project>org.eclipse.gmf.runtime.emf.ui</project>
-		<project>org.eclipse.gmf.runtime.emf.ui.properties</project>
-		<project>org.eclipse.emf.ocl</project>
-		<project>org.eclipse.emf.query</project>
-		<project>org.eclipse.emf.query.ocl</project>
-		<project>org.eclipse.gmf.runtime.emf.type.core</project>
-		<project>org.eclipse.gmf.runtime.emf.type.ui</project>
-		<project>org.eclipse.gmf.runtime.emf.ui.transfer.providers</project>
-		<project>org.eclipse.emf.validation</project>
-		<project>org.eclipse.emf.validation.ocl</project>
-		<project>org.eclipse.emf.validation.ui</project>
-		<project>org.eclipse.emf.validation.ui.ide</project>
-		<project>org.eclipse.gmf.runtime.gef.ui</project>
-		<project>org.eclipse.gmf.runtime.notation</project>
-		<project>org.eclipse.gmf.runtime.notation.edit</project>
-		<project>org.eclipse.gmf.runtime.notation.providers</project>
-	</projects>
 	<buildSpec>
 		<buildCommand>
 			<name>org.eclipse.jdt.core.javabuilder</name>
