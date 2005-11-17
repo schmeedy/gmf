@@ -5,4 +5,4 @@ Bundle-SymbolicName: org.eclipse.gmf.runtime.doc.isv; singleton:=true
 Bundle-Version: 1.0.0
 Bundle-Vendor: %Plugin.providerName
 Bundle-Localization: plugin
-Eclipse-LazyStart: false
+Eclipse-AutoStart: false

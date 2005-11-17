@@ -7,4 +7,4 @@ Bundle-Activator: org.eclipse.gmf.runtime.common.core.provider.internal.CommonCo
 Bundle-Vendor: %Plugin.providerName
 Bundle-Localization: plugin
 Require-Bundle: org.eclipse.gmf.runtime.common.core
-Eclipse-LazyStart: true
+Eclipse-AutoStart: true
