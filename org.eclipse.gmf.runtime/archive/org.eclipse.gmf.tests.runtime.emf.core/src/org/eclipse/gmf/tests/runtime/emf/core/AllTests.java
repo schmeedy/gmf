@@ -24,6 +24,7 @@ import org.eclipse.gmf.runtime.emf.core.internal.plugin.MSLPlugin;
 import org.eclipse.gmf.tests.runtime.emf.core.internal.OperationListenerTestCase;
 import org.eclipse.gmf.tests.runtime.emf.core.internal.OperationUtilTestCase;
 import org.eclipse.gmf.tests.runtime.emf.core.internal.commands.MSLUndoStackTestCase;
+import org.eclipse.gmf.tests.runtime.emf.core.internal.domain.MSLEditingDomainTestCase;
 import org.eclipse.gmf.tests.runtime.emf.core.internal.expressions.EObjectPropertyTesterTest;
 import org.eclipse.gmf.tests.runtime.emf.core.internal.listener.MSemProcProviderTests;
 import org.eclipse.gmf.tests.runtime.emf.core.internal.listener.ResourceContentTests;
@@ -84,6 +85,7 @@ public class AllTests
 		suite.addTestSuite(WriteOperationTest.class);		
 		suite.addTestSuite(ReadWriteOperationTest.class);
 		suite.addTestSuite(EditingDomainExtensibilityTests.class);
+		suite.addTestSuite(MSLEditingDomainTestCase.class);
 
 		return suite;
 	}
