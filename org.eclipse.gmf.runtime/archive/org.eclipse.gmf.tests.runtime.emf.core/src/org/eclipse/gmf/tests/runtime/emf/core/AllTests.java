@@ -75,7 +75,6 @@ public class AllTests
 		suite.addTestSuite(OperationUtilTestCase.class);
 		suite.addTestSuite(OperationListenerTestCase.class);
 		suite.addTestSuite(EObjectContainmentUtilTest.class);
-		suite.addTest(BaseLogicalResourceTest.suite());
 		suite.addTestSuite(EObjectUtilTestCase.class);
 		suite.addTestSuite(MSemProcProviderTests.class);
 		suite.addTestSuite(ResourceContentTests.class);		
