@@ -79,7 +79,7 @@ public class MetamodelProviderTestCase
 		throws Exception {
 
 		ResourceSet rset = resource.getResourceSet();
-		ResourceUtil.unload(resource);
+		resource.unload();
 		rset.getResources().remove(resource);
 
 		epackage = null;

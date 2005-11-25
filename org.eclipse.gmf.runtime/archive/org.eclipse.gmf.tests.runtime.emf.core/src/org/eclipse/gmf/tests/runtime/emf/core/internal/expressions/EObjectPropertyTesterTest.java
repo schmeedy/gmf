@@ -64,7 +64,7 @@ public class EObjectPropertyTesterTest
 		tester = null;
 		resource.getContents().remove(element);
 		ResourceSet rset = resource.getResourceSet();
-		ResourceUtil.unload(resource);
+		resource.unload();
 		rset.getResources().remove(resource);
 		element = null;
 	}

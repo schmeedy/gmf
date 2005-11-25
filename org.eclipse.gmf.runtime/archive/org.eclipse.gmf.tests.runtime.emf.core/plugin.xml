@@ -62,5 +62,11 @@
                nsURI="http:///com/ibm/xtools/emf/msl/core/tests/logrestest.ecore"/>
       </policy>
    </extension>
+   <extension
+         point="org.eclipse.emf.ecore.extension_parser">
+      <parser
+            class="org.eclipse.gmf.tests.runtime.emf.core.internal.listener.MListenerTest$BrokenResourceFactory"
+            type="broken"/>
+   </extension>
    
 </plugin>

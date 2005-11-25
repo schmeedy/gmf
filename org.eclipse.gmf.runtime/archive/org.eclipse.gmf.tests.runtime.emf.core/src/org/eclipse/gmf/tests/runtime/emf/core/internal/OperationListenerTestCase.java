@@ -75,7 +75,7 @@ public class OperationListenerTestCase
 		listener = null;
 
 		ResourceSet rset = res.getResourceSet();
-		ResourceUtil.unload(res);
+		res.unload();
 		rset.getResources().remove(res);
 
 		super.tearDown();

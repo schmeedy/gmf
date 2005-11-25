@@ -70,7 +70,7 @@ public class ResourceContentTests
 
 		/* Load the resource */
 		domain.loadResource(testResource);
-		domain.unloadResource(testResource);
+		testResource.unload();
 		regularListener.stopListening();
 		
 		assertTrue(eventsCounter[0] == 2);		
@@ -176,7 +176,7 @@ public class ResourceContentTests
 		demuxedListener.startListening();
 
 		/* UnLoad the resource */
-		domain.unloadResource(testResource);
+		testResource.unload();
 		demuxedListener.stopListening();
 		
 		assertTrue(eventsCounter[0] == 1);				

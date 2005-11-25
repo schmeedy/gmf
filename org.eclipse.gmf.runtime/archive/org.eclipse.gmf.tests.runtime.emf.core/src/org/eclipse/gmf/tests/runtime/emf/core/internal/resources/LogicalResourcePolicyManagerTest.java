@@ -201,7 +201,7 @@ public class LogicalResourcePolicyManagerTest
 	protected void tearDown()
 		throws Exception {
 		
-		MEditingDomain.INSTANCE.unloadResource(res);
+		res.unload();
 		MEditingDomain.INSTANCE.getResourceSet().getResources().remove(res);
 		
 		TestPolicy.shouldThrow = false;

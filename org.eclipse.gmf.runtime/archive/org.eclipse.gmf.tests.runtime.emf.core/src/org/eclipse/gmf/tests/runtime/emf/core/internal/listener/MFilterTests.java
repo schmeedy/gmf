@@ -29,7 +29,7 @@ import org.eclipse.gmf.tests.runtime.emf.core.BaseCoreTests;
 public class MFilterTests
 	extends BaseCoreTests {
 
-	private static final String EXTLIBRARY_CONTENTTYPE = "org.eclipse.emf.examples.library.rationalModelingPlatformLibrary"; //$NON-NLS-1$
+	private static final String EXTLIBRARY_CONTENTTYPE = "org.eclipse.emf.examples.library.extendedLibrary"; //$NON-NLS-1$
 
 	public MFilterTests() {
 		super();
@@ -53,7 +53,7 @@ public class MFilterTests
 
 		/* Load the resource */
 		domain.loadResource(testResource);
-		domain.unloadResource(testResource);
+		testResource.unload();
 		regularListener.stopListening();
 		
 		assertTrue(eventsCounter[0] > 0);
@@ -72,7 +72,7 @@ public class MFilterTests
 
 		/* Load the resource */
 		domain.loadResource(testResource);
-		domain.unloadResource(testResource);
+		testResource.unload();
 		regularListener.stopListening();
 		
 		assertTrue(eventsCounter[0] == 0);
@@ -117,7 +117,7 @@ public class MFilterTests
 		});
 		
 		regularListener.stopListening();
-		domain.unloadResource(testResource);
+		testResource.unload();
 		
 		// We shouldn't get any events because we are only interested in resource-level
 		//  events.

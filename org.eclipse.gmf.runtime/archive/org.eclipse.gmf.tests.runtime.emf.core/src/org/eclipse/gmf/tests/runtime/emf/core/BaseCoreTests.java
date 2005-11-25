@@ -51,7 +51,7 @@ import org.eclipse.gmf.runtime.emf.core.exceptions.MSLActionAbandonedException;
  */
 public class BaseCoreTests
 	extends TestCase {
-	static final Bundle MslCoreTestsBundle =
+	public static final Bundle MslCoreTestsBundle =
 		Platform.getBundle("org.eclipse.gmf.tests.runtime.emf.core"); //$NON-NLS-1$
 
 	private MRunnable mrun;
@@ -95,10 +95,12 @@ public class BaseCoreTests
 					domain.runAsWrite(new MRunnable() {
 						public Object run() {
 							try {
-								Resource originalRes = domain.loadResource(URI
+								Resource originalRes = domain.createResource(URI
 									.createURI(MslCoreTestsBundle.getEntry(
 										"/test_models/test_model.extlibrary") //$NON-NLS-1$
 										.toString()).toString(), MResourceOption.URI);
+								domain.loadResource(originalRes);
+								
 								originalRes.setURI(URI.createPlatformResourceURI(RESOURCE_NAME));
 								originalRes.save(Collections.EMPTY_MAP);
 								testResource = originalRes;
