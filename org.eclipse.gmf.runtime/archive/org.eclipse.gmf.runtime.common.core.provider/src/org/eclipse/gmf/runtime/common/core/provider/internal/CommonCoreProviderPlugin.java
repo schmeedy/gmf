@@ -11,22 +11,22 @@
 
 package org.eclipse.gmf.runtime.common.core.provider.internal;
 
-import org.eclipse.gmf.runtime.common.core.l10n.AbstractResourceManager;
-import org.eclipse.gmf.runtime.common.core.plugin.XToolsPlugin;
+import org.eclipse.core.runtime.Plugin;
 
 /**
  * The common core provider plug-in.
  * 
  * @author khussey
  * @deprecated This entire plug-in has been scheduled for removal.
- * Please see Bugzilla 112797.
+ * This plug-in was deprecated November 2, 2005 for https://bugs.eclipse.org/bugs/show_bug.cgi?id=112797
+ * This plug-in will be removed December 19, 2005 before declaration of the M4 milestone.
  */
-public class CommonCoreProviderPlugin extends XToolsPlugin {
+public class CommonCoreProviderPlugin extends Plugin {
 
     /**
      * This plug-in's shared instance.
      */
-    private static CommonCoreProviderPlugin plugin;
+    private static CommonCoreProviderPlugin INSTANCE;
 
     /**
      * Creates a new plug-in runtime object.
@@ -34,7 +34,7 @@ public class CommonCoreProviderPlugin extends XToolsPlugin {
     public CommonCoreProviderPlugin() {
         super();
 
-        plugin = this;
+        INSTANCE = this;
     }
 
     /**
@@ -43,7 +43,7 @@ public class CommonCoreProviderPlugin extends XToolsPlugin {
      * @return This plug-in's shared instance.
      */
     public static CommonCoreProviderPlugin getDefault() {
-        return plugin;
+        return INSTANCE;
     }
 
     /**
@@ -53,17 +53,6 @@ public class CommonCoreProviderPlugin extends XToolsPlugin {
      */
     public static String getPluginId() {
         return getDefault().getBundle().getSymbolicName();
-    }
-
-    /**
-     * Retrieves the resource manager for this plug-in.
-     * 
-     * @return The resource manager for this plug-in.
-     * 
-     * @see org.eclipse.gmf.runtime.common.core.plugin.XToolsPlugin#getResourceManager()
-     */
-    public AbstractResourceManager getResourceManager() {
-        return null;
     }
 
 }
