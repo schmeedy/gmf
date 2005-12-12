@@ -27,6 +27,9 @@ import org.eclipse.gmf.runtime.common.ui.services.dnd.drop.SelectionDropAdapter;
  * Concrete implementation for ECore transfer adapters
  * 
  * @author Vishy Ramaswamy
+ * @deprecated This entire plug-in has been scheduled for removal.
+ * This plug-in was deprecated November 23, 2005 for https://bugs.eclipse.org/bugs/show_bug.cgi?id=117724
+ * This plug-in will be removed December 14, 2005 before declaration of the M4 milestone.
  */
 public class EcoreTransferAdapterProvider
     extends AbstractTransferAdapterProvider {
