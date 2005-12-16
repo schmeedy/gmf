@@ -27,9 +27,7 @@ import org.eclipse.core.runtime.Platform;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
-import org.osgi.framework.Bundle;
-
-import org.eclipse.emf.examples.extlibrary.AudoVisualItem;
+import org.eclipse.emf.examples.extlibrary.AudioVisualItem;
 import org.eclipse.emf.examples.extlibrary.Book;
 import org.eclipse.emf.examples.extlibrary.Library;
 import org.eclipse.emf.examples.extlibrary.Periodical;
@@ -41,6 +39,7 @@ import org.eclipse.gmf.runtime.emf.core.edit.MResourceOption;
 import org.eclipse.gmf.runtime.emf.core.edit.MRunnable;
 import org.eclipse.gmf.runtime.emf.core.edit.MUndoInterval;
 import org.eclipse.gmf.runtime.emf.core.exceptions.MSLActionAbandonedException;
+import org.osgi.framework.Bundle;
 
 
 /**
@@ -409,7 +408,7 @@ public class BaseCoreTests
 			super();
 		}
 		
-		public Object caseAudoVisualItem(AudoVisualItem object) {
+		public Object caseAudoVisualItem(AudioVisualItem object) {
 			return object.getTitle();
 		}
 

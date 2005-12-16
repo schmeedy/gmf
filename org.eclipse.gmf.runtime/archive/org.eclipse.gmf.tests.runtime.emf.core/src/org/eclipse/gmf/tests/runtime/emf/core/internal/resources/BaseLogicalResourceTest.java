@@ -33,9 +33,7 @@ import org.eclipse.core.runtime.Platform;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
-import org.osgi.framework.Bundle;
-
-import org.eclipse.emf.examples.extlibrary.AudoVisualItem;
+import org.eclipse.emf.examples.extlibrary.AudioVisualItem;
 import org.eclipse.emf.examples.extlibrary.Book;
 import org.eclipse.emf.examples.extlibrary.Library;
 import org.eclipse.emf.examples.extlibrary.Periodical;
@@ -51,6 +49,7 @@ import org.eclipse.gmf.runtime.emf.core.internal.domain.MSLEditingDomain;
 import org.eclipse.gmf.runtime.emf.core.internal.resources.AbstractResourceWrapper;
 import org.eclipse.gmf.runtime.emf.core.internal.resources.LogicalResourceWrapper;
 import org.eclipse.gmf.runtime.emf.core.resources.ILogicalResource;
+import org.osgi.framework.Bundle;
 
 
 /**
@@ -581,7 +580,7 @@ public abstract class BaseLogicalResourceTest extends TestCase {
 			super();
 		}
 		
-		public Object caseAudoVisualItem(AudoVisualItem object) {
+		public Object caseAudoVisualItem(AudioVisualItem object) {
 			return object.getTitle();
 		}
 
