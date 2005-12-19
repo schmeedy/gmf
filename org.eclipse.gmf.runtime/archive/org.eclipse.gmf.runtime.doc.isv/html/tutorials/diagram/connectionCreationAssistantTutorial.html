@@ -1,0 +1,647 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns:st1="urn:schemas-microsoft-com:office:smarttags"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=iso-8859-1">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 10">
+<meta name=Originator content="Microsoft Word 10">
+<link rel=File-List href="Tutorial_files/filelist.xml">
+<link rel=Edit-Time-Data href="Tutorial_files/editdata.mso">
+<!--[if !mso]>
+<style>
+v\:* {behavior:url(#default#VML);}
+o\:* {behavior:url(#default#VML);}
+w\:* {behavior:url(#default#VML);}
+.shape {behavior:url(#default#VML);}
+</style>
+<![endif]-->
+<title>Tutorial: Connection Creation Assistants</title>
+<o:SmartTagType namespaceuri="urn:schemas-microsoft-com:office:smarttags"
+ name="City"/>
+<o:SmartTagType namespaceuri="urn:schemas-microsoft-com:office:smarttags"
+ name="place"/>
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>jcorchis</o:Author>
+  <o:LastAuthor>jcorchis</o:LastAuthor>
+  <o:Revision>7</o:Revision>
+  <o:TotalTime>111</o:TotalTime>
+  <o:Created>2005-04-21T14:33:00Z</o:Created>
+  <o:LastSaved>2005-04-21T18:18:00Z</o:LastSaved>
+  <o:Pages>1</o:Pages>
+  <o:Words>636</o:Words>
+  <o:Characters>3627</o:Characters>
+  <o:Company>Rational Software</o:Company>
+  <o:Lines>30</o:Lines>
+  <o:Paragraphs>8</o:Paragraphs>
+  <o:CharactersWithSpaces>4255</o:CharactersWithSpaces>
+  <o:Version>10.6735</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:SpellingState>Clean</w:SpellingState>
+  <w:GrammarState>Clean</w:GrammarState>
+  <w:BrowserLevel>MicrosoftInternetExplorer4</w:BrowserLevel>
+ </w:WordDocument>
+</xml><![endif]--><!--[if !mso]><object
+ classid="clsid:38481807-CA0E-42D2-BF39-B33AF135CC4D" id=ieooui></object>
+<style>
+st1\:*{behavior:url(#ieooui) }
+</style>
+<![endif]-->
+<link rel=Stylesheet type="text/css" media=all href=technote.css>
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:Wingdings;
+	panose-1:5 0 0 0 0 0 0 0 0 0;
+	mso-font-charset:2;
+	mso-generic-font-family:auto;
+	mso-font-pitch:variable;
+	mso-font-signature:0 268435456 0 0 -2147483648 0;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-parent:"";
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+h1
+	{mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:1;
+	font-size:24.0pt;
+	font-family:"Times New Roman";
+	font-weight:bold;}
+h2
+	{mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:2;
+	font-size:18.0pt;
+	font-family:"Times New Roman";
+	font-weight:bold;}
+h3
+	{mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:3;
+	font-size:13.5pt;
+	font-style:italic;}
+a:link, span.MsoHyperlink
+	{color:blue;
+	text-decoration:underline;
+	text-underline:single;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:blue;
+	text-decoration:underline;
+	text-underline:single;}
+p
+	{mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+code
+	{font-family:"Courier New";
+	mso-ascii-font-family:"Courier New";
+	mso-fareast-font-family:"Times New Roman";
+	mso-hansi-font-family:"Courier New";
+	mso-bidi-font-family:"Courier New";}
+pre
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:24.0pt;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt;
+	font-size:10.0pt;
+	font-family:"Courier New";
+	mso-fareast-font-family:"Times New Roman";}
+p.notabene, li.notabene, div.notabene
+	{mso-style-name:notabene;
+	mso-margin-top-alt:auto;
+	margin-right:48.0pt;
+	mso-margin-bottom-alt:auto;
+	margin-left:48.0pt;
+	mso-pagination:widow-orphan;
+	border:none;
+	mso-border-top-alt:solid windowtext .75pt;
+	mso-border-bottom-alt:solid windowtext .75pt;
+	padding:0in;
+	mso-padding-alt:4.0pt 0in 4.0pt 0in;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+p.question, li.question, div.question
+	{mso-style-name:question;
+	mso-margin-top-alt:auto;
+	margin-right:48.0pt;
+	mso-margin-bottom-alt:auto;
+	margin-left:48.0pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";
+	font-style:italic;}
+p.backto, li.backto, div.backto
+	{mso-style-name:backto;
+	mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+span.SpellE
+	{mso-style-name:"";
+	mso-spl-e:yes;}
+span.GramE
+	{mso-style-name:"";
+	mso-gram-e:yes;}
+@page Section1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.25in 1.0in 1.25in;
+	mso-header-margin:35.4pt;
+	mso-footer-margin:35.4pt;
+	mso-paper-source:0;}
+div.Section1
+	{page:Section1;}
+ /* List Definitions */
+ @list l0
+	{mso-list-id:1754820217;
+	mso-list-template-ids:-806848416;}
+@list l0:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+ol
+	{margin-bottom:0in;}
+ul
+	{margin-bottom:0in;}
+-->
+</style>
+<!--[if gte mso 10]>
+<style>
+ /* Style Definitions */
+ table.MsoNormalTable
+	{mso-style-name:"Table Normal";
+	mso-tstyle-rowband-size:0;
+	mso-tstyle-colband-size:0;
+	mso-style-noshow:yes;
+	mso-style-parent:"";
+	mso-padding-alt:0in 5.4pt 0in 5.4pt;
+	mso-para-margin:0in;
+	mso-para-margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;}
+</style>
+<![endif]-->
+</head>
+
+<body lang=EN-US link=blue vlink=blue style='tab-interval:.5in'>
+
+<div class=Section1>
+
+<p class=MsoNormal><a name=top></a><img width=629 height=192 id="_x0000_i1025"
+src="../logo.gif" border=0></p>
+
+<h1 align=center style='text-align:center'>Tutorial: Connection Creation Assistants</h1>
+
+<table class=MsoNormalTable border=0 cellspacing=8 cellpadding=0
+ style='mso-cellspacing:6.0pt;margin-left:24.0pt'>
+ <tr style='mso-yfti-irow:0;mso-yfti-lastrow:yes'>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>Version: 0.1</p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>Date: December 16, 2005</p>
+  </td>
+ </tr>
+</table>
+
+<h2>Contents</h2>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:48.0pt;text-indent:-.25in;mso-list:l0 level1 lfo1;tab-stops:list .5in'><![if !supportLists]><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Symbol;
+mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol'><span
+style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'> </span></span></span><![endif]><a
+href="#_Overview">Overview</a></p>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:48.0pt;text-indent:-.25in;mso-list:l0 level1 lfo1;tab-stops:list .5in'><![if !supportLists]><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Symbol;
+mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol'><span
+style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'> </span></span></span><![endif]><a
+href="#_References">References</a></p>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:48.0pt;text-indent:-.25in;mso-list:l0 level1 lfo1;tab-stops:list .5in'><![if !supportLists]><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Symbol;
+mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol'><span
+style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'> </span></span></span><![endif]><a
+href="#_Introduction">Introduction</a></p>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:48.0pt;text-indent:-.25in;mso-list:l0 level1 lfo1;tab-stops:list .5in'><![if !supportLists]><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Symbol;
+mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol'><span
+style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'> </span></span></span><![endif]><a
+href="#_CreatingTheModelingAssistantProvider">Creating the Modeling Assistant Provider</a></p>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:48.0pt;text-indent:-.25in;mso-list:l0 level1 lfo1;tab-stops:list .5in'><![if !supportLists]><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Symbol;
+mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol'><span
+style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'> </span></span></span><![endif]><a
+href="#_ConnectionHandles">Adding Support for Connection Creation with Connection Handles</a></p>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:48.0pt;text-indent:-.25in;mso-list:l0 level1 lfo1;tab-stops:list .5in'><![if !supportLists]><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Symbol;
+mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol'><span
+style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'> </span></span></span><![endif]><a
+href="#_ConnectionCreationToUnspecified">Adding Support for Connection Creation to an Unspecified Source or
+Target</a></p>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:48.0pt;text-indent:-.25in;mso-list:l0 level1 lfo1;tab-stops:list .5in'><![if !supportLists]><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Symbol;
+mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol'><span
+style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'> </span></span></span><![endif]><a
+href="#_SelectingAnExistingElement">Adding Support for Selecting an Existing Element as the Source or Target</a></p>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:48.0pt;text-indent:-.25in;mso-list:l0 level1 lfo1;tab-stops:list .5in'><![if !supportLists]><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Symbol;
+mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol'><span
+style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'> </span></span></span><![endif]><a
+href="#_ShowingRelatedElements">Adding Support for Showing Related Elements with the Connection Handles</a></p>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:48.0pt;text-indent:-.25in;mso-list:l0 level1 lfo1;tab-stops:list .5in'><![if !supportLists]><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Symbol;
+mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol'><span
+style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'> </span></span></span><![endif]><a
+href="#_Summary">Summary</a></p>
+
+<div class=MsoNormal align=center style='text-align:center'>
+
+<hr size=2 width="100%" align=center></div>
+
+<h2><a name="_Overview"></a>Overview</h2>
+
+<p class=backto><span style='font-size:10.0pt'>[<a href="#top"><span
+class=GramE>back</span> to top</a>]</span></p>
+
+<p>This tutorial provides the reader with the steps required to contribute to options available on the connection handle popups and to support connnection completion to an unknown source or target.</p>
+
+<h2><a name="_References"></a>References</h2>
+
+<p class=backto><span style='font-size:10.0pt'>[<a href="#top"><span
+class=GramE>back</span> to top</a>]</span></p>
+<P class="backto"><BR>
+This tutorial references the following extension point:</P>
+<DIV
+	style="border:solid windowtext 1.0pt;mso-border-alt:solid windowtext .75pt;
+padding:4.0pt 4.0pt 4.0pt 4.0pt;margin-left:48.0pt;margin-right:24.0pt"><PRE
+	style="margin-left:0in;border:none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 4.0pt 4.0pt 4.0pt"><SPAN
+	class="GramE"><SPAN style="color:navy">
+org.eclipse.gmf.runtime.emf.ui.modelingAssistantProviders</SPAN></SPAN></PRE></DIV>
+<P>More information about this extension point can be found in the SDK
+documentation.<BR>
+<BR>This tutorial assumes the connections and shapes to be created can already be created via a palette tool if such a tool existed. For more information about supporting the creation of a shape and connector see the following tutorials:
+</P>
+<UL>
+	<LI><A href="createShape.html">Creating a Shape</A></LI>
+	<LI><A href="createConnection.html">Creating a Connection</A></LI>
+</UL>
+
+
+<BR>
+<h2><a name="_Introduction"></a>Introduction</h2>
+
+<p class=backto><span style='font-size:10.0pt'>[<a href="#top"><span
+class=GramE>back</span> to top</a>]</span></p>This tutorial will discuss two connection assistant mechanisms:
+<OL>
+	<LI>Connection Handles
+	</LI>
+	<LI>Connection Completion to an Unspecified Target or Source</LI>
+	
+
+	</OL>
+<BR>
+<B>1. Connection Handles</B><BR>
+<BR>
+<B>Use Case:</B><BR>
+<BR>The connection handles appear when hovering over a shape.<BR>
+<IMG border="0" src="connectionHandles1.jpg" width="155" height="81" align="middle"><BR>
+The user selects the incoming or outgoing connection handle and drags the connection to another shape. Upon release of the mouse button, a popup appears listing the possible connection typess that can be created from which the user may select one.<BR>
+<IMG border="0" src="connectionHandles2.jpg" width="444" height="111" align="middle"><BR>
+<B>Benefits:</B>
+<UL>
+	<LI>The user does not have to go back and forth to the palette to
+	create connections.</LI>
+	<LI>The user can create a connection from source to target or from
+	target to source depending on what is most convenient based on their
+	current focus in the diagram.</LI>
+	<LI>The diagram application can list the suggested or most common
+	connection types to be created based on the source and target thus
+	assisting the user in narrowing down the many choices often available
+	on the palette.</LI>
+	
+</UL>
+<BR>
+<B>2. Connection Completion to an Unspecified Target or Source </B><BR>
+<BR>
+<B>Use Case</B>:<BR>
+<BR>
+The user begins a connection at the source or target shape using either a connection handle or a palette connection tool. The user releases the mouse button on empty diagram space and is presented with the option to create a new element for the shape on the other end of the connection or to use an existing element for this shape.<BR>
+<IMG
+	border="0" src="outgoingUnspecified.jpg" width="610" height="304" align="middle"><BR>
+<BR>
+<B>Benefits:</B>
+<UL>
+	<LI>The user can create a connection to a shape not on the diagram in one step.</LI>
+</UL>
+<BR>
+We will use the Geometric Shapes Example to illustrate
+how to contribute to the popups when using the connection handles or upon connection completion to an unspecified target or source. To gain familiarity with the
+Geometric Shapes Example, refer to the <A
+	href="../../examples-guide/diagram/logicExample.html"> Geometric Shapes
+Example Guide</A>.<BR><H2><a name="_CreatingTheModelingAssistantProvider"></a>Creating the Modeling Assistant Provider</H2>
+
+<P class="backto"><SPAN style="font-size:10.0pt">[<A href="#top"><SPAN
+	class="GramE">back</SPAN> to top</A>]</SPAN></P>
+The Modeling Assistant service is queried to get the list of connection types and shape types when creation connections to an unspecified source or target or when using the connection handles. Therefore, the first step is to create a Modeling Assistant provider. If your plug-in already has a Modeling Assistant provider for another reason, then the same provider can be used.<BR>
+<BR>
+Create the Modeling Assistant provider class. The abstract <FONT
+	color="navy">ModelingAssistantProvider</FONT> provides stubs for the methods in the <FONT
+	color="navy">IModelingAssistantProvider</FONT> so that each method need not be implemented.<BR>
+<IMG border="0" src="modelingAssistantProvider.jpg" width="429"
+	height="366" align="middle"><BR><BR>
+Create an extension of the <SPAN class="GramE"><SPAN style="color:navy">org.eclipse.gmf.runtime.emf.ui.modelingAssistantProviders</SPAN></SPAN> extension point.<BR>
+<BR>
+<DIV
+	style="border:solid windowtext 1.0pt;mso-border-alt:solid windowtext .75pt;
+padding:4.0pt 4.0pt 4.0pt 4.0pt;margin-left:48.0pt;margin-right:24.0pt"><PRE
+	style="margin-left:0in;border:none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 4.0pt 4.0pt 4.0pt"><SPAN
+	class="GramE"><SPAN style="color:navy">&lt;extension
+      id=&quot;GeoshapeModelingAssistantProvider&quot;
+      name=&quot;%ext.modelingAssistantProvider&quot;
+      point=&quot;org.eclipse.gmf.runtime.emf.ui.modelingAssistantProviders&quot;&gt;
+   &lt;modelingAssistantProvider class=&quot;org.eclipse.gmf.runtime.diagram.ui.geoshapes.internal.providers.GeoshapeModelingAssistantProvider&quot;&gt;
+      &lt;Priority name=&quot;Lowest&quot;/&gt;
+      &lt;object
+      	class=&quot;org.eclipse.gmf.runtime.diagram.ui.geoshapes.internal.editparts.GeoShapeEditPart(org.eclipse.gmf.runtime.diagram.ui.geoshapes)&quot;
+      	id=&quot;GEOSHAPE&quot;&gt;
+      &lt;/object&gt;
+      &lt;context 
+     	elements=&quot;GEOSHAPE&quot;&gt;
+      &lt;/context&gt;
+   &lt;/modelingAssistantProvider&gt;
+&lt;/extension&gt;</SPAN></SPAN></PRE></DIV>
+
+
+<BR>
+The context is used to defer loading of the provider class until applicable. It lists the shapes, in this case all geoshapes, for which to support a connection creation assistant gesture.<BR><H2><a name="_ConnectionHandles"></a>Adding Support for Connection Creation with Connection Handles</H2>
+<P class="backto"><SPAN style="font-size:10.0pt">[<A href="#top"><SPAN
+	class="GramE">back</SPAN> to top</A>]</SPAN><BR>
+<BR>The <FONT color="navy">getRelTypesOnSourceAndTarget()</FONT> method determines which connection types can be create between a given source and target when using the connection handles.<BR>
+<BR>
+<IMG border="0" src="connectionHandles2.jpg" width="444" height="111"> <BR>The <FONT color="navy">getRelTypesOnSource()</FONT> method determines which connection types can be created between a given source and an unspecified target shape using the outgoing connection handle. <BR>
+<BR>
+This method is also needed to make the outgoing connection handle support connection creation when the <FONT
+	color="navy">getRelTypesOnSourceAndTarget()</FONT> method is being implemented. That is, if there are no providers that return types in the <FONT
+	color="navy">getRelTypesOnSource()</FONT> method for a given source, then the outgoing connection handle will not support connection creation and may not even appear on that shape.<BR><IMG border="0" src="incomingUnspecifiedConnections.jpg" width="587"
+	height="265">
+<BR>
+Similarly, the <FONT color="navy">getRelTypesOnTarget()</FONT> method determines which connection types can be created between a given target and an unspecified source shape using the incoming connection handle and determines if the incoming connection handle should support connection creation.<BR>
+<BR>
+The code for the geoshapes example is quite simple. Since the line connection type is bidirectional the result will be the same when creating lines using the incoming or outgoing connection handle. If the desired behavior was for only the outgoing connection handle to appear, then <FONT
+	color="navy">getRelTypesOnTarget()</FONT> would not be overridden.<BR>
+</P>
+<DIV
+	style="border:solid windowtext 1.0pt;mso-border-alt:solid windowtext .75pt;
+padding:4.0pt 4.0pt 4.0pt 4.0pt;margin-left:48.0pt;margin-right:24.0pt"><PRE
+	style="margin-left:0in;border:none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 4.0pt 4.0pt 4.0pt"><FONT
+	color="navy">public boolean provides(IOperation operation) {
+	if (operation instanceof GetRelTypesOnSourceOperation
+		|| operation instanceof GetRelTypesOnTargetOperation
+		|| operation instanceof GetRelTypesOnSourceAndTargetOperation) {
+		return super.provides(operation);
+	}
+	return false;
+}
+	
+public List </FONT><FONT color="red">getRelTypesOnSource</FONT><FONT
+	color="navy">(IAdaptable source) {
+	return Collections.singletonList(GeoshapeType.LINE);
+}
+	
+public List </FONT><FONT color="red">getRelTypesOnTarget</FONT><FONT
+	color="navy">(IAdaptable target) {
+	return Collections.singletonList(GeoshapeType.LINE);
+}
+	
+public List </FONT><FONT color="red">getRelTypesOnSourceAndTarget</FONT><FONT
+	color="navy">(IAdaptable source, IAdaptable target) {
+	return Collections.singletonList(GeoshapeType.LINE);
+}</FONT></PRE></DIV>
+<P class="backto"><SPAN style="font-size:10.0pt"></SPAN><BR>
+<B>Notes:</B></P>
+<UL>
+	<LI>When showing the connection handles, the Modeling Assistant service asks all providers to contribute to the list of types that appear in the connection handle popups. In the case of the Geoshapes example, the &quot;Line&quot; type is contributed by the <FONT
+		color="navy">GeoshapeModelingAssistantProvider</FONT> and the &quot;Note Attachment&quot; type is contributed by the <FONT
+		color="navy">DiagramModelingAssistantProvider</FONT>.</LI>
+	<LI>Prior to showing the popup menus, each type is tested to see if it possible to create the  connection between the source and target. If it is not possible to create the connection then that type will not appear on the popup. For example, if it was impossible to create a line between a geoshape circle and a cylinder, then even though line is being contributed to the connection handle popup between a circle and a cylinder it would not appear as an option for the user to choose. This avoids having to duplicate the enablement criteria in the Modeling Assistant provider that already exists elsewhere (e.g. in the edit helpers or view providers).</LI>
+</UL>
+<UL>
+</UL>
+<H2><a name="_ConnectionCreationToUnspecified"></a>Adding Support for Connection Creation to an Unspecified Source or
+Target</H2>
+<P class="backto"><SPAN style="font-size:10.0pt">[<A href="#top"><SPAN
+	class="GramE">back</SPAN> to top</A>]</SPAN><BR>
+<BR>The <FONT color="navy">getTypesForTarget()</FONT> and <FONT color="navy">getTypesForSource()</FONT>
+methods determines the shape types that will appear when creating a
+connection to an unspecified source or target using any connection
+creation mechanism (e.g. a palette connection tool).<BR><IMG border="0" src="paletteUnspecifiedTarget.jpg" width="548"
+	height="293"> <BR>
+<BR>
+Add the shape types that can be created as the target type when creating
+a connection from source to target using the <FONT color="navy">getTypesForTarget()</FONT>
+method. This may be based on both the source type and the connection
+type. Similarly, add the shape types that can be created as the source
+type when creating a connection from target to source using the <FONT
+	color="navy">getTypesForSource()</FONT> method. <BR>
+<BR></P>
+<DIV
+	style="border:solid windowtext 1.0pt;mso-border-alt:solid windowtext .75pt;
+padding:4.0pt 4.0pt 4.0pt 4.0pt;margin-left:48.0pt;margin-right:24.0pt"><PRE
+	style="margin-left:0in;border:none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 4.0pt 4.0pt 4.0pt"><FONT
+	color="navy">
+public List </FONT><FONT color="red">getTypesForSource</FONT><FONT
+	color="navy">(IAdaptable target, IElementType relationshipType) {
+	if (relationshipType.equals(GeoshapeType.LINE)) {
+		return GeoshapeType.getShapeTypes();
+	}
+
+	return Collections.EMPTY_LIST;
+}
+public List </FONT><FONT color="red">getTypesForTarget</FONT><FONT
+	color="navy">(IAdaptable source, IElementType relationshipType) {
+	if (relationshipType.equals(GeoshapeType.LINE)) {
+		return GeoshapeType.getShapeTypes();
+	}
+	return Collections.EMPTY_LIST;
+}</FONT></PRE></DIV>
+<P class="backto"><BR>
+<B>Notes:</B></P>
+<UL>
+	<LI>It is also necessary to update the <FONT color="navy">provides()</FONT> method appropriately.</LI>
+	<LI>When showing the shape types that can be created, the Modeling
+	Assistant service asks all providers to contribute to the list of shape
+	types.</LI>
+	<LI>Prior to showing the popup menus, each type is tested to see if it
+	possible to create that shape type. If it
+	is not possible to create the shape then that type will not appear
+	on the popup.</LI></UL>
+<BR>
+<H2><a name="_SelectingAnExistingElement"></a>Adding Support for Selecting an Existing Element as the Source or Target</H2>
+<P class="backto"><SPAN style="font-size:10.0pt">[<A href="#top"><SPAN
+	class="GramE">back</SPAN> to top</A>]</SPAN><BR>
+<BR>Although the Geoshapes Example does not implement this, it is also possible to create a connection to an existing element that may or may not appear on the diagram.<BR>
+<BR>
+<IMG border="0" src="selectExistingElement.jpg" width="432" height="304"> <BR>By providing for the <FONT
+	color="navy">SelectExistingElementForTargetOperation</FONT>, the circled entry will appear when creating a connection to an unspecified target. Similarly, by providing for the<FONT
+	color="navy"> SelectExistingElementForSourceOperation</FONT>, the circled entry will appear when creating a connection to an unspecified source. When the user selects this entry, the <FONT
+	color="navy">selectExistingElementForSource()</FONT> method or <FONT
+	color="navy">selectExistingElementForTarget()</FONT> method will be called in the provider that provided for this operation with the highest priority.
+</P>
+<DIV
+	style="border:solid windowtext 1.0pt;mso-border-alt:solid windowtext .75pt;
+padding:4.0pt 4.0pt 4.0pt 4.0pt;margin-left:48.0pt;margin-right:24.0pt"><PRE
+	style="margin-left:0in;border:none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 4.0pt 4.0pt 4.0pt"><FONT
+	color="navy">public EObject </FONT><FONT color="red">selectExistingElementForSource</FONT><FONT
+	color="navy">(IAdaptable target, IElementType relationshipType) {
+	// Show a dialog from which the user can select an existing element.
+	// Return the element.
+}
+public EObject </FONT><FONT color="red">selectExistingElementForTarget</FONT><FONT
+	color="navy">(IAdaptable source, IElementType relationshipType) {
+	// Show a dialog from which the user can select an existing element.
+	// Return the element.
+}</FONT></PRE></DIV>
+<P class="backto"><SPAN style="font-size:10.0pt"></SPAN></P><BR>
+<B>Notes:</B>
+<UL>
+	<LI>It is also necessary to update the <FONT color="navy">provides()</FONT>
+	method appropriately.</LI>
+</UL><P class="backto"><BR>
+</P>
+<H2><A name="_ShowingRelatedElements"></A>Adding Support for Showing Related Elements with the Connection Handles</H2>
+<P class="backto"><BR>
+
+<SPAN style="font-size:10.0pt">[<A href="#top"><SPAN class="GramE">back</SPAN>
+to top</A>]</SPAN></P>
+<P class="backto"><BR>Although the Geoshapes Example does not implement this as there is no semantic model, it is also possible to support showing related elements when double-clicking a connection handle.<BR>
+<IMG border="0" src="showRelatedElementsTooltip.jpg" width="401"
+	height="99">
+<BR>
+By providing for the <FONT color="navy">GetRelTypesForSREOnSourceOperation</FONT> and returning a list of types in the <FONT
+	color="navy">getRelTypesForSREOnSource()</FONT> method,
+the above tooltip will appear when hovering over the outgoing connection handle. When the user double-clicks, the list of types given in the <FONT
+	color="navy">getRelTypesForSREOnSource()</FONT> method will appear. After the user selects a type, the elements related to the source shape in the manner selected will appear with connections to the source shape.<BR>
+<BR>The expanding of related shapes is not supported generically in GMF. The client application must respond to the org.eclipse.gmf.runtime.diagram.ui.requests.ShowRelatedElementsRequest by returning the related elements.
+<BR>
+<BR>
+Similarly, by providing for the<FONT color="navy">
+GetRelTypesForSREOnTargetOperation</FONT> and returning a list of types in the <FONT
+	color="navy">getRelTypesForSREOnTarget()</FONT> method, this gesture will also be supported on the incoming connection handle.</P>
+<DIV
+	style="border:solid windowtext 1.0pt;mso-border-alt:solid windowtext .75pt;
+padding:4.0pt 4.0pt 4.0pt 4.0pt;margin-left:48.0pt;margin-right:24.0pt"><PRE
+	style="margin-left:0in;border:none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 4.0pt 4.0pt 4.0pt"><FONT color="navy">public List </FONT><FONT
+	color="red">getRelTypesForSREOnSource</FONT><FONT color="navy">(IAdaptable source) {
+	// return relationship types that could be expanded to show related elements
+}
+
+public List </FONT><FONT color="red">getRelTypesForSREOnTarget</FONT><FONT
+	color="navy">(IAdaptable target) {
+	// return relationship types that could be expanded to show related elements
+}</FONT></PRE></DIV>
+<P class="backto"><BR>
+<B>Notes:</B></P>
+<UL>
+	<LI>It is also necessary to update the <FONT color="navy">provides()</FONT>
+	method appropriately.</LI>
+	<LI>When showing the relationship types that can be expanded, the Modeling
+	Assistant service asks all providers to contribute to the list of 
+	types.</LI>
+</UL>
+<div class=MsoNormal align=center style='text-align:center'>
+
+<hr size=2 width="100%" align=center>
+
+</div>
+
+<h2><a name=_Summary></a>Summary</h2>
+
+<p><span style='font-size:10.0pt'>[<a href="#top"><span class=GramE>back</span>
+to top</a>]</span></p>
+
+<P>In this tutorial, we did the following:</P>
+<OL>
+	<LI>Created the Modeling Assistant provider.</LI>
+	<LI>Added support for connection creation with connection handles.</LI>
+	<LI>Added support for connection creation to an unspecified source or
+target.</LI>
+	<LI>Added support for selecting an existing element as the source or target.</LI>
+	<LI>Added support for showing related elements with the connection handles.</LI>
+</OL>
+
+<div class=MsoNormal align=center style='text-align:center'>
+
+<hr size=2 width="100%" align=center>
+
+</div>
+
+<P><a href="http://www.eclipse.org/legal/epl-v10.html">
+<IMG border="0" width="324" height="14" id="_x0000_i1028"
+	src="../copyright.gif"></a></P>
+	
+</div>
+
+</body>
+
+</html>
