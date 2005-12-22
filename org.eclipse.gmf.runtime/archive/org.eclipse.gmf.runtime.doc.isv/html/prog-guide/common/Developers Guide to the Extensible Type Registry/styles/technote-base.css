@@ -1,0 +1,42 @@
+TD.snippet {
+	font-family: monospace;
+	color: navy
+}
+
+.backto {
+	margin-left: 0pt;
+	font-size: small
+}
+
+TABLE.solid {
+	border-bottom: thin solid;
+	border-right: thin solid
+}
+
+TABLE.solid TD, TABLE.solid TH {
+	border-top: thin solid;
+	border-left: thin solid;
+	text-align: left
+}
+
+TABLE.solid TD {
+	vertical-align: text-top
+}
+
+TABLE.high {
+	border: none
+}
+
+TABLE.high TH {
+	border-bottom: thin solid;
+	text-align: left
+}
+
+TABLE.high TD {
+	vertical-align: text-top
+}
+
+CAPTION {
+	text-align: left
+}
+

@@ -1,0 +1,60 @@
+body {
+  font-family: verdana, helvetica, arial, sans-serif;
+}
+
+.menubar {
+  background: url(icons/plus.gif) no-repeat 0em 0.3em;
+  list-style: none outside;
+}
+
+.menu, .submenu {
+  display: none;
+  padding: 0;
+}
+
+.menuitem {
+  background: no-repeat 0em 0.3em;
+  padding-left: 15px;
+  list-style: none outside;
+}
+
+.menu li, .submenu li, .hide h2 {
+  background: no-repeat 0em 0.3em;
+  list-style: none outside;
+}
+
+a.actuator {
+  background-color: transparent;
+  padding-left: 15px;
+  text-decoration: none;
+}
+
+a.actuator:hover {
+  text-decoration: underline;
+}
+
+.menu li a, .submenu li a {
+  background-color: transparent;
+  padding-left: 15px;
+  text-decoration: none;
+}
+
+.menu li a:hover, submenu li a:hover {
+  /*border-bottom: 1px dashed #000;*/
+  text-decoration: underline;
+}
+
+span.key {
+  text-decoration: underline;
+}
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,47 @@
+@import url(technote-base.css);
+
+P.notabene {
+	margin-left: 48pt;
+	margin-right: 24pt;
+	border-bottom-style: solid;
+	padding-top: 4pt;
+	padding-bottom: 4pt;
+	border-top-style: solid;
+	border-top-width: thin;
+	border-bottom-width: thin
+}
+
+P.question {
+	font-style: italic;
+	margin-left: 48pt;
+	margin-right: 24pt;
+	padding-top: 4pt;
+	padding-bottom: 4pt;
+}
+
+H3 {
+	font-style: italic;
+	font-weight: normal
+}
+
+PRE.snippet {
+	margin-left: 24pt;
+	margin-right: 24pt;
+	color: navy;
+	font-family: monospace;
+	padding: 4pt;
+	border-width: thin;
+	border-style: solid
+}
+
+P, PRE, BLOCKQUOTE, TABLE {
+	margin-left: 24pt
+}
+
+UL, OL, DL {
+	margin-left: 48pt
+}
+
+TD UL, TD OL, TD DL, TD P, TD PRE {
+	margin-left: 0pt
+}
