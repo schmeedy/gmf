@@ -17,11 +17,18 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Set;
 
 import org.eclipse.core.runtime.IStatus;
+import org.eclipse.core.runtime.Platform;
+import org.eclipse.core.runtime.Status;
 import org.eclipse.emf.ecore.EModelElement;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.ecore.xmi.XMLResource;
 import org.eclipse.emf.validation.AbstractModelConstraint;
+import org.eclipse.emf.validation.EMFEventType;
 import org.eclipse.emf.validation.IValidationContext;
 import org.eclipse.emf.validation.model.IClientSelector;
 import org.eclipse.gmf.runtime.emf.core.EObjectHelper;
@@ -31,6 +38,7 @@ import org.eclipse.gmf.runtime.emf.core.exceptions.MSLActionAbandonedException;
 import org.eclipse.gmf.runtime.emf.core.internal.commands.MSLUndoStack.ActionLockMode;
 import org.eclipse.gmf.runtime.emf.core.internal.domain.MSLEditingDomain;
 import org.eclipse.gmf.runtime.emf.core.internal.util.MSLUtil;
+import org.eclipse.gmf.runtime.emf.core.internal.validation.UUIDConstraint;
 import org.eclipse.gmf.runtime.emf.core.util.EObjectUtil;
 import org.eclipse.gmf.runtime.emf.core.util.ResourceUtil;
 import org.eclipse.uml2.UML2Package;
@@ -246,5 +254,117 @@ public class ValidationTestCase
 			.getPackage_OwnedType());
 
 		assertEquals(0, types.size());
+	}
+
+	public static class TestValidationContext implements IValidationContext {
+		
+		private EObject target;
+
+		public void addResult(EObject eObject) {
+			// do nothing
+		}
+
+		public void addResults(Collection eObjects) {
+			// do nothing
+		}
+
+		public IStatus createFailureStatus(Object[] messageArguments) {
+			return new Status(IStatus.ERROR, Platform.PI_RUNTIME, 1, "", null); //$NON-NLS-1$
+		}
+
+		public IStatus createSuccessStatus() {
+			return Status.OK_STATUS;
+		}
+
+		public void disableCurrentConstraint(Throwable exception) {
+			// do nothing
+		}
+
+		public List getAllEvents() {
+			return null;
+		}
+
+		public Object getCurrentConstraintData() {
+			return null;
+		}
+
+		public String getCurrentConstraintId() {
+			return null;
+		}
+
+		public EMFEventType getEventType() {
+			return null;
+		}
+
+		public EStructuralFeature getFeature() {
+			return null;
+		}
+
+		public Object getFeatureNewValue() {
+			return null;
+		}
+
+		public Set getResultLocus() {
+			return null;
+		}
+
+		public EObject getTarget() {
+			return target;
+		}
+		
+		public void setTarget(EObject eObject) {
+			target = eObject;
+		}
+
+		public Object putCurrentConstraintData(Object newData) {
+			return null;
+		}
+
+		public void skipCurrentConstraintFor(EObject eObject) {
+			// do nothing
+		}
+
+		public void skipCurrentConstraintForAll(Collection eObjects) {
+			// do nothing
+		}
+	};
+
+	public void test_UUIDConstraint() {
+		Resource resource = ResourceUtil.create(null, UML2Package.eINSTANCE
+			.getModel(), 0);
+	
+		EModelElement root = (EModelElement) ResourceUtil
+			.getFirstRoot(resource);
+	
+		((MSLEditingDomain) MEditingDomain.INSTANCE).getUndoStack().openUndoInterval("", "");//$NON-NLS-2$//$NON-NLS-1$
+	
+		((MSLEditingDomain) MEditingDomain.INSTANCE).getUndoStack().startAction(ActionLockMode.WRITE);
+	
+		EModelElement c1 = (EModelElement) EObjectUtil.create(root,
+			UML2Package.eINSTANCE.getPackage_OwnedMember(),
+			UML2Package.eINSTANCE.getClass_(), "Class1"); //$NON-NLS-1$
+		
+		assertTrue(resource instanceof XMLResource);
+	
+		XMLResource xmlResource = (XMLResource) resource;
+		
+		String duplicateUUID = "duplicateUUID"; //$NON-NLS-1$
+		xmlResource.setID(root, duplicateUUID);
+		xmlResource.setID(c1, duplicateUUID);
+		
+		try {
+			((MSLEditingDomain) MEditingDomain.INSTANCE).getUndoStack().completeAction();
+		} finally {
+			((MSLEditingDomain) MEditingDomain.INSTANCE).getUndoStack().closeUndoInterval();
+		}
+
+		
+		TestValidationContext validationContext = new TestValidationContext();
+		UUIDConstraint constraint = new UUIDConstraint();
+		validationContext.setTarget(root);
+		IStatus status = constraint.validate(validationContext);
+		
+		assertNotNull(status);
+		assertTrue(IStatus.ERROR == status.getSeverity());
 	}
 }
