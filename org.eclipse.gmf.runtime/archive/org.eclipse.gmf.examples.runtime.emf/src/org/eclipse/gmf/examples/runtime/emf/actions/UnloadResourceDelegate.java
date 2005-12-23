@@ -17,7 +17,6 @@ import java.util.Iterator;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.gmf.examples.runtime.emf.editor.MSLLibraryEditor;
 import org.eclipse.gmf.examples.runtime.emf.internal.l10n.MSLExampleMessages;
-import org.eclipse.gmf.runtime.emf.core.edit.MEditingDomain;
 import org.eclipse.jface.action.IAction;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.viewers.ISelection;
@@ -130,7 +129,7 @@ public class UnloadResourceDelegate
 			for (Iterator i = selectedResources.iterator(); i.hasNext();) {
 				Resource res = (Resource)i.next();
 				
-				((MEditingDomain)editor.getEditingDomain()).unloadResource(res);
+				res.unload();
 			}
 		}
 	}

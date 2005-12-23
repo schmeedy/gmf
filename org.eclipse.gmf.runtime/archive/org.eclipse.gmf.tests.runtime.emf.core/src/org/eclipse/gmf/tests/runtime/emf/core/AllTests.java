@@ -33,7 +33,6 @@ import org.eclipse.gmf.tests.runtime.emf.core.internal.listener.ResourceContentT
 import org.eclipse.gmf.tests.runtime.emf.core.internal.multithread.testcases.ReadOperationTest;
 import org.eclipse.gmf.tests.runtime.emf.core.internal.multithread.testcases.ReadWriteOperationTest;
 import org.eclipse.gmf.tests.runtime.emf.core.internal.multithread.testcases.WriteOperationTest;
-import org.eclipse.gmf.tests.runtime.emf.core.internal.resources.BaseLogicalResourceTest;
 import org.osgi.service.prefs.BackingStoreException;
 import org.osgi.service.prefs.Preferences;
 

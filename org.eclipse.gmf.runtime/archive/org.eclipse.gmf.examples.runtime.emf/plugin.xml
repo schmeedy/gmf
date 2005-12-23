@@ -170,16 +170,6 @@
               label="%EditEObject"
               menubarPath="org.eclipse.gmf.examples.runtime.emf.mslMenu/edit"/>
         <action
-              class="org.eclipse.gmf.examples.runtime.emf.actions.MSLLibraryActionBarContributor$UncontrolUnitDelegate"
-              id="org.eclipse.gmf.examples.runtime.emf.uncontrol"
-              label="%UncontrolUnitAction.label"
-              menubarPath="org.eclipse.gmf.examples.runtime.emf.mslMenu/units"/>
-        <action
-              class="org.eclipse.gmf.examples.runtime.emf.actions.MSLLibraryActionBarContributor$ControlUnitDelegate"
-              id="org.eclipse.gmf.examples.runtime.emf.control"
-              label="%ControlUnitAction.label"
-              menubarPath="org.eclipse.gmf.examples.runtime.emf.mslMenu/units"/>
-        <action
               class="org.eclipse.gmf.examples.runtime.emf.actions.FindReferencers"
               id="org.eclipse.gmf.examples.runtime.emf.referencers"
               label="%FindReferencersAction.label"
@@ -199,18 +189,6 @@
            class="org.eclipse.gmf.examples.runtime.emf.clipboard.LibraryClipboardSupportFactory"
            nsURI="http:///org/eclipse/emf/examples/library/extlibrary.ecore/1.0.0"
            priority="highest"/>
-  </extension>
-  <extension
-        point="org.eclipse.gmf.runtime.emf.core.resourcePolicies">
-     <policy
-           class="org.eclipse.gmf.examples.runtime.emf.resources.LibraryResourcePolicy">
-        <epackage 
-              nsURI="http:///org/eclipse/emf/examples/library/extlibrary.ecore/1.0.0"/>
-      </policy>
-      
-      <efactory
-            class="org.eclipse.gmf.examples.runtime.emf.resources.LoadingEXTLibraryFactoryImpl"
-            nsURI="http:///org/eclipse/emf/examples/library/extlibrary.ecore/1.0.0"/>
   </extension>
    
 </plugin>

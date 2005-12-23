@@ -604,7 +604,9 @@ public class MSLLibraryEditor
 		try {
 			// Load the resource through the editing domain.
 			//
-			editingDomain.loadResource(modelFile.getFile().getLocation().toOSString());
+			Resource res = editingDomain.createResource(
+					modelFile.getFile().getLocation().toOSString());
+			editingDomain.loadResource(res);
 		} catch (Exception exception) {
 			EXTLibraryEditorPlugin.INSTANCE.log(exception);
 		}
@@ -1075,7 +1077,7 @@ public class MSLLibraryEditor
 				while (iter.hasNext()) {
 					Resource res = (Resource) iter.next();
 					if (res != null && res.isLoaded() && res.isModified()
-							&& ResourceUtil.isModifiable(res)) { //$NON-NLS-1$
+							&& ResourceUtil.isModifiable(res)) {
 						dirtyResources.add(res);
 					}
 				}

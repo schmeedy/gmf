@@ -37,22 +37,17 @@ import org.eclipse.emf.edit.ui.action.UndoAction;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryContentProvider;
 import org.eclipse.emf.examples.extlibrary.actions.EXTLibraryExtendedActionBarContributor;
 import org.eclipse.emf.examples.extlibrary.presentation.EXTLibraryEditorPlugin;
-import org.eclipse.gmf.examples.runtime.emf.MSLExamplePlugin;
 import org.eclipse.gmf.examples.runtime.emf.constraints.ValidationDelegateClientSelector;
 import org.eclipse.gmf.examples.runtime.emf.dialogs.ValidationErrorDialog;
 import org.eclipse.gmf.examples.runtime.emf.editor.MSLLibraryEditor;
 import org.eclipse.gmf.examples.runtime.emf.internal.l10n.MSLExampleMessages;
 import org.eclipse.gmf.examples.runtime.emf.properties.PropertySheetDialog;
-import org.eclipse.gmf.runtime.common.core.util.Log;
 import org.eclipse.gmf.runtime.emf.core.edit.MEditingDomain;
 import org.eclipse.gmf.runtime.emf.core.edit.MFilter;
 import org.eclipse.gmf.runtime.emf.core.edit.MListener;
 import org.eclipse.gmf.runtime.emf.core.edit.MRunnable;
 import org.eclipse.gmf.runtime.emf.core.edit.MUndoInterval;
 import org.eclipse.gmf.runtime.emf.core.exceptions.MSLActionAbandonedException;
-import org.eclipse.gmf.runtime.emf.core.resources.CannotAbsorbException;
-import org.eclipse.gmf.runtime.emf.core.resources.CannotSeparateException;
-import org.eclipse.gmf.runtime.emf.core.resources.ILogicalResource;
 import org.eclipse.gmf.runtime.emf.core.util.EObjectUtil;
 import org.eclipse.gmf.runtime.emf.core.util.MetaModelUtil;
 import org.eclipse.jface.action.Action;
@@ -64,7 +59,6 @@ import org.eclipse.jface.action.Separator;
 import org.eclipse.jface.dialogs.Dialog;
 import org.eclipse.jface.dialogs.IInputValidator;
 import org.eclipse.jface.dialogs.InputDialog;
-import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.SelectionChangedEvent;
@@ -247,256 +241,6 @@ public class MSLLibraryActionBarContributor
 			run(action);
 		}
   	}
-	
-	/**
-	 * This action delegate refactors the selected element into a seaparate
-	 * controlled unit.
-	 */
-	public static class ControlUnitDelegate
-		implements IEditorActionDelegate, IActionDelegate2 {
-
-		/**
-		 * Error message to display when an exception occured
-		 */
-		protected static final String MESSAGE_EXCEPTION = MSLExampleMessages.message_exception;
-
-		/**
-		 * The shell this action is hosted in
-		 */
-		protected Shell shell = null;
-
-		/**
-		 * The active editor
-		 */
-		protected MSLLibraryEditor editor = null;
-
-		/**
-		 * Selected EObjects
-		 */
-		protected List selectedEObjects = null;
-
-		/**
-		 * The title for the action.
-		 */
-		private String title = MSLExampleMessages.ControlUnitAction_label;
-		
-		/** Action bar contributor of the MSL Library example editor. */
-		private MSLLibraryActionBarContributor actionBarContrib;
-		
-		public void selectionChanged(IAction action, final ISelection selection) {
-			this.selectedEObjects = null;
-			try {
-				if (selection instanceof IStructuredSelection) {
-					IStructuredSelection structuredSelection = (IStructuredSelection) selection;
-					this.selectedEObjects = structuredSelection.toList();
-				}
-			} catch (Exception e) {
-				// Exceptions are not expected
-				MessageDialog.openInformation(shell, title, MESSAGE_EXCEPTION);
-				throw new RuntimeException(e);
-			} finally {
-				if ((null != selectedEObjects) && (selectedEObjects.size() == 1)
-						&& (selectedEObjects.get(0) instanceof EObject)) {
-					EObject selected = (EObject) selectedEObjects.get(0);
-					final MEditingDomain domain = MEditingDomain.getEditingDomain(
-						selected.eResource());
-					ILogicalResource res = domain.asLogicalResource(
-						selected.eResource());
-					
-					action.setEnabled(res.canSeparate(selected));
-				} else {
-					action.setEnabled(false);
-				}
-			}
-		}
-
-		public void dispose() {
-			//No-op
-		}
-
-		public void setActiveEditor(IAction action, IEditorPart targetEditor) {
-			this.editor = (MSLLibraryEditor) targetEditor;
-			if ( targetEditor != null ) {
-				this.shell = targetEditor.getSite().getShell();
-				actionBarContrib = (MSLLibraryActionBarContributor)((MSLLibraryEditor)targetEditor).getActionBarContributor();
-			} else {
-				actionBarContrib = null;
-			}
-		}
-
-		public void init(IAction action) {
-			// No-op
-		}
-
-		public void runWithEvent(IAction action, Event event) {
-			run(action);
-		}
-
-		public void run(final IAction action) {
-			final EObject selected = (EObject) selectedEObjects.get(0);
-			final MEditingDomain domain = MEditingDomain.getEditingDomain(
-				selected.eResource());
-			final ILogicalResource res = domain.asLogicalResource(
-				selected.eResource());
-			
-			final Exception[] caught = new Exception[1];
-			
-			MUndoInterval undo = domain.runInUndoInterval(title, new Runnable() {
-				public void run() {
-					try {
-						domain.runAsWrite(new MRunnable() {
-							
-							public Object run() {
-								try {
-									res.separate(selected, null);
-									action.setEnabled(false);
-								} catch (CannotSeparateException e) {
-									caught[0] = e;
-									MessageDialog.openError(
-										shell,
-										title,
-										e.getLocalizedMessage());
-								}
-								return null;
-							}});
-					} catch (MSLActionAbandonedException e) {
-						caught[0] = e;
-						Log.log(MSLExamplePlugin.getDefault(), e.getStatus());
-					}
-				}});
-			
-			if (caught[0] != null) {
-				undo.undo();
-			} else {
-				actionBarContrib.addUndoInterval(undo);
-			}
-		}
-	}
-	
-	/**
-	 * This action delegate refactors the selected element into a seaparate
-	 * controlled unit.
-	 */
-	public static class UncontrolUnitDelegate
-		implements IEditorActionDelegate, IActionDelegate2 {
-
-		/**
-		 * Error message to display when an exception occured
-		 */
-		protected static final String MESSAGE_EXCEPTION = MSLExampleMessages.message_exception;
-
-		/**
-		 * The shell this action is hosted in
-		 */
-		protected Shell shell = null;
-
-		/**
-		 * The active editor
-		 */
-		protected MSLLibraryEditor editor = null;
-
-		/**
-		 * Selected EObjects
-		 */
-		protected List selectedEObjects = null;
-
-		/**
-		 * The title for the action.
-		 */
-		private String title = MSLExampleMessages.UncontrolUnitAction_label;
-		
-		/** Action bar contributor of the MSL Library example editor. */
-		private MSLLibraryActionBarContributor actionBarContrib;
-		
-		public void selectionChanged(IAction action, final ISelection selection) {
-			this.selectedEObjects = null;
-			try {
-				if (selection instanceof IStructuredSelection) {
-					IStructuredSelection structuredSelection = (IStructuredSelection) selection;
-					this.selectedEObjects = structuredSelection.toList();
-				}
-			} catch (Exception e) {
-				// Exceptions are not expected
-				MessageDialog.openInformation(shell, title, MESSAGE_EXCEPTION);
-				throw new RuntimeException(e);
-			} finally {
-				if ((null != selectedEObjects) && (selectedEObjects.size() == 1)
-						&& (selectedEObjects.get(0) instanceof EObject)) {
-					EObject selected = (EObject) selectedEObjects.get(0);
-					final MEditingDomain domain = MEditingDomain.getEditingDomain(
-						selected.eResource());
-					ILogicalResource res = domain.asLogicalResource(
-						selected.eResource());
-					
-					action.setEnabled(res.isSeparate(selected));
-				} else {
-					action.setEnabled(false);
-				}
-			}
-		}
-
-		public void dispose() {
-			//No-op
-		}
-
-		public void setActiveEditor(IAction action, IEditorPart targetEditor) {
-			this.editor = (MSLLibraryEditor) targetEditor;
-			if ( targetEditor != null ) {
-				this.shell = targetEditor.getSite().getShell();
-				actionBarContrib = (MSLLibraryActionBarContributor)((MSLLibraryEditor)targetEditor).getActionBarContributor();
-			} else {
-				actionBarContrib = null;
-			}
-		}
-
-		public void init(IAction action) {
-			// No-op
-		}
-
-		public void runWithEvent(IAction action, Event event) {
-			run(action);
-		}
-
-		public void run(final IAction action) {
-			final EObject selected = (EObject) selectedEObjects.get(0);
-			final MEditingDomain domain = MEditingDomain.getEditingDomain(
-				selected.eResource());
-			final ILogicalResource res = domain.asLogicalResource(
-				selected.eResource());
-			
-			final Exception[] caught = new Exception[1];
-			
-			MUndoInterval undo = domain.runInUndoInterval(title, new Runnable() {
-				public void run() {
-					try {
-						domain.runAsWrite(new MRunnable() {
-							
-							public Object run() {
-								try {
-									res.absorb(selected);
-									action.setEnabled(false);
-								} catch (CannotAbsorbException e) {
-									caught[0] = e;
-									MessageDialog.openError(
-										shell,
-										title,
-										e.getLocalizedMessage());
-								}
-								return null;
-							}});
-					} catch (MSLActionAbandonedException e) {
-						caught[0] = e;
-						Log.log(MSLExamplePlugin.getDefault(), e.getStatus());
-					}
-				}});
-			
-			if (caught[0] != null) {
-				undo.undo();
-			} else {
-				actionBarContrib.addUndoInterval(undo);
-			}
-		}
-	}
 	
 	private class MSLDeleteAction extends DeleteAction {
 		private Collection objects;

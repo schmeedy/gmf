@@ -8,7 +8,6 @@ Bundle-Localization: plugin
 Export-Package: org.eclipse.gmf.tests.runtime.emf.core.internal.commands,
  org.eclipse.gmf.tests.runtime.emf.core.internal.expressions,
  org.eclipse.gmf.tests.runtime.emf.core.internal.multithread.testcases,
- org.eclipse.gmf.tests.runtime.emf.core.internal.resources,
  org.eclipse.gmf.tests.runtime.emf.core.internal,
  org.eclipse.gmf.tests.runtime.emf.core
 Require-Bundle: org.junit,
