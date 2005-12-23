@@ -18,13 +18,6 @@
 		<topic label="Welcome to the Modeling Platform"/>
 		<anchor id="programmers-guide-welcome-after" />
 		
-		<anchor id="programmers-guide-platform-arch-before" />
-		<topic label="Platform Architecture">
-			<topic label="Introduction to the Rational Modeling Platform" href="prog-guide/platform/RMP for GMF.htm" />
-			<anchor id="programmers-guide-platform-arch-in" />
-		</topic>
-		<anchor id="programmers-guide-platform-arch-after" />
-		
 		<anchor id="programmers-guide-common-layer-before" />
 		<topic label="Common Frameworks Layer" href="prog-guide/common/index.html">
 			<topic label="Command Framework" href="prog-guide/common/Developer Guide to Command Framework.html" />
