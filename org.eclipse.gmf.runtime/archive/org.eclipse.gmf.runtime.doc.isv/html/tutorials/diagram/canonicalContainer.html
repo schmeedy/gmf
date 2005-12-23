@@ -92,6 +92,17 @@ p
 	font-size:12.0pt;
 	font-family:"Times New Roman";
 	mso-fareast-font-family:"Times New Roman";}
+pre
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:24.0pt;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt;
+	font-size:10.0pt;
+	font-family:"Courier New";
+	mso-fareast-font-family:"Times New Roman";}
 p.backto, li.backto, div.backto
 	{mso-style-name:backto;
 	mso-margin-top-alt:auto;
@@ -112,49 +123,49 @@ div.Section1
 	{page:Section1;}
  /* List Definitions */
  @list l0
-	{mso-list-id:1570965290;
-	mso-list-template-ids:-145727390;}
+	{mso-list-id:820735517;
+	mso-list-template-ids:1034076076;}
 @list l0:level1
 	{mso-level-tab-stop:.5in;
 	mso-level-number-position:left;
 	text-indent:-.25in;}
-@list l0:level2
+@list l1
+	{mso-list-id:1570965290;
+	mso-list-template-ids:-145727390;}
+@list l1:level1
+	{mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l1:level2
 	{mso-level-tab-stop:1.0in;
 	mso-level-number-position:left;
 	text-indent:-.25in;}
-@list l0:level3
+@list l1:level3
 	{mso-level-tab-stop:1.5in;
 	mso-level-number-position:left;
 	text-indent:-.25in;}
-@list l0:level4
+@list l1:level4
 	{mso-level-tab-stop:2.0in;
 	mso-level-number-position:left;
 	text-indent:-.25in;}
-@list l0:level5
+@list l1:level5
 	{mso-level-tab-stop:2.5in;
 	mso-level-number-position:left;
 	text-indent:-.25in;}
-@list l0:level6
+@list l1:level6
 	{mso-level-tab-stop:3.0in;
 	mso-level-number-position:left;
 	text-indent:-.25in;}
-@list l0:level7
+@list l1:level7
 	{mso-level-tab-stop:3.5in;
 	mso-level-number-position:left;
 	text-indent:-.25in;}
-@list l0:level8
+@list l1:level8
 	{mso-level-tab-stop:4.0in;
 	mso-level-number-position:left;
 	text-indent:-.25in;}
-@list l0:level9
+@list l1:level9
 	{mso-level-tab-stop:4.5in;
-	mso-level-number-position:left;
-	text-indent:-.25in;}
-@list l1
-	{mso-list-id:2144076344;
-	mso-list-template-ids:-1062545428;}
-@list l1:level1
-	{mso-level-tab-stop:.5in;
 	mso-level-number-position:left;
 	text-indent:-.25in;}
 ol
@@ -232,8 +243,8 @@ toggle canonical behavior on or off</a></p>
 
 <p class=MsoNormal style='margin-left:48.0pt;text-indent:-.25in'><span
 style='font-size:10.0pt;font-family:Symbol'>·</span><span style='font-size:
-7.0pt'> </span><a href="#_Creating_an_EditPart_that_points_di">Creating an
-EditPart that points directly to a semantic element</a> </p>
+7.0pt'> </span><a href="#_Creating_an_EditPart_that_points_di">Creating an EditPart
+that points directly to a semantic element</a> </p>
 
 <p class=MsoNormal style='margin-left:48.0pt;text-indent:-.25in'><span
 style='font-size:10.0pt;font-family:Symbol'>·</span><span style='font-size:
@@ -292,7 +303,8 @@ to display a full view.</p>
 
 <p class=backto><span style='font-size:10.0pt'>[<a href="#top">back to top</a>]</span></p>
 
-<p style='margin:0in;margin-bottom:.0001pt'>This tutorial references the following:<br>
+<p style='margin:0in;margin-bottom:.0001pt'>This tutorial references the
+following:<br>
 <a
 href="../../../../workspace/org.eclipse.gmf.runtime.doc.isv/html/prog-guide/diagram/index.html">Programmers
 Guide</a></p>
@@ -372,34 +384,72 @@ subclass from the CanonicalConnectionEditPolicy to accomplish this.</p>
 subclass.&nbsp; Upon creation of the class you’ll notice that there are 4
 abstract methods that need to be filled in.</p>
 
-<p class=MsoNormal>&nbsp;</p>
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
 
-<p class=MsoNormal>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-getSemanticChildrenList: Returns the list of semantic elements that are to be
-synchronized with the notation node children of the container.</p>
+<div style='border:solid windowtext 1.0pt;mso-border-alt:solid windowtext .75pt;
+padding:4.0pt 0in 4.0pt 0in;margin-left:.5in;margin-right:34.0pt'><pre
+style='margin-left:0in;border:none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 0in 4.0pt 0in'><span style='color:navy'><o:p>&nbsp;</o:p></span></pre><pre
+style='margin-left:0in;border:none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 0in 4.0pt 0in'><span style='color:navy'>protected List getSemanticChildrenList() {<o:p></o:p></span></pre><pre
+style='margin-left:0in;border:none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 0in 4.0pt 0in'><span style='color:navy'>// return the list of semantic elements that are to be synchronized with the <span style='mso-spacerun:yes'> </span><span style='mso-spacerun:yes'>     </span><o:p></o:p></span></pre><pre
+style='margin-left:0in;border:none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 0in 4.0pt 0in'><span style='color:navy'>// notation node children of the container.<span
+style='mso-tab-count:1'>    </span><o:p></o:p></span></pre><pre
+style='margin-left:0in;border:none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 0in 4.0pt 0in'><span style='color:navy'><span
+style='mso-tab-count:1'>  </span>…<o:p></o:p></span></pre><pre
+style='margin-left:0in;border:none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 0in 4.0pt 0in'><span style='color:navy'>}<o:p></o:p></span></pre><pre
+style='margin-left:0in;border:none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 0in 4.0pt 0in'><span style='color:navy'><o:p>&nbsp;</o:p></span></pre><pre
+style='margin-left:0in;border:none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 0in 4.0pt 0in'><span style='color:navy'>protected List getSemanticConnectionsList() {<o:p></o:p></span></pre><pre
+style='margin-left:0in;border:none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 0in 4.0pt 0in'><span style='color:navy'>// return the list of relationships or semantic elements that are to be<o:p></o:p></span></pre><pre
+style='margin-left:0in;border:none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 0in 4.0pt 0in'><span style='color:navy'>// synchronized with the notation edges associated with the container<o:p></o:p></span></pre><pre
+style='margin-left:0in;border:none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 0in 4.0pt 0in'><span style='color:navy'><span
+style='mso-tab-count:1'>  </span>…<o:p></o:p></span></pre><pre
+style='margin-left:0in;border:none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 0in 4.0pt 0in'><span style='color:navy'>}<o:p></o:p></span></pre><pre
+style='margin-left:0in;border:none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 0in 4.0pt 0in'><span style='color:navy'><o:p>&nbsp;</o:p></span></pre><pre
+style='margin-left:0in;border:none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 0in 4.0pt 0in'><span style='color:navy'>protected EObject getTargetElement(EObject relationship) {<o:p></o:p></span></pre><pre
+style='margin-left:0in;border:none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 0in 4.0pt 0in'><span style='color:navy'>// given a semantic element that is to be represented as a notation edge<o:p></o:p></span></pre><pre
+style='margin-left:0in;border:none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 0in 4.0pt 0in'><span style='color:navy'>// in the container, return the target element that this semantic element<o:p></o:p></span></pre><pre
+style='margin-left:0in;border:none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 0in 4.0pt 0in'><span style='color:navy'>// is attached to.<o:p></o:p></span></pre><pre
+style='margin-left:0in;border:none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 0in 4.0pt 0in'><span style='color:navy'><span
+style='mso-tab-count:1'>  </span>…<span style='mso-tab-count:1'>       </span><o:p></o:p></span></pre><pre
+style='margin-left:0in;border:none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 0in 4.0pt 0in'><span style='color:navy'>}<o:p></o:p></span></pre><pre
+style='margin-left:0in;border:none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 0in 4.0pt 0in'><span style='color:navy'><span
+style='mso-tab-count:1'>  </span><o:p></o:p></span></pre><pre style='margin-left:
+0in;border:none;mso-border-alt:solid windowtext .75pt;padding:0in;mso-padding-alt:
+4.0pt 0in 4.0pt 0in'><span style='color:navy'>protected EObject getSourceElement(EObject relationship) {<o:p></o:p></span></pre><pre
+style='margin-left:0in;border:none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 0in 4.0pt 0in'><span style='color:navy'>// given a semantic element that is to be represented as a notation edge<o:p></o:p></span></pre><pre
+style='margin-left:0in;border:none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 0in 4.0pt 0in'><span style='color:navy'>// in the container, return the source element that this semantic element<o:p></o:p></span></pre><pre
+style='margin-left:0in;border:none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 0in 4.0pt 0in'><span style='color:navy'>// is attached to.<o:p></o:p></span></pre><pre
+style='margin-left:0in;border:none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 0in 4.0pt 0in'><span style='color:navy'><span
+style='mso-tab-count:1'>  </span>…<o:p></o:p></span></pre><pre
+style='margin-left:0in;border:none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 0in 4.0pt 0in'><span style='color:navy'>}<o:p></o:p></span></pre><pre
+style='margin-left:0in;border:none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 0in 4.0pt 0in'><o:p>&nbsp;</o:p></pre></div>
 
-<p class=MsoNormal>&nbsp;</p>
-
-<p class=MsoNormal>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-getSemanticConnectionsList: Returns the list of relationships or semantic
-elements that are to be synchronized with the notation edges associated with
-the container.</p>
-
-<p class=MsoNormal>&nbsp;</p>
-
-<p class=MsoNormal>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-getSourceElement: Given a semantic element that is to be represented as a
-notation edge in the container, return the source element that this semantic
-element is attached to.</p>
-
-<p class=MsoNormal>&nbsp;</p>
-
-<p class=MsoNormal>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-getTargetElement: Given a semantic element that is to be represented as a
-notation edge in the container, return the target element that this semantic element
-is attached to.</p>
-
-<p class=MsoNormal>&nbsp;</p>
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
 
 <p class=MsoNormal>After overriding these 4 methods, the EditPolicy is ready to
 be installed.&nbsp; For more custom behavior, you may wish to override the
@@ -430,24 +480,26 @@ EditPolicyRoles.CANONICAL_ROLE.&nbsp;</p>
 
 <p class=MsoNormal>&nbsp;</p>
 
-<p class=MsoNormal>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-i.e. </p>
-
 <p class=MsoNormal><o:p>&nbsp;</o:p></p>
 
-<p class=MsoNormal style='margin-left:.5in'><span style='font-size:8.0pt;
-font-family:"Courier New"'>protected void createDefaultEditPolicies(){</span></p>
+<div style='border:solid windowtext 1.0pt;mso-border-alt:solid windowtext .75pt;
+padding:4.0pt 0in 4.0pt 0in;margin-left:.5in;margin-right:34.0pt'><pre
+style='margin-left:0in;border:none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 0in 4.0pt 0in'><span style='color:navy'>// install the custom EditPolicy for the CANONICAL_ROLE<o:p></o:p></span></pre><pre
+style='margin-left:0in;border:none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 0in 4.0pt 0in'><span style='color:navy'><o:p>&nbsp;</o:p></span></pre><pre
+style='margin-left:0in;border:none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 0in 4.0pt 0in'><span style='font-size:9.0pt'>protected void createDefaultEditPolicies() {<o:p></o:p></span></pre><pre
+style='margin-left:0in;border:none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 0in 4.0pt 0in'><span style='font-size:9.0pt'><span
+style='mso-tab-count:2'>           </span>super.createDefaultEditPolicies();<o:p></o:p></span></pre><pre
+style='margin-left:0in;border:none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 0in 4.0pt 0in'><span style='font-size:9.0pt'><span
+style='mso-tab-count:2'>           </span>installEditPolicy(EditPolicyRoles.CANONICAL_ROLE, new CircuitCompartmentCanonicalEditPolicy());<o:p></o:p></span></pre><pre
+style='margin-left:0in;border:none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 0in 4.0pt 0in'><span style='font-size:9.0pt'>}<o:p></o:p></span></pre></div>
 
-<p class=MsoNormal style='margin-left:.5in'><span style='font-size:8.0pt;
-font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-super.createDefaultEditPolicies();</span></p>
-
-<p class=MsoNormal style='margin-left:.5in'><span style='font-size:8.0pt;
-font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>installEditPolicy(EditPolicyRoles.CANONICAL_ROLE,
-new CircuitCompartmentCanonicalEditPolicy ());</b></span></p>
-
-<p class=MsoNormal style='margin-left:.5in'><span style='font-size:8.0pt;
-font-family:"Courier New"'>}</span></p>
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
 
 <p class=MsoNormal><span style='font-size:8.0pt;font-family:"Courier New"'>&nbsp;</span></p>
 
@@ -481,26 +533,27 @@ accordingly.</p>
 canonical behavior, you need to override the AbstractViewFactory#createStyles
 method in your View factory class.</p>
 
-<p style='text-indent:.5in'>i.e.</p>
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
 
-<p style='margin:0in;margin-bottom:.0001pt'><span style='font-size:8.0pt;
-font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; protected List
-createStyles(View view) {</span></p>
-
-<p style='margin:0in;margin-bottom:.0001pt'><span style='font-size:8.0pt;
-font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-List styles = super.createStyles(view);</span></p>
-
-<p style='margin:0in;margin-bottom:.0001pt'><span style='font-size:8.0pt;
-font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-styles.add(NotationFactory.eINSTANCE.createCanonicalStyle());</span></p>
-
-<p style='margin:0in;margin-bottom:.0001pt'><span style='font-size:8.0pt;
-font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-return styles;</span></p>
-
-<p style='margin:0in;margin-bottom:.0001pt'><span style='font-size:8.0pt;
-font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<o:p></o:p></span></p>
+<div style='border:solid windowtext 1.0pt;mso-border-alt:solid windowtext .75pt;
+padding:4.0pt 0in 4.0pt 0in;margin-left:.5in;margin-right:34.0pt'><pre
+style='margin-left:0in;border:none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 0in 4.0pt 0in'><span style='color:navy'>// create the canonical style and add it the view on creation<o:p></o:p></span></pre><pre
+style='margin-left:0in;border:none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 0in 4.0pt 0in'><span style='color:navy'><o:p>&nbsp;</o:p></span></pre><pre
+style='margin-left:0in;border:none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 0in 4.0pt 0in'><span style='font-size:9.0pt'>protected List createStyles(View view) {<o:p></o:p></span></pre><pre
+style='margin-left:0in;border:none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 0in 4.0pt 0in'><span style='font-size:9.0pt'><span
+style='mso-tab-count:2'>           </span>List styles = super.createStyles(view);<o:p></o:p></span></pre><pre
+style='margin-left:0in;border:none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 0in 4.0pt 0in'><span style='font-size:9.0pt'><span
+style='mso-tab-count:2'>           </span>Styles.add(NotationFactory.eINSTANCE.createCanonicalStyle());<o:p></o:p></span></pre><pre
+style='margin-left:0in;border:none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 0in 4.0pt 0in'><span style='font-size:9.0pt'><span
+style='mso-tab-count:2'>           </span>Return styles;<o:p></o:p></span></pre><pre
+style='margin-left:0in;border:none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 0in 4.0pt 0in'><span style='font-size:9.0pt'>}<o:p></o:p></span></pre></div>
 
 <p style='margin:0in;margin-bottom:.0001pt'><o:p>&nbsp;</o:p></p>
 
@@ -529,7 +582,7 @@ because there are no notation elements created to display the semantic
 elements.&nbsp; The EditParts in the container point directly to the underlying
 semantic elements.&nbsp; This technique is useful if the elements being
 displayed in the container aren’t user configurable in terms of display.&nbsp;
-Or perhaps they inherit their display capabilities from the parent.&nbsp; <o:p></o:p></p>
+Or perhaps they inherit their display capabilities from the parent.&nbsp; </p>
 
 <p>An ideal usage of this technique is for list compartments that display a
 list of elements.&nbsp; The list of elements most often have a derived position
@@ -542,7 +595,7 @@ is where the SemanticListCompartment is best utilized.</p>
 mso-bidi-language:AR-SA'><br clear=all style='page-break-before:always'>
 </span></i>
 
-<p><i><span style='font-size:11.0pt'>Semantic List Compartment usage:</span></i><o:p></o:p></p>
+<p><i><span style='font-size:11.0pt'>Semantic List Compartment usage:</span></i></p>
 
 <p><i><span style='font-size:11.0pt;font-family:Arial'><img border=0 width=575
 height=206 id="_x0000_i1034" src=semanticListCompartment.gif></span></i></p>
@@ -550,21 +603,58 @@ height=206 id="_x0000_i1034" src=semanticListCompartment.gif></span></i></p>
 <p><b style='mso-bidi-font-weight:normal'>Step 1:</b> Create a new
 ListItemEditPart subclass that overrides the GraphicalEditPart#hasNotationView
 method to return false.&nbsp; This new EditPart subclass will point to the
-semantic element directly instead of pointing to a notation view.<o:p></o:p></p>
+semantic element directly instead of pointing to a notation view.</p>
 
 <p><b style='mso-bidi-font-weight:normal'>Step 2:</b> Create a new subclass
-from SemanticListCompartmentEditPart and implement the abstract methods.<o:p></o:p></p>
+from SemanticListCompartmentEditPart and implement the abstract methods.</p>
 
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-semanticChildAdded: This method lets clients directly hook in their EditPart
-instead of delegating to the EditPartService.&nbsp; The implementation is
-expected to instantiate the ListItemEditPart subclass from step (1.) and insert
-it into the list.<o:p></o:p></p>
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
 
-<p style='margin-bottom:12.0pt'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-getSemanticChildrenList: Same method signature and client contract of the
-CanonicalEditPolicy#getSemanticChildrenList.&nbsp; Returns the list of semantic
-elements that are to be displayed inside the container.<o:p></o:p></p>
+<div style='border:solid windowtext 1.0pt;mso-border-alt:solid windowtext .75pt;
+padding:4.0pt 0in 4.0pt 0in;margin-left:.5in;margin-right:34.0pt'><pre
+style='margin-left:0in;border:none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 0in 4.0pt 0in'><span style='color:navy'><o:p>&nbsp;</o:p></span></pre><pre
+style='margin-left:0in;border:none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 0in 4.0pt 0in'><span style='color:navy'>// This method lets clients directly hook in their EditPart instead of <o:p></o:p></span></pre><pre
+style='margin-left:0in;border:none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 0in 4.0pt 0in'><span style='color:navy'>// delegating to the EditPartService.<span style='mso-spacerun:yes'>  </span>The implementation is expected to <o:p></o:p></span></pre><pre
+style='margin-left:0in;border:none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 0in 4.0pt 0in'><span style='color:navy'>// instantiate the ListItemEditPart subclass from step (1.) and insert it <o:p></o:p></span></pre><pre
+style='margin-left:0in;border:none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 0in 4.0pt 0in'><span style='color:navy'>// into the list.<o:p></o:p></span></pre><pre
+style='margin-left:0in;border:none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 0in 4.0pt 0in'><span style='color:navy'><span
+style='mso-tab-count:1'>  </span> <o:p></o:p></span></pre><pre
+style='margin-left:0in;border:none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 0in 4.0pt 0in'><span style='color:navy'>protected void semanticChildAdded(EObject child,int index) {<o:p></o:p></span></pre><pre
+style='margin-left:0in;border:none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 0in 4.0pt 0in'><span style='color:navy'><span
+style='mso-tab-count:1'>  </span>…<o:p></o:p></span></pre><pre
+style='margin-left:0in;border:none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 0in 4.0pt 0in'><span style='color:navy'>}<o:p></o:p></span></pre><pre
+style='margin-left:0in;border:none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 0in 4.0pt 0in'><span style='color:navy'><o:p>&nbsp;</o:p></span></pre><pre
+style='margin-left:0in;border:none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 0in 4.0pt 0in'><span style='color:navy'>// Returns a list of all semantic children inside this editpart's model<o:p></o:p></span></pre><pre
+style='margin-left:0in;border:none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 0in 4.0pt 0in'><span style='color:navy'>// Same method signature and client contract of the <o:p></o:p></span></pre><pre
+style='margin-left:0in;border:none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 0in 4.0pt 0in'><span style='color:navy'>// CanonicalEditPolicy#getSemanticChildrenList.<span style='mso-spacerun:yes'>  </span><o:p></o:p></span></pre><pre
+style='margin-left:0in;border:none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 0in 4.0pt 0in'><span style='color:navy'>// Returns the list of semantic elements that are to be displayed inside the // container.<o:p></o:p></span></pre><pre
+style='margin-left:0in;border:none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 0in 4.0pt 0in'><span style='color:navy'><o:p>&nbsp;</o:p></span></pre><pre
+style='margin-left:0in;border:none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 0in 4.0pt 0in'><span style='color:navy'>protected List getSemanticChildrenList() {<o:p></o:p></span></pre><pre
+style='margin-left:0in;border:none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 0in 4.0pt 0in'><span style='color:navy'><span
+style='mso-tab-count:1'>  </span>…<o:p></o:p></span></pre><pre
+style='margin-left:0in;border:none;mso-border-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:4.0pt 0in 4.0pt 0in'><span style='color:navy'>}<o:p></o:p></span></pre></div>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
 
 <div class=MsoNormal align=center style='text-align:center'>
 
@@ -575,20 +665,20 @@ elements that are to be displayed inside the container.<o:p></o:p></p>
 <h2><a name=summary><span style='font-size:12.0pt'>Summary</span></a><span
 style='font-size:12.0pt'><o:p></o:p></span></h2>
 
-<p class=backto>[<a href="#top">back to top</a>]<o:p></o:p></p>
+<p class=backto>[<a href="#top">back to top</a>]</p>
 
-<p>In this tutorial, we did the following:<o:p></o:p></p>
+<p>In this tutorial, we did the following:</p>
 
 <ol style='margin-top:0in' start=1 type=1>
- <li class=MsoNormal style='mso-list:l0 level1 lfo3;tab-stops:list .5in'>Created
+ <li class=MsoNormal style='mso-list:l1 level1 lfo3;tab-stops:list .5in'>Created
      a container that has its notation views synchronized with the underlying
-     semantic elements by using the CanonicalEditPolicy hierarchy.<o:p></o:p></li>
- <li class=MsoNormal style='mso-list:l0 level1 lfo3;tab-stops:list .5in'>Learned
+     semantic elements by using the CanonicalEditPolicy hierarchy.</li>
+ <li class=MsoNormal style='mso-list:l1 level1 lfo3;tab-stops:list .5in'>Learned
      how to make the canonical behavior installed by the CanonicalEditPolicy as
-     optional <o:p></o:p></li>
- <li class=MsoNormal style='mso-list:l0 level1 lfo3;tab-stops:list .5in'>Learned
+     optional </li>
+ <li class=MsoNormal style='mso-list:l1 level1 lfo3;tab-stops:list .5in'>Learned
      how to create a container that contains EditParts that point directly to
-     the semantic elements.<o:p></o:p></li>
+     the semantic elements.</li>
 </ol>
 
 <div class=MsoNormal align=center style='text-align:center'>
