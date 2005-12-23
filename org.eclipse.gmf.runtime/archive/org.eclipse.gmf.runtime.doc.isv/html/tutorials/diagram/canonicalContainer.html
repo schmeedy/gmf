@@ -114,6 +114,49 @@ div.Section1
  @list l0
 	{mso-list-id:1570965290;
 	mso-list-template-ids:-145727390;}
+@list l0:level1
+	{mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l0:level2
+	{mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l0:level3
+	{mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l0:level4
+	{mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l0:level5
+	{mso-level-tab-stop:2.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l0:level6
+	{mso-level-tab-stop:3.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l0:level7
+	{mso-level-tab-stop:3.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l0:level8
+	{mso-level-tab-stop:4.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l0:level9
+	{mso-level-tab-stop:4.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l1
+	{mso-list-id:2144076344;
+	mso-list-template-ids:-1062545428;}
+@list l1:level1
+	{mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
 ol
 	{margin-bottom:0in;}
 ul
@@ -143,8 +186,7 @@ ul
 
 <div class=Section1>
 
-<p class=MsoNormal><img width=347 height=134 id="_x0000_i1025"
-src="../logo.gif"></p>
+<p class=MsoNormal><img width=347 height=134 id="_x0000_i1025" src="../logo.gif"></p>
 
 <h1 align=center style='text-align:center'>Tutorial: Canonical Containers</h1>
 
@@ -180,18 +222,18 @@ href="../../../../workspace/org.eclipse.gmf.runtime.doc.isv/html/tutorials/diagr
 
 <p class=MsoNormal style='margin-left:48.0pt;text-indent:-.25in'><span
 style='font-size:10.0pt;font-family:Symbol'>·</span><span style='font-size:
-7.0pt'> </span><a href="#_Installing_canonical_behavior_on a ">Installing
+7.0pt'> </span><a href="#_Installing_canonical_behavior_on_a_">Installing
 canonical behavior on a container</a></p>
 
 <p class=MsoNormal style='margin-left:48.0pt;text-indent:-.25in'><span
 style='font-size:10.0pt;font-family:Symbol'>·</span><span style='font-size:
-7.0pt'> </span><a href="#_Ability_to_toggle_canonical behavio">Ability to
+7.0pt'> </span><a href="#_Ability_to_toggle_canonical_behavio">Ability to
 toggle canonical behavior on or off</a></p>
 
 <p class=MsoNormal style='margin-left:48.0pt;text-indent:-.25in'><span
 style='font-size:10.0pt;font-family:Symbol'>·</span><span style='font-size:
-7.0pt'> </span><a href="#_Creating_an_EditPart_that points di">Creating an EditPart
-that points directly to a semantic element</a> </p>
+7.0pt'> </span><a href="#_Creating_an_EditPart_that_points_di">Creating an
+EditPart that points directly to a semantic element</a> </p>
 
 <p class=MsoNormal style='margin-left:48.0pt;text-indent:-.25in'><span
 style='font-size:10.0pt;font-family:Symbol'>·</span><span style='font-size:
@@ -210,18 +252,20 @@ href="../../../../workspace/org.eclipse.gmf.runtime.doc.isv/html/tutorials/diagr
 
 <p>This tutorial provides the reader with the steps to on how to support
 canonical behavior with-in a container.&nbsp; Canonical is the terminology we
-use to describe a container that keeps its notation views synchronized with the
-semantic children.&nbsp; i.e. 1-1<br>
-relationship between semantic and notation.&nbsp; In GMF there are two model
-layers, one for describing the notation elements on the diagram and another for
-the semantic model that the notation elements will reference.&nbsp; Please see
-the <a
+use to describe a container that keeps its view of the semantic data
+synchronized with the semantic children.<span style='mso-spacerun:yes'> 
+</span>This means there is a complete view of all the semantic data which
+typically means a 1-1 relationship between the views and the underlying
+semantic objects.<span style='mso-spacerun:yes'>  </span>This behavior is
+necessary because in GMF there are two model layers, one for describing the
+notation elements on the diagram and another for the semantic model that the
+notation elements will reference.&nbsp; Please see the <a
 href="../../../../workspace/org.eclipse.gmf.runtime.doc.isv/html/prog-guide/diagram/index.html">Programmers
 guide</a> for more detailed information regarding GMF runtime
-architecture.&nbsp; Due to this two tiered model there is need for management
-between the two layers if the user wants to see a full view of the semantic
-containment without having to manually create notation views for underlying
-semantic elements.</p>
+architecture.&nbsp; Due to this two tiered model architecture there is need for
+management between the two layers if the user wants to see a full view of the
+semantic containment without having to manually create notation views for
+underlying semantic elements.</p>
 
 <p>This behavior is also optionally installable since sometimes it may be
 desirable to see a partial view of the semantic model.&nbsp; If we consider a
@@ -248,11 +292,19 @@ to display a full view.</p>
 
 <p class=backto><span style='font-size:10.0pt'>[<a href="#top">back to top</a>]</span></p>
 
-<p>This tutorial references the following tutorial:<br>
-<br>
+<p style='margin:0in;margin-bottom:.0001pt'>This tutorial references the following:<br>
+<a
+href="../../../../workspace/org.eclipse.gmf.runtime.doc.isv/html/prog-guide/diagram/index.html">Programmers
+Guide</a></p>
+
+<p style='margin:0in;margin-bottom:.0001pt'><a
+href="../../../../workspace/org.eclipse.gmf.runtime.doc.isv/html/examples-guide/diagram/logicExample.htm">Logic
+Example Guide</a><br>
 <a
 href="../../../../workspace/org.eclipse.gmf.runtime.doc.isv/html/tutorials/diagram/containmentOfShapes.html">Containment
-of shapes</a></p>
+of Shapes</a></p>
+
+<p style='margin:0in;margin-bottom:.0001pt'><o:p>&nbsp;</o:p></p>
 
 <div class=MsoNormal align=center style='text-align:center'>
 
@@ -282,40 +334,39 @@ Example Guide</a>. </p>
 <p class=MsoNormal align=center style='text-align:center'>&nbsp;</p>
 
 <h2><a name="_Step1"></a><a name="_Toc104273255"></a><a
-name="_Installing_canonical_behavior_on a "></a>Installing canonical behavior
+name="_Installing_canonical_behavior_on_a_"></a>Installing canonical behavior
 on a container</h2>
 
 <p class=backto><a name="_Toc104273256"><span style='font-size:10.0pt'>[</span></a><a
 href="#top"><span style='font-size:10.0pt'>back to top</span></a><span
 style='font-size:10.0pt'>]</span></p>
 
-<p>The first way of instrumenting the canonical behavior is to install an EditPolicy
-that manages the behavior on the EditPart container.&nbsp; There are two main
-classes in the Canonical hierarchy that can be used as a base class.&nbsp; The
-CanonicalEditPolicy is the root class, but can be subclassed by clients if they
-are not interested in synchronizing relationships.&nbsp; If nodes and edges
-need to be synchronized, then the CanonicalConnectionEditPolicy should be used
-as a base class.</p>
+<p>The first way of instrumenting the canonical behavior is to install an
+EditPolicy that manages the behavior on the EditPart container.&nbsp; There are
+two main classes in the Canonical EditPolicy hierarchy that can be used as a
+base class.&nbsp; The CanonicalEditPolicy is the root class, but can be
+subclassed by clients if they are not interested in synchronizing
+relationships.&nbsp; If nodes and edges need to be synchronized, then the
+CanonicalConnectionEditPolicy should be used as a base class.</p>
 
-<p class=MsoNormal><i>Canonical EditPolicy Usage:</i></p>
+<p class=MsoNormal><i>Canonical EditPolicy usage:</i></p>
 
 <p class=MsoNormal><img border=0 width=459 height=537 id="_x0000_i1030"
-src="canonicalEditPolicy.gif"></p>
+src=canonicalEditPolicy.gif></p>
 
 <p class=MsoNormal>&nbsp;</p>
 
 <p class=MsoNormal>For the purposes of this tutorial we will consider a
 container that needs to synchronize both the semantic elements and
-relationships.&nbsp; In the logic example, the CircuitEditPart needs to keep
-it’s view contents in sync with the semantic logic elements.&nbsp; Since both
-logic elements and wires are displayed we will subclass from the
-CanonicalConnectionEditPolicy to accomplish this.</p>
+relationships.&nbsp; In the logic example, the CircuitEditPart has a shape
+compartment that needs to keep it’s view contents in sync with the semantic
+logic elements.&nbsp; Since both logic elements and wires are displayed we will
+subclass from the CanonicalConnectionEditPolicy to accomplish this.</p>
 
 <p class=MsoNormal>&nbsp;</p>
 
 <p>Example: Circuit Shape displaying containment<br>
-<img border=0 width=237 height=275 id="_x0000_i1031"
-src="circuitContainer.gif"></p>
+<img border=0 width=237 height=275 id="_x0000_i1031" src=circuitContainer.gif></p>
 
 <p class=MsoNormal><b>Step 1:</b> Create new CanonicalConnectionEditPolicy
 subclass.&nbsp; Upon creation of the class you’ll notice that there are 4
@@ -345,15 +396,15 @@ element is attached to.</p>
 
 <p class=MsoNormal>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 getTargetElement: Given a semantic element that is to be represented as a
-notation edge in the container, return the target element that this semantic
-element is attached to.</p>
+notation edge in the container, return the target element that this semantic element
+is attached to.</p>
 
 <p class=MsoNormal>&nbsp;</p>
 
 <p class=MsoNormal>After overriding these 4 methods, the EditPolicy is ready to
 be installed.&nbsp; For more custom behavior, you may wish to override the
-CanonicalEditPolicy#shouldDeleteView method which determines if a particular view
-should be deleted if it has an element that doesn’t meet the canonical
+CanonicalEditPolicy#shouldDeleteView method which determines if a particular
+view should be deleted if it has an element that doesn’t meet the canonical
 criteria.&nbsp; This method is called, when the CanonicalEditPolicy determines
 that the view is an “orphan”, meaning it has no semantic element, it is a
 duplicate of another view, or the reference semantic element is not found in
@@ -366,10 +417,10 @@ model if needed.&nbsp; By default, the edit policy is listening to the semantic
 element who owns the view which has the edit policy installed on it.&nbsp; If
 you container is more complex you may need to add additional listeners to
 ensure that synchronization occurs at the right time.&nbsp; The listeners
-should be added in the EditPolicy#activate method, and removed in the corresponding
-EditPolicy#deactivate method.&nbsp; Refer to the following methods for adding /
-removing listeners: CanonicalEditPolicy#addListenerFilter and
-CanonicalEditPolicy#removeListenerFilter</p>
+should be added in the EditPolicy#activate method, and removed in the
+corresponding EditPolicy#deactivate method.&nbsp; Refer to the following
+methods for adding / removing listeners: CanonicalEditPolicy#addListenerFilter
+and CanonicalEditPolicy#removeListenerFilter</p>
 
 <p class=MsoNormal>&nbsp;</p>
 
@@ -382,17 +433,21 @@ EditPolicyRoles.CANONICAL_ROLE.&nbsp;</p>
 <p class=MsoNormal>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 i.e. </p>
 
-<p class=MsoNormal><span style='font-size:8.0pt;font-family:"Courier New"'>protected
-void createDefaultEditPolicies(){</span></p>
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
 
-<p class=MsoNormal><span style='font-size:8.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<p class=MsoNormal style='margin-left:.5in'><span style='font-size:8.0pt;
+font-family:"Courier New"'>protected void createDefaultEditPolicies(){</span></p>
+
+<p class=MsoNormal style='margin-left:.5in'><span style='font-size:8.0pt;
+font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 super.createDefaultEditPolicies();</span></p>
 
-<p class=MsoNormal><span style='font-size:8.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<b>installEditPolicy(EditPolicyRoles.CANONICAL_ROLE, new
-CircuitCompartmentCanonicalEditPolicy ());</b></span></p>
+<p class=MsoNormal style='margin-left:.5in'><span style='font-size:8.0pt;
+font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>installEditPolicy(EditPolicyRoles.CANONICAL_ROLE,
+new CircuitCompartmentCanonicalEditPolicy ());</b></span></p>
 
-<p class=MsoNormal><span style='font-size:8.0pt;font-family:"Courier New"'>}</span></p>
+<p class=MsoNormal style='margin-left:.5in'><span style='font-size:8.0pt;
+font-family:"Courier New"'>}</span></p>
 
 <p class=MsoNormal><span style='font-size:8.0pt;font-family:"Courier New"'>&nbsp;</span></p>
 
@@ -404,13 +459,13 @@ CircuitCompartmentCanonicalEditPolicy ());</b></span></p>
 
 <p class=MsoNormal align=center style='text-align:center'>&nbsp;</p>
 
-<h2><a name="_Ability_to_toggle_canonical behavio"></a>Ability to toggle
+<h2><a name="_Ability_to_toggle_canonical_behavio"></a>Ability to toggle
 canonical behavior on or off</h2>
 
 <p class=backto><span style='font-size:10.0pt'>[</span><a href="#top"><span
 style='font-size:10.0pt'>back to top</span></a><span style='font-size:10.0pt'>]</span></p>
 
-<p>It could be that the container may wish to optionally support the canonical
+<p>It could be that the container needs to optionally support the canonical
 synchronization.&nbsp; In this case the edit policy described above needs to be
 disabled or deactivated.&nbsp; This capability is built into the
 infrastructure, but requires the client to install a style that is a trigger
@@ -426,26 +481,32 @@ accordingly.</p>
 canonical behavior, you need to override the AbstractViewFactory#createStyles
 method in your View factory class.</p>
 
-<p>i.e.</p>
+<p style='text-indent:.5in'>i.e.</p>
 
-<p><span style='font-size:8.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-protected List createStyles(View view) {</span></p>
+<p style='margin:0in;margin-bottom:.0001pt'><span style='font-size:8.0pt;
+font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; protected List
+createStyles(View view) {</span></p>
 
-<p><span style='font-size:8.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<p style='margin:0in;margin-bottom:.0001pt'><span style='font-size:8.0pt;
+font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 List styles = super.createStyles(view);</span></p>
 
-<p><span style='font-size:8.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<p style='margin:0in;margin-bottom:.0001pt'><span style='font-size:8.0pt;
+font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 styles.add(NotationFactory.eINSTANCE.createCanonicalStyle());</span></p>
 
-<p><span style='font-size:8.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<p style='margin:0in;margin-bottom:.0001pt'><span style='font-size:8.0pt;
+font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 return styles;</span></p>
 
-<p><span style='font-size:8.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-}</span></p>
+<p style='margin:0in;margin-bottom:.0001pt'><span style='font-size:8.0pt;
+font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<o:p></o:p></span></p>
 
-<p class=MsoNormal>After the style is installed, it is exposed in the UI through
-the advanced tab where the user can toggle the capability on or off and the
-CanonicalEditPolicy that is installed on the shape responds accordingly.</p>
+<p style='margin:0in;margin-bottom:.0001pt'><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>After the style is installed, it is exposed in the UI
+through the advanced tab where the user can toggle the capability on or off and
+the CanonicalEditPolicy that is installed on the shape responds accordingly.</p>
 
 <p class=MsoNormal>&nbsp;</p>
 
@@ -456,52 +517,54 @@ name="_Toc104273261"></a>
 
 </div>
 
-<h2><a name="_Creating_an_EditPart_that points di"></a>Creating an EditPart
+<h2><a name="_Creating_an_EditPart_that_points_di"></a>Creating an EditPart
 that points directly to a semantic element</h2>
 
 <p class=backto><span style='font-size:10.0pt'>[<a href="#top">back to top</a>]</span></p>
 
-<p><span style='font-size:11.0pt;font-family:Arial'>Another way to instrument
-the canonical behavior is less flexible but performs better in terms of memory
-usage and synchronization time.&nbsp; This method in effect bypasses the
-synchronization between semantic and notation because there are no notation
-elements created to display the semantic elements.&nbsp; The EditParts in the
-container point directly to the underlying semantic elements.&nbsp; This
-technique is useful if the elements being displayed in the container aren’t
-user configurable in terms of display.&nbsp; Or perhaps they inherit their
-display capabilities from the parent.&nbsp; </span></p>
+<p>Another way to instrument the canonical behavior is less flexible but
+performs better in terms of memory usage and synchronization time.&nbsp; This
+method in effect bypasses the synchronization between semantic and notation
+because there are no notation elements created to display the semantic
+elements.&nbsp; The EditParts in the container point directly to the underlying
+semantic elements.&nbsp; This technique is useful if the elements being
+displayed in the container aren’t user configurable in terms of display.&nbsp;
+Or perhaps they inherit their display capabilities from the parent.&nbsp; <o:p></o:p></p>
 
-<p><span style='font-size:11.0pt;font-family:Arial'>An ideal usage of this
-technique is for list compartments that display a list of elements.&nbsp; The
-list of elements most often have a derived position in the container and are
-displayed is a consistent manner (i.e. no list item looks different then any
-other list item except for its contents).&nbsp; This is where the
-SemanticListCompartment is best utilized.<i><br clear=all style='page-break-before:
-always'>
-Semantic List Compartment usage:</i></span></p>
+<p>An ideal usage of this technique is for list compartments that display a
+list of elements.&nbsp; The list of elements most often have a derived position
+in the container and are displayed is a consistent manner (i.e. no list item
+looks different then any other list item except for its contents).&nbsp; This
+is where the SemanticListCompartment is best utilized.</p>
+
+<i><span style='font-size:11.0pt;font-family:Arial;mso-fareast-font-family:
+"Times New Roman";mso-ansi-language:EN-US;mso-fareast-language:EN-US;
+mso-bidi-language:AR-SA'><br clear=all style='page-break-before:always'>
+</span></i>
+
+<p><i><span style='font-size:11.0pt'>Semantic List Compartment usage:</span></i><o:p></o:p></p>
 
 <p><i><span style='font-size:11.0pt;font-family:Arial'><img border=0 width=575
-height=206 id="_x0000_i1034" src="semanticListCompartment.gif"></span></i></p>
+height=206 id="_x0000_i1034" src=semanticListCompartment.gif></span></i></p>
 
-<p><span style='font-size:11.0pt;font-family:Arial'>Step 1: Create a new
+<p><b style='mso-bidi-font-weight:normal'>Step 1:</b> Create a new
 ListItemEditPart subclass that overrides the GraphicalEditPart#hasNotationView
 method to return false.&nbsp; This new EditPart subclass will point to the
-semantic element directly instead of pointing to a notation view.</span></p>
+semantic element directly instead of pointing to a notation view.<o:p></o:p></p>
 
-<p><span style='font-size:11.0pt;font-family:Arial'>Step 2: Create a new
-subclass from SemanticListCompartmentEditPart </span>and implement the abstract
-methods.</p>
+<p><b style='mso-bidi-font-weight:normal'>Step 2:</b> Create a new subclass
+from SemanticListCompartmentEditPart and implement the abstract methods.<o:p></o:p></p>
 
 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 semanticChildAdded: This method lets clients directly hook in their EditPart
 instead of delegating to the EditPartService.&nbsp; The implementation is
 expected to instantiate the ListItemEditPart subclass from step (1.) and insert
-it into the list.</p>
+it into the list.<o:p></o:p></p>
 
 <p style='margin-bottom:12.0pt'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 getSemanticChildrenList: Same method signature and client contract of the
 CanonicalEditPolicy#getSemanticChildrenList.&nbsp; Returns the list of semantic
-elements that are to be displayed inside the container.</p>
+elements that are to be displayed inside the container.<o:p></o:p></p>
 
 <div class=MsoNormal align=center style='text-align:center'>
 
@@ -509,22 +572,23 @@ elements that are to be displayed inside the container.</p>
 
 </div>
 
-<h2><a name=summary>Summary</a></h2>
+<h2><a name=summary><span style='font-size:12.0pt'>Summary</span></a><span
+style='font-size:12.0pt'><o:p></o:p></span></h2>
 
-<p class=backto><span style='font-size:10.0pt'>[<a href="#top">back to top</a>]</span></p>
+<p class=backto>[<a href="#top">back to top</a>]<o:p></o:p></p>
 
-<p>In this tutorial, we did the following:</p>
+<p>In this tutorial, we did the following:<o:p></o:p></p>
 
 <ol style='margin-top:0in' start=1 type=1>
- <li class=MsoNormal style='mso-list:l0 level1 lfo1;tab-stops:list .5in'>Created
+ <li class=MsoNormal style='mso-list:l0 level1 lfo3;tab-stops:list .5in'>Created
      a container that has its notation views synchronized with the underlying
-     semantic elements by using the CanonicalEditPolicy hierarchy.</li>
- <li class=MsoNormal style='mso-list:l0 level1 lfo1;tab-stops:list .5in'>Learned
+     semantic elements by using the CanonicalEditPolicy hierarchy.<o:p></o:p></li>
+ <li class=MsoNormal style='mso-list:l0 level1 lfo3;tab-stops:list .5in'>Learned
      how to make the canonical behavior installed by the CanonicalEditPolicy as
-     optional </li>
- <li class=MsoNormal style='mso-list:l0 level1 lfo1;tab-stops:list .5in'>Learned
+     optional <o:p></o:p></li>
+ <li class=MsoNormal style='mso-list:l0 level1 lfo3;tab-stops:list .5in'>Learned
      how to create a container that contains EditParts that point directly to
-     the semantic elements.</li>
+     the semantic elements.<o:p></o:p></li>
 </ol>
 
 <div class=MsoNormal align=center style='text-align:center'>
