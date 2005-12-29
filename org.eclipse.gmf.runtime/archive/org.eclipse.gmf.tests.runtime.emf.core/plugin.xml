@@ -49,20 +49,6 @@
    </extension>
    
    <extension
-         point="org.eclipse.gmf.runtime.emf.core.resourcePolicies">
-      <!-- This is not a mistake.  We need to register two policies for our test. -->
-      <policy
-            class="org.eclipse.gmf.tests.runtime.emf.core.internal.resources.LogicalResourcePolicyManagerTest$TestPolicy">
-         <epackage
-               nsURI="http:///com/ibm/xtools/emf/msl/core/tests/logrestest.ecore"/>
-      </policy>
-      <policy
-            class="org.eclipse.gmf.tests.runtime.emf.core.internal.resources.LogicalResourcePolicyManagerTest$TestPolicy">
-         <epackage
-               nsURI="http:///com/ibm/xtools/emf/msl/core/tests/logrestest.ecore"/>
-      </policy>
-   </extension>
-   <extension
          point="org.eclipse.emf.ecore.extension_parser">
       <parser
             class="org.eclipse.gmf.tests.runtime.emf.core.internal.listener.MListenerTest$BrokenResourceFactory"

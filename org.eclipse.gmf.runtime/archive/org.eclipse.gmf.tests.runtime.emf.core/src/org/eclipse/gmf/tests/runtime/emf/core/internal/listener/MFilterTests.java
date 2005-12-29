@@ -86,7 +86,7 @@ public class MFilterTests
 		};
 		
 		/* Set the filter */
-		regularListener.setFilter(new MFilter.ResourceContentType(Collections.singleton(EXTLIBRARY_CONTENTTYPE))); //$NON-NLS-1$
+		regularListener.setFilter(new MFilter.ResourceContentType(Collections.singleton(EXTLIBRARY_CONTENTTYPE)));
 
 		/* Load the resource */
 		domain.loadResource(testResource);

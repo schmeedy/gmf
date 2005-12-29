@@ -510,10 +510,10 @@ public class RegressionTestCase extends BaseCoreTests {
 							cls.setName("NewName"); //$NON-NLS-1$
 
 							// so should this one
-							cls.setName(null); //$NON-NLS-1$
+							cls.setName(null);
 
 							// this should *not* go into the undo interval
-							cls.setName(null); //$NON-NLS-1$
+							cls.setName(null);
 							return null;
 						}
 					});
@@ -553,12 +553,12 @@ public class RegressionTestCase extends BaseCoreTests {
 					// this command changes the eclass name
 					commandCount++;
 
-					if (cmd.getValue() == null) { //$NON-NLS-1$
+					if (cmd.getValue() == null) {
 						if ("NewName".equals(cmd.getOldValue())) { //$NON-NLS-1$
 							// this is the "good" command, which changed the
 							// name
 							setCommand = cmd;
-						} else if (cmd.getOldValue() == null) { //$NON-NLS-1$
+						} else if (cmd.getOldValue() == null) {
 							// this is the "bad" command, which does not change
 							// the name
 							badCommand = cmd;
