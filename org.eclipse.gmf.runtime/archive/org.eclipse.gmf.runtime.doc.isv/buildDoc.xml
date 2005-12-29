@@ -55,7 +55,6 @@
 
 			<include name="org.eclipse.gmf.runtime.emf.core/doc/org_eclipse_gmf_runtime_emf_core_MetaModelProviders.html"/>
 			<include name="org.eclipse.gmf.runtime.emf.core/doc/org_eclipse_gmf_runtime_emf_core_Pathmaps.html"/>
-			<include name="org.eclipse.gmf.runtime.emf.core/doc/org_eclipse_gmf_runtime_emf_core_resourcePolicies.html"/>
 			
 			<include name="org.eclipse.gmf.runtime.emf.ui/doc/org_eclipse_gmf_runtime_emf_ui_modelingAssistantProviders.html"/>
 			

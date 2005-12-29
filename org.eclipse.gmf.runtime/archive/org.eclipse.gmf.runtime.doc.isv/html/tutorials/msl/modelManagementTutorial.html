@@ -15,8 +15,9 @@
 
 <table border="0" cellspacing="8" cellpadding="0">
  <tr>
-  <td>Version: 0.1</td>
-  <td>Date: June 08, 2005</td>
+  <td>Version: 0.2</td>
+  <td>Date: Dec. 28, 2005</td>
+  <!-- Removed references to the Logical Resource API -->
  </tr>
 </table>
 
@@ -28,7 +29,6 @@
   <li><a href="#intro">Introduction</a></li>
   <li><a href="#editing_domain">Creating and Using an MSL Editing Domain</a></li>
   <li><a href="#making_changes">Making Changes to Resources</a></li>
-  <li><a href="#logical">Working with Logical Resources</a></li>
   <li><a href="#listeners">MSL Listeners</a></li>
   <li><a href="#validation">Model Validation</a></li>
   <li><a href="#copy_paste">MSL Copy and Paste Support</a></li>
@@ -44,7 +44,7 @@
 <p class="backto"><font size="-1">[<a href="#top">back to top</a>]</font></p>
 
 <p>
-The Model Service Layer(MSL) provides a number of facilities to ease model management:
+The Model Service Layer (MSL) provides a number of facilities to ease model management:
 model modification semantics, uniform resource creation and loading, uniform listener
 registration, batching of notifications, live validation with automatic modification
 abandonment, copy/paste support, automated pathmap support and additional metamodel support.
@@ -202,190 +202,6 @@ changes back to the file:
 <pre class="snippet">
 editingDomain.saveResource(r1);
 </pre>
-
-<h2><a name="logical"></a>Working with Logical Resources</h2>
-
-<p class="backto"><font size="-1">[<a href="#top">back to top</a>]</font></p>
-
-<p>
-The MSL's default resource implementation conforms to the
-<a href="../../reference/api/common/org/eclipse/gmf/runtime/emf/core/resources/ILogicalResource.html"><code>ILogicalResource</code></a>
-interface.  This resource creates an in-memory logical view of an EMF tree
-(or forest) structure that is persisted in multiple physical resources, all of
-which are XMI-compliant.  The central concept in the logical-to-physical mapping
-of an MSL resource is the "separate" element.  A separate elements is persisted
-in a different, or separate, physical resource than its container.
-</p><p>
-To obtain a logical resource, use the editing domain to create a resource as
-described <a href="#create_resource">above</a> and then get a view of it as
-an <code>ILogicalResource</code>.
-To store a model element in its own physical resource, just ask the logical
-resource to separate it into a new resource on a URI of your choosing.  Don't
-forget to ask first whether it <i>can</i> be separated (the metamodel may
-implement rules restricting what can be separated; see below):
-</p>
-<pre class="snippet">
-Resource r1 = 
-	editingDomain.createResource("file://c:/eclipse/workspace/aProject/test.rmplibrary", 
-					RMPLibraryPackage.eINSTANCE.getLibrary());
-ILogicalResource logical = editingDomain.asLogicalResource(r1);
-
-// ... fill the resource with contents
-
-EObject element = // ... find an element to be separated
-
-if (logical.canSeparate(element)) {
-    try {
-        logical.separate(
-            element,
-            URI.createURI("file://c:/eclipse/workspace/aProject/test.sub1.rmplibrary"));
-    } catch (CannotSeparateException e) {
-        System.out.println("Could not separate the element: " + element);
-        e.printStackTrace();
-    }
-}
-
-editingDomain.saveResource(logical);  // or logical.save(Collections.EMPTY_MAP);
-</pre>
-<p>
-We now have one logical resource stored in two files.
-</p><p>
-Note the use of the <code>ILogicalResource MEditingDomain.asLogicalResource(Resource)</code>
-method to obtain a view of an arbitrary resource as a logical resource.  This is
-necessary because the editing domain might actually instantiate any resource
-implementation, not necessarily a logical resource, depending on the registered
-resource factories.  If the resource is not actually a logical resource, then
-this method creates a wrapper that provides compatibility with the logical
-resource API.
-</p><p>
-In the snippet above, we catch <code>CannotSeparateException</code> despite
-being informed that the separation would be permitted because there may be
-unexpected conditions that prevent the separation from succeeding (such as
-incorrect file permissions).  No attempt is made to actually persist the new
-physical resource until the logical resource is saved, but a metamodel extension
-might be proactive in checking even at this point whether certain I/O limitations
-would be exceeded.
-</p><p>
-To do the inverse of a separation operation, we can <i>absorb</i> an element
-from a separate resource into the same resource as its container:
-</p>
-
-<pre class="snippet">
-if (logical.isSeparate(element)) {
-    try {
-        logical.absorb(element);
-    } catch (CannotAbsorbException e) {
-        System.out.println("Could not absorb the element: " + element);
-        e.printStackTrace();
-    }
-}
-
-editingDomain.saveResource(logical);
-</pre>
-<p>
-Now, our logical resource is again stored in a single file.  Note that the
-<tt>test.sub1.rmplibrary</tt> file is not deleted, though it will be empty.
-This simplifies comparing and merging changes with a source control repository.
-Note also that, like separation, absorption can fail unexpectedly.
-</p><p>
-How does the MSL framework determine whether an element can be separated?  By
-default, any element of any EMF metamodel can be separated, unless it is a
-root of the logical resource or has already been separated.  However, a metamodel
-provider or an application may for some reason want to restrict the elements
-that may be separated.  This is accomplished by registering a policy on the
-<a href="../../reference/extension-points/org_eclipse_gmf_runtime_emf_core_resourcePolicies.html"><code>org.eclipse.gmf.runtime.emf.core.resourcePolicies</code></a>
-extension point:
-</p>
-<pre class="snippet">
-&lt;extension
-      point="org.eclipse.gmf.runtime.emf.core.resourcePolicies"&gt;
-   &lt;policy
-         class="org.eclipse.gmf.examples.runtime.emf.resources.LibraryResourcePolicy"
-         nsURI="http:///com/ibm/xtools/emf/metamodel/example/pde/rmplibrary.ecore/1.0.0"/&gt;
-&lt;/extension&gt;
-</pre>
-<p>
-The policy implements the
-<a href="../../reference/api/common/org/eclipse/gmf/runtime/emf/core/resources/ILogicalResourcePolicy.html"><code>ILogicalResourcePolicy</code></a>
-interface, usually by extending the <code>AbstractLogicalResourcePolicy</code>
-class.  Our example allows only libraries to be separated:
-</p>
-<pre class="snippet">
-public class LibraryResourcePolicy
-    extends AbstractLogicalResourcePolicy {
-
-    public boolean canSeparate(ILogicalResource resource, EObject eObject) {
-        return eObject instanceof Library;
-    }
-}
-</pre>
-<p>
-Policies can also suggest default URIs for new physical resources according to
-some application-specific naming system, implement extra checks when clients
-perform separations or absorptions, etc.
-</p><p>
-By default, logical resources initially load only the root resource (corresponding
-to the logical URI) and automatically load other resources as they are needed
-by access of containment references or proxy resolution.  The <code>ILogicalResource</code>
-interface defines load options to disable incremental loading or to initially
-load the entire logical resource contents.  Automatic incremental loading of
-separate objects from containment references requires a custom <code>EList</code>
-that loads the necessary resources on demand.  Two convenient implementations
-are provided by the MSL for metamodels to use in place of the
-<code>EObjectContainmentEList</code> and <code>EObjectContainmentWithInverseEList</code>
-classes.  However, it may be necessary for a metamodel to be deployable without
-the MSL, in a "pure EMF" configuration.  To address this need, the
-<code>resourcePolicies</code> extension point allows the registration of
-an <code>EFactory</code> that creates alternative <code>*Impl</code> classes
-that use these special lists, to be deployed only in MSL configurations:
-</p>
-<pre class="snippet">
-&lt;extension
-      point="org.eclipse.gmf.runtime.emf.core.resourcePolicies"&gt;
-   &lt;efactory
-          class="org.eclipse.gmf.examples.runtime.emf.resources.LoadingRMPLibraryFactoryImpl"
-          nsURI="http:///com/ibm/xtools/emf/metamodel/example/pde/rmplibrary.ecore/1.0.0"/&gt;
-&lt;/extension&gt;
-</pre>
-<p>
-The MSL framework will use this factory instead of the default when loading
-a logical resource; it does not need to be used by clients to create new objects.
-In our example, only libraries can be separated and only libraries can contain
-other libraries, so our factory simply creates a specialization of the default
-<code>LibraryImpl</code> class:
-</p>
-<pre class="snippet">
-public class LoadingRMPLibraryFactoryImpl
-    extends RMPLibraryFactoryImpl {
-
-    public Library createLibrary() {
-        return new LoadingLibraryImpl();
-    }
-	
-    public EPackage getEPackage() {
-        return RMPLibraryPackage.eINSTANCE;
-    }
-}
-
-class LoadingLibraryImpl
-    extends LibraryImpl {
-
-    public LoadingLibraryImpl() {
-        super();
-
-        // use the custom containment-with-inverse list to perform automatic
-        //   loading of contained elements in this feature.  This pre-empts
-        //   the superclass's lazy initialization of this list
-        branches = new EObjectContainmentWithInverseLoadingEList(
-            Library.class, this, RMPLibraryPackage.LIBRARY__BRANCHES,
-            RMPLibraryPackage.LIBRARY__PARENT_BRANCH);
-    }
-}
-</pre>
-<p>
-Note how we only concern ourselves here with overriding the implementation of
-those features that will be able to contain separate elements.
-</p>
 
 <h2><a name="listeners"></a>MSL Listeners</h2>
 
@@ -755,8 +571,6 @@ In this tutorial, we did the following:
 <li>Registered the MSL resource factory for the .rmplibrary file extension</li>
 <li>Made changes to MSL resources using an undo interval and a write action</li>
 <li>Undid and redid the changes made during an undo interval</li>
-<li>Created logical resources consisting of multiple files</li>
-<li>Customized the management of logical resources for library models</li>
 <li>Registerd an MSL listener that informed us whenever a resource was dirtied</li>
 <li>Learned how live validation can be used to enforce resource integrity during write actions</li>
 <li>Learned how to perform batch validation when using MSL</li>

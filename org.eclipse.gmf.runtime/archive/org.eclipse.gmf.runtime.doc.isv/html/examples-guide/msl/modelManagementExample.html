@@ -11,8 +11,8 @@
 <h3>Introduction</h3>
 <p>
 This example describes the usage of model management framework within the SDK.
-It demonstrates some of the model management capabilities (editing domain, validation
-batch notification, semantic procedures etc.) applied to library models.
+It demonstrates some of the model management capabilities (editing domain, validation,
+batched notification, semantic procedures etc.) applied to library models.
 </p>
 
 <h3>References</h3>
@@ -35,11 +35,6 @@ of the model management framework.
 This plug-in contributes the <b>MSL</b> menu to the MSL library editor's main menu and context menu.
 The menu has the following actions:
 <ol>
-<li><b>Control Unit:</b> Creates a new separate resource (controlled unit) in a
-    logical resource.  The new resource's URI is determined automatically
-    by an extension point</li>
-<li><b>Uncontrol Unit:</b> Absorbs a separate resource in a logical resource
-    into its container</li>
 <li><b>Edit:</b> Allows to edit the properties of a library model element. The changes made will be
 committed as a whole or can be undone as a whole (demonstrates the concept of an <code>MUndoInterval</code>)</li>
 <li><b>Create Resource:</b> Creates a library resource</li>
@@ -70,7 +65,6 @@ Refer to this example if you need:
 <li>Unified Transaction Semantics</li>
 <li>Undo/Redo management</li>
 <li>Multi-threaded access control</li>
-<li>Management of logical resources persisted in multiple physical resources</li>
 <li>Batch notification of events</li>
 <li>Evaluation of live constraints</li>
 <li>Common read and write operations</li>

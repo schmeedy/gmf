@@ -276,7 +276,6 @@ The model management framework provides support for the following capabilities:
 <li>Unified Transaction Semantics</li>
 <li>Undo/Redo management</li>
 <li>Multi-threaded access control</li>
-<li>Logical or composite resources</li>
 <li>Batch notification of events</li>
 <li>Evaluation of live constraints</li>
 <li>Common read and write operations</li>
@@ -305,13 +304,6 @@ collection of <code>MUndoInterval</code> instances. The class <code>AbstractMode
 of all concrete commands that perform model operations. Clients must provide a definition of the <code>doExecute()</code>
 method to perform some operation. All model commands have an associated undo interval, through which they can be undone
 or redone.</li>
-<li><b>Logical resource support</b>: The extension point <a href="../../reference/extension-points/org_eclipse_gmf_runtime_emf_core_resourcePolicies.html">org.eclipse.gmf.runtime.emf.core.resourcePolicies</a> is defined for
-EMF meta-model providers to provide policies that customize the resource structure for their models.  The <code>ILogicalResource</code>
-interface provides a logical view in memory of a tree structure that is persisted in multiple physical resources.
-Metamodel-specific customizations are provided as <code>ILogicalResourcePolicy</code> implementations that define
-the locations in a logical structure where boundaries in the physical structure are permitted and provide automatic
-naming of physical resources.  <code>EFactory</code> implementations registered on this extension point provide support
-for incremental loading of logical resources.</li>
 <li><b>Path map support</b>: The extension point <a href="../../reference/extension-points/org_eclipse_gmf_runtime_emf_core_Pathmaps.html">org.eclipse.gmf.runtime.emf.core.Pathmaps</a> is defined for path map
 variables. Path map variables allow for portability of URIs, similar to Eclipse's core path variables. The actual location
 indicated by a URI depends on the run-time binding of the path variable. Thus, different environments can work with the
@@ -338,8 +330,7 @@ Some of the custom event types supported are
 <ul>
   <li><code>EventTypes.CREATE</code>, <code>EventTypes.DESTROY</code></li>
   <li><code>EventTypes.IMPORT</code>, <code>EventTypes.EXPORT</code></li>
-  <li><code>EventTypes.UNRESOLVE</code></li>
-  <li><code>EventTypes.SEPARATE</code>, <code>EventTypes.ABSORB</code>, <code>EventTypes.LOAD</code></li></ul></li>
+  <li><code>EventTypes.UNRESOLVE</code></li></ul></li>
 <li><b>Meta-model Support</b>: The extension point <a href="../../reference/extension-points/org_eclipse_gmf_runtime_emf_core_MetaModelProviders.html">org.eclipse.gmf.runtime.emf.core. MetaModelProviders</a> allows 
 clients to provide meta-model support services. Providers implement the interface <code>IMetamodelSupportProvider</code>.
 The implementation of the interface method <code>getMetamodelSupport</code> returns the <code>IMetamodelSupport</code> object.

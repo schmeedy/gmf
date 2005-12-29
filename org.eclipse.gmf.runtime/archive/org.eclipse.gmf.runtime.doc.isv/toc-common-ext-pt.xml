@@ -26,7 +26,6 @@
 		<topic label="org.eclipse.gmf.runtime.common.ui.services.properties.propertyModifiers" href="reference/extension-points/org_eclipse_gmf_runtime_common_ui_services_properties_propertyModifiers.html" />
 		<topic label="org.eclipse.gmf.runtime.emf.core.MetaModelProviders" href="reference/extension-points/org_eclipse_gmf_runtime_emf_core_MetaModelProviders.html" />
 		<topic label="org.eclipse.gmf.runtime.emf.core.Pathmaps" href="reference/extension-points/org_eclipse_gmf_runtime_emf_core_Pathmaps.html" />
-		<topic label="org.eclipse.gmf.runtime.emf.core.resourcePolicies" href="reference/extension-points/org_eclipse_gmf_runtime_emf_core_resourcePolicies.html" />
 		<topic label="org.eclipse.gmf.runtime.emf.ui.modelingAssistantProviders" href="reference/extension-points/org_eclipse_gmf_runtime_emf_ui_modelingAssistantProviders.html" />
 		<topic label="org.eclipse.gmf.runtime.emf.clipboard.core.clipboardSupport" href="reference/extension-points/org_eclipse_gmf_runtime_emf_clipboard_core_clipboardSupport.html" />
 		<topic label="org.eclipse.gmf.runtime.emf.type.core.elementTypes" href="reference/extension-points/org_eclipse_gmf_runtime_emf_type_elementTypes.html" />
