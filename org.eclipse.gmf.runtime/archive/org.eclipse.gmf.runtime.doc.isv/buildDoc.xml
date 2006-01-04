@@ -246,7 +246,6 @@
 		<javadoc-subsystem subsystem="common" tocTitle="Common Frameworks Layer">
 			<package-sets>
 		    	<packageset dir="../org.eclipse.gmf.runtime.common.core/src"/>
-		    	<packageset dir="../org.eclipse.gmf.runtime.common.core.provider/src"/>
 		    	<packageset dir="../org.eclipse.gmf.runtime.common.ui/src"/>
 		    	<packageset dir="../org.eclipse.gmf.runtime.common.ui.action/src"/>
 		    	<packageset dir="../org.eclipse.gmf.runtime.common.ui.action.ide/src"/>
