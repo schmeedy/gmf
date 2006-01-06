@@ -22,4 +22,4 @@ Require-Bundle: org.junit,
  org.eclipse.emf.ecore.xmi,
  org.eclipse.gmf.runtime.common.core,
  org.eclipse.emf.examples.library
-Eclipse-AutoStart: false
+Eclipse-LazyStart: false
