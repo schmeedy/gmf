@@ -235,10 +235,10 @@ src="../logo.gif"></p>
  style='mso-cellspacing:6.0pt;margin-left:24.0pt'>
  <tr style='mso-yfti-irow:0;mso-yfti-lastrow:yes'>
   <td style='padding:.75pt .75pt .75pt .75pt'>
-  <p class=MsoNormal>Version: 0.1</p>
+  <p class=MsoNormal>Version: 1.0</p>
   </td>
   <td style='padding:.75pt .75pt .75pt .75pt'>
-  <p class=MsoNormal>Date: December 16, 2005</p>
+  <p class=MsoNormal>Date: January 11, 2006</p>
   </td>
  </tr>
 </table>
@@ -340,14 +340,21 @@ documentation.<BR>
 <UL>
 	<LI><A href="createShape.html">Creating a Shape</A></LI>
 	<LI><A href="createConnection.html">Creating a Connection</A></LI>
+	
 </UL>
+<BR>This tutorial uses the Geoshapes Example
 
 
-<BR>
+whose guide is available here:  <A
+	href="../../examples-guide/diagram/logicExample.html"> Geometric Shapes
+Example Guide</A>.<BR>
 <h2><a name="_Introduction"></a>Introduction</h2>
 
 <p class=backto><span style='font-size:10.0pt'>[<a href="#top"><span
-class=GramE>back</span> to top</a>]</span></p>This tutorial will discuss two connection assistant mechanisms:
+class=GramE>back</span> to top</a>]</span></p>
+The connection assistant mechanisms to be described make it easier for a user to create connections than the traditional palette approach. These gestures require less mouse movement and mouse clicks from the user. They can also provide contextual specific suggestions as to what type of connection the user may wish to create.<BR>
+<BR>
+This tutorial will discuss two connection assistant mechanisms:
 <OL>
 	<LI>Connection Handles
 	</LI>
@@ -427,13 +434,35 @@ padding:0in;mso-padding-alt:4.0pt 4.0pt 4.0pt 4.0pt"><SPAN
       &lt;/context&gt;
    &lt;/modelingAssistantProvider&gt;
 &lt;/extension&gt;</SPAN></SPAN></PRE></DIV>
-
-
+<BR>Here is a brief description of the attributes in the modelingAssistantProvider extension point:<TABLE border="1">
+	<TBODY>
+		<TR>
+			<TD>class</TD>
+			<TD>The modeling assistant provider class that has been created.</TD>
+		</TR>
+		<TR>
+			<TD>priority</TD>
+			<TD>The priority of this modeling assistant provider. The Modeling Assistant Service collects a list of types from all providers in order of highest priority  to lowest priority.</TD>
+		</TR>
+		<TR>
+			<TD>object definition</TD>
+			<TD>Defines an object that will be used to describe the shapes that this provider is interested in providing for. In this example, we are defining a geoshape.</TD>
+		</TR>
+		<TR>
+			<TD>context</TD>
+			<TD>Lists the elements defined above by their id to indicate that this provider wishes to provide for these types.</TD>
+		</TR>
+	</TBODY>
+</TABLE>
 <BR>
-The context is used to defer loading of the provider class until applicable. It lists the shapes, in this case all geoshapes, for which to support a connection creation assistant gesture.<BR><H2><a name="_ConnectionHandles"></a>Adding Support for Connection Creation with Connection Handles</H2>
+For more information, see the extension point documentation:
+
+<A
+	href="../../reference/extension-points/org_eclipse_gmf_runtime_emf_ui_modelingAssistantProviders.html">org.eclipse.gmf.runtime.emf.ui.modelingAssistantProviders</A>
+<H2><a name="_ConnectionHandles"></a>Adding Support for Connection Creation with Connection Handles</H2>
 <P class="backto"><SPAN style="font-size:10.0pt">[<A href="#top"><SPAN
 	class="GramE">back</SPAN> to top</A>]</SPAN><BR>
-<BR>The <FONT color="navy">getRelTypesOnSourceAndTarget()</FONT> method determines which connection types can be create between a given source and target when using the connection handles.<BR>
+<BR>The <FONT color="navy">getRelTypesOnSourceAndTarget()</FONT> method determines which connection types can be created between a given source and target when using the connection handles.<BR>
 <BR>
 <IMG border="0" src="connectionHandles2.jpg" width="444" height="111"> <BR>The <FONT color="navy">getRelTypesOnSource()</FONT> method determines which connection types can be created between a given source and an unspecified target shape using the outgoing connection handle. <BR>
 <BR>
