@@ -6,4 +6,4 @@ Bundle-Version: 1.0.0
 Bundle-Vendor: %Plugin.providerName
 Bundle-Localization: plugin
 Require-Bundle: org.eclipse.help
-Eclipse-AutoStart: false
+Eclipse-LazyStart: true
