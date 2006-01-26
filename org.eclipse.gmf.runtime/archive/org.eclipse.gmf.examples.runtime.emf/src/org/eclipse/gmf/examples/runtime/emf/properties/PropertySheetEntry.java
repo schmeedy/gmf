@@ -11,7 +11,7 @@
 
 package org.eclipse.gmf.examples.runtime.emf.properties;
 
-import java.text.Collator;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -33,6 +33,8 @@ import org.eclipse.ui.views.properties.IPropertySheetEntry;
 import org.eclipse.ui.views.properties.IPropertySheetEntryListener;
 import org.eclipse.ui.views.properties.IPropertySource;
 import org.eclipse.ui.views.properties.IPropertySourceProvider;
+
+import com.ibm.icu.text.Collator;
 
 /**
  * <code>PropertySheetEntry</code> is an implementation of
