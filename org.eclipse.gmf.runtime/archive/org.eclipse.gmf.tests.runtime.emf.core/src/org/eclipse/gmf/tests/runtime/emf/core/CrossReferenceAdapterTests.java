@@ -673,7 +673,7 @@ public class CrossReferenceAdapterTests extends BaseCoreTests {
 			}});
 
 		MSLCrossReferenceAdapter crossReferenceAdapter =
-			MSLCrossReferenceAdapter.getCrossReferenceAdapter(boss);
+			MSLCrossReferenceAdapter.getMSLCrossReferenceAdapter(boss);
 		
 		// tests valid type
 		Collection xrefs = crossReferenceAdapter.getInverseReferencers(boss,
