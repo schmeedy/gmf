@@ -15,7 +15,7 @@ Export-Package: org.eclipse.gmf.examples.runtime.emf,
  org.eclipse.gmf.examples.runtime.emf.listener,
  org.eclipse.gmf.examples.runtime.emf.metamodel,
  org.eclipse.gmf.examples.runtime.emf.properties
-Require-Bundle: org.eclipse.gmf.runtime.emf.core,
+Require-Bundle: org.eclipse.gmf.runtime.emf.core.compatibility,
  org.eclipse.jface,
  org.eclipse.ui,
  org.eclipse.emf.examples.library,

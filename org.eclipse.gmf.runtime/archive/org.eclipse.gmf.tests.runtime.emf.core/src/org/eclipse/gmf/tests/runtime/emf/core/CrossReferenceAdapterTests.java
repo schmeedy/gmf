@@ -33,6 +33,7 @@ import org.eclipse.gmf.runtime.emf.core.edit.MRunnable;
 import org.eclipse.gmf.runtime.emf.core.edit.MUndoInterval;
 import org.eclipse.gmf.runtime.emf.core.exceptions.MSLActionAbandonedException;
 import org.eclipse.gmf.runtime.emf.core.internal.domain.MSLEditingDomain;
+import org.eclipse.gmf.runtime.emf.core.internal.index.CrossReferenceAdapter;
 import org.eclipse.gmf.runtime.emf.core.internal.index.MSLCrossReferenceAdapter;
 import org.eclipse.gmf.runtime.emf.core.util.EObjectUtil;
 import org.eclipse.gmf.runtime.emf.core.util.ResourceUtil;
@@ -672,8 +673,8 @@ public class CrossReferenceAdapterTests extends BaseCoreTests {
 				}
 			}});
 
-		MSLCrossReferenceAdapter crossReferenceAdapter =
-			MSLCrossReferenceAdapter.getMSLCrossReferenceAdapter(boss);
+		CrossReferenceAdapter crossReferenceAdapter =
+			CrossReferenceAdapter.getExistingCrossReferenceAdapter(boss);
 		
 		// tests valid type
 		Collection xrefs = crossReferenceAdapter.getInverseReferencers(boss,
@@ -707,7 +708,7 @@ public class CrossReferenceAdapterTests extends BaseCoreTests {
 	/**
 	 * Tests retrieving referencers when the cross reference adapter
 	 * is not added to the ResourceSet when the domain is created, but rather
-	 * added at a later point in time.
+	 * added at a later point in time (lazily).
 	 */
 	public void test_addLateCrossReferenceAdapter() {
 		MSLEditingDomain mslDomain = (MSLEditingDomain)domain;
@@ -733,18 +734,6 @@ public class CrossReferenceAdapterTests extends BaseCoreTests {
 			}});
 
 		Collection xrefs = EObjectUtil.getReferencers(
-				boss,
-				new EReference[] {EXTLibraryPackage.eINSTANCE.getEmployee_Manager()});
-			
-		assertTrue(xrefs.isEmpty());
-
-		// add the cross reference adapter back to the ResourceSet
-		mslDomain.getResourceSet().eAdapters().add(mslDomain.getCrossReferenceAdapter());
-
-		// check that all children of the ResourceSet have a cross reference adapter
-		checkHasCrossReferenceAdapter(mslDomain.getResourceSet());
-		
-		xrefs = EObjectUtil.getReferencers(
 				boss,
 				new EReference[] {EXTLibraryPackage.eINSTANCE.getEmployee_Manager()});
 			

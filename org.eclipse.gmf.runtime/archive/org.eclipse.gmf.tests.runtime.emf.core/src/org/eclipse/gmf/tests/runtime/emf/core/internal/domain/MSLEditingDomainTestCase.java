@@ -26,7 +26,7 @@ public class MSLEditingDomainTestCase
 		assertTrue(cmd.canExecute());
 		
 		domain.getCommandStack().execute(cmd);
-		assertNull(l.getName());
+		assertEquals("foo", l.getName()); //$NON-NLS-1$
 	}
 	
 	public void testResourceCreationAndLoading() {

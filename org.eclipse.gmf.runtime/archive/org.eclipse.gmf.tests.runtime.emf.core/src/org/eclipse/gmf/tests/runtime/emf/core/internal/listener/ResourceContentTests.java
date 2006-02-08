@@ -70,10 +70,13 @@ public class ResourceContentTests
 
 		/* Load the resource */
 		domain.loadResource(testResource);
+		
+		assertEquals(1, eventsCounter[0]);
+		
 		testResource.unload();
 		regularListener.stopListening();
 		
-		assertTrue(eventsCounter[0] == 2);		
+		assertEquals(2, eventsCounter[0]);		
 	}
 
 	/**
@@ -179,6 +182,6 @@ public class ResourceContentTests
 		testResource.unload();
 		demuxedListener.stopListening();
 		
-		assertTrue(eventsCounter[0] == 1);				
+		assertEquals(1, eventsCounter[0]);				
 	}	
 }

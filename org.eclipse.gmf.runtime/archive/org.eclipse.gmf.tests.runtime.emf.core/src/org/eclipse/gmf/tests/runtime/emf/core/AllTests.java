@@ -23,7 +23,6 @@ import org.eclipse.core.runtime.Platform;
 import org.eclipse.gmf.runtime.emf.core.internal.plugin.MSLPlugin;
 import org.eclipse.gmf.tests.runtime.emf.core.internal.OperationListenerTestCase;
 import org.eclipse.gmf.tests.runtime.emf.core.internal.OperationUtilTestCase;
-import org.eclipse.gmf.tests.runtime.emf.core.internal.commands.MSLUndoStackTestCase;
 import org.eclipse.gmf.tests.runtime.emf.core.internal.domain.MSLEditingDomainTestCase;
 import org.eclipse.gmf.tests.runtime.emf.core.internal.expressions.EObjectPropertyTesterTest;
 import org.eclipse.gmf.tests.runtime.emf.core.internal.listener.MFilterTests;
@@ -72,7 +71,6 @@ public class AllTests
 		suite.addTestSuite(ValidationTestCase.class);
 		suite.addTestSuite(EObjectHelperTestCase.class);
 		suite.addTestSuite(EObjectPropertyTesterTest.class);
-		suite.addTestSuite(MSLUndoStackTestCase.class);
 		suite.addTestSuite(OperationUtilTestCase.class);
 		suite.addTestSuite(OperationListenerTestCase.class);
 		suite.addTestSuite(EObjectContainmentUtilTest.class);

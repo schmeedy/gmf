@@ -16,11 +16,7 @@ import org.eclipse.emf.ecore.EModelElement;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.resource.Resource;
-import org.eclipse.gmf.runtime.emf.core.edit.MEditingDomain;
 import org.eclipse.gmf.runtime.emf.core.edit.MUndoInterval;
-import org.eclipse.gmf.runtime.emf.core.exceptions.MSLActionAbandonedException;
-import org.eclipse.gmf.runtime.emf.core.internal.commands.MSLUndoStack.ActionLockMode;
-import org.eclipse.gmf.runtime.emf.core.internal.domain.MSLEditingDomain;
 import org.eclipse.gmf.runtime.emf.core.util.EObjectUtil;
 import org.eclipse.gmf.runtime.emf.core.util.ResourceUtil;
 import org.eclipse.uml2.UML2Package;
@@ -45,9 +41,9 @@ public class SanityTestCase
 		EModelElement root = (EModelElement) ResourceUtil
 			.getFirstRoot(resource);
 
-		((MSLEditingDomain) MEditingDomain.INSTANCE).getUndoStack().openUndoInterval("", "");//$NON-NLS-2$//$NON-NLS-1$
+		openUndoInterval("", "");//$NON-NLS-2$//$NON-NLS-1$
 
-		((MSLEditingDomain) MEditingDomain.INSTANCE).getUndoStack().startAction(ActionLockMode.WRITE);
+		startWrite();
 
 		EAnnotation a1 = EObjectUtil.createEAnnotation(root, "a1"); //$NON-NLS-1$
 
@@ -83,14 +79,9 @@ public class SanityTestCase
 		//  any semantic procedures at this layer. ChrisM
 		//assertEquals(EObjectUtil.getName(f1), "Interface1"); //$NON-NLS-1$
 
-		try {
-			((MSLEditingDomain) MEditingDomain.INSTANCE).getUndoStack().completeAndValidateAction();
-		} catch (MSLActionAbandonedException e) {
-			((MSLEditingDomain) MEditingDomain.INSTANCE).getUndoStack().closeUndoInterval();
-			fail("Action abandoned: " + e.getStatus()); //$NON-NLS-1$
-		}
+		completeWrite();
 
-		MUndoInterval i1 = ((MSLEditingDomain) MEditingDomain.INSTANCE).getUndoStack().closeUndoInterval();
+		MUndoInterval i1 = closeUndoInterval();
 
 		ResourceUtil.save(resource, 0);
 
@@ -100,20 +91,15 @@ public class SanityTestCase
 
 		i1.redo();
 
-		((MSLEditingDomain) MEditingDomain.INSTANCE).getUndoStack().openUndoInterval("", "");//$NON-NLS-2$//$NON-NLS-1$
+		openUndoInterval("", "");//$NON-NLS-2$//$NON-NLS-1$
 
-		((MSLEditingDomain) MEditingDomain.INSTANCE).getUndoStack().startAction(ActionLockMode.WRITE);
+		startWrite();
 
 		EObjectUtil.destroy(p1);
 
-		try {
-			((MSLEditingDomain) MEditingDomain.INSTANCE).getUndoStack().completeAndValidateAction();
-		} catch (MSLActionAbandonedException e) {
-			((MSLEditingDomain) MEditingDomain.INSTANCE).getUndoStack().closeUndoInterval();
-			fail("Action abandoned: " + e.getStatus()); //$NON-NLS-1$
-		}
+		completeWrite();
 
-		MUndoInterval i2 = ((MSLEditingDomain) MEditingDomain.INSTANCE).getUndoStack().closeUndoInterval();
+		MUndoInterval i2 = closeUndoInterval();
 
 		i2.undo();
 

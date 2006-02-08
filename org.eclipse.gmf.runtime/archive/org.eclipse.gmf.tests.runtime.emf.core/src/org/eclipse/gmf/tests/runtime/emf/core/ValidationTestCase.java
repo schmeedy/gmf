@@ -35,8 +35,6 @@ import org.eclipse.gmf.runtime.emf.core.EObjectHelper;
 import org.eclipse.gmf.runtime.emf.core.IValidationStatus;
 import org.eclipse.gmf.runtime.emf.core.edit.MEditingDomain;
 import org.eclipse.gmf.runtime.emf.core.exceptions.MSLActionAbandonedException;
-import org.eclipse.gmf.runtime.emf.core.internal.commands.MSLUndoStack.ActionLockMode;
-import org.eclipse.gmf.runtime.emf.core.internal.domain.MSLEditingDomain;
 import org.eclipse.gmf.runtime.emf.core.internal.util.MSLUtil;
 import org.eclipse.gmf.runtime.emf.core.internal.validation.UUIDConstraint;
 import org.eclipse.gmf.runtime.emf.core.util.EObjectUtil;
@@ -91,9 +89,9 @@ public class ValidationTestCase
 		EModelElement root = (EModelElement) ResourceUtil
 			.getFirstRoot(resource);
 
-		((MSLEditingDomain) MEditingDomain.INSTANCE).getUndoStack().openUndoInterval("", "");//$NON-NLS-2$//$NON-NLS-1$
+		openUndoInterval("", "");//$NON-NLS-2$//$NON-NLS-1$
 
-		((MSLEditingDomain) MEditingDomain.INSTANCE).getUndoStack().startAction(ActionLockMode.WRITE);
+		startWrite();
 
 		EModelElement c1 = (EModelElement) EObjectUtil.create(root,
 			UML2Package.eINSTANCE.getPackage_OwnedMember(),
@@ -107,13 +105,9 @@ public class ValidationTestCase
 			.getPackageableElement_PackageableElement_visibility(),
 			VisibilityKind.PUBLIC_LITERAL);
 
-		try {
-			((MSLEditingDomain) MEditingDomain.INSTANCE).getUndoStack().completeAndValidateAction();
-		} catch (MSLActionAbandonedException e) {
-			fail("Action abandoned: " + e.getStatus()); //$NON-NLS-1$
-		} finally {
-			((MSLEditingDomain) MEditingDomain.INSTANCE).getUndoStack().closeUndoInterval();
-		}
+		completeWrite();
+		
+		closeUndoInterval();
 
 		validationFlag = true;
 		List statuses = MSLUtil.getValidationProblems(
@@ -145,9 +139,9 @@ public class ValidationTestCase
 		EModelElement root = (EModelElement) ResourceUtil
 			.getFirstRoot(resource);
 
-		((MSLEditingDomain) MEditingDomain.INSTANCE).getUndoStack().openUndoInterval("", "");//$NON-NLS-2$//$NON-NLS-1$
+		openUndoInterval("", "");//$NON-NLS-2$//$NON-NLS-1$
 
-		((MSLEditingDomain) MEditingDomain.INSTANCE).getUndoStack().startAction(ActionLockMode.WRITE);
+		startWrite();
 
 		EModelElement c1 = (EModelElement) EObjectUtil.create(root,
 			UML2Package.eINSTANCE.getPackage_OwnedMember(),
@@ -161,13 +155,8 @@ public class ValidationTestCase
 			.getPackageableElement_PackageableElement_visibility(),
 			VisibilityKind.PUBLIC_LITERAL);
 
-		try {
-			((MSLEditingDomain) MEditingDomain.INSTANCE).getUndoStack().completeAndValidateAction();
-		} catch (MSLActionAbandonedException e) {
-			fail("Action abandoned: " + e.getStatus()); //$NON-NLS-1$
-		} finally {
-			((MSLEditingDomain) MEditingDomain.INSTANCE).getUndoStack().closeUndoInterval();
-		}
+		completeWrite();
+		closeUndoInterval();
 
 		validationFlag = true;
 		List statuses = MSLUtil.getValidationProblems(
@@ -198,9 +187,9 @@ public class ValidationTestCase
 		EModelElement root = (EModelElement) ResourceUtil
 			.getFirstRoot(resource);
 
-		((MSLEditingDomain) MEditingDomain.INSTANCE).getUndoStack().openUndoInterval("", "");//$NON-NLS-2$//$NON-NLS-1$
+		openUndoInterval("", "");//$NON-NLS-2$//$NON-NLS-1$
 
-		((MSLEditingDomain) MEditingDomain.INSTANCE).getUndoStack().startAction(ActionLockMode.WRITE);
+		startWrite();
 
 		EModelElement c1 = (EModelElement) EObjectUtil.create(root,
 			UML2Package.eINSTANCE.getPackage_OwnedMember(),
@@ -214,7 +203,7 @@ public class ValidationTestCase
 		validationFlag = true;
 
 		try {
-			((MSLEditingDomain) MEditingDomain.INSTANCE).getUndoStack().completeAndValidateAction();
+			completeWriteWithValidation();
 
 			// should not get here
 			fail("Exception not thrown."); //$NON-NLS-1$
@@ -225,7 +214,7 @@ public class ValidationTestCase
 			// turn off the test live constraint
 			validationFlag = false;
 
-			((MSLEditingDomain) MEditingDomain.INSTANCE).getUndoStack().closeUndoInterval();
+			closeUndoInterval();
 		}
 
 		assertNotNull(e.getStatus());
@@ -336,9 +325,9 @@ public class ValidationTestCase
 		EModelElement root = (EModelElement) ResourceUtil
 			.getFirstRoot(resource);
 	
-		((MSLEditingDomain) MEditingDomain.INSTANCE).getUndoStack().openUndoInterval("", "");//$NON-NLS-2$//$NON-NLS-1$
+		openUndoInterval("", "");//$NON-NLS-2$//$NON-NLS-1$
 	
-		((MSLEditingDomain) MEditingDomain.INSTANCE).getUndoStack().startAction(ActionLockMode.WRITE);
+		startWrite();
 	
 		EModelElement c1 = (EModelElement) EObjectUtil.create(root,
 			UML2Package.eINSTANCE.getPackage_OwnedMember(),
@@ -352,11 +341,8 @@ public class ValidationTestCase
 		xmlResource.setID(root, duplicateUUID);
 		xmlResource.setID(c1, duplicateUUID);
 		
-		try {
-			((MSLEditingDomain) MEditingDomain.INSTANCE).getUndoStack().completeAction();
-		} finally {
-			((MSLEditingDomain) MEditingDomain.INSTANCE).getUndoStack().closeUndoInterval();
-		}
+		completeWrite();
+		closeUndoInterval();
 
 		
 		TestValidationContext validationContext = new TestValidationContext();

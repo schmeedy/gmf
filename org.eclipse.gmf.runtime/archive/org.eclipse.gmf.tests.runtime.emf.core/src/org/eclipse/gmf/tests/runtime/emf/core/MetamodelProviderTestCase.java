@@ -25,6 +25,7 @@ import org.eclipse.gmf.runtime.common.core.service.AbstractProvider;
 import org.eclipse.gmf.runtime.common.core.service.IOperation;
 import org.eclipse.gmf.runtime.emf.core.edit.MRunnable;
 import org.eclipse.gmf.runtime.emf.core.edit.MUndoInterval;
+import org.eclipse.gmf.runtime.emf.core.exceptions.MSLActionAbandonedException;
 import org.eclipse.gmf.runtime.emf.core.services.metamodel.GetMetamodelSupportOperation;
 import org.eclipse.gmf.runtime.emf.core.services.metamodel.IMetamodelSupport;
 import org.eclipse.gmf.runtime.emf.core.services.metamodel.IMetamodelSupportProvider;
@@ -60,6 +61,8 @@ public class MetamodelProviderTestCase
 
 		epackage = EcoreFactory.eINSTANCE.createEPackage();
 		epackage.setName("_testpackage"); //$NON-NLS-1$
+		epackage.setNsURI("http://bogus/NsURI/for/testing"); //$NON-NLS-1$
+		epackage.setNsPrefix("bogus"); //$NON-NLS-1$
 
 		eclass = EcoreFactory.eINSTANCE.createEClass();
 		eclass.setName("_testclass"); //$NON-NLS-1$
@@ -95,20 +98,25 @@ public class MetamodelProviderTestCase
 		OperationUtil.runInUndoInterval(new Runnable() {
 
 			public void run() {
-				OperationUtil.runAsUnchecked(new MRunnable() {
-
-					public Object run() {
-						EObject root = (EObject) resource.getContents().get(0);
-
-						// turn off the flag and make a notifying change
-						wasNotified = false;
-						root.eSet(ereference, epackage.getEFactoryInstance()
-							.create(eclass));
-
-						notificationHappened[0] = wasNotified;
-						return null;
-					}
-				});
+				try {
+					OperationUtil.runAsWrite(new MRunnable() {
+	
+						public Object run() {
+							EObject root = (EObject) resource.getContents().get(0);
+	
+							// turn off the flag and make a notifying change
+							wasNotified = false;
+							root.eSet(ereference, epackage.getEFactoryInstance()
+								.create(eclass));
+	
+							notificationHappened[0] = wasNotified;
+							return null;
+						}
+					});
+				} catch (MSLActionAbandonedException e) {
+					e.getStatus().getException().printStackTrace();
+					fail("Action abandoned: " + e.getLocalizedMessage()); //$NON-NLS-1$
+				}
 			}
 		});
 
@@ -120,18 +128,22 @@ public class MetamodelProviderTestCase
 		MUndoInterval undo = OperationUtil.runInUndoInterval(new Runnable() {
 
 			public void run() {
-				OperationUtil.runAsUnchecked(new MRunnable() {
-
-					public Object run() {
-						EObject root = (EObject) resource.getContents().get(0);
-
-						// make a notifying change
-						root.eSet(ereference, epackage.getEFactoryInstance()
-							.create(eclass));
-
-						return null;
-					}
-				});
+				try {
+					OperationUtil.runAsWrite(new MRunnable() {
+	
+						public Object run() {
+							EObject root = (EObject) resource.getContents().get(0);
+	
+							// make a notifying change
+							root.eSet(ereference, epackage.getEFactoryInstance()
+								.create(eclass));
+	
+							return null;
+						}
+					});
+				} catch (MSLActionAbandonedException e) {
+					fail("Action abandoned: " + e.getLocalizedMessage()); //$NON-NLS-1$
+				}
 			}
 		});
 
@@ -145,18 +157,22 @@ public class MetamodelProviderTestCase
 		MUndoInterval undo = OperationUtil.runInUndoInterval(new Runnable() {
 
 			public void run() {
-				OperationUtil.runAsUnchecked(new MRunnable() {
-
-					public Object run() {
-						EObject root = (EObject) resource.getContents().get(0);
-
-						// make a notifying change
-						root.eSet(ereference, epackage.getEFactoryInstance()
-							.create(eclass));
-
-						return null;
-					}
-				});
+				try {
+					OperationUtil.runAsWrite(new MRunnable() {
+	
+						public Object run() {
+							EObject root = (EObject) resource.getContents().get(0);
+	
+							// make a notifying change
+							root.eSet(ereference, epackage.getEFactoryInstance()
+								.create(eclass));
+	
+							return null;
+						}
+					});
+				} catch (MSLActionAbandonedException e) {
+					fail("Action abandoned: " + e.getLocalizedMessage()); //$NON-NLS-1$
+				}
 			}
 		});
 

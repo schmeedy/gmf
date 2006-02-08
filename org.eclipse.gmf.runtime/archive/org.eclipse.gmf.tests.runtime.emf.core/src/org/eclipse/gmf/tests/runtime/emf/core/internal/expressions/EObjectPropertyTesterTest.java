@@ -12,19 +12,16 @@
 
 package org.eclipse.gmf.tests.runtime.emf.core.internal.expressions;
 
-import junit.framework.TestCase;
-
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceImpl;
-import org.eclipse.uml2.UML2Package;
-
-import org.eclipse.gmf.runtime.emf.core.edit.MEditingDomain;
 import org.eclipse.gmf.runtime.emf.core.edit.MObjectType;
 import org.eclipse.gmf.runtime.emf.core.internal.expressions.EObjectPropertyTester;
 import org.eclipse.gmf.runtime.emf.core.internal.resources.MResource;
 import org.eclipse.gmf.runtime.emf.core.util.ResourceUtil;
+import org.eclipse.gmf.tests.runtime.emf.core.BaseCoreTests;
+import org.eclipse.uml2.UML2Package;
 
 
 /**
@@ -33,7 +30,7 @@ import org.eclipse.gmf.runtime.emf.core.util.ResourceUtil;
  * @author Christian W. Damus (cdamus)
  */
 public class EObjectPropertyTesterTest
-	extends TestCase {
+	extends BaseCoreTests {
 
 	private static final String TEST_OBJECT_TYPE = "MyObject"; //$NON-NLS-1$
 	private static final String MODELING_OBJECT_TYPE = MObjectType.MODELING.getName();
@@ -52,7 +49,9 @@ public class EObjectPropertyTesterTest
 	}
 	
 	protected void setUp() throws Exception {
-		resource = ResourceUtil.create(
+		super.setUp();
+		
+		resource = domain.createResource(
 			null,
 			UML2Package.eINSTANCE.getModel());
 		element = ResourceUtil.getFirstRoot(resource);
@@ -67,6 +66,8 @@ public class EObjectPropertyTesterTest
 		resource.unload();
 		rset.getResources().remove(resource);
 		element = null;
+		
+		super.tearDown();
 	}
 
 	/**
@@ -74,18 +75,20 @@ public class EObjectPropertyTesterTest
 	 * <code>true</code> when it should.
 	 */
 	public void test_test_true() {
-		assertTrue(tester.test(element, OBJECT_TYPE_PROPERTY, TEST_ARGS,
-			MODELING_OBJECT_TYPE));
-		
-		Resource myResource = new MyResource();
-		MEditingDomain.INSTANCE.getResourceSet().getResources().add(myResource);
-		myResource.getContents().add(element);
-
-		try {
+		if (writing()) {
 			assertTrue(tester.test(element, OBJECT_TYPE_PROPERTY, TEST_ARGS,
-				TEST_OBJECT_TYPE));
-		} finally {
-			MEditingDomain.INSTANCE.getResourceSet().getResources().remove(myResource);
+				MODELING_OBJECT_TYPE));
+			
+			Resource myResource = new MyResource();
+			domain.getResourceSet().getResources().add(myResource);
+			myResource.getContents().add(element);
+	
+			try {
+				assertTrue(tester.test(element, OBJECT_TYPE_PROPERTY, TEST_ARGS,
+					TEST_OBJECT_TYPE));
+			} finally {
+				domain.getResourceSet().getResources().remove(myResource);
+			}
 		}
 	}
 
@@ -94,18 +97,20 @@ public class EObjectPropertyTesterTest
 	 * <code>false</code> when it should.
 	 */
 	public void test_test_false() {
-		assertFalse(tester.test(element, OBJECT_TYPE_PROPERTY, TEST_ARGS,
-			TEST_OBJECT_TYPE));
-		
-		Resource myResource = new MyResource();
-		MEditingDomain.INSTANCE.getResourceSet().getResources().add(myResource);
-		myResource.getContents().add(element);
-
-		try {
+		if (writing()) {
 			assertFalse(tester.test(element, OBJECT_TYPE_PROPERTY, TEST_ARGS,
-				MODELING_OBJECT_TYPE));
-		} finally {
-			MEditingDomain.INSTANCE.getResourceSet().getResources().remove(myResource);
+				TEST_OBJECT_TYPE));
+			
+			Resource myResource = new MyResource();
+			domain.getResourceSet().getResources().add(myResource);
+			myResource.getContents().add(element);
+	
+			try {
+				assertFalse(tester.test(element, OBJECT_TYPE_PROPERTY, TEST_ARGS,
+					MODELING_OBJECT_TYPE));
+			} finally {
+				domain.getResourceSet().getResources().remove(myResource);
+			}
 		}
 	}
 	

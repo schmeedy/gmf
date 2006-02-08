@@ -15,18 +15,14 @@ package org.eclipse.gmf.tests.runtime.emf.core.internal;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
+import org.eclipse.gmf.runtime.emf.core.edit.MRunnable;
+import org.eclipse.gmf.runtime.emf.core.exceptions.MSLActionAbandonedException;
+import org.eclipse.gmf.runtime.emf.core.util.OperationUtil;
+import org.eclipse.gmf.runtime.emf.core.util.ResourceUtil;
+import org.eclipse.gmf.tests.runtime.emf.core.BaseTestCase;
 import org.eclipse.uml2.Model;
 import org.eclipse.uml2.NamedElement;
 import org.eclipse.uml2.UML2Package;
-
-import org.eclipse.gmf.runtime.emf.core.edit.MEditingDomain;
-import org.eclipse.gmf.runtime.emf.core.edit.MRunnable;
-import org.eclipse.gmf.runtime.emf.core.exceptions.MSLActionAbandonedException;
-import org.eclipse.gmf.runtime.emf.core.internal.commands.MSLUndoStack.ActionLockMode;
-import org.eclipse.gmf.runtime.emf.core.internal.domain.MSLEditingDomain;
-import org.eclipse.gmf.tests.runtime.emf.core.BaseTestCase;
-import org.eclipse.gmf.runtime.emf.core.util.OperationUtil;
-import org.eclipse.gmf.runtime.emf.core.util.ResourceUtil;
 
 
 /**
@@ -135,9 +131,8 @@ public class OperationUtilTestCase
 		assertTrue("Runnable not canceled", //$NON-NLS-1$
 			runnable.isAbandoned());
 		
-		// cancellation should have no effect on the status of this runnable
 		assertEquals("Wrong status severity", //$NON-NLS-1$
-			IStatus.OK, runnable.getStatus().getSeverity());
+				IStatus.CANCEL, runnable.getStatus().getSeverity());
 		
 		OperationUtil.runAsRead(new MRunnable() {
 
@@ -186,9 +181,8 @@ public class OperationUtilTestCase
 		assertTrue("Runnable not canceled", //$NON-NLS-1$
 			runnable.isAbandoned());
 		
-		// cancellation should have no effect on the status of this runnable
 		assertEquals("Wrong status severity", //$NON-NLS-1$
-			IStatus.OK, runnable.getStatus().getSeverity());
+				IStatus.CANCEL, runnable.getStatus().getSeverity());
 		
 		OperationUtil.runAsRead(new MRunnable() {
 
@@ -268,13 +262,13 @@ public class OperationUtilTestCase
 	 * MRunnable API.
 	 */
 	public void test_upgradeNestedReadActions_MRunnable() {
-		((MSLEditingDomain) MEditingDomain.INSTANCE).getUndoStack().startAction(ActionLockMode.READ);
+		startRead();
 		
 		// check that we are reading
 		assertTrue("Not reading", isReadActionAtTopOfStack()); //$NON-NLS-1$
 		
 		// force a nested read action (runAsRead() would not nest)
-		((MSLEditingDomain) MEditingDomain.INSTANCE).getUndoStack().startAction(ActionLockMode.READ);
+		startRead();
 		
 		// check that we are reading
 		assertTrue("Not reading", isReadActionAtTopOfStack()); //$NON-NLS-1$
@@ -291,12 +285,12 @@ public class OperationUtilTestCase
 		// we must be reading again
 		assertTrue("Not reading", isReadActionAtTopOfStack()); //$NON-NLS-1$
 
-		((MSLEditingDomain) MEditingDomain.INSTANCE).getUndoStack().completeAction();
+		completeRead();
 		
 		// we must be reading still
 		assertTrue("Not reading", isReadActionAtTopOfStack()); //$NON-NLS-1$
 
-		((MSLEditingDomain) MEditingDomain.INSTANCE).getUndoStack().completeAction();
+		completeRead();
 		
 		assertNotNull("Change was abandoned", //$NON-NLS-1$
 			model.getOwnedMember(CLASS_NAME));
@@ -311,13 +305,13 @@ public class OperationUtilTestCase
 		OperationUtil.runInUndoInterval(new Runnable() {
 
 			public void run() {
-				((MSLEditingDomain) MEditingDomain.INSTANCE).getUndoStack().startAction(ActionLockMode.READ);
+				startRead();
 				
 				// check that we are reading
 				assertTrue("Not reading", isReadActionAtTopOfStack()); //$NON-NLS-1$
 				
 				// force a nested read action (runAsRead() would not nest)
-				((MSLEditingDomain) MEditingDomain.INSTANCE).getUndoStack().startAction(ActionLockMode.READ);
+				startRead();
 				
 				// check that we are reading
 				assertTrue("Not reading", isReadActionAtTopOfStack()); //$NON-NLS-1$
@@ -331,12 +325,12 @@ public class OperationUtilTestCase
 				// we must be reading again
 				assertTrue("Not reading", isReadActionAtTopOfStack()); //$NON-NLS-1$
 
-				((MSLEditingDomain) MEditingDomain.INSTANCE).getUndoStack().completeAction();
+				completeRead();
 				
 				// we must be reading still
 				assertTrue("Not reading", isReadActionAtTopOfStack()); //$NON-NLS-1$
 
-				((MSLEditingDomain) MEditingDomain.INSTANCE).getUndoStack().completeAction();
+				completeRead();
 				
 				assertNotNull("Change was abandoned", //$NON-NLS-1$
 					model.getOwnedMember(CLASS_NAME));
