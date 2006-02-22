@@ -44,7 +44,6 @@ import org.eclipse.gmf.runtime.emf.core.edit.MRunnable;
 import org.eclipse.gmf.runtime.emf.core.edit.MUndoInterval;
 import org.eclipse.gmf.runtime.emf.core.exceptions.MSLActionAbandonedException;
 import org.eclipse.gmf.runtime.emf.core.exceptions.MSLRuntimeException;
-import org.eclipse.gmf.runtime.emf.core.internal.exceptions.AbortResourceLoadException;
 import org.eclipse.gmf.runtime.emf.core.internal.resources.MSLResource;
 import org.eclipse.gmf.runtime.emf.core.internal.util.MSLUtil;
 import org.eclipse.gmf.runtime.emf.core.util.ResourceUtil;
@@ -176,13 +175,18 @@ public class RegressionTestCase extends BaseCoreTests {
 			fail("Should not have loaded successfully."); //$NON-NLS-1$
 		} catch (MSLRuntimeException e) {
 			Throwable t = e.getCause();
-			assertTrue(t instanceof IOWrappedException);
-
-			t = ((IOWrappedException) t).getWrappedException();
-            assertTrue(t instanceof AbortResourceLoadException);
-            
-            t = ((AbortResourceLoadException) t).getCause();
-			assertTrue(t instanceof PackageNotFoundException);
+			PackageNotFoundException pnfe = null;
+			while (pnfe == null && t != null) {
+				if (t instanceof PackageNotFoundException) {
+					pnfe = (PackageNotFoundException) t;
+				} else if (t instanceof IOWrappedException) {
+					t = ((IOWrappedException) t).getWrappedException();
+				} else {
+					t = t.getCause();
+				}
+			}
+			
+			assertNotNull(pnfe);
 		}
 
 		try {
@@ -228,13 +232,18 @@ public class RegressionTestCase extends BaseCoreTests {
 			fail("Should not have loaded successfully."); //$NON-NLS-1$
 		} catch (MSLRuntimeException e) {
 			Throwable t = e.getCause();
-			assertTrue(t instanceof IOWrappedException);
-
-            t = ((IOWrappedException) t).getWrappedException();
-            assertTrue(t instanceof AbortResourceLoadException);
-            
-            t = ((AbortResourceLoadException) t).getCause();
-            assertTrue(t instanceof ClassNotFoundException);
+			ClassNotFoundException cnfe = null;
+			while (cnfe == null && t != null) {
+				if (t instanceof ClassNotFoundException) {
+					cnfe = (ClassNotFoundException) t;
+				} else if (t instanceof IOWrappedException) {
+					t = ((IOWrappedException) t).getWrappedException();
+				} else {
+					t = t.getCause();
+				}
+			}
+			
+			assertNotNull(cnfe);
 		}
 
 		try {
@@ -280,13 +289,18 @@ public class RegressionTestCase extends BaseCoreTests {
 			fail("Should not have loaded successfully."); //$NON-NLS-1$
 		} catch (MSLRuntimeException e) {
 			Throwable t = e.getCause();
-			assertTrue(t instanceof IOWrappedException);
-
-            t = ((IOWrappedException) t).getWrappedException();
-            assertTrue(t instanceof AbortResourceLoadException);
-            
-            t = ((AbortResourceLoadException) t).getCause();
-            assertTrue(t instanceof FeatureNotFoundException);
+			FeatureNotFoundException fnfe = null;
+			while (fnfe == null && t != null) {
+				if (t instanceof FeatureNotFoundException) {
+					fnfe = (FeatureNotFoundException) t;
+				} else if (t instanceof IOWrappedException) {
+					t = ((IOWrappedException) t).getWrappedException();
+				} else {
+					t = t.getCause();
+				}
+			}
+			
+			assertNotNull(fnfe);
 		}
 
 		try {
