@@ -126,7 +126,6 @@ public class MSLEventBroker extends ResourceSetListenerImpl {
 	 * Runs the runnable instance without sending events.
 	 */
 	public Object runSilent(MRunnable runnable) {
-
 		return runWithOptions(runnable, MRunOption.SILENT);
 	}
 
@@ -134,7 +133,6 @@ public class MSLEventBroker extends ResourceSetListenerImpl {
 	 * Runs the runnable instance without semantic procedures.
 	 */
 	public Object runWithNoSemProcs(MRunnable runnable) {
-
 		return runWithOptions(runnable, MRunOption.NO_SEM_PROCS);
 	}
 
@@ -142,7 +140,6 @@ public class MSLEventBroker extends ResourceSetListenerImpl {
 	 * Runs the runnable instance without validation.
 	 */
 	public Object runUnvalidated(MRunnable runnable) {
-
 		return runWithOptions(runnable, MRunOption.UNVALIDATED);
 	}
 
@@ -154,7 +151,6 @@ public class MSLEventBroker extends ResourceSetListenerImpl {
 	 * @see MRunOption
 	 */
 	public Object runWithOptions(MRunnable runnable, int options) {
-
 		Object result = null;
 
 		Object previousNoNotifications = null;
@@ -249,7 +245,6 @@ public class MSLEventBroker extends ResourceSetListenerImpl {
 	 * Adds a new event to the pending list of events.
 	 */
 	public void addEvent(Notification event) {
-
 		notifyMetaModel(event);
 
 		if (domain.isUndoInProgress())
@@ -263,9 +258,7 @@ public class MSLEventBroker extends ResourceSetListenerImpl {
 	 * Checks if event is undo event.
 	 */
 	public boolean isUndoEvent(Notification event) {
-
 		Boolean isUndo = (Boolean) undoRedoEvents.get(event);
-
 		return (isUndo != null) && (isUndo.booleanValue());
 	}
 
@@ -273,9 +266,7 @@ public class MSLEventBroker extends ResourceSetListenerImpl {
 	 * Checks if event is redo event.
 	 */
 	public boolean isRedoEvent(Notification event) {
-
 		Boolean isUndo = (Boolean) undoRedoEvents.get(event);
-
 		return (isUndo != null) && (!isUndo.booleanValue());
 	}
 
@@ -283,9 +274,7 @@ public class MSLEventBroker extends ResourceSetListenerImpl {
 	 * Notify the meta-model about the modification.
 	 */
 	public void notifyMetaModel(Notification event) {
-
 		if (sendEventsToMetaModel) {
-
 			Object notifier = event.getNotifier();
 
 			if (((domain.isWriteInProgress()) || (domain
@@ -314,7 +303,6 @@ public class MSLEventBroker extends ResourceSetListenerImpl {
 	 * Fires events.
 	 */
 	private void fireEvents(List events) {
-
 		if (events.isEmpty())
 			return;
 
@@ -327,14 +315,29 @@ public class MSLEventBroker extends ResourceSetListenerImpl {
 		
 		List allListeners = getAllListeners();
 
-		int allListenersSize = allListeners.size();
-
-		if (allListenersSize == 0)
+		if (allListeners.isEmpty())
 			return;
 
-		for (Iterator iter = allListeners.iterator(); iter.hasNext();) {
-
-			fireEvents((MListener) iter.next(), events);
+		if (events.size() == 1) {
+			// If there is only one event then we can optimize the memory that we are
+			//  consuming and save the time of extracting the single Notification from the list.
+			Notification singleEvent = (Notification)events.get(0);
+			
+			for (Iterator iter = allListeners.iterator(); iter.hasNext();) {
+				MListener listener = (MListener)iter.next();
+				fireSingleEvent(listener, singleEvent, events);
+			}
+		} else {
+			// We will create a reusable array list with the upper bound being
+			//  the size of the events list we are firing. This means that we will
+			//  only have two lists occupying memory that are the same size rather
+			//  than allocating lists of different sizes for each listener.
+			List listenerEventCache = new ArrayList(events.size());
+			
+			for (Iterator iter = allListeners.iterator(); iter.hasNext();) {
+				MListener listener = (MListener)iter.next();
+				fireEvents(listener, events, listenerEventCache);
+			}
 		}
 	}
 	
@@ -359,10 +362,11 @@ public class MSLEventBroker extends ResourceSetListenerImpl {
 	}
 
 	/**
-	 * Gets all listeners.
+	 * Gets a snapshot of all listeners. After this method is called
+	 *  all of the listeners will not be garbage collected until after
+	 *  the returned list is garbage collected.
 	 */
 	private List getAllListeners() {
-
 		List allListeners = new ArrayList(listeners.size()
 			+ universalListeners.size() + semProcProviders.size());
 
@@ -376,13 +380,7 @@ public class MSLEventBroker extends ResourceSetListenerImpl {
 	/**
 	 * Sends events to a listener.
 	 */
-	private void fireEvents(MListener listener, List events) {
-
-		if ((!listeners.containsKey(listener))
-			&& (!universalListeners.containsKey(listener))
-			&& (!semProcProviders.containsKey(listener)))
-			return;
-
+	private void fireEvents(MListener listener, List events, List eventsCache) {
 		MFilter filter = listener.getFilter();
 
 		if (filter == null)
@@ -390,17 +388,15 @@ public class MSLEventBroker extends ResourceSetListenerImpl {
 
 		List eventsToSend;
 
-		if (filter == MFilter.WILDCARD_FILTER)
+		if (filter == MFilter.WILDCARD_FILTER) {
 			eventsToSend = events;
-
-		else {
-
-			eventsToSend = new ArrayList();
+		} else {
+			eventsCache.clear();
+			eventsToSend = eventsCache;
 
 			Iterator j = events.iterator();
 
 			while (j.hasNext()) {
-
 				Notification event = (Notification) j.next();
 
 				if (filter.matches(event))
@@ -412,11 +408,8 @@ public class MSLEventBroker extends ResourceSetListenerImpl {
 			return;
 
 		try {
-
 			listener.onEvent(eventsToSend);
-
 		} catch (Exception e) {
-
 			// this is a bad listener so remove it so the next
 			// listeners can get their events.
 			// bugzilla110334: Do not remove listener as it will cause
@@ -429,6 +422,31 @@ public class MSLEventBroker extends ResourceSetListenerImpl {
 			Trace.catching(MSLPlugin.getDefault(),
 				MSLDebugOptions.EXCEPTIONS_CATCHING, getClass(),
 				"fireEvents", e); //$NON-NLS-1$
+		}
+	}
+	
+	/**
+	 * Sends a single event to a listener.
+	 */
+	private void fireSingleEvent(MListener listener, Notification event, List eventsToSend) {
+		MFilter filter = listener.getFilter();
+
+		if (filter == null)
+			return;
+
+		if (!filter.matches(event)) {
+			return;
+		}
+
+		try {
+			listener.onEvent(eventsToSend);
+		} catch (Exception e) {
+			Log.error(MSLPlugin.getDefault(), 1,
+				MSLCoreMessages.logError_badListener, e);
+
+			Trace.catching(MSLPlugin.getDefault(),
+				MSLDebugOptions.EXCEPTIONS_CATCHING, getClass(),
+				"fireEvent", e); //$NON-NLS-1$
 		}
 	}
 }
