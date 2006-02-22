@@ -398,8 +398,14 @@ public class MSLUtil {
 		int index = uriFragment.indexOf(MSLConstants.FRAGMENT_SEPARATOR);
 
 		if (index != -1) {
+			// handle EMF-style and MSL-style fragment queries
+			int fragmentEnd = uriFragment.length();
+			if (uriFragment.charAt(fragmentEnd - 1) == EMFCoreConstants.FRAGMENT_SEPARATOR) {
+				fragmentEnd--; // don't include the trailing '?'
+			}
+			
 			proxyQName = decodeQName(uriFragment.substring(index + 1,
-				uriFragment.length()));
+				fragmentEnd));
 		}
 
 		if ((proxyQName == null) || (proxyQName.length() == 0)) {

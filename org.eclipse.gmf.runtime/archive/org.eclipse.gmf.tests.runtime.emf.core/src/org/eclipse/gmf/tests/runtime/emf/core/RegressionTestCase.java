@@ -11,6 +11,10 @@
 
 package org.eclipse.gmf.tests.runtime.emf.core;
 
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.util.Collections;
+
 import junit.framework.Test;
 import junit.framework.TestSuite;
 
@@ -18,19 +22,30 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.impl.AdapterImpl;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.Resource.IOWrappedException;
+import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.xmi.ClassNotFoundException;
 import org.eclipse.emf.ecore.xmi.FeatureNotFoundException;
 import org.eclipse.emf.ecore.xmi.PackageNotFoundException;
+import org.eclipse.emf.ecore.xmi.XMLHelper;
+import org.eclipse.emf.ecore.xmi.impl.XMIResourceImpl;
+import org.eclipse.emf.examples.extlibrary.Book;
 import org.eclipse.emf.examples.extlibrary.EXTLibraryFactory;
 import org.eclipse.emf.examples.extlibrary.Library;
+import org.eclipse.emf.examples.extlibrary.Writer;
 import org.eclipse.gmf.runtime.emf.core.edit.MResourceOption;
 import org.eclipse.gmf.runtime.emf.core.edit.MRunnable;
 import org.eclipse.gmf.runtime.emf.core.edit.MUndoInterval;
 import org.eclipse.gmf.runtime.emf.core.exceptions.MSLActionAbandonedException;
 import org.eclipse.gmf.runtime.emf.core.exceptions.MSLRuntimeException;
+import org.eclipse.gmf.runtime.emf.core.internal.exceptions.AbortResourceLoadException;
+import org.eclipse.gmf.runtime.emf.core.internal.resources.MSLResource;
 import org.eclipse.gmf.runtime.emf.core.internal.util.MSLUtil;
 import org.eclipse.gmf.runtime.emf.core.util.ResourceUtil;
 
@@ -164,6 +179,9 @@ public class RegressionTestCase extends BaseCoreTests {
 			assertTrue(t instanceof IOWrappedException);
 
 			t = ((IOWrappedException) t).getWrappedException();
+            assertTrue(t instanceof AbortResourceLoadException);
+            
+            t = ((AbortResourceLoadException) t).getCause();
 			assertTrue(t instanceof PackageNotFoundException);
 		}
 
@@ -212,8 +230,11 @@ public class RegressionTestCase extends BaseCoreTests {
 			Throwable t = e.getCause();
 			assertTrue(t instanceof IOWrappedException);
 
-			t = ((IOWrappedException) t).getWrappedException();
-			assertTrue(t instanceof ClassNotFoundException);
+            t = ((IOWrappedException) t).getWrappedException();
+            assertTrue(t instanceof AbortResourceLoadException);
+            
+            t = ((AbortResourceLoadException) t).getCause();
+            assertTrue(t instanceof ClassNotFoundException);
 		}
 
 		try {
@@ -261,8 +282,11 @@ public class RegressionTestCase extends BaseCoreTests {
 			Throwable t = e.getCause();
 			assertTrue(t instanceof IOWrappedException);
 
-			t = ((IOWrappedException) t).getWrappedException();
-			assertTrue(t instanceof FeatureNotFoundException);
+            t = ((IOWrappedException) t).getWrappedException();
+            assertTrue(t instanceof AbortResourceLoadException);
+            
+            t = ((AbortResourceLoadException) t).getCause();
+            assertTrue(t instanceof FeatureNotFoundException);
 		}
 
 		try {
@@ -373,6 +397,98 @@ public class RegressionTestCase extends BaseCoreTests {
 			root.getBranches().add(lib);
 
 			assertTrue(adapter.modified);
+		}
+	}
+	
+	/**
+	 * Tests for correct encoding of fragments on URIs from non-GMF resources.
+	 * Test this by checking for the encoding of the space ( ) character.
+	 */
+	public void test_fragmentEncoding_126761() {
+		class TestXMIResource extends XMIResourceImpl {
+			public TestXMIResource(URI uri) {
+				super(uri);
+			}
+
+			public String getURIFragment(EObject eObject) {
+				EList roots = getContents();
+				if (!roots.isEmpty() && eObject == roots.get(0)) {
+					return " test "; //$NON-NLS-1$
+				}
+				
+				return null;
+			}
+			
+			public EObject getEObject(String uriFragment) {
+				EList roots = getContents();
+				if (" test ".equals(uriFragment) && !roots.isEmpty()) {//$NON-NLS-1$
+					return (EObject) roots.get(0);
+				}
+				return null;
+			}
+		}
+		
+		class TestMSLResource extends MSLResource {
+			public TestMSLResource(URI uri) {
+				super(uri);
+			}
+
+			protected org.eclipse.emf.ecore.xmi.XMLHelper createXMLHelper() {
+				return super.createXMLHelper();
+			}
+		}
+
+		ResourceSet rset = new ResourceSetImpl();
+		
+		Resource referenced = new TestXMIResource(URI.createURI("null://referenced")); //$NON-NLS-1$
+		rset.getResources().add(referenced);
+		Book book = EXTLibraryFactory.eINSTANCE.createBook();
+		referenced.getContents().add(book);
+		
+		TestMSLResource referencer = new TestMSLResource(
+				URI.createURI("null://referencer")); //$NON-NLS-1$
+		rset.getResources().add(referencer);
+		
+		Writer writer = EXTLibraryFactory.eINSTANCE.createWriter();
+		referencer.getContents().add(writer);
+		writer.getBooks().add(book);
+		
+		XMLHelper helper = referencer.createXMLHelper();
+		String href = helper.getHREF(book);
+		
+		// check that the helper performs the encoding
+		assertEquals("null://referenced#%20test%20", href); //$NON-NLS-1$
+		
+		try {
+			ByteArrayOutputStream baos = new ByteArrayOutputStream();
+			referencer.save(baos, Collections.EMPTY_MAP);
+			baos.close();
+			
+			byte[] bytes = baos.toByteArray();
+			String serial = new String(bytes, "UTF-8"); //$NON-NLS-1$
+			
+			assertFalse(serial.indexOf(" test ") >= 0); //$NON-NLS-1$
+			assertTrue(serial.indexOf("%20test%20") >= 0); //$NON-NLS-1$
+			
+			referencer.unload();
+			
+			ByteArrayInputStream bais = new ByteArrayInputStream(bytes);
+			referencer.load(bais, Collections.EMPTY_MAP);
+			bais.close();
+			
+			assertEquals(1, referencer.getContents().size());
+			writer = (Writer) referencer.getContents().get(0);
+			
+			assertEquals(1, writer.getBooks().size());
+			
+			EObject referencedObject = (EObject) writer.getBooks().get(0);
+			
+			// check that proxy resolution works (fragment is decoded correctly)
+			System.out.println(EcoreUtil.getURI(referencedObject));
+			assertFalse(referencedObject.eIsProxy());
+			assertSame(book, referencedObject);
+		} catch (Exception e) {
+			fail("Unexpected exception: " + e.getLocalizedMessage()); //$NON-NLS-1$
 		}
 	}
 

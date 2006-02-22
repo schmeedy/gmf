@@ -1,5 +1,5 @@
 /******************************************************************************
- * Copyright (c) 2002, 2003 IBM Corporation and others.
+ * Copyright (c) 2002, 2006 IBM Corporation and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -14,10 +14,13 @@ package org.eclipse.gmf.runtime.emf.core.resources;
 import java.util.Map;
 
 import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.xmi.XMIResource;
+import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.gmf.runtime.emf.core.internal.resources.MSLResource;
 import org.eclipse.gmf.runtime.emf.core.internal.util.EMFCoreConstants;
+import org.eclipse.gmf.runtime.emf.core.internal.util.MSLUtil;
 
 /**
  * A custom implementation of a resource factory. This factory when registered
@@ -29,7 +32,7 @@ import org.eclipse.gmf.runtime.emf.core.internal.util.EMFCoreConstants;
  * @deprecated Use the {@link GMFResourceFactory} class, instead.
  */
 public class MResourceFactory
-	extends GMFResourceFactory {
+	extends GMFResourceFactory implements IExtendedResourceFactory {
 
 	public MResourceFactory() {
 		super();
@@ -61,5 +64,25 @@ public class MResourceFactory
 		}
 		
 		return resource;
+	}
+
+	public String getProxyName(EObject proxy) {
+		return MSLUtil.getProxyName(proxy);
+	}
+
+	public String getProxyQualifiedName(EObject proxy) {
+		return MSLUtil.getProxyQName(proxy);
+	}
+
+	public String getProxyID(EObject proxy) {
+		return MSLUtil.getProxyID(proxy);
+	}
+
+	public String getProxyClassID(EObject proxy) {
+		return MSLUtil.getProxyClassID(proxy);
+	}
+
+	public EObject resolve(TransactionalEditingDomain domain, EObject proxy) {
+		return MSLUtil.resolve(domain, proxy, false);
 	}
 }
