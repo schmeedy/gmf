@@ -54,6 +54,15 @@ public class MSLExampleMessages extends NLS {
 	public static String ControlUnitAction_label;
 	public static String UncontrolUnitAction_label;
 	public static String Resource_name;
+	
+	public static String ResourceURI_label;
+	public static String ContainerURI_label;
+	public static String BrowseFileSystem_label;
+	public static String BrowseWorkspace_label;
+	public static String SelectContainer_label;
+	public static String Undo_menu_item_label;
+	public static String Redo_menu_item_label;
+	public static String SetPathmapDialog_title;
 
 	static {
 		NLS.initializeMessages(BUNDLE_NAME, MSLExampleMessages.class);

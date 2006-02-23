@@ -21,7 +21,6 @@ import org.eclipse.core.runtime.Platform;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.domain.IEditingDomainProvider;
-import org.eclipse.emf.edit.ui.EMFEditUIPlugin;
 import org.eclipse.gmf.examples.runtime.emf.internal.l10n.MSLExampleMessages;
 import org.eclipse.gmf.runtime.emf.core.edit.MEditingDomain;
 import org.eclipse.jface.action.IAction;
@@ -68,7 +67,7 @@ public class SetPathmapDelegate
 		this.domain = domain;
 	}
 
-	public static class LoadResourceDialog
+	public static class SetPathmapDialog
 		extends Dialog {
 
 		public static int CONTROL_OFFSET = 10;
@@ -81,11 +80,11 @@ public class SetPathmapDelegate
 
 		protected String resourceURIs;
 
-		public LoadResourceDialog(Shell parent) {
+		public SetPathmapDialog(Shell parent) {
 			this(parent, null);
 		}
 
-		public LoadResourceDialog(Shell parent, EditingDomain domain) {
+		public SetPathmapDialog(Shell parent, EditingDomain domain) {
 			super(parent);
 			setShellStyle(getShellStyle() | SWT.MAX | SWT.RESIZE);
 			this.domain = domain;
@@ -93,8 +92,7 @@ public class SetPathmapDelegate
 
 		protected void configureShell(Shell shell) {
 			super.configureShell(shell);
-			shell.setText(EMFEditUIPlugin.INSTANCE
-				.getString("_UI_LoadResourceDialog_title")); //$NON-NLS-1$
+			shell.setText(MSLExampleMessages.SetPathmapDialog_title);
 		}
 
 		protected Control createDialogArea(Composite parent) {
@@ -130,8 +128,7 @@ public class SetPathmapDelegate
 
 			Label resourceURILabel = new Label(composite, SWT.LEFT);
 			{
-				resourceURILabel.setText(EMFEditUIPlugin.INSTANCE
-					.getString("_UI_ResourceURI_label")); //$NON-NLS-1$
+				resourceURILabel.setText(MSLExampleMessages.ContainerURI_label);
 				FormData data = new FormData();
 				data.top = new FormAttachment(buttonComposite, CONTROL_OFFSET,
 					SWT.CENTER);
@@ -169,8 +166,7 @@ public class SetPathmapDelegate
 
 			Button resourceURIBrowseFileSystemButton = new Button(
 				buttonComposite, SWT.PUSH);
-			resourceURIBrowseFileSystemButton.setText(EMFEditUIPlugin.INSTANCE
-				.getString("_UI_BrowseFileSystem_label")); //$NON-NLS-1$
+			resourceURIBrowseFileSystemButton.setText(MSLExampleMessages.BrowseFileSystem_label);
 			resourceURIBrowseFileSystemButton
 				.addSelectionListener(new SelectionAdapter() {
 
@@ -201,16 +197,15 @@ public class SetPathmapDelegate
 					resourceURIBrowseFileSystemButton.setLayoutData(data);
 				}
 				resourceURIBrowseWorkspaceButton
-					.setText(EMFEditUIPlugin.INSTANCE
-						.getString("_UI_BrowseWorkspace_label")); //$NON-NLS-1$
+					.setText(MSLExampleMessages.BrowseWorkspace_label);
 				resourceURIBrowseWorkspaceButton
 					.addSelectionListener(new SelectionAdapter() {
 
 						public void widgetSelected(SelectionEvent event) {
 							ContainerSelectionDialog containerSelectionDialog = new ContainerSelectionDialog(
 								getShell(), ResourcesPlugin.getWorkspace()
-									.getRoot(), false, EMFEditUIPlugin.INSTANCE
-									.getString("_UI_SelectTheResource_label")); //$NON-NLS-1$
+									.getRoot(), false,
+									MSLExampleMessages.SelectContainer_label);
 
 							containerSelectionDialog.open();
 							Object[] result = containerSelectionDialog
@@ -297,7 +292,7 @@ public class SetPathmapDelegate
 	 * @see org.eclipse.ui.IActionDelegate#run(org.eclipse.jface.action.IAction)
 	 */
 	public void run(IAction action) {
-		LoadResourceDialog loadResourceDialog = new LoadResourceDialog(
+		SetPathmapDialog loadResourceDialog = new SetPathmapDialog(
 			PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell(),
 			domain);
 

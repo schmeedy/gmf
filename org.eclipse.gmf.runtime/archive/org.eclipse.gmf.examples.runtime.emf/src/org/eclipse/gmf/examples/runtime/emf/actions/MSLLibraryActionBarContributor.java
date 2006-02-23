@@ -27,7 +27,6 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.edit.domain.IEditingDomainProvider;
-import org.eclipse.emf.edit.ui.EMFEditUIPlugin;
 import org.eclipse.emf.edit.ui.action.CopyAction;
 import org.eclipse.emf.edit.ui.action.CutAction;
 import org.eclipse.emf.edit.ui.action.DeleteAction;
@@ -370,10 +369,10 @@ public class MSLLibraryActionBarContributor
 		public void update() {
 			if (pointer > -1) {
 				MUndoInterval interval = (MUndoInterval)undoIntervals.get(pointer);
-				setText(EMFEditUIPlugin.INSTANCE.getString("_UI_Undo_menu_item", new Object [] { interval.getLabel() })); //$NON-NLS-1$
+				setText(NLS.bind(MSLExampleMessages.Undo_menu_item_label, new Object [] { interval.getLabel() }));
 				setEnabled(interval.canUndo());
 			} else {
-				setText(EMFEditUIPlugin.INSTANCE.getString("_UI_Undo_menu_item", new Object [] { "" })); //$NON-NLS-1$ //$NON-NLS-2$
+				setText(NLS.bind(MSLExampleMessages.Redo_menu_item_label, new Object [] { "" })); //$NON-NLS-1$
 				setEnabled(false);
 			}
 		}
@@ -396,10 +395,10 @@ public class MSLLibraryActionBarContributor
 		public void update() {
 			if (pointer >= -1 && undoIntervals.size() > pointer+1) {
 				MUndoInterval interval = (MUndoInterval)undoIntervals.get(pointer+1);
-				setText(EMFEditUIPlugin.INSTANCE.getString("_UI_Redo_menu_item", new Object [] { interval.getLabel() })); //$NON-NLS-1$
+				setText(NLS.bind(MSLExampleMessages.Redo_menu_item_label, new Object [] { interval.getLabel() }));
 				setEnabled(interval.canRedo());
 			} else {
-				setText(EMFEditUIPlugin.INSTANCE.getString("_UI_Redo_menu_item", new Object [] { "" }));  //$NON-NLS-1$//$NON-NLS-2$
+				setText(NLS.bind(MSLExampleMessages.Redo_menu_item_label, new Object [] { "" }));  //$NON-NLS-1$
 				setEnabled(false);
 			}
 		}

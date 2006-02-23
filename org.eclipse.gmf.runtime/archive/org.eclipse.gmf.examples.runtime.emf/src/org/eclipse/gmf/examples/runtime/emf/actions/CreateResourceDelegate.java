@@ -22,7 +22,6 @@ import org.eclipse.core.runtime.Platform;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.edit.domain.EditingDomain;
-import org.eclipse.emf.edit.ui.EMFEditUIPlugin;
 import org.eclipse.emf.examples.extlibrary.EXTLibraryPackage;
 import org.eclipse.gmf.examples.runtime.emf.editor.MSLLibraryEditor;
 import org.eclipse.gmf.examples.runtime.emf.internal.l10n.MSLExampleMessages;
@@ -142,8 +141,7 @@ public class CreateResourceDelegate
 
 			Label resourceURILabel = new Label(composite, SWT.LEFT);
 			{
-				resourceURILabel.setText(EMFEditUIPlugin.INSTANCE
-					.getString("_UI_ResourceURI_label")); //$NON-NLS-1$
+				resourceURILabel.setText(MSLExampleMessages.ResourceURI_label);
 				FormData data = new FormData();
 				data.top = new FormAttachment(buttonComposite, CONTROL_OFFSET,
 					SWT.CENTER);
@@ -162,8 +160,7 @@ public class CreateResourceDelegate
 
 			Button resourceURIBrowseFileSystemButton = new Button(
 				buttonComposite, SWT.PUSH);
-			resourceURIBrowseFileSystemButton.setText(EMFEditUIPlugin.INSTANCE
-				.getString("_UI_BrowseFileSystem_label")); //$NON-NLS-1$
+			resourceURIBrowseFileSystemButton.setText(MSLExampleMessages.BrowseFileSystem_label);
 			resourceURIBrowseFileSystemButton
 				.addSelectionListener(new SelectionAdapter() {
 
@@ -193,16 +190,14 @@ public class CreateResourceDelegate
 					resourceURIBrowseFileSystemButton.setLayoutData(data);
 				}
 				resourceURIBrowseWorkspaceButton
-					.setText(EMFEditUIPlugin.INSTANCE
-						.getString("_UI_BrowseWorkspace_label")); //$NON-NLS-1$
+					.setText(MSLExampleMessages.BrowseWorkspace_label);
 				resourceURIBrowseWorkspaceButton
 					.addSelectionListener(new SelectionAdapter() {
 
 						public void widgetSelected(SelectionEvent event) {
 							ContainerSelectionDialog containerSelectionDialog = new ContainerSelectionDialog(
 								getShell(), ResourcesPlugin.getWorkspace()
-									.getRoot(), false, EMFEditUIPlugin.INSTANCE
-									.getString("_UI_SelectTheResource_label")); //$NON-NLS-1$
+									.getRoot(), false, MSLExampleMessages.SelectContainer_label);
 
 							containerSelectionDialog.open();
 							Object[] result = containerSelectionDialog
