@@ -692,9 +692,6 @@ public class MSLEditingDomain
 				resource.load(inputStream, loadOptions);
 
 		} catch (Exception e) {
-			// TODO In the next iteration, we will no longer be automatically unloading a resource if there are errors.
-			resource.unload();
-			
 			RuntimeException newE = null;
 
 			if (e instanceof MSLRuntimeException)

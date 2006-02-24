@@ -126,6 +126,7 @@ public class MSLEventBroker extends ResourceSetListenerImpl {
 	 * Runs the runnable instance without sending events.
 	 */
 	public Object runSilent(MRunnable runnable) {
+
 		return runWithOptions(runnable, MRunOption.SILENT);
 	}
 
@@ -133,6 +134,7 @@ public class MSLEventBroker extends ResourceSetListenerImpl {
 	 * Runs the runnable instance without semantic procedures.
 	 */
 	public Object runWithNoSemProcs(MRunnable runnable) {
+
 		return runWithOptions(runnable, MRunOption.NO_SEM_PROCS);
 	}
 
@@ -140,6 +142,7 @@ public class MSLEventBroker extends ResourceSetListenerImpl {
 	 * Runs the runnable instance without validation.
 	 */
 	public Object runUnvalidated(MRunnable runnable) {
+
 		return runWithOptions(runnable, MRunOption.UNVALIDATED);
 	}
 
@@ -151,6 +154,7 @@ public class MSLEventBroker extends ResourceSetListenerImpl {
 	 * @see MRunOption
 	 */
 	public Object runWithOptions(MRunnable runnable, int options) {
+
 		Object result = null;
 
 		Object previousNoNotifications = null;
@@ -245,6 +249,7 @@ public class MSLEventBroker extends ResourceSetListenerImpl {
 	 * Adds a new event to the pending list of events.
 	 */
 	public void addEvent(Notification event) {
+
 		notifyMetaModel(event);
 
 		if (domain.isUndoInProgress())
@@ -258,7 +263,9 @@ public class MSLEventBroker extends ResourceSetListenerImpl {
 	 * Checks if event is undo event.
 	 */
 	public boolean isUndoEvent(Notification event) {
+
 		Boolean isUndo = (Boolean) undoRedoEvents.get(event);
+
 		return (isUndo != null) && (isUndo.booleanValue());
 	}
 
@@ -266,7 +273,9 @@ public class MSLEventBroker extends ResourceSetListenerImpl {
 	 * Checks if event is redo event.
 	 */
 	public boolean isRedoEvent(Notification event) {
+
 		Boolean isUndo = (Boolean) undoRedoEvents.get(event);
+
 		return (isUndo != null) && (!isUndo.booleanValue());
 	}
 
@@ -274,7 +283,9 @@ public class MSLEventBroker extends ResourceSetListenerImpl {
 	 * Notify the meta-model about the modification.
 	 */
 	public void notifyMetaModel(Notification event) {
+
 		if (sendEventsToMetaModel) {
+
 			Object notifier = event.getNotifier();
 
 			if (((domain.isWriteInProgress()) || (domain
@@ -303,6 +314,7 @@ public class MSLEventBroker extends ResourceSetListenerImpl {
 	 * Fires events.
 	 */
 	private void fireEvents(List events) {
+
 		if (events.isEmpty())
 			return;
 
@@ -323,7 +335,7 @@ public class MSLEventBroker extends ResourceSetListenerImpl {
 			//  consuming and save the time of extracting the single Notification from the list.
 			Notification singleEvent = (Notification)events.get(0);
 			
-			for (Iterator iter = allListeners.iterator(); iter.hasNext();) {
+		for (Iterator iter = allListeners.iterator(); iter.hasNext();) {
 				MListener listener = (MListener)iter.next();
 				fireSingleEvent(listener, singleEvent, events);
 			}
@@ -333,12 +345,12 @@ public class MSLEventBroker extends ResourceSetListenerImpl {
 			//  only have two lists occupying memory that are the same size rather
 			//  than allocating lists of different sizes for each listener.
 			List listenerEventCache = new ArrayList(events.size());
-			
+
 			for (Iterator iter = allListeners.iterator(); iter.hasNext();) {
 				MListener listener = (MListener)iter.next();
 				fireEvents(listener, events, listenerEventCache);
-			}
 		}
+	}
 	}
 	
 	private boolean shouldSuppressUnbatchedResourceEvent(List events) {
@@ -349,11 +361,7 @@ public class MSLEventBroker extends ResourceSetListenerImpl {
 			
 			if (notification.getNotifier() instanceof Resource) {
 				if (notification.getFeatureID(null) == Resource.RESOURCE__IS_LOADED) {
-					Resource res = (Resource) notification.getNotifier();
-					
-					result = notification.getNewBooleanValue()?
-						domain.getResouceListener().loadedWithErrors(res) :
-						!(notification instanceof MSLResourceListener.UnloadNotification);
+					result = !notification.getNewBooleanValue() && !(notification instanceof MSLResourceListener.UnloadNotification);
 				}
 			}
 		}
@@ -367,6 +375,7 @@ public class MSLEventBroker extends ResourceSetListenerImpl {
 	 *  the returned list is garbage collected.
 	 */
 	private List getAllListeners() {
+
 		List allListeners = new ArrayList(listeners.size()
 			+ universalListeners.size() + semProcProviders.size());
 
@@ -397,6 +406,7 @@ public class MSLEventBroker extends ResourceSetListenerImpl {
 			Iterator j = events.iterator();
 
 			while (j.hasNext()) {
+
 				Notification event = (Notification) j.next();
 
 				if (filter.matches(event))
@@ -408,8 +418,11 @@ public class MSLEventBroker extends ResourceSetListenerImpl {
 			return;
 
 		try {
+
 			listener.onEvent(eventsToSend);
+
 		} catch (Exception e) {
+
 			// this is a bad listener so remove it so the next
 			// listeners can get their events.
 			// bugzilla110334: Do not remove listener as it will cause
@@ -437,7 +450,7 @@ public class MSLEventBroker extends ResourceSetListenerImpl {
 		if (!filter.matches(event)) {
 			return;
 		}
-
+		
 		try {
 			listener.onEvent(eventsToSend);
 		} catch (Exception e) {

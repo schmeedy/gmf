@@ -88,7 +88,6 @@ public class MSLEditingDomainTestCase
 			assertTrue(true);
 		}
 		
-		// TODO Change this line when we turn off automatic unloading of resources during load.
-		assertFalse(r.isLoaded());
+		assertTrue(r.isLoaded());
 	}
 }

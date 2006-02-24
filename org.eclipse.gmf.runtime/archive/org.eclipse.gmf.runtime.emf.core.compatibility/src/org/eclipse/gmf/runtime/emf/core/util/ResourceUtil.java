@@ -211,23 +211,6 @@ public class ResourceUtil {
 		return MEditingDomain.INSTANCE
 			.createResource(path, rootEClass, options);
 	}
-
-	/**
-	 * Loads a resource from a given file.
-	 * 
-	 * @param path
-	 *            The resource's file path.
-	 * @param options
-	 *            The load options. This is a bit mask of values from
-	 *            <code>MResourceOption</code>.
-	 * @return The loaded resource.
-	 * 
-	 * @deprecated Create or get an existing resource in the resource set
-	 *     and {@link org.eclipse.emf.ecore.resource.Resource#load(Map) load} it.
-	 */
-	public static Resource load(String path, int options) {
-		return MEditingDomain.INSTANCE.loadResource(path, options);
-	}
 	
 	/**
 	 * Produces a resource for a given file path and with the provided
@@ -251,28 +234,6 @@ public class ResourceUtil {
 	public static Resource create(String path, int options) {
 		return MEditingDomain.INSTANCE
 			.createResource(path, options);
-	}
-
-	/**
-	 * Loads a resource with a given file path from the given input stream using
-	 * the given load options.
-	 * 
-	 * @param path
-	 *            The resource's file path.
-	 * @param options
-	 *            The load options. This is a bit mask of values from
-	 *            <code>MResourceOption</code>.
-	 * @param inputStream
-	 *            The input stream from which to load the resource's contents.
-	 * @return The loaded resource.
-	 * 
-	 * @deprecated Create or get an existing resource in the resource set
-	 *     and {@link org.eclipse.emf.ecore.resource.Resource#load(InputStream, Map) load}
-	 *     it.
-	 */
-	public static Resource load(String path, int options,
-			InputStream inputStream) {
-		return MEditingDomain.INSTANCE.loadResource(path, options, inputStream);
 	}
 
 	/**
@@ -408,21 +369,6 @@ public class ResourceUtil {
 	 */
 	public static Resource create(String path) {
 		return MEditingDomain.INSTANCE.createResource(path);
-	}
-
-	/**
-	 * Loads a resource from a given file.
-	 * 
-	 * @param path
-	 *            The resource's file path.
-	 * @return The loaded resource.
-	 * 
-	 * @deprecated Create or get an existing resource from the resource set,
-	 *     by the required file URI, and
-	 *     {@link org.eclipse.emf.ecore.resource.Resource#load(Map) load} it.
-	 */
-	public static Resource load(String path) {
-		return MEditingDomain.INSTANCE.loadResource(path);
 	}
 
 	/**

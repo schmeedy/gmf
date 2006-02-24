@@ -1,5 +1,5 @@
 /******************************************************************************
- * Copyright (c) 2002, 2004 IBM Corporation and others.
+ * Copyright (c) 2006 IBM Corporation and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -20,17 +20,9 @@ import org.eclipse.emf.ecore.xmi.XMLResource;
 import org.eclipse.emf.ecore.xmi.impl.XMISaveImpl;
 import org.eclipse.emf.ecore.xmi.impl.XMLSaveImpl;
 
-import org.eclipse.gmf.runtime.emf.core.internal.util.EMFCoreConstants;
-
-/**
- * This class changes the behavior of the default XMISaver so that a ClearCase
- * token is written at the top of the file.
- * 
- * @author rafikj
- */
-public class GMFSave
-	extends XMISaveImpl {
-
+public class MSLSave extends XMISaveImpl {
+	private final static String CC_TOKEN = "xtools2_universal_type_manager"; //$NON-NLS-1$
+	
 	/**
 	 * Discards control characters 0x00 - 0x1F except for TAB, CR, and LF, which
 	 * are escaped by EMF.
@@ -95,18 +87,11 @@ public class GMFSave
 				: input;
 		}
 	}
-
-	/**
-	 * Constructor.
-	 */
-	public GMFSave(XMLHelper helper) {
+	
+	public MSLSave(XMLHelper helper) {
 		super(helper);
 	}
-
-	/**
-	 * @see org.eclipse.emf.ecore.xmi.impl.XMLSaveImpl#init(org.eclipse.emf.ecore.xmi.XMLResource,
-	 *      java.util.Map)
-	 */
+	
 	protected void init(XMLResource resource, Map options) {
 		super.init(resource, options);
 
@@ -114,14 +99,12 @@ public class GMFSave
 			escape = new Escape();
 		}
 	}
-
+	
 	/**
 	 * @see org.eclipse.emf.ecore.xmi.impl.XMLSaveImpl#writeTopObjects(java.util.List)
 	 */
 	public Object writeTopObjects(List contents) {
-
 		writeCCToken();
-		writeArtifactVersionToken();
 		return super.writeTopObjects(contents);
 	}
 
@@ -129,26 +112,15 @@ public class GMFSave
 	 * @see org.eclipse.emf.ecore.xmi.impl.XMLSaveImpl#writeTopObject(org.eclipse.emf.ecore.EObject)
 	 */
 	protected Object writeTopObject(EObject top) {
-
 		writeCCToken();
-		writeArtifactVersionToken();
 		return super.writeTopObject(top);
 	}
-
-	private void writeArtifactVersionToken() {
-		// TODO The following token will be replaced by a future infrastructure that will
-		//  allow client of MSL to specify their application ID and version number for
-		//  backward/forward compatibility.
-		doc.add("<?RSA version=\"7.0\"?>"); //$NON-NLS-1$
-		doc.addLine();
-	}
-
+	
 	/**
 	 * Write ClearCase token.
 	 */
 	private void writeCCToken() {
-		doc.add("<!--" + EMFCoreConstants.CC_TOKEN + "-->"); //$NON-NLS-1$ //$NON-NLS-2$
-		
+		doc.add("<!--" + CC_TOKEN + "-->"); //$NON-NLS-1$ //$NON-NLS-2$
 		doc.addLine();
 	}
 }

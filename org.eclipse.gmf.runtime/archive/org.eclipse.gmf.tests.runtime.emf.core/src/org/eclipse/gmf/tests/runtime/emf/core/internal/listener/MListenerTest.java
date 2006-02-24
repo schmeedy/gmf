@@ -43,7 +43,6 @@ public class MListenerTest
 	}
 	
 	public void testResourceLoadEventsWhenError() {
-		// TODO Change this test case come the next iteration when we change the behaviour of resource load
 		MEditingDomain domain = MEditingDomain.createNewDomain();
 		
 		final boolean[] results = new boolean[2];
@@ -71,7 +70,7 @@ public class MListenerTest
 			// Ignore this exception.
 		}
 		
-		assertTrue(results[0]);
+		assertFalse(results[0]);
 		assertTrue(results[1]);
 	}
 }

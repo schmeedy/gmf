@@ -259,61 +259,6 @@ public abstract class MEditingDomain
 			EClass rootEClass, int options);
 
 	/**
-	 * Loads a resource from a given file.
-	 * 
-	 * @param fileNameURI
-	 *            The resource's file path.
-	 * @return The loaded resource.
-	 * 
-	 * @deprecated Use the
-	 *    {@link org.eclipse.emf.ecore.resource.ResourceSet#getResource(URI, boolean)}
-	 *    API or, if it does not already existin in the resource set,
-	 *    {@link org.eclipse.emf.ecore.resource.ResourceSet#createResource(URI) create}
-	 *    it and then {@link org.eclipse.emf.ecore.resource.Resource#load(Map)} it.
-	 */
-	public abstract Resource loadResource(String fileNameURI);
-
-	/**
-	 * Loads a resource from a given file.
-	 * 
-	 * @param fileNameURI
-	 *            The resource's file path.
-	 * @param options
-	 *            The load options. This is a bit mask of values from
-	 *            <code>MResourceOption</code>.
-	 * @return The loaded resource.
-	 * 
-	 * @deprecated Use the
-	 *    {@link org.eclipse.emf.ecore.resource.ResourceSet#getResource(URI, boolean)}
-	 *    API or, if it does not already existin in the resource set,
-	 *    {@link org.eclipse.emf.ecore.resource.ResourceSet#createResource(URI) create}
-	 *    it and then {@link org.eclipse.emf.ecore.resource.Resource#load(Map)} it.
-	 */
-	public abstract Resource loadResource(String fileNameURI, int options);
-	
-	/**
-	 * Loads a resource with a given file path from the given input stream using
-	 * the given load options.
-	 * 
-	 * @param fileNameURI
-	 *            The resource's file path.
-	 * @param options
-	 *            The load options. This is a bit mask of values from
-	 *            <code>MResourceOption</code>.
-	 * @param inputStream
-	 *            The input stream from which to load the resource's contents.
-	 * @return The loaded resource.
-	 * 
-	 * @deprecated Use the
-	 *    {@link org.eclipse.emf.ecore.resource.ResourceSet#getResource(URI, boolean)}
-	 *    API or, if it does not already existin in the resource set,
-	 *    {@link org.eclipse.emf.ecore.resource.ResourceSet#createResource(URI) create}
-	 *    it and then {@link org.eclipse.emf.ecore.resource.Resource#load(InputStream, Map)} it.
-	 */
-	public abstract Resource loadResource(String fileNameURI, int options,
-			InputStream inputStream);
-
-	/**
 	 * Loads an unloaded resource. It is the responsibility of callers to catch
 	 *  any exceptions that will be thrown as a result of the resource being loaded
 	 *  with errors. Note that the state of the resource could be loaded (ie. it could

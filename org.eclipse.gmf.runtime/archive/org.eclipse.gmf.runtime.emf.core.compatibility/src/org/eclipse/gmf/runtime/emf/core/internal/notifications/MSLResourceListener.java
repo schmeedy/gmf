@@ -69,22 +69,6 @@ public class MSLResourceListener {
 
 	private Map unloadedResourcesRoot = new HashMap();
 	
-	// TODO Remove this tracking of resources with errors in the next iteration.
-	/*
-	 * This map is here to keep track of which resources were
-	 *  loaded with errors. For now we are not going to be propagating
-	 *  any events associated with loading/unloaded these resources.
-	 *  In the next iteration we will propagate all of these events
-	 *  and listeners will be required to verify whether the resource
-	 *  loaded with errors or not.
-	 *  
-	 *  Look at MEditingDomain.loadResource, MEditingDomain.unloadResource
-	 *   and IDemuxedMListener.handleResourceLoadedEvent for more details.
-	 *   
-	 *  cmcgee
-	 */
-	private Map resourcesWithErrors = new WeakHashMap();
-	
 	/**
 	 * Constructor.
 	 */
@@ -154,36 +138,9 @@ public class MSLResourceListener {
 					boolean oldBooleanValue = notification.getOldBooleanValue();
 
 					if (newBooleanValue && !oldBooleanValue) {
-
 						loadedResources.put(notifier, Boolean.TRUE);
 
 						MSLUtil.postProcessResource(notifier);
-						
-						// TODO Remove this check for errors in the next iteration.
-						// If the resource loaded with errors, place it into a special
-						//  map indicating that it was loaded with errors so that we
-						//  do not propagate any automated unload events. This is going
-						//  to change in the next iteration where we will propagate all
-						//  resource-level events.
-						//
-						// cmcgee
-						//
-						if (notifier.getErrors().size() > 0) {
-							// remove the notification that we got from the
-							//    current transaction
-							InternalTransaction tx = domain.getActiveTransaction();
-							if (tx != null) {
-								tx.getNotifications().remove(notification);
-							}
-							
-							resourcesWithErrors.put(notifier, Boolean.TRUE);
-						} else {
-							resourcesWithErrors.remove(notifier);
-
-							// forward event to broker.
-							domain.getEventBroker().addEvent(notification);
-						}
-						return;
 					} else if (!newBooleanValue && oldBooleanValue
 							&& !(notification instanceof UnloadNotification)) {
 
@@ -199,27 +156,15 @@ public class MSLResourceListener {
 						UnloadNotification unloadNotification = new UnloadNotification(root, notification);
 						unloadedResourcesRoot.remove(notifier);
 						
-						// TODO Remove this check for resources with errors in the next iteration.
-						// We will be checking whether this resource was one that
-						//  loaded with errors in it. If this is the case then we
-						//  do not propagate the event. This is going to change in the
-						//  next iteration.
-						//
-						// cmcgee
-						//
-						if (!resourcesWithErrors.containsKey(notifier)) {
-							// remove the notification that we got from the
-							//    current transaction
-							InternalTransaction tx = domain.getActiveTransaction();
-							if (tx != null) {
-								tx.getNotifications().remove(notification);
-							}
-							
-							// and send this one in its place
-							domain.sendNotification(unloadNotification);
-						} else {
-							resourcesWithErrors.remove(notifier);
+						// remove the notification that we got from the
+						//    current transaction
+						InternalTransaction tx = domain.getActiveTransaction();
+						if (tx != null) {
+							tx.getNotifications().remove(notification);
 						}
+						
+						// and send this one in its place
+						domain.sendNotification(unloadNotification);
 						
 						return;
 					}
@@ -254,18 +199,5 @@ public class MSLResourceListener {
 			loadedResources.put(resource, Boolean.TRUE);
 		else
 			loadedResources.remove(resource);
-	}
-	
-	/**
-	 * Was the resource loaded with errors (and, therefore, the load event
-	 * should not be propagated to listeners)?
-	 * 
-	 * @param resource a resource
-	 * @return <code>true</code> if it was loaded with errors;
-	 *    <code>false</code>, otherwise
-	 */
-	public boolean loadedWithErrors(Resource resource) {
-		return resourcesWithErrors.containsKey(resource)
-			|| !resource.getErrors().isEmpty();
 	}
 }

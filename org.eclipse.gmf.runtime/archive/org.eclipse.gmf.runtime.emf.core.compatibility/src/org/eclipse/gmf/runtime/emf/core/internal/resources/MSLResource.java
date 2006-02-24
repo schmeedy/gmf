@@ -14,6 +14,7 @@ package org.eclipse.gmf.runtime.emf.core.internal.resources;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.xmi.XMLHelper;
 import org.eclipse.emf.ecore.xmi.XMLLoad;
+import org.eclipse.emf.ecore.xmi.XMLSave;
 
 /**
  * Custom implementation of an XMIResource.
@@ -39,5 +40,9 @@ public class MSLResource
 
 	protected XMLLoad createXMLLoad() {
 		return new MSLLoad(createXMLHelper());
+	}
+	
+	protected XMLSave createXMLSave() {
+		return new MSLSave(createXMLHelper());
 	}
 }
