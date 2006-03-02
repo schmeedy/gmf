@@ -202,17 +202,23 @@ public class CrossReferenceAdapterTests extends BaseCoreTests {
 
 		domain.runInUndoInterval(new Runnable() {
 			public void run() {
-				try {
-					domain.runAsWrite(new MRunnable() {
-					
-						public Object run() {
-							otherWriter.getBooks().remove(rootBook);
+				// run unvalidated in case the validation example "book must
+				//    have author" constraint is installed
+				domain.runUnvalidated(new MRunnable() {
+					public Object run() {
+						try {
+							return domain.runAsWrite(new MRunnable() {
 							
+								public Object run() {
+									otherWriter.getBooks().remove(rootBook);
+									
+									return null;
+								}});
+						} catch (MSLActionAbandonedException e) {
+							fail("Failed to update model: " + e.getLocalizedMessage()); //$NON-NLS-1$
 							return null;
-						}});
-				} catch (MSLActionAbandonedException e) {
-					fail("Failed to update model: " + e.getLocalizedMessage()); //$NON-NLS-1$
-				}
+						}
+					}});
 			}});
 		
 		imports = domain.getImports(otherRes);
