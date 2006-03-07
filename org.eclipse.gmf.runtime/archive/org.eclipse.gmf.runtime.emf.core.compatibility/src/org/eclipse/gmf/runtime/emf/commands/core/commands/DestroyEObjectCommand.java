@@ -28,6 +28,8 @@ import org.eclipse.gmf.runtime.emf.type.core.commands.DestroyElementCommand;
  * A command that destroys model elements.
  * 
  * @author khussey
+ * 
+ * @deprecated Use the {@link DestroyElementCommand}, instead.
  */
 public class DestroyEObjectCommand
 	extends AbstractTransactionalCommand {

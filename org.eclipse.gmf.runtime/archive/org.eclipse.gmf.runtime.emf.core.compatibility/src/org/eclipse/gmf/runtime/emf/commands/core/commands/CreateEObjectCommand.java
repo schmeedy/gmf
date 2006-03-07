@@ -21,6 +21,7 @@ import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.gmf.runtime.common.core.command.CommandResult;
 import org.eclipse.gmf.runtime.emf.commands.core.command.AbstractTransactionalCommand;
 import org.eclipse.gmf.runtime.emf.core.util.EMFCoreUtil;
+import org.eclipse.gmf.runtime.emf.type.core.commands.CreateElementCommand;
 
 /**
  * A command that creates model elements given a parent collection,
@@ -30,6 +31,8 @@ import org.eclipse.gmf.runtime.emf.core.util.EMFCoreUtil;
  * parent collection at which to add the new element can also be specified.
  * 
  * @author khussey
+ * 
+ * @deprecated Use the {@link CreateElementCommand}, instead.
  */
 public class CreateEObjectCommand
 	extends AbstractTransactionalCommand {
