@@ -16,6 +16,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
+import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.OperationCanceledException;
@@ -31,6 +32,8 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.emf.transaction.util.TransactionUtil;
+import org.eclipse.gmf.runtime.common.core.command.ICommand;
+import org.eclipse.gmf.runtime.common.core.util.Log;
 import org.eclipse.gmf.runtime.common.core.util.Trace;
 import org.eclipse.gmf.runtime.emf.clipboard.core.ClipboardUtil;
 import org.eclipse.gmf.runtime.emf.core.edit.MEditingDomain;
@@ -42,9 +45,14 @@ import org.eclipse.gmf.runtime.emf.core.internal.domain.MSLEditingDomain;
 import org.eclipse.gmf.runtime.emf.core.internal.index.ReferenceVisitor;
 import org.eclipse.gmf.runtime.emf.core.internal.plugin.MSLDebugOptions;
 import org.eclipse.gmf.runtime.emf.core.internal.plugin.MSLPlugin;
+import org.eclipse.gmf.runtime.emf.core.internal.plugin.MSLStatusCodes;
 import org.eclipse.gmf.runtime.emf.core.internal.resources.MResource;
 import org.eclipse.gmf.runtime.emf.core.internal.util.MSLConstants;
 import org.eclipse.gmf.runtime.emf.core.internal.util.MSLUtil;
+import org.eclipse.gmf.runtime.emf.type.core.ElementTypeRegistry;
+import org.eclipse.gmf.runtime.emf.type.core.IElementType;
+import org.eclipse.gmf.runtime.emf.type.core.commands.DestroyElementCommand;
+import org.eclipse.gmf.runtime.emf.type.core.requests.DestroyElementRequest;
 
 /**
  * This class contains a set of <code>EObject</code> related utility methods.
@@ -181,7 +189,8 @@ public class EObjectUtil {
 	 * @param eObject
 	 *            The object to destroy.
 	 *            
-	 * @deprecated Use the {@link EMFCoreUtil#destroy(EObject)} API, instead.
+	 * @deprecated Use the {@link DestroyElementCommand#destroy(EObject)} API,
+	 *     instead.
 	 */
 	public static void destroy(EObject eObject) {
 
@@ -200,10 +209,24 @@ public class EObjectUtil {
 			if (domain == null)
 				domain = MEditingDomain.INSTANCE;
 
-			if ((domain instanceof MEditingDomain) && (resource instanceof MResource)) {
-				((MResource) resource).getHelper().destroy((MEditingDomain) domain, eObject);
-			} else {
-				MSLUtil.destroy(domain, eObject, 0);
+			DestroyElementRequest destroy = new DestroyElementRequest(
+					domain,
+					eObject,
+					false);
+			
+			IElementType context = ElementTypeRegistry.getInstance().getElementType(
+					destroy.getEditHelperContext());
+			ICommand command = context.getEditCommand(destroy);
+		
+			if (command != null) {
+				try {
+					command.execute(null, null); // TODO: progress monitor?
+				} catch (ExecutionException e) {
+					Log.warning(MSLPlugin.getDefault(),
+							MSLStatusCodes.IGNORED_EXCEPTION_WARNING,
+							e.getLocalizedMessage(),
+							e);
+				}
 			}
 		}
 	}

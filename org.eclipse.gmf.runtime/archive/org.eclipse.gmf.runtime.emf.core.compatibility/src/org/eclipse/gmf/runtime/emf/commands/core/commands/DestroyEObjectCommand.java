@@ -22,7 +22,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.gmf.runtime.common.core.command.CommandResult;
 import org.eclipse.gmf.runtime.emf.commands.core.command.AbstractTransactionalCommand;
-import org.eclipse.gmf.runtime.emf.core.util.EMFCoreUtil;
+import org.eclipse.gmf.runtime.emf.type.core.commands.DestroyElementCommand;
 
 /**
  * A command that destroys model elements.
@@ -87,7 +87,7 @@ public class DestroyEObjectCommand
 			EObject element = (EObject) i.next();
 
 			if (element.eResource() != null) {
-				EMFCoreUtil.destroy(element);
+				DestroyElementCommand.destroy(element);
 			}
 		}
 		return CommandResult.newOKCommandResult();

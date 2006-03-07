@@ -177,7 +177,7 @@ public class EObjectUtilTestCase extends BaseTestCase {
 		final Book b = EXTLibraryFactory.eINSTANCE.createBook();
 		
 		MEditingDomain domain = MEditingDomain.createNewDomain();
-		final Resource r = domain.createResource("foo://",MResourceOption.URI); //$NON-NLS-1$
+		final Resource r = domain.createResource("/tmp/m1.extlibrary"); //$NON-NLS-1$
 		
 		domain.runAsUnchecked(new MRunnable() {
 			public Object run() {

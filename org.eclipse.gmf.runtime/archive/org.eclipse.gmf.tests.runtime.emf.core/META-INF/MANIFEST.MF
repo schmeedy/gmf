@@ -5,10 +5,12 @@ Bundle-SymbolicName: org.eclipse.gmf.tests.runtime.emf.core; singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Bundle-Vendor: %Plugin.providerName
 Bundle-Localization: plugin
-Export-Package: org.eclipse.gmf.tests.runtime.emf.core.internal.expressions,
- org.eclipse.gmf.tests.runtime.emf.core.internal.multithread.testcases,
+Export-Package: org.eclipse.gmf.tests.runtime.emf.core,
  org.eclipse.gmf.tests.runtime.emf.core.internal,
- org.eclipse.gmf.tests.runtime.emf.core
+ org.eclipse.gmf.tests.runtime.emf.core.internal.domain,
+ org.eclipse.gmf.tests.runtime.emf.core.internal.expressions,
+ org.eclipse.gmf.tests.runtime.emf.core.internal.listener,
+ org.eclipse.gmf.tests.runtime.emf.core.internal.multithread.testcases
 Require-Bundle: org.junit,
  org.eclipse.core.runtime,
  org.eclipse.core.expressions,

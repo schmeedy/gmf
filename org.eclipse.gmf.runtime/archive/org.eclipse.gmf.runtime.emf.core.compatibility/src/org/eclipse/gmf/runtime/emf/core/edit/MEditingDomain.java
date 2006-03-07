@@ -25,6 +25,8 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
+import org.eclipse.emf.transaction.util.TransactionUtil;
+import org.eclipse.gmf.runtime.emf.core.GMFEditingDomainFactory;
 import org.eclipse.gmf.runtime.emf.core.exceptions.MSLActionAbandonedException;
 import org.eclipse.gmf.runtime.emf.core.internal.domain.MSLEditingDomain;
 
@@ -62,7 +64,7 @@ public abstract class MEditingDomain
 	 * @return The new editing domain.
 	 * 
 	 * @deprecated Use the
-	 *    {@link org.eclipse.emf.transaction.TXEditingDomain.Factory#createEditingDomain()}
+	 *    {@link GMFEditingDomainFactory#createEditingDomain()}
 	 *    API to create new editing domains.
 	 */
 	public static MEditingDomain createNewDomain() {
@@ -80,7 +82,7 @@ public abstract class MEditingDomain
 	 * @return The new editing domain
 	 * 
 	 * @deprecated Use the
-	 *   {@link org.eclipse.emf.transaction.TXEditingDomain.Factory#createEditingDomain(ResourceSet)}
+	 *   {@link GMFEditingDomainFactory#createEditingDomain(ResourceSet)}
 	 *    API to create new editing domains.
 	 */
 	public static MEditingDomain createNewDomain(ResourceSet rset) {
@@ -1096,7 +1098,7 @@ public abstract class MEditingDomain
 	 *            
 	 * @deprecated To find an editing domain by its resource set, use the
 	 *    {@link org.eclipse.emf.transaction.TXEditingDomain.Factory#getEditingDomain(ResourceSet)}
-	 *    API.
+	 *    or {@link TransactionUtil#getEditingDomain(ResourceSet)} API.
 	 */
 	public static MEditingDomain getEditingDomain(ResourceSet resourceSet) {
 		return MSLEditingDomain.getEditingDomain(resourceSet);
@@ -1109,7 +1111,7 @@ public abstract class MEditingDomain
 	 * @param domain the editing domain to associate with the resource set
 	 *            
 	 * @deprecated To create an editing domain on a specified resource set, use
-	 *    the {@link org.eclipse.emf.transaction.TXEditingDomain.Factory#createEditingDomain(ResourceSet)}
+	 *    the {@link GMFEditingDomainFactory#createEditingDomain(ResourceSet)}
 	 *    API.  To replace the editing domain's resource set, it is necessary
 	 *    to define a custom editing domain implementation.
 	 */

@@ -24,6 +24,7 @@ Export-Package: org.eclipse.gmf.runtime.emf.core,
  org.eclipse.gmf.runtime.emf.core.resources,
  org.eclipse.gmf.runtime.emf.core.util
 Require-Bundle: org.eclipse.gmf.runtime.emf.core;visibility:=reexport,
+ org.eclipse.gmf.runtime.emf.type.core,
  org.eclipse.emf.ecore.edit,
  org.eclipse.core.expressions,
  com.ibm.icu

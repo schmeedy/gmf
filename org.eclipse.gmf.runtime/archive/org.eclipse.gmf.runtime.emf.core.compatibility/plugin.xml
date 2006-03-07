@@ -28,4 +28,15 @@
            factory="org.eclipse.gmf.runtime.emf.core.internal.domain.MSLEditingDomainFactory"
            id="org.eclipse.gmf.runtime.emf.core.compatibility.MSLEditingDomain"/>
   </extension>
+  
+   <extension point="org.eclipse.gmf.runtime.emf.type.core.elementTypes">
+        <metamodel
+                nsURI="http://www.eclipse.org/emf/2002/Ecore">
+           <adviceBinding
+                id="org.eclipse.gmf.runtime.emf.core.compatibility.destroyAdvice"
+                typeId="*"
+                class="org.eclipse.gmf.runtime.emf.core.internal.util.EObjectDestructionAdvice"> 
+           </adviceBinding>    
+        </metamodel>
+    </extension>
  </plugin>

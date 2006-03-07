@@ -14,13 +14,17 @@ package org.eclipse.gmf.runtime.emf.core.resources;
 import java.util.Map;
 
 import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.xmi.XMIResource;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
+import org.eclipse.emf.transaction.impl.InternalTransactionalEditingDomain;
+import org.eclipse.emf.transaction.util.TransactionUtil;
 import org.eclipse.gmf.runtime.emf.core.internal.resources.MSLResource;
 import org.eclipse.gmf.runtime.emf.core.internal.util.EMFCoreConstants;
 import org.eclipse.gmf.runtime.emf.core.internal.util.MSLUtil;
+import org.eclipse.gmf.runtime.emf.core.util.EObjectUtil;
 
 /**
  * A custom implementation of a resource factory. This factory when registered
@@ -63,6 +67,8 @@ public class MResourceFactory
 			resource.setEncoding(EMFCoreConstants.XMI_ENCODING);
 		}
 		
+		resource.eAdapters().add(new MSLResourceHelper());
+		
 		return resource;
 	}
 
@@ -84,5 +90,27 @@ public class MResourceFactory
 
 	public EObject resolve(TransactionalEditingDomain domain, EObject proxy) {
 		return MSLUtil.resolve(domain, proxy, false);
+	}
+	
+	private static class MSLResourceHelper extends ResourceHelperImpl {
+
+		public MSLResourceHelper() {
+			super();
+		}
+
+		public EObject create(EClass eClass) {
+			TransactionalEditingDomain domain = TransactionUtil.getEditingDomain(
+					getResource());
+			
+			EObject result = MSLUtil.create(domain, eClass, true);
+			
+			if (domain != null) {
+				// this object is to be managed by this editing domain
+				result.eAdapters().add(
+					((InternalTransactionalEditingDomain) domain).getChangeRecorder());
+			}
+
+			return result;
+		}
 	}
 }
