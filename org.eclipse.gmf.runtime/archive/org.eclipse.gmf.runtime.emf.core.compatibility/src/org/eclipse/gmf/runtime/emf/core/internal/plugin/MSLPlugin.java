@@ -12,6 +12,7 @@
 package org.eclipse.gmf.runtime.emf.core.internal.plugin;
 
 import org.eclipse.core.runtime.Plugin;
+import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.gmf.runtime.common.core.util.Trace;
 import org.eclipse.gmf.runtime.emf.core.internal.util.MSLAdapterFactoryManager;
 import org.osgi.framework.BundleContext;
@@ -59,5 +60,15 @@ public class MSLPlugin
 			MSLDebugOptions.EVENTS)) {
 			new TraceEventListener();
 		}
+        
+        // Use of MEditingDomain.INSTANCE does not cause the MSLEditingDomain to
+        // be registered, which means listeners are not attached.
+        //
+        // By asking for the editing domain from the registry, I will cause it
+        // to be added to the registry which will then go and add listeners from
+        // the org.eclipse.emf.transaction.listeners extension point.
+        TransactionalEditingDomain.Registry.INSTANCE
+            .getEditingDomain("org.eclipse.gmf.runtime.emf.core.compatibility.MSLEditingDomain"); //$NON-NLS-1$
+    
 	}
 }
