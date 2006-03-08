@@ -6,7 +6,8 @@ Bundle-Version: 1.0.0.qualifier
 Bundle-Activator: org.eclipse.gmf.runtime.emf.core.internal.plugin.MSLPlugin
 Bundle-Vendor: %Plugin.providerName
 Bundle-Localization: plugin
-Export-Package: org.eclipse.gmf.runtime.emf.core,
+Export-Package: org.eclipse.gmf.runtime.emf.commands.core.commands,
+ org.eclipse.gmf.runtime.emf.core,
  org.eclipse.gmf.runtime.emf.core.edit,
  org.eclipse.gmf.runtime.emf.core.exceptions,
  org.eclipse.gmf.runtime.emf.core.internal.commands,
@@ -20,8 +21,8 @@ Export-Package: org.eclipse.gmf.runtime.emf.core,
  org.eclipse.gmf.runtime.emf.core.internal.resources,
  org.eclipse.gmf.runtime.emf.core.internal.services.metamodel,
  org.eclipse.gmf.runtime.emf.core.internal.util,
- org.eclipse.gmf.runtime.emf.core.services.metamodel,
  org.eclipse.gmf.runtime.emf.core.resources,
+ org.eclipse.gmf.runtime.emf.core.services.metamodel,
  org.eclipse.gmf.runtime.emf.core.util
 Require-Bundle: org.eclipse.gmf.runtime.emf.core;visibility:=reexport,
  org.eclipse.gmf.runtime.emf.type.core,
