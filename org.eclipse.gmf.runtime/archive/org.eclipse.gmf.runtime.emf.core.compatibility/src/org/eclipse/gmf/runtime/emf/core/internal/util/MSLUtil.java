@@ -44,6 +44,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.ecore.util.FeatureMapUtil;
 import org.eclipse.emf.ecore.xmi.XMLResource;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.emf.transaction.impl.InternalTransaction;
@@ -239,12 +240,7 @@ public class MSLUtil {
 				&& (resource != null))
 				uriFragment = resource.getURIFragment(eObject);
 
-			EReference reference = eObject.eContainmentFeature();
-
-			if (reference.isMany())
-				((Collection) container.eGet(reference)).remove(eObject);
-			else
-				container.eSet(reference, null);
+			EcoreUtil.remove(eObject);
 
 			if ((options & MDestroyOption.NO_EVENTS) == 0)
 				sendDestroyEvent(domain, eObject);
@@ -1016,9 +1012,7 @@ public class MSLUtil {
 	private static class TeardownAction {
 
 		private EObject container = null;
-
 		private EReference reference = null;
-
 		private EObject object = null;
 
 		/**
@@ -1036,19 +1030,13 @@ public class MSLUtil {
 		 * Execute the action.
 		 */
 		public void execute() {
-
 			if (object == null) {
-
 				if (container.eIsSet(reference)) {
-
-					if (reference.isMany()) {
-
+					if (FeatureMapUtil.isMany(container, reference)) {
 						List objects = (List) container.eGet(reference);
 
 						if (reference.isContainment()) {
-
 							if (!objects.isEmpty()) {
-
 								Collection destroyed = new ArrayList(objects);
 
 								for (Iterator i = destroyed.iterator(); i
@@ -1057,9 +1045,7 @@ public class MSLUtil {
 							}
 
 						} else {
-
 							if (!objects.isEmpty()) {
-
 								Collection detached = new ArrayList(objects);
 
 								for (Iterator i = detached.iterator(); i
@@ -1067,36 +1053,29 @@ public class MSLUtil {
 
 									EObject eObject = (EObject) i.next();
 
-									((Collection) container.eGet(reference))
-										.remove(eObject);
+									EcoreUtil.remove(container,reference,eObject);
 								}
 							}
 						}
 
 					} else {
-
 						if (reference.isContainment()) {
-
 							object = (EObject) container.eGet(reference);
 
 							if (object != null)
 								EObjectUtil.destroy(object);
-						} else
-							container.eSet(reference, null);
+						} else {
+							object = (EObject)container.eGet(reference);
+							EcoreUtil.remove(container, reference, object);
+						}
 					}
 				}
 
 			} else {
-
-				if (reference.isContainment())
+				if (reference.isContainment()) {
 					EObjectUtil.destroy(object);
-
-				else {
-
-					if (reference.isMany())
-						((Collection) container.eGet(reference)).remove(object);
-					else
-						container.eSet(reference, null);
+				} else {
+					EcoreUtil.remove(container, reference, object);
 				}
 			}
 		}
@@ -1109,8 +1088,7 @@ public class MSLUtil {
 			EObject newObject, EReference reference, EClass type,
 			EObject referencer) {
 
-		if (reference.isMany()) {
-
+		if (FeatureMapUtil.isMany(referencer, reference)) {
 			List list = (List) referencer.eGet(reference);
 
 			int position = list.indexOf(eObject);
@@ -1125,7 +1103,7 @@ public class MSLUtil {
 			referencer.eSet(reference, newObject);
 
 		else
-			referencer.eSet(reference, null);
+			referencer.eUnset(reference);
 	}
 
 	/**
@@ -1140,7 +1118,6 @@ public class MSLUtil {
 		boolean ignore = false;
 
 		for (Iterator k = ignoredObjects.iterator(); k.hasNext();) {
-
 			EObject ignored = (EObject) k.next();
 
 			if (EObjectUtil.contains(ignored, referencer)) {
@@ -1151,8 +1128,7 @@ public class MSLUtil {
 
 		if (!ignore) {
 
-			if (reference.isMany()) {
-
+			if (FeatureMapUtil.isMany(referencer, reference)) {
 				EList list = (EList) referencer.eGet(reference);
 				int existingIndex = list.indexOf(replacement);
 
@@ -1165,7 +1141,6 @@ public class MSLUtil {
 					int index = list.indexOf(referenced);
 					list.add(index, replacement);
 				}
-
 			} else
 				referencer.eSet(reference, replacement);
 		}
