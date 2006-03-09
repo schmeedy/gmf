@@ -56,6 +56,7 @@ public class CrossReferenceAdapterTests extends BaseCoreTests {
 	private Library nestedLibrary;
 	private BookOnTape nestedBookOnTape;
 	private Writer nestedWriter;
+	private Book nestedBook;
 	private BookOnTape otherBookOnTape;
 
 	/**
@@ -877,6 +878,76 @@ public class CrossReferenceAdapterTests extends BaseCoreTests {
 		exports = EMFCoreUtil.getTransitiveExports(testResource);
 		assertFalse(exports.contains(otherRes));
 	}
+	
+	/**
+	 * Tests that resource import and exports information is properly
+	 * maintained when a sub-tree containing an element having a cross reference
+	 * is added and removed.  This differs from the
+	 * {@link #test_importsExportsAddRemove_subtree_130981()} test case in using
+	 * a bidirectional reference.
+	 */
+	public void test_importsExportsAddRemove_subtreeBidirectional_130981() {
+		domain.runInUndoInterval(new Runnable() {
+			public void run() {
+				try {
+					domain.runAsWrite(new MRunnable() {
+					
+						public Object run() {
+							// first, set up the reference from the attached
+							//    book-on-tape to the detached (nested) writer
+							nestedBook.setAuthor(otherWriter);
+							
+							return null;
+						}});
+				} catch (MSLActionAbandonedException e) {
+					fail("Failed to update model: " + e.getLocalizedMessage()); //$NON-NLS-1$
+				}
+			}});
+
+		MUndoInterval undo = domain.runInUndoInterval(new Runnable() {
+			public void run() {
+				try {
+					domain.runAsWrite(new MRunnable() {
+					
+						public Object run() {
+							// now attach an object that contains a (nested)
+							//     element having an existing cross-reference
+							root.getBranches().add(nestedLibrary);
+							
+							return null;
+						}});
+				} catch (MSLActionAbandonedException e) {
+					fail("Failed to update model: " + e.getLocalizedMessage()); //$NON-NLS-1$
+				}
+			}});
+
+		// mutually import
+		Collection imports = EMFCoreUtil.getImports(testResource);
+		assertTrue(imports.contains(otherRes));
+		imports = EMFCoreUtil.getImports(otherRes);
+		assertTrue(imports.contains(testResource));
+		
+		// mutually export
+		Collection exports = EMFCoreUtil.getExports(otherRes);
+		assertTrue(exports.contains(testResource));
+		exports = EMFCoreUtil.getExports(testResource);
+		assertTrue(exports.contains(otherRes));
+
+		// remove sub-tree by undo
+		undo.undo();
+
+		// mutually import
+		imports = EMFCoreUtil.getImports(testResource);
+		assertFalse(imports.contains(otherRes));
+		imports = EMFCoreUtil.getImports(otherRes);
+		assertFalse(imports.contains(testResource));
+		
+		// mutually export
+		exports = EMFCoreUtil.getExports(otherRes);
+		assertFalse(exports.contains(testResource));
+		exports = EMFCoreUtil.getExports(testResource);
+		assertFalse(exports.contains(otherRes));
+	}
 
 	/* 
 	 * Sets up a library test model:
@@ -905,6 +976,8 @@ public class CrossReferenceAdapterTests extends BaseCoreTests {
 		nestedLibrary.getStock().add(nestedBookOnTape);
 		nestedWriter = EXTLibraryFactory.eINSTANCE.createWriter();
 		nestedLibrary.getWriters().add(nestedWriter);
+		nestedBook = EXTLibraryFactory.eINSTANCE.createBook();
+		nestedLibrary.getBooks().add(nestedBook);
 		otherBookOnTape = EXTLibraryFactory.eINSTANCE.createBookOnTape();
 
 		domain.runInUndoInterval(new Runnable() {
