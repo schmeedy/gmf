@@ -51,7 +51,6 @@ import org.eclipse.gmf.runtime.emf.core.internal.util.MSLConstants;
 import org.eclipse.gmf.runtime.emf.core.internal.util.MSLUtil;
 import org.eclipse.gmf.runtime.emf.type.core.ElementTypeRegistry;
 import org.eclipse.gmf.runtime.emf.type.core.IElementType;
-import org.eclipse.gmf.runtime.emf.type.core.commands.DestroyElementCommand;
 import org.eclipse.gmf.runtime.emf.type.core.requests.DestroyElementRequest;
 
 /**
@@ -194,25 +193,27 @@ public class EObjectUtil {
 	 */
 	public static void destroy(EObject eObject) {
 
-		EObject container = eObject.eContainer();
+		Resource resource = eObject.eResource();
 
-		if (container != null) {
-
-			Resource resource = container.eResource();
-
+		// cannot destroy detached objects
+		if (resource != null) {
 			TransactionalEditingDomain domain = null;
-
+	
 			if (resource != null) {
 				domain = TransactionUtil.getEditingDomain(resource);
 			}
 			
 			if (domain == null)
 				domain = MEditingDomain.INSTANCE;
-
+	
 			DestroyElementRequest destroy = new DestroyElementRequest(
 					domain,
 					eObject,
 					false);
+			
+	        // Prevents infinite loop while semantic service compatibility is
+	        // enabled.
+	        destroy.setParameter("USE_EDIT_HELPERS", "true"); //$NON-NLS-1$ //$NON-NLS-2$
 			
 			IElementType context = ElementTypeRegistry.getInstance().getElementType(
 					destroy.getEditHelperContext());
@@ -220,7 +221,7 @@ public class EObjectUtil {
 		
 			if (command != null) {
 				try {
-					command.execute(null, null); // TODO: progress monitor?
+					command.execute(null, null);
 				} catch (ExecutionException e) {
 					Log.warning(MSLPlugin.getDefault(),
 							MSLStatusCodes.IGNORED_EXCEPTION_WARNING,
