@@ -2343,4 +2343,8 @@ public class MSLEditingDomain
 				event.getNotifications());
 		}
 	}
+  
+    public TransactionalEditingDomain getDelegate() {
+        return delegate;
+    }
 }
