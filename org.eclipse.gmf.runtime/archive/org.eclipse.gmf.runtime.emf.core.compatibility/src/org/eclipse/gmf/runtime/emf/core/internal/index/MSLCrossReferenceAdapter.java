@@ -11,12 +11,19 @@
 
 package org.eclipse.gmf.runtime.emf.core.internal.index;
 
+import java.util.ArrayList;
+import java.util.Collection;
+
 import org.eclipse.emf.common.notify.impl.NotificationImpl;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EReference;
+import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
+import org.eclipse.emf.ecore.util.EContentsEList;
 import org.eclipse.gmf.runtime.emf.core.EventTypes;
 import org.eclipse.gmf.runtime.emf.core.internal.domain.MSLEditingDomain;
+import org.eclipse.gmf.runtime.emf.core.util.CrossReferenceAdapter;
 
 /**
  * An adapter that maintains itself as an adapter for all contained objects.
@@ -37,7 +44,7 @@ public class MSLCrossReferenceAdapter extends CrossReferenceAdapter {
 	 * @param domain a (@link MSLEditingDomain}
 	 */
 	public MSLCrossReferenceAdapter(MSLEditingDomain domain) {
-		super();
+		super(false);
 		this.domain = domain;
 	}
 
@@ -92,4 +99,40 @@ public class MSLCrossReferenceAdapter extends CrossReferenceAdapter {
 			}
 		});
 	}
+	
+	/**
+	 * @see org.eclipse.emf.ecore.util.ECrossReferenceAdapter#isIncluded(org.eclipse.emf.ecore.EReference)
+	 */
+	protected boolean isIncluded(EReference eReference) {
+		return super.isIncluded(eReference) 
+			&& !eReference.isContainer() && !eReference.isContainment();
+	}
+	
+	/**
+	 * @see org.eclipse.emf.ecore.util.ECrossReferenceAdapter#getInverseReferences(org.eclipse.emf.ecore.EObject)
+	 */
+	public Collection getInverseReferences(EObject eObject) {
+		Collection result = new ArrayList();
+
+		// removed the addition of eContainer from default behavior
+		
+		Collection nonNavigableInverseReferences = (Collection)inverseCrossReferencer.get(eObject);
+		if (nonNavigableInverseReferences != null) {
+			result.addAll(nonNavigableInverseReferences);
+		}
+		
+	    EContentsEList.FeatureIterator crossReferences =
+	    	(EContentsEList.FeatureIterator) eObject.eCrossReferences().iterator();
+		while (crossReferences.hasNext()) {
+			InternalEObject referent = (InternalEObject) crossReferences.next();
+			EReference eReference = (EReference) crossReferences.feature();
+			EReference eOpposite = eReference.getEOpposite();
+			
+			if (referent != null && eOpposite != null) {
+				result.add(referent.eSetting(eOpposite));
+			}
+		}
+		
+		return result;
+	}	
 }

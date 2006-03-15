@@ -56,8 +56,6 @@ import org.eclipse.gmf.runtime.emf.core.edit.MDestroyOption;
 import org.eclipse.gmf.runtime.emf.core.edit.MEditingDomain;
 import org.eclipse.gmf.runtime.emf.core.edit.MRunnable;
 import org.eclipse.gmf.runtime.emf.core.internal.domain.MSLEditingDomain;
-import org.eclipse.gmf.runtime.emf.core.internal.index.CrossReferenceAdapter;
-import org.eclipse.gmf.runtime.emf.core.internal.index.ReferenceVisitor;
 import org.eclipse.gmf.runtime.emf.core.internal.notifications.MSLEventBroker;
 import org.eclipse.gmf.runtime.emf.core.internal.plugin.MSLDebugOptions;
 import org.eclipse.gmf.runtime.emf.core.internal.plugin.MSLPlugin;
@@ -65,6 +63,7 @@ import org.eclipse.gmf.runtime.emf.core.internal.plugin.MSLStatusCodes;
 import org.eclipse.gmf.runtime.emf.core.internal.resources.GMFResource;
 import org.eclipse.gmf.runtime.emf.core.internal.services.metamodel.MetamodelSupportService;
 import org.eclipse.gmf.runtime.emf.core.services.metamodel.IMetamodelSupport;
+import org.eclipse.gmf.runtime.emf.core.util.CrossReferenceAdapter;
 import org.eclipse.gmf.runtime.emf.core.util.EObjectUtil;
 import org.eclipse.gmf.runtime.emf.core.util.MetaModelUtil;
 import org.osgi.framework.Bundle;
@@ -162,7 +161,7 @@ public class MSLUtil {
 				((InternalTransactionalEditingDomain) domain).getChangeRecorder());
 			
 			eObject.eAdapters().add(
-				CrossReferenceAdapter.getCrossReferenceAdapter(domain));
+				CrossReferenceAdapter.getCrossReferenceAdapter(domain.getResourceSet()));
 
 			if (sendEvents) {
 				sendCreateEvent(domain, eObject);

@@ -34,11 +34,10 @@ import org.eclipse.gmf.runtime.emf.core.edit.MRunnable;
 import org.eclipse.gmf.runtime.emf.core.edit.MUndoInterval;
 import org.eclipse.gmf.runtime.emf.core.exceptions.MSLActionAbandonedException;
 import org.eclipse.gmf.runtime.emf.core.internal.domain.MSLEditingDomain;
-import org.eclipse.gmf.runtime.emf.core.internal.index.CrossReferenceAdapter;
 import org.eclipse.gmf.runtime.emf.core.internal.index.MSLCrossReferenceAdapter;
+import org.eclipse.gmf.runtime.emf.core.util.CrossReferenceAdapter;
 import org.eclipse.gmf.runtime.emf.core.util.EMFCoreUtil;
 import org.eclipse.gmf.runtime.emf.core.util.EObjectUtil;
-import org.eclipse.gmf.runtime.emf.core.util.ResourceUtil;
 
 /**
  * Test cases for the MSLCrossReferenceAdapter.
@@ -414,7 +413,7 @@ public class CrossReferenceAdapterTests extends BaseCoreTests {
 		// cannot find references because resource was unloaded and are not returned
 		assertTrue(xrefs.isEmpty());
 	}
-	
+
 	/**
 	 * Tests when a resource containing a cross reference and the referencer
 	 * is destroyed, that the cross reference information is updated.
