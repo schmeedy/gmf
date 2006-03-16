@@ -71,7 +71,7 @@ class MSLUndoInterval implements MUndoInterval {
 
 	// Documentation copied from the inherited specification
 	public boolean canUndo() {
-		return isRedone && undoable && (change != null) && change.canApply();
+		return isRedone && undoable && (change == null || change.canApply());
 	}
 	
 	/**
@@ -86,7 +86,7 @@ class MSLUndoInterval implements MUndoInterval {
 
 	// Documentation copied from the inherited specification
 	public boolean canRedo() {
-		return !isRedone && redoable && (change != null) && change.canApply();
+		return !isRedone && redoable && (change == null || change.canApply());
 	}
 
 	/**
@@ -107,7 +107,9 @@ class MSLUndoInterval implements MUndoInterval {
 		try {
 			tx = domain.startTransaction(false, UNDO_REDO_OPTIONS);
 			isRedone = false;
-			change.applyAndReverse();
+			if (change != null) {
+				change.applyAndReverse();
+			}
 		} catch (InterruptedException e) {
 			throw new MSLRuntimeException(e);
 		} finally {
@@ -132,7 +134,9 @@ class MSLUndoInterval implements MUndoInterval {
 		try {
 			tx = domain.startTransaction(false, UNDO_REDO_OPTIONS);
 			isRedone = true;
-			change.applyAndReverse();
+			if (change != null) {
+				change.applyAndReverse();
+			}
 		} catch (InterruptedException e) {
 			throw new MSLRuntimeException(e);
 		} finally {

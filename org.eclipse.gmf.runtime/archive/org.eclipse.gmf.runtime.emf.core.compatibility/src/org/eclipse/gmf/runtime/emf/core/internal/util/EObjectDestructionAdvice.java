@@ -19,9 +19,9 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.gmf.runtime.common.core.command.AbstractCommand;
 import org.eclipse.gmf.runtime.common.core.command.CommandResult;
 import org.eclipse.gmf.runtime.common.core.command.ICommand;
+import org.eclipse.gmf.runtime.emf.commands.core.command.AbstractTransactionalCommand;
 import org.eclipse.gmf.runtime.emf.core.EventTypes;
 import org.eclipse.gmf.runtime.emf.type.core.edithelper.AbstractEditHelperAdvice;
 import org.eclipse.gmf.runtime.emf.type.core.requests.DestroyElementRequest;
@@ -40,26 +40,13 @@ public class EObjectDestructionAdvice
 	protected ICommand getBeforeDestroyElementCommand(DestroyElementRequest request) {
 		final EObject eObject = request.getElementToDestroy();
 		
-		return new AbstractCommand("") { //$NON-NLS-1$
+		return new AbstractTransactionalCommand(request.getEditingDomain(), "", null) { //$NON-NLS-1$
 			
 			protected CommandResult doExecuteWithResult(IProgressMonitor progressMonitor, IAdaptable info) throws ExecutionException {
 				eObject.eNotify(new ENotificationImpl(
 						(InternalEObject) eObject, EventTypes.PRE_DESTROY,
 						(EStructuralFeature) null,
 						eObject, eObject));
-				return OK_RESULT;
-			}
-
-			protected CommandResult doRedoWithResult(IProgressMonitor progressMonitor, IAdaptable info) throws ExecutionException {
-				eObject.eNotify(new ENotificationImpl(
-						(InternalEObject) eObject, EventTypes.PRE_DESTROY,
-						(EStructuralFeature) null,
-						eObject, eObject));
-				return OK_RESULT;
-			}
-
-			protected CommandResult doUndoWithResult(IProgressMonitor progressMonitor, IAdaptable info) throws ExecutionException {
-				// there is no inverse of pre-destroy
 				return OK_RESULT;
 			}};
 	}
@@ -67,23 +54,13 @@ public class EObjectDestructionAdvice
 	protected ICommand getAfterDestroyElementCommand(DestroyElementRequest request) {
 		final EObject eObject = request.getElementToDestroy();
 		
-		return new AbstractCommand("") { //$NON-NLS-1$
+		return new AbstractTransactionalCommand(request.getEditingDomain(), "", null) { //$NON-NLS-1$
 			
 			protected CommandResult doExecuteWithResult(IProgressMonitor progressMonitor, IAdaptable info) throws ExecutionException {
 				eObject.eNotify(new ENotificationImpl(
 						(InternalEObject) eObject, EventTypes.DESTROY,
 						(EStructuralFeature) null,
 						eObject, eObject));
-				return OK_RESULT;
-			}
-
-			protected CommandResult doRedoWithResult(IProgressMonitor progressMonitor, IAdaptable info) throws ExecutionException {
-				// MSL change recorder takes care of the redo event
-				return OK_RESULT;
-			}
-
-			protected CommandResult doUndoWithResult(IProgressMonitor progressMonitor, IAdaptable info) throws ExecutionException {
-				// MSL change recorder takes care of the UNDESTROY event
 				return OK_RESULT;
 			}};
 	}

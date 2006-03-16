@@ -11,16 +11,13 @@
 
 package org.eclipse.gmf.runtime.emf.core.internal.domain;
 
-import java.util.List;
 import java.util.Map;
 
 import org.eclipse.core.commands.operations.IOperationHistory;
 import org.eclipse.emf.common.command.Command;
-import org.eclipse.emf.transaction.RollbackException;
-import org.eclipse.emf.transaction.Transaction;
 import org.eclipse.emf.transaction.impl.EMFCommandTransaction;
+import org.eclipse.emf.transaction.impl.TriggerCommandTransaction;
 import org.eclipse.emf.transaction.util.TriggerCommand;
-import org.eclipse.emf.workspace.EMFCommandOperation;
 import org.eclipse.emf.workspace.impl.WorkspaceCommandStackImpl;
 
 
@@ -41,50 +38,14 @@ public class MSLCommandStack
 	public MSLCommandStack(IOperationHistory history) {
 		super(history);
 	}
-
-	public void executeTriggers(Command command, List triggers, Map options)
-		throws InterruptedException, RollbackException {
-		
-		if (!triggers.isEmpty()) {
-			TriggerCommand trigger = (command == null)
-				? new TriggerCommand(triggers)
-				: new TriggerCommand(command, triggers);
-			
-			Transaction tx = createTransaction(trigger, options);
-			
-			try {
-				trigger.execute();
-				
-				// if the triggers ultimately stem from a command operation, then
-				//    it needs to know the triggers to undo/redo
-				EMFCommandOperation oper = getEMFCommandOperation(tx);
-				if (oper != null) {
-					oper.setTriggerCommand(trigger);
-				} else if (tx.getParent() instanceof MSLTransactionImpl) {
-					MSLTransactionImpl msltx = (MSLTransactionImpl) tx.getParent();
-					
-					if (msltx.isStandAlone()) {
-						msltx.addTriggerCommand(trigger);
-					}
-				}
-			} finally {
-				if ((tx != null) && (tx.isActive())) {
-					// commit the transaction now
-					tx.commit();
-				}
-			}
-		}
-	}
 	
 	public EMFCommandTransaction createTransaction(Command command, Map options)
 		throws InterruptedException {
 		EMFCommandTransaction result;
 		
 		if (command instanceof TriggerCommand) {
-			// do not create an MSLOperationTransaction for the triggers because
-			//     triggers are commands, not operations, and we don't want to
-			//     find this transaction to add triggers to
-			result = new MSLCommandTransaction(command, getDomain(), options);
+			result = new TriggerCommandTransaction((TriggerCommand) command,
+					getDomain(), options);
 		} else {
 			result = new MSLOperationTransaction(command, getDomain(), options);
 		}
