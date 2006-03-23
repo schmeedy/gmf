@@ -23,7 +23,7 @@
     <extension point="org.eclipse.emf.ecore.generated_package">
     <package 
        uri = "http://www.eclipse.org/gmf/examples/runtime/1.0.0/logicsemantic" 
-       class = "org.eclipse.gmf.examples.runtime.diagram.logic.model.SemanticPackage" />
+       class = "org.eclipse.gmf.examples.runtime.diagram.logic.semantic.SemanticPackage" />
   </extension>
 
 </plugin>
