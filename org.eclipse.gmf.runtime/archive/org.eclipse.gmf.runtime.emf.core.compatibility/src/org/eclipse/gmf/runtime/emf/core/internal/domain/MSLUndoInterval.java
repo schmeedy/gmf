@@ -15,7 +15,7 @@ import java.util.Map;
 import org.eclipse.emf.transaction.RollbackException;
 import org.eclipse.emf.transaction.Transaction;
 import org.eclipse.emf.transaction.TransactionChangeDescription;
-import org.eclipse.emf.transaction.impl.TransactionalCommandStackImpl;
+import org.eclipse.emf.transaction.impl.TransactionImpl;
 import org.eclipse.emf.transaction.util.CompositeChangeDescription;
 import org.eclipse.gmf.runtime.emf.core.edit.MUndoInterval;
 import org.eclipse.gmf.runtime.emf.core.exceptions.MSLRuntimeException;
@@ -42,7 +42,7 @@ class MSLUndoInterval implements MUndoInterval {
 	
 	static {
 		UNDO_REDO_OPTIONS = new java.util.HashMap(
-			TransactionalCommandStackImpl.UNDO_REDO_OPTIONS);
+			TransactionImpl.DEFAULT_UNDO_REDO_OPTIONS);
 		
 		// add the unprotected option because MSL allows undo/redo in a
 		//     read action (read-only transaction)

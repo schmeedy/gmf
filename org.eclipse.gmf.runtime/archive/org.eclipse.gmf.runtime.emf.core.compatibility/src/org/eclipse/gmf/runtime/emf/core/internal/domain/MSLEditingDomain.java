@@ -69,6 +69,7 @@ import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.emf.transaction.impl.InternalTransaction;
 import org.eclipse.emf.transaction.impl.InternalTransactionalEditingDomain;
 import org.eclipse.emf.transaction.impl.TransactionChangeRecorder;
+import org.eclipse.emf.transaction.impl.TransactionImpl;
 import org.eclipse.emf.transaction.impl.TransactionValidator;
 import org.eclipse.emf.transaction.impl.TransactionalEditingDomainImpl;
 import org.eclipse.gmf.runtime.common.core.util.Trace;
@@ -2347,4 +2348,8 @@ public class MSLEditingDomain
     public TransactionalEditingDomain getDelegate() {
         return delegate;
     }
+
+	public Map getUndoRedoOptions() {
+		return TransactionImpl.DEFAULT_UNDO_REDO_OPTIONS;
+	}
 }
