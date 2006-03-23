@@ -121,7 +121,7 @@ public class BaseCoreTests
 	
 	/** May be overridden by subclasses to create non-default editing domains. */
 	protected MEditingDomain createEditingDomain() {
-		return MEditingDomain.INSTANCE;
+		return MEditingDomain.createNewDomain();
 	}
 
 	protected void tearDown()

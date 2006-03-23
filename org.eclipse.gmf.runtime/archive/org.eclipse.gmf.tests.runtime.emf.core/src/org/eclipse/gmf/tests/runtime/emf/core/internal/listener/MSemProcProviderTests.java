@@ -36,14 +36,14 @@ public class MSemProcProviderTests
 		final boolean[] isActionCompletedNotification = new boolean[2];
 		isActionCompletedNotification[0] = false;
 		isActionCompletedNotification[1] = false;
-		MSemProcProvider testSemProcProvider = new MSemProcProvider() {
+		MSemProcProvider testSemProcProvider = new MSemProcProvider(domain) {
 			public void onEvent(List events) {
 				if(isActionCompletedNotification[1] != true)
 					isActionCompletedNotification[0] = true;
 			};
 		};
 		
-		MListener regularListener = new MListener() {
+		MListener regularListener = new MListener(domain) {
 			public void onEvent(List events) {
 				// only set true if the 
 				if(isActionCompletedNotification[0] == true)
@@ -102,14 +102,14 @@ public class MSemProcProviderTests
 		isNameChangedNotification[0] = false;
 		isNameChangedNotification[1] = false;
 		
-		MSemProcProvider testSemProcProvider = new MSemProcProvider() {
+		MSemProcProvider testSemProcProvider = new MSemProcProvider(domain) {
 			public void onEvent(List events) {
 				if(isNameChangedNotification[1] != true)
 					isNameChangedNotification[0] = true;
 			};
 		};
 		
-		MListener regularListener = new MListener() {
+		MListener regularListener = new MListener(domain) {
 			public void onEvent(List events) {
 				// only set true if the 
 				if(isNameChangedNotification[0] == true)

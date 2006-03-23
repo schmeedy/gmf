@@ -752,7 +752,79 @@ public class CrossReferenceAdapterTests extends BaseCoreTests {
 			
 		assertTrue(xrefs.contains(otherEmp));
 	}
-	
+
+	/**
+	 * Tests that resource import and exports information is correct when there
+	 * are uni-directional references between resources that are loaded. These references
+	 * do not have opposites. Added to this the cross reference adapter
+	 * is not added to the ResourceSet when the domain is created, but rather
+	 * added at a later point in time (lazily).
+	 */
+	public void test_importsExports_UnidirectionalReferences() {
+		MUndoInterval undo = domain.runInUndoInterval(new Runnable() {
+			public void run() {
+				try {
+					domain.runAsWrite(new MRunnable() {
+					
+						public Object run() {
+							// now attach an object that contains a (nested)
+							//     element having an existing cross-reference
+							root.getBranches().add(nestedLibrary);
+							return null;
+						}});
+				} catch (MSLActionAbandonedException e) {
+					fail("Failed to update model: " + e.getLocalizedMessage()); //$NON-NLS-1$
+				}
+			}});
+
+		undo = domain.runInUndoInterval(new Runnable() {
+			public void run() {
+				try {
+					domain.runAsWrite(new MRunnable() {
+					
+						public Object run() {
+							nestedBookOnTape.setAuthor(otherWriter);
+							
+							return null;
+						}});
+				} catch (MSLActionAbandonedException e) {
+					fail("Failed to update model: " + e.getLocalizedMessage()); //$NON-NLS-1$
+				}
+			}});
+
+		MSLEditingDomain mslDomain = (MSLEditingDomain)domain;
+		
+		// remove the cross reference adapter from the ResourceSet
+		mslDomain.getResourceSet().eAdapters().remove(mslDomain.getCrossReferenceAdapter());
+
+		
+		Collection imports = EMFCoreUtil.getImports(testResource);
+		assertTrue(imports.contains(otherRes));
+		
+		imports = EMFCoreUtil.getTransitiveImports(testResource);
+		assertTrue(imports.contains(otherRes));
+		
+		Collection exports = EMFCoreUtil.getExports(otherRes);
+		assertTrue(exports.contains(testResource));
+		
+		exports = EMFCoreUtil.getTransitiveExports(otherRes);
+		assertTrue(exports.contains(testResource));
+
+		// remove the author
+		undo.undo();
+		
+		imports = EMFCoreUtil.getImports(testResource);
+		assertFalse(imports.contains(otherRes));
+		
+		imports = EMFCoreUtil.getTransitiveImports(testResource);
+		assertFalse(imports.contains(otherRes));
+		
+		exports = EMFCoreUtil.getExports(otherRes);
+		assertFalse(exports.contains(testResource));
+		
+		exports = EMFCoreUtil.getTransitiveExports(otherRes);
+		assertFalse(exports.contains(testResource));
+	}	
 	/**
 	 * Tests that resource import and exports information is properly
 	 * maintained when a sub-tree containing an element having a cross reference
