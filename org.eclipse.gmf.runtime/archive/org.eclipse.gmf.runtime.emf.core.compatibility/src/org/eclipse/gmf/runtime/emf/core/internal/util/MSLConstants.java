@@ -20,13 +20,15 @@ package org.eclipse.gmf.runtime.emf.core.internal.util;
  */
 public class MSLConstants {
 
-	public final static String INVALID_EXTENSION = EMFCoreConstants.INVALID_EXTENSION;
+	public final static String INVALID_EXTENSION = "@@@@@InvalidExtension@@@@@"; //$NON-NLS-1$
 
-	public final static String INVALID_PATH = EMFCoreConstants.INVALID_PATH;
+	public final static String INVALID_PATH = "@@@@@InvalidPath@@@@@." //$NON-NLS-1$
+		+ INVALID_EXTENSION;
 
-	public final static String EPHEMERAL_INVALID_EXTENSION = EMFCoreConstants.EPHEMERAL_INVALID_EXTENSION;
+	public final static String EPHEMERAL_INVALID_EXTENSION = "@@@@@EphemeralInvalidExtension@@@@@"; //$NON-NLS-1$
 
-	public final static String EPHEMERAL_INVALID_PATH = EMFCoreConstants.EPHEMERAL_INVALID_PATH;
+	public final static String EPHEMERAL_INVALID_PATH = "@@@@@EphemeralInvalidPath@@@@@." //$NON-NLS-1$
+		+ EPHEMERAL_INVALID_EXTENSION;
 
 	public final static String EMPTY_STRING = ""; //$NON-NLS-1$
 

@@ -12,6 +12,16 @@
 
    <extension-point id="MetaModelProviders" name="MetaModel Providers" schema="schema/MetaModelProviders.exsd"/>
    
+   <extension point="org.eclipse.emf.ecore.extension_parser">
+      <parser type="@@@@@InvalidExtension@@@@@" class="org.eclipse.gmf.runtime.emf.core.resources.MResourceFactory">
+      </parser>
+   </extension>
+   
+   <extension point="org.eclipse.emf.ecore.extension_parser">
+      <parser type="@@@@@EphemeralInvalidExtension@@@@@" class="org.eclipse.gmf.runtime.emf.core.resources.MResourceFactory">
+      </parser>
+   </extension>
+   
    <extension point="org.eclipse.core.expressions.propertyTesters">
       <propertyTester
              id="org.eclipse.gmf.runtime.emf.core.EObjectPropertyTester"
