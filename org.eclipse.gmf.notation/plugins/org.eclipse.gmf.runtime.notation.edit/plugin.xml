@@ -11,9 +11,9 @@
 <plugin>
     
   <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
-    <factory 
-       uri = "http://www.eclipse.org/gmf/runtime/1.0.0/notation" 
-       class = "org.eclipse.gmf.runtime.notation.provider.NotationItemProviderAdapterFactory" 
+    <factory
+          class="org.eclipse.gmf.runtime.notation.provider.NotationItemProviderAdapterFactory"
+          uri="http://www.eclipse.org/gmf/runtime/1.0.1/notation"
        supportedTypes = 
          "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
           org.eclipse.emf.edit.provider.IStructuredItemContentProvider
