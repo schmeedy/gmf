@@ -35,7 +35,7 @@ public interface DiagramLinkStyle extends Style {
 	 * @return the value of the '<em>Diagram Link</em>' reference.
 	 * @see #setDiagramLink(Diagram)
 	 * @see org.eclipse.gmf.runtime.notation.NotationPackage#getDiagramLinkStyle_DiagramLink()
-	 * @model
+	 * @model resolveProxies="false"
 	 * @generated
 	 */
 	Diagram getDiagramLink();

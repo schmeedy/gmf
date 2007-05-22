@@ -97,8 +97,7 @@ public class HintedDiagramLinkStyleImpl extends DiagramLinkStyleImpl implements 
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case NotationPackage.HINTED_DIAGRAM_LINK_STYLE__DIAGRAM_LINK:
-				if (resolve) return getDiagramLink();
-				return basicGetDiagramLink();
+				return getDiagramLink();
 			case NotationPackage.HINTED_DIAGRAM_LINK_STYLE__HINT:
 				return getHint();
 		}

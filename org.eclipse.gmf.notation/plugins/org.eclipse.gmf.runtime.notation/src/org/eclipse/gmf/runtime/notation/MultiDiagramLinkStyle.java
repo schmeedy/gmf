@@ -36,7 +36,7 @@ public interface MultiDiagramLinkStyle extends Style {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Diagram Links</em>' reference list.
 	 * @see org.eclipse.gmf.runtime.notation.NotationPackage#getMultiDiagramLinkStyle_DiagramLinks()
-	 * @model type="org.eclipse.gmf.runtime.notation.Diagram"
+	 * @model type="org.eclipse.gmf.runtime.notation.Diagram" resolveProxies="false"
 	 * @generated
 	 */
 	EList getDiagramLinks();
