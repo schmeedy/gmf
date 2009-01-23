@@ -195,7 +195,7 @@ public class CustomerImpl extends EModelElementImpl implements Customer {
 	 * @generated
 	 */
 	public Customer getParent() {
-		if (eContainerFeatureID != EmployeePackage.CUSTOMER__PARENT) return null;
+		if (eContainerFeatureID() != EmployeePackage.CUSTOMER__PARENT) return null;
 		return (Customer)eContainer();
 	}
 
@@ -215,7 +215,7 @@ public class CustomerImpl extends EModelElementImpl implements Customer {
 	 * @generated
 	 */
 	public void setParent(Customer newParent) {
-		if (newParent != eInternalContainer() || (eContainerFeatureID != EmployeePackage.CUSTOMER__PARENT && newParent != null)) {
+		if (newParent != eInternalContainer() || (eContainerFeatureID() != EmployeePackage.CUSTOMER__PARENT && newParent != null)) {
 			if (EcoreUtil.isAncestor(this, newParent))
 				throw new IllegalArgumentException("Recursive containment not allowed for " + toString()); //$NON-NLS-1$
 			NotificationChain msgs = null;
@@ -272,7 +272,7 @@ public class CustomerImpl extends EModelElementImpl implements Customer {
 	 * @generated
 	 */
 	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
-		switch (eContainerFeatureID) {
+		switch (eContainerFeatureID()) {
 			case EmployeePackage.CUSTOMER__PARENT:
 				return eInternalContainer().eInverseRemove(this, EmployeePackage.CUSTOMER__SUBSIDIARIES, Customer.class, msgs);
 		}
