@@ -31,7 +31,7 @@ import org.eclipse.emf.ecore.util.ECrossReferenceEList;
  * the {@link #eProxyURI}, the {@link #eContents}, and the {@link #eCrossReferences},
  * which in {@link EObjectImpl} are stored in the properties holder.
  * This reduces the likelihood of needing to allocate a properties holder and speeds up the access to these fields.
- * @deprected use {@link org.eclipse.emf.ecore.impl.MinimalEObjectImpl.Container}
+ * @deprecated use {@link org.eclipse.emf.ecore.impl.MinimalEObjectImpl.Container}
  */
 public class NotationEObjectImpl extends EObjectImpl
 {
