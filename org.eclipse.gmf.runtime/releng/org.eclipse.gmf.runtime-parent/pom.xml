@@ -9,7 +9,7 @@
 	<description>Parent project for GMF Runtime build</description>
 
 	<properties>
-		<tycho-version>0.12.0</tycho-version>
+		<tycho-version>0.13.0</tycho-version>
 	</properties>
 
 	<modules>
