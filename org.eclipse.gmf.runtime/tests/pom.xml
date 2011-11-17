@@ -39,4 +39,43 @@
 		<module>org.eclipse.gmf.tests.runtime.common.ui</module><!-- 1 test fail -->
   </modules>
   
+  <profiles>
+		<profile>
+			<id>jacoco</id>
+			<activation>
+				<activeByDefault>false</activeByDefault>
+			</activation>
+			<properties>
+				<!-- Properties to enable jacoco code coverage analysis in Sonar -->
+				<sonar.core.codeCoveragePlugin>jacoco</sonar.core.codeCoveragePlugin>
+				<sonar.dynamicAnalysis>reuseReports</sonar.dynamicAnalysis>
+				<!-- When running in children tests/* modules, all reports will be in tests/target/jacoco.exec -->
+				<sonar.jacoco.itReportPath>../target/jacoco.exec</sonar.jacoco.itReportPath>
+			</properties>
+			<build>
+				<plugins>
+					<!-- Enabling use of jacoco -->
+					<plugin>
+						<groupId>org.jacoco</groupId>
+						<artifactId>jacoco-maven-plugin</artifactId>
+						<version>0.5.3.201107060350</version>
+						<executions>
+							<execution>
+								<goals>
+									<goal>prepare-agent</goal>
+								</goals>
+								<configuration>
+									<!-- Where to put jacoco coverage report -->
+									<destFile>${sonar.jacoco.itReportPath}</destFile>
+									<includes>*.gmf.*</includes>
+									<!-- Append allows all reports from all executions to be stored in a single file -->
+									<append>true</append>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
 </project>
