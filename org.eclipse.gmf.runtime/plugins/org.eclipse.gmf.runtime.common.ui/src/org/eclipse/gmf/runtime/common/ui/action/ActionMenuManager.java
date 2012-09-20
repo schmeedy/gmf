@@ -123,7 +123,6 @@ public class ActionMenuManager extends MenuManager {
                 menu = null;
             }
             super.dispose();
-            ActionMenuManager.this.dispose();
         }
 
         /**
